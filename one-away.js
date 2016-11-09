@@ -1,17 +1,27 @@
 function isOneEditAway(str1, str2) {
-  let letters = new Map();
-  let sizeDelta = Math.abs(str1.length - str2.length);
+  let edit = 0;
+  let i1, i2;
 
-  if(sizeDelta > 1) {
-    return false;
+  for(i1 = 0, i2 = 0; i1 < str1.length && i2 < str2.length && edit <= 1; i1++, i2++) {
+    if(str1[i1] === str2[i2]) {
+      continue;
+    } else {
+      edit++;
+
+      if(str1.length > str2.length) {
+        i2--;
+      } else if(str1.length < str2.length) {
+        i1--;
+      } else {
+        continue;
+      }
+    }
   }
 
-  for(const char of str1.concat(str2)){
-    letters.set(char, (letters.get(char) || 0) + 1);
-  }
+  edit += str1.length - 1 - i1;
+  edit += str2.length - 1 - i2;
 
-  const oddLetters = Array.from(letters.values()).filter((v) => v % 2);
-  return oddLetters.length < 3;
+  return edit <= 1;
 }
 
 console.log(isOneEditAway('pale', 'pale')); // true
