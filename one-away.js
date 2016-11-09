@@ -20,3 +20,4 @@ console.log(isOneEditAway('pale', 'pales')); // true
 console.log(isOneEditAway('pale', 'bale')); // true
 console.log(isOneEditAway('pale', 'bae')); // false
 console.log(isOneEditAway('pale', 'elap')); // false
+console.log(isOneEditAway('pale', 'palepalepale')); // false
