@@ -6,7 +6,7 @@ function isOneEditAway(str1, str2) {
     return false;
   }
 
-  for(i1 = 0, i2 = 0; i1 < str1.length && i2 < str2.length && edit <= 1; i1++, i2++) {
+  for(i1 = 0, i2 = 0; i1 < str1.length && i2 < str2.length; i1++, i2++) {
     if(str1[i1] === str2[i2]) {
       continue;
     } else {
@@ -23,9 +23,6 @@ function isOneEditAway(str1, str2) {
       }
     }
   }
-
-  edit += str1.length - 1 - i1;
-  edit += str2.length - 1 - i2;
 
   return edit <= 1;
 }
