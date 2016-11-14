@@ -1,11 +1,12 @@
 function stringCompression(s){
-  let map = new Map();
-
-  for(const c of s){
-    map.set(c, (map.get(c) || 0) + 1);
-  }
-
-  let compressed = Array.from(map.entries()).reduce((p, c) => p.concat(c), []).join('');
+  let compressed = s.split('').reduce(function (p, c) {
+    if(p.length > 0 && p[p.length-1][0] === c){
+      p[p.length-1][1]++;
+    } else {
+      p.push([c, 1]);
+    }
+    return p;
+  }, []).reduce((a, b) => a.concat(b), []).join('');
 
   return (compressed.length < s.length) ? compressed : s;
 }
