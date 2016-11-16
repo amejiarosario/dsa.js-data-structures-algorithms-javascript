@@ -16,7 +16,7 @@ function isStringRotation(s1, s2) {
       return true;
     }
 
-    if(s1.length < i1 + offset) {
+    if(i1 + offset >= s1.length) {
       return isSubstring(s2.substring(offset), s1.substring(0, offset));
     }
   }
@@ -24,7 +24,7 @@ function isStringRotation(s1, s2) {
 }
 
 function isSubstring(s1, s2) {
-  return s1.indexOf(s2) || s2.indexOf(s1);
+  return s1.indexOf(s2) > -1 || s2.indexOf(s1) > -1;
 }
 
 console.log(isStringRotation('ab', 'ab'));
