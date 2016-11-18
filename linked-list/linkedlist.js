@@ -38,21 +38,38 @@ class LinkedList {
       n = n.next;
     }
   }
+
+  // O(n)
+  toString() {
+    let data = [];
+    let n = this.head;
+    while(n) {
+      data.push(n.data);
+      n = n.next;
+    }
+    return data.join(' -> ');
+  }
 }
 
-let list = new LinkedList();
-list.add(1);
-list.add(2);
-list.add(3);
-list.add(4);
+function test() {
+  let list = new LinkedList();
+  list.add(1);
+  list.add(2);
+  list.add(3);
+  list.add(4);
 
-console.log(list);
+  console.log(list);
 
-list.delete(4);
-console.log(list);
+  list.delete(4);
+  console.log(list);
 
-list.delete(2);
-console.log(list);
+  list.delete(2);
+  console.log(list);
 
-list.delete(1);
-console.log(list);
+  list.delete(1);
+  console.log(list);
+};
+
+// test();
+
+module.exports = LinkedList;
