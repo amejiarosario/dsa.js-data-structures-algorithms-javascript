@@ -1,22 +1,21 @@
-let LinkedList = require('./linkedlist');
+const LinkedList = require('./linkedlist');
 
+// O(n)
 LinkedList.prototype.dedub = function () {
   let map = new Map();
-  let n = this.head;
-  map.set(n.data, 1);
+  map.set(this.head.data, 1);
 
-  while(n && n.next) {
+  for(let n = this.head; n && n.next; n = n.next) {
     let data = n.next.data;
     map.set(data, 1);
 
     if(map.get(data)){
       n.next = n.next.next;
     }
-
-    n = n.next;
   }
 };
 
+// O(n^2)
 LinkedList.prototype.dedub2 = function () {
   for(let c = this.head; c; c = c.next) {
     for(let n = c; n && n.next; n = n.next) {
