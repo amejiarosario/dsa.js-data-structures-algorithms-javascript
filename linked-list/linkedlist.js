@@ -11,13 +11,12 @@ class LinkedList {
 
   // O(1)
   add(data) {
+    const newHead = new Node(data);
     if(this.head) {
-      let newHead = new Node(data);
       newHead.next = this.head;
-      this.head = newHead;
-    } else {
-      this.head = new Node(data);
     }
+    this.head = newHead;
+    return newHead;
   }
 
   // O(n)
