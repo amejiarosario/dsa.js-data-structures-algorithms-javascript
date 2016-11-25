@@ -4,34 +4,26 @@ const Node = require('./node');
 LinkedList.prototype.partition = partition;
 
 function partition(value) {
-  let left = null, right = null;
+  let head = this.head, tail = this.head;
 
   // partition list
   let current = this.head;
   while(current) {
     const next = current.next;
-    current.next = null;
 
     if(current.data < value) {
-      left = append(left, current);
+      current.next = head;
+      head = current;
     } else {
-      right = append(right, current);
+      tail.next = current;
+      tail = current;
     }
 
     current = next;
   }
+  tail.next = null;
 
-  // merge list
-  let lastLeft;
-  for(lastLeft = left; lastLeft.next; lastLeft = lastLeft.next) {}
-  lastLeft.next = right;
-  this.head = left;
-}
-
-
-function append(head, node) {
-  if(head) { node.next = head; }
-  return node;
+  this.head = head;
 }
 
 // testing
