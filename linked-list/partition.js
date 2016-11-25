@@ -7,13 +7,18 @@ function partition(value) {
   let left = null, right = null;
 
   // partition list
-  for(let current = this.head; current; current = current.next) {
-    const copy = new Node(current.data);
+  let current = this.head;
+  while(current) {
+    const next = current.next;
+    current.next = null;
+
     if(current.data < value) {
-      left = append(left, copy);
+      left = append(left, current);
     } else {
-      right = append(right, copy);
+      right = append(right, current);
     }
+
+    current = next;
   }
 
   // merge list
