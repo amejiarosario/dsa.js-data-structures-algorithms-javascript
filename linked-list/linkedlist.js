@@ -1,8 +1,4 @@
-class Node {
-  constructor(data) {
-    this.data = data;
-  }
-}
+const Node = require('./node');
 
 class LinkedList {
   constructor() {

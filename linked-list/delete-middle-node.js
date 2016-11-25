@@ -1,6 +1,6 @@
-
-
 const LinkedList = require('./linkedlist');
+
+// 2.3
 
 LinkedList.prototype.deleteMiddleNode = deleteNode;
 
