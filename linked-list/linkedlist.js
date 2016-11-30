@@ -3,16 +3,43 @@ const Node = require('./node');
 class LinkedList {
   constructor() {
     this.head = null;
+    this.tail = null;
+  }
+
+  /**
+   * Add element to the tail
+   * @param data
+   * @returns {Node}
+   */
+  addLast(data){
+    const node = new Node(data);
+    if(this.head) {
+      this.tail.next = node;
+    } else {
+      this.head = node;
+    }
+    this.tail = node;
+    return node;
+  }
+
+  /**
+   * Add element to the head
+   * @param data
+   */
+  addFirst(data) {
+    const node = new Node(data);
+    if(this.head) {
+      node.next = this.head;
+    } else {
+      this.tail = node;
+    }
+    this.head = node;
+    return node;
   }
 
   // O(1)
   add(data) {
-    const newHead = new Node(data);
-    if(this.head) {
-      newHead.next = this.head;
-    }
-    this.head = newHead;
-    return newHead;
+    return this.addFirst(data);
   }
 
   // O(n)
