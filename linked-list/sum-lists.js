@@ -80,5 +80,5 @@ function test2() {
   console.log(sumLists(list1, list2, {isForwardOrder: true}).toString()); // 9 -> 1 -> 2 = 912
 }
 
-// test1();
+test1();
 test2();
