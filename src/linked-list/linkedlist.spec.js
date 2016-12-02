@@ -10,7 +10,7 @@ describe('LinkedList', function () {
       list.add(3);
       list.add(4);
 
-      assert(list.toString(), '1 -> 2 -> 3 -> 4');
+      expect(list.toString()).toEqual('1 -> 2 -> 3 -> 4');
     });
   });
 });
