@@ -85,25 +85,4 @@ class LinkedList {
   }
 }
 
-function test() {
-  let list = new LinkedList();
-  list.add(1);
-  list.add(2);
-  list.add(3);
-  list.add(4);
-
-  console.log(list);
-
-  list.delete(4);
-  console.log(list);
-
-  list.delete(2);
-  console.log(list);
-
-  list.delete(1);
-  console.log(list);
-};
-
-// test();
-
 module.exports = LinkedList;
