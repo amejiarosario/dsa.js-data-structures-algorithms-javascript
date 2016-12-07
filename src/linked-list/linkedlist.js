@@ -1,9 +1,12 @@
 const Node = require('./node');
-
+/**
+ * Singly LinkedList data structure
+ */
 class LinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
+    this.length = 0;
   }
 
   /**
@@ -19,6 +22,7 @@ class LinkedList {
       this.head = node;
     }
     this.tail = node;
+    this.length++;
     return node;
   }
 
@@ -34,6 +38,7 @@ class LinkedList {
       this.tail = node;
     }
     this.head = node;
+    this.length++;
     return node;
   }
 
@@ -70,6 +75,10 @@ class LinkedList {
       n = n.next;
     }
     return data.join(' -> ');
+  }
+
+  size() {
+    return this.length;
   }
 }
 
