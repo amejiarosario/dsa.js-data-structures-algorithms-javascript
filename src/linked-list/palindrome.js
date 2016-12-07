@@ -1,7 +1,7 @@
 const LinkedList = require('./linkedlist');
 
 LinkedList.prototype.isPalindrome = function() {
-  const queue = [];
+  const stack = [];
   let i1 = this.head;
   let i2 = this.head;
 
@@ -9,19 +9,19 @@ LinkedList.prototype.isPalindrome = function() {
     return true;
   }
 
-  queue.push(i1.data);
+  stack.push(i1.data);
 
   // collect element up to the middle
   while(i2.next && i2.next.next) {
     i1 = i1.next;
     i2 = i2.next.next;
-    if(i2.next) { queue.push(i1.data); }
+    if(i2.next) { stack.push(i1.data); }
   }
 
   // compare they are the same as the second half
   while(i1.next) {
     i1 = i1.next;
-    if(queue.pop() !== i1.data) {
+    if(stack.pop() !== i1.data) {
       return false;
     }
   }
