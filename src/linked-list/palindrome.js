@@ -10,25 +10,24 @@ LinkedList.prototype.isPalindrome = function() {
   let slow = this.head;
   let fast = this.head;
 
-  if(fast.next === null) {
-    return true;
-  }
-
-  stack.push(slow.data);
-
   // collect element up to the middle
-  while(fast.next && fast.next.next) {
+  while(fast && fast.next) {
+    stack.push(slow.data);
     slow = slow.next;
     fast = fast.next.next;
-    if(fast.next) { stack.push(slow.data); }
+  }
+
+  // if odd number of elements
+  if(fast) {
+    slow = slow.next;
   }
 
   // compare they are the same as the second half
-  while(slow.next) {
-    slow = slow.next;
+  while(slow) {
     if(stack.pop() !== slow.data) {
       return false;
     }
+    slow = slow.next;
   }
 
   return true;
