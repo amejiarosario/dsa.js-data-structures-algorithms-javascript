@@ -51,8 +51,10 @@ class LinkedList {
   delete(data) {
     let n = this.head;
 
+    // remove from head
     if(n.data === data) {
       this.head = this.head.next;
+      this.length--;
       return;
     }
 
@@ -60,6 +62,7 @@ class LinkedList {
     while(n.next){
       if(n.next.data === data) {
         n.next = n.next.next;
+        this.length--;
         return;
       }
       n = n.next;
