@@ -12,7 +12,7 @@ LinkedList.prototype.isPalindrome = function() {
   queue.push(i1.data);
 
   // collect element up to the middle
-  while(i2.next.next) {
+  while(i2.next && i2.next.next) {
     i1 = i1.next;
     i2 = i2.next.next;
     if(i2.next) { queue.push(i1.data); }

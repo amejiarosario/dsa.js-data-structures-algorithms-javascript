@@ -1,6 +1,8 @@
 const Node = require('./node');
+
 /**
  * Singly LinkedList data structure
+ * Trying to keep this interface https://docs.oracle.com/javase/7/docs/api/java/util/LinkedList.html
  */
 class LinkedList {
   constructor() {

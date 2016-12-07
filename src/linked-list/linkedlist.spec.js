@@ -1,3 +1,4 @@
+const expect = require('chai').expect;
 const LinkedList = require('./linkedlist');
 
 describe('LinkedList', function () {
@@ -13,11 +14,11 @@ describe('LinkedList', function () {
     });
 
     it('should add elements to the tail and count size', function () {
-      expect(list.toString()).toEqual('1 -> 2 -> 3 -> 4');
+      expect(list.toString()).to.equal('1 -> 2 -> 3 -> 4');
     });
 
     it('should have a size of 4', function () {
-      expect(list.size()).toBe(4);
+      expect(list.size()).to.equal(4);
     });
   });
 
@@ -31,11 +32,11 @@ describe('LinkedList', function () {
     });
 
     it('should add elements to the tail and count size', function () {
-      expect(list.toString()).toEqual('4 -> 3 -> 2 -> 1');
+      expect(list.toString()).to.equal('4 -> 3 -> 2 -> 1');
     });
 
     it('should have a size of 4', function () {
-      expect(list.size()).toBe(4);
+      expect(list.size()).to.equal(4);
     });
   });
 
@@ -49,11 +50,11 @@ describe('LinkedList', function () {
     });
 
     it('should add elements to the tail and count size', function () {
-      expect(list.toString()).toEqual('4 -> 3 -> 2 -> 1');
+      expect(list.toString()).to.equal('4 -> 3 -> 2 -> 1');
     });
 
     it('should have a size of 4', function () {
-      expect(list.size()).toBe(4);
+      expect(list.size()).to.equal(4);
     });
   });
 
@@ -68,7 +69,7 @@ describe('LinkedList', function () {
 
     it('should start with size of 3 after deleting one', function () {
       list.delete(4);
-      expect(list.size()).toBe(3);
+      expect(list.size()).to.equal(3);
     });
 
     it('should have a size of 4', function () {
@@ -76,12 +77,12 @@ describe('LinkedList', function () {
       list.delete(2);
       list.delete(1);
       list.delete(3);
-      expect(list.size()).toBe(0);
+      expect(list.size()).to.equal(0);
     });
 
     it('should not change if element not found', function () {
       list.delete(7);
-      expect(list.size()).toBe(4);
+      expect(list.size()).to.equal(4);
     });
   });
 
