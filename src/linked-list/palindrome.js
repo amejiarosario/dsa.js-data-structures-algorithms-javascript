@@ -1,27 +1,32 @@
 const LinkedList = require('./linkedlist');
 
+/**
+ * Found is a linkedList elements are a palindrome.
+ * assumes that we don't know the size of the list, thus using the two pointers (fast/slow runner).
+ * @returns {boolean}
+ */
 LinkedList.prototype.isPalindrome = function() {
   const stack = [];
-  let i1 = this.head;
-  let i2 = this.head;
+  let slow = this.head;
+  let fast = this.head;
 
-  if(this.size() === 1) {
+  if(fast.next === null) {
     return true;
   }
 
-  stack.push(i1.data);
+  stack.push(slow.data);
 
   // collect element up to the middle
-  while(i2.next && i2.next.next) {
-    i1 = i1.next;
-    i2 = i2.next.next;
-    if(i2.next) { stack.push(i1.data); }
+  while(fast.next && fast.next.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+    if(fast.next) { stack.push(slow.data); }
   }
 
   // compare they are the same as the second half
-  while(i1.next) {
-    i1 = i1.next;
-    if(stack.pop() !== i1.data) {
+  while(slow.next) {
+    slow = slow.next;
+    if(stack.pop() !== slow.data) {
       return false;
     }
   }
