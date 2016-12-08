@@ -13,18 +13,23 @@ class LinkedList {
 
   /**
    * Add element to the tail
-   * @param data
+   * @param dataOrNode
    * @returns {Node}
    */
-  addLast(data){
-    const node = getNode(data);
+  addLast(dataOrNode){
+    let node = getNode(dataOrNode);
     if(this.head) {
       this.tail.next = node;
     } else {
       this.head = node;
     }
-    this.tail = node;
-    this.length++;
+
+    while(node) {
+      this.tail = node;
+      this.length++;
+      if(!node.next) { break; }
+      node = node.next;
+    }
     return node;
   }
 
@@ -32,8 +37,8 @@ class LinkedList {
    * Add element to the head
    * @param data
    */
-  addFirst(data) {
-    const node = getNode(data);
+  addFirst(dataOrNode) {
+    const node = getNode(dataOrNode);
     if(this.head) {
       node.next = this.head;
     } else {
@@ -45,8 +50,8 @@ class LinkedList {
   }
 
   // O(1)
-  add(data) {
-    return this.addFirst(data);
+  add(dataOrNode) {
+    return this.addFirst(dataOrNode);
   }
 
   // O(n)

@@ -20,6 +20,18 @@ describe('LinkedList', function () {
     it('should have a size of 4', function () {
       expect(list.size()).to.equal(4);
     });
+
+    it('should add nodes and update the tail and size', function () {
+      const list2 = new LinkedList();
+      const a = list2.addLast('a');
+      list2.addLast('b');
+      const c = list2.addLast('c');
+
+      list.addLast(a);
+      expect(list.toString()).to.equal('1 -> 2 -> 3 -> 4 -> a -> b -> c');
+      expect(list.size()).to.equal(7);
+      expect(list.tail).to.equal(c);
+    });
   });
 
   describe('.addFirst', function () {
