@@ -17,7 +17,7 @@ class LinkedList {
    * @returns {Node}
    */
   addLast(data){
-    const node = new Node(data);
+    const node = getNode(data);
     if(this.head) {
       this.tail.next = node;
     } else {
@@ -33,7 +33,7 @@ class LinkedList {
    * @param data
    */
   addFirst(data) {
-    const node = new Node(data);
+    const node = getNode(data);
     if(this.head) {
       node.next = this.head;
     } else {
@@ -85,6 +85,10 @@ class LinkedList {
   size() {
     return this.length;
   }
+}
+
+function getNode(dataOrNode) {
+  return dataOrNode instanceof Node ? dataOrNode : new Node(dataOrNode);
 }
 
 module.exports = LinkedList;
