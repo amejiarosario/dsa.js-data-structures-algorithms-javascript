@@ -26,9 +26,6 @@ describe('Intersection', function () {
     const list2 = new LinkedList();
     list2.addLast(b);
 
-    console.log(list1.toString());
-    console.log(list2.toString());
-
     expect(intersection(list1, list2).data).to.equal(b.data);
   });
 
@@ -39,8 +36,8 @@ describe('Intersection', function () {
     list1.addLast('c');
 
     const list2 = new LinkedList();
-    const z = list2.addLast('z');
-    z.next = a;
+    list2.addLast('z');
+    list2.addLast(a);
 
     expect(intersection(list1, list2).data).to.equal(a.data);
   });
@@ -55,8 +52,8 @@ describe('Intersection', function () {
     const list2 = new LinkedList();
     list2.addLast('z');
     list2.addLast('x');
-    const y = list2.addLast('y');
-    y.next = c;
+    list2.addLast('y');
+    list2.addLast(c);
 
     expect(intersection(list1, list2).data).to.equal(c.data);
   });

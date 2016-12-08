@@ -28,6 +28,7 @@ describe('LinkedList', function () {
       const c = list2.addLast('c');
 
       list.addLast(a);
+
       expect(list.toString()).to.equal('1 -> 2 -> 3 -> 4 -> a -> b -> c');
       expect(list.size()).to.equal(7);
       expect(list.tail).to.equal(c);
