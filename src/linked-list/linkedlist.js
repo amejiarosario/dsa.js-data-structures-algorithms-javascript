@@ -16,7 +16,7 @@ class LinkedList {
    * @param dataOrNode
    * @returns {Node}
    */
-  addLast(dataOrNode){
+  addLast(dataOrNode, once = false){
     let node = getNode(dataOrNode);
     if(this.head) {
       this.tail.next = node;
@@ -27,7 +27,7 @@ class LinkedList {
     while(node) {
       this.tail = node;
       this.length++;
-      if(!node.next) { break; }
+      if(!node.next || once) { break; }
       node = node.next;
     }
     return node;
