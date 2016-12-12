@@ -68,7 +68,7 @@ function intersection(list1, list2) {
     for(let i = 0; i < list2.size() - list1.size(); i++) { i2 = i2.next; }
   }
 
-  while(i1 && i2 && i1 !== i2) {
+  while(i1 !== i2) {
     i1 = i1.next;
     i2 = i2.next;
   }
