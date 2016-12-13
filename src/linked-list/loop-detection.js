@@ -39,7 +39,7 @@ function loopDetection() {
  * O(n) / O(n) - hashmap of addresses
  * @returns {*}
  */
-function hasLoop() {
+function loopDetection2() {
   var map = new Map();
 
   for(let i = this.head; i; i = i.next) {
