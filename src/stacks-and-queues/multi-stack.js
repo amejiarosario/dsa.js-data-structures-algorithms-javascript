@@ -12,34 +12,39 @@ class MultiStack {
   }
 
   push(stackIndex, data) {
-    const stack = this.stacks[stackIndex];
+    const stack = this.getStack(stackIndex);
 
     if(stack.current < stack.end) {
-      this.array[stack.current] = data;
-      stack.current++;
+      this.array[stack.current++] = data;
     } else {
-      throw new Error(`Stack #${stackIndex} overflow at ${stack.current}`);
+      throw new Error('Stack overflow');
     }
   }
 
   pop(stackIndex) {
-    const stack = this.stacks[stackIndex];
-
-    if(this.isEmpty(stackIndex)) {
-      return null;
-    } else {
+    const stack = this.getStack(stackIndex);
+    if(stack.current !== stack.start) {
       return this.array[--stack.current];
     }
   }
 
   peek(stackIndex) {
-    const stack = this.stacks[stackIndex];
-
+    const stack = this.getStack(stackIndex);
+    return this.array[stack.current - 1];
   }
 
   isEmpty(stackIndex) {
-    const stack = this.stacks[stackIndex];
-    return stack.current < stack.start;
+    const stack = this.getStack(stackIndex);
+    return stack.current === stack.start;
+  }
+
+  getStack(stackIndex) {
+    if(stackIndex < 0 || stackIndex > 2) {
+      throw new Error(`Stack ${stackIndex} does not exist`);
+    }
+    return this.stacks[stackIndex];
   }
 
 }
+
+module.exports = MultiStack;
