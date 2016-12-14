@@ -96,17 +96,6 @@ describe('Stacks: Multistack', function () {
       expect(multiStack.pop(0)).to.equal(undefined);
       expect(multiStack.getStack(0).current).to.equal(0);
     });
-
-    it('should pop from multiple stacks', function () {
-      multiStack.push(0, 'a');
-      multiStack.push(0, 'b');
-      multiStack.push(1, 'a');
-      multiStack.push(1, 'b');
-      expect(multiStack.pop(0)).to.equal('b');
-      expect(multiStack.pop(0)).to.equal('a');
-      expect(multiStack.pop(1)).to.equal('b');
-      expect(multiStack.pop(1)).to.equal('a');
-    });
   });
 
   describe('.peek', function () {
