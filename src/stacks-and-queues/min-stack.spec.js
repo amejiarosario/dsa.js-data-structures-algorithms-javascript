@@ -22,6 +22,10 @@ describe('Stacks: MinStack', function () {
   });
 
   describe('.pop', function () {
+    it('should handle empty pops', function () {
+      expect(minstack.pop()).to.equal(undefined);
+    });
+
     it('should take the last element from the list', function () {
       minstack.push(1);
       expect(minstack.pop()).to.equal(1);
@@ -33,9 +37,20 @@ describe('Stacks: MinStack', function () {
       expect(minstack.pop()).to.equal(2);
       expect(minstack.pop()).to.equal(1);
     });
+
+    it('should remove all and beyond gracefully', function () {
+      minstack.push(1);
+      minstack.pop();
+      expect(minstack.pop()).to.equal(undefined);
+    });
   });
 
   describe('.min', function () {
+
+    it('should handle empty min', function () {
+      expect(minstack.min()).to.equal(undefined);
+    });
+
     it('should keep track of min', function () {
       minstack.push(1);
       expect(minstack.min()).to.equal(1);
@@ -54,6 +69,13 @@ describe('Stacks: MinStack', function () {
       minstack.push(1);
       minstack.pop(); // 1
       expect(minstack.min()).to.equal(10);
+    });
+
+    it('should remove all and beyond gracefully', function () {
+      minstack.push(1);
+      minstack.pop();
+      minstack.pop();
+      expect(minstack.min()).to.equal(undefined);
     });
   });
 });
