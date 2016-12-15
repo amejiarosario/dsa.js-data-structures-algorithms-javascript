@@ -4,9 +4,12 @@ const LinkedList = require('./linkedlist');
 describe('LinkedList', function () {
   let list;
 
+  beforeEach(function () {
+    list = new LinkedList();
+  });
+
   describe('.addLast', function () {
     beforeEach(function () {
-      list = new LinkedList();
       list.addLast(1);
       list.addLast(2);
       list.addLast(3);
@@ -37,7 +40,6 @@ describe('LinkedList', function () {
 
   describe('.addFirst', function () {
     beforeEach(function () {
-      list = new LinkedList();
       list.addFirst(1);
       list.addFirst(2);
       list.addFirst(3);
@@ -68,6 +70,32 @@ describe('LinkedList', function () {
 
     it('should have a size of 4', function () {
       expect(list.size()).to.equal(4);
+    });
+  });
+
+  describe('.removeLast', function () {
+    it('should handle empty', function () {
+      expect(list.removeLast()).to.equal(undefined);
+    });
+
+    it('should remove item', function () {
+      list.add(1);
+      expect(list.removeLast()).to.equal(1);
+    });
+
+    it('should remove multiple items', function () {
+      list.addLast(1);
+      list.addLast(2);
+
+      expect(list.removeLast()).to.equal(2);
+      expect(list.tail.data).to.equal(1);
+      expect(list.head.data).to.equal(1);
+      expect(list.size()).to.equal(1);
+
+      expect(list.removeLast()).to.equal(1);
+      expect(list.tail).to.equal(null);
+      expect(list.head).to.equal(null);
+      expect(list.size()).to.equal(0);
     });
   });
 

@@ -6,8 +6,8 @@ const Node = require('./node');
  */
 class LinkedList {
   constructor() {
-    this.head = null;
-    this.tail = null;
+    this.head;
+    this.tail;
     this.length = 0;
   }
 
@@ -52,6 +52,34 @@ class LinkedList {
   // O(1)
   add(dataOrNode) {
     return this.addFirst(dataOrNode);
+  }
+
+  /**
+   * O(n)
+   * @returns {*}
+   */
+  removeLast() {
+    const last = this.tail;
+
+    if(!last) { return; }
+
+    let beforeLast = this.head;
+    while(beforeLast.next && beforeLast.next.next) { beforeLast = beforeLast.next; }
+
+    if(beforeLast === this.head && !this.head.next) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      beforeLast.next = null;
+      this.tail = beforeLast;
+    }
+    this.length --;
+
+    return last.data;
+  }
+
+  removeFirst() {
+
   }
 
   // O(n)
