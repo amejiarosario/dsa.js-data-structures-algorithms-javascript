@@ -11,16 +11,13 @@ class QueueViaStack {
   }
 
   remove() {
-    while(this.stack1.peek()){
-      this.stack2.push(this.stack1.pop());
-    }
-    const first = this.stack2.pop();
-
-    while(this.stack2.peek()){
-      this.stack1.push(this.stack2.pop());
+    if(!this.stack2.peek()){
+      while(this.stack1.peek()){
+        this.stack2.push(this.stack1.pop());
+      }
     }
 
-    return first;
+    return this.stack2.pop();
   }
 }
 
