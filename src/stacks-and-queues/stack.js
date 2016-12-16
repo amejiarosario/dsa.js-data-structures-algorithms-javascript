@@ -12,6 +12,11 @@ class Stack {
   pop() {
     return this.list.removeLast();
   }
+
+  peek() {
+    if(!this.list.tail) { return; }
+    return this.list.tail.data;
+  }
 }
 
 module.exports = Stack;

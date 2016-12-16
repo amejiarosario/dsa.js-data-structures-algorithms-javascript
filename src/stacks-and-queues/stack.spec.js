@@ -24,6 +24,24 @@ describe('Stacks: QueueViaStack', function () {
       stack.push(1);
       expect(stack.pop()).to.equal(1);
     });
+
+    it('should remove in LIFO', function () {
+      stack.push(1);
+      stack.push(2);
+      expect(stack.pop()).to.equal(2);
+      expect(stack.pop()).to.equal(1);
+    });
+  });
+
+  describe('peek', function () {
+    it('should return nill', function () {
+      expect(stack.peek()).to.equal(undefined);
+    });
+
+    it('should get the last', function () {
+      stack.push(1);
+      expect(stack.peek()).to.equal(1);
+    });
   });
 
 });
