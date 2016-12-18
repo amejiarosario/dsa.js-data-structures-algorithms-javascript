@@ -33,7 +33,7 @@ describe('Stacks: QueueViaStack', function () {
     });
   });
 
-  describe('peek', function () {
+  describe('.peek', function () {
     it('should return nill', function () {
       expect(stack.peek()).to.equal(undefined);
     });
@@ -41,6 +41,22 @@ describe('Stacks: QueueViaStack', function () {
     it('should get the last', function () {
       stack.push(1);
       expect(stack.peek()).to.equal(1);
+    });
+  });
+
+  describe('.isEmpty', function () {
+    it('should be true when empty', function () {
+      expect(stack.isEmpty()).to.equal(true);
+    });
+
+    it('should false when something', function () {
+      stack.push(1);
+      expect(stack.isEmpty()).to.equal(false);
+    });
+
+    it('should has something with falsy values', function () {
+      stack.push(false);
+      expect(stack.isEmpty()).to.equal(false);
     });
   });
 

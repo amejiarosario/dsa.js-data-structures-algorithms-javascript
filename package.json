@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "lodash": "4.17.2"
   },
   "devDependencies": {
     "jasmine-spec-reporter": "2.7.0",

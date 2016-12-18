@@ -17,6 +17,14 @@ class Stack {
     if(!this.list.tail) { return; }
     return this.list.tail.data;
   }
+
+  isEmpty() {
+    return typeof this.peek() === 'undefined';
+  }
+
+  size() {
+    return this.list.size();
+  }
 }
 
 module.exports = Stack;
