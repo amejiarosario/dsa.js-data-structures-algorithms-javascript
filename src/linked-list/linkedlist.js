@@ -78,38 +78,53 @@ class LinkedList {
     return last.data;
   }
 
+  /**
+   * Remove first element from list
+   *
+   * O(1)
+   *
+   * @returns {*} removed element
+   */
   removeFirst() {
+    if(!this.head) { return; }
 
+    const first = this.head;
+    this.head = first.next;
+    this.length--;
+    if(this.length <= 1) { this.tail = this.head; }
+    return first.data;
   }
 
   // O(n)
-  delete(data) {
+  delete(query) {
     let n = this.head;
+    let data = n.data;
 
     // remove from head
-    if(n.data === data) {
+    if(isMatch(data, query)) {
       this.head = this.head.next;
       this.length--;
-      return;
+      return data;
     }
 
     // iterate
     while(n.next){
-      if(n.next.data === data) {
+      data = n.next.data;
+      if(isMatch(data, query)) {
         n.next = n.next.next;
         this.length--;
-        return;
+        return data;
       }
       n = n.next;
     }
   }
 
   // O(n)
-  toString() {
+  toString(key) {
     let data = [];
     let n = this.head;
     while(n) {
-      data.push(n.data);
+      data.push(key ? n.data[key] : n.data);
       n = n.next;
     }
     return data.join(' -> ');
@@ -122,6 +137,16 @@ class LinkedList {
 
 function getNode(dataOrNode) {
   return dataOrNode instanceof Node ? dataOrNode : new Node(dataOrNode);
+}
+
+function isMatch(original, query) {
+
+  for(let key in query) {
+    if(key && query[key] !== original[key]) {
+      return false;
+    }
+  }
+  return true;
 }
 
 module.exports = LinkedList;

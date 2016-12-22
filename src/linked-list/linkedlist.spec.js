@@ -99,6 +99,32 @@ describe('LinkedList', function () {
     });
   });
 
+  describe('.removeFirst', function () {
+    it('should handle empty', function () {
+      expect(list.removeFirst()).to.equal(undefined);
+    });
+
+    it('should remove item', function () {
+      list.add(1);
+      expect(list.removeFirst()).to.equal(1);
+    });
+
+    it('should remove multiple items and ', function () {
+      list.addLast(1);
+      list.addLast(2);
+
+      expect(list.removeFirst()).to.equal(1);
+      expect(list.tail.data).to.equal(2);
+      expect(list.head.data).to.equal(2);
+      expect(list.size()).to.equal(1);
+
+      expect(list.removeFirst()).to.equal(2);
+      expect(list.tail).to.equal(undefined);
+      expect(list.head).to.equal(undefined);
+      expect(list.size()).to.equal(0);
+    });
+  });
+
   describe('.delete', function () {
     beforeEach(function () {
       list = new LinkedList();
@@ -127,4 +153,34 @@ describe('LinkedList', function () {
     });
   });
 
+
+  describe('removeFirstByQuery', function () {
+    let dog, cat, rat;
+
+    beforeEach(function () {
+      dog = {animal: 'dog', name: 'Snoopy'};
+      cat = {animal: 'cat', name: 'Garfield'};
+      rat = {animal: 'rat', name: 'Micky'};
+
+      list.addLast(dog);
+      list.addLast(cat);
+      list.addLast(rat);
+    });
+
+    it('should remove dog', function () {
+      expect(list.toString('name')).to.equal('Snoopy -> Garfield -> Micky');
+      expect(list.delete({animal: 'dog'})).to.equal(dog);
+      expect(list.toString('name')).to.equal('Garfield -> Micky');
+    });
+
+    it('should remove the rat', function () {
+      expect(list.delete({animal: 'rat'})).to.equal(rat);
+      expect(list.toString('name')).to.equal('Snoopy -> Garfield');
+    });
+
+    it('should remove the cat', function () {
+      expect(list.delete({animal: 'cat'})).to.equal(cat);
+      expect(list.toString('name')).to.equal('Snoopy -> Micky');
+    });
+  });
 });
