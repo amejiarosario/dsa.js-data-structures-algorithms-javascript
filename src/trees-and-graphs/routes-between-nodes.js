@@ -8,21 +8,16 @@ const Queue = require('../stacks-and-queues/queue');
  * @returns {boolean}
  */
 Graph.prototype.isConnected = function(node1, node2) {
-  const queue = new Queue();
+  const bfs = this.bfs(node1);
+  let next;
 
-  queue.add(node1);
+  do {
+    next = bfs.next();
 
-  while(!queue.isEmpty()) {
-    const current = queue.remove();
-
-    if(current === node2) {
+    if(next.value === node2) {
       return true;
     }
-
-    (this.nodes[current] || []).forEach(function (node) {
-      queue.add(node);
-    });
-  }
+  } while(!next.done);
 
   return false;
 };

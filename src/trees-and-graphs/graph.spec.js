@@ -36,15 +36,19 @@ describe('Graph', function () {
       graph.add(1, 3);
     });
 
-    it('should get all adjancent in the first level', function () {
+    it('should get all adjancents from 0', function () {
       const bfs = graph.bfs(0);
-      expect(bfs.next().value).to.eql([1, 2]);
+      expect(bfs.next().value).to.eql(0);
+      expect(bfs.next().value).to.eql(1);
+      expect(bfs.next().value).to.eql(2);
+      expect(bfs.next().value).to.eql(3);
     });
 
-    it('should get 2nd level adjacents', function () {
-      const bfs = graph.bfs(0);
-      bfs.next();
-      expect(bfs.next().value).to.eql([3]);
+    it('should get all adjancents from 1', function () {
+      const bfs = graph.bfs(1);
+      expect(bfs.next().value).to.eql(1);
+      expect(bfs.next().value).to.eql(3);
+      expect(bfs.next().done).to.equal(true);
       expect(bfs.next().value).to.equal(undefined);
     });
   });

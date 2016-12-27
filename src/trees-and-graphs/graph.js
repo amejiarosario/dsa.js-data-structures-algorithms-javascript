@@ -4,7 +4,7 @@ const Queue = require('../stacks-and-queues/queue');
  */
 class Graph {
   constructor() {
-    this.nodes = [];
+    this.nodes = {};
   }
 
   /**
@@ -42,8 +42,9 @@ Graph.prototype.bfs = function* (node) {
   queue.add(node);
 
   while(!queue.isEmpty()){
-    const adjacents = this.nodes[queue.remove()];
-    yield adjacents;
+    const current = queue.remove();
+    yield current;
+    const adjacents = this.nodes[current] || [];
     adjacents.forEach(function (adjNode) {
       queue.add(adjNode);
     });
