@@ -51,5 +51,15 @@ describe('Graph', function () {
       expect(bfs.next().done).to.equal(true);
       expect(bfs.next().value).to.equal(undefined);
     });
+
+    it('should recover from cyclic graphs', function () {
+      graph.add(3, 0);
+      const bfs = graph.bfs(1);
+      expect(bfs.next().value).to.eql(1);
+      expect(bfs.next().value).to.eql(3);
+      expect(bfs.next().value).to.eql(0);
+      expect(bfs.next().value).to.eql(2);
+      expect(bfs.next().done).to.equal(true);
+    });
   });
 });

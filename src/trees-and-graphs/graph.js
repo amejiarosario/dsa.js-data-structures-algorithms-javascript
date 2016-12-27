@@ -41,7 +41,7 @@ Graph.prototype.bfs = function* (node) {
 
   queue.add(node);
 
-  while(!queue.isEmpty()){
+  while(!queue.isEmpty()) {
     const current = queue.remove();
     yield current;
     const adjacents = this.nodes[current] || [];
