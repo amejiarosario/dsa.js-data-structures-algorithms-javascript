@@ -70,6 +70,18 @@ describe('Graph', function () {
     });
   });
 
+  describe('toString', function () {
+    it('should return adjacency matrix data', function () {
+      graph.add(0, 1);
+      graph.add(0, 2);
+      graph.add(1, 3);
+      graph.add(3, 0);
+      graph.add(0, 3);
+
+      expect(graph.toString()).to.equal('0: 1, 2, 3\n1: 3\n3: 0');
+    });
+  });
+
   describe('bfs', function () {
     beforeEach(function () {
       graph.add(0, 1);
@@ -79,16 +91,16 @@ describe('Graph', function () {
 
     it('should get all adjancents from 0', function () {
       const bfs = graph.bfs(0);
-      expect(bfs.next().value).to.eql(0);
-      expect(bfs.next().value).to.eql(1);
-      expect(bfs.next().value).to.eql(2);
-      expect(bfs.next().value).to.eql(3);
+      expect(bfs.next().value.data).to.eql(0);
+      expect(bfs.next().value.data).to.eql(1);
+      expect(bfs.next().value.data).to.eql(2);
+      expect(bfs.next().value.data).to.eql(3);
     });
 
     it('should get all adjancents from 1', function () {
       const bfs = graph.bfs(1);
-      expect(bfs.next().value).to.eql(1);
-      expect(bfs.next().value).to.eql(3);
+      expect(bfs.next().value.data).to.eql(1);
+      expect(bfs.next().value.data).to.eql(3);
       expect(bfs.next().done).to.equal(true);
       expect(bfs.next().value).to.equal(undefined);
     });
@@ -96,10 +108,23 @@ describe('Graph', function () {
     it('should recover from cyclic graphs', function () {
       graph.add(3, 0);
       const bfs = graph.bfs(1);
-      expect(bfs.next().value).to.eql(1);
-      expect(bfs.next().value).to.eql(3);
-      expect(bfs.next().value).to.eql(0);
-      expect(bfs.next().value).to.eql(2);
+      expect(bfs.next().value.data).to.eql(1);
+      expect(bfs.next().value.data).to.eql(3);
+      expect(bfs.next().value.data).to.eql(0);
+      expect(bfs.next().value.data).to.eql(2);
+      expect(bfs.next().done).to.equal(true);
+    });
+
+    it('should clear visited state', function () {
+      graph.add(3, 0);
+      let bfs = graph.bfs(1);
+      while(!bfs.next().done){}
+
+      bfs = graph.bfs(1);
+      expect(bfs.next().value.data).to.eql(1);
+      expect(bfs.next().value.data).to.eql(3);
+      expect(bfs.next().value.data).to.eql(0);
+      expect(bfs.next().value.data).to.eql(2);
       expect(bfs.next().done).to.equal(true);
     });
   });

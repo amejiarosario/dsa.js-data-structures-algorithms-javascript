@@ -7,6 +7,7 @@ class Node {
   constructor(data) {
     this.data = data;
     this.adjacents = [];
+    this.visited = false;
   }
 }
 
@@ -39,6 +40,7 @@ class Graph {
 
     sourceNode.adjacents.push(targetNode);
     this.nodes.set(sourceNode.data, sourceNode);
+    this.nodes.set(targetNode.data, targetNode);
 
     return sourceNode;
   }
@@ -51,14 +53,31 @@ class Graph {
   getNode(dataOrNode) {
     let node;
 
-    if(isNode(dataOrNode)) {
-      node = dataOrNode;
-    } else if(this.nodes.has(dataOrNode)) {
+    if(this.nodes.has(dataOrNode)) {
       node = this.nodes.get(dataOrNode);
+    } else if(isNode(dataOrNode)) {
+      node = dataOrNode;
     } else {
       node = new Node(dataOrNode);
     }
     return node;
+  }
+
+  /**
+   * Return adjacency matrix of the data
+   * @returns {string}
+   */
+  toString() {
+    let string = [];
+
+    for (var [data, node] of this.nodes.entries()) {
+      const adjacetsData = node.adjacents.map((adj) => adj.data).join(', ');
+      if(adjacetsData){
+        string.push(`${data}: ${adjacetsData}`);
+      }
+    }
+
+    return string.join('\n');
   }
 }
 
@@ -71,16 +90,31 @@ Graph.prototype.bfs = bfs;
 
 /**
  * Breadth-first search
- * @param start
+ *
+ * O(n)
+ *
+ * @param start data or node reference
  */
 function* bfs(start) {
   const queue = new Queue();
 
-  queue.add(start);
+  queue.add(this.getNode(start));
+
+  this.nodes.forEach(function (node) {
+    node.visited = false;
+  });
 
   while(!queue.isEmpty()) {
     const node = queue.remove();
+    node.visited = true;
     yield node;
+
+    const adjacents = node.adjacents || [];
+    adjacents.forEach(function (adjacent) {
+      if(!adjacent.visited) {
+        queue.add(adjacent);
+      }
+    });
   }
 }
 
