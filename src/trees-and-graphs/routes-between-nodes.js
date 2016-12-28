@@ -1,4 +1,4 @@
-const Graph = require('./graph');
+const Graph = require('./graph').Graph;
 const Queue = require('../stacks-and-queues/queue');
 
 /**
@@ -14,7 +14,7 @@ Graph.prototype.isConnected = function(node1, node2) {
   do {
     next = bfs.next();
 
-    if(next.value === node2) {
+    if(next.value && next.value.data === node2) {
       return true;
     }
   } while(!next.done);
