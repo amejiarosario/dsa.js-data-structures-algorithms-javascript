@@ -151,6 +151,11 @@ describe('LinkedList', function () {
       list.delete(7);
       expect(list.size()).to.equal(4);
     });
+
+    it('should delete an arbitrary element', function () {
+      list.delete(3);
+      expect(list.toString()).to.equal('4 -> 2 -> 1');
+    });
   });
 
 

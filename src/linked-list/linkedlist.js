@@ -141,6 +141,10 @@ function getNode(dataOrNode) {
 
 function isMatch(original, query) {
 
+  if(typeof original !== 'object') {
+    return original === query;
+  }
+
   for(let key in query) {
     if(key && query[key] !== original[key]) {
       return false;
