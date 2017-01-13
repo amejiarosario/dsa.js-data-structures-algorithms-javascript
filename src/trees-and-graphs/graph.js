@@ -9,6 +9,27 @@ class Node {
     this.adjacents = [];
     this.visited = false;
   }
+
+  toArray() {
+    const string = [];
+    const queue = new Queue();
+    queue.add(this);
+
+    while(!queue.isEmpty()) {
+      const node = queue.remove();
+      string.push(node.data);
+
+      node.adjacents.forEach(function (adj) {
+        if(adj) { queue.add(adj); }
+      });
+    }
+
+    return string;
+  }
+
+  toString() {
+    return this.toArray().join(' -> ');
+  }
 }
 
 /**
@@ -121,5 +142,7 @@ function* bfs(start) {
 
 module.exports = {
   Graph,
-  Node
+  Node,
+  LEFT: 0,
+  RIGHT: 1
 };
