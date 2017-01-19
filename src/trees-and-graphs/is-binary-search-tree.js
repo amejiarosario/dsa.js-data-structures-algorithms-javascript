@@ -3,23 +3,33 @@
  * @param node
  * @returns {boolean}
  */
-function isBinarySearchTree(node) {
+function isBinarySearchTree(node, min, max) {
   if(!node) return true;
 
   const parent = node.data;
-  let isBST = true;
+  let isBST = true, left, right;
 
   if(node.left) {
-    const left = node.left.data;
-    isBST = isBST && left < parent;
+    left = node.left.data;
+    isBST = isBST && left <= parent;
+
+    if(min) {
+      isBST = isBST && left > min;
+    }
   }
 
   if(node.right) {
-    const right = node.right.data;
+    right = node.right.data;
     isBST = isBST && right > parent;
+
+    if(max) {
+      isBST = isBST && right < max;
+    }
   }
 
-  return isBST && isBinarySearchTree(node.left) && isBinarySearchTree(node.right);
+  return isBST &&
+    isBinarySearchTree(node.left, null, parent) &&
+    isBinarySearchTree(node.right, parent, null);
 }
 
 module.exports = isBinarySearchTree;
