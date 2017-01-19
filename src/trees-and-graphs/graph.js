@@ -10,6 +10,22 @@ class Node {
     this.visited = false;
   }
 
+  get left() {
+    return this.adjacents[0];
+  }
+
+  set left(value) {
+    this.adjacents[0] = value;
+  }
+
+  get right() {
+    return this.adjacents[1];
+  }
+
+  set right(value) {
+    this.adjacents[1] = value;
+  }
+
   toArray() {
     const string = [];
     const queue = new Queue();
