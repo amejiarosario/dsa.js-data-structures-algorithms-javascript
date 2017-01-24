@@ -7,7 +7,7 @@ class Node {
   constructor(data) {
     this.data = data;
     this.adjacents = [];
-    this.visited = false;
+    this.metadata = {};
   }
 
   get left() {
@@ -76,6 +76,7 @@ class Graph {
     targetNode = this.getNode(target);
 
     sourceNode.adjacents.push(targetNode);
+
     this.nodes.set(sourceNode.data, sourceNode);
     this.nodes.set(targetNode.data, targetNode);
 
@@ -126,29 +127,39 @@ function isNode(thing){
 Graph.prototype.bfs = bfs;
 
 /**
+ * Set all visited nodes to false
+ */
+Graph.prototype.clearVisitedNodes = function () {
+  this.nodes.forEach(function (node) {
+    node.metadata.visited = false;
+  });
+};
+
+/**
  * Breadth-first search
  *
  * O(n)
  *
  * @param start data or node reference
  */
-function* bfs(start) {
+function* bfs(start, clearVisited = true) {
   const queue = new Queue();
 
   queue.add(this.getNode(start));
 
-  this.nodes.forEach(function (node) {
-    node.visited = false;
-  });
+  if(clearVisited) {
+    this.clearVisitedNodes();
+  }
 
   while(!queue.isEmpty()) {
     const node = queue.remove();
-    node.visited = true;
+    node.metadata.visited = true;
+
     yield node;
 
     const adjacents = node.adjacents || [];
     adjacents.forEach(function (adjacent) {
-      if(!adjacent.visited) {
+      if(!adjacent.metadata.visited) {
         queue.add(adjacent);
       }
     });
