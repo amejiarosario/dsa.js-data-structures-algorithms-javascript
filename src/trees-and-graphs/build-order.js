@@ -1,18 +1,68 @@
 const Graph = require('./graph').Graph;
 
 /**
+ *
  * 4.7 Build Order: You are given a list of projects and a list of dependencies (which is a list of pairs of projects, where the second project is dependent on the first project). All of a project's dependencies must be built before the project is. Find a build order that will allow the projects to be built. If there is no valid build order, return an error.
 
  EXAMPLE
 
  Input:
-    projects: a, b, c, d, e, f
-    dependencies: (a, d), (f, b), (b, d), (f, a), (d, c)
+ projects: a, b, c, d, e, f
+ dependencies: (a, d), (f, b), (b, d), (f, a), (d, c)
 
  Output: f, e, a, b, d, c
-
+ *
+ * @param projects
+ * @param dependencies
+ * @returns {Array}
  */
 function getBuildOrder(projects, dependencies) {
+  const list = [];
+
+  // build graph
+  const graph = new Graph();
+
+  projects.forEach(function (project) {
+    graph.add(project);
+  });
+
+  dependencies.forEach(function ([source, target]) {
+    graph.add(source, target);
+  });
+
+  // do DFS and unshift elements
+  const nodes = graph.getNodes();
+
+  try {
+    nodes.forEach(function (node) {
+      doDFS(node, list);
+    });
+  } catch (e) {
+    console.log(e.name + ': ' + e.message);
+  }
+
+  return list;
+}
+
+function doDFS(node, list) {
+  if(node.metadata.status === 'VISITED') {
+    return;
+  } else if(node.metadata.status === 'VISITING') {
+    throw new Error('Infinite loop detected');
+  }
+
+  node.metadata.status = 'VISITING';
+  node.adjacents.forEach(function (adj) {
+    doDFS(adj, list);
+  });
+
+  node.metadata.status = 'VISITED';
+  list.unshift(node.data);
+}
+
+//-------- OLD ----------
+
+function getBuildOrder2(projects, dependencies) {
   const graph = new Graph();
   const invGraph = new Graph();
   const result = new Set();

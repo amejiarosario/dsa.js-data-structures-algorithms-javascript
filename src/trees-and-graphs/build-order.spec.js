@@ -15,18 +15,32 @@ describe('Graph: build order', function () {
   it('should find the right order', function () {
     const projects = ['a', 'b', 'c', 'd', 'e', 'f'];
     const dependencies = [['a', 'd'], ['f', 'b'], ['b', 'd'], ['f', 'a'], ['d', 'c']];
-    expect(getBuildOrder(projects, dependencies).join()).to.equal('e,f,b,a,d,c');
-  });
-
-  it('should find the right order 2', function () {
-    const projects = ['a', 'b', 'c', 'd'];
-    const dependencies = [['a', 'b'], ['c', 'd']];
-    expect(getBuildOrder(projects, dependencies).join()).to.equal('a,b,c,d');
+    expect(getBuildOrder(projects, dependencies).join('')).to.be.oneOf([
+      'fabdce',
+      'fbadce',
+      'efabdc',
+      'efbadc',
+      'feabdc',
+      'febadc'
+    ]);
   });
 
   it('should work with complex graph', function () {
     const projects = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
     const dependencies = [['f', 'c'], ['f', 'b'], ['f', 'a'], ['c', 'a'], ['b', 'a'], ['a', 'e'], ['b', 'e'], ['d', 'g']];
-    expect(getBuildOrder(projects, dependencies).join()).to.equal('f,c,b,a');
+    expect(getBuildOrder(projects, dependencies).join('')).to.be.oneOf([
+      'fcbaedg',
+      'fbcaedg',
+      'fdgcbae',
+      'fdgbcae',
+      'dgfcbae',
+      'dgfbcae'
+    ]);
+  });
+
+  it('should return empty array if there is no solution', function () {
+    const projects = ['a', 'b'];
+    const dependencies = [['a', 'b'], ['b', 'a']];
+    expect(getBuildOrder(projects, dependencies)).to.eql([]);
   });
 });

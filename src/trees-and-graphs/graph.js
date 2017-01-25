@@ -73,12 +73,12 @@ class Graph {
     let sourceNode, targetNode;
 
     sourceNode = this.getNode(source);
-    targetNode = this.getNode(target);
+    if(target) targetNode = this.getNode(target);
 
-    sourceNode.adjacents.push(targetNode);
+    if(target) sourceNode.adjacents.push(targetNode);
 
     this.nodes.set(sourceNode.data, sourceNode);
-    this.nodes.set(targetNode.data, targetNode);
+    if(target) this.nodes.set(targetNode.data, targetNode);
 
     return sourceNode;
   }
@@ -99,6 +99,14 @@ class Graph {
       node = new Node(dataOrNode);
     }
     return node;
+  }
+
+  /**
+   * Return an array with all the nodes
+   * @returns {Array}
+   */
+  getNodes() {
+    return Array.from(this.nodes.values());
   }
 
   /**
