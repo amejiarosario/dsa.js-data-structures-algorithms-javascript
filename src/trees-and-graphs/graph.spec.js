@@ -12,7 +12,7 @@ describe('Graph', function () {
   describe('add', function () {
     it('should add two elements', function () {
       graph.add(0, 1);
-
+      expect(Array.from(graph.nodes.keys())).to.eql([0, 1]);
     });
 
     it('should allow one element to have two children', function () {

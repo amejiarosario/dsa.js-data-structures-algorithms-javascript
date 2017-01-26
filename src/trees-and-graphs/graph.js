@@ -27,20 +27,20 @@ class Node {
   }
 
   toArray() {
-    const string = [];
+    const array = [];
     const queue = new Queue();
     queue.add(this);
 
     while(!queue.isEmpty()) {
       const node = queue.remove();
-      string.push(node.data);
+      array.push(node.data);
 
       node.adjacents.forEach(function (adj) {
         if(adj) { queue.add(adj); }
       });
     }
 
-    return string;
+    return array;
   }
 
   toString() {
@@ -73,12 +73,12 @@ class Graph {
     let sourceNode, targetNode;
 
     sourceNode = this.getNode(source);
-    if(target) targetNode = this.getNode(target);
+    if(typeof target !== 'undefined') targetNode = this.getNode(target);
 
-    if(target) sourceNode.adjacents.push(targetNode);
+    if(typeof target !== 'undefined') sourceNode.adjacents.push(targetNode);
 
     this.nodes.set(sourceNode.data, sourceNode);
-    if(target) this.nodes.set(targetNode.data, targetNode);
+    if(typeof target !== 'undefined') this.nodes.set(targetNode.data, targetNode);
 
     return sourceNode;
   }
