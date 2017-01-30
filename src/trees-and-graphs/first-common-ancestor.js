@@ -11,7 +11,7 @@
  * idea # 2 use dfs to generate the ancestors of the two nodes in question. Then compare whats their first common ancestor if any.
  * time O(n) | space: O(h), where h is the height of the deepest tree
  *
- * Implementing idea #2
+ * Implementing idea #2...
  *
  * After reading the solution we can do better: time O(n) and space O(1)
  *
@@ -57,41 +57,44 @@ function getAncestor(node, node1, node2) {
   let matchingNode = null;
   let isAncestor = false;
 
-  if(node) {
-    const left = getAncestor(node.left, node1, node2);
-    if (left.isAncestor) {
-      return left;
-    }
+  if(!node) {
+    return {matchingNode, isAncestor};
+  }
 
-    const right = getAncestor(node.right, node1, node2);
-    if (right.isAncestor) {
-      return right;
-    }
+  const left = getAncestor(node.left, node1, node2);
+  if (left.isAncestor) {
+    return left;
+  }
 
-    if(node === node1 && node2 === node1) {
+  const right = getAncestor(node.right, node1, node2);
+  if (right.isAncestor) {
+    return right;
+  }
 
-      matchingNode = node;
-      isAncestor = true;
+  if(node === node1 && node2 === node1) {
 
-    } else if(left.matchingNode && right.matchingNode ||
-      left.matchingNode === node1 && node === node2 || left.matchingNode === node2 && node === node1 ||
-      right.matchingNode === node1 && node === node2 || right.matchingNode === node2 && node === node1) {
+    // already found both nodes since they are the same
+    matchingNode = node;
+    isAncestor = true;
 
-      // if we found both nodes already then we found an ancestor
-      matchingNode = node;
-      isAncestor = true;
+  } else if(left.matchingNode && right.matchingNode ||
+    left.matchingNode === node1 && node === node2 || left.matchingNode === node2 && node === node1 ||
+    right.matchingNode === node1 && node === node2 || right.matchingNode === node2 && node === node1) {
 
-    } else if(node === node1 || node === node2) {
+    // if we found both nodes already then we found an ancestor
+    matchingNode = node;
+    isAncestor = true;
 
-      // set match
-      matchingNode = node;
+  } else if(node === node1 || node === node2) {
 
-    } else {
+    // set match
+    matchingNode = node;
 
-      // bubble up partial match
-      return left.matchingNode ? left : right;
+  } else {
 
-    }
+    // bubble up partial match
+    return left.matchingNode ? left : right;
+
   }
 
   return {matchingNode, isAncestor};
