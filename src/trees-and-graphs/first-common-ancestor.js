@@ -9,39 +9,41 @@
  * time: O(n^2) | space: O(1)
  *
  * idea # 2 use dfs to generate the ancestors of the two nodes in question. Then compare whats their first common ancestor if any.
- * time O(n) | space: O(log(n)) height
+ * time O(n) | space: O(h), where h is the height of the deepest tree
  *
  * Implementing idea #2
+ *
+ * After reading the solution we can do better: time O(n) and space O(1)
+ *
+ * 1. Use DFS to iterate through the tree
+ * 2. if a current node matches either node1 or node2, then return it
+ * 3. if doesn't match return null
+ * 4. if a a side of the tree has previously return data then keep the info it has a ancestor
+ *
+ * Test cases
+ * 1. Both nodes are on the tree
+ * 2. One or both nodes are not in the tree
+ * 3. One node is the ancestor of the other
+ *
  *
  * @param graph
  * @param node1
  * @param node2
  */
 function getFirstCommonAncestor(graph, dataOrNode1, dataOrNode2) {
-  let ancestors1 = [];
-  let ancestors2 = [];
   const node1 = graph.getNode(dataOrNode1);
   const node2 = graph.getNode(dataOrNode2);
+  let result = null;
 
-  graph.getNodes().some(function (node) {
-    ancestors1 = [];
-    ancestors2 = [];
-    getAncestors(node, node1, node2, ancestors1, ancestors2);
-    // console.log(node.data, ancestors1.map((d)=>d.data), ancestors2.map((d)=>d.data))
-    return ancestors1.length && ancestors2.length;
+  const isFound = graph.getNodes().some(function (node) {
+    result = getAncestor(node, node1, node2);
+    return result.isAncestor;
   });
 
-  return findLastCommon(ancestors1, ancestors2);
-}
-
-function findLastCommon(array1, array2) {
-  const end = Math.min(array1.length, array2.length);
-
-  for(let i = end; i > 0; i--) {
-    if(array1[i-1] === array2[i-1]) {
-      return array1[i-1];
-    }
+  if(isFound) {
+    return result.matchingNode;
   }
+
 }
 
 /**
@@ -49,46 +51,50 @@ function findLastCommon(array1, array2) {
  * @param node
  * @param node1
  * @param node2
- * @param ancestors1
- * @param ancestors2
- * @returns {number} 0 none, 1 node1, 2 node2, 3 node1 and node2
+ * @returns {matchingNode: Node, isAncestor: boolean} Node matches either Node1, Node2 or common ancestor (if flag is true).
  */
-function getAncestors(node, node1, node2, ancestors1, ancestors2) {
-  if(node === node1) {
-    ancestors1.unshift(node);
-    return 1;
-  } else if (node === node2) {
-    ancestors2.unshift(node);
-    return 2;
-  } else {
-    let nodesFound = 0;
+function getAncestor(node, node1, node2) {
+  let matchingNode = null;
+  let isAncestor = false;
 
-    node.adjacents.forEach(function (adj) {
-      const found = getAncestors(adj, node1, node2, ancestors1, ancestors2);
+  if(node) {
+    const left = getAncestor(node.left, node1, node2);
+    if (left.isAncestor) {
+      return left;
+    }
 
-      if(found === 1 || nodesFound === 3) {
-        ancestors1.unshift(node);
+    const right = getAncestor(node.right, node1, node2);
+    if (right.isAncestor) {
+      return right;
+    }
 
-        if(nodesFound === 2) {
-          nodesFound = 3;
-        } else {
-          nodesFound = 1;
-        }
-      }
+    if(node === node1 && node2 === node1) {
 
-      if(found === 2 || nodesFound === 3) {
-        ancestors2.unshift(node);
+      matchingNode = node;
+      isAncestor = true;
 
-        if(nodesFound === 1) {
-          nodesFound = 3;
-        } else {
-          nodesFound = 2;
-        }
-      }
-    });
+    } else if(left.matchingNode && right.matchingNode ||
+      left.matchingNode === node1 && node === node2 || left.matchingNode === node2 && node === node1 ||
+      right.matchingNode === node1 && node === node2 || right.matchingNode === node2 && node === node1) {
 
-    return nodesFound;
+      // if we found both nodes already then we found an ancestor
+      matchingNode = node;
+      isAncestor = true;
+
+    } else if(node === node1 || node === node2) {
+
+      // set match
+      matchingNode = node;
+
+    } else {
+
+      // bubble up partial match
+      return left.matchingNode ? left : right;
+
+    }
   }
+
+  return {matchingNode, isAncestor};
 }
 
 
