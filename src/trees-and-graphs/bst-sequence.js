@@ -25,39 +25,38 @@ function getSequences(root) {
 /**
  * Weave two arrays with a given prefix
  */
-function weave(prefix = [], array1 = [[]], array2 = [[]]) {
+function weave(prefix = [], arrays1 = [[]], arrays2 = [[]]) {
   let result = [];
+
+  // TODO: validations of prefix as an array and array1/2 as a nested array
 
   // convert prefix to array if is not any
   if(prefix && !Array.isArray(prefix)) {
     prefix = [prefix];
   }
 
-  // return prefix if arrays are empty
-  if((!array1.length && !array2.length) || (!array1.some(subarrayHasSomething) && !array2.some(subarrayHasSomething))) {
-    result.push(prefix);
-  }
+  arrays1.forEach((array1) => {
+    arrays2.forEach((array2) => {
 
-  array1.forEach((a) => {
-    if(a.length) {
-      result = result.concat(weave(prefix.concat(a), [[]], array2));
-    }
+      if(!array1.length && !array2.length) {
+        result.push(prefix);
+
+      } else if(!array1.length) {
+        result = result.concat(weave(prefix.concat(array2), [array1]));
+
+      } else if(!array2.length) {
+        result = result.concat(weave(prefix.concat(array1), [array2]));
+      } else {
+        result = result.concat(weave(prefix.concat(array1), [array2]));
+        result = result.concat(weave(prefix.concat(array2), [array1]));
+      }
+    });
   });
 
-  array2.forEach((b) => {
-    if(b.length) {
-      result = result.concat(weave(prefix.concat(b), array1, [[]]));
-    }
-  });
-
-  // console.log('\nweave (', prefix, array1, array2, ')');
+  // console.log('\nweave (', prefix, arrays1, arrays2, ')');
   // console.log('\t =>', result);
 
   return result;
-}
-
-function subarrayHasSomething(array) {
-  return array.length;
 }
 
 module.exports = {getSequences, weave};

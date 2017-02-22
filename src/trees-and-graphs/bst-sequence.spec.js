@@ -11,31 +11,60 @@ describe('weave', function () {
     expect(weave()).to.eql([[]]);
   });
 
-  it('should weave given one array', function () {
+  it('should append to prefix arrays2 if arrays1 is empty', function () {
     expect(weave([2, 1], [[]], [[3]])).to.eql([
       [2, 1, 3]
     ]);
+  });
 
-    expect(weave([2, 3], [[1]])).to.eql([
-      [2, 3, 1]
+  it('should append to prefix arrays1 if arrays2 is empty', function () {
+    expect(weave([2, 3], [[1, 4]])).to.eql([
+      [2, 3, 1, 4]
     ]);
   });
 
   it('should weave given two arrays', function () {
     const prefix = 2;
-    const array1 = [[1]];
-    const array2 = [[3]];
+    const arrays1 = [[1]];
+    const arrays2 = [[3]];
     const weaved = [
       [2, 1, 3],
       [2, 3, 1]
     ];
-    expect(weave(prefix, array1, array2)).to.eql(weaved);
+    expect(weave(prefix, arrays1, arrays2)).to.eql(weaved);
   });
 
-  it.only('should cross array 1 with array 2 keeping the same order', function () {
+  /**
+   * weave(5, [3,2], [8]) = weave([5,3,2], [], [8]) + weave([5, 8], [3,2], [])
+   */
+  it('should cross array 1 with array 2 keeping the same order', function () {
     const prefix = 5;
-    const array1 = [[3, 2]];
-    const array2 = [[8, 6]];
+    const arrays1 = [[3, 2]];
+    const arrays2 = [[8]];
+    const weaved = [
+      [5, 3, 2, 8],
+      [5, 3, 8, 2],
+      [5, 8, 3, 2],
+    ];
+    expect(weave(prefix, arrays1, arrays2)).to.eql(weaved);
+  });
+
+  it('should cross array 2 with array 1 keeping the same order', function () {
+    const prefix = 5;
+    const arrays1 = [[3]];
+    const arrays2 = [[8, 9]];
+    const weaved = [
+      [5, 3, 8, 9],
+      [5, 8, 3, 9],
+      [5, 8, 9, 3],
+    ];
+    expect(weave(prefix, arrays1, arrays2)).to.eql(weaved);
+  });
+
+  it('should cross array 1 with array 2 keeping the same order', function () {
+    const prefix = 5;
+    const arrays1 = [[3, 2]];
+    const arrays2 = [[8, 6]];
     const weaved = [
       [5, 3, 2, 8, 6],
       [5, 3, 8, 2, 6],
@@ -43,8 +72,8 @@ describe('weave', function () {
       [5, 8, 3, 6, 2],
       [5, 8, 6, 3, 2],
     ];
-    expect(weave(prefix, array1, array2)).to.eql(weaved);
-  })
+    expect(weave(prefix, arrays1, arrays2)).to.eql(weaved);
+  });
 });
 
 xdescribe('Graph: BST sequence', function () {
