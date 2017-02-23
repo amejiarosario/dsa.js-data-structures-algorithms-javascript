@@ -47,14 +47,31 @@ function weave(prefix = [], arrays1 = [[]], arrays2 = [[]]) {
       } else if(!array2.length) {
         result = result.concat(weave(prefix.concat(array1), [array2]));
       } else {
-        result = result.concat(weave(prefix.concat(array1), [array2]));
-        result = result.concat(weave(prefix.concat(array2), [array1]));
+        // weave the arrays
+        array2.forEach(function (_, i2) {
+          array1.forEach(function (_, i1) {
+            results.push( prefix.concat(array1.slice(i1), array2.slice(0, i2 + 1), array1.slice(), array2.slice()) );
+          });
+        });
+
+        // array1.forEach((_, i, array) => {
+        //   // if(array.slice(i+1).length == 1) { return; }
+        //   result = result.concat(weave(prefix.concat(array1.slice(0, i + 1)), [array1.slice(i + 1)], [array2]));
+        // });
+        //
+        // array2.forEach((_, i, array) => {
+        //   // if(array.slice(i+1).length == 1) { return; }
+        //   result = result.concat(weave(prefix.concat(array2.slice(0, i + 1)), [array1], [array2.slice(i + 1)]));
+        // });
+
+        // result = result.concat(weave(prefix.concat(array1), [array2]));
+        // result = result.concat(weave(prefix.concat(array2), [array1]));
       }
     });
   });
 
-  // console.log('\nweave (', prefix, arrays1, arrays2, ')');
-  // console.log('\t =>', result);
+  console.log('\nweave (', prefix, arrays1, arrays2, ')');
+  console.log('\t =>', result);
 
   return result;
 }

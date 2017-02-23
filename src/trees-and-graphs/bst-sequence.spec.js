@@ -23,6 +23,9 @@ describe('weave', function () {
     ]);
   });
 
+  /**
+   * weave(2, 1, 3) = weave([2,1], 3) + weave([2,3], 1)
+   */
   it('should weave given two arrays', function () {
     const prefix = 2;
     const arrays1 = [[1]];
@@ -35,7 +38,7 @@ describe('weave', function () {
   });
 
   /**
-   * weave(5, [3,2], [8]) = weave([5,3,2], [], [8]) + weave([5, 8], [3,2], [])
+   * weave(5, [3,2], [8]) = weave([5,3], [2], [8]) + weave([5, 8], [3,2], [])
    */
   it('should cross array 1 with array 2 keeping the same order', function () {
     const prefix = 5;
@@ -45,6 +48,41 @@ describe('weave', function () {
       [5, 3, 2, 8],
       [5, 3, 8, 2],
       [5, 8, 3, 2],
+    ];
+    expect(weave(prefix, arrays1, arrays2)).to.eql(weaved);
+  });
+
+  /**
+   * weave([5,3,2], 1, 8) + weave([5,3,8])
+   */
+  it('should cross array 1 with array 2 keeping the same order', function () {
+    const prefix = 5;
+    const arrays1 = [[3, 2, 1]];
+    const arrays2 = [[8]];
+    const weaved = [
+      [5, 3, 2, 1, 8],
+      [5, 3, 2, 8, 1],
+      [5, 3, 8, 2, 1],
+      [5, 8, 3, 2, 1],
+    ];
+    expect(weave(prefix, arrays1, arrays2)).to.eql(weaved);
+  });
+
+  it('should cross array 1 with array 2 keeping the same order', function () {
+    const prefix = 5;
+    const arrays1 = [[3, 2, 1]];
+    const arrays2 = [[8, 9]];
+    const weaved = [
+      [5, 3, 2, 1, 8, 9],
+      [5, 3, 2, 8, 1, 9],
+      [5, 3, 2, 8, 9, 1],
+      [5, 3, 8, 2, 1, 9],
+      [5, 3, 8, 2, 9, 1],
+      [5, 3, 8, 9, 2, 1],
+      [5, 8, 3, 2, 1, 9],
+      [5, 8, 3, 2, 9, 1],
+      [5, 8, 3, 9, 2, 1],
+      [5, 8, 9, 3, 2, 1],
     ];
     expect(weave(prefix, arrays1, arrays2)).to.eql(weaved);
   });
