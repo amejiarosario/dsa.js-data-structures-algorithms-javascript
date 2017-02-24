@@ -132,9 +132,10 @@ describe('weave', function () {
     const weaved = [
       [5, 3, 2, 8, 6],
       [5, 3, 8, 2, 6],
+      [5, 3, 8, 6, 2],
       [5, 8, 3, 2, 6],
       [5, 8, 3, 6, 2],
-      [5, 8, 6, 3, 2],
+      [5, 8, 6, 3, 2]
     ];
     expect(weave(prefix, arrays1, arrays2)).to.eql(weaved);
   });

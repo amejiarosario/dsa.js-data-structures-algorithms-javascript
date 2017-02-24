@@ -50,15 +50,8 @@ function weave(prefix = [], arrays1 = [[]], arrays2 = [[]]) {
 
       } else {
         // weave the arrays
-        array1.forEach(function (_, i, array) {
-          if(array.length > 1 && i >= Math.ceil(array.length/2)) { return; } // avoid repetition
-          result = result.concat(weave(prefix.concat(array1.slice(0, i+1)), [array1.slice(i+1)], [array2]));
-        });
-
-        array2.forEach(function (_, i, array) {
-          if(array.length > 1 && i >= Math.ceil(array.length/2)) { return; } // avoid repetition
-          result = result.concat(weave(prefix.concat(array2.slice(0, i+1)), [array1], [array2.slice(i+1)]));
-        });
+        result = result.concat(weave(prefix.concat(array1[0]), array1.slice(1), array2));
+        result = result.concat(weave(prefix.concat(array2[0]), array1, array2.slice(1)));
       }
     });
   });
