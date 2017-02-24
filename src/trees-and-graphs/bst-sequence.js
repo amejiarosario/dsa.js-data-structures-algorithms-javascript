@@ -45,14 +45,9 @@ function weave(prefix = [], arrays1 = [[]], arrays2 = [[]]) {
   arrays1.forEach((array1) => {
     arrays2.forEach((array2) => {
 
-      if(!array1.length && !array2.length) {
-        result.push(prefix);
+      if(!array1.length || !array2.length) {
+        result = result.concat([prefix.concat(array1, array2)]);
 
-      } else if(!array1.length) {
-        result = result.concat(weave(prefix.concat(array2), [array1], []));
-
-      } else if(!array2.length) {
-        result = result.concat(weave(prefix.concat(array1), [], [array2]));
       } else {
         // weave the arrays
         array1.forEach(function (_, i, array) {
