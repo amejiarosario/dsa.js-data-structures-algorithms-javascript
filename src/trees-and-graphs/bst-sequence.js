@@ -39,7 +39,7 @@ function weave(prefix = [], arrays1 = [[]], arrays2 = [[]]) {
   arrays1 = Array.isArray(arrays1[0]) ? arrays1 : [arrays1];
   arrays2 = Array.isArray(arrays2[0]) ? arrays2 : [arrays2];
 
-  console.log('*weave (', prefix, arrays1, arrays2, ')');
+  // console.log('*weave (', prefix, arrays1, arrays2, ')');
 
   // process weaving recursively
   arrays1.forEach((array1) => {
@@ -56,8 +56,8 @@ function weave(prefix = [], arrays1 = [[]], arrays2 = [[]]) {
     });
   });
 
-  console.log('\tweave (', prefix, arrays1, arrays2, ')');
-  console.log('\t\t =>', result, '\n');
+  // console.log('\tweave (', prefix, arrays1, arrays2, ')');
+  // console.log('\t\t =>', result, '\n');
 
   return result;
 }

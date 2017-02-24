@@ -141,7 +141,7 @@ describe('weave', function () {
   });
 });
 
-xdescribe('Graph: BST sequence', function () {
+describe('Graph: BST sequence', function () {
   let graph;
 
   beforeEach(function () {
@@ -165,7 +165,7 @@ xdescribe('Graph: BST sequence', function () {
    *         1        4
    *           2
    */
-  it('works', function () {
+  it('works 3', function () {
     const root = graph.add(3, 1);
     graph.add(3, 4);
     const one = graph.getNode(1);
