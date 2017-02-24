@@ -28,13 +28,20 @@ function getSequences(root) {
 function weave(prefix = [], arrays1 = [[]], arrays2 = [[]]) {
   let result = [];
 
-  // TODO: validations of prefix as an array and array1/2 as a nested array
-
-  // convert prefix to array if is not any
-  if(prefix && !Array.isArray(prefix)) {
-    prefix = [prefix];
+  // in case of two arguments let's asume it is for array 1 and 2 and that prefix is empty
+  if(arguments.length === 2) {
+    [arrays1, arrays2] = [prefix, arrays1];
+    prefix = [];
   }
 
+  // make sure arrays 1 and 2 are an array of arrays and prefix is an array
+  prefix = Array.isArray(prefix) ? prefix : [prefix];
+  arrays1 = Array.isArray(arrays1[0]) ? arrays1 : [arrays1];
+  arrays2 = Array.isArray(arrays2[0]) ? arrays2 : [arrays2];
+
+  console.log('*weave (', prefix, arrays1, arrays2, ')');
+
+  // process weaving recursively
   arrays1.forEach((array1) => {
     arrays2.forEach((array2) => {
 
@@ -42,36 +49,27 @@ function weave(prefix = [], arrays1 = [[]], arrays2 = [[]]) {
         result.push(prefix);
 
       } else if(!array1.length) {
-        result = result.concat(weave(prefix.concat(array2), [array1]));
+        result = result.concat(weave(prefix.concat(array2), [array1], []));
 
       } else if(!array2.length) {
-        result = result.concat(weave(prefix.concat(array1), [array2]));
+        result = result.concat(weave(prefix.concat(array1), [], [array2]));
       } else {
         // weave the arrays
-        array2.forEach(function (_, i2) {
-          array1.forEach(function (_, i1) {
-            results.push( prefix.concat(array1.slice(i1), array2.slice(0, i2 + 1), array1.slice(), array2.slice()) );
-          });
+        array1.forEach(function (_, i, array) {
+          if(array.length > 1 && i >= Math.ceil(array.length/2)) { return; } // avoid repetition
+          result = result.concat(weave(prefix.concat(array1.slice(0, i+1)), [array1.slice(i+1)], [array2]));
         });
 
-        // array1.forEach((_, i, array) => {
-        //   // if(array.slice(i+1).length == 1) { return; }
-        //   result = result.concat(weave(prefix.concat(array1.slice(0, i + 1)), [array1.slice(i + 1)], [array2]));
-        // });
-        //
-        // array2.forEach((_, i, array) => {
-        //   // if(array.slice(i+1).length == 1) { return; }
-        //   result = result.concat(weave(prefix.concat(array2.slice(0, i + 1)), [array1], [array2.slice(i + 1)]));
-        // });
-
-        // result = result.concat(weave(prefix.concat(array1), [array2]));
-        // result = result.concat(weave(prefix.concat(array2), [array1]));
+        array2.forEach(function (_, i, array) {
+          if(array.length > 1 && i >= Math.ceil(array.length/2)) { return; } // avoid repetition
+          result = result.concat(weave(prefix.concat(array2.slice(0, i+1)), [array1], [array2.slice(i+1)]));
+        });
       }
     });
   });
 
-  console.log('\nweave (', prefix, arrays1, arrays2, ')');
-  console.log('\t =>', result);
+  console.log('\tweave (', prefix, arrays1, arrays2, ')');
+  console.log('\t\t =>', result, '\n');
 
   return result;
 }

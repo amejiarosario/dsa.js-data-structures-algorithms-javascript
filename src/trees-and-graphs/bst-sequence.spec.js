@@ -18,7 +18,7 @@ describe('weave', function () {
   });
 
   it('should append to prefix arrays1 if arrays2 is empty', function () {
-    expect(weave([2, 3], [[1, 4]])).to.eql([
+    expect(weave([2, 3], [[1, 4]], [])).to.eql([
       [2, 3, 1, 4]
     ]);
   });
@@ -35,6 +35,32 @@ describe('weave', function () {
       [2, 3, 1]
     ];
     expect(weave(prefix, arrays1, arrays2)).to.eql(weaved);
+  });
+
+  it('should cross array 1 with 1 element and array 2 with 2 elements', function () {
+    const prefix = 1;
+    const arrays1 = [2];
+    const arrays2 = [3, 4];
+    const weaved = [
+      [1, 2, 3, 4],
+      [1, 3, 2, 4],
+      [1, 3, 4, 2],
+    ];
+    expect(weave(prefix, arrays1, arrays2)).to.eql(weaved);
+  });
+
+  it('should weave two arrays with 2 elements each and no prefix', function () {
+    const arrays1 = [1, 2];
+    const arrays2 = [3, 4];
+    const weaved = [
+      [1, 2, 3, 4],
+      [1, 3, 2, 4],
+      [1, 3, 4, 2],
+      [3, 1, 2, 4],
+      [3, 1, 4, 2],
+      [3, 4, 1, 2],
+    ];
+    expect(weave(arrays1, arrays2)).to.eql(weaved);
   });
 
   /**
@@ -55,7 +81,7 @@ describe('weave', function () {
   /**
    * weave([5,3,2], 1, 8) + weave([5,3,8])
    */
-  it('should cross array 1 with array 2 keeping the same order', function () {
+  it('should cross array 1 with 3 elements and array 2 with one', function () {
     const prefix = 5;
     const arrays1 = [[3, 2, 1]];
     const arrays2 = [[8]];
