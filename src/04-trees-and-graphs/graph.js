@@ -1,4 +1,4 @@
-const Queue = require('../stacks-and-queues/queue');
+const Queue = require('./queue');
 
 /**
  * Node with data and reference to adjacent nodes

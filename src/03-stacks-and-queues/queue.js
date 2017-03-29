@@ -1,4 +1,4 @@
-const LinkedList = require('../linked-list/linkedlist');
+const LinkedList = require('./linkedlist');
 
 class Queue {
   constructor(){

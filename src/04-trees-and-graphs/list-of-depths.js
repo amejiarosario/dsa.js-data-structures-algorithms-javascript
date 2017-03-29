@@ -1,4 +1,4 @@
-const LinkedList = require('../linked-list/linkedlist');
+const LinkedList = require('./linkedlist');
 
 function listOfDepths(root) {
   const result = [];
@@ -27,7 +27,7 @@ function listOfDepths(root) {
 
 // ------- Alternative solution
 
-const Queue = require('../stacks-and-queues/queue');
+const Queue = require('./queue');
 
 function listOfDepths2(root) {
   const queue = new Queue();

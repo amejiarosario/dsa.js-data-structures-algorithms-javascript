@@ -1,5 +1,5 @@
 const Graph = require('./graph').Graph;
-const Queue = require('../stacks-and-queues/queue');
+const Queue = require('./queue');
 
 /**
  * Test if two nodes are connected using BFS
