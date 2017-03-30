@@ -36,12 +36,8 @@ function clearBit(n, i) {
  * @returns {number} new number with a given bit set/cleared
  */
 function updateBit(n, i, b) {
-  const mask = (1 << i);
-  if(b === 0) {
-    return n & ~mask;
-  } else {
-    return n | mask;
-  }
+  const mask = ~(1 << i);
+  return (n & mask) | (b << i);
 }
 
 module.exports = {

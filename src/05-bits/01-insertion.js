@@ -17,7 +17,11 @@
 function insertion(n, m, i, j) {
   // TODO validate j > i and N > N
 
-  return n;
+  // mask to clear n between j and i
+  let mask = ~(1 << j);
+  mask = mask | ((1 << (i+1)) - 1);
+
+  return (n & mask) | (m << i);
 }
 
 module.exports = insertion;
