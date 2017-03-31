@@ -21,6 +21,7 @@ function insertion(n, m, i, j) {
   let mask = ~(1 << j);
   mask = mask | ((1 << (i+1)) - 1);
 
+  // shift m and merge with n
   return (n & mask) | (m << i);
 }
 

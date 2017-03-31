@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const insertion = require('./01-insertion');
 
-describe('Bit Manipulation', function() {
+describe('Bit Manipulation: insertion', function() {
   it('should insert m on n when i=0', function() {
     const n = 0b1100,
           m = 0b0110,
