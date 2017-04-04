@@ -9,4 +9,8 @@ describe('Bit Manipulation: conversion', function() {
   it('one and zero', function() {
     expect(conversion(0b01, 0b00)).to.equal(1);
   });
+
+  it('equals', function() {
+    expect(conversion(0b1010, 0b1010)).to.equal(0);
+  });
 });

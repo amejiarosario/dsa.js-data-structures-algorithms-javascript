@@ -20,10 +20,8 @@ function countOnes(num) {
   let ones = 0;
 
   while(num > 0) {
-    if(num & 1) {
-      ones++;
-    }
-    num >>= 1;
+    ones++;
+    num &= (num - 1); // clear least significant bit
   }
 
   return ones;
@@ -35,7 +33,11 @@ module.exports = conversion;
 /*
 xor
 
+100 & 011 = 0
 
+1010 & 1001 = 1000
+
+11011 &
 
 
  */
