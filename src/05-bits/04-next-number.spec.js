@@ -13,4 +13,9 @@ describe('Bit Manipulation: nextNumber', function() {
   it('largest number already', function() {
     expect(nextNumber(0b100)).to.eql([0b1, 0b100]);
   });
+
+  it('example', function() {
+    expect(nextNumber(13948)).to.eql([0b1, 0b100]);
+    expect(nextNumber(0b11011001111100)).to.eql([0b1, 0b100]);
+  });
 });
