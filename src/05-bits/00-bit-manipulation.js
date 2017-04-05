@@ -30,9 +30,9 @@ function clearBit(n, i) {
 
 /**
  * Set bit to either 1 or 0
- * @param n
- * @param i
- * @param b
+ * @param n number
+ * @param i index
+ * @param b bit
  * @returns {number} new number with a given bit set/cleared
  */
 function updateBit(n, i, b) {
