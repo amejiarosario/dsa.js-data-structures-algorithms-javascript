@@ -54,9 +54,25 @@ function updateBit2(n, i, b) {
   return (n & mask) | (b << i);
 }
 
+/**
+ * Set number to 1 from start (inclusively) to end (exclusively)
+ * @param n number
+ * @param start
+ * @param end
+ * @returns {number}
+ */
+function setBitsRange(n, start = 0, end = 32) {
+  if(!(end - start) || start > end || start < 0) { return n; }
+  let mask = (~0 >>> (32 - (end - start)));
+  if(end - start === 32) { return mask; }
+  mask <<= start;
+  return n | mask;
+}
+
 module.exports = {
   getBit,
   setBit,
   clearBit,
-  updateBit
+  updateBit,
+  setBitsRange
 };

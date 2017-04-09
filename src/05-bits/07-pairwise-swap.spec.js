@@ -21,4 +21,8 @@ describe('Bit Manipulation: pairwiseSwap', function() {
   it('larger', function() {
     expect(pairwiseSwap(0b0110010101)).to.equal(0b1001101010);
   });
+
+  xit('max safe integer (js)', function () {
+    expect(pairwiseSwap(Number.MAX_SAFE_INTEGER)).to.equal(Number.MAX_SAFE_INTEGER);
+  })
 });

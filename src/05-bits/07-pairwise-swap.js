@@ -16,4 +16,13 @@ function pairwiseSwap(number) {
   return swapped;
 }
 
+/**
+ * Shift odd numbers one place to the right and then even bits one to the left
+ * @param number
+ * @returns {number}
+ */
+function swapOddEvenBits(number) {
+  return ((number & 0xaaaaaaaa) >>> 1) | ((number & 0x55555555) << 1)
+}
+
 module.exports = pairwiseSwap;
