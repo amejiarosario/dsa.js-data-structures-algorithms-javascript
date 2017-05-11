@@ -18,7 +18,7 @@ class Board {
       this.board[column] = [];
 
       for(let row = 0; row < rows; row++ ){
-        this.board[column][row] = new Square(column, row);
+        this.board[column][row] = new Cell(column, row);
       }
     }
 
@@ -35,6 +35,7 @@ class Board {
       for(let bomb = 0; bomb < parseInt(mines); bomb++ ) {
         const row = parseInt(Math.random() * this.rows);
         const col = parseInt(Math.random() * this.columns);
+        // TODO: validate that the pair row, col never repeats
         minesCoordinates.push([col, row]);
       }
     }
@@ -42,15 +43,16 @@ class Board {
     minesCoordinates.forEach((v) => {
       const col = v[0];
       const row = v[1];
-      const square = this.getSquare(col, row);
+      const cell = this.getCell(col, row);
 
-      if(!square) return;
+      if(!cell) return;
+      if(cell.hasBomb()) { throw new Error('This cell already has a bomb!'); }
 
-      square.setBomb();
+      cell.setBomb();
       this.mines++;
 
       // increase adjacent numbers
-      this.getAdjacents(col, row).forEach((square) => square.increaseNumber());
+      this.getAdjacents(col, row).forEach((cell) => cell.increaseNumber());
     });
   }
 
@@ -58,7 +60,7 @@ class Board {
     return Array.isArray(this.mines) ? this.mines.length : this.mines;
   }
 
-  getSquare(col, row) {
+  getCell(col, row) {
     if(col < 0 || col >= this.columns || row < 0 || row >= this.rows) {
       return;
     } else {
@@ -74,9 +76,9 @@ class Board {
         if(x === y && x === 0) {
           continue;
         }
-        const square = this.getSquare(col + y, row + x);
-        if(square) {
-          adjacents.push(square);
+        const cell = this.getCell(col + y, row + x);
+        if(cell) {
+          adjacents.push(cell);
         }
       }
     }
@@ -85,14 +87,14 @@ class Board {
   }
 
   revealNumbers(col, row) {
-    this.getAdjacents(col, row).forEach((square) => {
-      if(!square.isHidden) { return; }
+    this.getAdjacents(col, row).forEach((cell) => {
+      if(!cell.isHidden) { return; }
 
       this.uncovered++;
-      square.discover();
+      cell.discover();
 
-      if(square.isEmpty()) {
-        this.revealNumbers(square.col, square.row);
+      if(cell.isEmpty()) {
+        this.revealNumbers(cell.col, cell.row);
       }
     });
   }
@@ -105,17 +107,17 @@ class Board {
    * @returns {*}
    */
   play(col, row, action = 'discover') {
-    const square = this.getSquare(col, row);
-    const value = square[action]();
+    const cell = this.getCell(col, row);
+    const value = cell[action]();
     if(action === 'flag') { return; }
 
     this.uncovered++;
 
-    if(square.hasBomb()) {
+    if(cell.hasBomb()) {
       throw 'Game Over';
     }
 
-    if(square.isEmpty()) {
+    if(cell.isEmpty()) {
       this.revealNumbers(col, row);
     }
 
@@ -139,8 +141,8 @@ class Board {
     for(let column = 0; column < this.board.length; column++ ) {
       string += '\n';
       for(let row = 0; row < this.board[column].length; row++ ) {
-        const square = this.board[column][row];
-        const val = fn ? (fn instanceof Function ? fn(square) : square[fn]) : square.getValue();
+        const cell = this.board[column][row];
+        const val = fn ? (fn instanceof Function ? fn(cell) : cell[fn]) : cell.getValue();
         string += `\t ${val}`;
       }
     }
@@ -148,8 +150,11 @@ class Board {
   }
 }
 
-class Square {
-  constructor(col, row, value = Square.EMPTY) {
+/**
+ * Cell
+ */
+class Cell {
+  constructor(col, row, value = Cell.EMPTY) {
     this.value = value;
     this.col = col;
     this.row = row;
@@ -158,11 +163,11 @@ class Square {
   }
 
   setBomb() {
-    this.value = Square.BOMB;
+    this.value = Cell.BOMB;
   }
 
   increaseNumber() {
-    if(this.value === Square.BOMB) {
+    if(this.value === Cell.BOMB) {
       return;
     }
 
@@ -176,11 +181,11 @@ class Square {
   }
 
   hasBomb() {
-    return this.value === Square.BOMB
+    return this.value === Cell.BOMB
   }
 
   isEmpty() {
-    return this.value === Square.EMPTY;
+    return this.value === Cell.EMPTY;
   }
 
   discover() {
@@ -197,7 +202,7 @@ class Square {
   }
 }
 
-Square.EMPTY = '.';
-Square.BOMB = '*';
+Cell.EMPTY = '.';
+Cell.BOMB = '*';
 
 module.exports = Minesweeper;
