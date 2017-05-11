@@ -1,14 +1,12 @@
 class Othello {
   constructor() {
-    this.board = new Board(8);
+    this.board = new Board(10);
     this.player1 = new Player(Piece.WHITE, this.board);
     this.player2 = new Player(Piece.BLACK, this.board);
   }
 }
 
-class Piece {
-
-}
+const Piece = {};
 
 // Piece.WHITE = Symbol('x');
 // Piece.BLACK = Symbol('o');
@@ -157,3 +155,5 @@ function main() {
 }
 
 main();
+
+module.exports = Othello;
