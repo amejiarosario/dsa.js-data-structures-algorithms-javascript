@@ -5,11 +5,22 @@ class HashTable {
   }
 
   set(key, value) {
-    this.table[this.hash(key)] = value;
+    if(!this.table[this.hash(key)]) {
+      this.table[this.hash(key)] = [];
+    }
+    this.table[this.hash(key)].push({key, value});
   }
 
   get(key) {
-    return this.table[this.hash(key)];
+    const bucket = this.table[this.hash(key)];
+
+    if(bucket) {
+      for(let b of bucket) {
+        if(JSON.stringify(b.key) === JSON.stringify(key)) {
+          return b.value;
+        }
+      }
+    }
   }
 
   hash(key, max) {

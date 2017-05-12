@@ -2,19 +2,26 @@ const expect = require('chai').expect;
 const HashTable = require('./hash-table');
 
 describe('HashTable', function() {
-  it('should set and element and get it', function () {
+  it('string key', function () {
     const hash = new HashTable();
     hash.set('adrian', 100);
     expect(hash.get('adrian')).to.equal(100);
   });
 
-  it('should set an array as key and get it', function () {
+  it('array key', function () {
     const hash = new HashTable();
     hash.set([10, 293], 'bomb');
     expect(hash.get([10,   293])).to.equal('bomb');
   });
 
-  it('should take size as parameter', function () {
+  it('object key', function () {
+    const hash = new HashTable();
+    hash.set({a: 1}, 'bomb');
+    expect(hash.get({a:  1})).to.equal('bomb');
+  });
+
+
+  it('number key', function () {
     const hash = new HashTable(1);
     hash.set(1, 'test');
     expect(hash.get(1)).to.equal('test');
