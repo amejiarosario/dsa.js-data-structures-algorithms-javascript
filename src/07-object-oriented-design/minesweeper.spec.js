@@ -4,7 +4,7 @@ const Minesweeper = require('./minesweeper');
 describe('Minesweeper', function() {
 
   it('should start with undiscover cells', function() {
-    const game = new Minesweeper(2, 2, 2);
+    const game = new Minesweeper(2, 2, 3);
     expect(game.board.toString()).to.equal(`
 	 ?	 ?
 	 ?	 ?`);

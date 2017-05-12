@@ -25,6 +25,10 @@ class Board {
     this.setMines(mines);
   }
 
+  getTotalCells() {
+    return this.rows * this.columns;
+  }
+
   setMines(mines) {
     this.mines = 0;
     let minesCoordinates = [];
@@ -32,17 +36,46 @@ class Board {
     if(Array.isArray(mines)) {
       minesCoordinates = mines;
     } else {
-      for(let bomb = 0; bomb < parseInt(mines); bomb++ ) {
-        const row = parseInt(Math.random() * this.rows);
-        const col = parseInt(Math.random() * this.columns);
-        // TODO: validate that the pair row, col never repeats
-        minesCoordinates.push([col, row]);
+      // Check if mines exceed the number of cells
+      const minesCount = parseInt(mines);
+
+      if(minesCount > this.getTotalCells()) {
+        throw new Error(`Number of mines ${minesCount} is larger than the board ${this.getTotalCells()}`);
       }
+
+      // set bombs in order
+      let row = 0;
+      let col = 0;
+      const minesMap = new Map();
+
+      for(let bomb = 0; bomb < minesCount; bomb++ ) {
+        if(!this.getCell(col, row)) {
+          row = 0;
+          col++;
+        }
+
+        minesMap.set(`${col},${row++}`, true);
+      }
+
+      // shuffle mines position
+      const shuffledMines = new Map();
+
+      for(let coord of minesMap.keys()) {
+        const r = parseInt(Math.random() * this.rows);
+        const c = parseInt(Math.random() * this.columns);
+
+        shuffledMines.set(`${c},${r}`, true);
+        if(minesMap.has(`${c},${r}`)) {
+          shuffledMines.set(coord, true);
+        }
+      }
+
+      minesCoordinates = Array.from(shuffledMines.keys()).map((v) => v.split(','));
     }
 
     minesCoordinates.forEach((v) => {
-      const col = v[0];
-      const row = v[1];
+      const col = parseInt(v[0]);
+      const row = parseInt(v[1]);
       const cell = this.getCell(col, row);
 
       if(!cell) return;
