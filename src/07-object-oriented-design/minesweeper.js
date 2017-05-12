@@ -53,7 +53,6 @@ class Board {
           row = 0;
           col++;
         }
-
         minesMap.set(`${col},${row++}`, true);
       }
 
