@@ -34,4 +34,13 @@ describe('HashTable', function() {
     expect(hash.get('en')).to.equal('test');
     expect(hash.get('sp')).to.equal('prueba');
   });
+
+  it('should remove elements', function () {
+    const hash = new HashTable(1);
+    hash.set('sp', 'prueba');
+    hash.set('en', 'test');
+    hash.remove('en');
+    expect(hash.get('en')).to.equal(undefined);
+    expect(hash.get('sp')).to.equal('prueba');
+  });
 });

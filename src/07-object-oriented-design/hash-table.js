@@ -1,3 +1,5 @@
+const t = JSON.stringify;
+
 class HashTable {
   constructor(size = 100) {
     this.size = +size;
@@ -13,18 +15,25 @@ class HashTable {
 
   get(key) {
     const bucket = this.table[this.hash(key)];
+    if(!bucket) { return; }
 
-    if(bucket) {
-      for(let b of bucket) {
-        if(JSON.stringify(b.key) === JSON.stringify(key)) {
-          return b.value;
-        }
+    for(let b of bucket) {
+      if(t(b.key) === t(key)) {
+        return b.value;
       }
     }
   }
 
-  hash(key, max) {
-    return JSON.stringify(key).split('').reduce((sum, letter) => sum += letter.charCodeAt(), 0) % this.size;
+  remove(key) {
+    const bucket = this.table[this.hash(key)];
+    if(!bucket) { return; }
+
+    const index = bucket.findIndex((b) => t(b.key) === t(key));
+    bucket.splice(index, 1);
+  }
+
+  hash(key) {
+    return t(key).split('').reduce((sum, letter) => sum += letter.charCodeAt(), 0) % this.size;
   }
 }
 
