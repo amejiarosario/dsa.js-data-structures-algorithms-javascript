@@ -22,11 +22,8 @@ describe('countWays', function() {
     expect(countWays(10)).to.equal(274);
   });
 
-  xit('100 stairs', function () {
-    expect(countWays(100)).to.equal(3);
-  });
-
-  xit('1000 stairs', function () {
-    expect(countWays(100)).to.equal(3);
+  // scale testing
+  it('50 stairs', function () {
+    expect(countWays(50)).to.equal(10562230626642);
   });
 });
