@@ -5,7 +5,8 @@ let debug = 0;
  *
  * Runtime:
  *  best case O(r + c)
- *  worst case O(2^(r + c + o))
+ *  worst case is NOT O(2^(r + c))
+ *  BUT O(rc)
  *
  * @param rows
  * @param columns
@@ -16,6 +17,7 @@ let debug = 0;
  */
 function findRobotPath(rows, columns, obstacle = [], path = [], position = {row: 0, column:0}) {
   debug++;
+  // console.log(position);
   const lastRow = rows - 1;
   const lastColumn = columns - 1;
 
@@ -23,7 +25,7 @@ function findRobotPath(rows, columns, obstacle = [], path = [], position = {row:
     // console.log('calls', debug);
     return path;
   } else if(obstacle.some((o) => o.row === position.row && o.column === position.column) || position.row > lastRow || position.column > lastColumn) {
-    // console.log('calls', debug);
+    // console.log('*calls', debug);
     return false;
   } else {
     const moveRight = {row: position.row, column: position.column + 1};
@@ -32,8 +34,8 @@ function findRobotPath(rows, columns, obstacle = [], path = [], position = {row:
     const moveDown = {row: position.row + 1, column: position.column};
     const downPath = path.concat([moveDown]);
 
-    return findRobotPath(rows, columns, obstacle, rightPath, moveRight) ||
-      findRobotPath(rows, columns, obstacle, downPath, moveDown);
+    return (moveRight.column <= lastColumn && findRobotPath(rows, columns, obstacle, rightPath, moveRight)) ||
+      (moveDown.row <= lastRow && findRobotPath(rows, columns, obstacle, downPath, moveDown));
   }
 }
 
