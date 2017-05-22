@@ -62,7 +62,7 @@ describe('findRobotPath', function() {
   });
 
   // scale
-  xit('3,000 x 3,000 grid and with obstacles', function () {
+  it('3,000 x 3,000 grid and with obstacles', function () {
     expect(findRobotPath(3e3, 3e3, [{row: 0, column: 1}, {row: 1, column: 2}]).length).to.eql(5998);
   });
 });
