@@ -23,12 +23,14 @@ function findMagicIndexSlow(array) {
  * @returns {number}
  */
 function findMagicIndex(array, offset = 0) {
+  if(!array || array.length === 0) {
+    return -1;
+  }
+
   const middle = parseInt(array.length/2);
   const index = middle + offset;
 
-  if(array.length === 0) {
-    return -1;
-  } else if(index === array[middle]) {
+  if(index === array[middle]) {
     return index;
   } else if(index > array[middle]) {
     return findMagicIndex(array.slice(middle + 1), middle + 1);
@@ -37,5 +39,62 @@ function findMagicIndex(array, offset = 0) {
   }
 }
 
+/**
+ * O(log n)
+ *
+ * breaks when elements values are repeated
+ *
+ * @param array
+ * @param start
+ * @param end
+ * @returns {*}
+ */
+function findMagicIndex2(array, start = 0, end = (Array.isArray(array) && array.length)) {
+  if(!array || end <= start) { return -1; }
 
-module.exports = findMagicIndex;
+  const midIndex = parseInt((start + end)/2);
+  const midValue = array[midIndex];
+
+  if(midIndex === midValue) {
+    return midValue;
+  }
+
+  if(midIndex > midValue) {
+    return findMagicIndex2(array, midIndex + 1, end);
+  }
+
+  if(midIndex < midValue) {
+    return findMagicIndex2(array, 0, midIndex);
+  }
+}
+
+/**
+ * O(log n)
+ *
+ * Handles cases when elements has repeated values
+ *
+ * @param array
+ * @param start
+ * @param end
+ * @returns {*}
+ */
+function findMagicIndexFastRepeated(array, start = 0, end = (Array.isArray(array) && array.length-1)) {
+  if(!Array.isArray(array) || end < start) { return -1; }
+
+  const midIndex = parseInt((start + end)/2);
+  const midValue = array[midIndex];
+
+  if(midIndex === midValue) {
+    return midValue;
+  }
+
+  const left = findMagicIndexFastRepeated(array, start, Math.min(midIndex - 1, midValue));
+  if(left !== -1) {
+    return left;
+  }
+
+  const right = findMagicIndexFastRepeated(array, Math.max(midIndex + 1, midValue), end);
+  return right;
+}
+
+module.exports = findMagicIndexFastRepeated;
