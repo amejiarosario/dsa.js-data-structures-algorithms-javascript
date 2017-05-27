@@ -24,10 +24,35 @@ class HanoiTowers {
   }
 
   getMovements() {
-    if(!this.t1.isEmpty()) {
-      this.move(this.t1, this.t2);
-      this.move(this.t2, this.t3);
+    const t1 = this.t1;
+    const t2 = this.t2;
+    const t3 = this.t3;
+
+    while(!this.t1.isEmpty()) {
+      this.move(t1, t2);
+      while(t2.peek() > t3.peek()) {
+        this.move(t3, t2);
+        while(t2.peek() > t1.peek()) {
+          this.move(t1, t2);
+          while(t2.peek() > t3.peek()) {
+            this.move(t3, t2);
+            while(t2.peek() > t1.peek()) {
+              this.move(t1, t2);
+              while(t2.peek() > t3.peek()) {
+                this.move(t3, t2);
+                this.move(t2, t1);
+              }
+              this.move(t2, t3);
+            }
+            this.move(t2, t1);
+          }
+          this.move(t2, t3);
+        }
+        this.move(t2, t1);
+      }
+      this.move(t2, t3);
     }
+
     return this.movements;
   }
 
