@@ -24,36 +24,28 @@ class HanoiTowers {
   }
 
   getMovements() {
-    const t1 = this.t1;
-    const t2 = this.t2;
-    const t3 = this.t3;
-
     while(!this.t1.isEmpty()) {
-      this.move(t1, t2);
-      while(t2.peek() > t3.peek()) {
-        this.move(t3, t2);
-        while(t2.peek() > t1.peek()) {
-          this.move(t1, t2);
-          while(t2.peek() > t3.peek()) {
-            this.move(t3, t2);
-            while(t2.peek() > t1.peek()) {
-              this.move(t1, t2);
-              while(t2.peek() > t3.peek()) {
-                this.move(t3, t2);
-                this.move(t2, t1);
-              }
-              this.move(t2, t3);
-            }
-            this.move(t2, t1);
-          }
-          this.move(t2, t3);
-        }
-        this.move(t2, t1);
-      }
-      this.move(t2, t3);
+      this.move(this.t1, this.t2);
+      this.moveFromT2toT3();
     }
 
     return this.movements;
+  }
+
+  moveFromT2toT3() {
+    while(this.t2.peek() > this.t3.peek()) {
+      this.move(this.t3, this.t2);
+      this.moveFromT2toT1();
+    }
+    this.move(this.t2, this.t3);
+  }
+
+  moveFromT2toT1() {
+    while(this.t2.peek() > this.t1.peek()) {
+      this.move(this.t1, this.t2);
+      this.moveFromT2toT3();
+    }
+    this.move(this.t2, this.t1);
   }
 
   move(t1, t2) {

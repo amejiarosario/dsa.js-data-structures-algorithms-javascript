@@ -31,6 +31,6 @@ describe('hanoiTower', function() {
   });
 
   it('7', function () {
-    expect(hanoiTower(7)).to.equal(728);
+    expect(hanoiTower(7)).to.equal(2186);
   });
 });
