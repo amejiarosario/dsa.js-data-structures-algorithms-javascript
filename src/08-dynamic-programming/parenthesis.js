@@ -17,32 +17,21 @@
  */
 function parenthesis(n) {
   const results = [];
+  if (n > 0) {
+    for(let b = 0; b < n; b++) {
+      let el = '';
 
-  // singles ()()()...
-  let first = '';
-  for(let i = 0; i < n; i++) {
-    first += p();
-  }
-  if(first.length > 0) { results.push(first); }
-
-  // doubles (())(), ()(()), ...
-  for(let i = 0; i < n - 1; i++) {
-    let el = '';
-    for(let y = 0; y < n - 1; y++) {
-      if(i === y) {
-        el += p(p());
-      } else {
-        el += p();
+      for(let a = 0; a < n; a++) {
+        if(b === a && a === n - 1) {
+          el = p(el);
+        } else {
+          el += p();
+        }
       }
+
+      if(el.length > 0) { results.push(el); }
     }
-    if(el.length > 0) { results.push(el); }
   }
-
-  // nested (()())
-  if(first.length > 0 && n > 2) {
-    return results.concat(parenthesis(n - 1).map((el) => p(el)));
-  }
-
   return results;
 }
 
@@ -51,3 +40,32 @@ function p(str = '') {
 }
 
 module.exports = parenthesis;
+
+const p5 = [
+  '()()()()()',
+
+  '()()()(())',
+  '()()(())()',
+  '()(())()()',
+  '(())()()()',
+
+  '()()((()))',
+  '()((()))()',
+  '((()))()()',
+
+  '()(((())))',
+  '(((())))()',
+
+  '((((()))))',
+
+  '()()(()())',
+  '()(()())()',
+  '(()())()()',
+
+  '()()((()()))',
+  '()((()()))()',
+  '((()()))()()',
+
+  '()(()()())',
+  '(()()())()',
+];
