@@ -6,10 +6,12 @@ class HashMap {
 
   /**
    * Initialize array that holds the values. Default is size 1,000
-   * @param {number} initialCapacity
+   * @param {number} initialCapacity initial size of the array
+   * @param {number} loadFactor if set, the Map will automatically rehash when the load factor threshold is met
    */
-  constructor(initialCapacity = 1000) {
+  constructor(initialCapacity = 1000, loadFactor = 0) {
     this.buckets = new Array(initialCapacity);
+    this.loadFactor = loadFactor;
     this.size = 0;
     this.collisions = 0;
     this.keys = [];
@@ -61,6 +63,11 @@ class HashMap {
     } else {
       // override existing value
       this.buckets[bucketIndex][entryIndex].value = value;
+    }
+
+    // check if a rehash is due
+    if(this.loadFactor > 0 && this.getLoadFactor() > this.loadFactor) {
+      this.rehash(this.buckets.length * 2);
     }
 
     return this;
@@ -147,7 +154,7 @@ class HashMap {
   }
 
   /**
-   *
+   * Load factor - measure how full the Map is. It's ratio between items on the map and total size of buckets
    */
   getLoadFactor() {
     return this.size / this.buckets.length;
@@ -207,3 +214,31 @@ hashMap.rehash(1000);
 console.log(hashMap.collisions);
 console.log(hashMap.buckets);
 assert.equal(hashMap.getLoadFactor(), 5/1000);
+
+// automatic rehashing based on loadFactor
+const dynamicMap = new HashMap(2, 0.75);
+
+dynamicMap.set('uno', 1);
+assert.equal(dynamicMap.buckets.length, 2);
+assert.equal(dynamicMap.getLoadFactor(), 1/2);
+console.log(hashMap.collisions);
+
+dynamicMap.set('dos', 2);
+assert.equal(dynamicMap.buckets.length, 4); // <-- rehash took place
+assert.equal(dynamicMap.getLoadFactor(), 1/2);
+console.log(hashMap.collisions);
+
+dynamicMap.set('tres', 3);
+assert.equal(dynamicMap.buckets.length, 4); // <-- no rehash
+assert.equal(dynamicMap.getLoadFactor(), 3/4);
+console.log(hashMap.collisions);
+
+dynamicMap.set('cuatro', 4);
+assert.equal(dynamicMap.buckets.length, 8); // <-- rehash took place
+assert.equal(dynamicMap.getLoadFactor(), 4/8);
+console.log(hashMap.collisions);
+
+dynamicMap.set('cinco', 5);
+assert.equal(dynamicMap.buckets.length, 8); // <-- no rehash
+assert.equal(dynamicMap.getLoadFactor(), 5/8);
+console.log(hashMap.collisions);
