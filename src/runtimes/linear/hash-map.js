@@ -145,6 +145,13 @@ class HashMap {
     // Optional: both `keys` has the same content except that the new one doesn't have empty spaces from deletions
     this.keys = newMap.keys;
   }
+
+  /**
+   *
+   */
+  getLoadFactor() {
+    return this.size / this.buckets.length;
+  }
 }
 
 // Usage:
@@ -185,12 +192,18 @@ hashMap.set('undefined', 'string type');
 
 assert.equal(hashMap.get(undefined), 'undefined type');
 assert.equal(hashMap.get('undefined'), 'string type');
+assert.equal(hashMap.size, 5);
 
-// internal structure
+// ----
+// Internal structure tests
+// ----
 console.log(hashMap.collisions);
 console.log(hashMap.buckets);
+
+assert.equal(hashMap.getLoadFactor(), 5);
 
 // rehash
-hashMap.rehash();
+hashMap.rehash(1000);
 console.log(hashMap.collisions);
 console.log(hashMap.buckets);
+assert.equal(hashMap.getLoadFactor(), 5/1000);
