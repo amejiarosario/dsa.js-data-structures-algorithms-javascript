@@ -1,5 +1,6 @@
 /**
  * Hash Map data structure implementation
+ * @author Adrian Mejia <me AT adrianmejia.com>
  */
 class HashMap {
 
@@ -39,7 +40,8 @@ class HashMap {
   }
 
   /**
-   * insert a key/value pair into the hash map
+   * Insert a key/value pair into the hash map.
+   * If the key is already there replaces its content. Return the Map object to allow chaining
    * @param {any} key
    * @param {any} value
    */
@@ -60,15 +62,13 @@ class HashMap {
    * @param {any} key
    */
   get(key) {
-    const hashIndex = this.getIndex(key);
-    const values = this.array[hashIndex] || [];
+    const {hashIndex, arrayIndex} = this._getIndexes(key);
 
-    for (let index = 0; index < values.length; index++) {
-      const entry = values[index];
-      if(entry.key === key) {
-        return entry.value
-      }
+    if(arrayIndex === undefined) {
+      return;
     }
+
+    return this.array[hashIndex][arrayIndex].value;
   }
 
   /**
@@ -81,6 +81,7 @@ class HashMap {
 
   /**
    * Search for a key in the map. It returns it's internal array indexes.
+   * Returns hashIndex and the internal array index
    * @param {any} key
    */
   _getIndexes(key) {
@@ -94,7 +95,7 @@ class HashMap {
       }
     }
 
-    return {};
+    return {hashIndex};
   }
 
   /**
@@ -104,7 +105,7 @@ class HashMap {
   delete(key) {
     const {hashIndex, arrayIndex} = this._getIndexes(key);
 
-    if(!hashIndex ||arrayIndex) {
+    if(arrayIndex === undefined) {
       return false;
     }
 
@@ -142,3 +143,7 @@ assert.equal(hashMap.delete('rat'), true);
 assert.equal(hashMap.has('rat'), false);
 assert.equal(hashMap.size, 3);
 
+// set override
+// assert.equal(hashMap.get('art'), 0);
+// hashMap.set('art', 2);
+// assert.equal(hashMap.get('art'), 2);
