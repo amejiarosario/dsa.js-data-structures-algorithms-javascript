@@ -46,13 +46,18 @@ class HashMap {
    * @param {any} value
    */
   set(key, value) {
-    const index = this.getIndex(key);
-    if(this.array[index]) {
-      this.array[index].push({key, value});
+    const {hashIndex, arrayIndex} = this._getIndexes(key);
+
+    if(arrayIndex === undefined) {
+      // initialize array and save key/value
+      this.array[hashIndex] = this.array[hashIndex] || [];
+      this.array[hashIndex].push({key, value});
+      this.size++;
     } else {
-      this.array[index] = [{key, value}];
+      // override existing value
+      this.array[hashIndex][arrayIndex].value = value;
     }
-    this.size++;
+
     return this;
   }
 
@@ -144,6 +149,7 @@ assert.equal(hashMap.has('rat'), false);
 assert.equal(hashMap.size, 3);
 
 // set override
-// assert.equal(hashMap.get('art'), 0);
-// hashMap.set('art', 2);
-// assert.equal(hashMap.get('art'), 2);
+assert.equal(hashMap.get('art'), 0);
+hashMap.set('art', 2);
+assert.equal(hashMap.get('art'), 2);
+assert.equal(hashMap.size, 3);
