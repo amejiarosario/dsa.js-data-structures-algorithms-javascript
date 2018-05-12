@@ -6,12 +6,13 @@ class HashMap {
 
   /**
    * Initialize array that holds the values. Default is size 1,000
-   * @param {number} size
+   * @param {number} initialCapacity
    */
-  constructor(size = 1000) {
-    this.buckets = new Array(size);
+  constructor(initialCapacity = 1000) {
+    this.buckets = new Array(initialCapacity);
     this.size = 0;
     this.collisions = 0;
+    this.keys = [];
   }
 
   /**
@@ -20,10 +21,10 @@ class HashMap {
    */
   hash(key) {
     let hashValue = 0;
-    const stringKey = key.toString();
+    const stringTypeKey = `${key}${typeof key}`;
 
-    for (let index = 0; index < stringKey.length; index++) {
-      const charCode = stringKey.charCodeAt(index);
+    for (let index = 0; index < stringTypeKey.length; index++) {
+      const charCode = stringTypeKey.charCodeAt(index);
       hashValue += charCode << (index * 8);
     }
 
@@ -51,8 +52,9 @@ class HashMap {
 
     if(entryIndex === undefined) {
       // initialize array and save key/value
+      const keyIndex = this.keys.push({content: key}) - 1; // keep track of the key index
       this.buckets[bucketIndex] = this.buckets[bucketIndex] || [];
-      this.buckets[bucketIndex].push({key, value});
+      this.buckets[bucketIndex].push({key, value, keyIndex});
       this.size++;
       // Optional: keep count of collisions
       if(this.buckets[bucketIndex].length > 1) { this.collisions++; }
@@ -111,22 +113,43 @@ class HashMap {
    * @param {any} key
    */
   delete(key) {
-    const {bucketIndex, entryIndex} = this._getIndexes(key);
+    const {bucketIndex, entryIndex, keyIndex} = this._getIndexes(key);
 
     if(entryIndex === undefined) {
       return false;
     }
 
     this.buckets[bucketIndex].splice(entryIndex, 1);
+    delete this.keys[keyIndex];
     this.size--;
 
     return true;
   }
+
+  /**
+   * Rehash means to create a new Map with a new (higher) capacity with the purpose of outgrow collisions.
+   * @param {Number} newCapacity
+   */
+  rehash(newCapacity) {
+    const newMap = new HashMap(newCapacity);
+
+    this.keys.forEach(key => {
+      if(key) {
+        newMap.set(key.content, this.get(key.content));
+      }
+    });
+
+    // update bucket
+    this.buckets = newMap.buckets;
+    this.collisions = newMap.collisions;
+    // Optional: both `keys` has the same content except that the new one doesn't have empty spaces from deletions
+    this.keys = newMap.keys;
+  }
 }
 
 // Usage:
-const hashMap = new HashMap();
-// const hashMap = new HashMap(1);
+// const hashMap = new HashMap();
+const hashMap = new HashMap(1);
 // const hashMap = new Map();
 
 const assert = require('assert');
@@ -156,6 +179,18 @@ hashMap.set('art', 2);
 assert.equal(hashMap.get('art'), 2);
 assert.equal(hashMap.size, 3);
 
+// undefined
+hashMap.set(undefined, 'undefined type');
+hashMap.set('undefined', 'string type');
+
+assert.equal(hashMap.get(undefined), 'undefined type');
+assert.equal(hashMap.get('undefined'), 'string type');
+
 // internal structure
+console.log(hashMap.collisions);
+console.log(hashMap.buckets);
+
+// rehash
+hashMap.rehash();
 console.log(hashMap.collisions);
 console.log(hashMap.buckets);
