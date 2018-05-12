@@ -9,8 +9,9 @@ class HashMap {
    * @param {number} size
    */
   constructor(size = 1000) {
-    this.array = new Array(size);
+    this.buckets = new Array(size);
     this.size = 0;
+    this.collisions = 0;
   }
 
   /**
@@ -33,10 +34,10 @@ class HashMap {
    * Get the array index after applying the hash funtion to the given key
    * @param {any} key
    */
-  getIndex(key) {
-    const indexHash = this.hash(key);
-    const index = indexHash % this.array.length;
-    return index;
+  _getBucketIndex(key) {
+    const hashValue = this.hash(key);
+    const bucketIndex = hashValue % this.buckets.length;
+    return bucketIndex;
   }
 
   /**
@@ -46,16 +47,18 @@ class HashMap {
    * @param {any} value
    */
   set(key, value) {
-    const {hashIndex, arrayIndex} = this._getIndexes(key);
+    const {bucketIndex, entryIndex} = this._getIndexes(key);
 
-    if(arrayIndex === undefined) {
+    if(entryIndex === undefined) {
       // initialize array and save key/value
-      this.array[hashIndex] = this.array[hashIndex] || [];
-      this.array[hashIndex].push({key, value});
+      this.buckets[bucketIndex] = this.buckets[bucketIndex] || [];
+      this.buckets[bucketIndex].push({key, value});
       this.size++;
+      // Optional: keep count of collisions
+      if(this.buckets[bucketIndex].length > 1) { this.collisions++; }
     } else {
       // override existing value
-      this.array[hashIndex][arrayIndex].value = value;
+      this.buckets[bucketIndex][entryIndex].value = value;
     }
 
     return this;
@@ -67,13 +70,13 @@ class HashMap {
    * @param {any} key
    */
   get(key) {
-    const {hashIndex, arrayIndex} = this._getIndexes(key);
+    const {bucketIndex, entryIndex} = this._getIndexes(key);
 
-    if(arrayIndex === undefined) {
+    if(entryIndex === undefined) {
       return;
     }
 
-    return this.array[hashIndex][arrayIndex].value;
+    return this.buckets[bucketIndex][entryIndex].value;
   }
 
   /**
@@ -86,21 +89,21 @@ class HashMap {
 
   /**
    * Search for a key in the map. It returns it's internal array indexes.
-   * Returns hashIndex and the internal array index
+   * Returns bucketIndex and the internal array index
    * @param {any} key
    */
   _getIndexes(key) {
-    const hashIndex = this.getIndex(key);
-    const values = this.array[hashIndex] || [];
+    const bucketIndex = this._getBucketIndex(key);
+    const values = this.buckets[bucketIndex] || [];
 
-    for (let arrayIndex = 0; arrayIndex < values.length; arrayIndex++) {
-      const entry = values[arrayIndex];
+    for (let entryIndex = 0; entryIndex < values.length; entryIndex++) {
+      const entry = values[entryIndex];
       if(entry.key === key) {
-        return {hashIndex, arrayIndex};
+        return {bucketIndex, entryIndex};
       }
     }
 
-    return {hashIndex};
+    return {bucketIndex};
   }
 
   /**
@@ -108,13 +111,13 @@ class HashMap {
    * @param {any} key
    */
   delete(key) {
-    const {hashIndex, arrayIndex} = this._getIndexes(key);
+    const {bucketIndex, entryIndex} = this._getIndexes(key);
 
-    if(arrayIndex === undefined) {
+    if(entryIndex === undefined) {
       return false;
     }
 
-    this.array[hashIndex].splice(arrayIndex, 1);
+    this.buckets[bucketIndex].splice(entryIndex, 1);
     this.size--;
 
     return true;
@@ -123,6 +126,7 @@ class HashMap {
 
 // Usage:
 const hashMap = new HashMap();
+// const hashMap = new HashMap(1);
 // const hashMap = new Map();
 
 const assert = require('assert');
@@ -133,8 +137,6 @@ hashMap.set('rat', 7);
 hashMap.set('dog', 1);
 hashMap.set('art', 0);
 assert.equal(hashMap.size, 4);
-
-// console.log(hashMap.array);
 
 assert.equal(hashMap.get('cat'), 2);
 assert.equal(hashMap.get('rat'), 7);
@@ -153,3 +155,7 @@ assert.equal(hashMap.get('art'), 0);
 hashMap.set('art', 2);
 assert.equal(hashMap.get('art'), 2);
 assert.equal(hashMap.size, 3);
+
+// internal structure
+console.log(hashMap.collisions);
+console.log(hashMap.buckets);
