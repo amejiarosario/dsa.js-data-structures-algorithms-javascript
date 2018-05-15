@@ -7,16 +7,17 @@
     "lodash": "4.17.2"
   },
   "devDependencies": {
-    "jasmine-spec-reporter": "2.7.0",
-    "mocha": "3.2.0",
     "chai": "3.5.0",
     "jasmine": "2.5.2",
+    "jasmine-spec-reporter": "2.7.0",
+    "jest": "22.4.3",
     "karma": "1.3.0",
     "karma-chrome-launcher": "2.0.0",
-    "karma-mocha": "1.3.0"
+    "karma-mocha": "1.3.0",
+    "mocha": "3.2.0"
   },
   "scripts": {
-    "test": "mocha src/**/*spec.js # jasmine JASMINE_CONFIG_PATH=jasmine.json # node jasmine-runner.js"
+    "test": "jest lib/data-structures # jest # mocha src/**/*spec.js # jasmine JASMINE_CONFIG_PATH=jasmine.json # node jasmine-runner.js"
   },
   "keywords": [],
   "author": "",
