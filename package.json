@@ -18,7 +18,7 @@
   },
   "scripts": {
     "test": "jest lib/data-structures # jest # mocha src/**/*spec.js # jasmine JASMINE_CONFIG_PATH=jasmine.json # node jasmine-runner.js",
-    "watch": "jest lib/data-structures --watch",
+    "watch": "jest lib/data-structures --watch --coverage",
     "coverage": "jest lib/data-structures --coverage && open coverage/lcov-report/index.html"
   },
   "keywords": [],
