@@ -7,8 +7,20 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "HashMap",
-      "program": "${workspaceFolder}/src/runtimes/linear/hash-map.js"
+      "name": "Jest All",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      "args": ["--runInBand"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Jest Current File",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      "args": ["${relativeFile}"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
     }
   ]
 }
