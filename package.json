@@ -7,12 +7,16 @@
     "lodash": "4.17.10"
   },
   "devDependencies": {
+    "eslint": "4.19.1",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-plugin-import": "2.12.0",
     "jest": "23.0.1"
   },
   "scripts": {
     "test": "jest lib/data-structures # jest # mocha src/**/*spec.js # jasmine JASMINE_CONFIG_PATH=jasmine.json # node jasmine-runner.js",
     "watch": "jest lib/data-structures --watch --coverage",
-    "coverage": "jest lib/data-structures --coverage && open coverage/lcov-report/index.html"
+    "coverage": "jest lib/data-structures --coverage && open coverage/lcov-report/index.html",
+    "linter": "npx eslint --fix -f codeframe lib/"
   },
   "keywords": [],
   "author": "",
