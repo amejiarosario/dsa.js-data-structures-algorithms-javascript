@@ -2,7 +2,6 @@
  * Naïve HashMap implementation
  */
 class HashMap {
-
   /**
    * Initialize array that holds the values. Default is size 1,000
    * @param {number} initialCapacity
@@ -52,6 +51,7 @@ class HashMap {
 
 // Usage:
 const assert = require('assert');
+
 const hashMap = new HashMap();
 
 hashMap.set('cat', 2);

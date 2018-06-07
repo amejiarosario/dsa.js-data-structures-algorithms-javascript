@@ -3,7 +3,6 @@
  * @author Adrian Mejia <me AT adrianmejia.com>
  */
 class HashMap {
-
   /**
    * Initialize array that holds the values. Default is size 16
    * @param {number} initialCapacity initial size of the array
@@ -50,23 +49,23 @@ class HashMap {
    * @param {any} value
    */
   set(key, value) {
-    const {bucketIndex, entryIndex} = this._getIndexes(key);
+    const { bucketIndex, entryIndex } = this._getIndexes(key);
 
-    if(entryIndex === undefined) {
+    if (entryIndex === undefined) {
       // initialize array and save key/value
-      const keyIndex = this.keys.push({content: key}) - 1; // keep track of the key index
+      const keyIndex = this.keys.push({ content: key }) - 1; // keep track of the key index
       this.buckets[bucketIndex] = this.buckets[bucketIndex] || [];
-      this.buckets[bucketIndex].push({key, value, keyIndex});
+      this.buckets[bucketIndex].push({ key, value, keyIndex });
       this.size++;
       // Optional: keep count of collisions
-      if(this.buckets[bucketIndex].length > 1) { this.collisions++; }
+      if (this.buckets[bucketIndex].length > 1) { this.collisions++; }
     } else {
       // override existing value
       this.buckets[bucketIndex][entryIndex].value = value;
     }
 
     // check if a rehash is due
-    if(this.loadFactor > 0 && this.getLoadFactor() > this.loadFactor) {
+    if (this.loadFactor > 0 && this.getLoadFactor() > this.loadFactor) {
       this.rehash(this.buckets.length * 2);
     }
 
@@ -79,9 +78,9 @@ class HashMap {
    * @param {any} key
    */
   get(key) {
-    const {bucketIndex, entryIndex} = this._getIndexes(key);
+    const { bucketIndex, entryIndex } = this._getIndexes(key);
 
-    if(entryIndex === undefined) {
+    if (entryIndex === undefined) {
       return;
     }
 
@@ -107,12 +106,12 @@ class HashMap {
 
     for (let entryIndex = 0; entryIndex < values.length; entryIndex++) {
       const entry = values[entryIndex];
-      if(entry.key === key) {
-        return {bucketIndex, entryIndex, keyIndex: entry.keyIndex};
+      if (entry.key === key) {
+        return { bucketIndex, entryIndex, keyIndex: entry.keyIndex };
       }
     }
 
-    return {bucketIndex};
+    return { bucketIndex };
   }
 
   /**
@@ -120,9 +119,9 @@ class HashMap {
    * @param {any} key
    */
   delete(key) {
-    const {bucketIndex, entryIndex, keyIndex} = this._getIndexes(key);
+    const { bucketIndex, entryIndex, keyIndex } = this._getIndexes(key);
 
-    if(entryIndex === undefined) {
+    if (entryIndex === undefined) {
       return false;
     }
 
@@ -140,7 +139,7 @@ class HashMap {
   rehash(newCapacity) {
     const newMap = new HashMap(newCapacity);
 
-    this.keys.forEach(key => {
+    this.keys.forEach((key) => {
       newMap.set(key.content, this.get(key.content));
     });
 

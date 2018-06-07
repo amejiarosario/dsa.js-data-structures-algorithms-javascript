@@ -18,11 +18,11 @@ describe('without collisions', () => {
     expect(hashMap.getLoadFactor()).toBe(0);
     expect(hashMap.size).toBe(0);
     hashMap.set('test', 'one');
-    expect(hashMap.getLoadFactor()).toBe(1/16);
+    expect(hashMap.getLoadFactor()).toBe(1 / 16);
     expect(hashMap.size).toBe(1);
   });
 
-  it('should overwrite values and keep same size', () =>{
+  it('should overwrite values and keep same size', () => {
     hashMap.set('test', 'uno');
     expect(hashMap.get('test')).toBe('uno');
     hashMap.set('test', 'dos');
@@ -30,7 +30,7 @@ describe('without collisions', () => {
     expect(hashMap.size).toBe(1);
   });
 
-  it('should return with has', () =>{
+  it('should return with has', () => {
     expect(hashMap.has('test')).toBe(false);
     hashMap.set('test', 'uno');
     expect(hashMap.has('test')).toBe(true);
@@ -45,7 +45,7 @@ describe('without collisions', () => {
     expect(hashMap.delete('Bailando')).toBe(false);
     expect(hashMap.get('Bailando')).toBe(undefined);
 
-    expect(hashMap.keys.map(k => k.content)).toEqual(["Despacito", , "Dura"]);
+    expect(hashMap.keys.map(k => k.content)).toEqual(['Despacito', , 'Dura']);
   });
 });
 
@@ -76,11 +76,11 @@ describe('with many values (and collisions)', () => {
     expect(hashMap.getLoadFactor()).toBe(4);
     expect(hashMap.size).toBe(8);
     hashMap.set('test', 'one');
-    expect(hashMap.getLoadFactor()).toBe(9/2);
+    expect(hashMap.getLoadFactor()).toBe(9 / 2);
     expect(hashMap.size).toBe(9);
   });
 
-  it('should overwrite values and keep same size', () =>{
+  it('should overwrite values and keep same size', () => {
     hashMap.set('test', 'uno');
     expect(hashMap.get('test')).toBe('uno');
     hashMap.set('test', 'dos');
@@ -88,7 +88,7 @@ describe('with many values (and collisions)', () => {
     expect(hashMap.size).toBe(9);
   });
 
-  it('should return with has', () =>{
+  it('should return with has', () => {
     expect(hashMap.has('test')).toBe(false);
     hashMap.set('test', 'uno');
     expect(hashMap.has('test')).toBe(true);
@@ -115,14 +115,14 @@ describe('#rehash', () => {
   });
 
   it('should rehash after 12 items by default', () => {
-    expect(hashMap.getLoadFactor()).toBe(11/16);
+    expect(hashMap.getLoadFactor()).toBe(11 / 16);
     expect(hashMap.buckets.length).toBe(16);
     hashMap.set('Alone', 'Alan Walker');
     expect(hashMap.getLoadFactor()).toBe(0.75);
 
     hashMap.set('Levels', 'Avicii');
 
-    expect(hashMap.getLoadFactor()).toBe(13/32);
+    expect(hashMap.getLoadFactor()).toBe(13 / 32);
     expect(hashMap.buckets.length).toBe(32);
 
     expect(hashMap.get('Dura')).toBe('Daddy Yankee');

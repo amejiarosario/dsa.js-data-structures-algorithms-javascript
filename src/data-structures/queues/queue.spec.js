@@ -1,6 +1,6 @@
 const Queue = require('./queue.js');
 
-describe('Queue', function () {
+describe('Queue', () => {
   let queue;
 
   beforeEach(() => {
@@ -32,7 +32,7 @@ describe('Queue', function () {
       expect(queue.remove()).toEqual('b');
       expect(queue.remove()).toEqual('c');
       expect(queue.remove()).toBe(undefined);
-    })
+    });
   });
 
   describe('#isEmpty', () => {

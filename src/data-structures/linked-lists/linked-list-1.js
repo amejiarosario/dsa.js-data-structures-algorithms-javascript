@@ -16,9 +16,9 @@ class LinkedList {
   addLast(value) {
     const node = new Node(value);
 
-    if(this.first) {
+    if (this.first) {
       let currentNode = this.first;
-      while(currentNode && currentNode.next) {
+      while (currentNode && currentNode.next) {
         currentNode = currentNode.next;
       }
       currentNode.next = node;
@@ -34,7 +34,7 @@ class LinkedList {
   removeFirst() {
     const first = this.first;
 
-    if(first) {
+    if (first) {
       this.first = first.next;
       return first.value;
     }
@@ -60,8 +60,8 @@ class LinkedList {
     let current = this.first;
     let target;
 
-    if(current && current.next) {
-      while(current && current.next && current.next.next) {
+    if (current && current.next) {
+      while (current && current.next && current.next.next) {
         current = current.next;
       }
       target = current.next;
@@ -71,7 +71,7 @@ class LinkedList {
       target = current;
     }
 
-    if(target) {
+    if (target) {
       return target.value;
     }
   }
@@ -83,8 +83,8 @@ class LinkedList {
    * @param {any} value
    */
   contains(value) {
-    for (let current = this.first, index = 0; current;  index++, current = current.next) {
-      if(current.value === value) {
+    for (let current = this.first, index = 0; current; index++, current = current.next) {
+      if (current.value === value) {
         return index;
       }
     }
@@ -97,13 +97,13 @@ class LinkedList {
    * @param {any} nth
    */
   removeAt(nth) {
-    if(nth === 0) {
+    if (nth === 0) {
       return this.removeFirst();
     }
 
-    for (let current = this.first, index = 0; current;  index++, current = current.next) {
-      if(index === nth) {
-        if(!current.next) { // if it doesn't have next it means that it is the last
+    for (let current = this.first, index = 0; current; index++, current = current.next) {
+      if (index === nth) {
+        if (!current.next) { // if it doesn't have next it means that it is the last
           return this.removeLast();
         }
         current.previous = current.next;

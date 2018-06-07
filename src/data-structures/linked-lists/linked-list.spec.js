@@ -1,6 +1,6 @@
 const LinkedList = require('./linked-list');
 
-describe('LinkedList', function () {
+describe('LinkedList', () => {
   let linkedList;
 
   beforeEach(() => {
@@ -169,7 +169,6 @@ describe('LinkedList', function () {
   });
 
   describe('Doubly Linked List and aliases', () => {
-
     describe('#addLast', () => {
       beforeEach(() => {
         linkedList.addLast('a');

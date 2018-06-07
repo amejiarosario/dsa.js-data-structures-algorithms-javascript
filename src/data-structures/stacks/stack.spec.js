@@ -1,6 +1,6 @@
 const Stack = require('./stack.js');
 
-describe('Stack', function () {
+describe('Stack', () => {
   let stack;
 
   beforeEach(() => {

@@ -1,6 +1,6 @@
 const MySet = require('./set');
 
-describe('Set', function () {
+describe('Set', () => {
   let set;
 
   beforeEach(() => {
@@ -40,7 +40,7 @@ describe('Set', function () {
     set.add(1);
     set.add(2);
     set.add(3);
-    expect(set.entries()).toEqual([1,2,3]);
+    expect(set.entries()).toEqual([1, 2, 3]);
   });
 
   it('should return entries wihout holes', () => {
@@ -52,7 +52,7 @@ describe('Set', function () {
     expect(set.delete(2)).toBe(true);
     expect(set.delete(0)).toBe(true);
 
-    expect(set.entries()).toEqual([1,3]);
+    expect(set.entries()).toEqual([1, 3]);
     expect(set.size).toBe(2);
   });
 });

@@ -2,7 +2,6 @@
  * Hash Map data structure implementation
  */
 class HashMap {
-
   /**
    * Initialize array that holds the values. Default is size 1,000
    * @param {number} initialCapacity
@@ -19,11 +18,11 @@ class HashMap {
    */
   set(key, value) {
     const bucketIndex = this.getIndex(key);
-    if(this.buckets[bucketIndex]) {
-      this.buckets[bucketIndex].push({key, value});
-      if(this.buckets[bucketIndex].length > 1) { this.collisions++; }
+    if (this.buckets[bucketIndex]) {
+      this.buckets[bucketIndex].push({ key, value });
+      if (this.buckets[bucketIndex].length > 1) { this.collisions++; }
     } else {
-      this.buckets[bucketIndex] = [{key, value}];
+      this.buckets[bucketIndex] = [{ key, value }];
     }
     return this;
   }
@@ -36,8 +35,8 @@ class HashMap {
     const bucketIndex = this.getIndex(key);
     for (let arrayIndex = 0; arrayIndex < this.buckets[bucketIndex].length; arrayIndex++) {
       const entry = this.buckets[bucketIndex][arrayIndex];
-      if(entry.key === key) {
-        return entry.value
+      if (entry.key === key) {
+        return entry.value;
       }
     }
   }
@@ -72,6 +71,7 @@ class HashMap {
 
 // Usage:
 const assert = require('assert');
+
 const hashMap = new HashMap();
 
 hashMap.set('cat', 2);

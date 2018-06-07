@@ -22,8 +22,8 @@ class Queue {
    * Amortized runtime: O(1)*
    */
   remove() {
-    if(!this.output.length) {
-      while(this.input.length) {
+    if (!this.output.length) {
+      while (this.input.length) {
         this.output.push(this.input.pop());
       }
     }

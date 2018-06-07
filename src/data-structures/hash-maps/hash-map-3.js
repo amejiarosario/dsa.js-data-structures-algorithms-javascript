@@ -3,7 +3,6 @@
  * @author Adrian Mejia <me AT adrianmejia.com>
  */
 class HashMap {
-
   /**
    * Initialize array that holds the values. Default is size 1,000
    * @param {number} initialCapacity initial size of the array
@@ -50,23 +49,23 @@ class HashMap {
    * @param {any} value
    */
   set(key, value) {
-    const {bucketIndex, entryIndex} = this._getIndexes(key);
+    const { bucketIndex, entryIndex } = this._getIndexes(key);
 
-    if(entryIndex === undefined) {
+    if (entryIndex === undefined) {
       // initialize array and save key/value
-      const keyIndex = this.keys.push({content: key}) - 1; // keep track of the key index
+      const keyIndex = this.keys.push({ content: key }) - 1; // keep track of the key index
       this.buckets[bucketIndex] = this.buckets[bucketIndex] || [];
-      this.buckets[bucketIndex].push({key, value, keyIndex});
+      this.buckets[bucketIndex].push({ key, value, keyIndex });
       this.size++;
       // Optional: keep count of collisions
-      if(this.buckets[bucketIndex].length > 1) { this.collisions++; }
+      if (this.buckets[bucketIndex].length > 1) { this.collisions++; }
     } else {
       // override existing value
       this.buckets[bucketIndex][entryIndex].value = value;
     }
 
     // check if a rehash is due
-    if(this.loadFactor > 0 && this.getLoadFactor() > this.loadFactor) {
+    if (this.loadFactor > 0 && this.getLoadFactor() > this.loadFactor) {
       this.rehash(this.buckets.length * 2);
     }
 
@@ -79,9 +78,9 @@ class HashMap {
    * @param {any} key
    */
   get(key) {
-    const {bucketIndex, entryIndex} = this._getIndexes(key);
+    const { bucketIndex, entryIndex } = this._getIndexes(key);
 
-    if(entryIndex === undefined) {
+    if (entryIndex === undefined) {
       return;
     }
 
@@ -107,12 +106,12 @@ class HashMap {
 
     for (let entryIndex = 0; entryIndex < values.length; entryIndex++) {
       const entry = values[entryIndex];
-      if(entry.key === key) {
-        return {bucketIndex, entryIndex};
+      if (entry.key === key) {
+        return { bucketIndex, entryIndex };
       }
     }
 
-    return {bucketIndex};
+    return { bucketIndex };
   }
 
   /**
@@ -120,9 +119,9 @@ class HashMap {
    * @param {any} key
    */
   delete(key) {
-    const {bucketIndex, entryIndex, keyIndex} = this._getIndexes(key);
+    const { bucketIndex, entryIndex, keyIndex } = this._getIndexes(key);
 
-    if(entryIndex === undefined) {
+    if (entryIndex === undefined) {
       return false;
     }
 
@@ -140,8 +139,8 @@ class HashMap {
   rehash(newCapacity) {
     const newMap = new HashMap(newCapacity);
 
-    this.keys.forEach(key => {
-      if(key) {
+    this.keys.forEach((key) => {
+      if (key) {
         newMap.set(key.content, this.get(key.content));
       }
     });
@@ -167,6 +166,7 @@ const hashMap = new HashMap(1);
 // const hashMap = new Map();
 
 const assert = require('assert');
+
 assert.equal(hashMap.size, 0);
 hashMap.set('cat', 2);
 assert.equal(hashMap.size, 1);
@@ -213,32 +213,32 @@ assert.equal(hashMap.getLoadFactor(), 5);
 hashMap.rehash(1000);
 console.log(hashMap.collisions);
 console.log(hashMap.buckets);
-assert.equal(hashMap.getLoadFactor(), 5/1000);
+assert.equal(hashMap.getLoadFactor(), 5 / 1000);
 
 // automatic rehashing based on loadFactor
 const dynamicMap = new HashMap(2, 0.75);
 
 dynamicMap.set('uno', 1);
 assert.equal(dynamicMap.buckets.length, 2);
-assert.equal(dynamicMap.getLoadFactor(), 1/2);
+assert.equal(dynamicMap.getLoadFactor(), 1 / 2);
 console.log(hashMap.collisions);
 
 dynamicMap.set('dos', 2);
 assert.equal(dynamicMap.buckets.length, 4); // <-- rehash took place
-assert.equal(dynamicMap.getLoadFactor(), 1/2);
+assert.equal(dynamicMap.getLoadFactor(), 1 / 2);
 console.log(hashMap.collisions);
 
 dynamicMap.set('tres', 3);
 assert.equal(dynamicMap.buckets.length, 4); // <-- no rehash
-assert.equal(dynamicMap.getLoadFactor(), 3/4);
+assert.equal(dynamicMap.getLoadFactor(), 3 / 4);
 console.log(hashMap.collisions);
 
 dynamicMap.set('cuatro', 4);
 assert.equal(dynamicMap.buckets.length, 8); // <-- rehash took place
-assert.equal(dynamicMap.getLoadFactor(), 4/8);
+assert.equal(dynamicMap.getLoadFactor(), 4 / 8);
 console.log(hashMap.collisions);
 
 dynamicMap.set('cinco', 5);
 assert.equal(dynamicMap.buckets.length, 8); // <-- no rehash
-assert.equal(dynamicMap.getLoadFactor(), 5/8);
+assert.equal(dynamicMap.getLoadFactor(), 5 / 8);
 console.log(hashMap.collisions);
