@@ -24,7 +24,7 @@ class Node {
    * Runtime: O(n)
    *
    * @param {Node} node
-   * @returns removed node or false if node was not found
+   * @returns removed node or `undefined` if node was not found
    */
   removeAdjacent(node) {
     const index = this.adjacents.indexOf(node);
@@ -32,7 +32,7 @@ class Node {
       this.adjacents.splice(index, 1);
       return node;
     }
-    return false;
+    return undefined;
   }
 
   /**
