@@ -235,10 +235,14 @@ describe('Graph', () => {
   });
 
   describe('with (people) edges on undigraph', () => {
+    let you;
+    let mary;
+    let barbara;
+
     beforeEach(() => {
       graph = new Graph(Graph.UNDIRECTED);
-      graph.addEdge('You', 'Mary');
-      graph.addEdge('Mary', 'Barbara');
+      [you] = graph.addEdge('You', 'Mary');
+      [mary, barbara] = graph.addEdge('Mary', 'Barbara');
     });
 
     describe('#areConnected', () => {
@@ -256,6 +260,10 @@ describe('Graph', () => {
     });
 
     describe('#findPath', () => {
+      it('should handle source === destination', () => {
+        expect(graph.findPath('You', 'You')).toEqual([you]);
+      });
+
       it('should get connecting path', () => {
         expect(graph.findPath('You', 'Barbara').map(getValue)).toEqual(['You', 'Mary', 'Barbara']);
       });
@@ -266,6 +274,19 @@ describe('Graph', () => {
 
       it('should return empty if there is no connection', () => {
         expect(graph.findPath('You', 'Obama').map(getValue)).toEqual([]);
+      });
+    });
+
+    xdescribe('#findAllPaths', () => {
+      it('should handle source === destination', () => {
+        expect(graph.findAllPaths('You', 'You')).toEqual([[you]]);
+      });
+
+      it('should find all paths', () => {
+        expect(graph.findAllPaths('Mary', 'Barbara')).toEqual([
+          ['Mary', 'You', 'Barbara'],
+          ['Mary', 'Barbara'],
+        ]);
       });
     });
   });

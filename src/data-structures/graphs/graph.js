@@ -18,6 +18,10 @@ const Queue = require('../queues/queue');
  * - Find path (between two vertices)
  * - Find all paths (between two vertices)
  * - Find shortest paths (between two vertices)
+ *
+ * https://repl.it/@amejiarosario/graphpy
+ * http://www.pythontutor.com/visualize.html#mode=edit
+ *
  */
 class Graph {
   /**
@@ -198,6 +202,12 @@ class Graph {
     const sourceNode = this.nodes.get(source);
     const destinationNode = this.nodes.get(destination);
 
+    if (!destinationNode || !sourceNode) return [];
+
+    if (source === destination) {
+      return [sourceNode];
+    }
+
     path.set(sourceNode);
 
     const wasFound = sourceNode.getAdjacents().find((node) => {
@@ -218,6 +228,36 @@ class Graph {
 
     return wasFound ? Array.from(path.keys()) : [];
   }
+
+  // you -> mary -> barbara
+
+  // findAllPaths(source, destination, path = new Map()) {
+  //   const sourceNode = this.nodes.get(source);
+  //   const destinationNode = this.nodes.get(destination);
+
+  //   if (!destinationNode || !sourceNode) return [];
+
+  //   if (source === destination) {
+  //     return [[sourceNode]];
+  //   }
+
+  //   path.set(sourceNode);
+
+  //   const paths = [];
+
+  //   sourceNode.getAdjacents().forEach((node) => {
+  //     if (node === destinationNode) {
+  //       path.set(node);
+  //       paths.push(Array.from(path.keys()));
+  //     }
+
+  //     if (!path.has(node)) {
+  //       newPaths = this.findAllPaths(node.value, destination, path, paths);
+  //     }
+  //   });
+
+  //   return paths;
+  // }
 }
 
 Graph.UNDIRECTED = Symbol('directed graph'); // one-way edges
