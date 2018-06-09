@@ -3,8 +3,8 @@
 const HashMap = require('../hash-maps/hash-map');
 
 class MySet {
-  constructor() {
-    this.hashMap = new HashMap();
+  constructor(Type = HashMap) {
+    this.hashMap = new Type();
   }
 
   add(value) {
