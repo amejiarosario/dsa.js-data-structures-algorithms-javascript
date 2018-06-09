@@ -20,7 +20,7 @@ const Queue = require('../queues/queue');
  * - Find shortest paths (between two vertices)
  *
  * https://repl.it/@amejiarosario/graphpy
- * http://www.pythontutor.com/visualize.html#mode=edit
+ * http://www.pythontutor.com/visualize.html#mode=edit - https://goo.gl/Xp7Zpm
  *
  */
 class Graph {
@@ -195,38 +195,33 @@ class Graph {
    *
    * @param {any} source vertex's value
    * @param {any} destination vertex's value
-   * @param {Map<Node>} path current path from source to destination
+   * @param {Map<Node>} newPath current path from source to destination
    * @returns list of nodes from source to destination
    */
   findPath(source, destination, path = new Map()) {
     const sourceNode = this.nodes.get(source);
     const destinationNode = this.nodes.get(destination);
+    const newPath = new Map(path);
 
     if (!destinationNode || !sourceNode) return [];
 
+    newPath.set(sourceNode);
+
     if (source === destination) {
-      return [sourceNode];
+      return Array.from(newPath.keys());
     }
 
-    path.set(sourceNode);
-
-    const wasFound = sourceNode.getAdjacents().find((node) => {
-      if (node === destinationNode) {
-        path.set(destinationNode);
-        return true;
-      }
-
-      if (!path.has(node)) {
-        const newPath = this.findPath(node.value, destination, path);
-        if (newPath.length) {
-          return true;
+    // eslint-disable-next-line no-restricted-syntax
+    for (const node of sourceNode.getAdjacents()) {
+      if (!newPath.has(node)) {
+        const nextPath = this.findPath(node.value, destination, newPath);
+        if (nextPath.length) {
+          return nextPath;
         }
       }
+    }
 
-      return false;
-    });
-
-    return wasFound ? Array.from(path.keys()) : [];
+    return [];
   }
 
   // you -> mary -> barbara

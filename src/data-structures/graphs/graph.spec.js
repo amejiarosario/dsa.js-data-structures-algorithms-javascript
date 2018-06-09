@@ -269,7 +269,7 @@ describe('Graph', () => {
       });
 
       it('should get adjacent connecting path', () => {
-        expect(graph.findPath('Mary', 'Barbara').map(getValue)).toEqual(['Mary', 'You', 'Barbara']);
+        expect(graph.findPath('Mary', 'Barbara').map(getValue)).toEqual(['Mary', 'Barbara']);
       });
 
       it('should return empty if there is no connection', () => {
