@@ -45,7 +45,7 @@ describe('without collisions', () => {
     expect(hashMap.delete('Bailando')).toBe(false);
     expect(hashMap.get('Bailando')).toBe(undefined);
 
-    expect(hashMap.keys.map(k => k.content)).toEqual(['Despacito', , 'Dura']);
+    expect(hashMap.keys()).toEqual(['Despacito', 'Dura']);
   });
 });
 

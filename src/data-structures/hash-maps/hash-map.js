@@ -13,7 +13,7 @@ class HashMap {
     this.loadFactor = loadFactor;
     this.size = 0;
     this.collisions = 0;
-    this.keys = [];
+    this.keysArrayWrapper = [];
   }
 
   /**
@@ -53,7 +53,7 @@ class HashMap {
 
     if (entryIndex === undefined) {
       // initialize array and save key/value
-      const keyIndex = this.keys.push({ content: key }) - 1; // keep track of the key index
+      const keyIndex = this.keysArrayWrapper.push({ content: key }) - 1; // keep track of the key index
       this.buckets[bucketIndex] = this.buckets[bucketIndex] || [];
       this.buckets[bucketIndex].push({ key, value, keyIndex });
       this.size++;
@@ -126,7 +126,7 @@ class HashMap {
     }
 
     this.buckets[bucketIndex].splice(entryIndex, 1);
-    delete this.keys[keyIndex];
+    delete this.keysArrayWrapper[keyIndex];
     this.size--;
 
     return true;
@@ -139,7 +139,7 @@ class HashMap {
   rehash(newCapacity) {
     const newMap = new HashMap(newCapacity);
 
-    this.keys.forEach((key) => {
+    this.keysArrayWrapper.forEach((key) => {
       newMap.set(key.content, this.get(key.content));
     });
 
@@ -147,14 +147,26 @@ class HashMap {
     this.buckets = newMap.buckets;
     this.collisions = newMap.collisions;
     // Optional: both `keys` has the same content except that the new one doesn't have empty spaces from deletions
-    this.keys = newMap.keys;
+    this.keysArrayWrapper = newMap.keysArrayWrapper;
   }
 
   /**
-   * Load factor - measure how full the Map is. It's ratio between items on the map and total size of buckets
+   * Load factor - measure how full the Map is.
+   * It's ratio between items on the map and total size of buckets
    */
   getLoadFactor() {
     return this.size / this.buckets.length;
+  }
+
+  /**
+   * Returns an array with valid keys
+   * If keys has been deleted they shouldn't be in the array of keys
+   */
+  keys() {
+    return this.keysArrayWrapper.reduce((acc, key) => {
+      acc.push(key.content);
+      return acc;
+    }, []);
   }
 }
 

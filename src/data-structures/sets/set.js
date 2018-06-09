@@ -1,54 +1,53 @@
-// MySet = require('./lib/data-structures/sets/set');
-
-const HashMap = require('../hash-maps/hash-map');
-
-class MySet {
-  constructor(Type = HashMap) {
+/**
+ * Set implemented with Map (JS built-in) or a HashMap to have sublinear times on all operations
+ */
+class HSet {
+  /**
+   * Initialize (Hash)map for the set
+   * @param {Map|HashMap} Type data structure for the set
+   */
+  constructor(Type = Map) {
     this.hashMap = new Type();
   }
 
+  /**
+   * Add a new value
+   * @param {any} value
+   */
   add(value) {
     this.hashMap.set(value);
   }
 
+  /**
+   * check if value is already on the set
+   * @param {any} value
+   */
   has(value) {
     return this.hashMap.has(value);
   }
 
+  /**
+   * Get size of the set
+   */
   get size() {
     return this.hashMap.size;
   }
 
+  /**
+   * Delete a value from the set
+   * @param {any} value
+   */
   delete(value) {
     return this.hashMap.delete(value);
   }
 
+  /**
+   * Return all values on the set as an array
+   */
   entries() {
-    return this.hashMap.keys.reduce((acc, key) => {
-      acc.push(key.content);
-      return acc;
-    }, []);
+    return Array.from(this.hashMap.keys());
   }
 }
 
-module.exports = MySet;
-
-// const assert = require('assert');
-// // const set = new Set();
-// const set = new MySet();
-
-// set.add('one');
-// set.add('uno');
-// set.add('one');
-
-// assert.equal(set.has('one'), true);
-// assert.equal(set.has('dos'), false);
-
-// assert.equal(set.size, 2);
-// // assert.deepEqual(Array.from(set), ['one', 'uno']);
-
-// assert.equal(set.delete('one'), true);
-// assert.equal(set.delete('one'), false);
-// assert.equal(set.has('one'), false);
-// assert.equal(set.size, 1);
+module.exports = HSet;
 
