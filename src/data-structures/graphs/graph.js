@@ -224,35 +224,28 @@ class Graph {
     return [];
   }
 
-  // you -> mary -> barbara
+  findAllPaths(source, destination, path = new Map()) {
+    const sourceNode = this.nodes.get(source);
+    const destinationNode = this.nodes.get(destination);
+    const newPath = new Map(path);
 
-  // findAllPaths(source, destination, path = new Map()) {
-  //   const sourceNode = this.nodes.get(source);
-  //   const destinationNode = this.nodes.get(destination);
+    if (!destinationNode || !sourceNode) return [];
 
-  //   if (!destinationNode || !sourceNode) return [];
+    newPath.set(sourceNode);
 
-  //   if (source === destination) {
-  //     return [[sourceNode]];
-  //   }
+    if (source === destination) {
+      return [Array.from(newPath.keys())];
+    }
 
-  //   path.set(sourceNode);
-
-  //   const paths = [];
-
-  //   sourceNode.getAdjacents().forEach((node) => {
-  //     if (node === destinationNode) {
-  //       path.set(node);
-  //       paths.push(Array.from(path.keys()));
-  //     }
-
-  //     if (!path.has(node)) {
-  //       newPaths = this.findAllPaths(node.value, destination, path, paths);
-  //     }
-  //   });
-
-  //   return paths;
-  // }
+    const paths = [];
+    sourceNode.getAdjacents().forEach((node) => {
+      if (!newPath.has(node)) {
+        const nextPaths = this.findAllPaths(node.value, destination, newPath);
+        nextPaths.forEach(nextPath => paths.push(nextPath));
+      }
+    });
+    return paths;
+  }
 }
 
 Graph.UNDIRECTED = Symbol('directed graph'); // one-way edges

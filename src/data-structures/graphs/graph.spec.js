@@ -2,7 +2,7 @@ const Graph = require('./graph');
 
 describe('Graph', () => {
   let graph;
-  const getValue = node => node.value;
+  const getValues = node => (Array.isArray(node) ? node.map(a => getValues(a)) : node.value);
 
   beforeEach(() => {
     graph = new Graph();
@@ -43,18 +43,18 @@ describe('Graph', () => {
 
     it('should add node a as adjacent of b', () => {
       const [a, b] = graph.addEdge('a', 'b');
-      expect(a.adjacents.map(getValue)).toEqual(['b']);
-      expect(b.adjacents.map(getValue)).toEqual([]);
+      expect(a.adjacents.map(getValues)).toEqual(['b']);
+      expect(b.adjacents.map(getValues)).toEqual([]);
 
       graph.addEdge('b', 'a');
-      expect(b.adjacents.map(getValue)).toEqual(['a']);
+      expect(b.adjacents.map(getValues)).toEqual(['a']);
     });
 
     it('should add both connection on undirected graph', () => {
       graph = new Graph(Graph.UNDIRECTED);
       const [a, b] = graph.addEdge('a', 'b');
-      expect(a.adjacents.map(getValue)).toEqual(['b']);
-      expect(b.adjacents.map(getValue)).toEqual(['a']);
+      expect(a.adjacents.map(getValues)).toEqual(['b']);
+      expect(b.adjacents.map(getValues)).toEqual(['a']);
     });
 
     it('should add falsy values', () => {
@@ -71,23 +71,23 @@ describe('Graph', () => {
 
     it('should remove edges if they exist', () => {
       const [a, b] = graph.removeEdge('a', 'b');
-      expect(a.adjacents.map(getValue)).toEqual([]);
-      expect(b.adjacents.map(getValue)).toEqual([]);
+      expect(a.adjacents.map(getValues)).toEqual([]);
+      expect(b.adjacents.map(getValues)).toEqual([]);
     });
 
     it('should remove edges with falsy values', () => {
       const [a, b] = graph.addEdge(0, false);
-      expect(a.adjacents.map(getValue)).toEqual([false]);
-      expect(b.adjacents.map(getValue)).toEqual([]);
+      expect(a.adjacents.map(getValues)).toEqual([false]);
+      expect(b.adjacents.map(getValues)).toEqual([]);
       graph.removeEdge(0, false);
-      expect(a.adjacents.map(getValue)).toEqual([]);
-      expect(b.adjacents.map(getValue)).toEqual([]);
+      expect(a.adjacents.map(getValues)).toEqual([]);
+      expect(b.adjacents.map(getValues)).toEqual([]);
     });
 
     it('should not create node when removing unexisting target', () => {
       const [a, c] = graph.removeEdge('a', 'c');
       expect(graph.nodes.size).toBe(2);
-      expect(a.adjacents.map(getValue)).toEqual(['b']);
+      expect(a.adjacents.map(getValues)).toEqual(['b']);
       expect(c).toBe(undefined);
     });
 
@@ -143,11 +143,11 @@ describe('Graph', () => {
     });
 
     it('should remove nodes from adjacent list', () => {
-      expect(n4.getAdjacents().map(getValue)).toEqual([1, 3]);
-      expect(n2.getAdjacents().map(getValue)).toEqual([1]);
+      expect(n4.getAdjacents().map(getValues)).toEqual([1, 3]);
+      expect(n2.getAdjacents().map(getValues)).toEqual([1]);
       expect(graph.nodes.has(n1.value)).toBe(true);
       graph.removeVertex(1);
-      expect(n4.getAdjacents().map(getValue)).toEqual([3]);
+      expect(n4.getAdjacents().map(getValues)).toEqual([3]);
       expect(graph.nodes.has(n1.value)).toBe(false);
     });
   });
@@ -171,14 +171,14 @@ describe('Graph', () => {
 
     describe('#dfs', () => {
       it('should visit nodes using depth-first search', () => {
-        const visitedOrder = Array.from(Graph.dfs(first)).map(getValue);
+        const visitedOrder = Array.from(Graph.dfs(first)).map(getValues);
         expect(visitedOrder).toEqual([0, 1, 3, 2, 4, 5]);
       });
     });
 
     describe('#bfs', () => {
       it('should visit nodes using breadth-first search', () => {
-        const visitedOrder = Array.from(Graph.bfs(first)).map(getValue);
+        const visitedOrder = Array.from(Graph.bfs(first)).map(getValues);
         expect(visitedOrder).toEqual([0, 5, 4, 1, 3, 2]);
       });
     });
@@ -203,7 +203,7 @@ describe('Graph', () => {
 
     describe('#dfs', () => {
       it('should visit nodes using depth-first search', () => {
-        const visitedOrder = Array.from(Graph.dfs(first)).map(getValue);
+        const visitedOrder = Array.from(Graph.dfs(first)).map(getValues);
         expect(visitedOrder).toEqual([1, 4, 8, 3, 7, 6, 10, 2, 5, 9]);
       });
 
@@ -228,7 +228,7 @@ describe('Graph', () => {
 
     describe('#bfs', () => {
       it('should visit nodes using breadth-first search', () => {
-        const visitedOrder = Array.from(Graph.bfs(first)).map(getValue);
+        const visitedOrder = Array.from(Graph.bfs(first)).map(getValues);
         expect(visitedOrder).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
       });
     });
@@ -241,51 +241,59 @@ describe('Graph', () => {
 
     beforeEach(() => {
       graph = new Graph(Graph.UNDIRECTED);
-      [you] = graph.addEdge('You', 'Mary');
-      [mary, barbara] = graph.addEdge('Mary', 'Barbara');
+      [you] = graph.addEdge('you', 'mary');
+      [mary, barbara] = graph.addEdge('mary', 'barbara');
     });
 
     describe('#areConnected', () => {
       it('should return true if two nodes are connected', () => {
-        expect(graph.areConnected('You', 'Barbara')).toBe(true);
+        expect(graph.areConnected('you', 'barbara')).toBe(true);
       });
 
       it('should return true if two nodes are connected', () => {
-        expect(graph.areConnected('You', 'You')).toBe(true);
+        expect(graph.areConnected('you', 'you')).toBe(true);
       });
 
       it('should return true if two nodes are connected', () => {
-        expect(graph.areConnected('You', 'John')).toBe(false);
+        expect(graph.areConnected('you', 'John')).toBe(false);
       });
     });
 
     describe('#findPath', () => {
       it('should handle source === destination', () => {
-        expect(graph.findPath('You', 'You')).toEqual([you]);
+        expect(graph.findPath('you', 'you')).toEqual([you]);
       });
 
       it('should get connecting path', () => {
-        expect(graph.findPath('You', 'Barbara').map(getValue)).toEqual(['You', 'Mary', 'Barbara']);
+        expect(graph.findPath('you', 'barbara').map(getValues)).toEqual(['you', 'mary', 'barbara']);
       });
 
       it('should get adjacent connecting path', () => {
-        expect(graph.findPath('Mary', 'Barbara').map(getValue)).toEqual(['Mary', 'Barbara']);
+        expect(graph.findPath('mary', 'barbara').map(getValues)).toEqual(['mary', 'barbara']);
       });
 
       it('should return empty if there is no connection', () => {
-        expect(graph.findPath('You', 'Obama').map(getValue)).toEqual([]);
+        expect(graph.findPath('you', 'Obama').map(getValues)).toEqual([]);
       });
     });
 
-    xdescribe('#findAllPaths', () => {
+    describe('#findAllPaths', () => {
       it('should handle source === destination', () => {
-        expect(graph.findAllPaths('You', 'You')).toEqual([[you]]);
+        expect(graph.findAllPaths('you', 'you')).toEqual([[you]]);
+        expect(getValues(graph.findAllPaths('you', 'you'))).toEqual([['you']]);
+      });
+
+      it('should find all paths when only one', () => {
+        expect(getValues(graph.findAllPaths('mary', 'barbara'))).toEqual([
+          ['mary', 'barbara'],
+        ]);
       });
 
       it('should find all paths', () => {
-        expect(graph.findAllPaths('Mary', 'Barbara')).toEqual([
-          ['Mary', 'You', 'Barbara'],
-          ['Mary', 'Barbara'],
+        graph.addEdge('you', 'barbara');
+        expect(getValues(graph.findAllPaths('you', 'barbara'))).toEqual([
+          ['you', 'mary', 'barbara'],
+          ['you', 'barbara'],
         ]);
       });
     });
