@@ -224,6 +224,13 @@ class Graph {
     return [];
   }
 
+  /**
+   * Find all paths from source to destination
+   *
+   * @param {any} source vertex'value
+   * @param {any} destination vertex'value
+   * @param {Map} path (optional) used for recursion
+   */
   findAllPaths(source, destination, path = new Map()) {
     const sourceNode = this.nodes.get(source);
     const destinationNode = this.nodes.get(destination);
