@@ -1,7 +1,7 @@
 /**
  * Set implemented with our HashMap to have sublinear times on all operations
  */
-class HashMapSet {
+class ArraySet {
   /**
    * Initialize Set using a HashMap
    *
@@ -62,7 +62,14 @@ class HashMapSet {
   entries() {
     return this.array;
   }
+
+  /**
+   * Make this class iterable
+   */
+  [Symbol.iterator]() {
+    return this.entries()[Symbol.iterator]();
+  }
 }
 
-module.exports = HashMapSet;
+module.exports = ArraySet;
 

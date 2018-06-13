@@ -2,7 +2,7 @@ const ArraySet = require('./array-set');
 const HashSet = require('./hash-set');
 const HashMapSet = require('./hash-set-1');
 
-[ArraySet, HashSet, HashMapSet].forEach((MySet) => {
+[HashSet, HashMapSet, ArraySet].forEach((MySet) => {
   describe(`Set (${MySet.name})`, () => {
     let set;
 
@@ -66,7 +66,7 @@ const HashMapSet = require('./hash-set-1');
       expect(set.entries()).toEqual([1, 2, 3]);
     });
 
-    xit('should return an iterable', () => {
+    it('should return an iterable', () => {
       set = new MySet([1, 2, 3, 1]);
       expect(Array.from(set)).toEqual([1, 2, 3]);
     });

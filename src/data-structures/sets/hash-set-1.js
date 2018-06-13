@@ -48,7 +48,14 @@ class HashMapSet {
    * Return all values on the set as an array
    */
   entries() {
-    return Array.from(this.hashMap.keys());
+    return Array.from(this);
+  }
+
+  /**
+   * Make this class iterable
+   */
+  [Symbol.iterator]() {
+    return this.hashMap.keys()[Symbol.iterator]();
   }
 }
 
