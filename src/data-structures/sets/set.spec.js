@@ -1,12 +1,13 @@
-const HSet = require('./set');
-const HashMap = require('../hash-maps/hash-map');
+const ArraySet = require('./array-set');
+const HashSet = require('./hash-set');
+const HashMapSet = require('./hash-set-1');
 
-[Map, HashMap].forEach((dataType) => {
-  describe(`Set with ${dataType}`, () => {
+[ArraySet, HashSet, HashMapSet].forEach((MySet) => {
+  describe(`Set (${MySet.name})`, () => {
     let set;
 
     beforeEach(() => {
-      set = new HSet(dataType);
+      set = new MySet();
     });
 
     it('should set size and has', () => {
@@ -57,6 +58,17 @@ const HashMap = require('../hash-maps/hash-map');
 
       expect(set.entries()).toEqual([1, 3]);
       expect(set.size).toBe(2);
+    });
+
+    it('should initialize with data provided', () => {
+      set = new MySet([1, 2, 3, 1]);
+      expect(set.size).toBe(3);
+      expect(set.entries()).toEqual([1, 2, 3]);
+    });
+
+    xit('should return an iterable', () => {
+      set = new MySet([1, 2, 3, 1]);
+      expect(Array.from(set)).toEqual([1, 2, 3]);
     });
   });
 });
