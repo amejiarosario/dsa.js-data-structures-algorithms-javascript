@@ -1,5 +1,6 @@
 const TreeNode = require('./tree-node');
 const Queue = require('../queues/queue');
+const Stack = require('../stacks/stack');
 
 class BinarySearchTree {
   constructor() {
@@ -75,6 +76,33 @@ class BinarySearchTree {
     return false;
   }
 
+  /**
+   * Represent Binary Tree as an array.
+   *
+   * Leaf nodes will have two `undefined` descendents.
+   *
+   * The array representation of the binary tree is as follows:
+   *
+   * First element (index=0) is the root.
+   * The following two elements (index=1,2) are descendents of the root: left (a) and right (b).
+   * The next two elements (index=3,4) are the descendents of a
+   * The next two elements (index=5,6) are the descendents of b and so on.
+   *
+   *  0     1            2             3       4        5       6        n
+   * [root, a=root.left, b=root.right, a.left, a.right, b.left, b.right, ...]
+   *
+   * You can also find the parents as follows
+   *
+   * e.g.
+   * Parent 0: children 1,2
+   * Parent 1: children 3,4
+   * Parent 2: children 5,6
+   * Parent 3: children 7,8
+   *
+   * Given any index you can find the parent index with the following formula:
+   *
+   * parent = (index) => Math.floor((index-1)/2)
+   */
   toArray() {
     const array = [];
     const queue = new Queue();
@@ -90,6 +118,71 @@ class BinarySearchTree {
     }
 
     return array;
+  }
+
+  /**
+   * Breath-first search for a tree (always starting from the root element)
+   */
+  * bfs() {
+    const queue = new Queue();
+
+    queue.add(this.root);
+
+    while (!queue.isEmpty()) {
+      const node = queue.remove();
+      yield node;
+      node.descendents.forEach(child => queue.add(child));
+    }
+  }
+
+  /**
+   * Depth-first search for a tree (always starting from the root element)
+   */
+  * dfs() {
+    const stack = new Stack();
+
+    stack.add(this.root);
+
+    while (!stack.isEmpty()) {
+      const node = stack.remove();
+      yield node;
+      node.descendents.forEach(child => stack.add(child));
+    }
+  }
+
+  /**
+   * In-order traversal on a tree
+   *
+   * If the tree is a BST, then the values will be sorted in ascendent order
+   *
+   * @param {TreeNode} node first node to start the traversal
+   */
+  * inOrderTraversal(node = this.root) {
+    if (node.left) { yield* this.inOrderTraversal(node.left); }
+    yield node;
+    if (node.right) { yield* this.inOrderTraversal(node.right); }
+  }
+
+  /**
+   * Pre-order traversal on a tree
+   *
+   * @param {TreeNode} node first node to start the traversal
+   */
+  * preOrderTraversal(node = this.root) {
+    yield node;
+    if (node.left) { yield* this.inOrderTraversal(node.left); }
+    if (node.right) { yield* this.inOrderTraversal(node.right); }
+  }
+
+  /**
+   * Post-order traversal on a tree
+   *
+   * @param {TreeNode} node first node to start the traversal
+   */
+  * postOrderTraversal(node = this.root) {
+    if (node.left) { yield* this.inOrderTraversal(node.left); }
+    if (node.right) { yield* this.inOrderTraversal(node.right); }
+    yield node;
   }
 }
 
