@@ -42,24 +42,28 @@ describe('Binary Search Tree', () => {
   });
 
   describe('when has items', () => {
-    let n5;
     let root;
+    let n3;
+    let n4;
+    let n5;
+    let n30;
+    let n40;
 
     beforeEach(() => {
-      //          10
-      //         /  \
-      //        5    30
-      //      /     /  \
-      //     4     15    40
-      //   /
-      //  3
+      //           10
+      //         /    \
+      //        5      30
+      //      /       /  \
+      //     4       15   40
+      //   /   \
+      //  3   (4.5)
       root = bst.add(10);
       n5 = bst.add(5);
-      bst.add(30);
-      bst.add(40);
+      n30 = bst.add(30);
+      n40 = bst.add(40);
       bst.add(15);
-      bst.add(4);
-      bst.add(3);
+      n4 = bst.add(4);
+      n3 = bst.add(3);
     });
 
     describe('#find', () => {
@@ -72,17 +76,41 @@ describe('Binary Search Tree', () => {
       });
     });
 
-    xdescribe('#remove', () => {
-      it('should remove value 2', () => {
-        expect(bst.toArray()).toEqual([10, 2, 30, undefined, undefined, 15, 40, undefined, undefined, undefined, undefined]);
-        expect(Array.from(bst.preOrderTraversal()).map(n => n.value)).toEqual([10, 2, 30, 15, 40]);
-        expect(bst.remove(2)).toBe(true);
-        expect(Array.from(bst.preOrderTraversal()).map(n => n.value)).toEqual([10, 30, 15, 40]);
-        expect(root.left).toBe(undefined);
+    describe('#remove', () => {
+      it('should remove a left leaf node', () => {
+        expect(n4.left).toBe(n3);
+        bst.remove(3);
+        expect(n4.left).toBe(undefined);
       });
 
-      xit('should return false for removing unexisting value 20', () => {
-        expect(bst.remove(20)).toBe(false);
+      it('should remove a right leaf node', () => {
+        expect(n30.right).toBe(n40);
+        bst.remove(40);
+        expect(n30.right).toBe(undefined);
+      });
+
+      it('should remove a parent with two descents on the right', () => {
+        expect(root.left.value).toBe(5);
+        expect(root.right.value).toBe(30);
+
+        bst.remove(30);
+
+        expect(root.left.value).toBe(5);
+        expect(root.right.value).toBe(40);
+      });
+
+      it('should remove a parent with two descents on the left', () => {
+        bst.add(4.5);
+        expect(n5.left.value).toBe(4);
+        expect(n5.left.right.value).toBe(4.5);
+
+        bst.remove(4);
+
+        expect(n5.left.value).toBe(4.5);
+      });
+
+      it('should return false when it does not exist', () => {
+        expect(bst.remove(4.5)).toBe(false);
       });
     });
 

@@ -65,9 +65,20 @@ class BinarySearchTree {
     // search for the parent of the element
     while (current) {
       if (current.value === value) {
-        // if (parent.value < current.value && parent.left.value === value) {
-        parent.left = current.left;
-        // }
+        if (parent.left.value === value) {
+          // value is on the left side
+          parent.left = current.right || current.left;
+          if (current.left) {
+            parent.left.left = current.left;
+          }
+        } else {
+          // value is on the right side
+          parent.right = current.right || current.left;
+          if (current.left) {
+            parent.right.left = current.left;
+          }
+        }
+
         return true;
       }
       parent = current;
