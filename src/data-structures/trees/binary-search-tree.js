@@ -65,9 +65,9 @@ class BinarySearchTree {
     // search for the parent of the element
     while (current) {
       if (current.value === value) {
-        if (parent.value < current.value && parent.left.value === value) {
-          parent.left = current.left;
-        }
+        // if (parent.value < current.value && parent.left.value === value) {
+        parent.left = current.left;
+        // }
         return true;
       }
       parent = current;
@@ -121,7 +121,8 @@ class BinarySearchTree {
   }
 
   /**
-   * Breath-first search for a tree (always starting from the root element)
+   * Breath-first search for a tree (always starting from the root element).
+   *
    */
   * bfs() {
     const queue = new Queue();
@@ -137,6 +138,8 @@ class BinarySearchTree {
 
   /**
    * Depth-first search for a tree (always starting from the root element)
+   *
+   * @see preOrderTraversal Similar results to the pre-order transversal.
    */
   * dfs() {
     const stack = new Stack();
@@ -146,7 +149,8 @@ class BinarySearchTree {
     while (!stack.isEmpty()) {
       const node = stack.remove();
       yield node;
-      node.descendents.forEach(child => stack.add(child));
+      // reverse array, so left gets removed before right
+      node.descendents.reverse().forEach(child => stack.add(child));
     }
   }
 
@@ -164,14 +168,15 @@ class BinarySearchTree {
   }
 
   /**
-   * Pre-order traversal on a tree
+   * Pre-order traversal on a tree. Similar results to DFS
    *
    * @param {TreeNode} node first node to start the traversal
+   * @see dfs similar results to the breath first search
    */
   * preOrderTraversal(node = this.root) {
     yield node;
-    if (node.left) { yield* this.inOrderTraversal(node.left); }
-    if (node.right) { yield* this.inOrderTraversal(node.right); }
+    if (node.left) { yield* this.preOrderTraversal(node.left); }
+    if (node.right) { yield* this.preOrderTraversal(node.right); }
   }
 
   /**
@@ -180,8 +185,8 @@ class BinarySearchTree {
    * @param {TreeNode} node first node to start the traversal
    */
   * postOrderTraversal(node = this.root) {
-    if (node.left) { yield* this.inOrderTraversal(node.left); }
-    if (node.right) { yield* this.inOrderTraversal(node.right); }
+    if (node.left) { yield* this.postOrderTraversal(node.left); }
+    if (node.right) { yield* this.postOrderTraversal(node.right); }
     yield node;
   }
 }

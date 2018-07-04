@@ -2,6 +2,7 @@ const BinarySearchTree = require('./binary-search-tree');
 
 describe('Binary Search Tree', () => {
   let bst;
+  const getValues = treeGenerator => Array.from(treeGenerator).map(node => node.value);
 
   beforeEach(() => {
     bst = new BinarySearchTree();
@@ -41,20 +42,29 @@ describe('Binary Search Tree', () => {
   });
 
   describe('when has items', () => {
-    let n2;
+    let n5;
     let root;
 
     beforeEach(() => {
+      //          10
+      //         /  \
+      //        5    30
+      //      /     /  \
+      //     4     15    40
+      //   /
+      //  3
       root = bst.add(10);
-      n2 = bst.add(2);
+      n5 = bst.add(5);
       bst.add(30);
       bst.add(40);
       bst.add(15);
+      bst.add(4);
+      bst.add(3);
     });
 
     describe('#find', () => {
       it('should find the value 2', () => {
-        expect(bst.find(2)).toBe(n2);
+        expect(bst.find(5)).toBe(n5);
       });
 
       it('should NOT find the value 20', () => {
@@ -64,12 +74,14 @@ describe('Binary Search Tree', () => {
 
     xdescribe('#remove', () => {
       it('should remove value 2', () => {
+        expect(bst.toArray()).toEqual([10, 2, 30, undefined, undefined, 15, 40, undefined, undefined, undefined, undefined]);
+        expect(Array.from(bst.preOrderTraversal()).map(n => n.value)).toEqual([10, 2, 30, 15, 40]);
         expect(bst.remove(2)).toBe(true);
-        expect(bst.toArray()).toEqual([10, undefined, 30, undefined, undefined, 15, 40]);
+        expect(Array.from(bst.preOrderTraversal()).map(n => n.value)).toEqual([10, 30, 15, 40]);
         expect(root.left).toBe(undefined);
       });
 
-      it('should return false for removing unexisting value 20', () => {
+      xit('should return false for removing unexisting value 20', () => {
         expect(bst.remove(20)).toBe(false);
       });
     });
@@ -78,17 +90,17 @@ describe('Binary Search Tree', () => {
       it('should visit nodes on BFS order using iterator', () => {
         const bfs = bst.bfs();
         expect(bfs.next().value).toBe(root); // 10
-        expect(bfs.next().value).toBe(n2);
+        expect(bfs.next().value).toBe(n5);
         expect(bfs.next().value.value).toBe(30);
+        expect(bfs.next().value.value).toBe(4);
         expect(bfs.next().value.value).toBe(15);
         expect(bfs.next()).toMatchObject({ value: { value: 40 }, done: false });
+        expect(bfs.next()).toMatchObject({ value: { value: 3 }, done: false });
         expect(bfs.next().done).toBe(true);
       });
 
       it('should generate an array from bfs', () => {
-        const nodes = Array.from(bst.bfs());
-        const values = nodes.map(node => node.value);
-        expect(values).toEqual([10, 2, 30, 15, 40]);
+        expect(getValues(bst.bfs())).toEqual([10, 5, 30, 4, 15, 40, 3]);
       });
     });
 
@@ -96,36 +108,25 @@ describe('Binary Search Tree', () => {
       it('should visit nodes on dfs order using iterator', () => {
         const dfs = bst.dfs();
         expect(dfs.next().value).toBe(root); // 10
+        expect(dfs.next().value).toBe(n5);
+        expect(dfs.next().value.value).toBe(4);
+        expect(dfs.next().value.value).toBe(3);
         expect(dfs.next().value.value).toBe(30);
-        expect(dfs.next()).toMatchObject({ value: { value: 40 }, done: false });
         expect(dfs.next().value.value).toBe(15);
-        expect(dfs.next().value).toBe(n2);
+        expect(dfs.next()).toMatchObject({ value: { value: 40 }, done: false });
         expect(dfs.next().done).toBe(true);
       });
 
       it('should generate an array from dfs', () => {
         const nodes = Array.from(bst.dfs());
         const values = nodes.map(node => node.value);
-        expect(values).toEqual([10, 30, 40, 15, 2]);
+        expect(values).toEqual([10, 5, 4, 3, 30, 15, 40]);
       });
     });
 
     describe('#inOrderTraversal', () => {
-      it('should visit nodes on order using iterator', () => {
-        const ordered = bst.inOrderTraversal();
-
-        expect(ordered.next().value).toBe(n2);
-        expect(ordered.next().value).toBe(root); // 10
-        expect(ordered.next().value.value).toBe(15);
-        expect(ordered.next().value.value).toBe(30);
-        expect(ordered.next()).toMatchObject({ value: { value: 40 }, done: false });
-        expect(ordered.next().done).toBe(true);
-      });
-
       it('should generate an array', () => {
-        const nodes = Array.from(bst.inOrderTraversal());
-        const values = nodes.map(node => node.value);
-        expect(values).toEqual([2, 10, 15, 30, 40]);
+        expect(getValues(bst.inOrderTraversal())).toEqual([3, 4, 5, 10, 15, 30, 40]);
       });
     });
 
@@ -133,7 +134,7 @@ describe('Binary Search Tree', () => {
       it('should generate an array from preOrderTraversal', () => {
         const nodes = Array.from(bst.preOrderTraversal());
         const values = nodes.map(node => node.value);
-        expect(values).toEqual([10, 2, 15, 30, 40]);
+        expect(values).toEqual([10, 5, 4, 3, 30, 15, 40]);
       });
     });
 
@@ -141,20 +142,14 @@ describe('Binary Search Tree', () => {
       it('should generate an array from postOrderTraversal', () => {
         const nodes = Array.from(bst.postOrderTraversal());
         const values = nodes.map(node => node.value);
-        expect(values).toEqual([2, 15, 30, 40, 10]);
+        expect(values).toEqual([3, 4, 5, 15, 40, 30, 10]);
       });
     });
 
     describe('#toArray', () => {
       it('should serialize the tree as an array', () => {
-        expect(bst.toArray()).toEqual([10, 2, 30, undefined, undefined, 15, 40,
-          undefined, undefined, undefined, undefined]);
-      });
-
-      it('should serialize new tree', () => {
-        bst.add(3);
-        expect(bst.toArray()).toEqual([10, 2, 30, undefined, 3, 15, 40,
-          undefined, undefined, undefined, undefined, undefined, undefined]);
+        expect(bst.toArray()).toEqual([10, 5, 30, 4, undefined, 15, 40, 3,
+          undefined, undefined, undefined, undefined, undefined, undefined, undefined]);
       });
     });
   });
