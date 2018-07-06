@@ -166,7 +166,7 @@ class BinarySearchTree {
   }
 
   /**
-   * In-order traversal on a tree
+   * In-order traversal on a tree: left-root-right.
    *
    * If the tree is a BST, then the values will be sorted in ascendent order
    *
@@ -179,7 +179,8 @@ class BinarySearchTree {
   }
 
   /**
-   * Pre-order traversal on a tree. Similar results to DFS
+   * Pre-order traversal on a tree: root-left-right.
+   * Similar results to DFS
    *
    * @param {TreeNode} node first node to start the traversal
    * @see dfs similar results to the breath first search
@@ -191,7 +192,7 @@ class BinarySearchTree {
   }
 
   /**
-   * Post-order traversal on a tree
+   * Post-order traversal on a tree: left-right-root.
    *
    * @param {TreeNode} node first node to start the traversal
    */
