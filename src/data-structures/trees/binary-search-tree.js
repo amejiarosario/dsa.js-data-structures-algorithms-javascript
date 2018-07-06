@@ -201,6 +201,30 @@ class BinarySearchTree {
     if (node.right) { yield* this.postOrderTraversal(node.right); }
     yield node;
   }
+
+  /**
+   * Get the node with the max value of subtree: the righ-most value.
+   * @param {TreeNode} root subtree's root
+   */
+  getMax(root = this.root) {
+    let current = root;
+    while (current && current.right) {
+      current = current.right;
+    }
+    return current;
+  }
+
+  /**
+   * Get the node with the min value of subtree: the let-most value.
+   * @param {TreeNode} root subtree's root
+   */
+  getMin(root = this.root) {
+    let current = root;
+    while (current && current.left) {
+      current = current.left;
+    }
+    return current;
+  }
 }
 
 module.exports = BinarySearchTree;

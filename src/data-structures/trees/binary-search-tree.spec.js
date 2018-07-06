@@ -180,5 +180,35 @@ describe('Binary Search Tree', () => {
           undefined, undefined, undefined, undefined, undefined, undefined, undefined]);
       });
     });
+
+    describe('#getMax', () => {
+      it('should get the maximun value', () => {
+        expect(bst.getMax().value).toBe(40);
+      });
+
+      it('should get the maximun value of a subtree', () => {
+        expect(bst.getMax(n4).value).toBe(4);
+      });
+
+      it('should work with empty BST', () => {
+        bst = new BinarySearchTree();
+        expect(bst.getMax()).toBe(null);
+      });
+    });
+
+    describe('#getMin', () => {
+      it('should get the maximun value', () => {
+        expect(bst.getMin().value).toBe(3);
+      });
+
+      it('should get the maximun value of a subtree', () => {
+        expect(bst.getMin(n30).value).toBe(15);
+      });
+
+      it('should work with empty BST', () => {
+        bst = new BinarySearchTree();
+        expect(bst.getMin()).toBe(null);
+      });
+    });
   });
 });
