@@ -38,6 +38,14 @@ describe('Binary Search Tree', () => {
         expect(n30.left).toBe(undefined);
         expect(n30.right).toBe(n40);
       });
+
+      it('should keep parent reference', () => {
+        bst.add(1);
+        bst.add(2);
+        const n3 = bst.add(3);
+
+        expect(n3.parent.value).toBe(2);
+      });
     });
   });
 
@@ -111,6 +119,18 @@ describe('Binary Search Tree', () => {
 
       it('should return false when it does not exist', () => {
         expect(bst.remove(4.5)).toBe(false);
+      });
+
+      it('should remove the root', () => {
+        bst.remove(10);
+
+        expect(bst.toArray()).toEqual([
+          30,
+          15, 40,
+          5, undefined, undefined, undefined,
+          4, undefined,
+          3, undefined,
+          undefined, undefined]);
       });
     });
 

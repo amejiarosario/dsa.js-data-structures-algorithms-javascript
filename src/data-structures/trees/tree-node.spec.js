@@ -7,19 +7,31 @@ describe('Tree Node', () => {
     treeNode = new TreeNode('hola');
   });
 
+  it('should start with null parent', () => {
+    expect(treeNode.parent).toBe(null);
+  });
+
+  it('should start with empty metadata', () => {
+    expect(treeNode.meta).toEqual({});
+  });
+
   it('should hold a value', () => {
     expect(treeNode.value).toBe('hola');
   });
 
   it('should set/get left node', () => {
     expect(treeNode.left).toBe(undefined);
-    treeNode.left = 1;
-    expect(treeNode.left).toBe(1);
+    const newNode = new TreeNode(1);
+    treeNode.left = newNode;
+    expect(treeNode.left.value).toBe(1);
+    expect(newNode.parent).toBe(treeNode);
   });
 
   it('should set/get right node', () => {
     expect(treeNode.right).toBe(undefined);
-    treeNode.right = 1;
-    expect(treeNode.right).toBe(1);
+    const newNode = new TreeNode(1);
+    treeNode.right = newNode;
+    expect(treeNode.right.value).toBe(1);
+    expect(newNode.parent).toBe(treeNode);
   });
 });

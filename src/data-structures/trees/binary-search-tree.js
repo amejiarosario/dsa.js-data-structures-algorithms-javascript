@@ -56,35 +56,40 @@ class BinarySearchTree {
 
   /**
    * Remove a node from the tree
-   * @param {any} value value to remove from the tree
+   * @returns {boolean} false if not found and true if it was deleted
    */
   remove(value) {
-    let current = this.root;
-    let parent = this.root;
+    const found = this.find(value);
+    if (!found) return false;
 
-    // search for the parent of the element
-    while (current) {
-      if (current.value === value) {
-        if (parent.left.value === value) {
-          // value is on the left side
-          parent.left = current.right || current.left;
-          if (current.left) {
-            parent.left.left = current.left;
-          }
-        } else {
-          // value is on the right side
-          parent.right = current.right || current.left;
-          if (current.left) {
-            parent.right.left = current.left;
-          }
-        }
+    const { parent } = found;
 
-        return true;
+    if (found === this.root) {
+      this.root = found.right || found.left; // replace root
+      // if the root had any left subtree, place it at the end of the new root subtree.
+      if (found.left) {
+        const newRootLeftmost = this.getMin(this.root.left);
+        newRootLeftmost.left = found.left;
       }
-      parent = current;
-      current = value >= current.value ? current.right : current.left;
+
+      return true;
     }
-    return false;
+
+    if (parent.left === found) {
+      parent.left = found.right || found.left;
+
+      if (found.left) {
+        parent.left.left = found.left;
+      }
+    } else if (parent.right === found) {
+      parent.right = found.right || found.left;
+
+      if (found.left) {
+        parent.right.left = found.left;
+      }
+    }
+
+    return true;
   }
 
   /**
@@ -203,7 +208,7 @@ class BinarySearchTree {
   }
 
   /**
-   * Get the node with the max value of subtree: the righ-most value.
+   * Get the node with the max value of subtree: the right-most value.
    * @param {TreeNode} root subtree's root
    */
   getMax(root = this.root) {
@@ -215,7 +220,7 @@ class BinarySearchTree {
   }
 
   /**
-   * Get the node with the min value of subtree: the let-most value.
+   * Get the node with the min value of subtree: the left-most value.
    * @param {TreeNode} root subtree's root
    */
   getMin(root = this.root) {
