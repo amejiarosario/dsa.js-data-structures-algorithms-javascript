@@ -34,4 +34,41 @@ describe('Tree Node', () => {
     expect(treeNode.right.value).toBe(1);
     expect(newNode.parent).toBe(treeNode);
   });
+
+  describe('Family operations', () => {
+    let g;
+    let p;
+    let u;
+    let c;
+    let s;
+
+    beforeEach(() => {
+      g = new TreeNode('grandparent');
+      p = new TreeNode('parent');
+      u = new TreeNode('uncle');
+      c = new TreeNode('child');
+      s = new TreeNode('sibling');
+
+      g.right = p;
+      g.left = u;
+      p.right = c;
+      p.left = s;
+    });
+
+    it('should get the sibling', () => {
+      expect(c.sibling).toBe(s);
+    });
+
+    it('should get null if no sibling', () => {
+      expect(g.sibling).toBe(null);
+    });
+
+    it('should get the uncle', () => {
+      expect(c.uncle).toBe(u);
+    });
+
+    it('should get null if no uncle', () => {
+      expect(g.uncle).toBe(null);
+    });
+  });
 });

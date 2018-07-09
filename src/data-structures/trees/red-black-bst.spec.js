@@ -12,9 +12,16 @@ describe('RedBlackBST', () => {
       expect(redBlackBST).not.toBe(undefined);
     });
 
-    it('should add a node', () => {
-      redBlackBST.add(1);
+    it('should make root black', () => {
+      const root = redBlackBST.add(1);
+      expect(root.meta.color).toBe(RedBlackBST.BLACK);
       expect(redBlackBST.size).toBe(1);
+    });
+
+    it('should add a new node as red', () => {
+      redBlackBST.add(1);
+      const n2 = redBlackBST.add(2);
+      expect(n2.meta.color).toBe(RedBlackBST.RED);
     });
 
     xit('should balance tree by rotating left', () => {

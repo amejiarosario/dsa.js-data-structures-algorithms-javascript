@@ -1,4 +1,6 @@
 const BinarySearchTree = require('./binary-search-tree');
+// const TreeNode = require('./tree-node');
+
 /**
  * Red-Black Tree
  *
@@ -23,18 +25,28 @@ class RedBlackBST extends BinarySearchTree {
    * @param {any} value new nodes' value
    */
   add(value) {
+    // add node using the regular BST add
     const node = super.add(value);
 
     if (node === this.root) {
       node.meta.color = RedBlackBST.BLACK;
     } else {
       node.meta.color = RedBlackBST.RED;
-      // this.balance(node);
+      this.balance(node);
     }
 
     return node;
   }
+
+  /**
+   * Balance tree by doing rotations
+   * @param {TreeNode} node
+   */
+  balance(node) {
+
+  }
 }
+
 
 RedBlackBST.RED = Symbol('red');
 RedBlackBST.BLACK = Symbol('black');

@@ -31,6 +31,24 @@ class TreeNode {
     this.descendents[1] = node;
     if (node) { node.parent = this; } // eslint-disable-line  no-param-reassign
   }
+
+  /**
+   * Get sibling of current node
+   */
+  get sibling() {
+    const { parent } = this;
+    if (!parent) return null;
+    return parent.right === this ? parent.left : parent.right;
+  }
+
+  /**
+   * Get parent sibling = uncle (duh)
+   */
+  get uncle() {
+    const { parent } = this;
+    if (!parent) return null;
+    return parent.sibling;
+  }
 }
 
 module.exports = TreeNode;
