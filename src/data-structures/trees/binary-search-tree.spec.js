@@ -129,8 +129,10 @@ describe('Binary Search Tree', () => {
 
       it('should remove the root', () => {
         expect(n30.parent).toBe(root);
+        expect(n5.parent).toBe(root);
         bst.remove(10);
         expect(n30.parent).toBe(null);
+        expect(n5.parent.value).toBe(15);
 
         expect(bst.toArray()).toEqual([
           30,
