@@ -77,6 +77,7 @@ describe('Binary Search Tree', () => {
     describe('#find', () => {
       it('should find the value 2', () => {
         expect(bst.find(5)).toBe(n5);
+        expect(bst.size).toBe(7);
       });
 
       it('should NOT find the value 20', () => {
@@ -89,12 +90,14 @@ describe('Binary Search Tree', () => {
         expect(n4.left).toBe(n3);
         bst.remove(3);
         expect(n4.left).toBe(undefined);
+        expect(bst.size).toBe(6);
       });
 
       it('should remove a right leaf node', () => {
         expect(n30.right).toBe(n40);
         bst.remove(40);
         expect(n30.right).toBe(undefined);
+        expect(bst.size).toBe(6);
       });
 
       it('should remove a parent with two descents on the right', () => {
@@ -105,6 +108,7 @@ describe('Binary Search Tree', () => {
 
         expect(root.left.value).toBe(5);
         expect(root.right.value).toBe(40);
+        expect(bst.size).toBe(6);
       });
 
       it('should remove a parent with two descents on the left', () => {
@@ -115,14 +119,18 @@ describe('Binary Search Tree', () => {
         bst.remove(4);
 
         expect(n5.left.value).toBe(4.5);
+        expect(bst.size).toBe(7);
       });
 
       it('should return false when it does not exist', () => {
         expect(bst.remove(4.5)).toBe(false);
+        expect(bst.size).toBe(7);
       });
 
       it('should remove the root', () => {
+        expect(n30.parent).toBe(root);
         bst.remove(10);
+        expect(n30.parent).toBe(null);
 
         expect(bst.toArray()).toEqual([
           30,
@@ -131,6 +139,8 @@ describe('Binary Search Tree', () => {
           4, undefined,
           3, undefined,
           undefined, undefined]);
+
+        expect(bst.size).toBe(6);
       });
     });
 

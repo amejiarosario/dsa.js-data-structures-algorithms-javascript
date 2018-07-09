@@ -66,16 +66,13 @@ class BinarySearchTree {
 
     if (found === this.root) {
       this.root = found.right || found.left; // replace root
+      this.root.parent = null;
       // if the root had any left subtree, place it at the end of the new root subtree.
       if (found.left) {
         const newRootLeftmost = this.getMin(this.root.left);
         newRootLeftmost.left = found.left;
       }
-
-      return true;
-    }
-
-    if (parent.left === found) {
+    } else if (parent.left === found) {
       parent.left = found.right || found.left;
 
       if (found.left) {
@@ -89,6 +86,7 @@ class BinarySearchTree {
       }
     }
 
+    this.size -= 1;
     return true;
   }
 
