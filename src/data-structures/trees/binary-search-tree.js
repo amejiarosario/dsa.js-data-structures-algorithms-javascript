@@ -219,6 +219,7 @@ class BinarySearchTree {
   toArray() {
     const array = [];
     const queue = new Queue();
+    const visited = new Map();
 
     if (this.root) { queue.add(this.root); }
 
@@ -226,8 +227,10 @@ class BinarySearchTree {
       const current = queue.remove();
       array.push(current && current.value);
 
-      if (current) { queue.add(current.left); }
-      if (current) { queue.add(current.right); }
+      if (current) { visited.set(current); }
+
+      if (current && !visited.has(current.left)) { queue.add(current.left); }
+      if (current && !visited.has(current.right)) { queue.add(current.right); }
     }
 
     return array;

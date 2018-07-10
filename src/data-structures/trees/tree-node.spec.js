@@ -57,6 +57,7 @@ describe('Tree Node', () => {
 
     it('should get the sibling', () => {
       expect(c.sibling).toBe(s);
+      expect(p.sibling).toBe(u);
     });
 
     it('should get null if no sibling', () => {
@@ -69,6 +70,17 @@ describe('Tree Node', () => {
 
     it('should get null if no uncle', () => {
       expect(g.uncle).toBe(null);
+      expect(p.uncle).toBe(null);
+    });
+
+    it('true if is parent left child', () => {
+      expect(s.isParentLeftChild).toBe(true);
+      expect(s.isParentRightChild).toBe(false);
+    });
+
+    it('true if is parent left child', () => {
+      expect(c.isParentLeftChild).toBe(false);
+      expect(c.isParentRightChild).toBe(true);
     });
   });
 });
