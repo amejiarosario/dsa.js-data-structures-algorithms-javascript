@@ -50,8 +50,19 @@ class RedBlackTree extends BinarySearchTree {
    * @param {TreeNode} node
    */
   balance(node) {
-    // Detect RED violation
-    if (node.parent && node.color === RED && node.parent.color === RED) {
+    // check uncle
+    if (node.uncle && node.uncle.color === RED) {
+      // if uncle is RED, change the color of uncle, parent and grandparent to BLACK
+      node.parent.color = BLACK;
+      node.uncle.color = BLACK;
+      node.grandparent.color = BLACK;
+    } else if (node.uncle && node.uncle.color === BLACK) {
+      // if uncle is BLACK
+
+      // case: Right Right Case
+
+    } else if (node.parent && node.color === RED && node.parent.color === RED) {
+      // Solve RED violation doing rotations and re-color
       if (node.isParentLeftChild) {
         this.rightRotation(node.parent);
       } else {
@@ -89,14 +100,6 @@ class RedBlackTree extends BinarySearchTree {
       node.right.color = RED;
       node.left.color = RED;
     }
-
-    // const oldParent = node.parent.clone();
-    // const newParent = node.parent;
-
-    // newParent.copy(node);
-    // newParent.parent = oldParent.parent;
-    // oldParent.right = undefined;
-    // newParent.left = oldParent;
   }
 
   /**
@@ -112,14 +115,22 @@ class RedBlackTree extends BinarySearchTree {
    *
    * @param {TreeNode} node
    */
-  static rightRotation(node) {
-    const oldParent = node.parent.clone();
-    const newParent = node.parent;
+  rightRotation(node) {
+    const oldParent = node.parent;
+    const grandParent = oldParent.parent;
 
-    newParent.copy(node);
-    newParent.parent = oldParent.parent;
-    oldParent.left = undefined;
-    newParent.right = oldParent;
+    if (grandParent) {
+      // do something
+    } else {
+      this.root = node;
+      node.parent = null;
+      node.right = oldParent;
+      oldParent.left = undefined;
+      // re-color
+      node.color = BLACK;
+      node.right.color = RED;
+      node.left.color = RED;
+    }
   }
 }
 

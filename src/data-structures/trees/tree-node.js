@@ -87,6 +87,11 @@ class TreeNode {
     return parent.sibling;
   }
 
+  get grandparent() {
+    const { parent } = this;
+    return parent && parent.parent;
+  }
+
   // Meta shortcuts
 
   /**
