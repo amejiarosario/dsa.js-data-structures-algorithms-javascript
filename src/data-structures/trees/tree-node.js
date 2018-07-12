@@ -23,6 +23,16 @@ class TreeNode {
     return _.cloneDeep(this);
   }
 
+  toValues() {
+    return {
+      value: this.value,
+      left: this.left && this.left.value,
+      right: this.right && this.right.value,
+      parent: this.parent && this.parent.value,
+      parentSide: this.parentSide,
+    };
+  }
+
   get left() {
     return this.descendents[LEFT];
   }
