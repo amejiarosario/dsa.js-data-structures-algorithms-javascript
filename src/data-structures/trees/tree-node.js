@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const LEFT = 0;
 const RIGHT = 1;
 
@@ -9,18 +8,6 @@ class TreeNode {
     this.parent = null;
     this.parentSide = null;
     this.meta = {};
-  }
-
-  copy(node) {
-    this.value = node.value;
-    this.descendents = node.descendents;
-    this.parent = node.parent;
-    this.parentSide = node.parentSide;
-    this.meta = node.meta;
-  }
-
-  clone() {
-    return _.cloneDeep(this);
   }
 
   toValues() {
@@ -116,6 +103,32 @@ class TreeNode {
    */
   set color(value) {
     this.meta.color = value;
+  }
+
+  /**
+   * Get the max height of the subtrees.
+   *
+   * It recursively goes into each children calculating the height
+   *
+   * Height: distance from the deepest leaf to this node
+   */
+  get height() {
+    return Math.max(this.leftHeight, this.rightHeight);
+  }
+
+  get leftHeight() {
+    return this.left ? this.left.height + 1 : 0;
+  }
+
+  get rightHeight() {
+    return this.right ? this.right.height + 1 : 0;
+  }
+
+  /**
+   * Returns the difference the heights on the left and right subtrees
+   */
+  get balanceFactor() {
+    return this.leftHeight - this.rightHeight;
   }
 }
 

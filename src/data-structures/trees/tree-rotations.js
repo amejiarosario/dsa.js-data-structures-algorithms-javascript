@@ -83,9 +83,54 @@ function rightLeftRotation(node) {
   return newParent;
 }
 
+/**
+ * Balance tree doing rotations based on balance factor.
+ *
+ * Depending on the `node` balance factor and child's factor
+ * one of this rotation is performed:
+ * - LL rotations: single left rotation
+ * - RR rotations: single right rotation
+ * - LR rotations: double rotation left-right
+ * - RL rotations: double rotation right-left
+ *
+ * @param {TreeNode} node
+ */
+function balance(node) {
+  if (node.balanceFactor > 1) {
+    // left subtree is heighter than right subtree
+    if (node.left.balanceFactor > 0) {
+      rightRotation(node);
+    } else if (node.left.balanceFactor < 0) {
+      leftRightRotation(node);
+    }
+  } else if (node.balanceFactor < -1) {
+    // right subtree is heighter than left subtree
+    if (node.right.balanceFactor < 0) {
+      leftRotation(node);
+    } else if (node.right.balanceFactor > 0) {
+      rightLeftRotation(node);
+    }
+  }
+}
+
+/**
+ * Bubbles up balancing nodes a their parents
+ *
+ * @param {TreeNode} node
+ */
+function balanceUp(node) {
+  let current = node;
+  while (current) {
+    balance(current);
+    current = current.parent;
+  }
+}
+
 module.exports = {
   leftRotation,
   rightRotation,
   leftRightRotation,
   rightLeftRotation,
+  balance,
+  balanceUp,
 };

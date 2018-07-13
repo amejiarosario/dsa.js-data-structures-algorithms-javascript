@@ -19,20 +19,30 @@ describe('Tree Node', () => {
     expect(treeNode.value).toBe('hola');
   });
 
+  it('should have a height 0', () => {
+    expect(treeNode.height).toBe(0);
+  });
+
   it('should set/get left node', () => {
     expect(treeNode.left).toBe(undefined);
     const newNode = new TreeNode(1);
     treeNode.left = newNode;
     expect(treeNode.left.value).toBe(1);
+
     expect(newNode.parent).toBe(treeNode);
+    expect(treeNode.height).toBe(1);
+    expect(treeNode.balanceFactor).toBe(1);
   });
 
   it('should set/get right node', () => {
     expect(treeNode.right).toBe(undefined);
     const newNode = new TreeNode(1);
     treeNode.right = newNode;
+
     expect(treeNode.right.value).toBe(1);
     expect(newNode.parent).toBe(treeNode);
+    expect(treeNode.height).toBe(1);
+    expect(treeNode.balanceFactor).toBe(-1);
   });
 
   describe('Family operations', () => {
@@ -53,6 +63,17 @@ describe('Tree Node', () => {
       g.left = u;
       p.right = c;
       p.left = s;
+    });
+
+    it('should set heights', () => {
+      expect(g.height).toBe(2);
+      expect(g.balanceFactor).toBe(-1);
+
+      expect(p.height).toBe(1);
+      expect(p.balanceFactor).toBe(0);
+
+      expect(u.height).toBe(0);
+      expect(u.balanceFactor).toBe(0);
     });
 
     it('should get the sibling', () => {
