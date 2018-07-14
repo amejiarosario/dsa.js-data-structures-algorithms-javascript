@@ -76,39 +76,39 @@ describe('Binary Search Tree', () => {
 
     describe('#findNodeAndParent', () => {
       it('should return falsy for empty tree', () => {
-        const { node, parent } = bst.findNodeAndParent(5);
-        expect(node).toBe(null);
+        const { found, parent } = bst.findNodeAndParent(5);
+        expect(found).toBe(null);
         expect(parent).toBe(undefined);
       });
 
       it('should return with a single element', () => {
         bst.add(5);
-        const { node, parent } = bst.findNodeAndParent(5);
-        expect(node).toMatchObject({ value: 5 });
+        const { found, parent } = bst.findNodeAndParent(5);
+        expect(found).toMatchObject({ value: 5 });
         expect(parent).toBe(undefined);
       });
 
       it('should return with an element and its parent', () => {
         bst.add(5);
         bst.add(1);
-        const { node, parent } = bst.findNodeAndParent(1);
-        expect(node).toMatchObject({ value: 1 });
+        const { found, parent } = bst.findNodeAndParent(1);
+        expect(found).toMatchObject({ value: 1 });
         expect(parent).toMatchObject({ value: 5 });
       });
 
       it('should find future parent of a node that doesnt exist yet', () => {
         bst.add(5);
         bst.add(1);
-        const { node, parent } = bst.findNodeAndParent(10);
-        expect(node).toBe(undefined);
+        const { found, parent } = bst.findNodeAndParent(10);
+        expect(found).toBe(undefined);
         expect(parent).toMatchObject({ value: 5 });
       });
 
       it('should find future parent of a node that doesnt exist yet', () => {
         bst.add(5);
         bst.add(1);
-        const { node, parent } = bst.findNodeAndParent(-1);
-        expect(node).toBe(undefined);
+        const { found, parent } = bst.findNodeAndParent(-1);
+        expect(found).toBe(undefined);
         expect(parent).toMatchObject({ value: 1 });
       });
     });
@@ -121,6 +121,7 @@ describe('Binary Search Tree', () => {
     let n5;
     let n30;
     let n40;
+    let n15;
 
     beforeEach(() => {
       //           10
@@ -134,7 +135,7 @@ describe('Binary Search Tree', () => {
       n5 = bst.add(5);
       n30 = bst.add(30);
       n40 = bst.add(40);
-      bst.add(15);
+      n15 = bst.add(15);
       n4 = bst.add(4);
       n3 = bst.add(3);
     });
@@ -163,6 +164,27 @@ describe('Binary Search Tree', () => {
         bst.remove(40);
         expect(n30.right).toBe(undefined);
         expect(bst.size).toBe(6);
+      });
+
+      it('should remove a child with one descent on the left', () => {
+        expect(n3.toValues()).toMatchObject({
+          value: 3, left: undefined, right: undefined, parent: 4,
+        });
+        bst.remove(4);
+        expect(n3.toValues()).toMatchObject({
+          value: 3, left: undefined, right: undefined, parent: 5,
+        });
+      });
+
+      it('should remove a child with one descent on the right', () => {
+        bst.remove(40);
+        expect(n15.toValues()).toMatchObject({
+          value: 15, left: undefined, right: undefined, parent: 30,
+        });
+        bst.remove(30);
+        expect(n15.toValues()).toMatchObject({
+          value: 15, left: undefined, right: undefined, parent: 10,
+        });
       });
 
       it('should remove a parent with two descents on the right', () => {

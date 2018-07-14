@@ -50,6 +50,19 @@ class TreeNode {
   }
 
   /**
+   * Tell if is parent's left or right child
+   *
+   * @returns {string} side (left or right) this node is of its parent
+   */
+  get parentChildSide() {
+    if (this.parent) {
+      return this.isParentLeftChild ? 'left' : 'right';
+    }
+
+    return 'root';
+  }
+
+  /**
    * Return true if this node is its parent left child
    */
   get isParentLeftChild() {

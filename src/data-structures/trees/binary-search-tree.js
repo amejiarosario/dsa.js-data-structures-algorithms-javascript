@@ -17,9 +17,9 @@ class BinarySearchTree {
     const newNode = new TreeNode(value);
 
     if (this.root) {
-      const { node, parent } = this.findNodeAndParent(value);
-      if (node) { // duplicated: value already exist on the tree
-        node.meta.multiplicity = (node.meta.multiplicity || 1) + 1;
+      const { found, parent } = this.findNodeAndParent(value);
+      if (found) { // duplicated: value already exist on the tree
+        found.meta.multiplicity = (found.meta.multiplicity || 1) + 1;
       } else if (value < parent.value) {
         parent.left = newNode;
       } else {
@@ -38,7 +38,7 @@ class BinarySearchTree {
    * @param {any} value value to find
    */
   find(value) {
-    return this.findNodeAndParent(value).node;
+    return this.findNodeAndParent(value).found;
   }
 
   /**
@@ -59,7 +59,7 @@ class BinarySearchTree {
       node = value >= node.value ? node.right : node.left;
     }
 
-    return { node, parent };
+    return { found: node, parent };
   }
 
   /**
@@ -94,36 +94,50 @@ class BinarySearchTree {
     const found = this.find(value);
     if (!found) return false;
 
-    const { parent } = found;
+    // Combine left and right children into one subtree.
+    const newSubtree = this.combineLeftIntoRightSubtree(found);
 
     if (found === this.root) {
-      // removing root
-      this.root = found.right || found.left; // replace root
-      this.root.parent = null;
-      // if the root had any left subtree,
-      // place it at the end of the new root subtree.
-      if (found.left) {
-        const newRootLeftmost = this.getMin(this.root.left);
-        newRootLeftmost.left = found.left;
-      }
-    } else if (parent.left === found) {
-      // removing node on the left
-      parent.left = found.right || found.left;
-
-      if (found.left) {
-        parent.left.left = found.left;
-      }
-    } else if (parent.right === found) {
-      // removing node on the right
-      parent.right = found.right || found.left;
-
-      if (found.left) {
-        parent.right.left = found.left;
-      }
+      // Replace (root) node to delete with the combined subtree.
+      this.root = newSubtree;
+      this.root.parent = null; // clearing up old parent
+    } else {
+      const side = found.isParentLeftChild ? 'left' : 'right';
+      const { parent } = found; // get parent
+      // Replace node to delete with the combined subtree.
+      parent[side] = newSubtree;
     }
 
     this.size -= 1;
     return true;
+  }
+
+  /**
+   * Combine left children/subtree into right children/subtree.
+   *
+   * @example combineLeftIntoRightSubtree(30)
+   *
+   *      30*                             40
+   *    /     \                          /  \
+   *   10      40      combined        35   50
+   *     \    /  \    ---------->     /
+   *     15  35   50                 10
+   *                                   \
+   *                                    15
+   *
+   * It takes node 30 left subtree (10 and 15) and put it in the
+   * leftmost node of the right subtree (40, 35, 50).
+   *
+   * @param {TreeNode} node
+   * @returns {TreeNode} combined subtree
+   */
+  combineLeftIntoRightSubtree(node) {
+    if (node.right) {
+      const leftmost = this.getLeftmost(node.right);
+      leftmost.left = node.left;
+      return node.right;
+    }
+    return node.left;
   }
 
   /**
@@ -244,5 +258,13 @@ class BinarySearchTree {
     return array;
   }
 }
+
+// aliases
+BinarySearchTree.prototype.insert = BinarySearchTree.prototype.add;
+BinarySearchTree.prototype.delete = BinarySearchTree.prototype.remove;
+BinarySearchTree.prototype.getLeftmost = BinarySearchTree.prototype.getMin;
+BinarySearchTree.prototype.minimum = BinarySearchTree.prototype.getMin;
+BinarySearchTree.prototype.getRightmost = BinarySearchTree.prototype.getMax;
+BinarySearchTree.prototype.maximum = BinarySearchTree.prototype.getMax;
 
 module.exports = BinarySearchTree;
