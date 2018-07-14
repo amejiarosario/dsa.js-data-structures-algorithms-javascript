@@ -70,7 +70,7 @@ describe('Binary Search Tree', () => {
         expect(root.toValues()).toMatchObject({
           value: 1, parent: null, left: undefined, right: undefined,
         });
-        expect(root.meta.multiplicity).toBe(1);
+        expect(root.meta.multiplicity).toBe(2);
       });
     });
 

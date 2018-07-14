@@ -8,13 +8,18 @@ class BinarySearchTree {
     this.size = 0;
   }
 
+  /**
+   * Insert value on the BST.
+   * It the value is already in the tree, then It increase the multiplicity value
+   * @param {any} value value to insert in the tree
+   */
   add(value) {
     const newNode = new TreeNode(value);
 
     if (this.root) {
       const { node, parent } = this.findNodeAndParent(value);
       if (node) { // duplicated: value already exist on the tree
-        node.meta.multiplicity = (node.meta.multiplicity || 0) + 1;
+        node.meta.multiplicity = (node.meta.multiplicity || 1) + 1;
       } else if (value < parent.value) {
         parent.left = newNode;
       } else {
@@ -22,34 +27,6 @@ class BinarySearchTree {
       }
     } else {
       this.root = newNode;
-    }
-
-    this.size += 1;
-    return newNode;
-  }
-
-  /**
-   * Insert value on the BST
-   * @param {any} value value to insert in the tree
-   */
-  addR(value, current = this.root) {
-    let childSide;
-    let nextNode;
-
-    if (current) {
-      childSide = value < current.value ? 'left' : 'right';
-      nextNode = current[childSide];
-
-      if (nextNode) {
-        return this.addR(value, nextNode);
-      }
-    }
-
-    const newNode = new TreeNode(value);
-    if (!this.root) {
-      this.root = newNode;
-    } else {
-      current[childSide] = newNode;
     }
 
     this.size += 1;
