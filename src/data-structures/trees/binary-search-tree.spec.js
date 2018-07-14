@@ -16,6 +16,21 @@ describe('Binary Search Tree', () => {
         expect(bst.size).toBe(1);
       });
 
+      it('should insert left and right child', () => {
+        const root = bst.add(5);
+        const n = bst.add(1);
+        expect(n.toValues()).toMatchObject({
+          value: 1, parent: 5, left: undefined, right: undefined,
+        });
+        expect(root.toValues()).toMatchObject({
+          value: 5, parent: null, left: 1, right: undefined,
+        });
+        bst.add(10);
+        expect(root.toValues()).toMatchObject({
+          value: 5, parent: null, left: 1, right: 10,
+        });
+      });
+
       it('should insert low values to the left and higher to the right', () => {
         const node5 = bst.add(5);
         bst.add(1);
@@ -45,6 +60,56 @@ describe('Binary Search Tree', () => {
         const n3 = bst.add(3);
 
         expect(n3.parent.value).toBe(2);
+      });
+
+      it('should deal with duplicates', () => {
+        const root = bst.add(1);
+        expect(root.meta.multiplicity).toBe(undefined);
+        bst.add(1);
+        expect(bst.size).toBe(2);
+        expect(root.toValues()).toMatchObject({
+          value: 1, parent: null, left: undefined, right: undefined,
+        });
+        expect(root.meta.multiplicity).toBe(1);
+      });
+    });
+
+    describe('#findNodeAndParent', () => {
+      it('should return falsy for empty tree', () => {
+        const { node, parent } = bst.findNodeAndParent(5);
+        expect(node).toBe(null);
+        expect(parent).toBe(undefined);
+      });
+
+      it('should return with a single element', () => {
+        bst.add(5);
+        const { node, parent } = bst.findNodeAndParent(5);
+        expect(node).toMatchObject({ value: 5 });
+        expect(parent).toBe(undefined);
+      });
+
+      it('should return with an element and its parent', () => {
+        bst.add(5);
+        bst.add(1);
+        const { node, parent } = bst.findNodeAndParent(1);
+        expect(node).toMatchObject({ value: 1 });
+        expect(parent).toMatchObject({ value: 5 });
+      });
+
+      it('should find future parent of a node that doesnt exist yet', () => {
+        bst.add(5);
+        bst.add(1);
+        const { node, parent } = bst.findNodeAndParent(10);
+        expect(node).toBe(undefined);
+        expect(parent).toMatchObject({ value: 5 });
+      });
+
+      it('should find future parent of a node that doesnt exist yet', () => {
+        bst.add(5);
+        bst.add(1);
+        const { node, parent } = bst.findNodeAndParent(-1);
+        expect(node).toBe(undefined);
+        expect(parent).toMatchObject({ value: 1 });
       });
     });
   });

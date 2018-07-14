@@ -81,6 +81,13 @@ describe('Tree Node', () => {
       expect(p.sibling).toBe(u);
     });
 
+    it('should set leaf correctly', () => {
+      expect(c.isLeaf).toBe(true);
+      expect(u.isLeaf).toBe(true);
+      expect(p.isLeaf).toBe(false);
+      expect(g.isLeaf).toBe(false);
+    });
+
     it('should get null if no sibling', () => {
       expect(g.sibling).toBe(null);
     });

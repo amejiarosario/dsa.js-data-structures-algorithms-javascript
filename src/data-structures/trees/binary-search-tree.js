@@ -8,33 +8,52 @@ class BinarySearchTree {
     this.size = 0;
   }
 
+  add(value) {
+    const newNode = new TreeNode(value);
+
+    if (this.root) {
+      const { node, parent } = this.findNodeAndParent(value);
+      if (node) { // duplicated: value already exist on the tree
+        node.meta.multiplicity = (node.meta.multiplicity || 0) + 1;
+      } else if (value < parent.value) {
+        parent.left = newNode;
+      } else {
+        parent.right = newNode;
+      }
+    } else {
+      this.root = newNode;
+    }
+
+    this.size += 1;
+    return newNode;
+  }
+
   /**
    * Insert value on the BST
    * @param {any} value value to insert in the tree
    */
-  add(value) {
-    const node = new TreeNode(value);
+  addR(value, current = this.root) {
+    let childSide;
+    let nextNode;
 
-    if (this.root) {
-      let current = this.root;
+    if (current) {
+      childSide = value < current.value ? 'left' : 'right';
+      nextNode = current[childSide];
 
-      while (current) {
-        if (value >= current.value && !current.right) {
-          current.right = node;
-          break;
-        } else if (value < current.value && !current.left) {
-          current.left = node;
-          break;
-        } else {
-          current = value >= current.value ? current.right : current.left;
-        }
+      if (nextNode) {
+        return this.addR(value, nextNode);
       }
+    }
+
+    const newNode = new TreeNode(value);
+    if (!this.root) {
+      this.root = newNode;
     } else {
-      this.root = node;
+      current[childSide] = newNode;
     }
 
     this.size += 1;
-    return node;
+    return newNode;
   }
 
   /**
@@ -42,16 +61,28 @@ class BinarySearchTree {
    * @param {any} value value to find
    */
   find(value) {
-    let current = this.root;
+    return this.findNodeAndParent(value).node;
+  }
 
-    while (current) {
-      if (current.value === value) {
-        return current;
+  /**
+   * Finds the node matching the value.
+   * If it doesn't find, it returns the leaf where the new value should be added.
+   * @param {any} value Node's value to find
+   * @returns {TreeNode} matching node or the previous node where value should go
+   */
+  findNodeAndParent(value) {
+    let node = this.root;
+    let parent;
+
+    while (node) {
+      if (node.value === value) {
+        break;
       }
-      current = value >= current.value ? current.right : current.left;
+      parent = node;
+      node = value >= node.value ? node.right : node.left;
     }
 
-    return undefined;
+    return { node, parent };
   }
 
   /**

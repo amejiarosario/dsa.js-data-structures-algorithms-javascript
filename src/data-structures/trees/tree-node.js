@@ -10,14 +10,11 @@ class TreeNode {
     this.meta = {};
   }
 
-  toValues() {
-    return {
-      value: this.value,
-      left: this.left && this.left.value,
-      right: this.right && this.right.value,
-      parent: this.parent && this.parent.value,
-      parentSide: this.parentSide,
-    };
+  /**
+   * Node is leaf is it has no descendents
+   */
+  get isLeaf() {
+    return !this.descendents.some(child => child);
   }
 
   get left() {
@@ -36,13 +33,6 @@ class TreeNode {
     }
   }
 
-  /**
-   * Return true if this node is its parent left child
-   */
-  get isParentLeftChild() {
-    return this.parentSide === LEFT;
-  }
-
   get right() {
     return this.descendents[RIGHT];
   }
@@ -57,6 +47,13 @@ class TreeNode {
       node.parent = this;
       node.parentSide = RIGHT;
     }
+  }
+
+  /**
+   * Return true if this node is its parent left child
+   */
+  get isParentLeftChild() {
+    return this.parentSide === LEFT;
   }
 
   /**
@@ -129,6 +126,19 @@ class TreeNode {
    */
   get balanceFactor() {
     return this.leftHeight - this.rightHeight;
+  }
+
+  /**
+   * Serialize node's values
+   */
+  toValues() {
+    return {
+      value: this.value,
+      left: this.left && this.left.value,
+      right: this.right && this.right.value,
+      parent: this.parent && this.parent.value,
+      parentSide: this.parentSide,
+    };
   }
 }
 
