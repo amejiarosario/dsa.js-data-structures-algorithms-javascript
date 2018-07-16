@@ -91,21 +91,21 @@ class BinarySearchTree {
    * @returns {boolean} false if not found and true if it was deleted
    */
   remove(value) {
-    const found = this.find(value);
-    if (!found) return false;
+    const nodeToRemove = this.find(value);
+    if (!nodeToRemove) return false;
 
-    // Combine left and right children into one subtree.
-    const newSubtree = this.combineLeftIntoRightSubtree(found);
+    // Combine left and right children into one subtree without nodeToRemove
+    const nodeToRemoveChildren = this.combineLeftIntoRightSubtree(nodeToRemove);
 
-    if (found === this.root) {
+    if (nodeToRemove === this.root) {
       // Replace (root) node to delete with the combined subtree.
-      this.root = newSubtree;
+      this.root = nodeToRemoveChildren;
       this.root.parent = null; // clearing up old parent
     } else {
-      const side = found.isParentLeftChild ? 'left' : 'right';
-      const { parent } = found; // get parent
+      const side = nodeToRemove.isParentLeftChild ? 'left' : 'right';
+      const { parent } = nodeToRemove; // get parent
       // Replace node to delete with the combined subtree.
-      parent[side] = newSubtree;
+      parent[side] = nodeToRemoveChildren;
     }
 
     this.size -= 1;
@@ -113,7 +113,7 @@ class BinarySearchTree {
   }
 
   /**
-   * Combine left children/subtree into right children/subtree.
+   * Combine left into right children into one subtree without given parent node.
    *
    * @example combineLeftIntoRightSubtree(30)
    *
