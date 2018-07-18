@@ -97,7 +97,9 @@ class BinarySearchTree {
     // Combine left and right children into one subtree without nodeToRemove
     const nodeToRemoveChildren = this.combineLeftIntoRightSubtree(nodeToRemove);
 
-    if (nodeToRemove === this.root) {
+    if (nodeToRemove.meta.multiplicity && nodeToRemove.meta.multiplicity > 1) {
+      nodeToRemove.meta.multiplicity -= 1; // handle duplicated
+    } else if (nodeToRemove === this.root) {
       // Replace (root) node to delete with the combined subtree.
       this.root = nodeToRemoveChildren;
       this.root.parent = null; // clearing up old parent

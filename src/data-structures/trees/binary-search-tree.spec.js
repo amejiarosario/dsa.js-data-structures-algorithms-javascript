@@ -231,6 +231,23 @@ describe('Binary Search Tree', () => {
 
         expect(bst.size).toBe(6);
       });
+
+      it('should remove duplicates', () => {
+        bst.add(40); // add duplicate
+        expect(n40.meta.multiplicity).toBe(2);
+
+        expect(bst.remove(40)).toBe(true);
+        expect(bst.size).toBe(7);
+        expect(n40.meta.multiplicity).toBe(1);
+        expect(bst.find(40)).toBe(n40);
+
+        expect(bst.remove(40)).toBe(true);
+        expect(bst.size).toBe(6);
+        expect(bst.find(40)).toBeFalsy();
+
+        expect(bst.remove(40)).toBe(false);
+        expect(bst.size).toBe(6);
+      });
     });
 
     describe('#bfs', () => {
