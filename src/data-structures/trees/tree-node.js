@@ -123,14 +123,14 @@ class TreeNode {
    * Height: distance from the deepest leaf to this node
    */
   get height() {
-    return Math.max(this.leftHeight, this.rightHeight);
+    return Math.max(this.leftSubtreeHeight, this.rightSubtreeHeight);
   }
 
-  get leftHeight() {
+  get leftSubtreeHeight() {
     return this.left ? this.left.height + 1 : 0;
   }
 
-  get rightHeight() {
+  get rightSubtreeHeight() {
     return this.right ? this.right.height + 1 : 0;
   }
 
@@ -138,7 +138,7 @@ class TreeNode {
    * Returns the difference the heights on the left and right subtrees
    */
   get balanceFactor() {
-    return this.leftHeight - this.rightHeight;
+    return this.leftSubtreeHeight - this.rightSubtreeHeight;
   }
 
   /**

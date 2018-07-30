@@ -2,7 +2,7 @@
  * Swap parent's child
  *
  *
- * @example Child on the left side
+ * @example Child on the left side (it also work for the right side)
  *
  * p = parent
  * o = old child
@@ -29,11 +29,23 @@ function swapParentChild(oldChild, newChild, parent) {
 
 /**
  * Single Left Rotation (LL Rotation)
+ *
+ * @example: tree with values 1-2-3-4
+ *
+ * 1                                 1
+ *  \                                 \
+ *   2*                                3
+ *    \    --left-rotation(2)->      /  \
+ *     3                           2*    4
+ *      \
+ *       4
  * @param {TreeNode} node
+ * @returns {TreeNode} new parent after the rotation
  */
 function leftRotation(node) {
   const newParent = node.right;
   const grandparent = node.parent;
+
 
   swapParentChild(node, newParent, grandparent);
 
@@ -46,7 +58,19 @@ function leftRotation(node) {
 
 /**
  * Single Right Rotation (RR Rotation)
+ *
+ * @example rotate node 3 to the right
+ *
+ *       4                                          4
+ *      /                                         /
+ *     3*                                       2
+ *    /                                       /  \
+ *   2       ---| right-rotation(3) |-->     1    3*
+ *  /
+ * 1
+ *
  * @param {TreeNode} node
+ * @returns {TreeNode} new parent after the rotation
  */
 function rightRotation(node) {
   const newParent = node.left;
@@ -63,24 +87,41 @@ function rightRotation(node) {
 
 /**
  * Left Right Rotation (LR Rotation)
+ *
+ * @example LR rotation on node 3
+ *        4                          4
+ *      /                          /                            4
+ *    3                          3*                           /
+ *  /                          /                             2
+ * 1*   --left-rotation(1)->  2   --right-rotation(3)->    /  \
+ *  \                        /                            1    3*
+ *   2                      1
+ *
  * @param {TreeNode} node
+ * @returns {TreeNode} new parent after the rotation
  */
 function leftRightRotation(node) {
-  let newParent;
-  newParent = leftRotation(node.left);
-  newParent = rightRotation(node);
-  return newParent;
+  leftRotation(node.left);
+  return rightRotation(node);
 }
 
 /**
  * Right Left Rotation (RL Rotation)
+ *
+ * @example RL rotation on 1
+ *
+ *   1*                           1*
+ *    \                            \                              2
+ *      3   -right-rotation(3)->    2   -left-rotation(1)->      /  \
+ *    /                              \                          1*   3
+ *   2                                3
+ *
  * @param {TreeNode} node
+ * @returns {TreeNode} new parent after the rotation
  */
 function rightLeftRotation(node) {
-  let newParent;
-  newParent = rightRotation(node.right);
-  newParent = leftRotation(node);
-  return newParent;
+  rightRotation(node.right);
+  return leftRotation(node);
 }
 
 /**
@@ -97,14 +138,14 @@ function rightLeftRotation(node) {
  */
 function balance(node) {
   if (node.balanceFactor > 1) {
-    // left subtree is heighter than right subtree
+    // left subtree is higher than right subtree
     if (node.left.balanceFactor > 0) {
       rightRotation(node);
     } else if (node.left.balanceFactor < 0) {
       leftRightRotation(node);
     }
   } else if (node.balanceFactor < -1) {
-    // right subtree is heighter than left subtree
+    // right subtree is higher than left subtree
     if (node.right.balanceFactor < 0) {
       leftRotation(node);
     } else if (node.right.balanceFactor > 0) {
@@ -118,7 +159,7 @@ function balance(node) {
  *
  * @param {TreeNode} node
  */
-function balanceUp(node) {
+function balanceUptream(node) {
   let current = node;
   while (current) {
     balance(current);
@@ -132,5 +173,5 @@ module.exports = {
   leftRightRotation,
   rightLeftRotation,
   balance,
-  balanceUp,
+  balanceUptream,
 };

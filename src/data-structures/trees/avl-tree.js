@@ -1,6 +1,6 @@
 const BinarySearchTree = require('./binary-search-tree');
 const {
-  balanceUp,
+  balanceUptream,
 } = require('./tree-rotations');
 
 class AvlTree extends BinarySearchTree {
@@ -11,7 +11,7 @@ class AvlTree extends BinarySearchTree {
    */
   add(value) {
     const node = super.add(value);
-    balanceUp(node);
+    balanceUptream(node);
     return node;
   }
 
@@ -23,7 +23,7 @@ class AvlTree extends BinarySearchTree {
     const node = super.find(value);
     if (node) {
       const found = super.remove(value);
-      balanceUp(node.parent);
+      balanceUptream(node.parent);
       return found;
     }
 
