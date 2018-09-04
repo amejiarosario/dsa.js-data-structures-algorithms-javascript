@@ -1,5 +1,5 @@
 /**
- * Simple node
+ * Simple node of a Linked List
  */
 class Node {
   constructor(value) {

@@ -4,6 +4,7 @@ function isEvenOrOdd(n) {
 }
 
 const assert = require('assert');
+
 assert.equal(isEvenOrOdd(100), 'Even');
 assert.equal(isEvenOrOdd(101), 'Odd');
 assert.equal(isEvenOrOdd(24), 'Even');
