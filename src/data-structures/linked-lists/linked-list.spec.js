@@ -96,14 +96,25 @@ describe('LinkedList', () => {
       linkedList.addLast('found');
     });
 
-    describe('#contains', () => {
-      it('should find elements', () => {
-        expect(linkedList.contains(0)).toBe(0);
-        expect(linkedList.contains('found')).toBe(1);
+    describe('#indexOf', () => {
+      it('should find element index', () => {
+        expect(linkedList.indexOf(0)).toBe(0);
+        expect(linkedList.indexOf('found')).toBe(1);
       });
 
       it('should return undefined', () => {
-        expect(linkedList.contains('hola')).toBe(undefined);
+        expect(linkedList.indexOf('hola')).toBe(undefined);
+      });
+    });
+
+    describe('#get', () => {
+      it('should get the element at index 1', () => {
+        expect(linkedList.get(1).value).toBe('found');
+        expect(linkedList.get(0).value).toBe(0);
+      });
+
+      it('should return undefined when index is out of bound', () => {
+        expect(linkedList.get(1000)).toBe(undefined);
       });
     });
 

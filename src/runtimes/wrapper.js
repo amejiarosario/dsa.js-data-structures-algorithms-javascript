@@ -5,6 +5,11 @@
 // time ./wrapper.js ./is-empty.js < array1M.txt
 // ./wrapper.js ./02-binary-search.js 775 < sortedArray1e1.txt
 
+//
+// Articles
+//
+// https://mathiasbynens.be/notes/javascript-benchmarking
+
 const totalUsage = process.cpuUsage();
 
 // utils

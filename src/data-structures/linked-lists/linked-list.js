@@ -1,7 +1,8 @@
 const Node = require('./node');
 
 /**
- * Doubly linked list that keeps track of the last and first element
+ * Doubly linked list that keeps track of
+ * the last and first element
  */
 class LinkedList {
   constructor() {
@@ -11,10 +12,34 @@ class LinkedList {
   }
 
   /**
-   * Adds element to the end of the list (tail). Similar to Array.push
-   * Using the element last reference instead of finding last, we can reduce the runtime from O(n) to O(1)
+   * Adds element to the begining of the list. Similar to Array.unshift
    * Runtime: O(1)
    * @param {any} value
+   */
+  addFirst(value) {
+    const node = new Node(value);
+
+    node.next = this.first;
+
+    if (this.first) {
+      this.first.previous = node;
+    } else {
+      this.last = node;
+    }
+
+    this.first = node; // update head
+    this.size += 1;
+
+    return node;
+  }
+
+  /**
+   * Adds element to the end of the list (tail). Similar to Array.push
+   * Using the element last reference instead of navigating through the list,
+   * we can reduced from linear to a constant runtime.
+   * Runtime: O(1)
+   * @param {any} value node's value
+   * @returns {Node} newly created node
    */
   addLast(value) {
     const newNode = new Node(value);
@@ -28,9 +53,43 @@ class LinkedList {
       this.last = newNode;
     }
 
-    this.size++;
+    this.size += 1;
 
     return newNode;
+  }
+
+  /**
+   * Insert new element at the given position (index)
+   *
+   * @param {any} value new node's value
+   * @param {Number} position position to insert element
+   * @returns {Node} new node or 'undefined' if the index is out of bound.
+   */
+  add(value, position = 0) {
+    if (position === 0) {
+      return this.addFirst(value);
+    }
+
+    if (position === this.size) {
+      return this.addLast(value);
+    }
+
+    for (let current = this.first, index = 0;
+      index <= this.size;
+      index += 1, current = (current && current.next)) {
+      if (index === position) {
+        const newNode = new Node(value);
+        newNode.previous = current.previous;
+        newNode.next = current;
+
+        current.previous.next = newNode;
+        if (current.next) { current.next.previous = newNode; }
+        this.size += 1;
+        return newNode;
+      }
+    }
+
+    return undefined; // out of bound index
   }
 
   /**
@@ -51,28 +110,6 @@ class LinkedList {
       return first.value;
     }
     this.last = null;
-  }
-
-  /**
-   * Adds element to the begining of the list. Similar to Array.unshift
-   * Runtime: O(1)
-   * @param {any} value
-   */
-  addFirst(value) {
-    const node = new Node(value);
-
-    node.next = this.first;
-
-    if (this.first) {
-      this.first.previous = node;
-    } else {
-      this.last = node;
-    }
-
-    this.first = node; // update head
-    this.size++;
-
-    return node;
   }
 
   /**
@@ -103,17 +140,38 @@ class LinkedList {
   }
 
   /**
-   * Find first occurence of the element matching the value
-   * return index or undefined
+   * Search by value. It finds first occurrence  of
+   * the element matching the value.
    * Runtime: O(n)
    * @param {any} value
+   * @returns {number} return index or undefined
    */
-  contains(value) {
-    for (let current = this.first, index = 0; current; index++, current = current.next) {
+  indexOf(value) {
+    for (let current = this.first, index = 0;
+      current;
+      index += 1, current = current.next) {
       if (current.value === value) {
         return index;
       }
     }
+    return undefined; // not found
+  }
+
+  /**
+   * Search by index
+   * Runtime: O(n)
+   * @param {Number} index position of the element
+   * @returns {Node} element at the specified position in this list.
+   */
+  get(index = 0) {
+    for (let current = this.first, position = 0;
+      current;
+      position += 1, current = current.next) {
+      if (position === index) {
+        return current;
+      }
+    }
+    return undefined; // not found
   }
 
   /**
@@ -135,34 +193,6 @@ class LinkedList {
         current.previous = current.next;
         this.size--;
         return current.value;
-      }
-    }
-  }
-
-  /**
-   * Insert new element on the given position
-   * Returns index if it failed to insert element (index out of bounds), otherwise undefined
-   * @param {any} value new node's value
-   * @param {Number} index position to insert element
-   */
-  add(value, index = 0) {
-    if (index === 0) {
-      return this.addFirst(value);
-    }
-
-    for (let current = this.first, i = 0; i <= this.size; i++, current = (current && current.next)) {
-      if (i === index) {
-        if (i === this.size) { // if it doesn't have next it means that it is the last
-          return this.addLast(value);
-        }
-        const newNode = new Node(value);
-        newNode.previous = current.previous;
-        newNode.next = current;
-
-        current.previous.next = newNode;
-        if (current.next) { current.next.previous = newNode; }
-        this.size++;
-        return newNode;
       }
     }
   }
