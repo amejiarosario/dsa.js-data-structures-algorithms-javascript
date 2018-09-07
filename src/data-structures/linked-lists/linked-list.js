@@ -74,19 +74,16 @@ class LinkedList {
       return this.addLast(value);
     }
 
-    for (let current = this.first, index = 0;
-      index <= this.size;
-      index += 1, current = (current && current.next)) {
-      if (index === position) {
-        const newNode = new Node(value);
-        newNode.previous = current.previous;
-        newNode.next = current;
+    const current = this.get(position);
+    if (current) {
+      const newNode = new Node(value);
+      newNode.previous = current.previous;
+      newNode.next = current;
 
-        current.previous.next = newNode;
-        if (current.next) { current.next.previous = newNode; }
-        this.size += 1;
-        return newNode;
-      }
+      current.previous.next = newNode;
+      if (current.next) { current.next.previous = newNode; }
+      this.size += 1;
+      return newNode;
     }
 
     return undefined; // out of bound index
@@ -147,14 +144,12 @@ class LinkedList {
    * @returns {number} return index or undefined
    */
   indexOf(value) {
-    for (let current = this.first, index = 0;
-      current;
-      index += 1, current = current.next) {
+    return this.find((current, position) => {
       if (current.value === value) {
-        return index;
+        return position;
       }
-    }
-    return undefined; // not found
+      return undefined;
+    });
   }
 
   /**
@@ -164,11 +159,26 @@ class LinkedList {
    * @returns {Node} element at the specified position in this list.
    */
   get(index = 0) {
+    return this.find((current, position) => {
+      if (position === index) {
+        return current;
+      }
+      return undefined;
+    });
+  }
+
+  /**
+   * Iterate through the list until callback returns thruthy
+   * @param {Function} callback evaluates node and index
+   * @returns {any} callbacks's return value
+   */
+  find(callback) {
     for (let current = this.first, position = 0;
       current;
       position += 1, current = current.next) {
-      if (position === index) {
-        return current;
+      const result = callback(current, position);
+      if (result !== undefined) {
+        return result;
       }
     }
     return undefined; // not found
