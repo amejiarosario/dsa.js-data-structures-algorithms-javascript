@@ -1,43 +1,45 @@
 const LinkedList = require('../linked-lists/linked-list');
 
 /**
- * Data structure that adds and remove elements in a last-in, first-out (LIFO) fashion
+ * Data structure that adds and remove elements in a first-in, first-out (FIFO) fashion
  */
 class Stack {
   constructor() {
-    this.input = new LinkedList();
+    this.items = new LinkedList();
   }
 
   /**
-   * Add element into the stack
+   * Add element into the stack.
+   * Similar to Array.push
    * Runtime: O(1)
-   * @param {any} element
+   * @param {any} item
    */
-  add(element) {
-    this.input.addLast(element);
+  add(item) {
+    this.items.addLast(item);
     return this;
   }
 
   /**
-   * Remove element from the stack
+   * Remove element from the stack.
+   * Similar to Array.pop
    * Runtime: O(1)
    */
   remove() {
-    return this.input.removeLast();
+    return this.items.removeLast();
   }
 
   /**
    * Size of the queue
    */
   get size() {
-    return this.input.size;
+    return this.items.size;
   }
 
   /**
    * Return true if is empty false otherwise true
    */
   isEmpty() {
-    return !this.input.size;
+    return !this.items.size;
   }
 }
 

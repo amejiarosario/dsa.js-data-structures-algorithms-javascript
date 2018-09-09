@@ -24,7 +24,7 @@ describe('Stack', () => {
     it('should get last element entered', () => {
       expect(stack.pop()).toEqual('b');
       expect(stack.pop()).toEqual('a');
-      expect(stack.pop()).toEqual(undefined);
+      expect(stack.pop()).toEqual(null);
     });
   });
 

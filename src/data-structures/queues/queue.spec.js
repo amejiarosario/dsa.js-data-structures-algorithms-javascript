@@ -31,7 +31,7 @@ describe('Queue', () => {
       queue.add('c');
       expect(queue.remove()).toEqual('b');
       expect(queue.remove()).toEqual('c');
-      expect(queue.remove()).toBe(undefined);
+      expect(queue.remove()).toBe(null);
     });
   });
 

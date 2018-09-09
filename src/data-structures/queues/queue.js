@@ -5,43 +5,44 @@ const LinkedList = require('../linked-lists/linked-list');
  */
 class Queue {
   constructor() {
-    this.input = new LinkedList();
+    this.items = new LinkedList();
   }
 
   /**
    * Add element to the queue
    * Runtime: O(1)
-   * @param {any} element
+   * @param {any} item
    */
-  add(element) {
-    this.input.addFirst(element);
+  enqueue(item) {
+    this.items.addLast(item);
   }
 
   /**
    * Remove element from the queue
    * Runtime: O(1)
    */
-  remove() {
-    return this.input.removeLast();
+  dequeue() {
+    return this.items.removeFirst();
   }
 
   /**
    * Size of the queue
    */
   get size() {
-    return this.input.size;
+    return this.items.size;
   }
 
   /**
    * Return true if is empty false otherwise true
    */
   isEmpty() {
-    return !this.input.size;
+    return !this.items.size;
   }
 }
 
 // Aliases
-Queue.prototype.enqueue = Queue.prototype.add;
-Queue.prototype.dequeue = Queue.prototype.remove;
+Queue.prototype.add = Queue.prototype.enqueue;
+Queue.prototype.remove = Queue.prototype.dequeue;
 
 module.exports = Queue;
+

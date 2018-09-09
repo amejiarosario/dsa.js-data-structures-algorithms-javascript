@@ -40,8 +40,7 @@ describe('LinkedList', () => {
       expect(linkedList.last.value).toBe('b');
 
       expect(linkedList.removeFirst()).toBe('b');
-      expect(linkedList.removeFirst()).toBe(undefined);
-      // expect(linkedList.removeFirst()).toBe(undefined);
+      expect(linkedList.removeFirst()).toBe(null);
 
       expect(linkedList.first).toBe(null);
       expect(linkedList.last).toBe(null);
@@ -73,17 +72,26 @@ describe('LinkedList', () => {
     });
 
     it('should remove first item', () => {
+      expect(linkedList.size).toBe(3);
+      expect(linkedList.first.value).toBe('a');
+      expect(linkedList.last.value).toBe('c');
+
       expect(linkedList.removeLast()).toBe('c');
       expect(linkedList.last.value).toBe('b');
+      expect(linkedList.first.value).toBe('a');
+      expect(linkedList.size).toBe(2);
 
       expect(linkedList.removeLast()).toBe('b');
       expect(linkedList.last.value).toBe('a');
       expect(linkedList.first.value).toBe('a');
       expect(linkedList.first.next).toBe(null);
+      expect(linkedList.size).toBe(1);
 
       expect(linkedList.removeLast()).toBe('a');
-      expect(linkedList.removeLast()).toBe(undefined);
-      // expect(linkedList.removeLast()).toBe(undefined);
+      expect(linkedList.first).toBe(null);
+      expect(linkedList.last).toBe(null);
+      expect(linkedList.removeLast()).toBe(null);
+      expect(linkedList.size).toBe(0);
 
       expect(linkedList.first).toBe(null);
       expect(linkedList.last).toBe(null);
@@ -135,7 +143,9 @@ describe('LinkedList', () => {
 
       it('should update size, last and first', () => {
         expect(linkedList.remove(0)).toBe(0);
+        expect(linkedList.size).toBe(1);
         expect(linkedList.remove(0)).toBe('found');
+        expect(linkedList.size).toBe(0);
         expect(linkedList.remove(0)).toBe(undefined);
         expect(linkedList.size).toBe(0);
         expect(linkedList.first).toBe(null);
@@ -271,7 +281,7 @@ describe('LinkedList', () => {
         expect(linkedList.removeLast()).toBe('c');
         expect(linkedList.pop()).toBe('b');
         expect(linkedList.remove()).toBe('a');
-        expect(linkedList.shift()).toBe(undefined);
+        expect(linkedList.shift()).toBe(null);
         linkedList.removeLast();
         expect(linkedList.size).toBe(0);
       });

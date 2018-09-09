@@ -17,20 +17,20 @@ class LinkedList {
    * @param {any} value
    */
   addFirst(value) {
-    const node = new Node(value);
+    const newNode = new Node(value);
 
-    node.next = this.first;
+    newNode.next = this.first;
 
     if (this.first) {
-      this.first.previous = node;
+      this.first.previous = newNode;
     } else {
-      this.last = node;
+      this.last = newNode;
     }
 
-    this.first = node; // update head
+    this.first = newNode; // update head
     this.size += 1;
 
-    return node;
+    return newNode;
   }
 
   /**
@@ -90,53 +90,6 @@ class LinkedList {
   }
 
   /**
-   * Removes element from the start of the list (head/root). similar Array.shift
-   * Runtime: O(1)
-   */
-  removeFirst() {
-    const first = this.first;
-
-    if (first) {
-      this.first = first.next;
-      if (this.first) {
-        this.first.previous = null;
-      }
-
-      this.size--;
-
-      return first.value;
-    }
-    this.last = null;
-  }
-
-  /**
-   * Removes element to the end of the list
-   * similar to Array.pop
-   * Using the `last.previous` we can reduce the runtime from O(n) to O(1)
-   * Runtime: O(1)
-   */
-  removeLast() {
-    let current = this.first;
-    let target;
-
-    if (current && current.next) {
-      current = this.last.previous;
-      this.last = current;
-      target = current.next;
-      current.next = null;
-    } else {
-      this.first = null;
-      this.last = null;
-      target = current;
-    }
-
-    if (target) {
-      this.size--;
-      return target.value;
-    }
-  }
-
-  /**
    * Search by value. It finds first occurrence  of
    * the element matching the value.
    * Runtime: O(n)
@@ -185,26 +138,66 @@ class LinkedList {
   }
 
   /**
-   * Remove the nth element from the list. Starting with 0
-   * Returns value if found or undefined if it was not found
-   * Runtime: O(n)
-   * @param {any} index
+   * Removes element from the start of the list (head/root).
+   * Similar to Array.shift
+   * Runtime: O(1)
+   * @returns {any} the first element's value which was removed.
    */
-  remove(index = 0) {
-    if (index === 0) {
-      return this.removeFirst();
+  removeFirst() {
+    const head = this.first;
+
+    if (head) {
+      this.first = head.next;
+      if (this.first) {
+        this.first.previous = null;
+      }
+      this.size -= 1;
+    } else {
+      this.last = null;
+    }
+    return head && head.value;
+  }
+
+  /**
+   * Removes element to the end of the list. Similar to Array.pop
+   * Using the `last.previous` we can reduce the runtime from O(n) to O(1)
+   * Runtime: O(1)
+   * @returns {value} the last element's value which was removed
+   */
+  removeLast() {
+    const tail = this.last;
+
+    if (tail) {
+      this.last = tail.previous;
+      if (this.last) {
+        this.last.next = null;
+      } else {
+        this.first = null;
+      }
+      this.size -= 1;
+    }
+    return tail && tail.value;
+  }
+
+  /**
+   * Removes the element at the specified position in this list.
+   * Runtime: O(n)
+   * @param {any} position
+   * @returns {any} the element's value at the specified position that was removed.
+   */
+  remove(position = 0) {
+    const current = this.get(position);
+
+    if (position === 0) {
+      this.removeFirst();
+    } else if (position === this.size) {
+      this.removeLast();
+    } else if (current) {
+      current.previous = current.next;
+      this.size -= 1;
     }
 
-    for (let current = this.first, i = 0; current; i++, current = current.next) {
-      if (i === index) {
-        if (!current.next) { // if it doesn't have next it means that it is the last
-          return this.removeLast();
-        }
-        current.previous = current.next;
-        this.size--;
-        return current.value;
-      }
-    }
+    return current && current.value;
   }
 }
 
