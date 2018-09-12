@@ -9,7 +9,7 @@ describe('AvlTree', () => {
 
   describe('#contructor', () => {
     it('should initialize', () => {
-      expect(tree).not.toBe(undefined);
+      expect(tree).not.toBe(null);
     });
   });
 
@@ -68,8 +68,8 @@ describe('AvlTree', () => {
       expect(tree.toArray()).toEqual([
         30,
         20, 40,
-        10, undefined, undefined, 50,
-        undefined, undefined, undefined, undefined,
+        10, null, null, 50,
+        null, null, null, null,
       ]);
 
       expect(tree.find(40).balanceFactor).toBe(-1); // l: 0, r: 1, bf: -1

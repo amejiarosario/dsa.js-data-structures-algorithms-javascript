@@ -20,10 +20,10 @@ describe('Binary Search Tree', () => {
         const root = bst.add(5);
         const n = bst.add(1);
         expect(n.toValues()).toMatchObject({
-          value: 1, parent: 5, left: undefined, right: undefined,
+          value: 1, parent: 5, left: null, right: null,
         });
         expect(root.toValues()).toMatchObject({
-          value: 5, parent: null, left: 1, right: undefined,
+          value: 5, parent: null, left: 1, right: null,
         });
         bst.add(10);
         expect(root.toValues()).toMatchObject({
@@ -50,7 +50,7 @@ describe('Binary Search Tree', () => {
         expect(root.left).toBe(n2);
         expect(root.right).toBe(n30);
 
-        expect(n30.left).toBe(undefined);
+        expect(n30.left).toBe(null);
         expect(n30.right).toBe(n40);
       });
 
@@ -68,7 +68,7 @@ describe('Binary Search Tree', () => {
         bst.add(1);
         expect(bst.size).toBe(2);
         expect(root.toValues()).toMatchObject({
-          value: 1, parent: null, left: undefined, right: undefined,
+          value: 1, parent: null, left: null, right: null,
         });
         expect(root.meta.multiplicity).toBe(2);
       });
@@ -78,14 +78,14 @@ describe('Binary Search Tree', () => {
       it('should return falsy for empty tree', () => {
         const { found, parent } = bst.findNodeAndParent(5);
         expect(found).toBe(null);
-        expect(parent).toBe(undefined);
+        expect(parent).toBe(null);
       });
 
       it('should return with a single element', () => {
         bst.add(5);
         const { found, parent } = bst.findNodeAndParent(5);
         expect(found).toMatchObject({ value: 5 });
-        expect(parent).toBe(undefined);
+        expect(parent).toBe(null);
       });
 
       it('should return with an element and its parent', () => {
@@ -100,7 +100,7 @@ describe('Binary Search Tree', () => {
         bst.add(5);
         bst.add(1);
         const { found, parent } = bst.findNodeAndParent(10);
-        expect(found).toBe(undefined);
+        expect(found).toBe(null);
         expect(parent).toMatchObject({ value: 5 });
       });
 
@@ -108,7 +108,7 @@ describe('Binary Search Tree', () => {
         bst.add(5);
         bst.add(1);
         const { found, parent } = bst.findNodeAndParent(-1);
-        expect(found).toBe(undefined);
+        expect(found).toBe(null);
         expect(parent).toMatchObject({ value: 1 });
       });
     });
@@ -147,7 +147,7 @@ describe('Binary Search Tree', () => {
       });
 
       it('should NOT find the value 20', () => {
-        expect(bst.find(20)).toBe(undefined);
+        expect(bst.find(20)).toBe(null);
       });
     });
 
@@ -155,35 +155,35 @@ describe('Binary Search Tree', () => {
       it('should remove a left leaf node', () => {
         expect(n4.left).toBe(n3);
         bst.remove(3);
-        expect(n4.left).toBe(undefined);
+        expect(n4.left).toBe(null);
         expect(bst.size).toBe(6);
       });
 
       it('should remove a right leaf node', () => {
         expect(n30.right).toBe(n40);
         bst.remove(40);
-        expect(n30.right).toBe(undefined);
+        expect(n30.right).toBe(null);
         expect(bst.size).toBe(6);
       });
 
       it('should remove a child with one descent on the left', () => {
         expect(n3.toValues()).toMatchObject({
-          value: 3, left: undefined, right: undefined, parent: 4,
+          value: 3, left: null, right: null, parent: 4,
         });
         bst.remove(4);
         expect(n3.toValues()).toMatchObject({
-          value: 3, left: undefined, right: undefined, parent: 5,
+          value: 3, left: null, right: null, parent: 5,
         });
       });
 
       it('should remove a child with one descent on the right', () => {
         bst.remove(40);
         expect(n15.toValues()).toMatchObject({
-          value: 15, left: undefined, right: undefined, parent: 30,
+          value: 15, left: null, right: null, parent: 30,
         });
         bst.remove(30);
         expect(n15.toValues()).toMatchObject({
-          value: 15, left: undefined, right: undefined, parent: 10,
+          value: 15, left: null, right: null, parent: 10,
         });
       });
 
@@ -224,10 +224,10 @@ describe('Binary Search Tree', () => {
         expect(bst.toArray()).toEqual([
           30,
           15, 40,
-          5, undefined, undefined, undefined,
-          4, undefined,
-          3, undefined,
-          undefined, undefined]);
+          5, null, null, null,
+          4, null,
+          3, null,
+          null, null]);
 
         expect(bst.size).toBe(6);
       });
@@ -312,8 +312,8 @@ describe('Binary Search Tree', () => {
 
     describe('#toArray', () => {
       it('should serialize the tree as an array', () => {
-        expect(bst.toArray()).toEqual([10, 5, 30, 4, undefined, 15, 40, 3,
-          undefined, undefined, undefined, undefined, undefined, undefined, undefined]);
+        expect(bst.toArray()).toEqual([10, 5, 30, 4, null, 15, 40, 3,
+          null, null, null, null, null, null, null]);
       });
     });
 

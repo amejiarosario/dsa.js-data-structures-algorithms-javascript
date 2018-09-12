@@ -34,13 +34,13 @@ describe('Tree rotations', () => {
       const newParent = leftRotation(n1);
       expect(newParent.value).toBe(2);
       expect(n1.toValues()).toMatchObject({
-        value: 1, left: undefined, right: undefined, parent: 2,
+        value: 1, left: null, right: null, parent: 2,
       });
       expect(n2.toValues()).toMatchObject({
         value: 2, left: 1, right: 3, parent: null,
       });
       expect(n3.toValues()).toMatchObject({
-        value: 3, left: undefined, right: undefined, parent: 2,
+        value: 3, left: null, right: null, parent: 2,
       });
     });
 
@@ -60,10 +60,10 @@ describe('Tree rotations', () => {
 
       expect(newParent).toBe(n3);
       expect(n1.toValues()).toMatchObject({
-        value: 1, left: undefined, right: 3, parent: null,
+        value: 1, left: null, right: 3, parent: null,
       });
       expect(n2.toValues()).toMatchObject({
-        value: 2, left: undefined, right: undefined, parent: 3,
+        value: 2, left: null, right: null, parent: 3,
       });
       expect(n3.toValues()).toMatchObject({
         value: 3, left: 2, right: 4, parent: 1,
@@ -86,13 +86,13 @@ describe('Tree rotations', () => {
       expect(newParent).toBe(n2);
 
       expect(n1.toValues()).toMatchObject({
-        value: 1, left: undefined, right: undefined, parent: 2,
+        value: 1, left: null, right: null, parent: 2,
       });
       expect(n2.toValues()).toMatchObject({
-        value: 2, left: 1, right: undefined, parent: 3,
+        value: 2, left: 1, right: null, parent: 3,
       });
       expect(n3.toValues()).toMatchObject({
-        value: 3, left: 2, right: undefined, parent: 4,
+        value: 3, left: 2, right: null, parent: 4,
       });
     });
   });
@@ -114,16 +114,16 @@ describe('Tree rotations', () => {
 
       expect(newParent).toBe(n2);
       expect(n1.toValues()).toMatchObject({
-        value: 1, left: undefined, right: undefined, parent: 2,
+        value: 1, left: null, right: null, parent: 2,
       });
       expect(n2.toValues()).toMatchObject({
         value: 2, left: 1, right: 3, parent: 4,
       });
       expect(n3.toValues()).toMatchObject({
-        value: 3, left: undefined, right: undefined, parent: 2,
+        value: 3, left: null, right: null, parent: 2,
       });
       expect(n4.toValues()).toMatchObject({
-        value: 4, left: 2, right: undefined, parent: null,
+        value: 4, left: 2, right: null, parent: null,
       });
     });
 
@@ -157,13 +157,13 @@ describe('Tree rotations', () => {
 
       expect(newParent).toBe(n2);
       expect(n1.toValues()).toMatchObject({
-        value: 1, left: undefined, right: 2, parent: null,
+        value: 1, left: null, right: 2, parent: null,
       });
       expect(n2.toValues()).toMatchObject({
-        value: 2, left: undefined, right: 3, parent: 1,
+        value: 2, left: null, right: 3, parent: 1,
       });
       expect(n3.toValues()).toMatchObject({
-        value: 3, left: undefined, right: undefined, parent: 2,
+        value: 3, left: null, right: null, parent: 2,
       });
     });
   });
@@ -185,13 +185,13 @@ describe('Tree rotations', () => {
 
       expect(newParent).toBe(n2);
       expect(n1.toValues()).toMatchObject({
-        value: 1, left: undefined, right: undefined, parent: 2,
+        value: 1, left: null, right: null, parent: 2,
       });
       expect(n2.toValues()).toMatchObject({
         value: 2, left: 1, right: 3, parent: 4,
       });
       expect(n3.toValues()).toMatchObject({
-        value: 3, left: undefined, right: undefined, parent: 2,
+        value: 3, left: null, right: null, parent: 2,
       });
     });
   });
@@ -209,13 +209,13 @@ describe('Tree rotations', () => {
       const newParent = rightLeftRotation(n1);
       expect(newParent).toBe(n2);
       expect(n1.toValues()).toMatchObject({
-        value: 1, left: undefined, right: undefined, parent: 2,
+        value: 1, left: null, right: null, parent: 2,
       });
       expect(n2.toValues()).toMatchObject({
         value: 2, left: 1, right: 3, parent: null,
       });
       expect(n3.toValues()).toMatchObject({
-        value: 3, left: undefined, right: undefined, parent: 2,
+        value: 3, left: null, right: null, parent: 2,
       });
     });
   });

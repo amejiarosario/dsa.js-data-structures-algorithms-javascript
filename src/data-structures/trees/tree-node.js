@@ -18,7 +18,7 @@ class TreeNode {
   }
 
   get left() {
-    return this.descendents[LEFT];
+    return this.descendents[LEFT] || null;
   }
 
   /**
@@ -34,7 +34,7 @@ class TreeNode {
   }
 
   get right() {
-    return this.descendents[RIGHT];
+    return this.descendents[RIGHT] || null;
   }
 
   /**

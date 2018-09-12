@@ -24,7 +24,7 @@ describe('Tree Node', () => {
   });
 
   it('should set/get left node', () => {
-    expect(treeNode.left).toBe(undefined);
+    expect(treeNode.left).toBe(null);
     const newNode = new TreeNode(1);
     treeNode.left = newNode;
     expect(treeNode.left.value).toBe(1);
@@ -35,7 +35,7 @@ describe('Tree Node', () => {
   });
 
   it('should set/get right node', () => {
-    expect(treeNode.right).toBe(undefined);
+    expect(treeNode.right).toBe(null);
     const newNode = new TreeNode(1);
     treeNode.right = newNode;
 

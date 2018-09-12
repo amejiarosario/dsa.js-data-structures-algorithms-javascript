@@ -10,7 +10,7 @@ describe('RedBlackTree', () => {
 
   describe('#add', () => {
     it('should add and self-balance the tree', () => {
-      expect(tree).not.toBe(undefined);
+      expect(tree).not.toBe(null);
     });
 
     it('should make root black', () => {
@@ -37,7 +37,7 @@ describe('RedBlackTree', () => {
       expect(tree.toArray()).toEqual([
         2,
         1, 3,
-        undefined, undefined, undefined, undefined,
+        null, null, null, null,
       ]);
 
       // verify colors
@@ -54,7 +54,7 @@ describe('RedBlackTree', () => {
       expect(tree.toArray()).toEqual([
         2,
         1, 3,
-        undefined, undefined, undefined, undefined,
+        null, null, null, null,
       ]);
 
       // verify colors
@@ -72,8 +72,8 @@ describe('RedBlackTree', () => {
       expect(tree.toArray()).toEqual([
         2,
         1, 3,
-        undefined, undefined, undefined, 4,
-        undefined, undefined,
+        null, null, null, 4,
+        null, null,
       ]);
 
       expect(tree.root.color).toBe(BLACK);
@@ -97,8 +97,8 @@ describe('RedBlackTree', () => {
       expect(tree.toArray()).toEqual([
         2,
         1, 4,
-        undefined, undefined, 3, 5,
-        undefined, undefined, undefined, undefined,
+        null, null, 3, 5,
+        null, null, null, null,
       ]);
 
       expect(n1.color).toBe(BLACK);
