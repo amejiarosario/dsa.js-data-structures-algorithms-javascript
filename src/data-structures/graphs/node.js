@@ -1,5 +1,5 @@
 /**
- * Graph node/vertex that hold adjacencies
+ * Graph node/vertex that hold adjacencies nodes
  */
 class Node {
   constructor(value) {

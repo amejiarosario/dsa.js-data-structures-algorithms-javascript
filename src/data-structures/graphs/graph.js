@@ -2,6 +2,7 @@
 const Node = require('./node');
 const Stack = require('../stacks/stack');
 const Queue = require('../queues/queue');
+const HashMap = require('../hash-maps/hash-map');
 
 /**
  * Graph that uses an adjacent list
@@ -29,6 +30,7 @@ class Graph {
    * @param {Symbol} edgeDirection either `Graph.DIRECTED` or `Graph.UNDIRECTED`
    */
   constructor(edgeDirection = Graph.DIRECTED) {
+    // this.nodes = new HashMap();
     this.nodes = new Map();
     this.edgeDirection = edgeDirection;
   }
