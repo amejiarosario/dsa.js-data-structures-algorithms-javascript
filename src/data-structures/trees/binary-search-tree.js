@@ -10,7 +10,8 @@ class BinarySearchTree {
 
   /**
    * Insert value on the BST.
-   * It the value is already in the tree, then It increase the multiplicity value
+   * If the value is already in the tree, t
+   * then it increase the multiplicity value
    * @param {any} value value to insert in the tree
    */
   add(value) {
@@ -58,26 +59,26 @@ class BinarySearchTree {
 
   /**
    * Get the node with the max value of subtree: the right-most value.
-   * @param {TreeNode} root subtree's root
+   * @param {TreeNode} node subtree's root
+   * @returns {TreeNode} right-most node (max value)
    */
-  getMax(root = this.root) {
-    let current = root;
-    while (current && current.right) {
-      current = current.right;
+  getRightmost(node = this.root) {
+    if (!node || !node.right) {
+      return node;
     }
-    return current;
+    return this.getMax(node.right);
   }
 
   /**
    * Get the node with the min value of subtree: the left-most value.
-   * @param {TreeNode} root subtree's root
+   * @param {TreeNode} node subtree's root
+   * @returns {TreeNode} left-most node (min value)
    */
-  getMin(root = this.root) {
-    let current = root;
-    while (current && current.left) {
-      current = current.left;
+  getLeftmost(node = this.root) {
+    if (!node || !node.left) {
+      return node;
     }
-    return current;
+    return this.getMin(node.left);
   }
 
   /**
@@ -85,23 +86,23 @@ class BinarySearchTree {
    * @returns {boolean} false if not found and true if it was deleted
    */
   remove(value) {
-    const nodeToRemove = this.find(value);
+    const { found: nodeToRemove, parent } = this.findNodeAndParent(value);
+
     if (!nodeToRemove) return false;
 
     // Combine left and right children into one subtree without nodeToRemove
-    const nodeToRemoveChildren = this.combineLeftIntoRightSubtree(nodeToRemove);
+    const removedNodeChildren = this.combineLeftIntoRightSubtree(nodeToRemove);
 
     if (nodeToRemove.meta.multiplicity && nodeToRemove.meta.multiplicity > 1) {
-      nodeToRemove.meta.multiplicity -= 1; // handle duplicated
+      nodeToRemove.meta.multiplicity -= 1; // handles duplicated
     } else if (nodeToRemove === this.root) {
       // Replace (root) node to delete with the combined subtree.
-      this.root = nodeToRemoveChildren;
+      this.root = removedNodeChildren;
       this.root.parent = null; // clearing up old parent
     } else {
       const side = nodeToRemove.isParentLeftChild ? 'left' : 'right';
-      const { parent } = nodeToRemove; // get parent
       // Replace node to delete with the combined subtree.
-      parent[side] = nodeToRemoveChildren;
+      parent[side] = removedNodeChildren;
     }
 
     this.size -= 1;
@@ -258,9 +259,9 @@ class BinarySearchTree {
 // aliases
 BinarySearchTree.prototype.insert = BinarySearchTree.prototype.add;
 BinarySearchTree.prototype.delete = BinarySearchTree.prototype.remove;
-BinarySearchTree.prototype.getLeftmost = BinarySearchTree.prototype.getMin;
+BinarySearchTree.prototype.getMin = BinarySearchTree.prototype.getLeftmost;
 BinarySearchTree.prototype.minimum = BinarySearchTree.prototype.getMin;
-BinarySearchTree.prototype.getRightmost = BinarySearchTree.prototype.getMax;
+BinarySearchTree.prototype.getMax = BinarySearchTree.prototype.getRightmost;
 BinarySearchTree.prototype.maximum = BinarySearchTree.prototype.getMax;
 
 module.exports = BinarySearchTree;
