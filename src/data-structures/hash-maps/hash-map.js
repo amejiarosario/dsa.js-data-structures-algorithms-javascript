@@ -1,5 +1,12 @@
 /**
  * Hash Map data structure implementation
+ *
+ * Features:
+ * - HashMap offers 0(1) lookup and insertion.
+ * - Keys are ordered by their insertion order (like LinkedHashMap)
+ * - It contains only unique elements.
+ * - It may have one null key and multiple null values.
+ *
  * @author Adrian Mejia <me AT adrianmejia.com>
  */
 class HashMap {
@@ -20,7 +27,7 @@ class HashMap {
    * Decent hash function where each char ascii code is added with an offset depending on the possition
    * @param {any} key
    */
-  hash(key) {
+  static hashCode(key) {
     let hashValue = 0;
     const stringTypeKey = `${key}${typeof key}`;
 
@@ -33,11 +40,12 @@ class HashMap {
   }
 
   /**
-   * Get the array index after applying the hash funtion to the given key
+   * A hash function converts keys into array indices
    * @param {any} key
+   * @returns {Number} array index given the bucket size
    */
-  _getBucketIndex(key) {
-    const hashValue = this.hash(key);
+  hashFunction(key) {
+    const hashValue = HashMap.hashCode(key);
     const bucketIndex = hashValue % this.buckets.length;
     return bucketIndex;
   }
@@ -101,7 +109,7 @@ class HashMap {
    * @param {any} key
    */
   _getIndexes(key) {
-    const bucketIndex = this._getBucketIndex(key);
+    const bucketIndex = this.hashFunction(key);
     const values = this.buckets[bucketIndex] || [];
 
     for (let entryIndex = 0; entryIndex < values.length; entryIndex++) {
@@ -190,5 +198,8 @@ class HashMap {
     throw new Error('Not implemented');
   }
 }
+
+// Aliases
+HashMap.prototype.containsKey = HashMap.prototype.has;
 
 module.exports = HashMap;
