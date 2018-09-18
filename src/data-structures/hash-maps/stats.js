@@ -9,11 +9,13 @@ class Stats {
 
   set serie(serie) {
     this.originalArray = serie;
-    this.sortedArray = serie.sort((a, b) => b - a);
+    this.sortedArray = serie.sort((a, b) => a - b);
     this.evenSet = serie % 2 === 0;
     this.oddSet = !this.evenSet;
     this.length = serie.length;
-    this.middleIndex = parseInt(serie.length / 2);
+    [this.min] = this.sortedArray;
+    this.max = this.sortedArray[this.length - 1];
+    this.middleIndex = parseInt(serie.length / 2, 10);
   }
 
   get serie() {
@@ -24,83 +26,100 @@ class Stats {
     return this.serie.length;
   }
 
-  sum() {
-    return this.serie.reduce((sum, el) => sum + el);
-  }
-
-  /**
-   * The mean is the average of the numbers: a calculated "central" value of a set of numbers.
-   *
-   * add up all the numbers, then divide by how many numbers there are.
-   */
-  mean() {
-    return this.sum() / this.count();
-  }
-
-  /**
-   * "middle" value
-   */
-  median(array = this.serie) {
-    const sortedArray = array.sort((a, b) => b - a);
-    const count = sortedArray.length;
-    const middle = parseInt(count/2);
-    if (count % 2 === 0) {
-      // even
-      return {
-        median: (sortedArray[middle] + sortedArray[middle - 1]) / 2,
-        medianIndex: null,
-      };
-    }
-    // odd
+  get percentiles() {
+    const i25 = parseInt(this.length * 0.25, 10);
+    const i50 = parseInt(this.length * 0.50, 10);
+    const i75 = parseInt(this.length * 0.75, 10);
+    const i5 = Math.ceil(this.length * 0.05);
+    const i95 = parseInt(this.length * 0.95, 10);
     return {
-      median: sortedArray[middle],
-      medianIndex: middle,
+      q5: this.sortedArray[i5],
+      q25: this.sortedArray[i25],
+      q50: this.sortedArray[i50],
+      q75: this.sortedArray[i75],
+      q95: this.sortedArray[i95],
     };
   }
 
-  /**
-   * A quartile is a type of quantile.
-   * The first quartile (Q1) is defined as the middle number between the smallest number and the median of the data set.
-   * The second quartile (Q2) is the median of the data.
-   * The third quartile (Q3) is the middle value between the median and the highest value of the data set.
-   *
-   * Use the median to divide the ordered data set into two halves.
-   * If there are an odd number of data points in the original ordered data set, include the median (the central value in the ordered list) in both halves.
-   * If there are an even number of data points in the original ordered data set, split this data set exactly in half.
-   * The lower quartile value is the median of the lower half of the data. The upper quartile value is the median of the upper half of the data.
-   */
-  quartile() {
-    const { medianIndex, median } = this.median();
-    let q1;
-    let q3;
+  get median() {
+    const { q50 } = this.percentiles;
+    return q50;
+  }
 
-    if (this.evenSet) {
-      // even - split half
-      q1 = this.median(this.serie.slice(0, this.middleIndex)).median;
-      q3 = this.median(this.serie.slice(this.middleIndex)).median;
-    } else {
-      // odd - include the median
-      q1 = this.median(this.serie.slice(0, medianIndex + 1)).median;
-      q3 = this.median(this.serie.slice(medianIndex)).median;
+  iterateSerie() {
+    this.sumValue = 0;
+    this.frequencies = {};
+    let maxFrequency = 0;
+
+    this.sortedArray.forEach((element) => {
+      // sum
+      this.sumValue += element;
+
+      // mode
+      const frequency = 1 + (this.frequencies[element] || 0);
+      this.frequencies[element] = frequency;
+      if (frequency > maxFrequency) {
+        this.modeValue = element;
+        maxFrequency = frequency;
+      }
+    });
+  }
+
+  get mode() {
+    if (!this.modeValue) {
+      this.iterateSerie();
     }
+    return this.modeValue;
+  }
 
-    return {
-      '25%': q1,
-      '50%': median,
-      '75%': q3,
-    };
+  get sum() {
+    if (!this.sumValue) {
+      this.iterateSerie();
+    }
+    return this.sumValue;
+  }
+
+  get mean() {
+    if (!this.sumValue) {
+      this.iterateSerie();
+    }
+    return this.sumValue / this.length;
+  }
+
+  /**
+   * Standard Deviation (SD, also sigma σ or letter s)
+   * is a measure that is used to quantify the amount
+   * of variation or dispersion of a set of data values.
+   */
+  get std() {
+    const { mean } = this;
+    const squareDifference = this.serie.reduce((sum, el) => {
+      return sum + ((el - mean) ** 2);
+    }, 0);
+    return Math.sqrt(squareDifference / (this.length - 1));
   }
 
   describe() {
+    const {
+      q5,
+      q25,
+      q50,
+      q75,
+      q95,
+    } = this.percentiles;
+
     return {
-      count: this.serie.length,
-      mean: 0,
-      std: 0,
-      min: 0,
-      '25%': 0,
-      '50%': 0,
-      '75%': 0,
-      max: 0,
+      '5%': q5,
+      '25%': q25,
+      '50%': q50,
+      '75%': q75,
+      '95%': q95,
+      min: this.min,
+      median: this.median,
+      max: this.max,
+      std: this.std,
+      count: this.length.toLocaleString(),
+      mode: this.mode,
     };
   }
 }

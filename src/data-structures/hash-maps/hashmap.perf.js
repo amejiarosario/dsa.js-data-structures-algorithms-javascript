@@ -1,12 +1,14 @@
+// nodemon src/data-structures/hash-maps/hashmap.perf.js
 const HashTable = require('./hash-map');
 // const asciichart = require ('asciichart');
 // const { Series } = require('pandas-js');
+const Series = require('./stats');
 
 const dict = new HashTable();
 
 const keys = [];
 const values = [];
-for (let i = 0; i < 1e1; i++) {
+for (let i = 0; i < 1e5; i++) {
   keys.push(makeid());
   values.push(parseInt(Math.random()*1e2));
 }
@@ -29,18 +31,11 @@ const usage = dict.buckets.reduce((array, el, index) => {
   return array;
 }, Array(dict.buckets.length).fill(0));
 
-console.log(usage, dict.buckets);
+// console.log(usage, dict.buckets);
 
-const ds = new Series(usage);
-console.log({
-  length: usage.length,
-  max: Math.max.apply(null, usage),
-  min: Math.min.apply(null, usage),
-  count: ds.length,
-  mean: ds.mean(),
-  std: ds.std(),
-  variance: ds.variance(),
-});
+const s = new Series(usage);
+console.log('Bucket array distribution', s.describe());
+console.log('Bucket array frequencies', s.frequencies);
 
 // console.log({elementsByBucket});
 // console.log (asciichart.plot(elementsByBucket));
@@ -49,9 +44,9 @@ console.log({
 
 function makeid() {
   const text = [];
-  const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789ñåé😁🖖1234567890!@#$%^&*()_+{}';<>?";
+  const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789ñåé😁🖖1234567890!@#$%^&*()_+{}';<>? ";
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < parseInt((Math.random() * 20) + 1, 10); i += 1) {
     text.push(possible.charAt(Math.floor(Math.random() * possible.length)));
   }
 
