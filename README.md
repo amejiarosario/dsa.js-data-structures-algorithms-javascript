@@ -15,3 +15,8 @@ Running one test changing code
     // ...
   });
 ```
+
+Combine all words
+```sh
+cat src/data-structures/hash-maps/data/* > src/data-structures/hash-maps/data/00-combined.txt
+```

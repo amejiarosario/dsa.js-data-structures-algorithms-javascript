@@ -160,6 +160,9 @@ class HashMap {
   }
 }
 
+module.exports = HashMap;
+
+/*
 // Usage:
 // const hashMap = new HashMap();
 const hashMap = new HashMap(1);
@@ -242,3 +245,4 @@ dynamicMap.set('cinco', 5);
 assert.equal(dynamicMap.buckets.length, 8); // <-- no rehash
 assert.equal(dynamicMap.getLoadFactor(), 5 / 8);
 console.log(hashMap.collisions);
+*/

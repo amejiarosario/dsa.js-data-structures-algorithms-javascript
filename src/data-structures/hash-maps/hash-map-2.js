@@ -69,60 +69,63 @@ class HashMap {
   }
 }
 
-// Usage:
-const assert = require('assert');
-
-const hashMap = new HashMap();
-
-hashMap.set('cat', 2);
-hashMap.set('rat', 7);
-hashMap.set('dog', 1);
-hashMap.set('art', 8);
-
-console.log('collisions: ', hashMap.collisions);
-console.log('hashMap.buckets\n', hashMap.buckets);
-/*
-  bucket #0: [ { key: 'cat', value: 2 }, { key: 'dog', value: 1 } ]
-  bucket #1: [ { key: 'rat', value: 7 }, { key: 'dog', value: 1 } ]
-*/
-
-assert.equal(hashMap.get('art'), 8); // this one is ok
-assert.equal(hashMap.get('cat'), 2); // Good. Didn't got overwritten by art
-assert.equal(hashMap.get('rat'), 7); // Good. Didn't got overwritten by art
-assert.equal(hashMap.get('dog'), 1); // Good. Didn't got overwritten by art
+module.exports = HashMap;
 
 
-//
+// // Usage:
+// const assert = require('assert');
+
+// const hashMap = new HashMap();
+
+// hashMap.set('cat', 2);
+// hashMap.set('rat', 7);
+// hashMap.set('dog', 1);
+// hashMap.set('art', 8);
+
+// console.log('collisions: ', hashMap.collisions);
+// console.log('hashMap.buckets\n', hashMap.buckets);
+// /*
+//   bucket #0: [ { key: 'cat', value: 2 }, { key: 'dog', value: 1 } ]
+//   bucket #1: [ { key: 'rat', value: 7 }, { key: 'dog', value: 1 } ]
+// */
+
+// assert.equal(hashMap.get('art'), 8); // this one is ok
+// assert.equal(hashMap.get('cat'), 2); // Good. Didn't got overwritten by art
+// assert.equal(hashMap.get('rat'), 7); // Good. Didn't got overwritten by art
+// assert.equal(hashMap.get('dog'), 1); // Good. Didn't got overwritten by art
 
 
-const hashMapSize10 = new HashMap(10);
-
-hashMapSize10.set('cat', 2);
-hashMapSize10.set('rat', 7);
-hashMapSize10.set('dog', 1);
-hashMapSize10.set('art', 8);
-
-console.log('collisions: ', hashMapSize10.collisions);
-console.log('hashMapSize10\n', hashMapSize10.buckets);
-/*
-  bucket#0: [ { key: 'cat', value: 2 }, { key: 'art', value: 8 } ],
-  <4 empty items>,
-  bucket#5: [ { key: 'rat', value: 7 } ],
-  <1 empty item>,
-  bucket#7: [ { key: 'dog', value: 1 } ],
-  <2 empty items> ]
-*/
+// //
 
 
-//
+// const hashMapSize10 = new HashMap(10);
+
+// hashMapSize10.set('cat', 2);
+// hashMapSize10.set('rat', 7);
+// hashMapSize10.set('dog', 1);
+// hashMapSize10.set('art', 8);
+
+// console.log('collisions: ', hashMapSize10.collisions);
+// console.log('hashMapSize10\n', hashMapSize10.buckets);
+// /*
+//   bucket#0: [ { key: 'cat', value: 2 }, { key: 'art', value: 8 } ],
+//   <4 empty items>,
+//   bucket#5: [ { key: 'rat', value: 7 } ],
+//   <1 empty item>,
+//   bucket#7: [ { key: 'dog', value: 1 } ],
+//   <2 empty items> ]
+// */
 
 
-const hashMapSize100 = new HashMap(100);
+// //
 
-hashMapSize100.set('cat', 2);
-hashMapSize100.set('rat', 7);
-hashMapSize100.set('dog', 1);
-hashMapSize100.set('art', 8);
 
-console.log('collisions: ', hashMapSize100.collisions);
-console.log('hashMapSize100\n', hashMapSize100.buckets);
+// const hashMapSize100 = new HashMap(100);
+
+// hashMapSize100.set('cat', 2);
+// hashMapSize100.set('rat', 7);
+// hashMapSize100.set('dog', 1);
+// hashMapSize100.set('art', 8);
+
+// console.log('collisions: ', hashMapSize100.collisions);
+// console.log('hashMapSize100\n', hashMapSize100.buckets);

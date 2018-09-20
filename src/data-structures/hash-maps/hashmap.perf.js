@@ -1,54 +1,45 @@
 // nodemon src/data-structures/hash-maps/hashmap.perf.js
-const HashTable = require('./hash-map');
-// const asciichart = require ('asciichart');
-// const { Series } = require('pandas-js');
 const Series = require('./stats');
+const assert = require('assert');
+const readline = require('readline');
+const fs = require('fs');
+const en2048 = 'src/data-structures/hash-maps/data/english.txt';
+const en10k = 'src/data-structures/hash-maps/data/google-10000-english.txt';
+const all24k = 'src/data-structures/hash-maps/data/00-combined.txt';
 
-const dict = new HashTable();
+const file = all24k;
+const dsPath = './hash-map-2';
+const HashTable = require(dsPath);
+
+function runTest() {
+  // const dict = new Map();
+  const dict = new HashTable();
+
+  console.log(`${dict.constructor.name} from ${dsPath}`);
+  console.time('SET');
+  for (let i = 0; i < keys.length; i++) {
+    dict.set(keys[i], keys[i]);
+  }
+  console.timeEnd('SET');
+
+  console.time('GET');
+  for (let i = 0; i < keys.length; i++) {
+    const val = dict.get(keys[i]);
+    assert.equal(val, keys[i]);
+  }
+  console.timeEnd('GET');
+}
+
 
 const keys = [];
-const values = [];
-for (let i = 0; i < 1e5; i++) {
-  keys.push(makeid());
-  values.push(parseInt(Math.random()*1e2));
-}
 
-console.time('SET');
-for (let i = 0; i < keys.length; i++) {
-  dict.set(keys[i], values[i]);
-}
-console.timeEnd('SET');
-
-console.time('GET');
-for (let i = 0; i < keys.length; i++) {
-  const val = dict.get(keys[i]);
-}
-console.timeEnd('GET');
-
-// distibution
-const usage = dict.buckets.reduce((array, el, index) => {
-  array[index] = el.length;
-  return array;
-}, Array(dict.buckets.length).fill(0));
-
-// console.log(usage, dict.buckets);
-
-const s = new Series(usage);
-console.log('Bucket array distribution', s.describe());
-console.log('Bucket array frequencies', s.frequencies);
-
-// console.log({elementsByBucket});
-// console.log (asciichart.plot(elementsByBucket));
-
-// Helpers
-
-function makeid() {
-  const text = [];
-  const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789ñåé😁🖖1234567890!@#$%^&*()_+{}';<>? ";
-
-  for (let i = 0; i < parseInt((Math.random() * 20) + 1, 10); i += 1) {
-    text.push(possible.charAt(Math.floor(Math.random() * possible.length)));
-  }
-
-  return text.join('');
-}
+const rl = readline.createInterface({
+  input: fs.createReadStream(file),
+  crlfDelay: Infinity,
+});
+rl.on('line', (line) => {
+  keys.push(line);
+}).on('close', () => {
+  console.log(`${keys.length} words from ${file}`);
+  runTest();
+});

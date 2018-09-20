@@ -88,8 +88,8 @@ class Stats {
 
   /**
    * Standard Deviation (SD, also sigma σ or letter s)
-   * is a measure that is used to quantify the amount
-   * of variation or dispersion of a set of data values.
+   * How far data is from the mean value. The bigger the value,
+   * the more disperse is from the mean.
    */
   get std() {
     const { mean } = this;
