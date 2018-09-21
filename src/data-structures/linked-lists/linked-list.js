@@ -1,4 +1,5 @@
 const Node = require('./node');
+const util = require('util');
 
 /**
  * Doubly linked list that keeps track of
@@ -190,10 +191,10 @@ class LinkedList {
 
     if (position === 0) {
       this.removeFirst();
-    } else if (position === this.size) {
+    } else if (position === this.size - 1) {
       this.removeLast();
     } else if (current) {
-      current.previous = current.next;
+      current.previous.next = current.next;
       this.size -= 1;
     }
 
@@ -204,16 +205,41 @@ class LinkedList {
    * Removes the first occurrence of the specified elementt
    * from this list, if it is present.
    * Runtime: O(n)
-   * @param {any} value Node's value
+   * @param {any} callbackOrIndex callback or position index to remove
    */
-  remove(callback) {
-    const index = this.find((node, index) => {
-      if (callback(node, index)) {
+  remove(callbackOrIndex) {
+    if (typeof callbackOrIndex !== 'function') {
+      return this.removeByPosition(parseInt(callbackOrIndex, 10) || 0);
+    }
+
+    const position = this.find((node, index) => {
+      if (callbackOrIndex(node, index)) {
         return index;
       }
       return undefined;
     });
-    return this.removeByPosition(index);
+
+    if (position !== undefined) { // zero-based position.
+      return this.removeByPosition(position);
+    }
+    return false;
+  }
+
+  /**
+   * Iterate through the list yield on each node
+   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#User-defined_iterables
+   */
+  * [Symbol.iterator]() {
+    for (let node = this.first, position = 0;
+      node;
+      position += 1, node = node.next) {
+      yield { node, position };
+    }
+  }
+
+  toString() {
+    const parts = [...this]; // see [Symbol.iterator]()
+    return parts.map(n => util.inspect(n.node.value)).join(' -> ');
   }
 }
 

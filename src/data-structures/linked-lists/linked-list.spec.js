@@ -1,6 +1,6 @@
 const LinkedList = require('./linked-list');
 
-describe('LinkedList', () => {
+describe('LinkedList Test', () => {
   let linkedList;
 
   beforeEach(() => {
@@ -284,6 +284,84 @@ describe('LinkedList', () => {
         expect(linkedList.shift()).toBe(null);
         linkedList.removeLast();
         expect(linkedList.size).toBe(0);
+      });
+    });
+
+    describe('#remove with callback', () => {
+      const a = { k: 1, v: 'a' };
+      const b = { k: 2, v: 'b' };
+      const c = { k: 3, v: 'c' };
+
+      beforeEach(() => {
+        // a -> b -> c
+        linkedList.push(b);
+        linkedList.unshift(a);
+        linkedList.addLast(c);
+      });
+
+      it('should remove head', () => {
+        linkedList.remove((node) => {
+          if (node.value.v === 'a') {
+            return true;
+          }
+          return false;
+        });
+        expect(linkedList.first.value).toMatchObject(b);
+        expect(linkedList.first.next.value).toMatchObject(c);
+        expect(linkedList.last.value).toMatchObject(c);
+        expect(linkedList.size).toBe(2);
+      });
+
+      it('should remove middle', () => {
+        linkedList.remove((node) => {
+          if (node.value.v === 'b') {
+            return true;
+          }
+          return false;
+        });
+        expect(linkedList.size).toBe(2);
+        expect(linkedList.first.value).toMatchObject(a);
+        expect(linkedList.first.next.value).toMatchObject(c);
+        expect(linkedList.last.value).toMatchObject(c);
+      });
+
+      it('should remove last', () => {
+        linkedList.remove((node) => {
+          if (node.value.v === 'c') {
+            return true;
+          }
+          return false;
+        });
+        expect(linkedList.size).toBe(2);
+        expect(linkedList.first.value).toMatchObject(a);
+        expect(linkedList.first.next.value).toMatchObject(b);
+        expect(linkedList.last.value).toMatchObject(b);
+      });
+
+      it('should remove none if not found', () => {
+        linkedList.remove((node) => {
+          if (node.value.v === 'z') {
+            return true;
+          }
+          return false;
+        });
+        expect(linkedList.size).toBe(3);
+        expect(linkedList.first.value).toMatchObject(a);
+        expect(linkedList.first.next.value).toMatchObject(b);
+        expect(linkedList.last.value).toMatchObject(c);
+      });
+    });
+
+    describe('#toString', () => {
+      beforeEach(() => {
+        linkedList.addLast('a');
+        linkedList.addLast(2);
+        linkedList.addLast('c');
+        linkedList.addLast({ k: 4, v: 'd' });
+      });
+
+      it('get string', () => {
+        expect(linkedList.toString()).toBe("'a' -> 2 -> 'c' -> { k: 4, v: 'd' }");
       });
     });
   });

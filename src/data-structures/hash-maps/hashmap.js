@@ -11,6 +11,8 @@ class HashMap {
     this.loadFactor = loadFactor;
     this.size = 0;
     this.collisions = 0;
+    this.keysTrackerArray = [];
+    this.keysTrackerIndex = 0;
   }
 
   set(key, value) {
@@ -21,11 +23,14 @@ class HashMap {
 
   get(key) {
     const index = this.hashFunction(key);
-    return this.getBucket(index, key);
+    const bucket = this.getBucket(index, key);
+    return bucket && bucket.value;
   }
 
   has(key) {
-    return !!this.get(key);
+    const index = this.hashFunction(key);
+    const bucket = this.getBucket(index, key);
+    return bucket !== undefined;
   }
 
   delete(key) {
@@ -56,7 +61,10 @@ class HashMap {
       bucket.push({
         key,
         value,
+        order: this.keysTrackerIndex,
       });
+      this.keysTrackerArray[this.keysTrackerIndex] = key;
+      this.keysTrackerIndex += 1;
       this.size += 1;
     }
   }
@@ -65,16 +73,23 @@ class HashMap {
     const bucket = this.buckets[index] || new LinkedList();
     return bucket.find(({ value: data }) => {
       if (key === data.key) {
-        return data.value; // return value
+        return data;
       }
       return undefined;
     });
   }
 
   removeBucket(index, key) {
-    const bucket = this.buckets[index] || new LinkedList();
+    const bucket = this.buckets[index];
+
+    if (!bucket || bucket.size === 0) {
+      return false;
+    }
+
     return !!bucket.remove((node) => {
       if (key === node.value.key) {
+        delete this.keysTrackerArray[node.value.order];
+        this.size -= 1;
         return true;
       }
       return undefined;
@@ -83,6 +98,13 @@ class HashMap {
 
   getLoadFactor() {
     return this.size / this.buckets.length;
+  }
+
+  /**
+   * @returns keys without holes (empty spaces of deleted keys)
+   */
+  keys() {
+    return Object.values(this.keysTrackerArray);
   }
 }
 

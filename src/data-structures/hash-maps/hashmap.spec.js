@@ -21,6 +21,14 @@ describe('HashMap Tests', () => {
       expect(hashMap.size).toBe(1);
     });
 
+    it('has without value', () => {
+      expect(hashMap.size).toBe(0);
+      hashMap.set('uno');
+      expect(hashMap.size).toBe(1);
+      expect(hashMap.has('uno')).toBe(true);
+      expect(hashMap.has('dos')).toBe(false);
+    });
+
     it('should overwrite values and keep same size', () => {
       hashMap.set('test', 'uno');
       expect(hashMap.get('test')).toBe('uno');
@@ -48,7 +56,9 @@ describe('HashMap Tests', () => {
       hashMap.set('Bailando', 'Enrique Iglesias');
       hashMap.set('Dura', 'Daddy Yankee');
 
+      expect(hashMap.size).toBe(3);
       expect(hashMap.delete('Bailando')).toBe(true);
+      expect(hashMap.size).toBe(2);
       expect(hashMap.delete('Bailando')).toBe(false);
       expect(hashMap.get('Bailando')).toBe(undefined);
     });
@@ -100,9 +110,11 @@ describe('HashMap Tests', () => {
     });
 
     it('should update keys on deletes', () => {
-      hashMap.set('Despacito', 'Luis Fonsi');
-      hashMap.set('Bailando', 'Enrique Iglesias');
-      hashMap.set('Dura', 'Daddy Yankee');
+      hashMap.delete('Pineapple');
+      hashMap.delete('Lean On');
+      hashMap.delete('Hello');
+      hashMap.delete('All About That Bass');
+      hashMap.delete('This Is What You Came For');
 
       expect(hashMap.keys()).toEqual(['Despacito', 'Bailando', 'Dura']);
 
@@ -114,7 +126,7 @@ describe('HashMap Tests', () => {
     });
   });
 
-  describe('#rehash', () => {
+  xdescribe('#rehash', () => {
     let hashMap;
 
     beforeEach(() => {

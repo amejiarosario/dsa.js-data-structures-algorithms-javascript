@@ -16,8 +16,8 @@ const HashMapSet = require('./hash-set-1');
 
       set.add('uno');
 
-      expect(set.has('uno')).toBe(true);
       expect(set.size).toBe(1);
+      expect(set.has('uno')).toBe(true);
     });
 
     it('should not allow duplicates', () => {
