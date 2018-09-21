@@ -100,11 +100,11 @@ function testMapOperations(map) {
 
 function useBenchmark() {
   var suite = new Benchmark.Suite;
-  const HashMap5 = require('../src/data-structures/hash-maps/hash-map-5');
   const NaiveHMLength = require('../src/data-structures/hash-maps/hash-map-1');
   const HashMapSmallBucket = require('../src/data-structures/hash-maps/hash-map-2');
   const HashMap3 = require('../src/data-structures/hash-maps/hash-map-3');
   const HashMap4 = require('../src/data-structures/hash-maps/hash-map-4');
+  const HashMap = require('../src/data-structures/hash-maps/hashmap');
 
   // // Map (built-in) x 2,257 ops/sec ±2.42% (75 runs sampled)
   // suite.add('Map (built-in)', function() {
@@ -112,9 +112,8 @@ function useBenchmark() {
   //   testMapOperations(map);
   // })
 
-  // HashMap5 x 57.21 ops/sec ±2.93% (59 runs sampled)
-  suite.add('HashMap5', function() {
-    const map = new HashMap5();
+  suite.add('HashMap', function() {
+    const map = new HashMap();
     testMapOperations(map);
   })
 

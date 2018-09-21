@@ -1,4 +1,4 @@
-const HashMap = require('./hash-map');
+const HashMap = require('./hashmap');
 // import HashMap from './hash-map';
 
 
@@ -10,16 +10,14 @@ describe('HashMap Tests', () => {
       hashMap = new HashMap();
     });
 
-    it('gets values', () => {
+    it('set and get values', () => {
       hashMap.set('test', 'one');
       expect(hashMap.get('test')).toBe('one');
     });
 
-    it('should increase load factor and size', () => {
-      expect(hashMap.getLoadFactor()).toBe(0);
+    it('should increase size', () => {
       expect(hashMap.size).toBe(0);
-      hashMap.set('test', 'one');
-      expect(hashMap.getLoadFactor()).toBe(1 / 16);
+      hashMap.set('test', 'uno');
       expect(hashMap.size).toBe(1);
     });
 
@@ -31,13 +29,21 @@ describe('HashMap Tests', () => {
       expect(hashMap.size).toBe(1);
     });
 
+    it('should increase load factor and size', () => {
+      expect(hashMap.getLoadFactor()).toBe(0);
+      expect(hashMap.size).toBe(0);
+      hashMap.set('test', 'one');
+      expect(hashMap.getLoadFactor()).toBe(1 / 16);
+      expect(hashMap.size).toBe(1);
+    });
+
     it('should return with has', () => {
       expect(hashMap.has('test')).toBe(false);
       hashMap.set('test', 'uno');
       expect(hashMap.has('test')).toBe(true);
     });
 
-    it('should update keys on deletes', () => {
+    it('should delete', () => {
       hashMap.set('Despacito', 'Luis Fonsi');
       hashMap.set('Bailando', 'Enrique Iglesias');
       hashMap.set('Dura', 'Daddy Yankee');
@@ -45,8 +51,6 @@ describe('HashMap Tests', () => {
       expect(hashMap.delete('Bailando')).toBe(true);
       expect(hashMap.delete('Bailando')).toBe(false);
       expect(hashMap.get('Bailando')).toBe(undefined);
-
-      expect(hashMap.keys()).toEqual(['Despacito', 'Dura']);
     });
   });
 
@@ -93,6 +97,20 @@ describe('HashMap Tests', () => {
       expect(hashMap.has('test')).toBe(false);
       hashMap.set('test', 'uno');
       expect(hashMap.has('test')).toBe(true);
+    });
+
+    it('should update keys on deletes', () => {
+      hashMap.set('Despacito', 'Luis Fonsi');
+      hashMap.set('Bailando', 'Enrique Iglesias');
+      hashMap.set('Dura', 'Daddy Yankee');
+
+      expect(hashMap.keys()).toEqual(['Despacito', 'Bailando', 'Dura']);
+
+      expect(hashMap.delete('Bailando')).toBe(true);
+      expect(hashMap.delete('Bailando')).toBe(false);
+      expect(hashMap.get('Bailando')).toBe(undefined);
+
+      expect(hashMap.keys()).toEqual(['Despacito', 'Dura']);
     });
   });
 

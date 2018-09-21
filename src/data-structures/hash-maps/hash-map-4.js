@@ -1,5 +1,9 @@
+/* global BigInt */
+
 /**
  * Hash Map data structure implementation
+ *
+ * Polynomial hash + MAD + BigInt (very slow)
  *
  * Features:
  * - HashMap offers 0(1) lookup and insertion.
@@ -15,7 +19,7 @@ class HashMap {
    * @param {number} initialCapacity initial size of the array
    * @param {number} loadFactor if set, the Map will automatically rehash when the load factor threshold is met
    */
-  constructor(initialCapacity = 1000, loadFactor = 0) {
+  constructor(initialCapacity = 16, loadFactor = 0.75) {
     this.buckets = new Array(initialCapacity);
     this.loadFactor = loadFactor;
     this.size = 0;
@@ -24,30 +28,55 @@ class HashMap {
   }
 
   /**
-   * Decent hash function where each char ascii code is added with an offset depending on the possition
+   * Use the binary represenation (IEEE 754) as a hashCode
    * @param {any} key
    */
-  static hashCode(key) {
-    let hashValue = 0;
-    const stringTypeKey = `${key}${typeof key}`;
+  static hashCodeForNumber(number) {
+    const buffer = new ArrayBuffer(8); // 8 bytes for float64
+    const dataView = new DataView(buffer);
+    dataView.setFloat64(0, number); // set as float64
+    const longBits = dataView.getBigInt64(0); // read as long int (BigInt)
+    // gurantee only positive (big) integers
+    return longBits > 0 ? longBits : BigInt(2 ** 63) + (longBits * BigInt(-1));
+  }
 
-    for (let index = 0; index < stringTypeKey.length; index++) {
-      const charCode = stringTypeKey.charCodeAt(index);
-      hashValue += charCode << (index * 8);
-    }
-
-    return hashValue;
+  /**
+   * Polynomial hash codes are used to hash String typed keys.
+   * A string is a sequence of characters encoded
+   * using Unicode's numerical value.
+   * @param {any} key converted to string
+   */
+  hashFunctionForString(key) {
+    return Array
+      .from(key.toString())
+      .reduce((hashIndex, char) => ((41 * hashIndex) + char.codePointAt(0)), 0);
   }
 
   /**
    * A hash function converts keys into array indices
    * @param {any} key
-   * @returns {Number} array index given the bucket size
+   * @returns {BigInt} array index given the bucket size
    */
   hashFunction(key) {
-    const hashValue = HashMap.hashCode(key);
-    const bucketIndex = hashValue % this.buckets.length;
-    return bucketIndex;
+    if (typeof key === 'number') {
+      return this.hashCodeToIndex(HashMap.hashCodeForNumber(key));
+    }
+    return this.hashCodeToIndex(this.hashFunctionForString(key));
+  }
+
+  /**
+   * Multiply-Add-Divide (MAD) compression
+   * @param {number} hash hashCode
+   * @param {number} size bucket array size
+   * @returns {number} array bucket index
+   */
+  hashCodeToIndex(hash, size = this.buckets.length) {
+    return hash % size;
+    // const prime = BigInt(6700417); // prime number > size
+    // const a = prime - BigInt(2); // integer from range [1..(p-1)]
+    // const b = prime - BigInt(1); // integer from range [0..(p-1)]
+    // const hashIndex = (((a * BigInt(hash)) + b) % prime) % BigInt(size);
+    // return parseInt(hashIndex, 10);
   }
 
   /**

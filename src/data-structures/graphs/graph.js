@@ -2,7 +2,7 @@
 const Node = require('./node');
 const Stack = require('../stacks/stack');
 const Queue = require('../queues/queue');
-const HashMap = require('../hash-maps/hash-map');
+const HashMap = require('../hash-maps/hashmap');
 
 /**
  * Graph that uses an adjacent list

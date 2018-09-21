@@ -1,4 +1,4 @@
-const HashMap = require('../hash-maps/hash-map');
+const HashMap = require('../hash-maps/hashmap');
 /**
  * Set implemented with our HashMap to have sublinear times on all operations
  */

@@ -185,7 +185,7 @@ class LinkedList {
    * @param {any} position
    * @returns {any} the element's value at the specified position that was removed.
    */
-  remove(position = 0) {
+  removeByPosition(position = 0) {
     const current = this.get(position);
 
     if (position === 0) {
@@ -198,6 +198,22 @@ class LinkedList {
     }
 
     return current && current.value;
+  }
+
+  /**
+   * Removes the first occurrence of the specified elementt
+   * from this list, if it is present.
+   * Runtime: O(n)
+   * @param {any} value Node's value
+   */
+  remove(callback) {
+    const index = this.find((node, index) => {
+      if (callback(node, index)) {
+        return index;
+      }
+      return undefined;
+    });
+    return this.removeByPosition(index);
   }
 }
 

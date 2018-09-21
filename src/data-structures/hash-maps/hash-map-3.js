@@ -1,26 +1,33 @@
 /**
  * Hash Map data structure implementation
+ *
+ * Features:
+ * - HashMap offers 0(1) lookup and insertion.
+ * - Keys are ordered by their insertion order (like LinkedHashMap)
+ * - It contains only unique elements.
+ * - It may have one null key and multiple null values.
+ *
  * @author Adrian Mejia <me AT adrianmejia.com>
  */
 class HashMap {
   /**
-   * Initialize array that holds the values. Default is size 1,000
+   * Initialize array that holds the values. Default is size 16
    * @param {number} initialCapacity initial size of the array
    * @param {number} loadFactor if set, the Map will automatically rehash when the load factor threshold is met
    */
-  constructor(initialCapacity = 1000, loadFactor = 0) {
+  constructor(initialCapacity = 16, loadFactor = 0.75) {
     this.buckets = new Array(initialCapacity);
     this.loadFactor = loadFactor;
     this.size = 0;
     this.collisions = 0;
-    this.keys = [];
+    this.keysArrayWrapper = [];
   }
 
   /**
    * Decent hash function where each char ascii code is added with an offset depending on the possition
    * @param {any} key
    */
-  hash(key) {
+  static hashCode(key) {
     let hashValue = 0;
     const stringTypeKey = `${key}${typeof key}`;
 
@@ -33,11 +40,12 @@ class HashMap {
   }
 
   /**
-   * Get the array index after applying the hash funtion to the given key
+   * A hash function converts keys into array indices
    * @param {any} key
+   * @returns {Number} array index given the bucket size
    */
-  _getBucketIndex(key) {
-    const hashValue = this.hash(key);
+  hashFunction(key) {
+    const hashValue = HashMap.hashCode(key);
     const bucketIndex = hashValue % this.buckets.length;
     return bucketIndex;
   }
@@ -53,7 +61,7 @@ class HashMap {
 
     if (entryIndex === undefined) {
       // initialize array and save key/value
-      const keyIndex = this.keys.push({ content: key }) - 1; // keep track of the key index
+      const keyIndex = this.keysArrayWrapper.push({ content: key }) - 1; // keep track of the key index
       this.buckets[bucketIndex] = this.buckets[bucketIndex] || [];
       this.buckets[bucketIndex].push({ key, value, keyIndex });
       this.size++;
@@ -92,7 +100,7 @@ class HashMap {
    * @param {any} key
    */
   has(key) {
-    return !!this.get(key);
+    return this._getIndexes(key).entryIndex !== undefined;
   }
 
   /**
@@ -101,13 +109,13 @@ class HashMap {
    * @param {any} key
    */
   _getIndexes(key) {
-    const bucketIndex = this._getBucketIndex(key);
+    const bucketIndex = this.hashFunction(key);
     const values = this.buckets[bucketIndex] || [];
 
     for (let entryIndex = 0; entryIndex < values.length; entryIndex++) {
       const entry = values[entryIndex];
       if (entry.key === key) {
-        return { bucketIndex, entryIndex };
+        return { bucketIndex, entryIndex, keyIndex: entry.keyIndex };
       }
     }
 
@@ -126,7 +134,7 @@ class HashMap {
     }
 
     this.buckets[bucketIndex].splice(entryIndex, 1);
-    delete this.keys[keyIndex];
+    delete this.keysArrayWrapper[keyIndex];
     this.size--;
 
     return true;
@@ -139,110 +147,59 @@ class HashMap {
   rehash(newCapacity) {
     const newMap = new HashMap(newCapacity);
 
-    this.keys.forEach((key) => {
-      if (key) {
-        newMap.set(key.content, this.get(key.content));
-      }
+    this.keysArrayWrapper.forEach((key) => {
+      newMap.set(key.content, this.get(key.content));
     });
 
     // update bucket
     this.buckets = newMap.buckets;
     this.collisions = newMap.collisions;
     // Optional: both `keys` has the same content except that the new one doesn't have empty spaces from deletions
-    this.keys = newMap.keys;
+    this.keysArrayWrapper = newMap.keysArrayWrapper;
   }
 
   /**
-   * Load factor - measure how full the Map is. It's ratio between items on the map and total size of buckets
+   * Load factor - measure how full the Map is.
+   * It's ratio between items on the map and total size of buckets
    */
   getLoadFactor() {
     return this.size / this.buckets.length;
   }
+
+  /**
+   * Returns an array with valid keys
+   * If keys has been deleted they shouldn't be in the array of keys
+   */
+  keys() {
+    return this.keysArrayWrapper.reduce((acc, key) => {
+      acc.push(key.content);
+      return acc;
+    }, []);
+  }
+
+  /**
+   * The values() method returns a new Iterator object that
+   * contains the values for each element in the Map object
+   * in insertion order.
+   *
+   * @example
+   *   const myMap = new HashMap();
+   *   myMap.set('0', 'foo');
+   *   myMap.set(1, 'bar');
+   *   myMap.set({}, 'baz');
+   *
+   *   var mapIter = myMap.values();
+   *
+   *   console.log(mapIter.next().value); // "foo"
+   *   console.log(mapIter.next().value); // "bar"
+   *   console.log(mapIter.next().value); // "baz"
+   */
+  values() {
+    throw new Error('Not implemented');
+  }
 }
 
+// Aliases
+HashMap.prototype.containsKey = HashMap.prototype.has;
+
 module.exports = HashMap;
-
-/*
-// Usage:
-// const hashMap = new HashMap();
-const hashMap = new HashMap(1);
-// const hashMap = new Map();
-
-const assert = require('assert');
-
-assert.equal(hashMap.size, 0);
-hashMap.set('cat', 2);
-assert.equal(hashMap.size, 1);
-hashMap.set('rat', 7);
-hashMap.set('dog', 1);
-hashMap.set('art', 0);
-assert.equal(hashMap.size, 4);
-
-assert.equal(hashMap.get('cat'), 2);
-assert.equal(hashMap.get('rat'), 7);
-assert.equal(hashMap.get('dog'), 1);
-
-assert.equal(hashMap.has('rap'), false);
-assert.equal(hashMap.delete('rap'), false);
-
-assert.equal(hashMap.has('rat'), true);
-assert.equal(hashMap.delete('rat'), true);
-assert.equal(hashMap.has('rat'), false);
-assert.equal(hashMap.size, 3);
-
-// set override
-assert.equal(hashMap.get('art'), 0);
-hashMap.set('art', 2);
-assert.equal(hashMap.get('art'), 2);
-assert.equal(hashMap.size, 3);
-
-// undefined
-hashMap.set(undefined, 'undefined type');
-hashMap.set('undefined', 'string type');
-
-assert.equal(hashMap.get(undefined), 'undefined type');
-assert.equal(hashMap.get('undefined'), 'string type');
-assert.equal(hashMap.size, 5);
-
-// ----
-// Internal structure tests
-// ----
-console.log(hashMap.collisions);
-console.log(hashMap.buckets);
-
-assert.equal(hashMap.getLoadFactor(), 5);
-
-// rehash
-hashMap.rehash(1000);
-console.log(hashMap.collisions);
-console.log(hashMap.buckets);
-assert.equal(hashMap.getLoadFactor(), 5 / 1000);
-
-// automatic rehashing based on loadFactor
-const dynamicMap = new HashMap(2, 0.75);
-
-dynamicMap.set('uno', 1);
-assert.equal(dynamicMap.buckets.length, 2);
-assert.equal(dynamicMap.getLoadFactor(), 1 / 2);
-console.log(hashMap.collisions);
-
-dynamicMap.set('dos', 2);
-assert.equal(dynamicMap.buckets.length, 4); // <-- rehash took place
-assert.equal(dynamicMap.getLoadFactor(), 1 / 2);
-console.log(hashMap.collisions);
-
-dynamicMap.set('tres', 3);
-assert.equal(dynamicMap.buckets.length, 4); // <-- no rehash
-assert.equal(dynamicMap.getLoadFactor(), 3 / 4);
-console.log(hashMap.collisions);
-
-dynamicMap.set('cuatro', 4);
-assert.equal(dynamicMap.buckets.length, 8); // <-- rehash took place
-assert.equal(dynamicMap.getLoadFactor(), 4 / 8);
-console.log(hashMap.collisions);
-
-dynamicMap.set('cinco', 5);
-assert.equal(dynamicMap.buckets.length, 8); // <-- no rehash
-assert.equal(dynamicMap.getLoadFactor(), 5 / 8);
-console.log(hashMap.collisions);
-*/
