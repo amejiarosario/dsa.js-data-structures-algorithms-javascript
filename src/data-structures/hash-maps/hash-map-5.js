@@ -49,7 +49,7 @@ class HashMap {
   hashFunctionForString(key) {
     return Array
       .from(key.toString())
-      .reduce((hashIndex, char) => this.hashCodeToIndex((41 * hashIndex) + char.codePointAt(0)), 0);
+      .reduce((hashIndex, char) => ((41 * hashIndex) + char.codePointAt(0)), 0);
   }
 
   /**
@@ -61,7 +61,7 @@ class HashMap {
     if (typeof key === 'number') {
       return this.hashCodeToIndex(HashMap.hashCodeForNumber(key));
     }
-    return this.hashFunctionForString(key);
+    return this.hashCodeToIndex(this.hashFunctionForString(key));
   }
 
   /**
@@ -71,11 +71,12 @@ class HashMap {
    * @returns {number} array bucket index
    */
   hashCodeToIndex(hash, size = this.buckets.length) {
-    const prime = BigInt(6700417); // prime number > size
-    const a = prime - BigInt(2); // integer from range [1..(p-1)]
-    const b = prime - BigInt(1); // integer from range [0..(p-1)]
-    const hashIndex = (((a * BigInt(hash)) + b) % prime) % BigInt(size);
-    return parseInt(hashIndex, 10);
+    return hash % size;
+    // const prime = BigInt(6700417); // prime number > size
+    // const a = prime - BigInt(2); // integer from range [1..(p-1)]
+    // const b = prime - BigInt(1); // integer from range [0..(p-1)]
+    // const hashIndex = (((a * BigInt(hash)) + b) % prime) % BigInt(size);
+    // return parseInt(hashIndex, 10);
   }
 
   /**

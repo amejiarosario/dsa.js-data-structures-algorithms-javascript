@@ -1,5 +1,8 @@
 /**
  * Naïve HashMap implementation
+ *
+ * Hash function uses the length of the string (very bad)
+ * Just for illustration purposes
  */
 class HashMap {
   /**
@@ -49,25 +52,26 @@ class HashMap {
   }
 }
 
-// Usage:
-const assert = require('assert');
-
-const hashMap = new HashMap();
-
-hashMap.set('cat', 2);
-hashMap.set('rat', 7);
-hashMap.set('dog', 1);
-hashMap.set('art', 8);
-
-console.log(hashMap.buckets);
-/*
-  bucket #0: <1 empty item>,
-  bucket #1: 8
-*/
-
-assert.equal(hashMap.get('art'), 8); // this one is ok
-assert.equal(hashMap.get('cat'), 8); // got overwritten by art 😱
-assert.equal(hashMap.get('rat'), 8); // got overwritten by art 😱
-assert.equal(hashMap.get('dog'), 8); // got overwritten by art 😱
-
 module.exports = HashMap;
+
+// // Usage:
+// const assert = require('assert');
+
+// const hashMap = new HashMap();
+
+// hashMap.set('cat', 2);
+// hashMap.set('rat', 7);
+// hashMap.set('dog', 1);
+// hashMap.set('art', 8);
+
+// console.log(hashMap.buckets);
+// /*
+//   bucket #0: <1 empty item>,
+//   bucket #1: 8
+// */
+
+// assert.equal(hashMap.get('art'), 8); // this one is ok
+// assert.equal(hashMap.get('cat'), 8); // got overwritten by art 😱
+// assert.equal(hashMap.get('rat'), 8); // got overwritten by art 😱
+// assert.equal(hashMap.get('dog'), 8); // got overwritten by art 😱
+

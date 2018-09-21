@@ -15,7 +15,7 @@ class HashMap {
    * @param {number} initialCapacity initial size of the array
    * @param {number} loadFactor if set, the Map will automatically rehash when the load factor threshold is met
    */
-  constructor(initialCapacity = 16, loadFactor = 0.75) {
+  constructor(initialCapacity = 1000, loadFactor = 0) {
     this.buckets = new Array(initialCapacity);
     this.loadFactor = loadFactor;
     this.size = 0;

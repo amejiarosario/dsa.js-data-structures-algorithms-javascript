@@ -1,5 +1,6 @@
 /**
  * Hash Map data structure implementation
+ * Hash uses string code. Doesn't support overwrite.
  */
 class HashMap {
   /**
