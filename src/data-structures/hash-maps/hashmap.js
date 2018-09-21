@@ -1,4 +1,5 @@
 const LinkedList = require('../linked-lists/linked-list');
+
 class HashMap {
   /**
    * Initialize array that holds the values. Default is size 16

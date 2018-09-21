@@ -68,7 +68,7 @@ describe('HashMap Tests', () => {
     let hashMap;
 
     beforeEach(() => {
-      hashMap = new HashMap(2, 0);
+      hashMap = new HashMap(1, 0);
 
       hashMap.set('Pineapple', 'Pen Pineapple Apple Pen');
       hashMap.set('Despacito', 'Luis Fonsi');
@@ -88,10 +88,10 @@ describe('HashMap Tests', () => {
     });
 
     it('should increase load factor and size', () => {
-      expect(hashMap.getLoadFactor()).toBe(4);
+      expect(hashMap.getLoadFactor()).toBe(8);
       expect(hashMap.size).toBe(8);
       hashMap.set('test', 'one');
-      expect(hashMap.getLoadFactor()).toBe(9 / 2);
+      expect(hashMap.getLoadFactor()).toBe(9);
       expect(hashMap.size).toBe(9);
     });
 
@@ -110,11 +110,23 @@ describe('HashMap Tests', () => {
     });
 
     it('should update keys on deletes', () => {
-      hashMap.delete('Pineapple');
-      hashMap.delete('Lean On');
-      hashMap.delete('Hello');
-      hashMap.delete('All About That Bass');
-      hashMap.delete('This Is What You Came For');
+      // expect(hashMap.size).toBe(8);
+      // expect(hashMap.has('Hello')).toBe(true);
+      expect(hashMap.delete('Hello')).toBe(true);
+      // expect(hashMap.has('Hello')).toBe(false);
+      // expect(hashMap.size).toBe(7);
+      expect(hashMap.delete('Lean On')).toBe(true);
+      // expect(hashMap.has('Lean On')).toBe(false);
+      // expect(hashMap.size).toBe(6);
+      expect(hashMap.delete('Pineapple')).toBe(true);
+      // expect(hashMap.has('Pineapple')).toBe(false);
+      // expect(hashMap.size).toBe(5);
+      expect(hashMap.delete('All About That Bass')).toBe(true);
+      expect(hashMap.has('All About That Bass')).toBe(false);
+      // expect(hashMap.size).toBe(4);
+      expect(hashMap.delete('This Is What You Came For')).toBe(true);
+      expect(hashMap.has('This Is What You Came For')).toBe(false);
+      expect(hashMap.size).toBe(3);
 
       expect(hashMap.keys()).toEqual(['Despacito', 'Bailando', 'Dura']);
 
@@ -122,6 +134,7 @@ describe('HashMap Tests', () => {
       expect(hashMap.delete('Bailando')).toBe(false);
       expect(hashMap.get('Bailando')).toBe(undefined);
 
+      expect(hashMap.size).toBe(2);
       expect(hashMap.keys()).toEqual(['Despacito', 'Dura']);
     });
   });

@@ -322,7 +322,9 @@ describe('LinkedList Test', () => {
         expect(linkedList.size).toBe(2);
         expect(linkedList.first.value).toMatchObject(a);
         expect(linkedList.first.next.value).toMatchObject(c);
+        expect(linkedList.first.previous).toBe(null);
         expect(linkedList.last.value).toMatchObject(c);
+        expect(linkedList.last.previous.value).toMatchObject(a);
       });
 
       it('should remove last', () => {

@@ -195,6 +195,7 @@ class LinkedList {
       this.removeLast();
     } else if (current) {
       current.previous.next = current.next;
+      current.next.previous = current.previous;
       this.size -= 1;
     }
 
