@@ -1,4 +1,4 @@
-// nodemon src/data-structures/hash-maps/hashmap.perf.js
+// nodemon benchmarks/hashmap.perf.js
 /* eslint-disable */
 
 
@@ -110,28 +110,37 @@ function useBenchmark() {
   // suite.add('Map (built-in)', function() {
   //   const map = new Map();
   //   testMapOperations(map);
-  // })
+  // }, { onComplete: () => {
+  //   if (map.collisions) {
+  //     console.log('\tcollisions', map.collisions);
+  //   }
+  // }})
+
+  let map;
 
   suite.add('HashMap', function() {
-    const map = new HashMap();
+    map = new HashMap();
     testMapOperations(map);
   })
 
   // HashMap3 x 543 ops/sec ±1.53% (84 runs sampled)
   suite.add('HashMap3', function() {
-    const map = new HashMap3();
+    map = new HashMap3();
     testMapOperations(map);
   })
 
   // HashMap4 x 302 ops/sec ±2.09% (75 runs sampled)
   suite.add('HashMap4', function() {
-    const map = new HashMap4();
+    map = new HashMap4();
     testMapOperations(map);
   })
 
   // add listeners
   .on('cycle', function(event) {
     console.log(String(event.target));
+    if (map.collisions) {
+      console.log('\tcollisions', map.collisions);
+    }
   })
   .on('error', function(event) {
     console.log(event.target.error);

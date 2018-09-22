@@ -80,6 +80,10 @@ describe('HashMap Tests', () => {
       hashMap.set('This Is What You Came For', 'Calvin Harris ');
     });
 
+    it('should count collisions', () => {
+      expect(hashMap.collisions).toBe(7);
+    });
+
     it('gets values', () => {
       hashMap.set('test', 'one');
       expect(hashMap.get('test')).toBe('one');

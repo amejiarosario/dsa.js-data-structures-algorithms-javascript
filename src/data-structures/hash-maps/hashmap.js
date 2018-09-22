@@ -2,12 +2,12 @@ const LinkedList = require('../linked-lists/linked-list');
 
 class HashMap {
   /**
-   * Initialize array that holds the values. Default is size 16
+   * Initialize array that holds the values.
    * @param {number} initialCapacity initial size of the array
    * @param {number} loadFactor if set, the Map will automatically
    *  rehash when the load factor threshold is met
    */
-  constructor(initialCapacity = 16, loadFactor = 0.75) {
+  constructor(initialCapacity = 19, loadFactor = 0.75) {
     this.buckets = new Array(initialCapacity);
     this.loadFactor = loadFactor;
     this.size = 0;
@@ -67,6 +67,10 @@ class HashMap {
       this.keysTrackerArray[this.keysTrackerIndex] = key;
       this.keysTrackerIndex += 1;
       this.size += 1;
+      // count collisions
+      if (bucket.size > 1) {
+        this.collisions += 1;
+      }
     }
   }
 
