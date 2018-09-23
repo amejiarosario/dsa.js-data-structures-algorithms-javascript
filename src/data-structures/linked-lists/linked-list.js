@@ -13,6 +13,13 @@ class LinkedList {
   }
 
   /**
+   * Alias for size
+   */
+  get length() {
+    return this.size;
+  }
+
+  /**
    * Adds element to the begining of the list. Similar to Array.unshift
    * Runtime: O(1)
    * @param {any} value

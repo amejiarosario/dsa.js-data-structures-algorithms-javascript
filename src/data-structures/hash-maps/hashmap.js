@@ -1,4 +1,5 @@
 const LinkedList = require('../linked-lists/linked-list');
+const { nextPrime } = require('./primes');
 
 class HashMap {
   /**
@@ -8,12 +9,23 @@ class HashMap {
    *  rehash when the load factor threshold is met
    */
   constructor(initialCapacity = 19, loadFactor = 0.75) {
-    this.buckets = new Array(initialCapacity);
+    this.initialCapacity = initialCapacity;
     this.loadFactor = loadFactor;
-    this.size = 0;
-    this.collisions = 0;
-    this.keysTrackerArray = [];
-    this.keysTrackerIndex = 0;
+    this.reset();
+  }
+
+  reset(
+    buckets = new Array(this.initialCapacity),
+    size = 0,
+    collisions = 0,
+    keysTrackerArray = [],
+    keysTrackerIndex = 0,
+  ) {
+    this.buckets = buckets;
+    this.size = size;
+    this.collisions = collisions;
+    this.keysTrackerArray = keysTrackerArray;
+    this.keysTrackerIndex = keysTrackerIndex;
   }
 
   set(key, value) {
@@ -39,11 +51,20 @@ class HashMap {
     return this.removeBucket(index, key);
   }
 
+  /**
+   * Uses FVN-1a hashing algorithm for 32 bits
+   * @see https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
+   * @param {any} key
+   * @return {integer} bucket index
+   */
   hashFunction(key) {
-    const hashCode = Array.from(key.toString()).reduce((hash, char) => {
-      return char.codePointAt() + (hash * 41);
-    }, 0);
-    return hashCode % this.buckets.length;
+    const str = key.toString();
+    let hash = 2166136261;
+    for (let i = 0; i < str.length; i += 1) {
+      hash ^= str.codePointAt(i); // eslint-disable-line no-bitwise
+      hash *= 16777619;
+    }
+    return (hash >>> 0) % this.buckets.length; // eslint-disable-line no-bitwise
   }
 
   setBucket(index, key, value) {
@@ -70,6 +91,10 @@ class HashMap {
       // count collisions
       if (bucket.size > 1) {
         this.collisions += 1;
+      }
+
+      if (this.isBeyondloadFactor()) {
+        this.rehash();
       }
     }
   }
@@ -105,11 +130,32 @@ class HashMap {
     return this.size / this.buckets.length;
   }
 
+  isBeyondloadFactor() {
+    return this.getLoadFactor() > this.loadFactor;
+  }
+
   /**
    * @returns keys without holes (empty spaces of deleted keys)
    */
   keys() {
     return Object.values(this.keysTrackerArray);
+  }
+
+  rehash(newBucketSize = Math.max(this.size, this.buckets.length) * 2) {
+    const newCapacity = nextPrime(newBucketSize);
+    const newMap = new HashMap(newCapacity);
+    this.keys().forEach((key) => {
+      newMap.set(key, this.get(key));
+    });
+    const newArrayKeys = newMap.keys();
+
+    this.reset(
+      newMap.buckets,
+      newMap.size,
+      newMap.collisions,
+      newArrayKeys,
+      newArrayKeys.length,
+    );
   }
 }
 

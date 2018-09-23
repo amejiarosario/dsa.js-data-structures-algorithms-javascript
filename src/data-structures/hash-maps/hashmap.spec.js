@@ -41,7 +41,7 @@ describe('HashMap Tests', () => {
       expect(hashMap.getLoadFactor()).toBe(0);
       expect(hashMap.size).toBe(0);
       hashMap.set('test', 'one');
-      expect(hashMap.getLoadFactor()).toBe(1 / 16);
+      expect(hashMap.getLoadFactor()).toBeGreaterThan(0);
       expect(hashMap.size).toBe(1);
     });
 
@@ -68,7 +68,7 @@ describe('HashMap Tests', () => {
     let hashMap;
 
     beforeEach(() => {
-      hashMap = new HashMap(1, 0);
+      hashMap = new HashMap(1, Number.MAX_SAFE_INTEGER);
 
       hashMap.set('Pineapple', 'Pen Pineapple Apple Pen');
       hashMap.set('Despacito', 'Luis Fonsi');
@@ -143,11 +143,11 @@ describe('HashMap Tests', () => {
     });
   });
 
-  xdescribe('#rehash', () => {
+  describe('#rehash', () => {
     let hashMap;
 
     beforeEach(() => {
-      hashMap = new HashMap();
+      hashMap = new HashMap(1, 11);
 
       hashMap.set('Pineapple', 'Pen Pineapple Apple Pen');
       hashMap.set('Despacito', 'Luis Fonsi');
@@ -162,20 +162,43 @@ describe('HashMap Tests', () => {
       hashMap.set('The Spectre', 'Alan Walker');
     });
 
-    it('should rehash after 12 items by default', () => {
-      expect(hashMap.getLoadFactor()).toBe(11 / 16);
-      expect(hashMap.buckets.length).toBe(16);
+    it('should rehash', () => {
+      expect(hashMap.collisions).toBe(10);
+      expect(hashMap.getLoadFactor()).toBe(11);
+      expect(hashMap.buckets.length).toBe(1);
+
+      expect(hashMap.keysTrackerIndex).toBe(11);
+      hashMap.delete('All About That Bass');
+      hashMap.set('All About That Bass', 'Meghan Trainor');
+      expect(hashMap.keysTrackerIndex).toBe(12);
+      // should hava a hole
+      expect(hashMap.keysTrackerArray).toEqual(['Pineapple', 'Despacito', 'Bailando', 'Dura', 'Lean On', 'Hello',
+        undefined,
+        'Wake Me Up', 'Brother', 'Faded', 'The Spectre', 'All About That Bass']);
+
+      hashMap.loadFactor = 0.75;
       hashMap.set('Alone', 'Alan Walker');
-      expect(hashMap.getLoadFactor()).toBe(0.75);
 
-      hashMap.set('Levels', 'Avicii');
+      // rehash
+      expect(hashMap.keysTrackerIndex).toBe(12);
+      expect(hashMap.collisions).toBeLessThan(10);
+      expect(hashMap.buckets.length).toBe(29); // <- next prime
+      expect(hashMap.getLoadFactor()).toBe(12 / 29);
 
-      expect(hashMap.getLoadFactor()).toBe(13 / 32);
-      expect(hashMap.buckets.length).toBe(32);
+      hashMap.set('Rolling in the Deep', 'Adele');
 
       expect(hashMap.get('Dura')).toBe('Daddy Yankee');
       expect(hashMap.get('Bailando')).toBe('Enrique Iglesias');
-      expect(hashMap.get('Levels')).toBe('Avicii');
+      expect(hashMap.get('Alone')).toBe('Alan Walker');
+
+      expect(hashMap.keys().length).toBe(13);
+      expect(hashMap.size).toBe(13);
+      expect(hashMap.keysTrackerIndex).toBe(13);
+      // after the rehash the hole should have been removed
+      expect(hashMap.keysTrackerArray).toEqual(["Pineapple", "Despacito",
+        "Bailando", "Dura", "Lean On", "Hello", "Wake Me Up", "Brother",
+        "Faded", "The Spectre", "All About That Bass", "Alone",
+        "Rolling in the Deep"]);
     });
   });
 });
