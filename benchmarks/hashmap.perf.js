@@ -98,6 +98,15 @@ function testMapOperations(map) {
   }
 }
 
+function printSortedResults(benchmark) {
+  console.log('\n======== Results ========');
+  const results = Object.values(benchmark).filter(b => b && b.name);
+  const sortedResults = results.sort((a, b) => b.hz - a.hz);
+  sortedResults.forEach((b) => {
+    console.log(`${b.hz.toLocaleString()} ops/s with ${b.name}`);
+  });
+}
+
 function useBenchmark() {
   var suite = new Benchmark.Suite;
   const NaiveHMLength = require('../src/data-structures/hash-maps/hash-map-1');
@@ -118,10 +127,14 @@ function useBenchmark() {
 
   let map;
 
-  suite.add('HashMap', function() {
-    map = new HashMap();
-    testMapOperations(map);
-  })
+  suite
+
+  /*
+      ======== Results ========
+    490.84 ops/s with HashMap
+    293.756 ops/s with HashMap3
+    64.091 ops/s with HashMap4
+  */
 
   // HashMap3 x 543 ops/sec ±1.53% (84 runs sampled)
   suite.add('HashMap3', function() {
@@ -132,6 +145,11 @@ function useBenchmark() {
   // HashMap4 x 302 ops/sec ±2.09% (75 runs sampled)
   suite.add('HashMap4', function() {
     map = new HashMap4();
+    testMapOperations(map);
+  })
+
+  .add('HashMap', function() {
+    map = new HashMap();
     testMapOperations(map);
   })
 
@@ -148,6 +166,7 @@ function useBenchmark() {
   .on('complete', function() {
     console.log('Fastest is ' + this.filter('fastest').map('name'));
     // console.log('Slowest is ' + this.filter('slowest').map('name'));
+    printSortedResults(this);
   })
   // run async
   .run({ 'async': true });
