@@ -1,19 +1,21 @@
+
+
 # Data Structures and Algorithms in JavaScript
 
 This repository covers the implementation of the most important algorithms and data structures.
 
 This goes alone with [these posts series](https://adrianmejia.com/tags/tutorial-algorithms/) that explain each implementation in details.
 
-# Data Structures
+## Data Structures
 We are covering the following data structures.
 
-## Linear Data Structures
+### Linear Data Structures
 1. **Arrays**: Built-in in most languages so not implemented here. [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/arrays/array.js) | [Details](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Array).
 2. **Linked Lists**: each data node has a link to the next (and previous). [Code](https://github.com/amejiarosario/algorithms.js/tree/master/src/data-structures/linked-lists) | [Details](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Linked-Lists).
 3. **Queue**: data flows in a "first-in, first-out" (FIFO) manner. [Code](https://github.com/amejiarosario/algorithms.js/tree/master/src/data-structures/queues) | [Details](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Queues).
 4. **Stacks**:  data flows in a "last-in, first-out" (LIFO) manner. [Code](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Stacks) | [Details](https://github.com/amejiarosario/algorithms.js/tree/master/src/data-structures/stacks).
 
-## Non-Linear Data Structures
+### Non-Linear Data Structures
 1. **Trees**: data nodes has zero or more adjacent nodes a.k.a. children. Each node can only have one parent node otherwise is a graph not a tree. [Code](https://github.com/amejiarosario/algorithms.js/tree/master/src/data-structures/trees) | [Details](https://adrianmejia.com/blog/2018/06/11/data-structures-for-beginners-trees-binary-search-tree-tutorial/)
 	1. **Binary Trees**: same as tree but only can have two children at most. [Details](https://adrianmejia.com/blog/2018/06/11/data-structures-for-beginners-trees-binary-search-tree-tutorial/#Binary-Trees)
 	1. **Binary Search Trees** (BST): same as binary tree, but the nodes value keep this order `left < parent < rigth`. [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/trees/binary-search-tree.js) | [Details](https://adrianmejia.com/blog/2018/06/11/data-structures-for-beginners-trees-binary-search-tree-tutorial/#Binary-Search-Tree-BST)
@@ -24,7 +26,7 @@ We are covering the following data structures.
 	2. **Tree Maps**: implement map using a self-balanced BST. WIP
 3. **Graphs**: data *nodes* that can have a connection or *edge* to zero or more adjacent nodes. Unlike trees, nodes can have multiple parents, loops. [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/graphs/graph.js) | [Details](https://adrianmejia.com/blog/2018/05/14/data-structures-for-beginners-graphs-time-complexity-tutorial/)
 
-# Algorithms
+## Algorithms
 1. Searching algorithms (WIP)
 2. Sorting algorithms (WIP)
 
