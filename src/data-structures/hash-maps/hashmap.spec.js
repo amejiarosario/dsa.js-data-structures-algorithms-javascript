@@ -3,13 +3,112 @@ const HashMap = require('./hashmap');
 
 
 describe('HashMap Tests', () => {
-  describe('without collisions', () => {
-    let hashMap;
+  let hashMap;
 
-    beforeEach(() => {
-      hashMap = new HashMap();
+  beforeEach(() => {
+    hashMap = new HashMap();
+  });
+
+  describe('set and get basics', () => {
+    it('should hold one null key', () => {
+      hashMap.set(null, 1);
+      hashMap.set(null, 2);
+      expect(hashMap.get(null)).toBe(2);
     });
 
+    it('should hold multiple null values', () => {
+      hashMap.set(1, null);
+      hashMap.set(2, null);
+      expect(hashMap.get(1)).toBe(null);
+      expect(hashMap.get(2)).toBe(null);
+    });
+  });
+
+  describe('#keys', () => {
+    it('should get keys', () => {
+      hashMap.set(0, 'foo');
+      hashMap.set(null, 'fox');
+      hashMap.set('a', 'bar');
+      hashMap.set({}, 'baz');
+
+      const mapIter = hashMap.keys();
+
+      expect(mapIter.next().value).toBe(0);
+      expect(mapIter.next().value).toBe(null);
+      expect(mapIter.next().value).toBe('a');
+      expect(mapIter.next().value).toEqual({});
+    });
+
+    it('should not have holes', () => {
+      hashMap.set('0', 'foo');
+      hashMap.set(1, 'bar');
+      hashMap.set({}, 'baz');
+
+      hashMap.delete(1);
+
+      expect([...hashMap.keys()]).toEqual(['0', {}]);
+    });
+  });
+
+  describe('#values', () => {
+    it('should get values', () => {
+      hashMap.set('0', 'foo');
+      hashMap.set(1, 'bar');
+      hashMap.set({}, 'baz');
+
+      const mapIter = hashMap.values();
+
+      expect(mapIter.next().value).toBe('foo');
+      expect(mapIter.next().value).toBe('bar');
+      expect(mapIter.next().value).toBe('baz');
+    });
+
+    it('should not have holes', () => {
+      hashMap.set('0', 'foo');
+      hashMap.set(1, 'bar');
+      hashMap.set({}, 'baz');
+
+      hashMap.delete(1);
+
+      expect(Array.from(hashMap.values())).toEqual(['foo', 'baz']);
+    });
+  });
+
+  describe('#entries', () => {
+    it('should get values', () => {
+      hashMap.set('0', 'foo');
+      hashMap.set(1, 'bar');
+      hashMap.set({}, 'baz');
+
+      const mapIter = hashMap.entries();
+
+      expect(mapIter.next().value).toEqual(['0', 'foo']);
+      expect(mapIter.next().value).toEqual([1, 'bar']);
+      expect(mapIter.next().value).toEqual([{}, 'baz']);
+    });
+
+    it('should not have holes', () => {
+      hashMap.set('0', 'foo');
+      hashMap.set(1, 'bar');
+      hashMap.set({}, 'baz');
+
+      hashMap.delete(1);
+      expect(hashMap.length).toBe(2);
+      expect(hashMap.size).toBe(2);
+
+      expect(Array.from(hashMap.entries())).toEqual([
+        ['0', 'foo'],
+        [{}, 'baz'],
+      ]);
+
+      expect(Array.from(hashMap)).toEqual([
+        ['0', 'foo'],
+        [{}, 'baz'],
+      ]);
+    });
+  });
+
+  describe('without collisions', () => {
     it('set and get values', () => {
       hashMap.set('test', 'one');
       expect(hashMap.get('test')).toBe('one');
@@ -65,8 +164,6 @@ describe('HashMap Tests', () => {
   });
 
   describe('with many values (and collisions)', () => {
-    let hashMap;
-
     beforeEach(() => {
       hashMap = new HashMap(1, Number.MAX_SAFE_INTEGER);
 
@@ -132,20 +229,18 @@ describe('HashMap Tests', () => {
       expect(hashMap.has('This Is What You Came For')).toBe(false);
       expect(hashMap.size).toBe(3);
 
-      expect(hashMap.keys()).toEqual(['Despacito', 'Bailando', 'Dura']);
+      expect(Array.from(hashMap.keys())).toEqual(['Despacito', 'Bailando', 'Dura']);
 
       expect(hashMap.delete('Bailando')).toBe(true);
       expect(hashMap.delete('Bailando')).toBe(false);
       expect(hashMap.get('Bailando')).toBe(undefined);
 
       expect(hashMap.size).toBe(2);
-      expect(hashMap.keys()).toEqual(['Despacito', 'Dura']);
+      expect([...hashMap.keys()]).toEqual(['Despacito', 'Dura']);
     });
   });
 
   describe('#rehash', () => {
-    let hashMap;
-
     beforeEach(() => {
       hashMap = new HashMap(1, 11);
 
@@ -191,14 +286,14 @@ describe('HashMap Tests', () => {
       expect(hashMap.get('Bailando')).toBe('Enrique Iglesias');
       expect(hashMap.get('Alone')).toBe('Alan Walker');
 
-      expect(hashMap.keys().length).toBe(13);
+      expect(Array.from(hashMap.keys()).length).toBe(13);
       expect(hashMap.size).toBe(13);
       expect(hashMap.keysTrackerIndex).toBe(13);
       // after the rehash the hole should have been removed
-      expect(hashMap.keysTrackerArray).toEqual(["Pineapple", "Despacito",
-        "Bailando", "Dura", "Lean On", "Hello", "Wake Me Up", "Brother",
-        "Faded", "The Spectre", "All About That Bass", "Alone",
-        "Rolling in the Deep"]);
+      expect(hashMap.keysTrackerArray).toEqual(['Pineapple', 'Despacito',
+        'Bailando', 'Dura', 'Lean On', 'Hello', 'Wake Me Up', 'Brother',
+        'Faded', 'The Spectre', 'All About That Bass', 'Alone',
+        'Rolling in the Deep']);
     });
   });
 });

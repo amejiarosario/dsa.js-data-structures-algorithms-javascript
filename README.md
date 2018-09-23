@@ -37,4 +37,5 @@ alert('foo');
 /* eslint-disable no-alert, no-console */
 alert('foo');
 console.log('bar');
-/* e
+/* eslint-enable no-alert */
+```

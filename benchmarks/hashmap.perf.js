@@ -130,11 +130,17 @@ function useBenchmark() {
   suite
 
   /*
-      ======== Results ========
-    490.84 ops/s with HashMap
-    293.756 ops/s with HashMap3
-    64.091 ops/s with HashMap4
+    ======== Results ========
+    2,653.472 ops/s with Map (built-in)
+    469.016 ops/s with HashMap
+    355.064 ops/s with HashMap3
+    66.808 ops/s with HashMap4
   */
+
+  suite.add('Map (built-in)', function() {
+    const map = new Map();
+    testMapOperations(map);
+  })
 
   // HashMap3 x 543 ops/sec ±1.53% (84 runs sampled)
   suite.add('HashMap3', function() {
@@ -156,7 +162,7 @@ function useBenchmark() {
   // add listeners
   .on('cycle', function(event) {
     console.log(String(event.target));
-    if (map.collisions) {
+    if (map && map.collisions) {
       console.log('\tcollisions', map.collisions);
     }
   })
