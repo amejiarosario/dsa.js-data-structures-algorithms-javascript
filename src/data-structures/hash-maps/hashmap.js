@@ -41,7 +41,6 @@ class HashMap {
 
   /**
    * Polynomial hash codes are used to hash String typed keys.
-   *
    * It uses FVN-1a hashing algorithm for 32 bits
    * @see https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
    * @param {any} key
@@ -51,7 +50,7 @@ class HashMap {
     const str = String(key);
     let hash = 2166136261; // FNV_offset_basis (32 bit)
     for (let i = 0; i < str.length; i += 1) {
-      hash ^= str.codePointAt(i);
+      hash ^= str.codePointAt(i); // XOR
       hash *= 16777619; // 32 bit FNV_prime
     }
     return (hash >>> 0) % this.buckets.length;
@@ -246,5 +245,8 @@ class HashMap {
     return this.size;
   }
 }
+
+// Aliases
+HashMap.prototype.containsKey = HashMap.prototype.has;
 
 module.exports = HashMap;

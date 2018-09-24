@@ -309,6 +309,8 @@ function HashJavaMultiplication(key) {
 }
 
 /**
+ * http://isthe.com/chongo/tech/comp/fnv/
+ * https://github.com/schwarzkopfb/fnv1a/blob/master/index.js
  * https://github.com/sindresorhus/fnv1a/blob/master/index.js
  * @param {*} key
  */

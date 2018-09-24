@@ -137,19 +137,19 @@ function useBenchmark() {
     66.808 ops/s with HashMap4
   */
 
-  suite.add('Map (built-in)', function() {
-    const map = new Map();
-    testMapOperations(map);
-  })
+  // .add('Map (built-in)', function() {
+  //   const map = new Map();
+  //   testMapOperations(map);
+  // })
 
   // HashMap3 x 543 ops/sec ±1.53% (84 runs sampled)
-  suite.add('HashMap3', function() {
+  .add('HashMap3', function() {
     map = new HashMap3();
     testMapOperations(map);
   })
 
   // HashMap4 x 302 ops/sec ±2.09% (75 runs sampled)
-  suite.add('HashMap4', function() {
+  .add('HashMap4', function() {
     map = new HashMap4();
     testMapOperations(map);
   })
