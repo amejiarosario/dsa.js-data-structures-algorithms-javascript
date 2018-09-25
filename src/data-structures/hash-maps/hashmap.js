@@ -68,18 +68,21 @@ class HashMap {
    * @param {any} key
    * @param {function} callback (optional) operation to
    *  perform once the entry has been found
-   * @returns {any} entry (LinkedList's node's value)
+   * @returns {object} object containing the bucket and entry (LinkedList's node's value)
    */
   getEntry(key, callback = () => {}) {
     const index = this.hashFunction(key);
-    const bucket = this.buckets[index] || new LinkedList();
-    return bucket.find(({ value: entry }) => {
-      if (key === entry.key) {
-        callback(entry);
-        return entry;
+    this.buckets[index] = this.buckets[index] || new LinkedList();
+    const bucket = this.buckets[index];
+
+    const entry = bucket.find(({ value: node }) => {
+      if (key === node.key) {
+        callback(node);
+        return node;
       }
       return undefined;
     });
+    return { bucket, entry };
   }
 
   /**
@@ -92,15 +95,11 @@ class HashMap {
    * @returns {HashMap} Return the Map object to allow chaining
    */
   set(key, value) {
-    const index = this.hashFunction(key);
-    this.buckets[index] = this.buckets[index] || new LinkedList();
-    const bucket = this.buckets[index];
-
-    const found = this.getEntry(key, (entry) => {
+    const { entry: exists, bucket } = this.getEntry(key, (entry) => {
       entry.value = value; // update value if key already exists
     });
 
-    if (!found) { // add key/value if it doesn't find the key
+    if (!exists) { // add key/value if it doesn't find the key
       bucket.push({ key, value, order: this.keysTrackerIndex });
       this.keysTrackerArray[this.keysTrackerIndex] = key;
       this.keysTrackerIndex += 1;
@@ -118,8 +117,8 @@ class HashMap {
    * @returns {any} value associated to the key, or undefined if there is none.
    */
   get(key) {
-    const bucket = this.getEntry(key);
-    return bucket && bucket.value;
+    const { entry } = this.getEntry(key);
+    return entry && entry.value;
   }
 
   /**
@@ -129,8 +128,8 @@ class HashMap {
    *  with the specified key exists or not.
    */
   has(key) {
-    const bucket = this.getEntry(key);
-    return bucket !== undefined;
+    const { entry } = this.getEntry(key);
+    return entry !== undefined;
   }
 
   /**
@@ -140,12 +139,8 @@ class HashMap {
    *  and has been removed, or false if the element did not exist.
    */
   delete(key) {
-    const index = this.hashFunction(key);
-    const bucket = this.buckets[index];
-
-    if (!bucket || bucket.size === 0) {
-      return false;
-    }
+    const { bucket, entry } = this.getEntry(key);
+    if (!entry) { return false; }
 
     return !!bucket.remove((node) => {
       if (key === node.value.key) {
