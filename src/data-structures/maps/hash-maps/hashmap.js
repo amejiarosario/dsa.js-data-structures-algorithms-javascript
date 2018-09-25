@@ -1,5 +1,5 @@
 /* eslint-disable no-bitwise, no-iterator, no-restricted-syntax */
-const LinkedList = require('../linked-lists/linked-list');
+const LinkedList = require('../../linked-lists/linked-list');
 const { nextPrime } = require('./primes');
 
 /**

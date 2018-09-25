@@ -1,6 +1,13 @@
+const Tree = require('../trees/red-black-tree');
+
 class TreeMap {
-  constructor(){}
-  set(key, value) {}
+  constructor() {
+    this.tree = new Tree();
+  }
+
+  set(key, value) {
+
+  }
   get(key) {}
   has(key) {}
   delete(key) {}
