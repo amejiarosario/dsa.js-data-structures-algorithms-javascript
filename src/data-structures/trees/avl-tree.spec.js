@@ -29,6 +29,9 @@ describe('AvlTree', () => {
       expect(n.toValues()).toMatchObject({
         value: 2, left: 1, right: 3, parent: null,
       });
+
+      expect(tree.toArray()).toEqual([2, 1, 3, null, null, null, null]);
+      expect(tree.root).toBe(n);
     });
 
     it('should rebalance desc inserted nodes (RR Rotation)', () => {
@@ -39,6 +42,7 @@ describe('AvlTree', () => {
       expect(n.toValues()).toMatchObject({
         value: 2, left: 1, right: 3, parent: null,
       });
+      expect(tree.root).toBe(n);
     });
 
     it('should rebalance with LR Rotation', () => {
@@ -49,6 +53,7 @@ describe('AvlTree', () => {
       expect(n.toValues()).toMatchObject({
         value: 2, left: 1, right: 3, parent: null,
       });
+      expect(tree.root).toBe(n);
     });
 
 
@@ -60,6 +65,7 @@ describe('AvlTree', () => {
       expect(n.toValues()).toMatchObject({
         value: 2, left: 1, right: 3, parent: null,
       });
+      expect(tree.root).toBe(n);
     });
 
     it('should not balance', () => {
@@ -90,6 +96,9 @@ describe('AvlTree', () => {
       expect(n.toValues()).toMatchObject({
         value: 2, left: 1, right: 3, parent: null,
       });
+
+      expect(tree.root).toBe(n);
+      expect(tree.toArray()).toEqual([2, 1, 3, null, null, null, null]);
     });
 
     it('should rebalance desc inserted nodes (RR Rotation)', () => {
@@ -103,6 +112,7 @@ describe('AvlTree', () => {
       expect(n.toValues()).toMatchObject({
         value: 2, left: 1, right: 3, parent: null,
       });
+      expect(tree.root).toBe(n);
     });
 
     it('should rebalance with LR Rotation', () => {
@@ -116,6 +126,7 @@ describe('AvlTree', () => {
       expect(n.toValues()).toMatchObject({
         value: 2, left: 1, right: 3, parent: null,
       });
+      expect(tree.root).toBe(n);
     });
 
 
@@ -130,6 +141,7 @@ describe('AvlTree', () => {
       expect(n.toValues()).toMatchObject({
         value: 2, left: 1, right: 3, parent: null,
       });
+      expect(tree.root).toBe(n);
     });
   });
 });

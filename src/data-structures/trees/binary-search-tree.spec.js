@@ -60,6 +60,7 @@ describe('Binary Search Tree', () => {
         const n3 = bst.add(3);
 
         expect(n3.parent.value).toBe(2);
+        expect(bst.toArray()).toEqual([1, null, 2, null, 3, null, null]);
       });
 
       it('should deal with duplicates', () => {

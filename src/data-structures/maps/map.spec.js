@@ -60,12 +60,11 @@ mapImplementations.forEach((MapImplementation) => {
       });
     });
 
-    fdescribe('#keys', () => {
+    describe('#keys', () => {
       beforeEach(() => {
         map.set(1, 2);
         map.set(2, 'dos');
         map.set(3, 3);
-        console.log(map.tree.toArray());
       });
 
       it('should return all keys', () => {
