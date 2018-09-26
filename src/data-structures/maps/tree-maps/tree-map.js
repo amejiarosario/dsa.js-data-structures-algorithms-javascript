@@ -43,6 +43,12 @@ class TreeMap {
       yield node.getData();
     }
   }
+
+  * entries() {
+    for (const node of this) {
+      yield [node.value, node.getData()];
+    }
+  }
 }
 
 // Aliases

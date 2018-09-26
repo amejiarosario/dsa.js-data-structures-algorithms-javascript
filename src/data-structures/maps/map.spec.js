@@ -108,5 +108,29 @@ mapImplementations.forEach((MapImplementation) => {
         expect(Array.from(map.values())).toEqual(['dos', 3]);
       });
     });
+
+    describe('#entries', () => {
+      beforeEach(() => {
+        map.set(1, 2);
+        map.set(2, 'dos');
+        map.set(3, 3);
+      });
+
+      it('should return all entries', () => {
+        expect(Array.from(map.entries())).toEqual([
+          [1, 2],
+          [2, 'dos'],
+          [3, 3],
+        ]);
+      });
+
+      it('should update on delete', () => {
+        expect(map.delete(1)).toBe(true);
+        expect(Array.from(map.entries())).toEqual([
+          [2, 'dos'],
+          [3, 3],
+        ]);
+      });
+    });
   });
 });
