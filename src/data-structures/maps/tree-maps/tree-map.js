@@ -1,4 +1,6 @@
-const Tree = require('../trees/red-black-tree');
+/* eslint-disable no-restricted-syntax */
+// const Tree = require('../../trees/red-black-tree');
+const Tree = require('../../trees/avl-tree');
 
 class TreeMap {
   constructor() {
@@ -6,11 +8,35 @@ class TreeMap {
   }
 
   set(key, value) {
-
+    return this.tree.add(key).data(value);
   }
-  get(key) {}
-  has(key) {}
-  delete(key) {}
+
+  get size() {
+    return this.tree.size;
+  }
+
+  get(key) {
+    const node = this.tree.get(key) || undefined;
+    return node && node.getData();
+  }
+
+  has(key) {
+    return !!this.get(key);
+  }
+
+  delete(key) {
+    return this.tree.remove(key);
+  }
+
+  * [Symbol.iterator]() {
+    yield* this.tree.inOrderTraversal();
+  }
+
+  * keys() {
+    for (const node of this) {
+      yield node.value;
+    }
+  }
 }
 
 // Aliases

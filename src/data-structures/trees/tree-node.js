@@ -153,6 +153,15 @@ class TreeNode {
       parentSide: this.parentSide,
     };
   }
+
+  data(value) {
+    this.meta.data = value;
+    return this;
+  }
+
+  getData() {
+    return this.meta.data;
+  }
 }
 
 module.exports = TreeNode;
