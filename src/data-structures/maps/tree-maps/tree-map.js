@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-syntax */
-// const Tree = require('../../trees/red-black-tree');
-const Tree = require('../../trees/avl-tree');
+// const Tree = require('../../trees/red-black-tree'); // fast insertion
+const Tree = require('../../trees/avl-tree'); // fast lookup
 
 class TreeMap {
   constructor() {
@@ -35,6 +35,12 @@ class TreeMap {
   * keys() {
     for (const node of this) {
       yield node.value;
+    }
+  }
+
+  * values() {
+    for (const node of this) {
+      yield node.getData();
     }
   }
 }

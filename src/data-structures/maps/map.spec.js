@@ -2,8 +2,8 @@ const HashMap = require('./hash-maps/hashmap');
 const TreeMap = require('./tree-maps/tree-map');
 
 const mapImplementations = [
-  // Map,
-  // HashMap,
+  Map,
+  HashMap,
   TreeMap,
 ];
 
@@ -72,10 +72,40 @@ mapImplementations.forEach((MapImplementation) => {
       });
 
       it('should update on delete', () => {
-        expect(map.size).toBe(3);
-        expect(map.has(1)).toBe(true);
         expect(map.delete(1)).toBe(true);
         expect(Array.from(map.keys())).toEqual([2, 3]);
+      });
+
+      it('should handle strings', () => {
+        map.set('uno', 1);
+        expect(Array.from(map.keys())).toEqual([1, 2, 3, 'uno']);
+      });
+
+      it('should handle objects', () => {
+        map.set({}, 1);
+        expect(Array.from(map.keys())).toEqual([1, 2, 3, {}]);
+      });
+
+      it('should handle null', () => {
+        map.set(null, 1);
+        expect([...map.keys()].sort()).toEqual([1, 2, 3, null].sort()); // ignoring order
+      });
+    });
+
+    describe('#values', () => {
+      beforeEach(() => {
+        map.set(1, 2);
+        map.set(2, 'dos');
+        map.set(3, 3);
+      });
+
+      it('should return all values', () => {
+        expect(Array.from(map.values())).toEqual([2, 'dos', 3]);
+      });
+
+      it('should update on delete', () => {
+        expect(map.delete(1)).toBe(true);
+        expect(Array.from(map.values())).toEqual(['dos', 3]);
       });
     });
   });
