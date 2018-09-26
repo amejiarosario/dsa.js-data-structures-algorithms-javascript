@@ -138,7 +138,7 @@ describe('Binary Search Tree', () => {
           1,
           fn,
           2,
-        ])
+        ]);
       });
     });
   });
