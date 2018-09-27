@@ -4,7 +4,7 @@
 
 This repository covers the implementation of the most important algorithms and data structures.
 
-This goes alone with [these posts series](https://adrianmejia.com/tags/tutorial-algorithms/) that explain each implementation in details.
+This goes along with [these posts series](https://adrianmejia.com/tags/tutorial-algorithms/) that explain each implementation in details.
 
 [![Interactive Data Structures](https://user-images.githubusercontent.com/418605/46118890-ba721180-c1d6-11e8-82bc-6a671428b422.png)](https://embed.kumu.io/85f1a4de5fb8430a10a1bf9c5118e015)
 
