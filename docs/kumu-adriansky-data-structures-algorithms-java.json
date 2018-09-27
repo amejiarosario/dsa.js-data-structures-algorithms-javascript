@@ -1,0 +1,826 @@
+{
+  "version": 1,
+  "name": "Data Structures & Algorithms (Java)",
+  "description": "https://adrianmejia.com/tags/tutorial-algorithms/",
+  "proxyImages": true,
+  "defaultMap": "map-oTNLCxr1",
+  "defaultPerspective": null,
+  "attributeRelevance": {},
+  "attributes": [
+    {
+      "_id": "attr-txzPBGU8",
+      "name": "Connection Type",
+      "format": "string",
+      "private": false,
+      "limit": 1,
+      "category": "General",
+      "prompt": "list",
+      "locked": false,
+      "values": [
+        "Same",
+        "Opposite",
+        "+",
+        "-",
+        "++",
+        "+-",
+        "-+",
+        "--"
+      ],
+      "sort": false,
+      "cluster": false
+    },
+    {
+      "_id": "attr-gHn442wg",
+      "name": "Description",
+      "format": "text",
+      "private": false,
+      "limit": 1,
+      "category": "General",
+      "prompt": "none",
+      "locked": false,
+      "values": [],
+      "sort": false,
+      "cluster": false
+    },
+    {
+      "_id": "attr-MnRXKurr",
+      "name": "Element Type",
+      "format": "string",
+      "private": false,
+      "limit": 1,
+      "category": "General",
+      "prompt": "list",
+      "locked": false,
+      "values": [
+        "Interface",
+        "Implementation"
+      ],
+      "sort": false,
+      "cluster": true
+    },
+    {
+      "_id": "attr-MdQi3NyM",
+      "name": "Label",
+      "format": "string",
+      "private": false,
+      "limit": 1,
+      "category": "General",
+      "prompt": "autocomplete",
+      "locked": false,
+      "values": [],
+      "sort": false,
+      "cluster": false
+    },
+    {
+      "_id": "attr-qDEypk4g",
+      "name": "Loop Type",
+      "format": "string",
+      "private": false,
+      "limit": 1,
+      "category": "General",
+      "prompt": "list",
+      "locked": false,
+      "values": [
+        "Reinforcing",
+        "Balancing",
+        "Vicious",
+        "Virtuous",
+        "Stabilizing",
+        "Stagnating"
+      ],
+      "sort": false,
+      "cluster": false
+    },
+    {
+      "_id": "attr-gs5pisyF",
+      "name": "Tags",
+      "format": "string",
+      "private": false,
+      "limit": "none",
+      "category": "General",
+      "prompt": "autocomplete",
+      "locked": false,
+      "values": [],
+      "sort": false,
+      "cluster": true
+    }
+  ],
+  "elements": [
+    {
+      "_id": "elem-1zk1fPhL",
+      "attributes": {
+        "label": "Hashtable",
+        "description": "HashTable –  This data structure is useful when you need to do the insertion, deletion and the quick access to the given element in constant time. All operations are in O(1).Hash tables are not maintain the insertion sequence. I would like to explain the HashTable little bit in depth because this is commonly using in the industry. As an example a router table. When a packet has to be routed to a specific IP address, the router has to determine the best route by querying the router table in an efficient manner.",
+        "element type": "Implementation",
+        "tags": [
+          "Java"
+        ]
+      }
+    },
+    {
+      "_id": "elem-8EJczc7U",
+      "attributes": {
+        "label": "Vector",
+        "description": "Vector –  When you need to maintain thread safety over the ArrayList use the Vector. If you don’t need any synchronization on each and every operations you have to go for ArrayList otherwise it will give bad performance impact on each operation.",
+        "element type": "Implementation",
+        "tags": [
+          "Java"
+        ]
+      }
+    },
+    {
+      "_id": "elem-8NWOAz0Q",
+      "attributes": {
+        "label": "LinkedList",
+        "description": "LinkedList –  Use the linked list If you need to maintain the list which is no need random access to the values and needed frequent insertions and deletions.\nInsertion and deletion is O(1) and access the (k)th element is O(n).\nBut remember LinkedList is not thread safe.",
+        "element type": "Implementation",
+        "tags": [
+          "Java",
+          "Algorithms.js"
+        ]
+      }
+    },
+    {
+      "_id": "elem-BuOTXHM2",
+      "attributes": {
+        "label": "Graph",
+        "element type": "Implementation",
+        "tags": [
+          "Algorithms.js"
+        ]
+      }
+    },
+    {
+      "_id": "elem-HJPMqEFb",
+      "attributes": {
+        "label": "LinkedHashMap",
+        "element type": "Implementation",
+        "tags": [
+          "Java",
+          "Algorithms.js"
+        ]
+      }
+    },
+    {
+      "_id": "elem-LjGaYrSt",
+      "attributes": {
+        "label": "HashSet",
+        "description": "HashSet –  It is not maintaining the duplicates. When you need to maintain the unique list of objects you can use the HashSet. HashSet allows the NULL Objects but it is not maintain the insertion sequence. If you need to maintain the insertion sequence you have to use the LinkedHashSet.",
+        "element type": "Implementation",
+        "tags": [
+          "Java"
+        ]
+      }
+    },
+    {
+      "_id": "elem-PyBsLSKG",
+      "attributes": {
+        "label": "LinkedHashSet",
+        "element type": "Implementation",
+        "tags": [
+          "Java"
+        ]
+      }
+    },
+    {
+      "_id": "elem-SYBtJkZN",
+      "attributes": {
+        "label": "ArrayList",
+        "description": "ArrayList –  Use the array list if you need the random access to the values frequently and same as you don’t need frequent insertion and remove operations.\nAccess the (k)th element is O(1) and insertion and deletion is O(n).\nSame as LinkedList remember ArrayList is not thread safe.",
+        "element type": "Implementation",
+        "tags": [
+          "Java"
+        ]
+      }
+    },
+    {
+      "_id": "elem-akHMM50Q",
+      "attributes": {
+        "label": "Map",
+        "element type": "Interface",
+        "tags": [
+          "Java",
+          "JavaScript"
+        ]
+      }
+    },
+    {
+      "_id": "elem-beDl8BKU",
+      "attributes": {
+        "label": "HashMap",
+        "description": "HashMap –  Hashmap is used when you need to store the elements as key, value pairs. In the hash map, you cannot duplicate the key but you can duplicate the value with a different key. This does not maintain the insertion sequence. If you need to maintain the insertion sequence you have to use the LinkedHashMap. Remember HasMap is not threading safe if you need thread safety over HashMap you have to use the ConcurrentHashMap",
+        "element type": "Implementation",
+        "tags": [
+          "Java"
+        ]
+      }
+    },
+    {
+      "_id": "elem-d1IjnVVF",
+      "attributes": {
+        "label": ""
+      }
+    },
+    {
+      "_id": "elem-dofxK5ff",
+      "attributes": {
+        "label": "SortedMap",
+        "element type": "Implementation",
+        "tags": [
+          "Java"
+        ]
+      }
+    },
+    {
+      "_id": "elem-fNrI1adu",
+      "attributes": {
+        "label": "Queue",
+        "element type": "Interface",
+        "tags": [
+          "Java"
+        ]
+      }
+    },
+    {
+      "_id": "elem-gpVpr8Nr",
+      "attributes": {
+        "label": "Stack",
+        "element type": "Implementation",
+        "tags": [
+          "Java"
+        ]
+      }
+    },
+    {
+      "_id": "elem-iGRqhxDA",
+      "attributes": {
+        "label": "Set",
+        "description": "There are couple of implementations of the Set interface. The most common is the HashSet (fast contains() operation but the order is not guaranteed), TreeSet (this is actually implementation of SortedSet, the instances stored in TreeSet should implement Comparable) and the last commonly used is the LinkedHashSet. The order of LinkedHashSet is derived from the time elements were added into the container.",
+        "element type": "Interface",
+        "tags": [
+          "Java",
+          "JavaScript"
+        ]
+      }
+    },
+    {
+      "_id": "elem-jWa6jRnv",
+      "attributes": {
+        "label": "Array",
+        "element type": "Implementation",
+        "tags": [
+          "JavaScript",
+          "Java"
+        ]
+      }
+    },
+    {
+      "_id": "elem-jxtCogb4",
+      "attributes": {
+        "label": "SortedSet",
+        "element type": "Interface",
+        "tags": [
+          "Java"
+        ]
+      }
+    },
+    {
+      "_id": "elem-nNmZVuwP",
+      "attributes": {
+        "label": "TreeMap",
+        "description": "TreeMap –  If you need to maintain the key, value pairs in sorted order this is the data structure suits for that operation. Its guarantees that the given key value pairs arrange in sorted order according to the compareTo() method in Object type which is stored in TreeMap.",
+        "element type": "Implementation",
+        "tags": [
+          "Java",
+          "Algorithms.js"
+        ]
+      }
+    },
+    {
+      "_id": "elem-nlmBuunX",
+      "attributes": {
+        "label": "TreeSet",
+        "description": "TreeSet –  Same as HashSet this data structure maintains the duplicate free collection and additionally its provide the sorted order of the elements.TreeSet is not allowed the NULL objects. Guarantees log(n) time cost for the basic operations add, remove and contains.",
+        "element type": "Implementation",
+        "tags": [
+          "Java"
+        ]
+      }
+    },
+    {
+      "_id": "elem-nzrHqvh2",
+      "attributes": {
+        "label": "Priority Queue",
+        "description": "PriorityQueue –  We know that queue is a first come first serve basis but some times we need to get the things according to the priority. So if you have that kind of problem use the priority queue. But remember PriorityQueue is not thread safe.",
+        "element type": "Implementation",
+        "tags": [
+          "Java"
+        ]
+      }
+    },
+    {
+      "_id": "elem-oCEXKLgz",
+      "attributes": {
+        "label": "List",
+        "element type": "Interface",
+        "tags": [
+          "Java"
+        ]
+      }
+    },
+    {
+      "_id": "elem-qDm7IO4f",
+      "attributes": {
+        "label": "NavigableSet",
+        "element type": "Interface",
+        "tags": [
+          "Java"
+        ]
+      }
+    },
+    {
+      "_id": "elem-u6W2zfO2",
+      "attributes": {
+        "label": "NaviagableMap",
+        "element type": "Interface",
+        "tags": [
+          "Java"
+        ]
+      }
+    },
+    {
+      "_id": "elem-yz8SMEqa",
+      "attributes": {
+        "label": "Collection",
+        "element type": "Interface",
+        "tags": [
+          "Java"
+        ]
+      }
+    }
+  ],
+  "connections": [
+    {
+      "_id": "conn-2HXiBpnB",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-u6W2zfO2",
+      "to": "elem-akHMM50Q"
+    },
+    {
+      "_id": "conn-6eWcDvA7",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-HJPMqEFb",
+      "to": "elem-akHMM50Q"
+    },
+    {
+      "_id": "conn-8uKvLxT4",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-iGRqhxDA",
+      "to": "elem-yz8SMEqa"
+    },
+    {
+      "_id": "conn-AfusKvT4",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-8EJczc7U",
+      "to": "elem-oCEXKLgz"
+    },
+    {
+      "_id": "conn-F6J3CXak",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-nlmBuunX",
+      "to": "elem-jxtCogb4"
+    },
+    {
+      "_id": "conn-GTpzvMYG",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-1zk1fPhL",
+      "to": "elem-akHMM50Q"
+    },
+    {
+      "_id": "conn-MaEgZYlv",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-beDl8BKU",
+      "to": "elem-akHMM50Q"
+    },
+    {
+      "_id": "conn-SGAJWPgh",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-dofxK5ff",
+      "to": "elem-akHMM50Q"
+    },
+    {
+      "_id": "conn-T6WfQDU8",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-nzrHqvh2",
+      "to": "elem-fNrI1adu"
+    },
+    {
+      "_id": "conn-UP8Gr06h",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-oCEXKLgz",
+      "to": "elem-yz8SMEqa"
+    },
+    {
+      "_id": "conn-VM5U6fLB",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-nlmBuunX",
+      "to": "elem-qDm7IO4f"
+    },
+    {
+      "_id": "conn-X1Jmw7gV",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-LjGaYrSt",
+      "to": "elem-iGRqhxDA"
+    },
+    {
+      "_id": "conn-ZC3K6FdM",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-SYBtJkZN",
+      "to": "elem-oCEXKLgz"
+    },
+    {
+      "_id": "conn-bjoaaulJ",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-nNmZVuwP",
+      "to": "elem-u6W2zfO2"
+    },
+    {
+      "_id": "conn-bsgQ64Wt",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-gpVpr8Nr",
+      "to": "elem-oCEXKLgz"
+    },
+    {
+      "_id": "conn-dLyh2RYc",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-jxtCogb4",
+      "to": "elem-iGRqhxDA"
+    },
+    {
+      "_id": "conn-eM2gJAuf",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-qDm7IO4f",
+      "to": "elem-nlmBuunX"
+    },
+    {
+      "_id": "conn-jLujNZTK",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-PyBsLSKG",
+      "to": "elem-LjGaYrSt"
+    },
+    {
+      "_id": "conn-mhgpONem",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-qDm7IO4f",
+      "to": "elem-jxtCogb4"
+    },
+    {
+      "_id": "conn-ncfzeFBC",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-fNrI1adu",
+      "to": "elem-fNrI1adu"
+    },
+    {
+      "_id": "conn-rVjuQQf1",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-fNrI1adu",
+      "to": "elem-yz8SMEqa"
+    },
+    {
+      "_id": "conn-vUhtkBwg",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-8NWOAz0Q",
+      "to": "elem-oCEXKLgz"
+    }
+  ],
+  "loops": [],
+  "maps": [
+    {
+      "_id": "map-oTNLCxr1",
+      "name": "Data Structures",
+      "description": "![Java Collections](https://i.stack.imgur.com/v0nus.gif)\nhttps://www.slideshare.net/agorolabs/java-103-intro-to-java-data-structures",
+      "scale": 1,
+      "center": {
+        "x": 0,
+        "y": 0
+      },
+      "defaultPerspective": "pers-e1iwYwhg",
+      "defaultElementBehavior": "fixed",
+      "defaultConnectionDirection": "directed",
+      "elements": [
+        {
+          "_id": "node-2HTxSiK1",
+          "position": null,
+          "pinned": false,
+          "element": "elem-1zk1fPhL"
+        },
+        {
+          "_id": "node-2euVreXa",
+          "position": {
+            "x": 395.3414449922471,
+            "y": -276.0427363814492
+          },
+          "pinned": true,
+          "element": "elem-nzrHqvh2"
+        },
+        {
+          "_id": "node-543X3d5N",
+          "position": null,
+          "pinned": false,
+          "element": "elem-nNmZVuwP"
+        },
+        {
+          "_id": "node-9wx6Urbc",
+          "position": null,
+          "pinned": false,
+          "element": "elem-8NWOAz0Q"
+        },
+        {
+          "_id": "node-Es9qZKBa",
+          "position": null,
+          "pinned": false,
+          "element": "elem-PyBsLSKG"
+        },
+        {
+          "_id": "node-IpwVVIm4",
+          "position": null,
+          "pinned": false,
+          "element": "elem-fNrI1adu"
+        },
+        {
+          "_id": "node-LA5XAgmF",
+          "position": null,
+          "pinned": false,
+          "element": "elem-oCEXKLgz"
+        },
+        {
+          "_id": "node-LvNDjEhf",
+          "position": null,
+          "pinned": false,
+          "element": "elem-gpVpr8Nr"
+        },
+        {
+          "_id": "node-Nsy5iU42",
+          "position": null,
+          "pinned": false,
+          "element": "elem-dofxK5ff"
+        },
+        {
+          "_id": "node-OSsTOlaf",
+          "position": null,
+          "pinned": false,
+          "element": "elem-qDm7IO4f"
+        },
+        {
+          "_id": "node-QM9JVjKH",
+          "position": null,
+          "pinned": false,
+          "element": "elem-8EJczc7U"
+        },
+        {
+          "_id": "node-WsnqR15l",
+          "position": null,
+          "pinned": false,
+          "element": "elem-u6W2zfO2"
+        },
+        {
+          "_id": "node-Wtrja1IL",
+          "position": null,
+          "pinned": false,
+          "element": "elem-yz8SMEqa"
+        },
+        {
+          "_id": "node-XSfUPQZs",
+          "position": null,
+          "pinned": false,
+          "element": "elem-nlmBuunX"
+        },
+        {
+          "_id": "node-YtZ7oAFf",
+          "position": null,
+          "pinned": false,
+          "element": "elem-HJPMqEFb"
+        },
+        {
+          "_id": "node-ZA2zuwOU",
+          "position": null,
+          "pinned": false,
+          "element": "elem-jxtCogb4"
+        },
+        {
+          "_id": "node-ZNvIOjpS",
+          "position": null,
+          "pinned": false,
+          "element": "elem-akHMM50Q"
+        },
+        {
+          "_id": "node-ZzHONbgC",
+          "position": null,
+          "pinned": false,
+          "element": "elem-beDl8BKU"
+        },
+        {
+          "_id": "node-cKJ5a3T8",
+          "position": {
+            "x": -253.58322232526314,
+            "y": 433.10116343664384
+          },
+          "pinned": true,
+          "element": "elem-BuOTXHM2"
+        },
+        {
+          "_id": "node-g4QDhOgT",
+          "position": null,
+          "pinned": false,
+          "element": "elem-SYBtJkZN"
+        },
+        {
+          "_id": "node-jdc6TD4Y",
+          "position": null,
+          "pinned": false,
+          "element": "elem-iGRqhxDA"
+        },
+        {
+          "_id": "node-mZ3IGWdR",
+          "position": null,
+          "pinned": false,
+          "element": "elem-LjGaYrSt"
+        },
+        {
+          "_id": "node-rqpz6PGU",
+          "position": {
+            "x": -388.63741771606414,
+            "y": 347.69922150366733
+          },
+          "pinned": true,
+          "element": "elem-jWa6jRnv"
+        }
+      ],
+      "connections": [
+        {
+          "_id": "edge-0EF9qeRW",
+          "connection": "conn-GTpzvMYG"
+        },
+        {
+          "_id": "edge-2EEj1PYI",
+          "connection": "conn-UP8Gr06h"
+        },
+        {
+          "_id": "edge-6js2rIDf",
+          "connection": "conn-6eWcDvA7"
+        },
+        {
+          "_id": "edge-G1zaGFAb",
+          "connection": "conn-2HXiBpnB"
+        },
+        {
+          "_id": "edge-J7jluR0n",
+          "connection": "conn-dLyh2RYc"
+        },
+        {
+          "_id": "edge-NQ5MEvEa",
+          "connection": "conn-SGAJWPgh"
+        },
+        {
+          "_id": "edge-Ns3W7LQe",
+          "connection": "conn-mhgpONem"
+        },
+        {
+          "_id": "edge-RUWpFfh9",
+          "connection": "conn-rVjuQQf1"
+        },
+        {
+          "_id": "edge-T3n9IBk2",
+          "connection": "conn-VM5U6fLB"
+        },
+        {
+          "_id": "edge-VfmN7Xlh",
+          "connection": "conn-jLujNZTK"
+        },
+        {
+          "_id": "edge-eLAtSvRs",
+          "connection": "conn-bsgQ64Wt"
+        },
+        {
+          "_id": "edge-gRmMBmT7",
+          "connection": "conn-vUhtkBwg"
+        },
+        {
+          "_id": "edge-hP8qtinm",
+          "connection": "conn-X1Jmw7gV"
+        },
+        {
+          "_id": "edge-jcecy0sb",
+          "connection": "conn-T6WfQDU8"
+        },
+        {
+          "_id": "edge-k4r46mW1",
+          "connection": "conn-ncfzeFBC"
+        },
+        {
+          "_id": "edge-sD9eHHPq",
+          "connection": "conn-MaEgZYlv"
+        },
+        {
+          "_id": "edge-urLgNcey",
+          "connection": "conn-8uKvLxT4"
+        },
+        {
+          "_id": "edge-wNx7g4QS",
+          "connection": "conn-bjoaaulJ"
+        },
+        {
+          "_id": "edge-wp0dhotw",
+          "connection": "conn-ZC3K6FdM"
+        },
+        {
+          "_id": "edge-xTE7NLSW",
+          "connection": "conn-AfusKvT4"
+        }
+      ],
+      "loops": []
+    }
+  ],
+  "perspectives": [
+    {
+      "_id": "pers-e1iwYwhg",
+      "name": "Data Structures",
+      "style": "@settings {\n  template: systems;\n  element-size: 32;\n}\n\n/* Interface */\nelement[\"element type\"=\"Interface\"] {\n  color: #b9e5a0;\n}\n\n/* Interface */\nelement[\"element type\"=\"Implementation\"] {\n  color: #fff1a2;\n}\n\n"
+    },
+    {
+      "_id": "pers-QrYEOUf4",
+      "name": "Java"
+    },
+    {
+      "_id": "pers-YahnnHQl",
+      "name": "JavaScript",
+      "style": "@settings {\n  include: [\"tags\"=\"JavaScript\"], connection, loop;\n}\n\n"
+    }
+  ]
+}
