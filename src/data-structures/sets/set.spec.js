@@ -4,7 +4,7 @@ const MapSet = require('./map-set');
 const TreeSet = require('./tree-set');
 
 // const setImplementations = [HashSet, MapSet, ArraySet, TreeSet, Set];
-const setImplementations = [Set, HashSet, TreeSet];
+const setImplementations = [Set, HashSet, TreeSet, MapSet];
 
 setImplementations.forEach((MySet) => {
   describe(`Set (${MySet.name})`, () => {

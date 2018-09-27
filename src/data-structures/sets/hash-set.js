@@ -14,7 +14,7 @@ class HashMapSet {
   }
 
   /**
-   * Add a new value
+   * Add a new value (duplicates will be added only once)
    * @param {any} value
    */
   add(value) {
@@ -45,17 +45,30 @@ class HashMapSet {
   }
 
   /**
-   * Return all values on the set as an array
+   * Make this class iterable
    */
-  entries() {
-    return Array.from(this);
+  * [Symbol.iterator]() {
+    yield* this.hashMap.keys();
   }
 
   /**
-   * Make this class iterable
+   * Get all the values on the Set
+   * @returns {iterator} values in insertion order
    */
-  [Symbol.iterator]() {
-    return this.hashMap.keys()[Symbol.iterator]();
+  * keys() {
+    yield* this;
+  }
+
+  /**
+   * This is kept similar to the Map object, so that each entry has the
+   *  same value for its key and value here.
+   * @returns {iterator} new Iterator object that contains[value, value]
+   *  for each element in the Set object, in ascending order.
+   */
+  * entries() {
+    for (const value of this) {
+      yield [value, value];
+    }
   }
 }
 

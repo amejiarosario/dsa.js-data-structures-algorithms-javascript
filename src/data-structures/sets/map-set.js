@@ -1,14 +1,14 @@
 /**
  * Set implemented with Map (JS built-in) to have sublinear times on all operations
  */
-class HashSet {
+class MapSet {
   /**
    * Initialize Set using the built-in Map
    *
    * @param {Array} iterable If passed, all iterable elements will be added to the new Set
    */
   constructor(iterable = []) {
-    this.hashMap = new Map();
+    this.map = new Map();
     Array.from(iterable).forEach(element => this.add(element));
   }
 
@@ -17,7 +17,7 @@ class HashSet {
    * @param {any} value
    */
   add(value) {
-    this.hashMap.set(value);
+    this.map.set(value);
   }
 
   /**
@@ -25,14 +25,14 @@ class HashSet {
    * @param {any} value
    */
   has(value) {
-    return this.hashMap.has(value);
+    return this.map.has(value);
   }
 
   /**
    * Get size of the set
    */
   get size() {
-    return this.hashMap.size;
+    return this.map.size;
   }
 
   /**
@@ -40,7 +40,7 @@ class HashSet {
    * @param {any} value
    */
   delete(value) {
-    return this.hashMap.delete(value);
+    return this.map.delete(value);
   }
 
   /**
@@ -53,10 +53,10 @@ class HashSet {
   /**
    * Make this class iterable
    */
-  [Symbol.iterator]() {
-    return this.hashMap.keys();
+  * [Symbol.iterator]() {
+    yield* this.map.keys();
   }
 }
 
-module.exports = HashSet;
+module.exports = MapSet;
 
