@@ -1,5 +1,5 @@
 /* eslint-disable no-bitwise, no-iterator, no-restricted-syntax */
-const LinkedList = require('../linked-lists/linked-list');
+const LinkedList = require('../../linked-lists/linked-list');
 const { nextPrime } = require('./primes');
 
 /**
@@ -112,7 +112,7 @@ class HashMap {
 
   /**
    * Gets the value out of the hash map
-   *
+   * Avg. Runtime: O(1)
    * @param {any} key
    * @returns {any} value associated to the key, or undefined if there is none.
    */
@@ -123,6 +123,7 @@ class HashMap {
 
   /**
    * Search for key and return true if it was found
+   * Avg. Runtime: O(1)
    * @param {any} key
    * @returns {boolean} indicating whether an element
    *  with the specified key exists or not.
@@ -134,6 +135,7 @@ class HashMap {
 
   /**
    * Removes the specified element from a Map object.
+   * Avg. Runtime: O(1)
    * @param {*} key
    * @returns {boolean} true if an element in the Map object existed
    *  and has been removed, or false if the element did not exist.

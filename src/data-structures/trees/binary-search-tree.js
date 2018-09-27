@@ -43,6 +43,15 @@ class BinarySearchTree {
   }
 
   /**
+   * Find if a node is present or not
+   * @param {any} value node to find
+   * @returns {boolean} true if is present, false otherwise
+   */
+  has(value) {
+    return !!this.find(value);
+  }
+
+  /**
    * Finds the node matching the value.
    * If it doesn't find, it returns the leaf where the new value should be added.
    * @param {any} value Node's value to find
@@ -98,7 +107,7 @@ class BinarySearchTree {
     } else if (nodeToRemove === this.root) {
       // Replace (root) node to delete with the combined subtree.
       this.root = removedNodeChildren;
-      this.root.parent = null; // clearing up old parent
+      if (this.root) { this.root.parent = null; } // clearing up old parent
     } else {
       const side = nodeToRemove.isParentLeftChild ? 'left' : 'right';
       // Replace node to delete with the combined subtree.
@@ -258,10 +267,12 @@ class BinarySearchTree {
 
 // aliases
 BinarySearchTree.prototype.insert = BinarySearchTree.prototype.add;
+BinarySearchTree.prototype.set = BinarySearchTree.prototype.add;
 BinarySearchTree.prototype.delete = BinarySearchTree.prototype.remove;
 BinarySearchTree.prototype.getMin = BinarySearchTree.prototype.getLeftmost;
 BinarySearchTree.prototype.minimum = BinarySearchTree.prototype.getMin;
 BinarySearchTree.prototype.getMax = BinarySearchTree.prototype.getRightmost;
 BinarySearchTree.prototype.maximum = BinarySearchTree.prototype.getMax;
+BinarySearchTree.prototype.get = BinarySearchTree.prototype.find;
 
 module.exports = BinarySearchTree;

@@ -60,6 +60,7 @@ describe('Binary Search Tree', () => {
         const n3 = bst.add(3);
 
         expect(n3.parent.value).toBe(2);
+        expect(bst.toArray()).toEqual([1, null, 2, null, 3, null, null]);
       });
 
       it('should deal with duplicates', () => {
@@ -110,6 +111,34 @@ describe('Binary Search Tree', () => {
         const { found, parent } = bst.findNodeAndParent(-1);
         expect(found).toBe(null);
         expect(parent).toMatchObject({ value: 1 });
+      });
+    });
+
+    describe('#remove', () => {
+      it('should remove root', () => {
+        bst.add(1);
+        expect(bst.remove(1)).toBe(true);
+        expect(bst.has(1)).toBe(false);
+        bst.add(1);
+        expect(bst.has(1)).toBe(true);
+      });
+    });
+
+    describe('#inOrderTraversal', () => {
+      it('should get all keys', () => {
+        const fn = () => {};
+        bst.set(1).data(1);
+        bst.set('dos').data(2);
+        bst.set({}).data(fn);
+
+        // get keys
+        expect(getValues(bst.inOrderTraversal())).toEqual([1, {}, 'dos']);
+        // get data
+        expect(Array.from(bst.inOrderTraversal()).map(n => n.data())).toEqual([
+          1,
+          fn,
+          2,
+        ]);
       });
     });
   });

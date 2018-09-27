@@ -1,0 +1,904 @@
+{
+  "version": 1,
+  "name": "Data Structures & Algorithms",
+  "description": "https://adrianmejia.com/tags/tutorial-algorithms/ | https://github.com/amejiarosario/algorithms.js",
+  "proxyImages": true,
+  "defaultMap": "map-XRQ4EgY4",
+  "defaultPerspective": null,
+  "attributeRelevance": {},
+  "attributes": [
+    {
+      "_id": "attr-5FVVZ7Y3",
+      "name": "Connection Type",
+      "format": "string",
+      "private": false,
+      "limit": 1,
+      "category": "General",
+      "prompt": "list",
+      "locked": false,
+      "values": [
+        "Same",
+        "Opposite",
+        "+",
+        "-",
+        "++",
+        "+-",
+        "-+",
+        "--"
+      ],
+      "sort": false,
+      "cluster": false
+    },
+    {
+      "_id": "attr-cZUsrV5e",
+      "name": "Description",
+      "format": "text",
+      "private": false,
+      "limit": 1,
+      "category": "General",
+      "prompt": "none",
+      "locked": false,
+      "values": [],
+      "sort": false,
+      "cluster": false
+    },
+    {
+      "_id": "attr-lWIoeHdx",
+      "name": "Element Type",
+      "format": "string",
+      "private": false,
+      "limit": 1,
+      "category": "General",
+      "prompt": "list",
+      "locked": false,
+      "values": [
+        "Built-in Object",
+        "Abstract/Interface",
+        "User-defined Class",
+        "Algorithm"
+      ],
+      "sort": false,
+      "cluster": true
+    },
+    {
+      "_id": "attr-lP6GjNy0",
+      "name": "Label",
+      "format": "string",
+      "private": false,
+      "limit": 1,
+      "category": "General",
+      "prompt": "autocomplete",
+      "locked": false,
+      "values": [],
+      "sort": false,
+      "cluster": false
+    },
+    {
+      "_id": "attr-0QlKay5x",
+      "name": "Loop Type",
+      "format": "string",
+      "private": false,
+      "limit": 1,
+      "category": "General",
+      "prompt": "list",
+      "locked": false,
+      "values": [
+        "Reinforcing",
+        "Balancing",
+        "Vicious",
+        "Virtuous",
+        "Stabilizing",
+        "Stagnating"
+      ],
+      "sort": false,
+      "cluster": false
+    },
+    {
+      "_id": "attr-5KytGMoB",
+      "name": "Tags",
+      "format": "string",
+      "private": false,
+      "limit": "none",
+      "category": "General",
+      "prompt": "autocomplete",
+      "locked": false,
+      "values": [],
+      "sort": false,
+      "cluster": true
+    }
+  ],
+  "elements": [
+    {
+      "_id": "elem-1V0d2csT",
+      "attributes": {
+        "label": "LRU Cache",
+        "element type": "Algorithm"
+      }
+    },
+    {
+      "_id": "elem-2i1obsmP",
+      "attributes": {
+        "label": "Breadth-First Search (BFS)",
+        "element type": "Algorithm",
+        "tags": [
+          "graph",
+          "non-linear-data-structure"
+        ]
+      }
+    },
+    {
+      "_id": "elem-7WCA8jwe",
+      "attributes": {
+        "label": "Map",
+        "element type": "Built-in Object",
+        "tags": [
+          "map",
+          "non-linear-data-structure"
+        ]
+      }
+    },
+    {
+      "_id": "elem-8ec0eAui",
+      "attributes": {
+        "label": "Queue",
+        "element type": "User-defined Class",
+        "description": "**Queue**: data flows in a \"first-in, first-out\" (FIFO) manner. [Code](https://github.com/amejiarosario/algorithms.js/tree/master/src/data-structures/queues) | [Details](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Queues).",
+        "tags": [
+          "linear-data-structure"
+        ]
+      }
+    },
+    {
+      "_id": "elem-9qa2EaEh",
+      "attributes": {
+        "label": "Red-Black Tree",
+        "element type": "User-defined Class",
+        "description": "**Red-Black Trees**:  Self-balanced BST more loose than AVL to maximize insertion speed. [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/trees/red-black-tree.js) | Details",
+        "tags": [
+          "tree",
+          "non-linear-data-structure"
+        ]
+      }
+    },
+    {
+      "_id": "elem-BPSqtzdd",
+      "attributes": {
+        "label": "Binary Tree",
+        "element type": "User-defined Class",
+        "description": "**Binary Trees**: same as a tree but only can have two children at most. [Details](https://adrianmejia.com/blog/2018/06/11/data-structures-for-beginners-trees-binary-search-tree-tutorial/#Binary-Trees)",
+        "tags": [
+          "tree",
+          "non-linear-data-structure"
+        ]
+      }
+    },
+    {
+      "_id": "elem-BdZmnHXa",
+      "attributes": {
+        "label": "Tree",
+        "element type": "User-defined Class",
+        "description": "**Trees**: data nodes has zero or more adjacent nodes a.k.a. children. Each node can only have one parent node otherwise is a graph not a tree. [Code](https://github.com/amejiarosario/algorithms.js/tree/master/src/data-structures/trees) | [Details](https://adrianmejia.com/blog/2018/06/11/data-structures-for-beginners-trees-binary-search-tree-tutorial/)",
+        "tags": [
+          "tree",
+          "non-linear-data-structure"
+        ]
+      }
+    },
+    {
+      "_id": "elem-GmjG4113",
+      "attributes": {
+        "label": "Graph",
+        "element type": "User-defined Class",
+        "tags": [
+          "graph",
+          "non-linear-data-structure"
+        ]
+      }
+    },
+    {
+      "_id": "elem-JpFTClfV",
+      "attributes": {
+        "label": "Array",
+        "element type": "Built-in Object",
+        "description": "**Arrays**: Built-in in most languages so not implemented here. [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/arrays/array.js) | [Details](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Array).",
+        "tags": [
+          "linear-data-structure"
+        ]
+      }
+    },
+    {
+      "_id": "elem-OOjxCahT",
+      "attributes": {
+        "label": "Tree Map",
+        "element type": "User-defined Class",
+        "description": "**Tree Maps**: implement map using a self-balanced BST.",
+        "tags": [
+          "map",
+          "non-linear-data-structure"
+        ]
+      }
+    },
+    {
+      "_id": "elem-P0W5tdJF",
+      "attributes": {
+        "label": "Linked List",
+        "element type": "User-defined Class",
+        "description": "**Linked Lists**: each data node has a link to the next (and previous). [Code](https://github.com/amejiarosario/algorithms.js/tree/master/src/data-structures/linked-lists) | [Details](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Linked-Lists).",
+        "tags": [
+          "linear-data-structure"
+        ]
+      }
+    },
+    {
+      "_id": "elem-RN6cCpAs",
+      "attributes": {
+        "label": "Set (interface)",
+        "element type": "Abstract/Interface",
+        "tags": [
+          "set",
+          "non-linear-data-structure"
+        ]
+      }
+    },
+    {
+      "_id": "elem-U5IcLqEX",
+      "attributes": {
+        "label": "Map (interface)",
+        "element type": "Abstract/Interface",
+        "tags": [
+          "map",
+          "non-linear-data-structure"
+        ]
+      }
+    },
+    {
+      "_id": "elem-YzNstnCu",
+      "attributes": {
+        "label": "Depth-First Search (DFS)",
+        "element type": "Algorithm",
+        "tags": [
+          "graph",
+          "non-linear-data-structure"
+        ]
+      }
+    },
+    {
+      "_id": "elem-cKKpu4f6",
+      "attributes": {
+        "label": "TreeSet",
+        "element type": "User-defined Class",
+        "tags": [
+          "set",
+          "non-linear-data-structure"
+        ]
+      }
+    },
+    {
+      "_id": "elem-fb7QKiB4",
+      "attributes": {
+        "label": "Stack",
+        "element type": "User-defined Class",
+        "description": "**Stacks**:  data flows in a \"last-in, first-out\" (LIFO) manner. [Code](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Stacks) | [Details](https://github.com/amejiarosario/algorithms.js/tree/master/src/data-structures/stacks).",
+        "tags": [
+          "linear-data-structure"
+        ]
+      }
+    },
+    {
+      "_id": "elem-knNzSjl1",
+      "attributes": {
+        "label": "AVL Tree",
+        "element type": "User-defined Class",
+        "description": "**AVL Trees**: Self-balanced BST to maximize look up time. [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/trees/avl-tree.js) | [Details](https://adrianmejia.com/blog/2018/07/16/self-balanced-binary-search-trees-with-avl-tree-data-structure-for-beginners/)",
+        "tags": [
+          "tree",
+          "non-linear-data-structure"
+        ]
+      }
+    },
+    {
+      "_id": "elem-lsVXVDSI",
+      "attributes": {
+        "label": "Hash Map",
+        "element type": "User-defined Class",
+        "description": "**Hash Maps**: implements map using a hash function. [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/hash-maps/hashmap.js) | [Details](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#HashMaps)",
+        "tags": [
+          "map",
+          "non-linear-data-structure"
+        ]
+      }
+    },
+    {
+      "_id": "elem-mN3BgWop",
+      "attributes": {
+        "label": "Set",
+        "element type": "Built-in Object",
+        "tags": [
+          "set",
+          "non-linear-data-structure"
+        ]
+      }
+    },
+    {
+      "_id": "elem-rYLx2odj",
+      "attributes": {
+        "label": "Binary Search Tree",
+        "element type": "User-defined Class",
+        "description": "**Binary Search Trees** (BST): same as binary tree, but the nodes value keep this order `left < parent < rigth`. [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/trees/binary-search-tree.js) | [Details](https://adrianmejia.com/blog/2018/06/11/data-structures-for-beginners-trees-binary-search-tree-tutorial/#Binary-Search-Tree-BST)",
+        "tags": [
+          "tree",
+          "non-linear-data-structure"
+        ]
+      }
+    },
+    {
+      "_id": "elem-xWVMvYCS",
+      "attributes": {
+        "label": "HashSet",
+        "element type": "User-defined Class",
+        "tags": [
+          "set",
+          "non-linear-data-structure"
+        ]
+      }
+    }
+  ],
+  "connections": [
+    {
+      "_id": "conn-0hBdsKaV",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-lsVXVDSI",
+      "to": "elem-U5IcLqEX"
+    },
+    {
+      "_id": "conn-1Xm2EO1P",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {
+        "label": "made-of"
+      },
+      "from": "elem-lsVXVDSI",
+      "to": "elem-JpFTClfV"
+    },
+    {
+      "_id": "conn-2pdNBvVI",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-7WCA8jwe",
+      "to": "elem-U5IcLqEX"
+    },
+    {
+      "_id": "conn-8Lof8qEo",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-knNzSjl1",
+      "to": "elem-rYLx2odj"
+    },
+    {
+      "_id": "conn-9m5FlHYk",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {
+        "label": ""
+      },
+      "from": "elem-BdZmnHXa",
+      "to": "elem-GmjG4113"
+    },
+    {
+      "_id": "conn-Cpl8qVDM",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": true,
+      "attributes": {},
+      "from": "elem-YzNstnCu",
+      "to": "elem-GmjG4113"
+    },
+    {
+      "_id": "conn-DRZ8wQIi",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {
+        "label": "made-of"
+      },
+      "from": "elem-OOjxCahT",
+      "to": "elem-9qa2EaEh"
+    },
+    {
+      "_id": "conn-GVAr7Bx7",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-2i1obsmP",
+      "to": "elem-8ec0eAui"
+    },
+    {
+      "_id": "conn-Hg8yMarr",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-YzNstnCu",
+      "to": "elem-fb7QKiB4"
+    },
+    {
+      "_id": "conn-HsdZVAG6",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": true,
+      "attributes": {},
+      "from": "elem-cKKpu4f6",
+      "to": "elem-RN6cCpAs"
+    },
+    {
+      "_id": "conn-J66co79u",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-OOjxCahT",
+      "to": "elem-U5IcLqEX"
+    },
+    {
+      "_id": "conn-OZtNCOos",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": true,
+      "attributes": {},
+      "from": "elem-mN3BgWop",
+      "to": "elem-RN6cCpAs"
+    },
+    {
+      "_id": "conn-PwgmbNXO",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": true,
+      "attributes": {
+        "label": "made-of"
+      },
+      "from": "elem-8ec0eAui",
+      "to": "elem-P0W5tdJF"
+    },
+    {
+      "_id": "conn-TdJe5NJi",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-rYLx2odj",
+      "to": "elem-BPSqtzdd"
+    },
+    {
+      "_id": "conn-WQgf5R6K",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-BPSqtzdd",
+      "to": "elem-BdZmnHXa"
+    },
+    {
+      "_id": "conn-WyFH7hTU",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": true,
+      "attributes": {
+        "label": "made-of"
+      },
+      "from": "elem-fb7QKiB4",
+      "to": "elem-P0W5tdJF"
+    },
+    {
+      "_id": "conn-XZGa8EDV",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": true,
+      "attributes": {},
+      "from": "elem-2i1obsmP",
+      "to": "elem-GmjG4113"
+    },
+    {
+      "_id": "conn-fvSStKM3",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-1V0d2csT",
+      "to": "elem-lsVXVDSI"
+    },
+    {
+      "_id": "conn-fxuEXuiG",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {
+        "label": "made-of"
+      },
+      "from": "elem-lsVXVDSI",
+      "to": "elem-P0W5tdJF"
+    },
+    {
+      "_id": "conn-ks1N7mYk",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-1V0d2csT",
+      "to": "elem-P0W5tdJF"
+    },
+    {
+      "_id": "conn-m1upWjwp",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {
+        "label": "made-of"
+      },
+      "from": "elem-cKKpu4f6",
+      "to": "elem-9qa2EaEh"
+    },
+    {
+      "_id": "conn-rVEH0SR1",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {
+        "label": "made-of"
+      },
+      "from": "elem-xWVMvYCS",
+      "to": "elem-lsVXVDSI"
+    },
+    {
+      "_id": "conn-rkbSTcWc",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": false,
+      "attributes": {},
+      "from": "elem-9qa2EaEh",
+      "to": "elem-rYLx2odj"
+    },
+    {
+      "_id": "conn-sIJjxft1",
+      "direction": "directed",
+      "delayed": false,
+      "reversed": true,
+      "attributes": {},
+      "from": "elem-xWVMvYCS",
+      "to": "elem-RN6cCpAs"
+    }
+  ],
+  "loops": [],
+  "maps": [
+    {
+      "_id": "map-XRQ4EgY4",
+      "name": "DSA",
+      "description": "# Data Structures and Algorithms in JavaScript\n\nThis [repository](https://github.com/amejiarosario/algorithms.js) covers the implementation of the most important algorithms and data structures.\n\nThis goes along with [these posts series](https://adrianmejia.com/tags/tutorial-algorithms/) that explain each implementation in details.\n\n## Data Structures\nWe are covering the following data structures.\n\n### Linear Data Structures\n1. **Arrays**: Built-in in most languages so not implemented here. [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/arrays/array.js) | [Details](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Array).\n2. **Linked Lists**: each data node has a link to the next (and previous). [Code](https://github.com/amejiarosario/algorithms.js/tree/master/src/data-structures/linked-lists) | [Details](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Linked-Lists).\n3. **Queue**: data flows in a \"first-in, first-out\" (FIFO) manner. [Code](https://github.com/amejiarosario/algorithms.js/tree/master/src/data-structures/queues) | [Details](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Queues).\n4. **Stacks**:  data flows in a \"last-in, first-out\" (LIFO) manner. [Code](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Stacks) | [Details](https://github.com/amejiarosario/algorithms.js/tree/master/src/data-structures/stacks).\n\n### Non-Linear Data Structures\n1. **Trees**: data nodes has zero or more adjacent nodes a.k.a. children. Each node can only have one parent node otherwise is a graph not a tree. [Code](https://github.com/amejiarosario/algorithms.js/tree/master/src/data-structures/trees) | [Details](https://adrianmejia.com/blog/2018/06/11/data-structures-for-beginners-trees-binary-search-tree-tutorial/)\n\t1. **Binary Trees**: same as tree but only can have two children at most. [Details](https://adrianmejia.com/blog/2018/06/11/data-structures-for-beginners-trees-binary-search-tree-tutorial/#Binary-Trees)\n\t1. **Binary Search Trees** (BST): same as binary tree, but the nodes value keep this order `left < parent < rigth`. [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/trees/binary-search-tree.js) | [Details](https://adrianmejia.com/blog/2018/06/11/data-structures-for-beginners-trees-binary-search-tree-tutorial/#Binary-Search-Tree-BST)\n\t2. **AVL Trees**: Self-balanced BST to maximize look up time. [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/trees/avl-tree.js) | [Details](https://adrianmejia.com/blog/2018/07/16/self-balanced-binary-search-trees-with-avl-tree-data-structure-for-beginners/)\n\t3. **Red-Black Trees**:  Self-balanced BST more loose than AVL to maximize insertion speed. [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/trees/red-black-tree.js) | Details\n2. **Maps**: key-value store.\n\t1. **Hash Maps**: implements map using a hash function. [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/hash-maps/hashmap.js) | [Details](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#HashMaps)\n\t2. **Tree Maps**: implement map using a self-balanced BST. WIP\n3. **Graphs**: data *nodes* that can have a connection or *edge* to zero or more adjacent nodes. Unlike trees, nodes can have multiple parents, loops. [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/graphs/graph.js) | [Details](https://adrianmejia.com/blog/2018/05/14/data-structures-for-beginners-graphs-time-complexity-tutorial/)",
+      "scale": 1,
+      "center": {
+        "x": 0,
+        "y": 0
+      },
+      "defaultPerspective": "pers-sYkm0TkQ",
+      "defaultElementBehavior": "fixed",
+      "defaultConnectionDirection": "directed",
+      "elements": [
+        {
+          "_id": "node-5tQr0JTn",
+          "position": {
+            "x": 0.2938420444329424,
+            "y": -245.7085378765175
+          },
+          "pinned": true,
+          "element": "elem-P0W5tdJF"
+        },
+        {
+          "_id": "node-6BSTZyQj",
+          "position": {
+            "x": -828.0203278578788,
+            "y": -280.05178307096736
+          },
+          "pinned": true,
+          "element": "elem-U5IcLqEX"
+        },
+        {
+          "_id": "node-80ko8DNm",
+          "position": {
+            "x": -1595.1691082870589,
+            "y": -13.18574456555474
+          },
+          "pinned": true,
+          "element": "elem-RN6cCpAs"
+        },
+        {
+          "_id": "node-85fz4UMU",
+          "position": {
+            "x": -1009.8888888888897,
+            "y": -92.55555555555543
+          },
+          "pinned": true,
+          "element": "elem-7WCA8jwe"
+        },
+        {
+          "_id": "node-94o1HCum",
+          "position": {
+            "x": -619.7603341864639,
+            "y": 790.974167885234
+          },
+          "pinned": true,
+          "element": "elem-BPSqtzdd"
+        },
+        {
+          "_id": "node-99DZ56X4",
+          "position": {
+            "x": 74.82819066909019,
+            "y": -446.18936624391415
+          },
+          "pinned": true,
+          "element": "elem-JpFTClfV"
+        },
+        {
+          "_id": "node-B0eHF46N",
+          "position": {
+            "x": -204.31583432957726,
+            "y": 433.69998376733685
+          },
+          "pinned": true,
+          "element": "elem-2i1obsmP"
+        },
+        {
+          "_id": "node-IJKiRpeV",
+          "position": {
+            "x": -800.1111111111113,
+            "y": -76.5555555555556
+          },
+          "pinned": true,
+          "element": "elem-OOjxCahT"
+        },
+        {
+          "_id": "node-NahJYUvt",
+          "position": {
+            "x": -611.1173966720867,
+            "y": -547.8584636987166
+          },
+          "pinned": true,
+          "element": "elem-1V0d2csT"
+        },
+        {
+          "_id": "node-Sl4l6ySS",
+          "position": {
+            "x": -860.0181826901855,
+            "y": 782.141557087908
+          },
+          "pinned": true,
+          "element": "elem-rYLx2odj"
+        },
+        {
+          "_id": "node-Uofq0lba",
+          "position": {
+            "x": -64.30295030748903,
+            "y": 6.18732848869417
+          },
+          "pinned": true,
+          "element": "elem-8ec0eAui"
+        },
+        {
+          "_id": "node-VkNp3X13",
+          "position": {
+            "x": -1095.1476753945808,
+            "y": 705.2904229253417
+          },
+          "pinned": true,
+          "element": "elem-knNzSjl1"
+        },
+        {
+          "_id": "node-afmTUZ2U",
+          "position": {
+            "x": -609.9994682960996,
+            "y": 542.629955861598
+          },
+          "pinned": true,
+          "element": "elem-BdZmnHXa"
+        },
+        {
+          "_id": "node-axNlDmnw",
+          "position": {
+            "x": -1435.571621505889,
+            "y": 148.66475161163942
+          },
+          "pinned": true,
+          "element": "elem-cKKpu4f6"
+        },
+        {
+          "_id": "node-co7UYy0l",
+          "position": {
+            "x": -1655.1439760987612,
+            "y": 173.20701345995877
+          },
+          "pinned": true,
+          "element": "elem-mN3BgWop"
+        },
+        {
+          "_id": "node-eaB22PIl",
+          "position": {
+            "x": -1413.4891479131552,
+            "y": -115.70991806957724
+          },
+          "pinned": true,
+          "element": "elem-xWVMvYCS"
+        },
+        {
+          "_id": "node-lLXZCSVF",
+          "position": {
+            "x": 75.53047596369821,
+            "y": 561.5140739762383
+          },
+          "pinned": true,
+          "element": "elem-YzNstnCu"
+        },
+        {
+          "_id": "node-mslJXfx7",
+          "position": {
+            "x": -930.700784986541,
+            "y": 535.358795172126
+          },
+          "pinned": true,
+          "element": "elem-9qa2EaEh"
+        },
+        {
+          "_id": "node-nuWxybjd",
+          "position": {
+            "x": -136.0046990272827,
+            "y": 652.8934885436946
+          },
+          "pinned": true,
+          "element": "elem-GmjG4113"
+        },
+        {
+          "_id": "node-pF0bVumb",
+          "position": {
+            "x": 156.29384204443295,
+            "y": -2.70853787651766
+          },
+          "pinned": true,
+          "element": "elem-fb7QKiB4"
+        },
+        {
+          "_id": "node-wLFOnKwM",
+          "position": {
+            "x": -639.3787367051906,
+            "y": -136.82109786188937
+          },
+          "pinned": true,
+          "element": "elem-lsVXVDSI"
+        }
+      ],
+      "connections": [
+        {
+          "_id": "edge-0yei5Eyv",
+          "connection": "conn-WyFH7hTU"
+        },
+        {
+          "_id": "edge-0zlGSHhE",
+          "curvature": 0.06737513283740508,
+          "connection": "conn-9m5FlHYk"
+        },
+        {
+          "_id": "edge-4mpgG5CM",
+          "connection": "conn-rkbSTcWc"
+        },
+        {
+          "_id": "edge-5n3Apjve",
+          "curvature": -0.06397306454298402,
+          "connection": "conn-TdJe5NJi"
+        },
+        {
+          "_id": "edge-BYQKVfcF",
+          "curvature": -0.1160180300104184,
+          "connection": "conn-fvSStKM3"
+        },
+        {
+          "_id": "edge-E6v8oP7L",
+          "connection": "conn-J66co79u"
+        },
+        {
+          "_id": "edge-GCZ94xUR",
+          "connection": "conn-OZtNCOos"
+        },
+        {
+          "_id": "edge-HZZLVMUZ",
+          "curvature": -0.7004513570231601,
+          "connection": "conn-8Lof8qEo"
+        },
+        {
+          "_id": "edge-Hblb8LCX",
+          "curvature": -0.41313825822042033,
+          "connection": "conn-m1upWjwp"
+        },
+        {
+          "_id": "edge-IXEpe86Q",
+          "connection": "conn-1Xm2EO1P"
+        },
+        {
+          "_id": "edge-IeU9Pj4Y",
+          "connection": "conn-sIJjxft1"
+        },
+        {
+          "_id": "edge-LxRO25BO",
+          "connection": "conn-HsdZVAG6"
+        },
+        {
+          "_id": "edge-VnhHd1BH",
+          "connection": "conn-0hBdsKaV"
+        },
+        {
+          "_id": "edge-X1Pnrr2J",
+          "curvature": 0.9826493121504574,
+          "connection": "conn-rVEH0SR1"
+        },
+        {
+          "_id": "edge-ZYaTIL7x",
+          "curvature": -0.4196816048063069,
+          "connection": "conn-Hg8yMarr"
+        },
+        {
+          "_id": "edge-ZiZWAVVb",
+          "connection": "conn-2pdNBvVI"
+        },
+        {
+          "_id": "edge-fqpbWA5e",
+          "connection": "conn-ks1N7mYk"
+        },
+        {
+          "_id": "edge-kY1CoiJT",
+          "curvature": -0.4021121520419193,
+          "connection": "conn-Cpl8qVDM"
+        },
+        {
+          "_id": "edge-qb4ccE56",
+          "connection": "conn-PwgmbNXO"
+        },
+        {
+          "_id": "edge-rPoM8i3c",
+          "curvature": -0.42568911436323215,
+          "connection": "conn-XZGa8EDV"
+        },
+        {
+          "_id": "edge-rd7hxYfR",
+          "curvature": -0.3024058825996379,
+          "connection": "conn-fxuEXuiG"
+        },
+        {
+          "_id": "edge-uLillQFs",
+          "connection": "conn-DRZ8wQIi"
+        },
+        {
+          "_id": "edge-vCrlbS98",
+          "curvature": -0.009728059454312533,
+          "connection": "conn-WQgf5R6K"
+        },
+        {
+          "_id": "edge-x77dOlhx",
+          "connection": "conn-GVAr7Bx7"
+        }
+      ],
+      "loops": []
+    }
+  ],
+  "perspectives": [
+    {
+      "_id": "pers-sYkm0TkQ",
+      "name": "DSA",
+      "style": "@settings {\n  template: systems;\n  theme: light;\n  element-color: categorize(\"Element Type\", neon2);\n  element-size: 65;\n  font-size: 31;\n}\n\n"
+    }
+  ]
+}

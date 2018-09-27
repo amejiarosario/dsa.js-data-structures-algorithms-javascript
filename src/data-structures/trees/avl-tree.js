@@ -11,7 +11,7 @@ class AvlTree extends BinarySearchTree {
    */
   add(value) {
     const node = super.add(value);
-    balanceUptream(node);
+    this.root = balanceUptream(node);
     return node;
   }
 
@@ -23,7 +23,7 @@ class AvlTree extends BinarySearchTree {
     const node = super.find(value);
     if (node) {
       const found = super.remove(value);
-      balanceUptream(node.parent);
+      this.root = balanceUptream(node.parent);
       return found;
     }
 

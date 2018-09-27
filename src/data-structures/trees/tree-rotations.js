@@ -140,18 +140,19 @@ function balance(node) {
   if (node.balanceFactor > 1) {
     // left subtree is higher than right subtree
     if (node.left.balanceFactor > 0) {
-      rightRotation(node);
+      return rightRotation(node);
     } else if (node.left.balanceFactor < 0) {
-      leftRightRotation(node);
+      return leftRightRotation(node);
     }
   } else if (node.balanceFactor < -1) {
     // right subtree is higher than left subtree
     if (node.right.balanceFactor < 0) {
-      leftRotation(node);
+      return leftRotation(node);
     } else if (node.right.balanceFactor > 0) {
-      rightLeftRotation(node);
+      return rightLeftRotation(node);
     }
   }
+  return node;
 }
 
 /**
@@ -161,10 +162,12 @@ function balance(node) {
  */
 function balanceUptream(node) {
   let current = node;
+  let newParent;
   while (current) {
-    balance(current);
+    newParent = balance(current);
     current = current.parent;
   }
+  return newParent;
 }
 
 module.exports = {
