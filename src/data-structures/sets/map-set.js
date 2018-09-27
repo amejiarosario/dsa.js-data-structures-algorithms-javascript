@@ -44,17 +44,30 @@ class MapSet {
   }
 
   /**
-   * Return all values on the set as an array
-   */
-  entries() {
-    return Array.from(this);
-  }
-
-  /**
    * Make this class iterable
    */
   * [Symbol.iterator]() {
     yield* this.map.keys();
+  }
+
+  /**
+   * Get all the values on the Set
+   * @returns {iterator} values in insertion order
+   */
+  * keys() {
+    yield* this;
+  }
+
+  /**
+   * This is kept similar to the Map object, so that each entry has the
+   *  same value for its key and value here.
+   * @returns {iterator} new Iterator object that contains[value, value]
+   *  for each element in the Set object, in ascending order.
+   */
+  * entries() {
+    for (const value of this) {
+      yield [value, value];
+    }
   }
 }
 
