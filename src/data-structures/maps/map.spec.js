@@ -22,6 +22,13 @@ mapImplementations.forEach((MapImplementation) => {
         map.set({}, 2);
         expect(map.size).toBe(2);
       });
+
+      it('should replace existing key its content', () => {
+        map.set(1, 'test1');
+        map.set(1, 'test2');
+        expect(map.size).toBe(1);
+        expect(map.get(1)).toBe('test2');
+      });
     });
 
     describe('#get', () => {

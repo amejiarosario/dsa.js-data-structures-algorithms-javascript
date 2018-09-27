@@ -134,7 +134,7 @@ describe('Binary Search Tree', () => {
         // get keys
         expect(getValues(bst.inOrderTraversal())).toEqual([1, {}, 'dos']);
         // get data
-        expect(Array.from(bst.inOrderTraversal()).map(n => n.getData())).toEqual([
+        expect(Array.from(bst.inOrderTraversal()).map(n => n.data())).toEqual([
           1,
           fn,
           2,

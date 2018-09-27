@@ -154,13 +154,16 @@ class TreeNode {
     };
   }
 
+  /**
+   * Get and Set data value
+   * @param {any} value (optional) if not provided is a getter, otherwise a setter.
+   */
   data(value) {
+    if (value === undefined) {
+      return this.meta.data;
+    }
     this.meta.data = value;
     return this;
-  }
-
-  getData() {
-    return this.meta.data;
   }
 }
 
