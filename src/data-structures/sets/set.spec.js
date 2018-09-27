@@ -1,8 +1,12 @@
 const ArraySet = require('./array-set');
 const HashSet = require('./hash-set');
-const HashMapSet = require('./hash-set-1');
+const MapSet = require('./map-set');
+const TreeSet = require('./tree-set');
 
-[HashSet, HashMapSet, ArraySet].forEach((MySet) => {
+// const setImplementations = [HashSet, MapSet, ArraySet, TreeSet, Set];
+const setImplementations = [Set, HashSet, TreeSet];
+
+setImplementations.forEach((MySet) => {
   describe(`Set (${MySet.name})`, () => {
     let set;
 
@@ -43,7 +47,7 @@ const HashMapSet = require('./hash-set-1');
       set.add(1);
       set.add(2);
       set.add(3);
-      expect(set.entries()).toEqual([1, 2, 3]);
+      expect([...set.entries()]).toEqual([[1, 1], [2, 2], [3, 3]]);
     });
 
     it('should return entries wihout holes', () => {
@@ -53,17 +57,17 @@ const HashMapSet = require('./hash-set-1');
       set.add(3);
 
       expect(set.delete(2)).toBe(true);
-      expect(set.entries()).toEqual([0, 1, 3]);
+      expect(Array.from(set.entries())).toEqual([[0, 0], [1, 1], [3, 3]]);
       expect(set.delete(0)).toBe(true);
 
-      expect(set.entries()).toEqual([1, 3]);
+      expect(Array.from(set)).toEqual([1, 3]);
       expect(set.size).toBe(2);
     });
 
     it('should initialize with data provided', () => {
       set = new MySet([1, 2, 3, 1]);
       expect(set.size).toBe(3);
-      expect(set.entries()).toEqual([1, 2, 3]);
+      expect(Array.from(set.keys())).toEqual([1, 2, 3]);
     });
 
     it('should return an iterable', () => {

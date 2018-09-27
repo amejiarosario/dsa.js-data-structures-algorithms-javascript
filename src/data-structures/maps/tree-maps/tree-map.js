@@ -1,6 +1,7 @@
 /* eslint-disable no-restricted-syntax */
-// const Tree = require('../../trees/red-black-tree'); // fast insertion
-const Tree = require('../../trees/avl-tree'); // fast lookup
+// const Tree = require('../../trees/binary-search-tree'); // unbalanced tree (slow everything)
+// const Tree = require('../../trees/avl-tree'); // fast lookup
+const Tree = require('../../trees/red-black-tree'); // fast insertion
 
 /**
  * TreeMap is a Map implementation using a self-balanced tree

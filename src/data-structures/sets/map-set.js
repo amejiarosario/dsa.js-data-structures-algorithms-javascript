@@ -1,15 +1,14 @@
-const HashMap = require('../maps/hash-maps/hashmap');
 /**
- * Set implemented with our HashMap to have sublinear times on all operations
+ * Set implemented with Map (JS built-in) to have sublinear times on all operations
  */
-class HashMapSet {
+class HashSet {
   /**
-   * Initialize (Hash)map for the set
+   * Initialize Set using the built-in Map
    *
    * @param {Array} iterable If passed, all iterable elements will be added to the new Set
    */
   constructor(iterable = []) {
-    this.hashMap = new HashMap();
+    this.hashMap = new Map();
     Array.from(iterable).forEach(element => this.add(element));
   }
 
@@ -55,9 +54,9 @@ class HashMapSet {
    * Make this class iterable
    */
   [Symbol.iterator]() {
-    return this.hashMap.keys()[Symbol.iterator]();
+    return this.hashMap.keys();
   }
 }
 
-module.exports = HashMapSet;
+module.exports = HashSet;
 

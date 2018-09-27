@@ -146,7 +146,7 @@ class HashMap {
 
     return !!bucket.remove((node) => {
       if (key === node.value.key) {
-        delete this.keysTrackerArray[node.value.order];
+        delete this.keysTrackerArray[node.value.order]; // O(1) deletion
         this.size -= 1;
         return true;
       }
