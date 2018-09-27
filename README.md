@@ -6,6 +6,9 @@ This repository covers the implementation of the most important algorithms and d
 
 This goes alone with [these posts series](https://adrianmejia.com/tags/tutorial-algorithms/) that explain each implementation in details.
 
+<iframe src="https://embed.kumu.io/85f1a4de5fb8430a10a1bf9c5118e015" width="940" height="600" frameborder="0"></iframe>
+
+
 ## Data Structures
 We are covering the following data structures.
 
