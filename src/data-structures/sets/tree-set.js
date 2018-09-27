@@ -1,5 +1,5 @@
-// const Tree = require('../trees/avl-tree');
-const Tree = require('../trees/red-black-tree');
+// const Tree = require('../trees/avl-tree'); // faster lookups
+const Tree = require('../trees/red-black-tree'); // faster insertion
 
 /**
  * TreeSet implements a Set (collection of unique values)
@@ -24,6 +24,7 @@ class TreeSet {
 
   /**
    * Add a new value (duplicates will be added only once)
+   * Runtime: O(log n)
    * @param {any} value
    */
   add(value) {
@@ -33,8 +34,10 @@ class TreeSet {
   }
 
   /**
-   * check if value is already on the set
+   * Check if value is already on the set
+   * Runtime: O(log n)
    * @param {any} value
+   * @returns {boolean} true if exists or false otherwise
    */
   has(value) {
     return !!this.tree.get(value);
@@ -42,6 +45,7 @@ class TreeSet {
 
   /**
    * Delete a value from the set
+   * Runtime: O(log n)
    * @param {any} value
    */
   delete(value) {
@@ -49,21 +53,21 @@ class TreeSet {
   }
 
   /**
-   * Get all the values on the Set
+   * Default iterator for this set
    * @returns {iterator} values in ascending order
    */
-  * keys() {
+  * [Symbol.iterator]() {
     for (const node of this.tree.inOrderTraversal()) {
       yield node.value;
     }
   }
 
   /**
-   * Default iterator for this set
+   * Get all the values on the Set
    * @returns {iterator} values in ascending order
    */
-  * [Symbol.iterator]() {
-    yield* this.keys();
+  * keys() {
+    yield* this;
   }
 
   /**

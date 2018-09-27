@@ -1,6 +1,8 @@
 const HashMap = require('../maps/hash-maps/hashmap');
+
 /**
- * Set implemented with our HashMap to have sublinear times on all operations
+ * Set implemented with our HashMap
+ * Have an average of O(1) time on all operations
  */
 class HashMapSet {
   /**
