@@ -17,6 +17,7 @@ class HashMapSet {
 
   /**
    * Add a new value (duplicates will be added only once)
+   * Avg. Runtime: O(1)
    * @param {any} value
    */
   add(value) {
@@ -24,7 +25,8 @@ class HashMapSet {
   }
 
   /**
-   * check if value is already on the set
+   * Check if value is already on the set
+   * Avg. Runtime: O(1)
    * @param {any} value
    */
   has(value) {
@@ -40,6 +42,7 @@ class HashMapSet {
 
   /**
    * Delete a value from the set
+   * Avg. Runtime: O(1)
    * @param {any} value
    */
   delete(value) {

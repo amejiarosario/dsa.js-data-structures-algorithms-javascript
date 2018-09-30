@@ -9,12 +9,12 @@ const Tree = require('../../trees/red-black-tree'); // fast insertion
  *
  * Implementing a Map with a tree, TreeMap,
  * has a couple of advantages over a HashMap:
- *    •	Keys are always sorted.
- *    •	Statistical data can be easily obtained like median,
+ *    • Keys are always sorted.
+ *    • Statistical data can be easily obtained like median,
  *        highest, lowest key.
- *    •	Collisions are not a concern so in the worst case is
+ *    • Collisions are not a concern so in the worst case is
  *        still O(log n).
- *    •	Trees are more space efficient and doesn’t need to
+ *    • Trees are more space efficient and doesn’t need to
  *        allocate memory beforehand (e.g. HashMap’s initial capacity)
  *        nor you have to rehash when is getting full.
  *

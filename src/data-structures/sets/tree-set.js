@@ -40,7 +40,7 @@ class TreeSet {
    * @returns {boolean} true if exists or false otherwise
    */
   has(value) {
-    return !!this.tree.get(value);
+    return this.tree.has(value);
   }
 
   /**
