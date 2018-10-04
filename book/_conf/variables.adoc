@@ -21,8 +21,8 @@
 :title-logo-image: image:logo.png[Logo,100,100]
 :lang: en
 :toc: left
-:toclevels: 2
-:sectnumlevels: 2
+:toclevels: 3
+:sectnumlevels: 3
 :numbered:
 :icons: font
 :icon-set: fi

@@ -1,10 +1,15 @@
+// tag::binarySearchRecursive[]
 /**
  * Recursive Binary Search
+ * Runtime: O(log n)
  *
- * @return index of the found element or -1 if not found
+ * @example
+ *  binarySearch([1, 2, 3], 2); //↪️ 1
+ *  binarySearch([1, 2, 3], 31); //↪️ -1
  * @param {array} array collection of sorted elements
  * @param {string|number} search value to search for
  * @param {number} offset keep track of array's original index
+ * @return index of the found element or -1 if not found
  */
 function binarySearchRecursive(array, search, offset = 0) {
   // split array in half
@@ -23,6 +28,7 @@ function binarySearchRecursive(array, search, offset = 0) {
   const left = array.slice(0, half);
   return binarySearchRecursive(left, search, offset);
 }
+// end::binarySearchRecursive[]
 
 /**
  * Iterative Binary Search

@@ -21,6 +21,7 @@ include::chapters/preface.adoc[]
 //
 // chapters
 //
+
 :leveloffset: +1
 
 include::chapters/algorithms-analysis.adoc[]
@@ -28,6 +29,7 @@ include::chapters/algorithms-analysis.adoc[]
 include::chapters/big-o-examples.adoc[]
 
 :leveloffset: -1
+
 //
 // end chapters
 //
