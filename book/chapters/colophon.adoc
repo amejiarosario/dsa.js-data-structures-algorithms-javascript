@@ -1,0 +1,16 @@
+[colophon]
+= Colophon
+
+{doctitle}
+
+Copyright © {docyear} Adrian Mejia
+
+All rights reserved.
+
+For online information and ordering this and other books, please visit https://adrianmejia.com[https://adrianmejia.com]. The publisher offers discounts on this book when ordered in quantity for more information contact mailto:sales@adrianmejia.com[sales@adrianmejia.com].
+
+No part of this publication maybe produced, the store in the retrieval system, or transmitted, in any form or by mean electronic, mechanical, photocopying, or otherwise, without prior written permission of the publisher.
+
+While every precaution has been taking in the preparation of this book, the publisher and author assume no responsibility for errors or omissions, or for damages resulting from the use of the information contained herein.
+
+{revremark}, {revdate}.
