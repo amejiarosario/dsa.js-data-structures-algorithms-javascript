@@ -1,0 +1,71 @@
+:author: Adrian Mejia
+:email:  me@adrianmejia.com
+
+:revdate: {docdate}
+:revnumber: 1.0
+:revremark: First Edition
+
+:doctitle: Data Structures & Algorithms: Illustrated Guide with JavaScript Examples
+:description: A guide data structures and algorithms to survive in this programming world
+:keywords: algorithms, data-structures, coding-interviews
+
+// captions
+:figure-caption:
+//:important-caption: pass:[&#f0a2;] // din't work https://github.com/asciidoctor/asciidoctor/issues/2419
+
+:copyright: CC-BY-SA 3.0
+:doctype: book
+:producer: {author}
+:creator: {author}
+:front-cover-image: images/cover.png
+:title-logo-image: image:logo.png[Logo,100,100]
+:lang: en
+:toc: left
+:toclevels: 2
+:sectnumlevels: 2
+:numbered:
+:icons: font
+:icon-set: fi
+:imagesdir: {docdir}/images
+:source-language: javascript
+
+// The valid options are coderay, highlightjs, prettify, and pygments.
+:source-highlighter: pygments
+:pygments-style: xcode
+
+:codedir: ../../src
+:datadir: {docdir}/data
+:experimental:
+:stem:
+:hide-uri-scheme:
+:chapter-label: Chapter
+:appendix-caption: Appendix
+:plantuml-config: {docdir}/_conf/umlconfig.txt
+
+ifdef::backend-html5[]
+:data-uri:
+:mathematical-format: svg
+:mathematical-ppi: 300
+endif::[]
+
+ifdef::backend-pdf[]
+:media: prepress
+:pdf-stylesdir: _resources/pdfstyles
+:pdf-style: default
+:mathematical-format: png
+endif::[]
+
+ifdef::backend-epub3[]
+:imagesdir: images
+:epub3-stylesdir: _resources/epubstyles
+:ebook-validate:
+:mathematical-format: svg
+:mathematical-ppi: 300
+endif::[]
+
+////
+Do not use ":pygments-css: class" in the block above, as this blocks
+the generation and/or display of highlighted code in EPUB output.
+Also, the ":pygments-style: xcode" is required, since by default the
+EPUB generation uses the "bw" style (i.e., black and white.)
+////

@@ -1,0 +1,30 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+# brew install plantuml glib gdk-pixbuf cairo pango cmake libxml2
+gem 'asciidoctor'
+
+gem 'pygments.rb'
+gem 'kindlegen'
+gem 'asciimath'
+gem 'asciidoctor'
+gem 'asciidoctor-diagram'
+gem 'asciidoctor-mathematical'
+gem 'epubcheck'
+
+# --pre
+gem 'asciidoctor-pdf'
+gem 'asciidoctor-epub3'
+
+# cd ~/Library/Fonts; \
+# curl -LO http://mirrors.ctan.org/fonts/cm/ps-type1/bakoma/ttf/cmex10.ttf \
+#      -LO http://mirrors.ctan.org/fonts/cm/ps-type1/bakoma/ttf/cmmi10.ttf \
+#      -LO http://mirrors.ctan.org/fonts/cm/ps-type1/bakoma/ttf/cmr10.ttf \
+#      -LO http://mirrors.ctan.org/fonts/cm/ps-type1/bakoma/ttf/cmsy10.ttf \
+#      -LO http://mirrors.ctan.org/fonts/cm/ps-type1/bakoma/ttf/esint10.ttf \
+#      -LO http://mirrors.ctan.org/fonts/cm/ps-type1/bakoma/ttf/eufm10.ttf \
+#      -LO http://mirrors.ctan.org/fonts/cm/ps-type1/bakoma/ttf/msam10.ttf \
+#      -LO http://mirrors.ctan.org/fonts/cm/ps-type1/bakoma/ttf/msbm10.ttf

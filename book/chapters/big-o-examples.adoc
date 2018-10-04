@@ -1,0 +1,44 @@
+= Eight Running Times You Should Know
+
+There are many kinds of algorithms. Most of them falls into one of the time complexities that we are going to explore in this chapter.
+
+.Most common time complexities
+- Constant time: _O(1)_
+- Logarithmic time: _O(log n)_
+- Linear time: _O(n)_
+- Linearithmic time: _O(n log n)_
+- Quadratic time: _O(n^2^)_
+- Cubic time: _O(n^3^)_
+- Exponential time: _O(2^n^)_
+- Factorial time: _O(n!)_
+
+We a going to provide examples for each one of them.
+
+Before we dive in, here’s a plot with all of them.
+
+.CPU operations vs Algorithm runtime as the input size grows
+image:image5.png[CPU time needed vs Algorithm runtime as the input size grows]
+
+This graph shows how the algorithm running time affects the CPU work as the input size grows. As you can see O(1) and O(log n) are very scalable. However, O(n^2^) and worst can make your computer burn 🔥 on large data sets. We are going to give some examples so you can identify each one.
+
+== Constant O(1)
+
+Represented as *O(1)*, it means that regardless of the input size the number of operations executed is always the same. Let’s see an example
+
+=== Finding if an array is empty
+
+Let's implement a function that find out if an array is empty or not.
+
+//.is-empty.js
+//image:image6.png[image,width=528,height=401]
+
+[source, javascript]
+----
+include::{codedir}/runtimes/01-is-empty.js[tag=isEmpty]
+----
+
+As you can see if thing is an array of 10 elements or an array of 10M elements it would take the same amount of time to execute. It doesn’t get any more performant than this!
+
+== Summary
+
+Aliquip nisi sint esse exercitation anim irure. Ipsum ea aute nulla sit ullamco voluptate enim adipisicing est consectetur. Fugiat id aliquip ex dolore ex dolor nostrud.

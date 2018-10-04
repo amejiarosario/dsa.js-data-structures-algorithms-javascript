@@ -1,0 +1,42 @@
+include::_conf/variables.adoc[]
+
+= {doctitle}
+
+// remove numbering from titles, and sub-titles e.g. 1.1
+:sectnums!:
+
+include::chapters/colophon.adoc[]
+
+// Abstract and Dedication MUST have a level-0 heading in EPUB and Kindle
+// but level-1 in PDF and HTML
+ifndef::backend-epub3[:leveloffset: +1]
+include::chapters/dedication.adoc[]
+ifndef::backend-epub3[:leveloffset: -1]
+
+include::chapters/preface.adoc[]
+
+// add sections to chapters
+:sectnums:
+
+//
+// chapters
+//
+:leveloffset: +1
+
+include::chapters/algorithms-analysis.adoc[]
+
+include::chapters/big-o-examples.adoc[]
+
+:leveloffset: -1
+//
+// end chapters
+//
+
+include::chapters/epigraph.adoc[]
+
+include::chapters/appendix.adoc[]
+
+ifdef::backend-pdf[]
+//include::chapters/index.adoc[]
+endif::[]
+

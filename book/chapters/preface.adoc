@@ -1,0 +1,35 @@
+[preface]
+= Preface
+
+This book is intended for programmers who wants to go deeper into understanding the most common data structures and algorithms.
+Even tough you can use them without knowing how they work, it gives you a tool for analyzing trade-offs. If something is slow you would know what changes to make and how to analyze the code for better performance.
+
+The concepts on this book can be applied to any programming language. However, instead of doing examples on pseudo-code we are going to use JavaScript to implement the examples. JavaScript is the lingua franca of the web and nowdays is growing its usages in the backend, IOT and others.
+
+The following admonitions are used to hightlight content
+
+IMPORTANT: Reword important concepts. Good for memorizing, tweeting and sharing.
+
+.Side Note with Title
+[NOTE]
+====
+Side notes. E.g. provide language specific: BigInt, charCodeAt...
+[source,javascript]
+----
+function a(test) {
+  return `${test}`;
+}
+----
+====
+
+Raw:
+
+NOTE: NOTE
+
+TIP: TIP
+
+IMPORTANT: IMPORTANT
+
+CAUTION: CAUTION
+
+WARNING: WARNING
