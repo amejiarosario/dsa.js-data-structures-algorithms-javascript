@@ -1,3 +1,182 @@
 = Array
 
-Velit pariatur magna cillum sunt et qui exercitation reprehenderit aliqua ut ad. Do id magna id cillum magna fugiat quis enim velit proident esse. Lorem consequat veniam sint amet non occaecat consectetur minim do ut id sint dolore pariatur.
+Arrays in one of the most used data structure. It’s a collection of things (strings, characters, numbers, objects, etc.). They can be many or zero. Strings are a collection of Unicode characters and most of the array concepts apply to them.
+
+.Fixed vs Dynamic Size Arrays
+****
+Some programming languages has fixed size arrays like Java and C++. Fixed size arrays might be wasteful when you array gets filled and you have to create a new one with bigger size. For that, those programming languages also have built-in dynamic arrays: we have `vector` in C++ and `ArrayList` in Java. Dynamic programming languages like JavaScript, Ruby, Python use dynamic arrays by default.
+****
+
+Arrays look like this:
+
+.Array representation: each value is accessed through an index.
+image:image16.png[image,width=388,height=110]
+
+Arrays are a sequential collection of elements that can be accessed randomly using an index. Let’s take a look into the different operations that we can do with arrays.
+
+== Insertion
+
+Arrays are built-in into most languages. Inserting element in an array is you can either:
+
+.Inserting elements into an array
+[source, javascript]
+----
+// (1) Add elements at the creation time:
+const array = [2, 5, 1, 9, 6, 7];
+
+// (2) initialize the array (empty) and values later
+const array0 = [];
+array0[2] = 1;
+----
+
+Using the index, you would replace whatever value was there.
+
+=== Inserting at the beginning of the array
+
+What if you want to insert a new element at the beginning of the array? You would have to push every element to the right.
+
+.Insert to head
+[source, javascript]
+----
+array.unshift(0); //=> [0, 2, 5, 1, 9, 6, 7]
+----
+
+As you can see 2 was the index 0, now was pushed to index 1, and everything else was pushed out. This takes *O(n)* since it affects all the elements in the array.
+
+.JavaScript built-in `array.unshift`
+****
+The `unshift()` method adds one or more elements to the beginning of an array and returns the new length of the array. Runtime: O(n).
+****
+
+=== Inserting at the middle of the array
+
+Inserting a new element in the middle involves moving part of the array but not all of the items.
+
+.Inserting element in the middle
+[source, javascript]
+----
+array.splice(1, 0, 111); // <1>
+----
+<1> at the position 1, delete 0 elements and insert 111. The array would be `[2, 111, 5, 1, 9, 6, 7]`
+
+The Big O for this operation would be *O(n)*, since in worst case it would move most of the elements to the right.
+
+.JavaScript built-in `array.splice`
+****
+The `splice()` method changes the contents of an array by removing existing elements and/or adding new elements. Runtime: O(n).
+****
+
+=== Inserting at the end of the array
+
+We can push new values to the end of the array like this:
+
+.Insert to tail
+[source, javascript]
+----
+const array = [2, 5, 1, 9, 6, 7];
+array.push(4); // <1>
+----
+<1> The `4` element would be pushed to the end `[2, 5, 1, 9, 6, 7, 4]`.
+
+Adding to the tail of the array doesn’t change other indexes. E.g. element 2 is still at index 0. So, this is a constant time operation *O(1)*.
+
+.JavaScript built-in `array.push`
+****
+The `push()` method adds one or more elements to the end of an array and returns the new length of the array. Runtime: O(1).
+****
+
+== Searching by value and index
+
+Searching by index is very easy using the `[]` operator:
+
+.Search by index
+[source, javascript]
+----
+const array = [2, 5, 1, 9, 6, 7];
+array[4]; //↪️ 6
+----
+
+This is takes a constant time, *O(1)*, to retrieve values out of the array. If we want to get fancier we can create a function:
+
+// image:image17.png[image,width=528,height=293]
+
+.Search by index
+[source, javascript]
+----
+include::{codedir}/data-structures/arrays/array.js[tag=searchByIndex]
+----
+
+Finding out if an element is in the array or not is a different story.
+
+// image:image18.png[image,width=528,height=338]
+
+.Search by value
+[source, javascript]
+----
+include::{codedir}/data-structures/arrays/array.js[tag=searchByValue]
+----
+
+We would have to loop through the whole array (worst case) or until we find it. This takes *O(n)*.
+
+== Deletion
+
+Deleting like insertion there are three possible scenarios, deleting at the beginning, middle or end.
+
+=== Deleting element from the beginning
+
+Deleting from beginning can be done using the splice funtion and also the shift. Let’s use the latter since it’s simpler:
+
+.Deleting from the beginning of the array.
+[source, javascript]
+----
+array.shift(); //=> [5, 1, 9, 6, 7]
+----
+
+As expected, this will make every index to change, so this takes *O(n)*.
+
+.JavaScript built-in array.shift
+****
+The `shift()` method removes the first element from an array and returns that removed element. This method changes the length of the array. Runtime: O(n).
+****
+
+
+=== Deleting element from the middle
+
+We can use the splice operator for this
+
+.Deleting from the middle
+[source, javascript]
+----
+array.splice(2, 1); // delete 1 element at position 2
+// => array: [2, 5, 9, 6, 7]
+----
+
+This might cause most the elements of the array to move and occupied the deleted position. Thus, runtime: O(n).
+
+=== Deleting element from the end
+
+Removing the last element is very straightforward:
+
+.Deleting last element from the array
+[source, javascript]
+----
+array.pop(); // => array: [2, 5, 1, 9, 6]
+----
+
+No element other element has be shifted so it’s a O(1) runtime.
+
+.JavaScript built-in `array.pop`
+****
+The `pop()` method removes the last element from an array and returns that element. This method changes the length of the array. Runtime: O(1).
+****
+
+== Array Complexity
+
+To sum up, the time complexity on an array is:
+
+.Time complexity of array operations
+|===
+.2+.^s| Data Structure 2+^s| Searching By 3+^s| Inserting at the 3+^s| Deleting from .2+.^s| Space Complexity
+|_Index/Key_ |_Value_ |_beginning_ |_middle_ |_end_ |_beginning_ |_middle_ |_end_
+| Array ^|O(1) ^|O(n) ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(n) ^|O(1) ^|O(n)
+|===
