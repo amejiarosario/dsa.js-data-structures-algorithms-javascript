@@ -20,7 +20,8 @@ all: html raw_html pdf
 
 manpage: _build/book.1
 
-html: _build/book.html
+html:
+	asciidoctor ${HTML} ${REQUIRES} ${OUTPUT_FOLDER} --out-file=${OUTPUT}.html ${INPUT}.adoc; \
 
 raw_html: _build/raw_book.html
 
@@ -47,9 +48,6 @@ clean:
 
 _build/book.1:
 	asciidoctor ${MANPAGE} ${OUTPUT_FOLDER} --out-file=${OUTPUT}.1 ${INPUT}.adoc; \
-
-_build/book.html:
-	asciidoctor ${HTML} ${REQUIRES} ${OUTPUT_FOLDER} --out-file=${OUTPUT}.html ${INPUT}.adoc; \
 
 _build/raw_book.html:
 	asciidoctor ${RAW_HTML} ${REQUIRES} ${OUTPUT_FOLDER} --out-file=raw_${OUTPUT}.html ${INPUT}.adoc; \
