@@ -1,3 +1,4 @@
+// tag::snippet[]
 /**
  * Node with reference to next and previous element
  */
@@ -8,5 +9,6 @@ class Node {
     this.previous = null;
   }
 }
+// end::snippet[]
 
 module.exports = Node;

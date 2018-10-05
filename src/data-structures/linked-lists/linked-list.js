@@ -1,6 +1,7 @@
 const Node = require('./node');
 const util = require('util');
 
+// tag::constructor[]
 /**
  * Doubly linked list that keeps track of
  * the last and first element
@@ -11,6 +12,7 @@ class LinkedList {
     this.last = null; // last element of the list
     this.size = 0; // total number of elements in the list
   }
+// end::constructor[]
 
   /**
    * Alias for size
@@ -19,6 +21,7 @@ class LinkedList {
     return this.size;
   }
 
+  // tag::addFirst[]
   /**
    * Adds element to the begining of the list. Similar to Array.unshift
    * Runtime: O(1)
@@ -40,7 +43,9 @@ class LinkedList {
 
     return newNode;
   }
+  // end::addFirst[]
 
+  // tag::addLast[]
   /**
    * Adds element to the end of the list (tail). Similar to Array.push
    * Using the element last reference instead of navigating through the list,
@@ -65,7 +70,9 @@ class LinkedList {
 
     return newNode;
   }
+  // end::addLast[]
 
+  // tag::addMiddle[]
   /**
    * Insert new element at the given position (index)
    *
@@ -74,29 +81,31 @@ class LinkedList {
    * @returns {Node} new node or 'undefined' if the index is out of bound.
    */
   add(value, position = 0) {
-    if (position === 0) {
+    if (position === 0) { // <1>
       return this.addFirst(value);
     }
 
-    if (position === this.size) {
+    if (position === this.size) { // <2>
       return this.addLast(value);
     }
-
+    // Adding element in the middle
     const current = this.get(position);
     if (current) {
-      const newNode = new Node(value);
-      newNode.previous = current.previous;
-      newNode.next = current;
+      const newNode = new Node(value); // <3>
+      newNode.previous = current.previous; // <4>
+      newNode.next = current; // <5>
 
-      current.previous.next = newNode;
-      if (current.next) { current.next.previous = newNode; }
+      current.previous.next = newNode; // <6>
+      if (current.next) { current.next.previous = newNode; } // <7>
       this.size += 1;
       return newNode;
     }
 
     return undefined; // out of bound index
   }
+  // end::addMiddle[]
 
+  // tag::searchByValue[]
   /**
    * Search by value. It finds first occurrence  of
    * the element matching the value.
@@ -112,7 +121,9 @@ class LinkedList {
       return undefined;
     });
   }
+  // end::searchByValue[]
 
+  // tag::searchByIndex[]
   /**
    * Search by index
    * Runtime: O(n)
@@ -127,6 +138,7 @@ class LinkedList {
       return undefined;
     });
   }
+  // end::searchByIndex[]
 
   /**
    * Iterate through the list until callback returns thruthy
@@ -145,6 +157,8 @@ class LinkedList {
     return undefined; // not found
   }
 
+
+  // tag::removeFirst[]
   /**
    * Removes element from the start of the list (head/root).
    * Similar to Array.shift
@@ -165,7 +179,9 @@ class LinkedList {
     }
     return head && head.value;
   }
+  // end::removeFirst[]
 
+  // tag::removeLast[]
   /**
    * Removes element to the end of the list. Similar to Array.pop
    * Using the `last.previous` we can reduce the runtime from O(n) to O(1)
@@ -186,7 +202,9 @@ class LinkedList {
     }
     return tail && tail.value;
   }
+  // end::removeLast[]
 
+  // tag::removeByPosition[]
   /**
    * Removes the element at the specified position in this list.
    * Runtime: O(n)
@@ -208,6 +226,7 @@ class LinkedList {
 
     return current && current.value;
   }
+  // end::removeByPosition[]
 
   /**
    * Removes the first occurrence of the specified elementt

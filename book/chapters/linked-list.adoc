@@ -1,3 +1,281 @@
 = Linked List
 
-Dolore laboris ipsum consequat proident anim consequat id anim Lorem ut occaecat adipisicing excepteur nostrud. Ipsum proident culpa et quis id commodo dolore et aliquip tempor reprehenderit. Consectetur laboris cillum officia aliqua qui incididunt ea deserunt ex sint laboris amet velit in. Consectetur ad pariatur cupidatat ut aute eiusmod magna eu exercitation est est sint tempor. Culpa incididunt fugiat cillum Lorem excepteur id et fugiat amet officia proident proident. Incididunt cupidatat reprehenderit magna occaecat ex adipisicing id est reprehenderit cupidatat ut ipsum irure.
+A list (or Linked List) is a linear data structure similar to array in the sense it stores a collection of data. The difference, though, is that it doesn’t use indexes.
+
+== Singly Linked List
+
+Each element or node is *linked* to the next one by a reference field. This called *singly linked list*:
+
+.Singly Linked List Representation: each node has a reference (blue arrow) to the next one.
+image:image19.png[image,width=498,height=97]
+
+
+Usually, a list is represented by the first element in the list called *head*. For instance, if you want to get the “cat” element, then the only way is get there is using the next field on the head node. You would get “dog” , then use again then next field and finally you get a “cat”.
+
+== Doubly Linked List
+
+When you have also a reference to the previous element, then we have a *doubly linked list*.
+
+.Doubly Linked List: each node has a reference to the next and previous element.
+image:image20.png[image,width=528,height=74]
+
+If we implement the code for the Node elements, it would be something like this:
+
+// image:image21.png[image,width=528,height=285]
+
+.Linked List Node
+[source, javascript]
+----
+include::{codedir}/data-structures/linked-lists/node.js[tag=snippet]
+----
+
+== Linked List vs Array
+
+Since Linked Lists doesn’t have indexes you have to start from the *first* element of the list, often called *root* or *head*. From the root node, you follow the next reference recursively until you find the node you are looking for or the end of the list. This takes O(n) to get an element. You might be wondering… isn’t an array more efficient with O(1) access time? It depends…
+
+Arrays pre-allocates contiguous blocks of memory and if it outgrew that, it has to copy all over to a bigger space. LinkedList’s nodes has pointers. They don’t have to be next to each other nor large chunks of memory have been reserved. Linked List is more like “grow as you go”.
+
+Another advantage, is that adding/deleting at the beginning on an array it takes O(n), however, in the linked list is a constant operation O(1) as we will implement later.
+
+A drawback of a linked list is that if you want to insert/delete an element at the end of the list, you would have to navigate the whole list to find the last one O(n). However, this can be solve by keeping track of the last element and then inserting to the end or beginning is constant: O(1).
+
+So, let’s get started implementing the linked list.
+
+
+== Implementing a Linked List
+
+We are going to implement a doubly linked list. First, let's start with the constructor.
+
+// image:image22.png[image,width=528,height=251]
+
+.Linked List's constructor
+[source, javascript]
+----
+include::{codedir}/data-structures/linked-lists/linked-list.js[tag=constructor]
+
+  // ... methods go here ...
+}
+----
+
+
+In our constructor we keep a reference of the first (and last node for performance reasons).
+
+
+== Insertion
+
+Similar to the array we have could add elements at the beginning, end or anywhere in the middle of the list.
+
+=== Inserting element at the beginning of the list
+
+We are going to use the Node class to create a new element and stick it at the beginning and make it your first.
+
+.Insert at the beginning by linking the new node with the current first node.
+image:image23.png[image,width=498,height=217]
+
+
+To insert at the beginning, we create a new node with the next reference to the current first node. Then we make first the new node. In code, it would look something like this:
+
+
+.Linked List's add to the beginning of the list
+[source, javascript]
+----
+include::{codedir}/data-structures/linked-lists/linked-list.js[tag=addFirst, indent=0]
+----
+
+As you can see, we create a new node and make it the first one.
+
+
+=== Inserting element at the end of the list
+
+Appending an element at the end of the list can be done very efficient if we have a pointer to the last element in the list. Otherwise, you would have to iterate through the whole list.
+
+.Add last: get last node and reference next with the newly created node. Then, update the last pointer.
+image:image24.png[image,width=498,height=208]
+
+
+In code:
+
+.Linked List's add to the end of the list
+[source, javascript]
+----
+include::{codedir}/data-structures/linked-lists/linked-list.js[tag=addLast, indent=0]
+----
+
+If there’s no element in the list yet, the first and last node would be the same. If there’s, then, we go to the last one and add a reference next to the new node. That’s it! This is a constant time for both cases: *O(1)*.
+
+
+=== Inserting element at the middle of the list
+
+For inserting an element at the middle of the list you would need specify the position (index) in the list. Then, you create the new node and update the references to it.
+
+Let’s do an example, with a doubly linked list. We want to insert the “new” node in the 2^nd^ position.
+
+.Inserting node in the middle of a doubly linked list.
+image:image25.png[image,width=528,height=358]
+
+
+.Inserting "new" node in the middle of the list:
+1.  Create the “new” node
+2.  Point the “new” node next reference to the current element in the 2^nd^ position and previous to the node in the 1^st^ position. However, no other node is pointing to it in the list. Let’s fix that.
+3.  Change 1^st^ node next reference from “dog” to “new”.
+4.  Change “dog” node previous reference from “art” to “new”.
+
+Let’s work in the code to do this:
+
+.Linked List's add to the middle of the list
+[source, javascript]
+----
+include::{codedir}/data-structures/linked-lists/linked-list.js[tag=addMiddle, indent=0]
+----
+<1> Adding `newNode` to the beginning if position is 0.
+<2> Adding `newNode` to the end if position is the last one.
+<3> Adding `newNode` to the middle. First, create the “new” node.
+<4> Set `newNode` previous link.
+<5> Set `newNode` next link. However, no other node in the list is pointing to `newNode`. Let's fix that.
+<6> Make the previous element point to `newNode`.
+<7> Make the next element point to `newNode`.
+
+
+Take notice that we reused, addFirst and addLast functions. For all the other cases the insertion is on the middle. We use current.previous.next and current.next.previous to update the surrounding elements references with the new node. This one takes *O(n)* because we have to iterate through the list.
+
+
+== Searching by value
+
+Finding an element by value there’s no other way than iterating through the whole list.
+
+.Linked List's searching by values
+[source, javascript]
+----
+include::{codedir}/data-structures/linked-lists/linked-list.js[tag=searchByValue, indent=0]
+----
+
+If we find the element the method will return the index otherwise undefined. Runtime: O(n).
+
+== Searching by index
+
+Searching by index is very similar, we iterate throught the list until we find the element that matches the position.
+
+.Linked List's searching by index (position)
+[source, javascript]
+----
+include::{codedir}/data-structures/linked-lists/linked-list.js[tag=searchByIndex, indent=0]
+----
+
+If there’s no match, we return undefined then. The runtime is O(n). As you might notice the search by index and by position methods looks pretty similar. If you want to take a look at the refactored version check out: https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/linked-lists/linked-list.js
+
+== Deletion
+
+Deleting is an interesting one. We don’t actually delete an element, we just remove all reference to it. Let’s go case by case to explore what happens.
+
+=== Deleting element from the head
+
+Deleting the first element (or head) is just removing all references to it.
+
+.Deleting an element from the head of the list
+image:image26.png[image,width=528,height=74]
+
+
+For instance, to remove the head (“art”) node, you assign first to the second node “dog” and remove the previous reference to the “art” node. The garbage collector will take care of “art”, when it sees nobody is using it anymore.
+
+In code, it looks like this:
+
+
+.Linked List's remove from the beginning of the list
+[source, javascript]
+----
+include::{codedir}/data-structures/linked-lists/linked-list.js[tag=removeFirst, indent=0]
+----
+
+
+As you can see, when we want to remove the first node
+
+=== Deleting element from the tail
+
+Removing the last element from the list would require to iterator from the head until we find the last one, that’s O(n). We have a reference to the last element, which we do! So, we can do it in O(1).
+
+image:image27.png[image,width=528,height=221]
+
+Figure 11 - Removing last element from the list using the last reference.
+
+For instance, if we want to remove last node “cat”. We use the last pointer to avoid iterating through the whole list. We check last.previous to get the “dog” node and made it the new last and remove its next reference to “cat”. Since, nothing is pointing to “cat” then is out of the list.
+
+Let’s code this up like this:
+
+
+
+
+.Linked List's remove from the end of the list
+[source, javascript]
+----
+include::{codedir}/data-structures/linked-lists/linked-list.js[tag=removeLast, indent=0]
+----
+
+
+
+
+
+The code is very similar to removeFirst, but instead of first we update last reference and instead of nullifying previous we nullify its next reference.
+
+=== Deleting element from the middle
+
+To remove a node from the middle, we make the surrounding nodes to bypass the one we want to delete.
+
+image:image28.png[image,width=528,height=259]
+
+Figure 12 - Remove middle node making their surrounding nodes bypass the node we want to remove.
+
+In the illustration, we are removing the middle node “dog” by making art’s next to be cat and cat’s previous to be “art” totally bypassing “dog”.
+
+Let’s implement it:
+
+.Linked List's remove from the middle of the list
+[source, javascript]
+----
+include::{codedir}/data-structures/linked-lists/linked-list.js[tag=removeByPosition, indent=0]
+----
+
+
+Notice that we are using the get method to get the node at the current position. That method loops throught the list until it found the node at the specified position. This is an O(n).
+
+== Linked List Complexity vs Array Complexity
+
+So far, we have seen two liner data structures with different use cases. Here’s a summary:
+
+
+.Big O cheat sheet for Linked List and Array
+|===
+.2+.^s| Data Structure 2+^s| Searching By 3+^s| Inserting at the 3+^s| Deleting from .2+.^s| Space Complexity
+|_Index/Key_ |_Value_ |_beginning_ |_middle_ |_end_ |_beginning_ |_middle_ |_end_
+| Array ^|O(1) ^|O(n) ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(n) ^|O(1) ^|O(n)
+| Linked List (singly) ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(1) ^|O(1) ^|O(n) ^|*O(n)* ^|O(n)
+| Linked List (doubly) ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(1) ^|O(1) ^|O(n) ^|*O(1)* ^|O(n)
+|===
+
+If you compare singly linked list vs doubly linked list, you will notice that main difference is deleting elements from the end. For a singly list is *O(n)*, while for a doubly list is *O(1)*.
+
+Comparing an array with a doubly linked list, both have different use cases:
+
+Use arrays when…
+
+* You want to access *random* elements by numeric key or index in constant time O(1).
+* Arrays can be single dimensional, two-dimensional and multi-dimensional.
+
+Use a doubly linked lists when…
+
+* You want to access elements in a *sequential* manner.
+
+* Lists can be singly, doubly and circular (last element points to the first one).
+
+* You want to insert elements at the start and end of the list. Linked list has O(1) while array has O(n).
+* You want to save some memory when dealing with possibly large data sets. Arrays pre-allocate a large chunk of contiguous memory on initialization. Lists are more “grow as you go”.
+
+For the next two linear data structures Stack and Queue, we are going to use doubly linked list to implement them. We could use an array as well but since inserting/deleting from the start perform better on linked-list we are going use that.
+
+
+
+
+
+
+
+
+
