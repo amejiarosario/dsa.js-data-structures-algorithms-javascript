@@ -22,11 +22,81 @@ include::chapters/preface.adoc[]
 // chapters
 //
 
+= Algorithms Analysis
+
+include::chapters/algorithms-analysis-intro.adoc[]
+
 :leveloffset: +1
 
 include::chapters/algorithms-analysis.adoc[]
 
 include::chapters/big-o-examples.adoc[]
+
+:leveloffset: -1
+
+= Linear Data Structures
+
+include::chapters/linear-data-structures-intro.adoc[]
+
+:leveloffset: +1
+
+include::chapters/array.adoc[]
+
+include::chapters/linked-list.adoc[]
+
+include::chapters/stack.adoc[]
+
+include::chapters/queue.adoc[]
+
+:leveloffset: -1
+
+= Non-Linear Data Structures
+
+include::chapters/non-linear-data-structures-intro.adoc[]
+
+:leveloffset: +1
+
+include::chapters/graph.adoc[]
+
+include::chapters/tree.adoc[]
+
+include::chapters/binary-search-tree.adoc[]
+
+include::chapters/avl-tree.adoc[]
+
+include::chapters/red-black-tree.adoc[]
+
+include::chapters/heap.adoc[]
+
+include::chapters/trie.adoc[]
+
+include::chapters/map.adoc[]
+
+include::chapters/set.adoc[]
+
+:leveloffset: -1
+
+= Algorithms
+
+include::chapters/algorithms-intro.adoc[]
+
+:leveloffset: +1
+
+// Slow Sorting
+
+include::chapters/selection-sort.adoc[]
+
+include::chapters/insertion-sort.adoc[]
+
+include::chapters/bubble-sort.adoc[]
+
+// Fast Sorting
+
+include::chapters/merge-sort.adoc[]
+
+include::chapters/quick-sort.adoc[]
+
+include::chapters/tim-sort.adoc[]
 
 :leveloffset: -1
 
