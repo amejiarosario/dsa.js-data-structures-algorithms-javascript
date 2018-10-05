@@ -12,6 +12,9 @@ GEM
       asciidoctor (~> 1.5.0)
       gepub (~> 0.6.9.2)
       thread_safe (~> 0.3.6)
+    asciidoctor-html5s (0.1.0.beta.9)
+      asciidoctor (~> 1.5.5)
+      thread_safe (~> 0.3.4)
     asciidoctor-mathematical (0.2.2)
       asciidoctor (~> 1.5, >= 1.5.0)
       mathematical (~> 1.5, >= 1.5.8)
@@ -88,6 +91,7 @@ DEPENDENCIES
   asciidoctor
   asciidoctor-diagram
   asciidoctor-epub3
+  asciidoctor-html5s
   asciidoctor-mathematical
   asciidoctor-pdf
   asciimath

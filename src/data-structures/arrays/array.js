@@ -33,32 +33,34 @@ array.splice(2, 1); // delete 1 element at position 2
 array.pop(); // => array: [2, 5, 1, 9, 6]
 
 
-
+// tag::searchByIndex[]
 /**
  * Search for array's element by index
  *
+ * @example Given array = [2, 5, 1, 9, 6, 7];
+ *    searchByIndex(array, 3); //↪️ 9
+ *    searchByIndex(array, 13); //↪️ -1
  * @param {array} array
  * @param {number} index
  * @returns {any} value or -1 if not found
- * @example Given array = [2, 5, 1, 9, 6, 7];
- *    searchByIndex(array, 3) => 9
- *    searchByIndex(array, 13) => -1
  */
 function searchByIndex(array, index) {
   return array[index] || -1;
 }
+// end::searchByIndex[]
 
 assert.equal(searchByIndex(array, 3), 9);
 assert.equal(searchByIndex(array, 13), -1);
 
+// tag::searchByValue[]
 /**
  * Search for array's element by value
  *
+ * @example Given array = [2, 5, 1, 9, 6, 7];
+ *    searchByValue(array, 9); //↪️ 3
+ *    searchByValue(array, 13); //↪️ -1
  * @param {array} array
  * @param {any} value
- * @example Given array = [2, 5, 1, 9, 6, 7];
- *    searchByValue(array, 9) => 3
- *    searchByValue(array, 13) => -1
  */
 function searchByValue(array, value) {
   for (let index = 0; index < array.length; index++) {
@@ -67,6 +69,7 @@ function searchByValue(array, value) {
   }
   return -1;
 }
+// end::searchByValue[]
 
 assert.equal(searchByValue(array, 9), 3);
 assert.equal(searchByValue(array, 13), -1);

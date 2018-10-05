@@ -4,7 +4,7 @@
   "description": "Algorithms in JS",
   "main": "./src/data-structures/graphs/graph.js",
   "dependencies": {
-    "lodash": "4.17.10"
+    "lodash": "4.17.10",
   },
   "devDependencies": {
     "benchmark": "2.1.4",
@@ -12,7 +12,8 @@
     "eslint-config-airbnb-base": "12.1.0",
     "eslint-plugin-import": "2.12.0",
     "eslint-plugin-jest": "21.17.0",
-    "jest": "23.6.0"
+    "jest": "23.6.0",
+    "textlint-plugin-asciidoctor": "1.0.2"
   },
   "scripts": {
     "test": "jest src/data-structures # jest # mocha src/**/*spec.js # jasmine JASMINE_CONFIG_PATH=jasmine.json # node jasmine-runner.js",

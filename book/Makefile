@@ -4,6 +4,7 @@ OUTPUT = book
 # OUTPUT = book-$(date +%Y-%m-%d)
 DIAGRAM = --require=asciidoctor-diagram
 MATH = --require=asciidoctor-mathematical
+# HTML5S = --require=asciidoctor-html5s --backend=html5
 REQUIRES = ${DIAGRAM} ${MATH}
 OUTPUT_FOLDER = --destination-dir=${DIR}
 MANPAGE = --backend=manpage
@@ -24,6 +25,10 @@ html:
 
 raw_html:
 	asciidoctor ${RAW_HTML} ${REQUIRES} ${OUTPUT_FOLDER} --out-file=raw_${OUTPUT}.html ${INPUT}.adoc; \
+
+# https://github.com/jirutka/asciidoctor-html5s
+# html5s:
+# 	asciidoctor ${HTML5S} ${OUTPUT_FOLDER} --out-file=${OUTPUT}.html ${INPUT}.adoc; \
 
 # https://github.com/asciidoctor/asciidoctor-pdf/blob/master/docs/theming-guide.adoc
 # check _resources/pdfstyles
@@ -47,7 +52,7 @@ kindle:
 	fi; \
 
 stats:
-	wc -w chapters/*.adoc
+	wc -w chapters/*.adoc | sort -n \
 
 clean:
 	if [ -d ".asciidoctor" ]; \

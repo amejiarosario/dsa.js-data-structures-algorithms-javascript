@@ -1,4 +1,12 @@
 [partintro]
 --
-Exercitation non pariatur amet mollit nulla ut dolore nostrud. Amet officia nostrud exercitation ullamco reprehenderit aliquip nostrud esse est deserunt consequat et consectetur sit. Occaecat et irure elit ut elit. Cillum minim incididunt reprehenderit amet proident eu eu ullamco mollit qui.
+Non-linear data structure organize data differently. Instead of one data point leading to the next one, it would have many others. This is the case for Graphs and Trees.
+
+.In this section we are going to graph-based data structures:
+* Graph
+* Tree
+* Map
+* Set
+
+By the end of it, you will know the data structures trade-offs and when to use one over the other.
 --

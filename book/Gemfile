@@ -18,6 +18,7 @@ gem 'epubcheck'
 # --pre
 gem 'asciidoctor-pdf'
 gem 'asciidoctor-epub3'
+gem 'asciidoctor-html5s' # gem install --pre asciidoctor-html5s
 
 # cd ~/Library/Fonts; \
 # curl -LO http://mirrors.ctan.org/fonts/cm/ps-type1/bakoma/ttf/cmex10.ttf \
