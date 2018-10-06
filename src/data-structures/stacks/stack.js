@@ -66,6 +66,5 @@ stack.add('c');
 stack.remove(); //↪️ c
 stack.remove(); //↪️ a
 // end::snippet[]
-
 //*/
 

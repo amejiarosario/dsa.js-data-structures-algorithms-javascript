@@ -1,3 +1,104 @@
 = Queue
 
-Culpa et aute magna quis consequat. Deserunt duis veniam officia quis sunt ullamco occaecat adipisicing. Nostrud adipisicing duis eiusmod ullamco ea irure nisi culpa non. Amet Lorem est Lorem aliquip cupidatat eu cupidatat fugiat aliquip.
+Queue is a linear data structure where the data flows in a *First-In-First-Out* (FIFO) manner.
+
+.Queue data structure is like a line of people: the First-in, is the First-out
+image:image30.png[image,width=528,height=171]
+
+
+Queue is like a line of people, the first one to get in the line is the first out as well. Similar to the stack, we only have to operations. In a Queue, we insert elements to the back of the list and remove it from the front.
+
+We could use an array or a linked list to implement a Queue. However, is recommended to only use linked list. An array has a runtime of O(n) to remove element from the start while a list is constant O(1).
+
+.Queue's constructor
+[source, javascript]
+----
+include::{codedir}/data-structures/queues/queue.js[tag=constructor]
+  // ... methods goes here ...
+}
+----
+
+
+
+We initialize the Queue creating a linked list. Now, let’s add the enqueue and dequeue methods.
+
+== Insertion
+
+For enqueue, we add elements to the back of the list:
+
+.Queue's enqueue
+[source, javascript]
+----
+include::{codedir}/data-structures/queues/queue.js[tag=enqueue, indent=0]
+----
+
+
+== Deletion
+
+For dequeue, we remove elements from the front of the list:
+
+.Queue's dequeue
+[source, javascript]
+----
+include::{codedir}/data-structures/queues/queue.js[tag=dequeue, indent=0]
+----
+
+For this operation we use the Linked List `addLast` method.
+
+== Implementation usage
+
+We can use our Queue class like follows:
+
+.Queue usage example
+[source, javascript]
+----
+include::{codedir}/data-structures/queues/queue.js[tag=snippet, indent=0]
+----
+
+You can see that the items are dequeue in the same order they were added. For this operation we use the Linked List `removeFirst` method.
+
+== Queue Complexity
+
+A mode of experiment we can see in the following table that if we would have implemented the Queue using an array it’s enqueue time would be O(n) instead of O(1). Check it out.
+
+
+.Time complexity for queue operations
+|===
+.2+.^s| Data Structure 2+^s| Searching By 3+^s| Inserting at the 3+^s| Deleting from .2+.^s| Space Complexity
+|_Index/Key_ |_Value_ |_beginning_ |_middle_ |_end_ |_beginning_ |_middle_ |_end_
+| Queue (w/array) ^|- ^|- ^|- ^|- ^|*O(n)* ^|- ^|- ^|O(1) ^|O(n)
+| Queue (w/list) ^|- ^|- ^|- ^|- ^|O(1) ^|- ^|- ^|O(1) ^|O(n)
+|===
+
+
+= Summary
+
+In this chapter we explored the most used linear data structures such as Arrays, Lists, Stacks and Queues. We implemented them and discussed the runtime of their operations.
+
+To sum up,
+
+.Use Arrays when…
+* You need to access data in random order fast (using an index).
+* Your data is multi-dimensional (e.g. matrix, tensor).
+
+.Use Linked Lists when…
+* You will access your data sequentially.
+* You want to save memory and only allocate memory as you need it.
+
+.Use Queues when…
+* You need to access your data in a first-come, first-served basis.
+
+.Use Stacks when…
+* You need to access your data first-in, last-out (FIFO)
+
+.Time Complexity of Linear Data Structures (Array, LinkedList, Stack & Queues)
+|===
+.2+.^s| Data Structure 2+^s| Searching By 3+^s| Inserting at the 3+^s| Deleting from .2+.^s| Space Complexity
+|_Index/Key_ |_Value_ |_beginning_ |_middle_ |_end_ |_beginning_ |_middle_ |_end_
+| <<Array>> ^|O(1) ^|O(n) ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(n) ^|O(1) ^|O(n)
+| <<Singly Linked List>> ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(1) ^|O(1) ^|O(n) ^|*O(n)* ^|O(n)
+| <<Doubly Linked List>> ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(1) ^|O(1) ^|O(n) ^|*O(1)* ^|O(n)
+| <<Stack>> ^|- ^|- ^|- ^|- ^|O(1) ^|- ^|- ^|O(1) ^|O(n)
+| Queue (w/array) ^|- ^|- ^|- ^|- ^|*O(n)* ^|- ^|- ^|O(1) ^|O(n)
+| <<Queue>> (w/list) ^|- ^|- ^|- ^|- ^|O(1) ^|- ^|- ^|O(1) ^|O(n)
+|===
