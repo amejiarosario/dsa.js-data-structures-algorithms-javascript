@@ -2,9 +2,9 @@
 
 Stack is a data structure that restrict the way you add and remove data to it. It only allows you to insert and remove in a *Last-In-First-Out* (LIFO) fashion. It has multiple
 
+.Stack data structure is like a stack of disks: last element in, is the first element out
 image:image29.png[image,width=240,height=238]
 
-Figure 13 – Stack data structure is like a stack of disks: last element in, is the first element out
 
 // #Change image from https://www.khanacademy.org/computing/computer-science/algorithms/towers-of-hanoi/a/towers-of-hanoi[Khan Academy]#
 
