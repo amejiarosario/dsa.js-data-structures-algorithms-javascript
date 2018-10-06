@@ -1,3 +1,74 @@
 = Stack
 
-Sint quis magna mollit pariatur culpa consectetur sunt deserunt elit. Qui Lorem in in magna dolor labore. Officia in ipsum non in amet aliquip elit consequat dolore laborum dolore officia et.
+Stack is a data structure that restrict the way you add and remove data to it. It only allows you to insert and remove in a *Last-In-First-Out* (LIFO) fashion. It has multiple
+
+image:image29.png[image,width=240,height=238]
+
+Figure 13 – Stack data structure is like a stack of disks: last element in, is the first element out
+
+// #Change image from https://www.khanacademy.org/computing/computer-science/algorithms/towers-of-hanoi/a/towers-of-hanoi[Khan Academy]#
+
+You can think of it as a stack of disks that you put into a rod. If you insert the disks in the order `5`, `4`, `3`, `2`, `1`. Then you can remove them on `1`, `2`, `3`, `4`, `5`.
+
+The stack inserts to the end of the list and also removes from the end. Both, an array and linked list would do it in constant time. However, since we don’t need the Array’s random access in the data a linked list sequential data makes more sense.
+
+.Stack's constructor
+[source, javascript]
+----
+include::{codedir}/data-structures/stacks/stack.js[tag=constructor]
+  // ... methods goes here ...
+}
+----
+
+As you can see in the stack constructutor, we are usinga  linked list as the underlying data structure.
+
+Let's now develop the insert and remove operations in a stack.
+
+== Insertion
+
+We can insert into an stack using the linked list’s addLast.
+
+.Stack's add
+[source, javascript]
+----
+include::{codedir}/data-structures/stacks/stack.js[tag=add, indent=0]
+----
+
+We are returning this, in case we want to chain multiple add commands.
+
+== Deletion
+
+Deleting is straightforward as well.
+
+.Stack's remove
+[source, javascript]
+----
+include::{codedir}/data-structures/stacks/stack.js[tag=remove, indent=0]
+----
+
+This time we used linked list’s removeLast. That’s all we need for a stack implementation. Check out the full file at https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/stacks/stack.js
+
+== Implementation Usage
+
+We can use our stack implementation as follows:
+
+.Stack usage example
+[source, javascript]
+----
+include::{codedir}/data-structures/stacks/stack.js[tag=snippet, indent=0]
+----
+
+As you can see if we add new items they will be the first to go out to honor LIFO.
+
+== Stack Complexity
+
+Implementing the stack with an array and linked list would lead to the same time complexity:
+
+.Time complexity for the stack operations
+|===
+.2+.^s| Data Structure 2+^s| Searching By 3+^s| Inserting at the 3+^s| Deleting from .2+.^s| Space Complexity
+|_Index/Key_ |_Value_ |_beginning_ |_middle_ |_end_ |_beginning_ |_middle_ |_end_
+| Stack ^|- ^|- ^|- ^|- ^|O(1) ^|- ^|- ^|O(1) ^|O(n)
+|===
+
+It's not very common to search for values on a stack (other DS can do it better), usually you only check the value when you remove it. This specially useful for implementing <<Depth First Search>>.
