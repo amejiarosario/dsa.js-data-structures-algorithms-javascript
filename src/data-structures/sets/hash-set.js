@@ -1,4 +1,4 @@
-const HashMap = require('../maps/hash-maps/hashmap');
+const HashMap = require('../maps/hash-maps/hash-map');
 
 /**
  * Set implemented with our HashMap
