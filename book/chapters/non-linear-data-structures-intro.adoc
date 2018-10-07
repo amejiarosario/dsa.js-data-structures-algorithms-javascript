@@ -1,22 +1,12 @@
 [partintro]
 --
-Non-linear data structure organize data differently. Instead of one data point leading to the next one, it would have many others. This is the case for Graphs and Trees.
+Non-Linear data structures are everywhere weather we realize it or not. They are used in databases, Web (HTML DOM tree), search algorithms, finding best route to get home and so on. We are going to learn the basic concepts and when to choose one over the other.
 
-.In this section we are going to graph-based data structures:
-* Graph
-* Tree
-* Map
-* Set
+.In this chapter we are going to learn:
+- Exciting <<Graph>> data structure applications
+- Searching efficiently with a <<Tree>> data structures.
+- One of the most versatile data structure of all <<HashMaps>>.
+- Keeping dups out with a <<Sets>>.
 
-By the end of it, you will know the data structures trade-offs and when to use one over the other.
-
-#Fix description#
-
-This is a general view of how the data structures are related
-+++
-<iframe
-  src="https://embed.kumu.io/85f1a4de5fb8430a10a1bf9c5118e015"
-  width="940" height="600" frameborder="0"></iframe>
-+++
-
+By the end of this section, you will know the data structures trade-offs and when to use one over the other.
 --

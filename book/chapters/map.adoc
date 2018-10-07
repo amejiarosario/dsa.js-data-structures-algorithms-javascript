@@ -1,3 +1,7 @@
 = Map
 
-Labore ea in excepteur dolore culpa ipsum nostrud reprehenderit excepteur. Tempor qui consectetur minim aliquip dolor amet tempor do duis. Aute dolore fugiat dolore velit proident reprehenderit incididunt minim. Commodo magna cillum laboris esse culpa minim duis laboris proident amet id do nisi laborum. Ut Lorem labore aute ex proident reprehenderit magna veniam est enim elit. Ut minim nulla dolor consequat et ex consequat eiusmod consectetur nostrud aliquip.
+A map is a data structure to store pairs of data: *key* and *value*. In an array, you can only store values. The array’s key is always the position index. However, in a *Map* the key can be whatever you want.
+
+Map is a data structure that _maps_ *keys* to *values*.
+
+Many languages have maps already built-in. This is an example in JavaScript/Node:

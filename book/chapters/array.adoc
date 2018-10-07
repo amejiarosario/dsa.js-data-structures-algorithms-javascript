@@ -177,6 +177,6 @@ To sum up, the time complexity on an array is:
 .Time complexity for the array operations
 |===
 .2+.^s| Data Structure 2+^s| Searching By 3+^s| Inserting at the 3+^s| Deleting from .2+.^s| Space Complexity
-|_Index/Key_ |_Value_ |_beginning_ |_middle_ |_end_ |_beginning_ |_middle_ |_end_
+^|_Index/Key_ ^|_Value_ ^|_beginning_ ^|_middle_ ^|_end_ ^|_beginning_ ^|_middle_ ^|_end_
 | Array ^|O(1) ^|O(n) ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(n) ^|O(1) ^|O(n)
 |===
