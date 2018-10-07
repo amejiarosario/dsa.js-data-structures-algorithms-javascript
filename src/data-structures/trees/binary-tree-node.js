@@ -1,3 +1,4 @@
+// tag::snippet[]
 /**
  * Binary Tree Node
  */
@@ -8,5 +9,6 @@ class BinaryTreeNode {
     this.right = null;
   }
 }
+// end::snippet[]
 
 module.exports = BinaryTreeNode;

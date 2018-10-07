@@ -1,6 +1,6 @@
 = Graph
 
-Aliqua non cillum quis ipsum tempor eiusmod. Cillum reprehenderit occaecat in veniam. Est anim proident duis reprehenderit sit nisi aute laborum esse quis consectetur id consectetur. Laborum occaecat consequat exercitation culpa sunt et aliqua voluptate anim.
+Non-linear data structure organize data differently. Instead of one data point leading to the next one, it would lead to many others forming graphs and trees.
 
 == Depth First Search
 

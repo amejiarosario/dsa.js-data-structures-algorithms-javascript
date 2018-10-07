@@ -1,10 +1,12 @@
 const LEFT = 0;
 const RIGHT = 1;
 
+// tag::snippet[]
 class TreeNode {
   constructor(value) {
     this.value = value;
     this.descendents = [];
+    // end::snippet[]
     this.parent = null;
     this.parentSide = null;
     this.meta = {};

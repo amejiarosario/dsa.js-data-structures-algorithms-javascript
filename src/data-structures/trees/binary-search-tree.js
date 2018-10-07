@@ -1,13 +1,15 @@
 const TreeNode = require('./tree-node');
 const Queue = require('../queues/queue');
 const Stack = require('../stacks/stack');
-
+// tag::snippet[]
 class BinarySearchTree {
   constructor() {
     this.root = null;
     this.size = 0;
   }
+  // end::snippet[]
 
+  // tag::add[]
   /**
    * Insert value on the BST.
    * If the value is already in the tree, t
@@ -18,9 +20,9 @@ class BinarySearchTree {
     const newNode = new TreeNode(value);
 
     if (this.root) {
-      const { found, parent } = this.findNodeAndParent(value);
+      const { found, parent } = this.findNodeAndParent(value); // <1>
       if (found) { // duplicated: value already exist on the tree
-        found.meta.multiplicity = (found.meta.multiplicity || 1) + 1;
+        found.meta.multiplicity = (found.meta.multiplicity || 1) + 1; // <2>
       } else if (value < parent.value) {
         parent.left = newNode;
       } else {
@@ -33,14 +35,7 @@ class BinarySearchTree {
     this.size += 1;
     return newNode;
   }
-
-  /**
-   * Return node if it found it or undefined if not
-   * @param {any} value value to find
-   */
-  find(value) {
-    return this.findNodeAndParent(value).found;
-  }
+  // end::add[]
 
   /**
    * Find if a node is present or not
@@ -51,11 +46,21 @@ class BinarySearchTree {
     return !!this.find(value);
   }
 
+  // tag::find[]
+  /**
+   * @param {any} value value to find
+   * @returns {any} node if it found it or undefined if not
+   */
+  find(value) {
+    return this.findNodeAndParent(value).found;
+  }
+
+
   /**
    * Finds the node matching the value.
    * If it doesn't find, it returns the leaf where the new value should be added.
    * @param {any} value Node's value to find
-   * @returns {TreeNode} matching node or the previous node where value should go
+   * @returns {object} node and its parent like {node, parent}
    */
   findNodeAndParent(value, node = this.root, parent = null) {
     if (!node || node.value === value) {
@@ -65,6 +70,7 @@ class BinarySearchTree {
     }
     return this.findNodeAndParent(value, node.right, node);
   }
+  // end::find[]
 
   /**
    * Get the node with the max value of subtree: the right-most value.
@@ -78,6 +84,7 @@ class BinarySearchTree {
     return this.getMax(node.right);
   }
 
+  // tag::leftMost[]
   /**
    * Get the node with the min value of subtree: the left-most value.
    * @param {TreeNode} node subtree's root
@@ -89,26 +96,29 @@ class BinarySearchTree {
     }
     return this.getMin(node.left);
   }
+  // end::leftMost[]
 
+
+  // tag::remove[]
   /**
    * Remove a node from the tree
    * @returns {boolean} false if not found and true if it was deleted
    */
   remove(value) {
-    const { found: nodeToRemove, parent } = this.findNodeAndParent(value);
+    const { found: nodeToRemove, parent } = this.findNodeAndParent(value); // <1>
 
-    if (!nodeToRemove) return false;
+    if (!nodeToRemove) return false; // <2>
 
     // Combine left and right children into one subtree without nodeToRemove
-    const removedNodeChildren = this.combineLeftIntoRightSubtree(nodeToRemove);
+    const removedNodeChildren = this.combineLeftIntoRightSubtree(nodeToRemove); // <3>
 
-    if (nodeToRemove.meta.multiplicity && nodeToRemove.meta.multiplicity > 1) {
+    if (nodeToRemove.meta.multiplicity && nodeToRemove.meta.multiplicity > 1) { // <4>
       nodeToRemove.meta.multiplicity -= 1; // handles duplicated
-    } else if (nodeToRemove === this.root) {
+    } else if (nodeToRemove === this.root) { // <5>
       // Replace (root) node to delete with the combined subtree.
       this.root = removedNodeChildren;
       if (this.root) { this.root.parent = null; } // clearing up old parent
-    } else {
+    } else { // <6>
       const side = nodeToRemove.isParentLeftChild ? 'left' : 'right';
       // Replace node to delete with the combined subtree.
       parent[side] = removedNodeChildren;
@@ -117,7 +127,9 @@ class BinarySearchTree {
     this.size -= 1;
     return true;
   }
+  // end::remove[]
 
+  // tag::combine[]
   /**
    * Combine left into right children into one subtree without given parent node.
    *
@@ -145,6 +157,7 @@ class BinarySearchTree {
     }
     return node.left;
   }
+  // end::combine[]
 
   /**
    * Breath-first search for a tree (always starting from the root element).
