@@ -2,6 +2,12 @@
 
 A map is a data structure to store pairs of data: *key* and *value*. In an array, you can only store values. The array’s key is always the position index. However, in a *Map* the key can be whatever you want.
 
-Map is a data structure that _maps_ *keys* to *values*.
+IMPORTANT: Map is a data structure that _maps_ *keys* to *values*.
 
 Many languages have maps already built-in. This is an example in JavaScript/Node:
+
+.JavaScript Built-in Map Usage
+[source, javascript]
+----
+include::{codedir}/data-structures/linked-lists/linked-list.js[tag=addFirst, indent=0]
+----
