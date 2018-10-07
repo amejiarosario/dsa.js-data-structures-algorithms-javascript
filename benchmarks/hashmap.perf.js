@@ -113,7 +113,7 @@ function useBenchmark() {
   const HashMapSmallBucket = require('../src/data-structures/hash-maps/hash-map-2');
   const HashMap3 = require('../src/data-structures/hash-maps/hash-map-3');
   const HashMap4 = require('../src/data-structures/hash-maps/hash-map-4');
-  const HashMap = require('../src/data-structures/hash-maps/hashmap');
+  const HashMap = require('../src/data-structures/hash-maps/hash-map');
 
   // // Map (built-in) x 2,257 ops/sec ±2.42% (75 runs sampled)
   // suite.add('Map (built-in)', function() {
