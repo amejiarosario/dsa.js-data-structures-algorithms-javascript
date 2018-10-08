@@ -9,5 +9,405 @@ Many languages have maps already built-in. This is an example in JavaScript/Node
 .JavaScript Built-in Map Usage
 [source, javascript]
 ----
-include::{codedir}/data-structures/linked-lists/linked-list.js[tag=addFirst, indent=0]
+include::{codedir}/data-structures/maps/map.js[tag=snippet, indent=0]
 ----
+
+The attractive part of Maps is that they are very performant usually *O(1)* or *O(log n)* depending on the implementation. We can implement the maps using two different techniques:
+
+* *HashMap*: it’s a map implementation using an *array* and *hash function*. The job of the hash function is to convert the key into an index that contains the matching data. Optimized HashMap can have an average runtime of *O(1)*.
+* *TreeMap*: it’s a map implementation that uses a self-balanced Binary Search Tree (red-black tree). The BST nodes store the key and the value and nodes are sorted by key to guarantee an *O(log n)* look up.
+
+== HashMap vs TreeMap
+
+Here are the key differences:
+
+* HashMap is more time-efficient. A TreeMap is more space-efficient.
+* TreeMap search complexity is *O(log n)*, while an optimized HashMap is *O(1)* on average. 
+* HashMap’s keys are in insertion order (or random in some implementations). TreeMap’s keys are always sorted.
+* TreeMap offers some statistical data for free such as: get minimum, get maximum, median, find ranges of keys. HashMap doesn’t.
+* TreeMap has a guarantee always a *O(log n)*, while HashMaps has a amortized time of *O(1)* but in the rare case of a rehash it would take a *O(n)*.
+
+== Learning how hash maps work
+
+A HashMap is composed of two things: 1) a hash function and 2) a bucket array to store values. Before going into the implementation details let’s give an overview how it works. Let’s say we want to keep a tally of things:
+
+.JavaScript Built-in Map Usage
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/hash-maps/hash-map.js[tag=snippet, indent=0]
+----
+
+How are keys map to their values? Here’s an illustration:
+
+.HashMap representation. Keys are mapped to values using a hash function.
+image:image41.png[image,width=528,height=299]
+
+
+.This is the main idea:
+1.  We use a *hash function* to transform the keys (e.g. dog, cat, rat, …) into an array index. This array is called *bucket*.
+2.  The bucket holds the values (linked list in case of collisions).
+
+In the illustration, we have a bucket size of 10. In the bucket 0, we have a collision. Both, cat and art keys are mapped to the same bucket even thought their hash codes are different.
+
+In a HashMap, a *collision* is when different keys are mapped to the same index. They are bad for performance since it can reduce the search time from *O(1)* to *O(n)*.
+
+Having a big bucket size can avoid collision but also can waste too much memory. We are going to build an _optimized_ HashMap that re-sizes itself when is getting full. This avoid collisions and doesn’t waste too much memory upfront. Let’s start with the hash function.
+
+=== Designing an optimized hash function
+
+In order to minimize collisions, we need to create a great hash function.
+
+A *perfect* hash function is one that assign a unique array index for every different key.
+
+It’s hard and memory-wise wasteful to have a perfect has function so we are going to shot for a great hash function. To recap:
+
+A hash function converts keys into array indices.
+
+A hash function is composed of two parts:
+
+1.  *Hash Code*: maps any key into an integer (unbonded)
+2.  *Compression function*: maps an arbitrary integer to integer in the range of [0… BUCKET_SIZE -1].
+
+==== Analysing collisions on bad hash code functions
+
+The goal of a hash code function is to convert any value given into a positive integer. A common way to accomplish with summing each string’s Unicode value.
+
+.Naïve hashing function implementation
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/hash-maps/hashing.js[tag=naiveHashCode, indent=0]
+----
+
+
+This function uses codePointAt to get the Unicode value. E.g. a has a value of 97, A is 65, even https://en.wikipedia.org/wiki/Emoji#Unicode_blocks[emojis have codes]; “[big]#😁#” is `128513`.
+
+.JavaScript built-in `string.charCodeAt` and `string.codePointAt`
+****
+The `charCodeAt()` method returns an integer between `0` and `65535` representing the UTF-16 code unit at the given index. However, it doesn’t play nice with Unicode, so it’s better to use `codePointAt` instead.
+
+The `codePointAt()` method returns a non-negative integer that is the Unicode code point value.
+****
+With this function we have the can convert some keys to numbers as follows:
+
+.Hashing examples
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/hash-maps/hashing.js[tag=naiveHashCodeExamples, indent=0]
+----
+
+Notice that rat and art have the same hash code! These are collisions that we need to solve.
+
+This happened because we just summing the character's codes and are not taking the order into account nor the type. We can do better by offsetting the character value based on their position in the string and appending the type into the calculation.
+
+.Hashing function implementation that offset character value based on the position
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/hash-maps/hashing.js[tag=hashCodeOffset, indent=0]
+----
+
+Since Unicode uses 20 bits, we can offset each character by 20 bits based on the position.
+
+.JavaScript built-in `BigInt`
+****
+BigInt allows to operate beyond the maximum safe limit of integers (Number.MAX_SAFE_INTEGER => 9,007,199,254,740,991). BigInt uses the suffix n, e.g. 1n + 3n === 4n.
+****
+
+As you can imagine the output is a humongous number! We are using `BigInt` that doesn’t overflow.
+
+.Hashing examples
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/hash-maps/hashing.js[tag=hashCodeOffsetExample, indent=0]
+----
+
+We don’t have duplicates if the keys have different content or type. However, we need to represent these unbounded integers. We do that using *compression function* they can be as simple as `% BUCKET_SIZE`.
+
+However, there’s an issue with the last implementation. It doesn’t matter how big is the number (we are using BigInt), if we at the end use the modulus to get an array index, then the part of the number that truly matters is the last bits. Also, the modulus itself is much better if is a prime number.
+
+.Look at this example with a bucket size of 4.
+[source, javascript]
+----
+10 % 4 //↪️ 2
+20 % 4 //↪️ 0
+30 % 4 //↪️ 2
+40 % 4 //↪️ 0
+50 % 4 //↪️ 2
+----
+
+We get many collisions. 😱
+
+.Let’s see what happens if the bucket size is a prime number:
+[source, javascript]
+----
+10 % 7 //↪️ 3
+20 % 7 //↪️ 6
+30 % 7 //↪️ 2
+40 % 7 //↪️ 4
+50 % 7 //↪️ 1
+----
+
+Now it’s more evenly distributed!! [big]#😎👍#
+
+.So, to sum up:
+* Bucket size should always be a *prime number* so data is distributed more evenly and minimized collisions.
+* Hash code doesn’t have to be too big. At the end what matters is the few last digits.
+
+Let’s design a better HashMap with what we learned.
+
+==== Implementing an optimized hash function
+
+Take a look at the following function
+
+.Optimal Hash function
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/hash-maps/hash-map.js[tag=hashFunction, indent=0]
+----
+
+Is somewhat similar to what we did before, in the sense that we use each letter’s Unicode is used to compute the hash. The difference is:
+
+1.  We are using a the XOR bitwise operation (^) to produce an *avalanche effect*, where a small change in two strings produces completely different hash codes. E.g.
+
+.Hash Code example using FVN1a
+[source, javascript]
+----
+hashCode('cat') //↪️ 4201630708
+hashCode('cats') //↪️ 3304940933
+----
+
+.Fowler/Noll/Vo (FNV) Hash
+****
+It is a non-cryptographic hash function designed to be fast while maintaining low collision rate. The high dispersion of the FNV hashes makes them well suited for hashing nearly identical strings such as URLs, keys, IP addresses, zip codes and others.
+****
+
+1.  We are using FVN-1a prime numbers and offset to reduce collisions even further. Check the https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function[link] to see where this prime numbers and offsets come from.
+
+This hash function is a good trade-off between speed and collision prevention.
+
+Now that we have a good hash function. Let’s move on with the rest of the HashMap implementation.
+
+== Implementing a HashMap in JavaScript
+
+Let’s start by creating a class and its constructor to initialize the hash map. We want an array called *buckets* to hold all the data.
+
+.HashMap's constructor
+[source, javascript]
+----
+class HashMap {
+include::{codedir}/data-structures/maps/hash-maps/hash-map.js[tag=constructorPartial, indent=2]
+    this.buckets = new Array(this.initialCapacity);
+    this.size = 0;
+    this.collisions = 0;
+  }
+
+include::{codedir}/data-structures/maps/hash-maps/hash-map.js[tag=getLoadFactor, indent=2]
+
+}
+----
+
+Notice that we are also keeping track of collisions (just for benchmarking purposes) and a load factor. *The load factor* measures how full the hash map is. We don’t want to be fuller than the 75%. After that we are going to do something called *rehash*.
+
+=== Inserting elements in a HashMap
+
+To insert values into a HashMap we first convert the *key* into *an array index* using the hashFunction. Each bucket of the array has linked list to hold the values.
+
+There are multiple scenarios for inserting key/values in a HashMap:
+
+1.  Key doesn’t exist yet, we will add the new key/value.
+2.  Key already exists, we will update the value and we are done.
+3.  Key doesn’t exist, but the bucket already has other data, this is a collision. Using the linked list, we would push another element to it.
+
+In code it looks like this:
+
+.HashMap's set method
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/hash-maps/hash-map.js[tag=set, indent=0]
+----
+
+Notice, that we are using a function called getEntry to check if the key already exists. We are going to implement that function next.
+
+=== Rehashing the HashMap
+
+The idea of rehashing is to double the size when the map is getting full so the collisions are minimized. When we double the size, we try to find the next prime. We explained that keeping the bucket size a prime number is beneficial for minimizing collisions.
+
+.HashMap's rehash method
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/hash-maps/hash-map.js[tag=rehash, indent=0]
+----
+
+The algorithms for finding next prime is implemented https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/hash-maps/primes.js[here] and you can find the full HashMap implementation on this file: https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/hash-maps/hashmap.js
+
+=== Getting values out of a HashMap
+
+For getting values out of the Map, we do something similar to inserting. We convert the key into an index using the hash function.
+
+.HashMap's getEntry method
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/hash-maps/hash-map.js[tag=getEntry, indent=0]
+----
+
+Later, we use the https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/linked-lists/linked-list.js[find method] of the linked list to get the node with the matching key. With getEntry, we can also define get and has method.
+
+.HashMap's get method
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/hash-maps/hash-map.js[tag=get, indent=0]
+----
+
+For has we only care if the defined or not, while that for get we want to return the value or undefined if it doesn’t exist.
+
+=== Deleting from a HashMap
+
+Removing items from a HashMap not too different from what we did before:
+
+.HashMap's delete method
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/hash-maps/hash-map.js[tag=delete, indent=0]
+----
+
+If the bucket doesn’t exist or is empty we are done. If the value exists we use the https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/linked-lists/linked-list.js[remove method] from the linked list.
+
+== HashMap time complexity
+
+Hash Map it’s very optimal for searching values by key *O(1)**. However, searching values directly is not any better than an array since we have to visit every value *O(n)*.
+
+.Time complexity for a Binary Search Tree (BST)
+|===
+.2+.^s| Data Structure 2+^s| Searching By .2+^.^s| Insert .2+^.^s| Delete .2+^.^s| Space Complexity
+^|_Index/Key_ ^|_Value_
+| Hash Map (naïve) ^|O(n) ^|O(n) ^|O(n) ^|O(n) ^|O(n)
+| Hash Map (optimized) ^|O(1)* ^|O(n) ^|O(1)* ^|O(1)* ^|O(1)*
+|===
+{empty}* = Amortized run time. E.g. rehashing might affect run time.
+
+As you can notice we have amortized times, since in the unfortunate case of a rehash, it will take O(n) while it resizes. After that it will be on average *O(1)*.
+
+The full HashMap implementation with comments can be found on: https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/hash-maps/hashmap.js
+
+== Implementing a TreeMap
+
+Implementing a Map with a tree, TreeMap, has a couple of advantages over a HashMap:
+
+* Keys are always sorted.
+* Statistical data can be easily obtained like median, highest, lowest key.
+* Collisions are not a concern so in the worst case is still *O(log n)*.
+* Trees are more space efficient and doesn’t need to allocate memory beforehand (e.g. HashMap’s initial capacity) nor you have to rehash when is getting full.
+
+Ok, now that you know the advantages, let’s implement it! For a full comparison read the link:#hashmap-vs-treemap[HashMap vs TreeMap] section again.
+
+Let’s get started with the basic functions. They have the same interface as the HashMap (but obviously the implementation is different).
+
+class TreeMap \{
+
+constructor()\{}
+
+set(key, value) \{}
+
+get(key) \{}
+
+has(key) \{}
+
+delete(key) \{}
+
+}
+
+=== Inserting values into a TreeMap
+
+For inserting a value on a TreeMap, we first need to inialize the tree:
+
+class TreeMap \{
+
+constructor() \{
+
+this.tree = new Tree();
+
+}
+
+}
+
+The tree, can be an instance of any Binary Search Tree that we implemented so far. However, for better performance it should be a self-balanced tree like a https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/trees/red-black-tree.js[Red-Black Tree] or https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/trees/avl-tree.js[AVL Tree].
+
+set(key, value) \{
+
+return this.tree.add(key).data(value);
+
+}
+
+get size() \{
+
+return this.tree.size;
+
+}
+
+Adding values is very easy (once we have the implementation).
+
+=== Getting values out of a TreeMap
+
+We search by key which takes *O(log n)* on balanced trees.
+
+get(key) \{
+
+const node = this.tree.get(key) || undefined;
+
+return node && node.getData();
+
+}
+
+has(key) \{
+
+return !!this.get(key);
+
+}
+
+One side effect of storing keys in a tree is that they can be retrieve in order.
+
+* [Symbol.iterator]() \{
+
+yield* this.tree.inOrderTraversal();
+
+}
+
+* keys() \{
+
+for (const node of this) \{
+
+yield node.value;
+
+}
+
+}
+
+We can use the *in-order traversal* for a BST.
+
+=== Deleting values from a TreeMap
+
+Removing elements from TreeMap is simple.
+
+delete(key) \{
+
+return this.tree.remove(key);
+
+}
+
+The BST implementation does all the heavy lifting.
+
+That’s basically it! To see the full file in context, click here: https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/maps/tree-maps/tree-map.js[https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/maps/tree-maps/tree-map.js]
+
+== TreeMap Time complexity vs HashMap
+
+As we discussed so far, there are trade-off between the implementations
+
+[cols=",,,,,",options="header",]
+|=============================================================================
+|Data Structure |Searching by |Insert |Delete |Space Complexity |
+| |_Index/Key_ |_Value_ | | |
+|Hash Map (Imperfect) |*O(n)* |*O(n)* |*O(n)* |*O(n)* |*O(n)*
+|Hash Map (optimized) |*O(1)** |*O(n)* |*O(1)** |*O(1)** |*O(n)*
+|Tree Map (Red-Black Tree) |*O(log n)* |*O(n)* |*O(log n)* |*O(log n)* |*O(n)*
+|=============================================================================
+
+* = Amortized time. E.g. When rehashing is due it would take *O(n)*.
