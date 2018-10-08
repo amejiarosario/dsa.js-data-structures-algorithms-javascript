@@ -13,6 +13,7 @@ const { nextPrime } = require('./primes');
  * - It may have one null key and multiple null values.
  */
 class HashMap {
+  // tag::constructorPartial[]
   /**
    * Initialize array that holds the values.
    * @param {number} initialCapacity initial size of the array (should be a prime)
@@ -22,6 +23,7 @@ class HashMap {
   constructor(initialCapacity = 19, loadFactor = 0.75) {
     this.initialCapacity = initialCapacity;
     this.loadFactor = loadFactor;
+    // end::constructorPartial[]
     this.reset();
   }
 
@@ -39,6 +41,7 @@ class HashMap {
     this.keysTrackerIndex = keysTrackerIndex;
   }
 
+  // tag::hashFunction[]
   /**
    * Polynomial hash codes are used to hash String typed keys.
    * It uses FVN-1a hashing algorithm for 32 bits
@@ -55,7 +58,9 @@ class HashMap {
     }
     return (hash >>> 0) % this.buckets.length;
   }
+  // end::hashFunction[]
 
+  // tag::getEntry[]
   /**
    * Find an entry inside a bucket.
    *
@@ -84,7 +89,10 @@ class HashMap {
     });
     return { bucket, entry };
   }
+  // end::getEntry[]
 
+
+  // tag::set[]
   /**
    * Insert a key/value pair into the hash map.
    * If the key is already there replaces its content.
@@ -109,7 +117,9 @@ class HashMap {
     }
     return this;
   }
+  // end::set[]
 
+  // tag::get[]
   /**
    * Gets the value out of the hash map
    * Avg. Runtime: O(1)
@@ -120,6 +130,8 @@ class HashMap {
     const { entry } = this.getEntry(key);
     return entry && entry.value;
   }
+  // end::get[]
+
 
   /**
    * Search for key and return true if it was found
@@ -133,6 +145,7 @@ class HashMap {
     return entry !== undefined;
   }
 
+  // tag::delete[]
   /**
    * Removes the specified element from a Map object.
    * Avg. Runtime: O(1)
@@ -153,10 +166,13 @@ class HashMap {
       return undefined;
     });
   }
+  // end::delete[]
 
+  // tag::getLoadFactor[]
   /**
    * Load factor - measure how full the Map is.
    * It's ratio between items on the map and total size of buckets
+   * @returns {number} load factor ratio
    */
   getLoadFactor() {
     return this.size / this.buckets.length;
@@ -164,11 +180,14 @@ class HashMap {
 
   /**
    * Check if a rehash is due
+   * @returns {boolean} true if is beyond load factor, false otherwise.
    */
   isBeyondloadFactor() {
     return this.getLoadFactor() > this.loadFactor;
   }
+  // end::getLoadFactor[]
 
+  // tag::rehash[]
   /**
    * Rehash means to create a new Map with a new (higher)
    *  capacity with the purpose of outgrow collisions.
@@ -193,6 +212,8 @@ class HashMap {
       newArrayKeys.length,
     );
   }
+  // end::rehash[]
+
 
   /**
    * Keys for each element in the Map object in insertion order.
@@ -247,3 +268,14 @@ class HashMap {
 HashMap.prototype.containsKey = HashMap.prototype.has;
 
 module.exports = HashMap;
+
+/* HashMap usage example
+// tag::snippet[]
+const hashMap = new HashMap();
+
+hashMap.set('cat', 2);
+hashMap.set('art', 8);
+hashMap.set('rat', 7);
+hashMap.set('dog', 1);
+// end::snippet[]
+*/
