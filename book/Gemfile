@@ -4,7 +4,8 @@ source "https://rubygems.org"
 
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
-# brew install plantuml glib gdk-pixbuf cairo pango cmake libxml2
+# https://github.com/akosma/eBook-Template
+# brew install plantuml glib gdk-pixbuf cairo pango cmake libxml2 pkg-config
 gem 'asciidoctor'
 
 gem 'pygments.rb'
@@ -12,8 +13,12 @@ gem 'kindlegen'
 gem 'asciimath'
 gem 'asciidoctor'
 gem 'asciidoctor-diagram'
-gem 'asciidoctor-mathematical'
 gem 'epubcheck'
+
+# brew link gettext --force
+# brew install pkg-config
+# https://github.com/gjtorikian/mathematical
+gem 'asciidoctor-mathematical'
 
 # --pre
 gem 'asciidoctor-pdf'
