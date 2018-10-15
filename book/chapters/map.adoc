@@ -275,7 +275,7 @@ If the bucket doesn’t exist or is empty we are done. If the value exists we us
 
 Hash Map it’s very optimal for searching values by key *O(1)**. However, searching values directly is not any better than an array since we have to visit every value *O(n)*.
 
-.Time complexity for a Binary Search Tree (BST)
+.Time complexity for a Hash Map
 |===
 .2+.^s| Data Structure 2+^s| Searching By .2+^.^s| Insert .2+^.^s| Delete .2+^.^s| Space Complexity
 ^|_Index/Key_ ^|_Value_
@@ -295,119 +295,97 @@ Implementing a Map with a tree, TreeMap, has a couple of advantages over a HashM
 * Keys are always sorted.
 * Statistical data can be easily obtained like median, highest, lowest key.
 * Collisions are not a concern so in the worst case is still *O(log n)*.
-* Trees are more space efficient and doesn’t need to allocate memory beforehand (e.g. HashMap’s initial capacity) nor you have to rehash when is getting full.
+* Trees are more space efficient and doesn’t need to allocate memory beforehand (e.g. `HashMap`’s initial capacity) nor you have to rehash when is getting full.
 
-Ok, now that you know the advantages, let’s implement it! For a full comparison read the link:#hashmap-vs-treemap[HashMap vs TreeMap] section again.
+Ok, now that you know the advantages, let’s implement it! 
+For a full comparison read the <<HashMap vs TreeMap>> section again.
 
-Let’s get started with the basic functions. They have the same interface as the HashMap (but obviously the implementation is different).
+Let’s get started with the basic functions. They have the same interface as the `HashMap` (but obviously the implementation is different).
 
-class TreeMap \{
-
-constructor()\{}
-
-set(key, value) \{}
-
-get(key) \{}
-
-has(key) \{}
-
-delete(key) \{}
-
+.TreeMap class overview
+[source, javascript]
+----
+class TreeMap {
+  constructor(){}
+  set(key, value) {}
+  get(key) {}
+  has(key) {}
+  delete(key) {}
 }
+----
 
 === Inserting values into a TreeMap
 
 For inserting a value on a TreeMap, we first need to inialize the tree:
 
-class TreeMap \{
-
-constructor() \{
-
-this.tree = new Tree();
-
-}
-
-}
+.TreeMap constructor
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/tree-maps/tree-map.js[tag=constructor, indent=0]
+----
 
 The tree, can be an instance of any Binary Search Tree that we implemented so far. However, for better performance it should be a self-balanced tree like a https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/trees/red-black-tree.js[Red-Black Tree] or https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/trees/avl-tree.js[AVL Tree].
 
-set(key, value) \{
 
-return this.tree.add(key).data(value);
+Let's implement the method to add values to the tree.
 
-}
+.TreeMap `add` method and `size` attribute
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/tree-maps/tree-map.js[tag=set, indent=0]
+----
 
-get size() \{
-
-return this.tree.size;
-
-}
-
-Adding values is very easy (once we have the implementation).
+Adding values is very easy (once we have the underlying tree implementation).
 
 === Getting values out of a TreeMap
 
-We search by key which takes *O(log n)* on balanced trees.
+When We search by key in a tree map, it takes *O(log n)*. This is the implementation:
 
-get(key) \{
-
-const node = this.tree.get(key) || undefined;
-
-return node && node.getData();
-
-}
-
-has(key) \{
-
-return !!this.get(key);
-
-}
+.TreeMap `get` and `has` method
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/tree-maps/tree-map.js[tag=get, indent=0]
+----
 
 One side effect of storing keys in a tree is that they can be retrieve in order.
 
-* [Symbol.iterator]() \{
+.TreeMap iterators
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/tree-maps/tree-map.js[tag=iterators, indent=0]
+----
+<1> We implemented the default iterator using the in-order traveral. That's useful to getting the keys sorted.
 
-yield* this.tree.inOrderTraversal();
-
-}
-
-* keys() \{
-
-for (const node of this) \{
-
-yield node.value;
-
-}
-
-}
-
-We can use the *in-order traversal* for a BST.
+.JavaScript Iterators and Generators
+****
+Generators are useful for producing values that can be iterated in a `for...of` loop. Generators use the `function*` syntax which expects to have a `yield` with a value.
+****
 
 === Deleting values from a TreeMap
 
 Removing elements from TreeMap is simple.
 
-delete(key) \{
-
-return this.tree.remove(key);
-
-}
+.TreeMap `delete` method
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/tree-maps/tree-map.js[tag=delete, indent=0]
+----
 
 The BST implementation does all the heavy lifting.
 
 That’s basically it! To see the full file in context, click here: https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/maps/tree-maps/tree-map.js[https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/maps/tree-maps/tree-map.js]
 
+
 == TreeMap Time complexity vs HashMap
 
 As we discussed so far, there are trade-off between the implementations
 
-[cols=",,,,,",options="header",]
-|=============================================================================
-|Data Structure |Searching by |Insert |Delete |Space Complexity |
-| |_Index/Key_ |_Value_ | | |
-|Hash Map (Imperfect) |*O(n)* |*O(n)* |*O(n)* |*O(n)* |*O(n)*
-|Hash Map (optimized) |*O(1)** |*O(n)* |*O(1)** |*O(1)** |*O(n)*
-|Tree Map (Red-Black Tree) |*O(log n)* |*O(n)* |*O(log n)* |*O(log n)* |*O(n)*
-|=============================================================================
-
-* = Amortized time. E.g. When rehashing is due it would take *O(n)*.
+.Time complexity for different Maps implementations
+|===
+.2+.^s| Data Structure 2+^s| Searching By .2+^.^s| Insert .2+^.^s| Delete .2+^.^s| Space Complexity
+^|_Index/Key_ ^|_Value_
+| Hash Map (naïve) ^|O(n) ^|O(n) ^|O(n) ^|O(n) ^|O(n)
+| Hash Map (optimized) ^|O(1)* ^|O(n) ^|O(1)* ^|O(1)* ^|O(1)*
+| Tree Map (Red-Black Tree) ^|O(log n) ^|O(n) ^|O(log n) ^|O(log n) ^|O(log n)
+|===
+{empty}* = Amortized run time. E.g. rehashing might affect run time to *O(n)*.
