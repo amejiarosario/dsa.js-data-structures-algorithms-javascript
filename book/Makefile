@@ -14,7 +14,8 @@ PDF =  --backend=pdf --require=asciidoctor-pdf
 EPUB = --backend=epub3 --require=asciidoctor-epub3
 KINDLE = ${EPUB} -a ebook-format=kf8
 
-all: html raw_html pdf
+all: html
+# all: html raw_html pdf
 # all: clean manpage html raw_html pdf compressed_pdf epub kindle
 
 manpage:
