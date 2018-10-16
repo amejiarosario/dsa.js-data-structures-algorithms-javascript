@@ -1,6 +1,7 @@
 // const Tree = require('../trees/avl-tree'); // faster lookups
 const Tree = require('../trees/red-black-tree'); // faster insertion
 
+// tag::constructor[]
 /**
  * TreeSet implements a Set (collection of unique values)
  *  using a balanced binary search tree to guarantee a O(log n) in all operations.
@@ -12,7 +13,7 @@ class TreeSet {
    */
   constructor(iterable = []) {
     this.tree = new Tree();
-    Array.from(iterable).forEach(value => this.add(value));
+    Array.from(iterable).forEach(value => this.add(value)); // <1>
   }
 
   /**
@@ -21,7 +22,9 @@ class TreeSet {
   get size() {
     return this.tree.size;
   }
+// end::constructor[]
 
+// tag::constructor[]
   /**
    * Add a new value (duplicates will be added only once)
    * Runtime: O(log n)
@@ -32,7 +35,9 @@ class TreeSet {
       this.tree.add(value);
     }
   }
+// end::constructor[]
 
+// tag::has[]
   /**
    * Check if value is already on the set
    * Runtime: O(log n)
@@ -42,7 +47,9 @@ class TreeSet {
   has(value) {
     return this.tree.has(value);
   }
+// end::has[]
 
+// tag::delete[]
   /**
    * Delete a value from the set
    * Runtime: O(log n)
@@ -51,7 +58,9 @@ class TreeSet {
   delete(value) {
     return this.tree.remove(value);
   }
+// end::delete[]
 
+// tag::iterator[]
   /**
    * Default iterator for this set
    * @returns {iterator} values in ascending order
@@ -61,6 +70,7 @@ class TreeSet {
       yield node.value;
     }
   }
+// end::iterator[]
 
   /**
    * Get all the values on the Set

@@ -1,3 +1,242 @@
 = Set
 
-Est ea voluptate consectetur id consequat Lorem non commodo officia. Fugiat quis incididunt pariatur eu Lorem adipisicing nostrud laborum minim dolor labore eu culpa. Ullamco duis officia sint Lorem adipisicing nostrud duis pariatur fugiat commodo nostrud labore.
+A set is a data structure where duplicated are not allowed. 
+
+NOTE: JavaScript has already a built-in Set data structure. 
+
+Take a look at the following
+example:
+
+.Set usage example (using JavaScript built-in Set)
+[source, javascript]
+----
+const set = new Set();
+
+set.add(1); //↪️ Set [ 1 ]
+set.add(1); //↪️ Set [ 1 ]
+set.add(2); //↪️ Set [ 1, 2 ]
+set.add(3); //↪️ Set [ 1, 2, 3 ]
+set.has(1); //↪️ true
+set.delete(1); //↪️ removes 1 from the set
+set.has(1);    //↪️ false, 1 has been removed
+set.size; //↪️ 2, we just removed one value
+console.log(set); //↪️ Set(2) {2, 3}
+----
+
+As you can see, even if we insert the same value multiple times, it only
+gets added once.
+
+Can you think in a way how to implement it?
+
+TIP: A hint... it should perform all operations in *O(1)** or at most *O(log
+n)*
+
+If we use a Map’s keys we can accomplish this, right? They cannot be
+duplicates and we could just ignore the value part.
+
+== HashSet vs TreeSet
+
+As we saw earlier, we have to ways of implanting maps using a *balanced
+BST* and using a *hash function*. If we use them to implement a `Set`
+then we would have a `HashSet` and `TreeSet` respectively.
+
+* `TreeSet`, would return the values sorted in ascending order.
+* `HashSet`, would return the values in insertion order.
+* Operations on a `HashSet` would take on average O(1) and in the worst
+case (rehash is due), it would take O(n).
+* Operation on a `TreeSet` is always O(log n).
+
+Let’s implement both!
+
+== Implementing a TreeSet
+
+We are to use a balanced BST (Red-Black Tree) to implement TreeSet.
+Other self-balanced tree implementations will do.
+
+.TreeSet's constructor method and size attribute
+[source, javascript]
+----
+include::{codedir}/data-structures/sets/tree-set.js[tag=constructor]
+}
+----
+<1> When we create a new Set we can pass a collection of data to be added to the set.
+
+A common use case for Sets is to remove duplicated values from an array. We can do that by passing them in the constructor as follows:
+
+
+.Removing duplicates from an Array using a Set
+[source, javascript]
+----
+set = new TreeSet([1, 2, 3, 1]);
+expect(set.size).toBe(3);
+expect(Array.from(set.keys())).toEqual([1, 2, 3]);
+----
+
+Ok, now let’s implement the add method.
+
+=== Adding elements to a TreeSet
+
+For adding values to the set, we just pass it to the Tree add method.
+
+.TreeSet's constructor method and size attribute
+[source, javascript]
+----
+include::{codedir}/data-structures/sets/tree-set.js[tag=constructor]
+}
+----
+
+If you remember, our BST implementation allows duplicated values. It has
+a multiplicity tally to keep track of duplicates. However, we don’t want
+that in a set, we want each value only once. For that we check if the
+value is already in the tree. Don’t worry for adding extra lookups. The
+has is also very performant *O(log n)*. Let’s implement it!
+
+=== Searching for values in a TreeSet
+
+Again, we rely on the Tree implementation to do the heavy lifting:
+
+.TreeSet's `has` method
+[source, javascript]
+----
+include::{codedir}/data-structures/sets/tree-set.js[tag=has, indent=0]
+----
+
+The get method retrieve the data, but we only need a Boolean. 
+
+TIP: We are using the `!!` to convert the result to a Boolean.
+
+=== Converting TreeSet to Array
+
+A common use case to consume the data from a Set is to covert it to an
+array or use in an iterator (for loops, forEach, …). Let’s provide the
+method for that:
+
+.TreeSet's iterator
+[source, javascript]
+----
+include::{codedir}/data-structures/sets/tree-set.js[tag=iterator, indent=0]
+----
+
+We are using the `inOrderTraversal` method of the BST to go each key in an
+ascending order.
+
+.JavaScript Built-in `Symbol` iterator
+****
+The `Symbol.iterator` built-in symbol specifies the default iterator for
+an object. Used by `for...of`, `Array.from` and others.
+****
+
+Now we can convert from set to array and vice versa easily. For
+instance:
+
+.TreeSet's iterator
+[source, javascript]
+----
+const array = [1, 1, 2, 3, 5];
+
+// array to set
+const set = new TreeSet(array);
+
+// set to array
+Array.from(set); //↪️ (4) [1, 2, 3, 5]
+----
+
+No more duplicates in our array!
+
+=== Deleting elements from a TreeSet
+
+We delete the elements from the TreeSet using the remove method of the
+BST.
+
+.TreeSet's `delete` method
+[source, javascript]
+----
+include::{codedir}/data-structures/sets/tree-set.js[tag=delete, indent=0]
+----
+
+Voilà! That’s it!
+
+Check out the full implementation on here[https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/sets/tree-set.js]
+
+Let’s now, implement a HashSet.
+
+== Implementing a HashSet
+
+The *HashSet* is the set implementation using a HashMap as its
+underlying data structure.
+
+The HashSet interface will be exactly the same as the built-in `Set` or
+our `TreeSet`.
+
+.HashSet's constructor method and size attribute
+[source, javascript]
+----
+include::{codedir}/data-structures/sets/hash-set.js[tag=constructor]
+}
+----
+
+This constructor is useful for converting an array to set and
+initializing the HashMap.
+
+=== Inserting values to a HashSet
+
+To insert items in a HashSet we use the `set` method of the `HashMap`:
+
+.HashSet's `add` method
+[source, javascript]
+----
+include::{codedir}/data-structures/sets/hash-set.js[tag=add, indent=0]
+}
+----
+
+`HashMap` stores key/value pairs, but for this we only need the key and we
+ignore the value. 
+
+=== Finding values in a HashSet
+
+We use the method `has` to check if a value is on the `Set` or not.
+
+.HashSet's `has` method
+[source, javascript]
+----
+include::{codedir}/data-structures/sets/hash-set.js[tag=has, indent=0]
+----
+
+Internally, the `HashMap` will convert the key into an array index using a hash
+function. If there’s something in the array index bucket, it will return
+true, if it’s empty it will be false.
+
+=== Deleting values from a HashSet
+
+For deleting a value from a hashSet we use the HashMap’s delete method:
+
+.HashSet's `delete` method
+[source, javascript]
+----
+include::{codedir}/data-structures/sets/hash-set.js[tag=delete, indent=0]
+----
+
+
+This method has an Average runtime of *O(1)*.
+
+== HashSet vs HashMap Time Complexity
+
+We can say that HashMap in on average more performant, however if a
+rehash happens it will take *O(n)* instead of *O(1)*. While TreeSet is
+always *O(log n)*.
+
+.Time complexity HashSet vs TreeSet
+|===
+.2+.^s| Data Structure 2+^s| Searching By .2+^.^s| Insert .2+^.^s| Delete .2+^.^s| Space Complexity
+^|_Index/Key_ ^|_Value_
+| HashSet ^|- ^|O(n) ^|O(1)* ^|O(1)* ^|O(1)*
+| TreeSet ^|- ^|O(n) ^|O(log n) ^|O(log n) ^|O(log n)
+|===
+{empty}* = Amortized run time. E.g. rehashing might affect run time to *O(n)*.
+
+To recap, HashSet and TreeSet will keep data without duplicates. The
+difference besides runtime is that:
+
+.TreeSet vs HashSet
+* HashSet keeps data in insertion order
+* TreeSet keeps data sorted in ascending order.
