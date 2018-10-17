@@ -1,3 +1,4 @@
+// tag::constructor[]
 /**
  * Graph node/vertex that hold adjacencies nodes
  */
@@ -6,6 +7,7 @@ class Node {
     this.value = value;
     this.adjacents = []; // adjacency list
   }
+// end::constructor[]
 
   /**
    * Add node to adjacency list

@@ -1,6 +1,241 @@
 = Graph
 
-Non-linear data structure organize data differently. Instead of one data point leading to the next one, it would lead to many others forming graphs and trees.
+Graphs is one of my favorite data structures. They have a lot of cool
+applications and are used in more places than you can imagine. First,
+let’s start with the basics.
+
+A graph is a non-linear data structure where a node can have zero or
+more linked nodes.
+
+You can think of graph like an extension of a Linked List. Instead of
+having only a next or previous linked node, you can have as many as you
+want. Actually, you can an array of linked nodes.
+
+.Node's constructor
+[source, javascript]
+----
+include::{codedir}/data-structures/graphs/node.js[tag=constructor]
+}
+----
+
+As you can see, it’s pretty similar to the Linked List node indeed. The
+only difference is that uses an *array* of the linked nodes instead.
+
+Other difference between a linked list and graph is that linked list
+have a start/first/root node, while the graph doesn’t. You can start
+traversing a graph from anywhere and there might be circular references
+as well. Let’s study this graph properties!
+
+== Graph Properties
+
+The connection between two nodes is called *edge*. Also, nodes might be
+called *vertex*.
+
+.Graph is composed of vertices/nodes and edges
+image:image42.png[image,width=305,height=233]
+
+=== Directed Graph vs Undirected
+
+A graph can *directed* and *undirected*.
+
+.Graph: directed vs undirected
+image:image43.jpg[image,width=469,height=192]
+
+
+A *directed graph (digraph)* has edges that are *one-way street*. E.g.
+On the directed example, you can only go from green node to orange and
+not the other way around. When one node has an edge to itself is called
+a *self-loop*.
+
+An *undirected graph* has edges that are *two-way street*. E.g. On the
+undirected example, you can traverse from the green node to the orange
+and vice versa.
+
+=== Graph Cycles
+
+A graph can have *cycles* or not.
+
+.Cyclic vs Acyclic Graphs.
+image:image44.jpg[image,width=444,height=194]
+
+
+A *cyclic graph* is the one that you can pass through a node more than.
+E.g. On the cyclic illustration, if you start in the green node, then go
+the orange and purple, finally, you could come back to green again.
+Thus, it has a *cycle*.
+
+All *undirected* graphs are cyclic but not all *directed* graphs are
+cyclic.
+
+An acyclic graph is the one that you can’t pass through a node more than
+once. E.g. in the acyclic illustration, can you to find a path where you
+can pass through the same vertex more than one?
+
+*Directed Acyclic Graphs (DAG)* are also known as a *Tree* when each
+node has only *one parent*.
+
+=== Connected vs Disconnected vs Complete Graphs
+
+.Different kinds of graphs: disconnected, connected, and complete.
+image:image45.png[image,width=1528,height=300]
+
+A *disconnected graph* is one that have one or more subgraph. In other
+words, a graph is *disconnected* if there are two nodes that doesn’t
+have a path between them.
+
+A *connected graph* is the opposite to disconnected, there’s a path
+between every node.
+
+A *complete graph* is where every node is adjacent to all the other
+nodes in the graph. E.g. If there are 7 nodes, every node has 6 edges.
+
+=== Weighted Graphs
+
+Weighted graphs have labels in the edges. The label is called *weight*
+or *cost*. The weight can represent many things like distance, travel
+time, or anything else.
+
+.Weighted Graph representing USA airports distance in miles.
+image:image46.png[image,width=528,height=337]
+
+For instance, a weighted graph can have the distance between nodes. So,
+algorithms can use the weight and optimize the path between them.
+
+== Exciting Graph applications in real-world
+
+Now that we know what graphs are and some of their properties let’s
+discuss about some real-life usages of graphs.
+
+Graphs become a metaphor where nodes and edges model something from our
+physical world. Just to name a few:
+
+* Optimizing Plane traveling
+** Nodes = Airport
+** Edges = Direct flights between two airports
+** Weight = miles between airports | cost | time
+
+* GPS Navigation System
+** Node = road intersection
+** Edge = road
+** Weight = time between intersections
+
+* Network routing
+** Node = server
+** Edge = data link
+** Weight = connection speed
+
+There are endless applications for graphs in electronics, social
+networks, recommendation systems and many more. That’s cool and all, but
+how do we represent graphs in code? Let’s see that in the next section.
+
+== Representing Graphs
+
+There are two main ways to graphs one is:
+
+* Adjacency Matrix
+* Adjacency List
+
+=== Adjacency Matrix
+
+Representing graphs as adjacency matrix is done using a two-dimensional
+array. For instance, let’s say we have the following graph:
+
+.Graph and its adjacency matrix.
+image:image47.png[image,width=438,height=253]
+
+The size of the matrix is given by the number of vertices |V|, in the
+example we have 5 vertices so we have a 5x5 matrix.
+
+To fill up the matrix, we go row by row. Mark with 1 (or any other
+weight) when you find an edge. E.g.
+
+* Row 0: It has a self-loop, so it has a 1 in the intersection of 0,0.
+The node 0 also has an edge to 1 and 4 so we mark it.
+* Row 1: The node 1 has one edge to 3 so we mark it.
+* Row 2: Node 2 goes to Node 4, so we mark the insertion with 1.
+* And so on…
+
+The example graph above is a directed graph (digraph). In case of
+undirected graph, the matrix would be symmetrical by the diagonal.
+
+If we represent the example graph in code, it would be something like
+this:
+
+[source, javascript]
+----
+const digraph = [
+  [1, 1, 0, 0, 1],
+  [0, 0, 0, 1, 0],
+  [0, 0, 0, 0, 1],
+  [0, 0, 1, 0, 0],
+  [0, 1, 0, 0, 0],
+];
+----
+
+It would be very easy to tell if two nodes are connected. Let’s query if
+node 2 is connected to 3:
+
+[source, javascript]
+----
+digraph[2][3]; //=> 0
+digraph[3][2]; //=> 1
+----
+
+As you can see we don’t have a link from node 2 to 3, but we do in the
+opposite direction. Querying arrays is constant time *O(1)*, so no bad
+at all.
+
+The issue with the adjacency matrix is the space it takes. Let’s say you
+want to represent the entire Facebook network on a digraph. You would
+have a huge matrix of 1.2 billion x 1.2 billion. The worst part is that
+most of it would be empty (zeros) since people are connected to at most
+few thousands.
+
+When the graph has few connections compared to the number of nodes we
+say that we have a *sparse graph*. On the opposite, if we have almost
+complete graphs we say we have a *dense graph*.
+
+The space complexity of adjacency matrix is *O(|V|^2^)*, where |V| is
+the number of vertices/nodes.
+
+=== Adjacency List
+
+Another way to represent a graph is using an adjacency list. This time
+instead of using an array (matrix) we use a list.
+
+.Graph represented as an Adjacency List.
+image:image48.png[image,width=528,height=237]
+
+
+Body
+
+== Adding a vertex
+
+Body text
+
+== Adding an edge
+
+Body text
+
+== Querying Adjacency
+
+Body text
+
+== Deleting a vertex
+
+Body text
+
+== Deleting an edge
+
+Body text
+
+== Graph Complexity
+
+Graph search has its own chapter
+
+= Summary
+
+Body text
 
 == Depth First Search
 

@@ -19,11 +19,8 @@ const HashMap = require('../maps/hash-maps/hash-map');
  * - Find path (between two vertices)
  * - Find all paths (between two vertices)
  * - Find shortest paths (between two vertices)
- *
- * https://repl.it/@amejiarosario/graphpy
- * http://www.pythontutor.com/visualize.html#mode=edit - https://goo.gl/Xp7Zpm
- *
  */
+// tag::constructor[]
 class Graph {
   /**
    * Initialize the nodes map
@@ -34,6 +31,7 @@ class Graph {
     this.nodes = new Map();
     this.edgeDirection = edgeDirection;
   }
+// end::constructor[]
 
   /**
    * Add a node to the graph.
@@ -261,3 +259,8 @@ Graph.UNDIRECTED = Symbol('directed graph'); // one-way edges
 Graph.DIRECTED = Symbol('undirected graph'); // two-ways edges
 
 module.exports = Graph;
+
+/*
+ * https://repl.it/@amejiarosario/graphpy
+ * http://www.pythontutor.com/visualize.html#mode=edit - https://goo.gl/Xp7Zpm
+ */
