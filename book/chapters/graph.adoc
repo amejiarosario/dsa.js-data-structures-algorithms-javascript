@@ -1,15 +1,15 @@
 = Graph
 
-Graphs is one of my favorite data structures. They have a lot of cool
-applications and are used in more places than you can imagine. First,
-let’s start with the basics.
+Graphs is one of my favorite data structures. 
+They have a lot of cool applications and are used in more places than you can imagine. 
+First, let’s start with the basics.
 
-A graph is a non-linear data structure where a node can have zero or
+TIP: A graph is a non-linear data structure where a node can have zero or
 more linked nodes.
 
 You can think of graph like an extension of a Linked List. Instead of
 having only a next or previous linked node, you can have as many as you
-want. Actually, you can an array of linked nodes.
+want. Actually, you can implement a graph as an array of linked nodes.
 
 .Node's constructor
 [source, javascript]
@@ -18,18 +18,18 @@ include::{codedir}/data-structures/graphs/node.js[tag=constructor]
 }
 ----
 
-As you can see, it’s pretty similar to the Linked List node indeed. The
-only difference is that uses an *array* of the linked nodes instead.
+As you can see, it’s pretty similar to the Linked List node indeed. 
+The only difference is that it uses an *array* of the linked nodes instead of just one or two.
 
 Other difference between a linked list and graph is that linked list
-have a start/first/root node, while the graph doesn’t. You can start
-traversing a graph from anywhere and there might be circular references
+have a start/first/root node, while the graph doesn’t. 
+You can start traversing a graph from anywhere and there might be circular references
 as well. Let’s study this graph properties!
 
 == Graph Properties
 
-The connection between two nodes is called *edge*. Also, nodes might be
-called *vertex*.
+The connection between two nodes is called *edge*. 
+Also, nodes might be called *vertex*.
 
 .Graph is composed of vertices/nodes and edges
 image:image42.png[image,width=305,height=233]
@@ -149,10 +149,10 @@ example we have 5 vertices so we have a 5x5 matrix.
 To fill up the matrix, we go row by row. Mark with 1 (or any other
 weight) when you find an edge. E.g.
 
-* Row 0: It has a self-loop, so it has a 1 in the intersection of 0,0.
+* *Row 0:* It has a self-loop, so it has a 1 in the intersection of 0,0.
 The node 0 also has an edge to 1 and 4 so we mark it.
-* Row 1: The node 1 has one edge to 3 so we mark it.
-* Row 2: Node 2 goes to Node 4, so we mark the insertion with 1.
+* *Row 1:* The node 1 has one edge to 3 so we mark it.
+* *Row 2:* Node 2 goes to Node 4, so we mark the insertion with 1.
 * And so on…
 
 The example graph above is a directed graph (digraph). In case of
@@ -191,7 +191,7 @@ have a huge matrix of 1.2 billion x 1.2 billion. The worst part is that
 most of it would be empty (zeros) since people are connected to at most
 few thousands.
 
-When the graph has few connections compared to the number of nodes we
+TIP: When the graph has few connections compared to the number of nodes we
 say that we have a *sparse graph*. On the opposite, if we have almost
 complete graphs we say we have a *dense graph*.
 
@@ -206,8 +206,11 @@ instead of using an array (matrix) we use a list.
 .Graph represented as an Adjacency List.
 image:image48.png[image,width=528,height=237]
 
+If we want to add a new node to the list, we can do it by adding one element to the end of the array of nodes *O(1)*. In the next section we are going to explore the running times of all operations in a adjacency list.
 
-Body
+== Implementing a Graph data structure
+
+Since, adjacency lists are more efficient (than adjacency matrix), we are going to use to implement a graph data structure.
 
 == Adding a vertex
 

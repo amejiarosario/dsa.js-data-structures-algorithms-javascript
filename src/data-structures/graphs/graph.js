@@ -27,19 +27,16 @@ class Graph {
    * @param {Symbol} edgeDirection either `Graph.DIRECTED` or `Graph.UNDIRECTED`
    */
   constructor(edgeDirection = Graph.DIRECTED) {
-    // this.nodes = new HashMap();
-    this.nodes = new Map();
+    this.nodes = new HashMap();
     this.edgeDirection = edgeDirection;
   }
 // end::constructor[]
 
   /**
    * Add a node to the graph.
-   * Returns the new node or the existing one if it already exits.
-   *
    * Runtime: O(1)
-   *
    * @param {any} value node's value
+   * @returns {Node} the new node or the existing one if it already exits.
    */
   addVertex(value) {
     if (this.nodes.has(value)) {
@@ -52,9 +49,9 @@ class Graph {
 
   /**
    * Removes node from graph
-   *
+   * It also removes the reference of the deleted node from
+   *  anywhere it was adjacent to.
    * Runtime: O(|V| + |E|)
-   *
    * @param {any} value node's value
    */
   removeVertex(value) {
@@ -69,11 +66,10 @@ class Graph {
    * Create a connection between source node and destination node.
    * If the graph is undirected it will also create the conneciton from destination to destination.
    * If the nodes doesn't exist then it will create them on the fly
-   *
    * Runtime: O(1)
-   *
    * @param {any} source
    * @param {any} destination
+   * @returns {[Node, Node]} source/destination node pair
    */
   addEdge(source, destination) {
     const sourceNode = this.addVertex(source);
