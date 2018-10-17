@@ -56,8 +56,6 @@ include::chapters/non-linear-data-structures-intro.adoc[]
 
 :leveloffset: +1
 
-include::chapters/graph.adoc[]
-
 include::chapters/tree.adoc[]
 
 include::chapters/binary-search-tree.adoc[]
@@ -73,6 +71,8 @@ include::chapters/trie.adoc[]
 include::chapters/map.adoc[]
 
 include::chapters/set.adoc[]
+
+include::chapters/graph.adoc[]
 
 :leveloffset: -1
 
