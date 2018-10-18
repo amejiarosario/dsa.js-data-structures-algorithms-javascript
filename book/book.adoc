@@ -98,6 +98,10 @@ include::chapters/quick-sort.adoc[]
 
 include::chapters/tim-sort.adoc[]
 
+// Searching
+
+include::chapters/graph-search.adoc[]
+
 :leveloffset: -1
 
 //

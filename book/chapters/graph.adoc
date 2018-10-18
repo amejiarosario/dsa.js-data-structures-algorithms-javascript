@@ -336,16 +336,8 @@ include::{codedir}/data-structures/graphs/node.js[tag=removeAdjacent, indent=0]
 | Graph (adj. list w/HashSet) ^| O(1) ^| O(\|V\|)) ^|O(1) ^|O(\|V\|) ^|O(\|V\| + \|E\|)
 |===
 
-
+As you can see using a `HashSet` on for the adjacency list make a performance improvement.
 
 = Summary
 
 Body text
-
-== Depth First Search
-
-Commodo culpa qui officia eiusmod irure culpa elit excepteur culpa. Tempor aute nisi excepteur qui. Sit in irure aliqua Lorem tempor ut minim. Magna amet nisi sint labore tempor in commodo consequat dolor cupidatat cillum non pariatur reprehenderit. Ex esse cupidatat sunt dolore non commodo est aute.
-
-== Breadth First Search
-
-Irure ipsum deserunt culpa cillum deserunt. Adipisicing officia cillum culpa reprehenderit ullamco nulla irure. Ad nostrud excepteur eiusmod magna nostrud magna irure velit veniam sunt labore qui. Esse pariatur ullamco laborum sint. Eiusmod anim consectetur est eiusmod do ullamco est duis qui magna. Esse laboris ea quis id tempor laboris incididunt incididunt quis consectetur. Id esse enim excepteur magna ut.
