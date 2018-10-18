@@ -212,29 +212,122 @@ If we want to add a new node to the list, we can do it by adding one element to 
 
 Since, adjacency lists are more efficient (than adjacency matrix), we are going to use to implement a graph data structure.
 
+Let's start by creating the constructor of the Graph calss.
+
+.Graph's constructor
+[source, javascript]
+----
+include::{codedir}/data-structures/graphs/graph.js[tag=constructor]
+----
+
+We want to make it as generic as possible, so can pass if the the graph is directed or undirected.
+
 == Adding a vertex
 
-Body text
+For addding a vertex, we first need to check if the node already exists. If it exists we return the node and we are done.
 
-== Adding an edge
+.Graphs's `addVertex` method
+[source, javascript]
+----
+include::{codedir}/data-structures/graphs/graph.js[tag=addVertex, indent=0]
+----
+<1> Check if value is already on the graph. If it is, then return it.
+<2> Create new `Node` with the given value.
+<3> Set `hashMap` with value and node pair.
 
-Body text
+If the node doesn't exist, then we create the new node and add it to a `HashMap`.
 
-== Querying Adjacency
+TIP: <<Map>> stores key/pair value very efficiently. Lookup is `O(1)`.
 
-Body text
+The `key` is node's value, while the `value` is the newly created node.
+
+The `Node` class is constructed as follows:
+
+.Node's class (for Graph data structure)
+[source, javascript]
+----
+include::{codedir}/data-structures/graphs/node.js[tag=constructor, indent=0]
+----
+
 
 == Deleting a vertex
 
-Body text
+.Graphs's `removeVertex` method
+[source, javascript]
+----
+include::{codedir}/data-structures/graphs/graph.js[tag=removeVertex, indent=0]
+----
+<1> Try to find if node exists.
+<2> Remove related edges. See `removeAdjacent` below.
+<3> Remove node with the given value.
+
+Notice on the callout 2, that we visit every edge on the graph and remove the ones that contains the node to remove.
+
+For removing adjacent nodes, we use Node's method called `removeAdjacent` that can be implemented as follows:
+
+.Node's `removeAdjacent`
+[source, javascript]
+----
+include::{codedir}/data-structures/graphs/node.js[tag=removeAdjacent, indent=0]
+----
+
+All adjacecies are stored as a HashSet for to provide constant time deletion.
+
+== Adding an edge
+
+An edge is a connection between two nodes (vertices). If the graph is undirected means that every edge is a two-way street so we create the edge from node 1 to node 2 and the other way arround.
+
+If we are dealing with a digraph (directed graph), then we just create one edge.
+
+.Graphs's `addEdge` method
+[source, javascript]
+----
+include::{codedir}/data-structures/graphs/graph.js[tag=addEdge, indent=0]
+----
+<1> Find or create nodes if they don't exists yet.
+<2> Create edge from source to destination. 
+<3> If us a undirected graph, create the edge on the other direction.
+
+We can add adjacencies using the `addAdjacent` mehtod from the Node class
+
+.Node's `addAdjacent`
+[source, javascript]
+----
+include::{codedir}/data-structures/graphs/node.js[tag=addAdjacent, indent=0]
+----
+
+== Querying Adjacency
+
+.Graphs's `areAdjacents` method
+[source, javascript]
+----
+include::{codedir}/data-structures/graphs/graph.js[tag=areAdjacents, indent=0]
+----
+
+.Node's `isAdjacent`
+[source, javascript]
+----
+include::{codedir}/data-structures/graphs/node.js[tag=isAdjacent, indent=0]
+----
+
 
 == Deleting an edge
 
-Body text
+.Graphs's `removeEdge` method
+[source, javascript]
+----
+include::{codedir}/data-structures/graphs/graph.js[tag=removeEdge, indent=0]
+----
+
+.Node's `removeAdjacent`
+[source, javascript]
+----
+include::{codedir}/data-structures/graphs/node.js[tag=removeAdjacent, indent=0]
+----
 
 == Graph Complexity
 
-Graph search has its own chapter
+
 
 = Summary
 
