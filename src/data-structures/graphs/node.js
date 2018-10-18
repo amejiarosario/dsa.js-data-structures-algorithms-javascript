@@ -10,8 +10,9 @@ class Node {
       this.value = value;
       this.adjacents = new HashSet(); // adjacency list
     }
-  // end::constructor[]
+    // end::constructor[]
   
+    // tag::addAdjacent[]
     /**
      * Add node to adjacency list
      * Runtime: O(1)
@@ -20,7 +21,9 @@ class Node {
     addAdjacent(node) {
       this.adjacents.add(node);
     }
-  
+    // end::addAdjacent[]
+
+    // tag::removeAdjacent[]
     /**
      * Remove node from adjacency list
      * Runtime: O(1)
@@ -30,7 +33,9 @@ class Node {
     removeAdjacent(node) {
       return this.adjacents.delete(node);
     }
-  
+    // end::removeAdjacent[]
+
+    // tag::isAdjacent[]
     /**
      * Check if a Node is adjacent to other
      * Runtime: O(1)
@@ -39,14 +44,17 @@ class Node {
     isAdjacent(node) {
       return this.adjacents.has(node);
     }
-  
+    // end::isAdjacent[]
+
     /**
      * Get all adjacent nodes
      */
     getAdjacents() {
       return Array.from(this.adjacents);
     }
+  // tag::constructor[]
   }
+  // end::constructor[]
   
   module.exports = Node;
   

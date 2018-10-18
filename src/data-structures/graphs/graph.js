@@ -4,23 +4,10 @@ const Stack = require('../stacks/stack');
 const Queue = require('../queues/queue');
 const HashMap = require('../maps/hash-maps/hash-map');
 
-/**
- * Graph that uses an adjacent list
- *
- * Most common operations:
- * - Add vertex
- * - Add edge
- * - Remove vertex
- * - Remove edge
- * - Query (query if two vertices are connected)
- *
- *  - Graph search (BFS, DFS)
- *
- * - Find path (between two vertices)
- * - Find all paths (between two vertices)
- * - Find shortest paths (between two vertices)
- */
 // tag::constructor[]
+/**
+ * Graph data structure implemented with an adjacent list
+ */
 class Graph {
   /**
    * Initialize the nodes map
@@ -32,6 +19,7 @@ class Graph {
   }
 // end::constructor[]
 
+// tag::addVertex[]
   /**
    * Add a node to the graph.
    * Runtime: O(1)
@@ -39,14 +27,16 @@ class Graph {
    * @returns {Node} the new node or the existing one if it already exits.
    */
   addVertex(value) {
-    if (this.nodes.has(value)) {
+    if (this.nodes.has(value)) { // <1>
       return this.nodes.get(value);
     }
-    const vertex = new Node(value);
-    this.nodes.set(value, vertex);
+    const vertex = new Node(value); // <2>
+    this.nodes.set(value, vertex); // <3>
     return vertex;
   }
+// end::addVertex[]
 
+// tag::removeVertex[]
   /**
    * Removes node from graph
    * It also removes the reference of the deleted node from
@@ -55,13 +45,15 @@ class Graph {
    * @param {any} value node's value
    */
   removeVertex(value) {
-    const current = this.nodes.get(value);
+    const current = this.nodes.get(value); // <1>
     if (current) {
-      Array.from(this.nodes.values()).forEach(node => node.removeAdjacent(current));
+      Array.from(this.nodes.values()).forEach(node => node.removeAdjacent(current)); // <2>
     }
-    return this.nodes.delete(value);
+    return this.nodes.delete(value); // <3>
   }
+// end::removeVertex[]
 
+// tag::addEdge[]
   /**
    * Create a connection between source node and destination node.
    * If the graph is undirected it will also create the conneciton from destination to destination.
@@ -72,18 +64,20 @@ class Graph {
    * @returns {[Node, Node]} source/destination node pair
    */
   addEdge(source, destination) {
-    const sourceNode = this.addVertex(source);
-    const destinationNode = this.addVertex(destination);
+    const sourceNode = this.addVertex(source); // <1>
+    const destinationNode = this.addVertex(destination); // <1>
 
-    sourceNode.addAdjacent(destinationNode);
+    sourceNode.addAdjacent(destinationNode); // <2>
 
     if (this.edgeDirection === Graph.UNDIRECTED) {
-      destinationNode.addAdjacent(sourceNode);
+      destinationNode.addAdjacent(sourceNode); // <3>
     }
 
     return [sourceNode, destinationNode];
   }
+// end::addEdge[]
 
+// tag::removeEdge[]
   /**
    * Remove connection between source node and destination.
    * If the graph is undirected it will also remove the conneciton from destination to destination.
@@ -107,7 +101,9 @@ class Graph {
 
     return [sourceNode, destinationNode];
   }
+// end::removeEdge[]
 
+// tag::areAdjacents[]
   /**
    * True if two nodes are adjacent to each other
    * @param {any} source node's value
@@ -123,6 +119,7 @@ class Graph {
 
     return false;
   }
+// end::areAdjacents[]
 
   /**
    * Depth-first search
@@ -249,10 +246,12 @@ class Graph {
     });
     return paths;
   }
+// tag::constructor[]
 }
 
 Graph.UNDIRECTED = Symbol('directed graph'); // one-way edges
 Graph.DIRECTED = Symbol('undirected graph'); // two-ways edges
+// end::constructor[]
 
 module.exports = Graph;
 
