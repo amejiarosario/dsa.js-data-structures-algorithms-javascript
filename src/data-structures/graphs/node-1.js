@@ -7,7 +7,7 @@ class Node {
     this.value = value;
     this.adjacents = []; // adjacency list
   }
-// end::constructor[]
+  // end::constructor[]
 
   /**
    * Add node to adjacency list

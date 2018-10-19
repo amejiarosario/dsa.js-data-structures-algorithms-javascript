@@ -65,5 +65,5 @@ queue.enqueue('c');
 queue.dequeue(); //↪️ b
 queue.dequeue(); //↪️ c
 // end::snippet[]
-//*/
+// */
 

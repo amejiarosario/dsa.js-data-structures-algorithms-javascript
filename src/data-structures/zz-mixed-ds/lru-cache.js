@@ -27,7 +27,7 @@
  *
  * @param {number} capacity
  */
-var LRUCache = function(capacity) {
+const LRUCache = function (capacity) {
   this.map = new Map();
   this.capacity = capacity;
 };
@@ -36,13 +36,13 @@ var LRUCache = function(capacity) {
 * @param {number} key
 * @return {number}
 */
-LRUCache.prototype.get = function(key) {
-const value = this.map.get(key);
-if (value) {
-  this.moveToTop(key);
-  return value;
-}
-return -1;
+LRUCache.prototype.get = function (key) {
+  const value = this.map.get(key);
+  if (value) {
+    this.moveToTop(key);
+    return value;
+  }
+  return -1;
 };
 
 /**
@@ -50,23 +50,23 @@ return -1;
 * @param {number} value
 * @return {void}
 */
-LRUCache.prototype.put = function(key, value) {
-this.map.set(key, value);
-this.rotate(key);
+LRUCache.prototype.put = function (key, value) {
+  this.map.set(key, value);
+  this.rotate(key);
 };
 
-LRUCache.prototype.rotate = function(key) {
-this.moveToTop(key);
-while(this.map.size > this.capacity) {
-  const it = this.map.keys();
-  this.map.delete(it.next().value);
-}
-}
+LRUCache.prototype.rotate = function (key) {
+  this.moveToTop(key);
+  while (this.map.size > this.capacity) {
+    const it = this.map.keys();
+    this.map.delete(it.next().value);
+  }
+};
 
-LRUCache.prototype.moveToTop = function(key) {
-if (this.map.has(key)) {
-  const value = this.map.get(key);
-  this.map.delete(key);
-  this.map.set(key, value);
-}
-}
+LRUCache.prototype.moveToTop = function (key) {
+  if (this.map.has(key)) {
+    const value = this.map.get(key);
+    this.map.delete(key);
+    this.map.set(key, value);
+  }
+};

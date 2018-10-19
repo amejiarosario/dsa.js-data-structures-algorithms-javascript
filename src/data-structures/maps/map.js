@@ -15,4 +15,4 @@ myMap.get('str'); //↪️ foo
 myMap.get({}); //↪️ undefined
 myMap.get(obj1); //↪️ test
 // end::snippet[]
-//*/
+// */

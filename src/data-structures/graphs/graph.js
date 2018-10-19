@@ -17,9 +17,9 @@ class Graph {
     this.nodes = new HashMap();
     this.edgeDirection = edgeDirection;
   }
-// end::constructor[]
+  // end::constructor[]
 
-// tag::addVertex[]
+  // tag::addVertex[]
   /**
    * Add a node to the graph.
    * Runtime: O(1)
@@ -34,9 +34,9 @@ class Graph {
     this.nodes.set(value, vertex); // <3>
     return vertex;
   }
-// end::addVertex[]
+  // end::addVertex[]
 
-// tag::removeVertex[]
+  // tag::removeVertex[]
   /**
    * Removes node from graph
    * It also removes the reference of the deleted node from
@@ -51,9 +51,9 @@ class Graph {
     }
     return this.nodes.delete(value); // <3>
   }
-// end::removeVertex[]
+  // end::removeVertex[]
 
-// tag::addEdge[]
+  // tag::addEdge[]
   /**
    * Create a connection between source node and destination node.
    * If the graph is undirected it will also create the conneciton from destination to destination.
@@ -75,9 +75,9 @@ class Graph {
 
     return [sourceNode, destinationNode];
   }
-// end::addEdge[]
+  // end::addEdge[]
 
-// tag::removeEdge[]
+  // tag::removeEdge[]
   /**
    * Remove connection between source node and destination.
    * If the graph is undirected it will also remove the conneciton from destination to destination.
@@ -101,9 +101,9 @@ class Graph {
 
     return [sourceNode, destinationNode];
   }
-// end::removeEdge[]
+  // end::removeEdge[]
 
-// tag::areAdjacents[]
+  // tag::areAdjacents[]
   /**
    * True if two nodes are adjacent to each other
    * @param {any} source node's value
@@ -119,7 +119,7 @@ class Graph {
 
     return false;
   }
-// end::areAdjacents[]
+  // end::areAdjacents[]
 
   /**
    * Depth-first search

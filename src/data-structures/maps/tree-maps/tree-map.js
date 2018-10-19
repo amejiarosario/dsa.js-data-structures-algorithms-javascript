@@ -46,7 +46,7 @@ class TreeMap {
     }
     return this.tree.add(key).data(value);
   }
-  
+
   /**
    * Size of the map
    */
@@ -55,7 +55,7 @@ class TreeMap {
   }
   // end::set[]
 
-   // tag::get[] 
+  // tag::get[]
   /**
    * Gets the value out of the map
    * Runtime: O(log n)
@@ -79,7 +79,7 @@ class TreeMap {
   }
   // end::get[]
 
-  // tag::delete[] 
+  // tag::delete[]
   /**
    * Removes the specified element from the map.
    * Runtime: O(log n)
@@ -92,7 +92,7 @@ class TreeMap {
   }
   // end::delete[]
 
-  // tag::iterators[] 
+  // tag::iterators[]
   /**
    * Default iterator for this map
    */
