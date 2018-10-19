@@ -5,7 +5,58 @@ The selection sort as it names indicates choose the lowest element from the list
 TIP: selection sort is a in-place sorting algorithms, it should be used when auxiliary memory is limited.
 
 .Selection sort algorithm
-. Go throught the array a find the smallest element, swap it with index 0
-. Go to the next position and find the smallest from there on, swap the 2nd smallest element with the index 1
-. Repeat until the end of the array.
+. Start with the element in position 0.
+. Find minimum element in the rest of array. If a new minimun is found swap them.
+. Repeat with the element in postion 1 and so until the last one.
 
+image:https://camo.githubusercontent.com/adfa2cdcc3825092dc405aadd87453571d6e0dc4/68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f392f39342f53656c656374696f6e2d536f72742d416e696d6174696f6e2e676966[]
+
+== Selection sort implementation
+For implementing the selection sort we need 2 indexes.
+
+.Selection sort
+[source, javascript]
+----
+include::{codedir}/algorithms/selection-sort.js[tag=sort, indent=0]
+----
+
+One index is for the position in question (selection/outer) and another one for finding the minimun in the rest of the array (element/inner).
+
+The swap function is implemented as follows.
+
+.Swap function
+[source, javascript]
+----
+include::{codedir}/algorithms/selection-sort.js[tag=swap, indent=0]
+----
+
+It uses JavaScript ES6 destructing arrays.
+
+.JavaScript Array destructuring
+****
+*Assignment separate from declaration*
+
+A variable can be assign to its values using the destructing syntax.
+
+[source, js]
+----
+let a, b;
+
+[a, b] = [1, 2];
+console.log(a); //↪️ 1
+console.log(b); //️↪️ 2
+----
+
+*Swapping variables*
+
+Two variables values can be swapped in one destructuring expression.
+
+[source, js]
+----
+[a, b] = [b, a];
+console.log(a); //↪️ 2
+console.log(b); //️↪️ 1
+----
+
+Without destructuring assignment, swapping two values requires a temporary variable.
+****

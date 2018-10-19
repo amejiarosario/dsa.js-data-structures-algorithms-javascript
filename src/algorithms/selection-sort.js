@@ -1,3 +1,4 @@
+// tag::swap[]
 /**
  * Swap array elements in place
  * @param {array} array to be modified
@@ -7,7 +8,9 @@
 function swap(array, from, to) {
   [array[from], array[to]] = [array[to], array[from]];
 }
+// end::swap[]
 
+// tag::sort[]
 /**
  * Selection sort
  * @param {Array|Set} collection list to be sorted
@@ -30,5 +33,6 @@ function selectionSort(collection) {
 
   return array;
 }
+// end::sort[]
 
 module.exports = selectionSort;
