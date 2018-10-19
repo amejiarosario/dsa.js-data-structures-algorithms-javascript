@@ -17,13 +17,32 @@ We could also compare the memory "used" by different algorithms and we called th
 -	Learn how to use Big O notation to compare algorithms.
 -	How to use algorithms analysis to improve your programs speed.
 
-== Comparing Algorithms
-
 Before going deeper, into space and time complexity, let's define what an algorithm is.
 
-Algorithms (as you might know) are steps of how to do some task. When you cook, you follow a recipe (or an algorithm) to prepare a dish. If you play a game, you are devising strategies (or an algorithm) to help you win. Likewise, algorithms in computers are a set of instructions used to solve a problem.
+== What are Algorithms?
 
-IMPORTANT: Algorithms are instructions to perform a task
+Algorithms (as you might know) are steps of how to do some task. When you cook, you follow a recipe (or an algorithm) to prepare a dish. Let's say you want to prepare a pizza... 
+
+.Example of an algorithm
+//[source, js]
+----
+function bakePizza(dough, toppins = []) {
+    const heatedOven = heatOvenTo(550);
+    punchDown(dough);
+    rollOut(dough);
+    applyToppings(dough, toppings);
+    const pizza = heatedOven.bakePizza(dough)
+    return pizza;
+}
+
+bakePizza(new Dough, ['ham', 'cheese']);
+----
+
+If you play a game, you are devising strategies (or an algorithm) to help you win. Likewise, algorithms in computers are a set of instructions used to solve a problem.
+
+TIP: Algorithms are instructions to perform a task.
+
+== Comparing Algorithms
 
 There are “good” algorithms and “bad” algorithms. The good ones are fast; the bad ones are slow. Slow algorithms cost more money and make some calculations impossible in our lifespan!
 
@@ -40,7 +59,7 @@ Just to give you a clearer picture how different algorithms perform as the input
 |Find all permutations of a string |4 sec. |> vigintillion years |> centillion years |∞ |∞
 |=============================================================================================
 
-You can really notice the difference between a good algorithm and bad with the sorting array elements examples: merge-sort vs bubble sort.
+You can really notice the difference between a good algorithm and bad with the sorting array elements examples: `merge-sort` vs `bubble sort`.
 Organizing 1 million elements with merge sort takes 20 seconds while bubble sort takes 12 days, ouch!
 The amazing thing is that both programs are measured on the same hardware with exactly the same data!
 
@@ -57,9 +76,9 @@ Measurement is the first step that leads to control and eventually to improvemen
 
 In this section we are going to learn the basics to measuring our current code performance and compare it with others.
 
-=== Calculating Space and Time Complexity
+=== Calculating Time Complexity
 
-Time complexity, in computer science, is a function that describes the amount of operations a program will execute given the size of the input `n`. The same applies for space complexity but instead of the amount of operations executed it will be the amount of memory used additional to the input.
+Time complexity, in computer science, is a function that describes the amount of operations a program will execute given the size of the input `n`. 
 
 How do get a function that give us the amount of operations that will executed? Well, we count line by line and mind code inside loops. For instance, we have a function to find the minimum value on an array called `getMin`.
 
@@ -72,7 +91,11 @@ _3n + 3_
 
 That means that if give an array of 3 elements e.g. `getMin([3, 2, 9])`, then it will execute around _3(3)+3 = 12_ operations. Of course, this is not exact. Line 12 is only executed if the condition on line 11 is met. As you might learn in the next section, we want to get the big picture and get rid of smaller terms in order to compare algorithms easier.
 
-Calculating the *space complexity* is very similar but, instead of operations, we keep track of the “variables” and memory used. In the `getMin` example, we just create a single variable called `min`. So, the space complexity is 1. If we had to copy values to another array then the space complexity would be `n`.
+== Space Complexity
+
+Space complexity is similar to time complexity. However, instead of the count of operations executed it will be the amount of memory used additional to the input.
+
+Calculating the *space complexity* we keep track of the “variables” and memory used. In the `getMin` example, we just create a single variable called `min`. So, the space complexity is 1. If we had to copy values to another array then the space complexity would be `n`.
 
 === Simplifying Complexity with Asymptotic Analysis
 

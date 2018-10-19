@@ -5,6 +5,7 @@ include::_conf/variables.adoc[]
 // remove numbering from titles, and sub-titles e.g. 1.1
 :sectnums!:
 
+// Copyright © 2018 Adrian Mejia
 include::chapters/colophon.adoc[]
 
 // Abstract and Dedication MUST have a level-0 heading in EPUB and Kindle
@@ -81,6 +82,8 @@ include::chapters/graph.adoc[]
 include::chapters/algorithms-intro.adoc[]
 
 :leveloffset: +1
+
+include::chapters/sorting-intro.adoc[]
 
 // Slow Sorting
 
