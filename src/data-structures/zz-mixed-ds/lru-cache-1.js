@@ -26,7 +26,7 @@
  *
  * @param {number} capacity
  */
-let LRUCache = function (capacity) {
+const LRUCache = function (capacity) {
   this.map = new Map();
   this.capacity = capacity;
   this.cache = [];

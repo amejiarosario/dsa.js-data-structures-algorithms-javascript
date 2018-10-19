@@ -12,7 +12,7 @@ class LinkedList {
     this.last = null; // last element of the list
     this.size = 0; // total number of elements in the list
   }
-// end::constructor[]
+  // end::constructor[]
 
   /**
    * Alias for size

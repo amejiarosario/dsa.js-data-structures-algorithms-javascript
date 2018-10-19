@@ -20,10 +20,10 @@ class HashMapSet {
    */
   get size() {
     return this.hashMap.size;
-  }  
-// end::constructor[]
+  }
+  // end::constructor[]
 
-// tag::add[]
+  // tag::add[]
   /**
    * Add a new value (duplicates will be added only once)
    * Avg. Runtime: O(1)
@@ -32,9 +32,9 @@ class HashMapSet {
   add(value) {
     this.hashMap.set(value);
   }
- // end::add[]
-  
-// tag::has[] 
+  // end::add[]
+
+  // tag::has[]
   /**
    * Check if value is already on the set
    * Avg. Runtime: O(1)
@@ -43,9 +43,9 @@ class HashMapSet {
   has(value) {
     return this.hashMap.has(value);
   }
-// end::has[]
-  
-// tag::delete[]
+  // end::has[]
+
+  // tag::delete[]
   /**
    * Delete a value from the set
    * Avg. Runtime: O(1)
@@ -54,9 +54,9 @@ class HashMapSet {
   delete(value) {
     return this.hashMap.delete(value);
   }
-// end::delete[]
+  // end::delete[]
 
-// tag::iterators[]
+  // tag::iterators[]
   /**
    * Make this class iterable
    */
@@ -84,7 +84,6 @@ class HashMapSet {
     }
   }
 // end::iterators[]
-
 }
 
 module.exports = HashMapSet;

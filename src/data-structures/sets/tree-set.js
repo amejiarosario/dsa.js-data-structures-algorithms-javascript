@@ -22,9 +22,9 @@ class TreeSet {
   get size() {
     return this.tree.size;
   }
-// end::constructor[]
+  // end::constructor[]
 
-// tag::constructor[]
+  // tag::constructor[]
   /**
    * Add a new value (duplicates will be added only once)
    * Runtime: O(log n)
@@ -35,9 +35,9 @@ class TreeSet {
       this.tree.add(value);
     }
   }
-// end::constructor[]
+  // end::constructor[]
 
-// tag::has[]
+  // tag::has[]
   /**
    * Check if value is already on the set
    * Runtime: O(log n)
@@ -47,9 +47,9 @@ class TreeSet {
   has(value) {
     return this.tree.has(value);
   }
-// end::has[]
+  // end::has[]
 
-// tag::delete[]
+  // tag::delete[]
   /**
    * Delete a value from the set
    * Runtime: O(log n)
@@ -58,9 +58,9 @@ class TreeSet {
   delete(value) {
     return this.tree.remove(value);
   }
-// end::delete[]
+  // end::delete[]
 
-// tag::iterator[]
+  // tag::iterator[]
   /**
    * Default iterator for this set
    * @returns {iterator} values in ascending order
@@ -70,7 +70,7 @@ class TreeSet {
       yield node.value;
     }
   }
-// end::iterator[]
+  // end::iterator[]
 
   /**
    * Get all the values on the Set
