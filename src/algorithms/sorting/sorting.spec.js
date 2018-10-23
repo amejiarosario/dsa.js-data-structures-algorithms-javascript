@@ -1,5 +1,6 @@
 const sortingAlgorithms = [
   require('./selection-sort'),
+  require('./insertion-sort'),
 ];
 
 sortingAlgorithms.forEach((sort) => {
