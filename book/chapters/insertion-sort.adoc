@@ -1,3 +1,12 @@
 = Insertion Sort
 
-Culpa consectetur commodo aute laborum occaecat veniam ea anim consequat esse occaecat nulla incididunt ullamco. Nulla nisi enim eu pariatur veniam cupidatat ullamco laborum. Exercitation velit quis do mollit.
+Insertion sort is one of the most natural way of sorting. If you are given some cards that's probably how you are going to sort the.
+
+.This is how it works:
+
+. Take the first element and consider it sorted.
+. Take the 2nd element, compare it with the first element. It 2nd is smaller swap it with the first element.
+. Go to the 3rd element compare it with the already sorted elements and if any of them is smaller, swap them.
+. Repeat for the rest of the array.
+
+More efficient in practice than most other simple quadratic (i.e., O(n^2^)) algorithms such as <<Selection Sort>> or <<Bubble Sort>>.

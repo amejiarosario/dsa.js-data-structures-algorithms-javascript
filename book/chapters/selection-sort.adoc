@@ -9,7 +9,7 @@ TIP: selection sort is a in-place sorting algorithms, it should be used when aux
 . Find minimum element in the rest of array. If a new minimun is found swap them.
 . Repeat with the element in postion 1 and so until the last one.
 
-image:https://camo.githubusercontent.com/adfa2cdcc3825092dc405aadd87453571d6e0dc4/68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f392f39342f53656c656374696f6e2d536f72742d416e696d6174696f6e2e676966[]
+image:selection-sort.gif[]
 
 == Selection sort implementation
 For implementing the selection sort we need 2 indexes.

@@ -87,9 +87,9 @@ include::chapters/sorting-intro.adoc[]
 
 // Slow Sorting
 
-include::chapters/selection-sort.adoc[]
-
 include::chapters/insertion-sort.adoc[]
+
+include::chapters/selection-sort.adoc[]
 
 include::chapters/bubble-sort.adoc[]
 
