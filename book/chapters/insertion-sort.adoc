@@ -1,12 +1,20 @@
 = Insertion Sort
 
-Insertion sort is one of the most natural way of sorting. If you are given some cards that's probably how you are going to sort the.
+Insertion sort is one of the most natural way of sorting. You take an element and move it to the sorted pile. You take the next element and move it where it belongs in the sorted pile. Repeat for the rest of the elements.
 
-Insertion sorts visit elements one by one. Everything to the left of the current element is curretly sorted and everything to the right is not.
+If you are given some cards that's probably how you are going to sort them.
 
 .This is how it works:
 . Visit 2nd. If the current element is smaller than the previous one move to the place it should be.
-. Visit next element and do the same thing. The left is always sorted.
+. Visit next element and do the same thing. The left is always sorted and the right is not (yet).
 . Repeat for the rest of the array.
 
 More efficient in practice than most other simple quadratic (i.e., O(n^2^)) algorithms such as <<Selection Sort>> or <<Bubble Sort>>.
+
+
+
+Sorting In Place: Yes
+
+Stable: Yes
+
+Online: Yes

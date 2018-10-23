@@ -1,3 +1,5 @@
+const { swap } = require('./sorting-common');
+
 function insertionSort(collection) {
   const array = Array.from(collection);
 
@@ -5,10 +7,9 @@ function insertionSort(collection) {
     const insert = array[outer];
     let inner = outer - 1;
     while (inner >= 0 && array[inner] > insert) {
-      array[inner + 1] = array[inner];
+      swap(array, inner + 1, inner);
       inner -= 1;
     }
-    array[inner + 1] = insert;
   }
   return array;
 }
