@@ -5,6 +5,14 @@ const sortingAlgorithms = [
 
 sortingAlgorithms.forEach((sort) => {
   describe(`Sorting with ${sort.name}`, () => {
+    it('should work with zero numbers', () => {
+      expect(sort([])).toEqual([]);
+    });
+
+    it('should work with one number', () => {
+      expect(sort([3])).toEqual([3]);
+    });
+
     it('should sort numbers', () => {
       expect(sort([3, 5, 0])).toEqual([0, 3, 5]);
     });
