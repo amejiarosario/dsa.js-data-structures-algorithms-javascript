@@ -3,6 +3,8 @@
 Insertion sort is one of the most natural way of sorting. If you are given some cards that's probably how you are going to sort the.
 
 .This is how it works:
+. Start with the first element, assume that everything to its left is sorted and everything to the right is not.
+. Move to the next element.
 
 . Take the first element and consider it sorted.
 . Take the 2nd element, compare it with the first element. It 2nd is smaller swap it with the first element.
