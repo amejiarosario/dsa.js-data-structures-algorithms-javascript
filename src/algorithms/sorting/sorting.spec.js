@@ -1,6 +1,7 @@
 const sortingAlgorithms = [
   require('./selection-sort'),
   require('./insertion-sort'),
+  require('./bubble-sort'),
 ];
 
 sortingAlgorithms.forEach((sort) => {
@@ -27,6 +28,10 @@ sortingAlgorithms.forEach((sort) => {
 
     it('should sort with with already sorted array', () => {
       expect(sort([1, 2, 3])).toEqual([1, 2, 3]);
+    });
+
+    it('should sort a set', () => {
+      expect(sort(new Set([3, 1, 2]))).toEqual([1, 2, 3]);
     });
   });
 });

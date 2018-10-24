@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 # https://github.com/akosma/eBook-Template
 # brew install plantuml glib gdk-pixbuf cairo pango cmake libxml2 pkg-config
@@ -17,7 +17,7 @@ gem 'epubcheck'
 
 # brew link gettext --force
 # brew install pkg-config
-# https://github.com/gjtorikian/mathematical
+# https://github.com/gjtorikian/mathematical - run script/bootstrap; MATHEMATICAL_USE_SYSTEM_LASEM=1 gem install mathematical
 gem 'asciidoctor-mathematical'
 
 # --pre

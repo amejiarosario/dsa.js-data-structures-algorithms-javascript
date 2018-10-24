@@ -7,7 +7,7 @@
  * @param {integer} to index of the 2nd element
  */
 function swap(array, from, to) {
-  [array[from], array[to]] = [array[to], array[from]];
+  [array[from], array[to]] = [array[to], array[from]]; // ES6 array destructing
 }
 // end::swap[]
 

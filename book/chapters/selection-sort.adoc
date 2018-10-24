@@ -1,6 +1,6 @@
 = Selection Sort
 
-The selection sort as it names indicates choose the lowest element from the list and move it where it should be.
+The selection sort is a simple sorting algorithm. As its name indicates, it chooses the lowest element from the list and move it where it should be.
 
 TIP: selection sort is a in-place sorting algorithms, it should be used when auxiliary memory is limited.
 
@@ -17,7 +17,7 @@ For implementing the selection sort we need 2 indexes.
 .Selection sort
 [source, javascript]
 ----
-include::{codedir}/algorithms/selection-sort.js[tag=sort, indent=0]
+include::{codedir}/algorithms/sorting/selection-sort.js[tag=sort, indent=0]
 ----
 
 One index is for the position in question (selection/outer) and another one for finding the minimun in the rest of the array (element/inner).
@@ -27,7 +27,7 @@ The swap function is implemented as follows.
 .Swap function
 [source, javascript]
 ----
-include::{codedir}/algorithms/selection-sort.js[tag=swap, indent=0]
+include::{codedir}/algorithms/sorting/sorting-common.js[tag=swap, indent=0]
 ----
 
 It uses JavaScript ES6 destructing arrays.
@@ -60,3 +60,12 @@ console.log(b); //️↪️ 1
 
 Without destructuring assignment, swapping two values requires a temporary variable.
 ****
+
+== Selection Sort Properties
+
+- <<Stable>>: [big]#✅# Yes
+- <<In-place>>: [big]#✅# Yes
+- <<Online>>: [big]#✅# Yes
+- <<Adaptive>>: [big]#✅# Yes
+- Time Complexity: [big]#⛔️# <<Quadratic>> _O(n^2^)_
+- Space Complexity: [big]#✅# <<Constant>> _O(1)_

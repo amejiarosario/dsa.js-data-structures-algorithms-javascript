@@ -2,12 +2,18 @@
 
 Excepteur ad occaecat ex dolor reprehenderit esse occaecat exercitation Lorem. Consectetur laboris qui aliquip nisi cillum ea. Laborum Lorem ullamco tempor nisi Lorem qui tempor.
 
+== Stable
 
-- In-place vs auxiliary memory usage
-- Stable vs inestable
+Does not change the relative order of elements with equal keys.
 
+== Online
 
-- Stable: does not change the relative order of elements with equal keys.
-- In-place: only requires a constant amount O(1) of additional memory space. Does not use any other auxiliary memory.
-- Online: can sort a list as it receives it.
-- Adaptive: efficient for data sets that are already substantially sorted.
+Can sort a list as it receives it.
+
+== In-place
+
+only requires a constant amount O(1) of additional memory space. Does not use any other auxiliary memory.
+
+== Adaptive
+
+Efficient for data sets that are already substantially sorted.

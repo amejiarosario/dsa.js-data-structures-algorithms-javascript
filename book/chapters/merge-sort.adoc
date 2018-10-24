@@ -1,3 +1,39 @@
 = Merge Sort
 
-Non consectetur ullamco quis quis. Sit est incididunt mollit nisi id pariatur officia sint labore voluptate tempor proident. Et non aliquip excepteur est eiusmod consequat id ad sit ut voluptate mollit. Quis laboris pariatur do exercitation. Magna incididunt amet adipisicing amet.
+Merge sort is an efficient sorting algorithm that uses "divide and conquer" paradigm to accomplish it task faster but it uses aditional storage in the process.
+
+== Merge Sort Implementation
+
+Merge sort can be implemented in any programming language. This are the general steps that this sorting algorithm follows:
+
+.Merge Sort Algorithm
+. It moves one element at a time (from left to right). Everything on the left of the current element is already sorted, while everything to the right is not.
+. Start with the first element and make it the current element.
+. Compare elements to right of the current element.
+. Merge up big values to the right of the array.
+.. Swap elements if the previous element is bigger than the previous one.
+. Move the current pointer to the next element and repeat for the rest of the array
+
+
+Let's convert these words into code!
+
+.Merge Sort implementation in JavaScript
+[source, javascript]
+----
+include::{codedir}/algorithms/sorting/Merge-sort.js[tag=sort, indent=0]
+----
+<1> Convert any kind of iterable (array, sets, etc.) into an array
+<2> Start on the first element (position 0)
+<3> Start scanning elements that are to the right of the current element.
+<4> If the previous element is bigger than the previous one, then swap them. This is called bubbling up bigger values to the right.
+
+Merge sort has a <<Quadratic>> running time, as you might infer from the nested for-loop.
+
+== Merge Sort Properties
+
+- <<Stable>>: [big]#✅# Yes
+- <<In-place>>: [big]#✅# Yes
+- <<Online>>: [big]#✅# Yes
+- <<Adaptive>>: [big]#✅# Yes
+- Time Complexity: [big]#⛔️# <<Quadratic>> _O(n^2^)_
+- Space Complexity: [big]#✅# <<Constant>> _O(1)_
