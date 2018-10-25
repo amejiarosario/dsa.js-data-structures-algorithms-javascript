@@ -2,6 +2,7 @@ const sortingAlgorithms = [
   require('./selection-sort'),
   require('./insertion-sort'),
   require('./bubble-sort'),
+  require('./merge-sort'),
 ];
 
 sortingAlgorithms.forEach((sort) => {
@@ -32,6 +33,10 @@ sortingAlgorithms.forEach((sort) => {
 
     it('should sort a set', () => {
       expect(sort(new Set([3, 1, 2]))).toEqual([1, 2, 3]);
+    });
+
+    xit('should sort with duplicated values', () => {
+      expect(sort([1, 3, 2, 1])).toEqual([1, 1, 2, 3]);
     });
   });
 });
