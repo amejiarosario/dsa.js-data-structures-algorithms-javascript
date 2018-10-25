@@ -24,24 +24,24 @@ function merge(array1, array2 = []) {
 
 // tag::splitSort[]
 /**
- * Split array in half until two or less elements are left.
+ * Split array in half recursively until two or less elements are left.
  * Sort these two elements and combine them back using the merge function.
  * @param {Array} array
  */
 function splitSort(array) {
   const size = array.length;
-
+  // base case
   if (size < 2) {
     return array;
   } else if (size === 2) {
-    return array[0] < array[1] ? array : [array[1], array[0]];
+    return array[0] < array[1] ? array : [array[1], array[0]]; // <2>
   }
 
-  const middle = Math.ceil(size / 2);
-
-  return merge(
-    splitSort(array.slice(0, middle)),
-    splitSort(array.slice(middle)),
+  // recursive split in half and merge back
+  const half = Math.ceil(size / 2);
+  return merge( // <3>
+    splitSort(array.slice(0, half)), // <1>
+    splitSort(array.slice(half)), // <1>
   );
 }
 // end::splitSort[]

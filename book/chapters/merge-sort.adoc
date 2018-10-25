@@ -17,23 +17,32 @@ Merge sort implementation is as follows
 
 Let's convert these words into code!
 
-.Merge Sort implementation in JavaScript
+.Merge Sort implementation in JavaScript (mergeSort)
 [source, javascript]
 ----
 include::{codedir}/algorithms/sorting/merge-sort.js[tag=sort, indent=0]
 ----
 <1> Convert any kind of iterable (array, sets, etc.) into an array
-<2> Start on the first element (position 0)
-<3> Start scanning elements that are to the right of the current element.
-<4> If the previous element is bigger than the previous one, then swap them. This is called bubbling up bigger values to the right.
+
+As you can see this function is just a wrapper to transform things to array. The heavy lifting is done in `splitSort` as you can see below.
+
+.Merge Sort implementation in JavaScript (splitSort)
+[source, javascript]
+----
+include::{codedir}/algorithms/sorting/merge-sort.js[tag=splitSort, indent=0]
+----
+<1> Recursively divide the array in half until two or less elements are left.
+<2> Sort two or less elements.
+<3> Merge back the sorted halves in ascending order.
 
 Merge sort has a <<Quadratic>> running time, as you might infer from the nested for-loop.
 
 == Merge Sort Properties
 
+- Time Complexity: [big]#✅# <<Linearithmic>> _O(n log n)_
+- Space Complexity: [big]#⚠️# <<Linear>> _O(n)_
 - <<Stable>>: [big]#✅# Yes
-- <<In-place>>: [big]#✅# Yes
-- <<Online>>: [big]#✅# Yes
-- <<Adaptive>>: [big]#✅# Yes
-- Time Complexity: [big]#⛔️# <<Quadratic>> _O(n^2^)_
-- Space Complexity: [big]#✅# <<Constant>> _O(1)_
+- <<In-place>>: [big]#⛔️️️️️# No, it requires auxiliary memory O(n).
+- <<Online>>: [big]#️️️️️️️⛔️️️️️# No, new elements will require to sort the whole array.
+- <<Adaptive>>: [big]#️️️️️️️⛔️️️️️# No, mostly sorted array takes the same time O(n log n).
+- Recursive: Yes
