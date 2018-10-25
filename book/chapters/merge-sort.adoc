@@ -1,10 +1,10 @@
 = Merge Sort
 
-Merge sort is an efficient sorting algorithm that uses "divide and conquer" paradigm to accomplish it task faster but it uses aditional storage in the process.
+Merge sort is an efficient sorting algorithm that uses "divide and conquer" paradigm to accomplish it task faster. It uses auxiliary memory in the process of sorting.
 
 == Merge Sort Implementation
 
-Merge sort can be implemented in any programming language. This are the general steps that this sorting algorithm follows:
+Merge sort implementation is as follows
 
 .Merge Sort Algorithm
 . It moves one element at a time (from left to right). Everything on the left of the current element is already sorted, while everything to the right is not.
@@ -20,7 +20,7 @@ Let's convert these words into code!
 .Merge Sort implementation in JavaScript
 [source, javascript]
 ----
-include::{codedir}/algorithms/sorting/Merge-sort.js[tag=sort, indent=0]
+include::{codedir}/algorithms/sorting/merge-sort.js[tag=sort, indent=0]
 ----
 <1> Convert any kind of iterable (array, sets, etc.) into an array
 <2> Start on the first element (position 0)
