@@ -35,7 +35,7 @@ sortingAlgorithms.forEach((sort) => {
       expect(sort(new Set([3, 1, 2]))).toEqual([1, 2, 3]);
     });
 
-    xit('should sort with duplicated values', () => {
+    it('should sort with duplicated values', () => {
       expect(sort([1, 3, 2, 1])).toEqual([1, 1, 2, 3]);
     });
   });
