@@ -2,6 +2,8 @@
 
 Merge sort is an efficient sorting algorithm that uses "divide and conquer" paradigm to accomplish it task faster. It uses auxiliary memory in the process of sorting.
 
+Merge sort algorithm splits the array in halves until 2 or less elements are left. It sorts these two elements and then merge back all halves until the whole array is sorted.
+
 == Merge Sort Implementation
 
 Merge sort implementation is as follows
@@ -35,7 +37,18 @@ include::{codedir}/algorithms/sorting/merge-sort.js[tag=splitSort, indent=0]
 <2> Sort two or less elements.
 <3> Merge back the sorted halves in ascending order.
 
-Merge sort has a <<Quadratic>> running time, as you might infer from the nested for-loop.
+Let's now take a look at the merge function:
+
+.Merge Sort implementation in JavaScript (merge)
+[source, javascript]
+----
+include::{codedir}/algorithms/sorting/merge-sort.js[tag=merge, indent=0]
+----
+<1> We need to keep track of 3 arrays indices (mergedArray, a1 and a2).
+<2> If `array1` has the lowest current value, we insert it into the merged array if not we then insert `array2`.
+<3> End result is array1 and array2 combined in ascending order (sorted).
+
+Merge sort has a _O(n log n)_  running time. For more details about the how to extract the runtime go to <<Linearithmic>>.
 
 == Merge Sort Properties
 
