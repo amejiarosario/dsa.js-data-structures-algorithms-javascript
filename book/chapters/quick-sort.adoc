@@ -1,48 +1,60 @@
 = Quick Sort
 
-Quick sort is an efficient sorting algorithm that uses "divide and conquer" paradigm to accomplish it task faster. It uses auxiliary memory in the process of sorting.
+Quick sort is an efficient recursive sorting algorithm that uses "divide and conquer" paradigm to sort faster. It can be implemented in-place so it doesn't require additonal memory.
+
+In practice quicksort outperforms efficient sorting algorithms like <<Merge Sort>>. And, of course, It also outperforms simple sorting algorithms like <<Selection Sort>>, <<Insertion Sort>> and <<Bubble Sort>>.
+
+Quick sort basically picks a "pivot" element (preferably random) and move all the elements that are smaller than the pivot to the right and the ones that are bigger to the left. It does this recursively until all the array is sorted.
 
 == Quick Sort Implementation
 
-Quick sort implementation is as follows
+Quick sort implementation uses the divide-and-conquer in the following way:
 
 .Quick Sort Algorithm
-. It moves one element at a time (from left to right). Everything on the left of the current element is already sorted, while everything to the right is not.
-. Start with the first element and make it the current element.
-. Compare elements to right of the current element.
-. Quick up big values to the right of the array.
-.. Swap elements if the previous element is bigger than the previous one.
-. Move the current pointer to the next element and repeat for the rest of the array
-
+. Pick a "pivot" element (at random)
+. Move everything that is lower than the pivot to the left and everything that is bigger than the pivot to the right.
+. Recursively repeat step 1 and 2, the sub-arrays on the left and on the right WITHOUT including the pivot.
 
 Let's convert these words into code!
 
 .Quick Sort implementation in JavaScript (QuickSort)
 [source, javascript]
 ----
-include::{codedir}/algorithms/sorting/Quick-sort.js[tag=sort, indent=0]
+include::{codedir}/algorithms/sorting/quick-sort.js[tag=quickSort, indent=0]
 ----
-<1> Convert any kind of iterable (array, sets, etc.) into an array
+<1> Partition: picks a pivot and find the index where the pivot will be when the array is sorted.
+<2> Do the partition of the sub-array at the left of the pivot.
+<3> Do the partition of the sub-array at the right of the pivot.
+<4> Only do the partition when there's something to divide.
 
-As you can see this function is just a wrapper to transform things to array. The heavy lifting is done in `splitSort` as you can see below.
+The real heavy-lifting is don in the partion function. Let's implement that:
 
-.Quick Sort implementation in JavaScript (splitSort)
+.Quick Sort implementation in JavaScript (partition)
 [source, javascript]
 ----
-include::{codedir}/algorithms/sorting/Quick-sort.js[tag=splitSort, indent=0]
+include::{codedir}/algorithms/sorting/Quick-sort.js[tag=partition, indent=0]
 ----
-<1> Recursively divide the array in half until two or less elements are left.
-<2> Sort two or less elements.
-<3> Quick back the sorted halves in ascending order.
+<1> Make the rightmost element as the pivot.
+<2> This is the place holder for the final pivot index. We start in low and as we move all the lower elements to the left we will get the final place where the pivot should be.
+<3> Move one element at a time comparing it to the pivot value.
+<4> If the current element value is less than the pivot, then increment pivot index (pivot should be place after all the lower values). We also swap the value before incrementing because current element that is lower than the pivot to be at its left side.
 
-Quick sort has a <<Quadratic>> running time, as you might infer from the nested for-loop.
+Merge sort has a _O(n log n)_ running time. For more details about the how to extract the runtime go to <<Linearithmic>>.
 
 == Quick Sort Properties
 
 - Time Complexity: [big]#✅# <<Linearithmic>> _O(n log n)_
 - Space Complexity: [big]#⚠️# <<Linear>> _O(n)_
 - <<Stable>>: [big]#✅# Yes
-- <<In-place>>: [big]#⛔️️️️️# No, it requires auxiliary memory O(n).
-- <<Online>>: [big]#️️️️️️️⛔️️️️️# No, new elements will require to sort the whole array.
+- <<In-place>>: [big]#✅# Yes
 - <<Adaptive>>: [big]#️️️️️️️⛔️️️️️# No, mostly sorted array takes the same time O(n log n).
+- <<Online>>: [big]#️️️️️️️⛔️️️️️# No, the pivot element can be choose at random.
 - Recursive: Yes
+
+
+// Resources:
+// https://www.khanacademy.org/computing/computer-science/algorithms/quick-sort/a/linear-time-partitioning
+// https://www.khanacademy.org/computing/computer-science/algorithms/quick-sort/a/overview-of-quicksort
+// https://algs4.cs.princeton.edu/23quicksort/
+// https://twitter.com/mathias/status/1036626116654637057?lang=en
+// https://www.toptal.com/developers/sorting-algorithms/quick-sort
