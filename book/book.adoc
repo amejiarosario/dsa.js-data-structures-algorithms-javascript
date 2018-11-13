@@ -25,7 +25,10 @@ include::chapters/preface.adoc[]
 
 = Algorithms Analysis
 
+[partintro]
+--
 include::chapters/algorithms-analysis-intro.adoc[]
+--
 
 :leveloffset: +1
 
