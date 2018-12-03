@@ -1,3 +1,8 @@
+/**
+ * Runtime: O(n^2)
+ * Space: O(n^2)
+ * @param {String} s string
+ */
 function longestPalindrome(s) {
   if (!s) {
     return '';
