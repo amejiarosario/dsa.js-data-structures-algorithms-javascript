@@ -1,21 +1,16 @@
 function lengthOfLongestSubstring(s) {
   let max = 0;
-  let cmax = 0;
-  let lrep = 0;
-  const lastRepeated = new Map();
+  const lastIndex = new Map();
 
-  for (let index = 0; index < s.length; index += 1) {
-    const char = s[index];
+  for (let start = 0, end = 0; end < s.length; end += 1) {
+    const char = s[end];
 
-    if (!lastRepeated.has(char)) {
-      cmax += 1;
-    } else {
-      cmax = index - Math.max(lrep - 1, lastRepeated.get(char));
-      lrep = index;
+    if (lastIndex.has(char)) {
+      start = Math.max(start, lastIndex.get(char));
     }
 
-    max = Math.max(cmax, max);
-    lastRepeated.set(char, index);
+    max = Math.max(max, (end - start) + 1);
+    lastIndex.set(char, end + 1);
   }
 
   return max;
