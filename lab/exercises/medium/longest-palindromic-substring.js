@@ -1,6 +1,6 @@
 /**
  * Runtime: O(n^2)
- * Space: O(n^2)
+ * Space: O(1)
  * @param {String} s string
  */
 function longestPalindrome(s) {
@@ -8,7 +8,7 @@ function longestPalindrome(s) {
     return '';
   }
 
-  let max = '';
+  let max = { start: 0, end: 0, length: 0 };
 
   for (let i = 0; i < s.length; i++) {
     const s1 = expandFromCenter(s, i, i);
@@ -17,7 +17,7 @@ function longestPalindrome(s) {
     max = (Math.max(s1.length, s2.length) > max.length) ? ((s1.length > s2.length) ? s1 : s2) : max;
   }
 
-  return max;
+  return s.substring(max.start, max.end + 1);
 }
 
 function expandFromCenter(s, left, right) {
@@ -35,7 +35,7 @@ function expandFromCenter(s, left, right) {
     right++;
   }
 
-  return s.substring(start, end + 1);
+  return { start, end, length: end - start };
 }
 
 const assert = require('assert');
