@@ -3,3 +3,7 @@ node_modules
 coverage/
 **/dist/
 _book/
+<<<<<<< HEAD
+=======
+.DS_Store
+>>>>>>> book
