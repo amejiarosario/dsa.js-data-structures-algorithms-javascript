@@ -2,3 +2,5 @@ node_modules
 .idea/
 coverage/
 **/dist/
+_book/
+.DS_Store
