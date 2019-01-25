@@ -7,7 +7,7 @@
 
 :doctitle: Data Structures & Algorithms: Illustrated Guide with JavaScript Examples
 :description: A guide data structures and algorithms to survive in this programming world
-:keywords: algorithms, data-structures, coding-interviews
+:keywords: algorithms, data-structures, coding-interviews, javascript, computer science
 
 // captions
 :figure-caption:

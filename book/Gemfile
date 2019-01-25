@@ -34,3 +34,5 @@ gem 'asciidoctor-html5s' # gem install --pre asciidoctor-html5s
 #      -LO http://mirrors.ctan.org/fonts/cm/ps-type1/bakoma/ttf/eufm10.ttf \
 #      -LO http://mirrors.ctan.org/fonts/cm/ps-type1/bakoma/ttf/msam10.ttf \
 #      -LO http://mirrors.ctan.org/fonts/cm/ps-type1/bakoma/ttf/msbm10.ttf
+
+gem "prawn-gmagick", "~> 0.0.8" # brew install GraphicsMagick

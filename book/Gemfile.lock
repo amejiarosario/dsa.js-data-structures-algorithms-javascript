@@ -60,6 +60,8 @@ GEM
     prawn (2.2.2)
       pdf-core (~> 0.7.0)
       ttfunk (~> 1.5)
+    prawn-gmagick (0.0.8)
+      prawn (>= 0.15, < 3.0)
     prawn-icon (1.3.0)
       prawn (>= 1.1.0, < 3.0.0)
     prawn-svg (0.27.1)
@@ -97,7 +99,8 @@ DEPENDENCIES
   asciimath
   epubcheck
   kindlegen
+  prawn-gmagick (~> 0.0.8)
   pygments.rb
 
 BUNDLED WITH
-   1.16.5
+   1.16.6
