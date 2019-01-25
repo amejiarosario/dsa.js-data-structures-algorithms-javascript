@@ -14,6 +14,7 @@ ifndef::backend-epub3[:leveloffset: +1]
 include::chapters/dedication.adoc[]
 ifndef::backend-epub3[:leveloffset: -1]
 
+// TODO: pending
 include::chapters/preface.adoc[]
 
 // add sections to chapters
@@ -25,6 +26,7 @@ include::chapters/preface.adoc[]
 
 = Algorithms Analysis
 
+// TODO: pending
 include::chapters/algorithms-analysis-intro.adoc[]
 
 :leveloffset: +1
@@ -51,7 +53,7 @@ include::chapters/queue.adoc[]
 
 :leveloffset: -1
 
-= Non-Linear Data Structures
+= Non-Linear Data Structures (fundamental)
 
 include::chapters/non-linear-data-structures-intro.adoc[]
 
@@ -61,31 +63,50 @@ include::chapters/tree.adoc[]
 
 include::chapters/binary-search-tree.adoc[]
 
-include::chapters/avl-tree.adoc[]
-
-include::chapters/red-black-tree.adoc[]
-
-include::chapters/heap.adoc[]
-
-include::chapters/trie.adoc[]
-
 include::chapters/map.adoc[]
 
 include::chapters/set.adoc[]
 
 include::chapters/graph.adoc[]
 
+
+:leveloffset: -1
+
+= Non-Linear Data Structures (advanced)
+
+// TODO: pending
+include::chapters/non-linear-data-structures-intro-advanced.adoc[]
+
+:leveloffset: +1
+
+// TODO: pending
+include::chapters/avl-tree.adoc[]
+
+// TODO: pending
+include::chapters/red-black-tree.adoc[]
+
+// TODO: pending
+include::chapters/heap.adoc[]
+
+// TODO: pending
+include::chapters/trie.adoc[]
+
+
 :leveloffset: -1
 
 = Algorithms
 
+// TODO: pending
 include::chapters/algorithms-intro.adoc[]
 
 :leveloffset: +1
 
+// TODO: pending
 include::chapters/sorting-intro.adoc[]
 
+//
 // Slow Sorting
+//
 
 include::chapters/insertion-sort.adoc[]
 
@@ -93,16 +114,22 @@ include::chapters/selection-sort.adoc[]
 
 include::chapters/bubble-sort.adoc[]
 
+//
 // Fast Sorting
+//
 
 include::chapters/merge-sort.adoc[]
 
 include::chapters/quick-sort.adoc[]
 
+// TODO: pending
 include::chapters/tim-sort.adoc[]
 
+//
 // Searching
+//
 
+// TODO: pending
 include::chapters/graph-search.adoc[]
 
 :leveloffset: -1
@@ -113,9 +140,12 @@ include::chapters/graph-search.adoc[]
 
 include::chapters/epigraph.adoc[]
 
+// TODO: pending
 include::chapters/appendix.adoc[]
 
 ifdef::backend-pdf[]
-//include::chapters/index.adoc[]
+
+// include::chapters/index.adoc[]
+
 endif::[]
 

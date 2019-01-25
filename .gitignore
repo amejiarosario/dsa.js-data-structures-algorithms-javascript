@@ -1,6 +1,6 @@
 node_modules
-.idea/
-coverage/
-**/dist/
-_book/
+.idea
+coverage
+dist
+_book
 .DS_Store
