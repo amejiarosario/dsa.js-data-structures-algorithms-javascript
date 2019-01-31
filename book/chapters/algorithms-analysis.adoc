@@ -1,27 +1,27 @@
-= Learning Algorithms Analysis
+= Fundamentals of Algorithms Analysis
 
 Chances are you are reading this book because you want to write better and faster code.
 How can you do that? Can you time how long it takes to run a program? Of course, you can!
 [big]#⏱#
-However, if you run the same program on a smart watch, cellphone or desktop computer it will give you different times.
+However, if you run the same program on a smartwatch, cellphone or desktop computer, it will give you different very times.
 
 image:image3.png[image,width=528,height=137]
 
 Wouldn't it be great if we can compare algorithms regardless of the hardware where we run them?
 That's what *time complexity* is for!
 But why stop with the running time?
-We could also compare the memory "used" by different algorithms and we called that *space complexity*.
+We could also compare the memory "used" by different algorithms, and we called that *space complexity*.
 
 .In this chapter you will learn:
--	What’s the best way to measure your code performance.
--	Learn how to use Big O notation to compare algorithms.
--	How to use algorithms analysis to improve your programs speed.
+-    What’s the best way to measure your code performance.
+-    Learn how to use Big O notation to compare algorithms.
+-    How to use algorithms analysis to improve your programs speed.
 
-Before going deeper, into space and time complexity, let's define what an algorithm is.
+Before going deeper, into space and time complexity, let's cover the basics real quick.
 
 == What are Algorithms?
 
-Algorithms (as you might know) are steps of how to do some task. When you cook, you follow a recipe (or an algorithm) to prepare a dish. Let's say you want to prepare a pizza... 
+Algorithms (as you might know) are steps of how to do some task. When you cook, you follow a recipe (or an algorithm) to prepare a dish. Let's say you want to make a pizza.
 
 .Example of an algorithm
 //[source, js]
@@ -38,15 +38,17 @@ function bakePizza(dough, toppins = []) {
 bakePizza(new Dough, ['ham', 'cheese']);
 ----
 
-If you play a game, you are devising strategies (or an algorithm) to help you win. Likewise, algorithms in computers are a set of instructions used to solve a problem.
+If you play a game, you are devising strategies (or algorithms) to help you win. Likewise, algorithms in computers are a set of instructions used to solve a problem.
 
-TIP: Algorithms are instructions to perform a task.
+TIP: Algorithms are instructions on how to perform a task.
 
 == Comparing Algorithms
 
-There are “good” algorithms and “bad” algorithms. The good ones are fast; the bad ones are slow. Slow algorithms cost more money and make some calculations impossible in our lifespan!
+Not all algorithms are created equal. There are “good” and “bad” algorithms. The good ones are fast; the bad ones are slow. Slow algorithms cost more money to run. Inefficient algorithms could make some calculations impossible in our lifespan!
 
-Just to give you a clearer picture how different algorithms perform as the input size grows.
+Most algorithms are affected by the size of the input. Let's say you need to arrange numbers in ascending order. Sorting ten digits will naturally take much less time than sorting 2 million of them.
+
+To give you a clearer picture of how different algorithms perform as the input size grows, take a look at the following table.
 
 .Relationship between algorithm input size and time taken to complete
 [cols=",,,,,",options="header",]
@@ -59,9 +61,9 @@ Just to give you a clearer picture how different algorithms perform as the input
 |Find all permutations of a string |4 sec. |> vigintillion years |> centillion years |∞ |∞
 |=============================================================================================
 
-You can really notice the difference between a good algorithm and bad with the sorting array elements examples: `merge-sort` vs `bubble sort`.
+However, if you keep the input size constant, you can notice the difference between an efficient algorithm and a slow one. An excellent sorting algorithm is `mergesort` for instance, and inefficient algorithm for large inputs is `bubble sort` .
 Organizing 1 million elements with merge sort takes 20 seconds while bubble sort takes 12 days, ouch!
-The amazing thing is that both programs are measured on the same hardware with exactly the same data!
+The amazing thing is that both programs are measured on the same hardware with the same data!
 
 After completing this book, you are going to *think differently*.
 You will be able to scale your programs while you are designing them.
@@ -72,36 +74,40 @@ Find bottlenecks of existing software and have an "algorithmic toolbox" to switc
 The first step to improve your code performance is to measure it. As somebody said:
 
 [quote, H. J. Harrington]
-Measurement is the first step that leads to control and eventually to improvement. If you can’t measure something, you can’t understand it. If you can’t understand it, you can’t control it. If you can’t control it, you can’t improve it.
+Measurement is the first step that leads to control and eventually to improvement. If you can’t measure something, you can’t understand it. If you can’t understand it, you can’t control it. If you can’t manage it, you can’t improve it.
 
-In this section we are going to learn the basics to measuring our current code performance and compare it with others.
+In this section, we are going to learn the basics of measuring our current code performance and compare it with other algorithms.
 
 === Calculating Time Complexity
 
-Time complexity, in computer science, is a function that describes the amount of operations a program will execute given the size of the input `n`. 
+Time complexity, in computer science, is a function that describes the number of operations a program will execute given the size of the input `n`.
 
-How do get a function that give us the amount of operations that will executed? Well, we count line by line and mind code inside loops. For instance, we have a function to find the minimum value on an array called `getMin`.
+How do get a function that gives us the number of operations that will be executed? Well, we count line by line and mind code inside loops. Let's do an example to explain this point. For instance, we have a function to find the minimum value on an array called `getMin`.
 
-.Translating lines of code to approximate number of operations
+.Translating lines of code to an approximate number of operations
 image:image4.png[Operations per line]
 
-Assuming that each line of code is an operation, we get the following that the number of operations given the input size `n` is:
+Assuming that each line of code is an operation, we get the following:
 
 _3n + 3_
 
-That means that if give an array of 3 elements e.g. `getMin([3, 2, 9])`, then it will execute around _3(3)+3 = 12_ operations. Of course, this is not exact. Line 12 is only executed if the condition on line 11 is met. As you might learn in the next section, we want to get the big picture and get rid of smaller terms in order to compare algorithms easier.
+`n` =  input size.
+
+That means that if give an array of 3 elements e.g. `getMin([3, 2, 9])`, then it will execute around _3(3)+3 = 12_ operations. Of course, this is not for every case. For instance, Line 12 is only executed if the condition on line 11 is met. As you might learn in the next section, we want to get the big picture and get rid of smaller terms to compare algorithms easier.
 
 == Space Complexity
 
-Space complexity is similar to time complexity. However, instead of the count of operations executed it will be the amount of memory used additional to the input.
+Space complexity is similar to time complexity. However, instead of the count of operations executed, it will account for the amount of memory used additionally to the input.
 
-Calculating the *space complexity* we keep track of the “variables” and memory used. In the `getMin` example, we just create a single variable called `min`. So, the space complexity is 1. If we had to copy values to another array then the space complexity would be `n`.
+For calculating the *space complexity* we keep track of the “variables” and memory used. In the `getMin` example, we just create a single variable called `min`. So, the space complexity is 1. On other algorithms, If we have to use an auxiliary array, then the space complexity would be `n`.
 
 === Simplifying Complexity with Asymptotic Analysis
 
-Asymptotic analysis is the of functions when their inputs approaches infinity.
+When we are comparing algorithms, we don't want to have complex expressions. What would you prefer comparing two algorithms like "3n^2^ + 7n" vs. "1000 n + 2000" or compare them as "n^2^ vs. n"? Well, that when the asymptotic analysis comes to the rescue.
 
-In the previous example we analyzed `getMin` with an array of size 3, what happen size is 10 or 10k or a million?
+Asymptotic analysis is the of functions when their inputs approach infinity.
+
+In the previous example, we analyzed `getMin` with an array of size 3, what happen size is 10 or 10k or a million?
 
 .Operations performed by an algorithm with a time complexity of 3n+3
 [cols=",,",options="header",]
@@ -112,31 +118,32 @@ In the previous example we analyzed `getMin` with an array of size 3, what happe
 |1M |3(1M)+3 |3,000,003
 |===========================
 
-As the input size n grows bigger and bigger then the expression _3n+3_ could be represented as _3n_ or even _n_. This might look like a stretch at first, but you will see that what matters the most is the order of the function rather than lesser terms and constants. Actually, there’s a notation called *Big O*, where O refers to the *order of the function*.
+As the input size `n` grows bigger and bigger then the expression _3n + 3_ could be represented as _3n_ without loosing too much or even _n_. Dropping terms might look like a stretch at first, but you will see that what matters the most is the higher order terms of the function rather than lesser terms and constants. There’s a notation called *Big O*, where O refers to the *order of the function*.
 
-If you have a program which run time is like
+If you have a program which runs time is like
 
 _7n^3^ + 3n^2^ + 5_
 
-You can safely say that its run time is _n^3^_ since the others term will become less and less significant as the inputs grows bigger.
+You can safely say that its run time is _n^3^_. The other terms will become less and less significant as the input grows bigger.
 
 === What is Big O Notation anyways?
 
-Big O notation, only cares about the “biggest” terms in the time/space complexity. So, it combines what we learn about time and space complexity, asymptotic analysis and adds worst-case scenario.
+Big O notation, only cares about the “biggest” terms in the time/space complexity. So, it combines what we learn about time and space complexity, asymptotic analysis and adds a worst-case scenario.
 
-.All algorithms have 3 scenarios:
-* Best-case scenario: the most favorable input where the program will take the least amount of operations to complete. E.g. array already sorted for a sorting algorithm.
-* Average-case scenario: the most common the input comes. E.g. array items in random order for a sorting algorithm.
-* Worst-case scenario: the inputs are arranged in such a way that cause the program to take the longest possible to complete the task. E.g. array items in reversed order for a sorting algorithm.
+.All algorithms have three scenarios:
+* Best-case scenario: the most favorable input arrange where the program will take the least amount of operations to complete. E.g., array already sorted is beneficial for some sorting algorithms.
+* Average-case scenario: this is the most common case. E.g., array items in random order for a sorting algorithm.
+* Worst-case scenario: the inputs are arranged in such a way that causes the program to take the longest to complete. E.g., array items in reversed order for some sorting algorithm will take the longest to run.
 
 To sum up:
 
-IMPORTANT: Big O only cares about the highest order of the run time function and the worst-case scenario.
-There are many common notations like polynomial, _O(n^2^)_ like we saw in the getMin example; constant O(1) and many more that we are going to explore in the next chapter.
+TIP: Big O only cares about the highest order of the run time function and the worst-case scenario.
 
-Again, time complexity is not a direct measure of how long a program takes to execute but rather how many operations it executes in function of the input. However, there’s a relationship between time and operations executed. This changes from hardware to hardware but it gives you an idea.
+WARNING: Don't drop terms that multiplying other terms. _O(n log n)_ is not equivalent to _O(n)_. However, _O(n + log n)_ is.
 
-Readers might not know what this O(n!) means…
+There are many common notations like polynomial, _O(n^2^)_ like we saw in the `getMin` example; constant O(1) and many more that we are going to explore in the next chapter.
+
+Again, time complexity is not a direct measure of how long a program takes to execute but rather how many operations it performs in given the input size. Nevertheless, there’s a relationship between time complexity and clock time as we can see in the following table.
 
 .How long an algorithm takes to run based on their time complexity and input size
 [cols=",,,,,,",options="header",]
@@ -149,14 +156,14 @@ Readers might not know what this O(n!) means…
 |1M |< 1 sec. |1 second |20 seconds |12 days |∞ |∞
 |===============================================================
 
-This just an illustration since in a different hardware the times will be slightly different.
+This just an illustration since in different hardware the times will be slightly different.
 
-NOTE: These times are under the assumption of running on 1 GHz CPU and that it can execute on average one instruction in 1 nanosecond (usually takes more time). Also, bear in mind that each line might be translated into dozens of CPU instructions depending on the programming language. Regardless, bad algorithms still perform badly even in a super computer.
+NOTE: These times are under the assumption of running on 1 GHz CPU and that it can execute on average one instruction in 1 nanosecond (usually takes more time). Also, bear in mind that each line might be translated into dozens of CPU instructions depending on the programming language. Regardless, bad algorithms would perform poorly even on a supercomputer.
 
 == Summary
 
-In this chapter we learned how you can measure your algorithm performance using time complexity. Rather than timing how long you program take to run you can approximate the number of operations it will perform based on the input size.
+In this chapter, we learned how you could measure your algorithm performance using time complexity. Rather than timing how long your program take to run you can approximate the number of operations it will perform based on the input size.
 
-We went thought the process of deducting the time complexity from a simple algorithm. We learned about time and space complexity and how they can be translated to Big O notation. Big O refers to the order of the function.
+We learned about time and space complexity and how they can be translated to Big O notation. Big O refers to the *order* of the function.
 
 In the next section, we are going to provide examples of each of the most common time complexities!

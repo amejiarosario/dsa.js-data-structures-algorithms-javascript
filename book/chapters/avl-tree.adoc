@@ -1,3 +1,5 @@
 = AVL Tree
 
-Ex nulla ex officia reprehenderit aliquip esse. Minim magna commodo fugiat occaecat qui. Esse reprehenderit cupidatat qui et ullamco amet cupidatat sunt pariatur laboris Lorem. Anim non aliquip duis est occaecat minim et eu proident.
+The AVL tree builds on top of a <<Binary Search Tree>> and it keeps it balanced on insertions. It prevents a BST worst case scenario when the tree is totally unbalanced to one side (similar to linked list), then it takes O(n) to find an element instead of O(log n).
+
+
