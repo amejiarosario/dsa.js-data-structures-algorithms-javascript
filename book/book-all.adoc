@@ -5,7 +5,7 @@ include::_conf/variables.adoc[]
 // remove numbering from titles, and sub-titles e.g. 1.1
 :sectnums!:
 
-// Copyright © 2018 Adrian Mejia (g)
+// Copyright © 2018 Adrian Mejia
 include::chapters/colophon.adoc[]
 
 // Abstract and Dedication MUST have a level-0 heading in EPUB and Kindle
@@ -14,10 +14,9 @@ ifndef::backend-epub3[:leveloffset: +1]
 include::chapters/dedication.adoc[]
 ifndef::backend-epub3[:leveloffset: -1]
 
-// (g)
+// TODO: pending
 include::chapters/preface.adoc[]
 
-// TODO: review and complete when the rest is completed
 include::chapters/cheatsheet.adoc[]
 
 // add sections to chapters
@@ -29,11 +28,11 @@ include::chapters/cheatsheet.adoc[]
 
 = Algorithms Analysis
 
+// TODO: pending
 include::chapters/algorithms-analysis-intro.adoc[]
 
 :leveloffset: +1
 
-// (g)
 include::chapters/algorithms-analysis.adoc[]
 
 include::chapters/big-o-examples.adoc[]
@@ -75,6 +74,28 @@ include::chapters/graph.adoc[]
 
 :leveloffset: -1
 
+= Advanced Non-Linear Data Structures
+
+// TODO: pending
+include::chapters/non-linear-data-structures-intro-advanced.adoc[]
+
+:leveloffset: +1
+
+// TODO: pending
+include::chapters/avl-tree.adoc[]
+
+// TODO: pending  (optional)
+// include::chapters/red-black-tree.adoc[]
+
+// TODO: pending
+include::chapters/heap.adoc[]
+
+// TODO: (optional) pending
+// include::chapters/trie.adoc[]
+
+
+:leveloffset: -1
+
 = Algorithms
 
 // TODO: pending
@@ -103,6 +124,12 @@ include::chapters/merge-sort.adoc[]
 
 include::chapters/quick-sort.adoc[]
 
+// TODO: (optional) pending
+// include::chapters/heap-sort.adoc[]
+
+// TODO: (optional) pending
+// include::chapters/tim-sort.adoc[]
+
 //
 // Searching
 //
@@ -117,3 +144,12 @@ include::chapters/graph-search.adoc[]
 //
 
 include::chapters/epigraph.adoc[]
+
+// TODO: (optional) pending
+// include::chapters/appendix.adoc[]
+
+// TODO: (optional) pending
+ifdef::backend-pdf[]
+include::chapters/index.adoc[]
+endif::[]
+

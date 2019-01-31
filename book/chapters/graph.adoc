@@ -1,7 +1,7 @@
 = Graph
 
-Graphs is one of my favorite data structures. 
-They have a lot of cool applications and are used in more places than you can imagine. 
+Graphs is one of my favorite data structures.
+They have a lot of cool applications and are used in more places than you can imagine.
 First, let’s start with the basics.
 
 TIP: A graph is a non-linear data structure where a node can have zero or
@@ -18,17 +18,17 @@ include::{codedir}/data-structures/graphs/node.js[tag=constructor]
 }
 ----
 
-As you can see, it’s pretty similar to the Linked List node indeed. 
+As you can see, it’s pretty similar to the Linked List node indeed.
 The only difference is that it uses an *array* of the linked nodes instead of just one or two.
 
 Other difference between a linked list and graph is that linked list
-have a start/first/root node, while the graph doesn’t. 
+have a start/first/root node, while the graph doesn’t.
 You can start traversing a graph from anywhere and there might be circular references
 as well. Let’s study this graph properties!
 
 == Graph Properties
 
-The connection between two nodes is called *edge*. 
+The connection between two nodes is called *edge*.
 Also, nodes might be called *vertex*.
 
 .Graph is composed of vertices/nodes and edges
@@ -285,7 +285,7 @@ If we are dealing with a digraph (directed graph), then we just create one edge.
 include::{codedir}/data-structures/graphs/graph.js[tag=addEdge, indent=0]
 ----
 <1> Find or create nodes if they don't exists yet.
-<2> Create edge from source to destination. 
+<2> Create edge from source to destination.
 <3> If us a undirected graph, create the edge on the other direction.
 
 We can add adjacencies using the `addAdjacent` mehtod from the Node class
