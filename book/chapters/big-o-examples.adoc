@@ -1,6 +1,6 @@
 = Eight Running Times You Should Know
 
-There are many kinds of algorithms. Most of them falls into one of the time complexities that we are going to explore in this chapter.
+There are many kinds of algorithms. Most of them fall into one of the eight of the time complexities that we are going to explore in this chapter.
 
 .Most common time complexities
 - Constant time: _O(1)_
@@ -16,19 +16,19 @@ We a going to provide examples for each one of them.
 
 Before we dive in, here’s a plot with all of them.
 
-.CPU operations vs Algorithm runtime as the input size grows
-image:image5.png[CPU time needed vs Algorithm runtime as the input size grows]
+.CPU operations vs. Algorithm runtime as the input size grows
+image:image5.png[CPU time needed vs. Algorithm runtime as the input size increases]
 
-This graph shows how the algorithm running time affects the CPU work as the input size grows. As you can see O(1) and O(log n) are very scalable. However, O(n^2^) and worst can make your computer burn [big]#🔥# on large data sets. We are going to give some examples so you can identify each one.
+The above chart shows how the running time of an algorithm is related to the amount of work the CPU has to perform. As you can see O(1) and O(log n) are very scalable. However, O(n^2^) and worst can make your computer run for years [big]#😵# on large datasets. We are going to give some examples so you can identify each one.
 
 == Constant
 
-Represented as *O(1)*, it means that regardless of the input size the number of operations executed is always the same. Let’s see an example
+Represented as *O(1)*, it means that regardless of the input size the number of operations executed is always the same. Let’s see an example.
 
 [#constant-example]
 === Finding if an array is empty
 
-Let's implement a function that find out if an array is empty or not.
+Let's implement a function that finds out if an array is empty or not.
 
 //.is-empty.js
 //image:image6.png[image,width=528,height=401]
@@ -38,16 +38,16 @@ Let's implement a function that find out if an array is empty or not.
 include::{codedir}/runtimes/01-is-empty.js[tag=isEmpty]
 ----
 
-As you can see if thing is an array of 10 elements or an array of 10M elements it would take the same amount of time to execute. It doesn’t get any more performant than this!
+As you can see, if the input is an array of 10 elements or 10M it would take the same amount of time to execute. You can't get any more performance than this!
 
 == Logarithmic
 
-Represented in Big O notation as *O(log n)*, when an algorithms has this running time it means that as the size of the input grows the number of operations grows very slowly. This make this kind of algorithms very scalable. One example is the *binary search*.
+Represented in Big O notation as *O(log n)*, when an algorithm has this running time it means that as the size of the input grows the number of operations grows very slowly. Logarithmic algorithms are very scalable. One example is the *binary search*.
 
 [#logarithmic-example]
 === Searching on a sorted array
 
-The binary search only works for sorted lists. It starts searching for an element on the middle and then moves to the right or left depending if the value you are looking for is bigger or smaller.
+The binary search only works for sorted lists. It starts searching for an element on the middle of the array and then it moves to the right or left depending if the value you are looking for is bigger or smaller.
 
 // image:image7.png[image,width=528,height=437]
 
@@ -56,13 +56,13 @@ The binary search only works for sorted lists. It starts searching for an elemen
 include::{codedir}/runtimes/02-binary-search.js[tag=binarySearchRecursive]
 ----
 
-This is a recursive algorithm, which means that the function `binarySearch` calls itself multiple times until the solution is found. The binary search split the array in half every time.
+This binary search implementation is a recursive algorithm, which means that the function `binarySearch` calls itself multiple times until the solution is found. The binary search split the array in half every time.
 
-Finding the runtime of recursive algorithms is not very obvious sometimes. It requires some intuition and following what the program is doing. The `binarySearch` divides the input in half each time. As a rule of thumb, when we have an algorithm that divides the input in half on each call we can say that has a logarithmic runtime: _O(log n)_.
+Finding the runtime of recursive algorithms is not very obvious sometimes. It requires some tools like recursion trees or the https://adrianmejia.com/blog/2018/04/24/analysis-of-recursive-algorithms/[Master Theorem]. The `binarySearch` divides the input in half each time. As a rule of thumb, when you have an algorithm that divides the data in half on each call you are most likely in front of a logarithmic runtime: _O(log n)_.
 
 == Linear
 
-This is one of the most commons. It’s represented as *O(n)*. Usually an algorithm has a linear running time when it iterates over all the elements in the input.
+Linear algorithms are one of the most common runtimes. It’s represented as *O(n)*. Usually, an algorithm has a linear running time when it iterates over all the elements in the input.
 
 [#linear-example]
 === Finding duplicates in an array using a map
@@ -78,16 +78,16 @@ include::{codedir}/runtimes/03-has-duplicates.js[tag=hasDuplicates]
 
 .`hasDuplicates` has multiple scenarios:
 * *Best-case scenario*: first two elements are duplicates. It only has to visit two elements.
-* *Worst-case scenario*: no duplicates or duplicates are the last two. In either case it has to visit every element on the array.
-* *Average-case scenario*: duplicates are somewhere in the middle of the array. Only, half of the array has be visited.
+* *Worst-case scenario*: no duplicated or duplicated are the last two. In either case, it has to visit every item on the array.
+* *Average-case scenario*: duplicates are somewhere in the middle of the collection. Only, half of the array will be visited.
 
 As we learned before, the big O cares about the worst-case scenario, where we would have to visit every element on the array. So, we have an *O(n)* runtime.
 
-Space complexity is also *O(n)* since we have a map that in the worst case (no duplicates) it will hold every word.
+Space complexity is also *O(n)* since we are using an auxiliary data structure.  We have a map that in the worst case (no duplicates) it will hold every word.
 
 == Linearithmic
 
-An algorithm with a linearithmic runtime is represented as _O(n log n)_. This one is important because is the best runtime for sorting! Let’s see the merge-sort.
+An algorithm with a linearithmic runtime is represented as _O(n log n)_. This one is important because it is the best runtime for sorting! Let’s see the merge-sort.
 
 [#linearithmic-example]
 === Sorting elements in an array
@@ -102,7 +102,7 @@ The merge sort, like its name indicates, has two functions merge and sort. Let�
 include::{codedir}/runtimes/04-merge-sort.js[tag=sort]
 ----
 
-Starting with the sort part, we basically divide the array in 2 halves and then merge them (line 16) recursively with the following function:
+Starting with the sort part, we divide the array into two halves and then merge them (line 16) recursively with the following function:
 
 // image:image10.png[image,width=528,height=380]
 
@@ -112,24 +112,23 @@ Starting with the sort part, we basically divide the array in 2 halves and then 
 include::{codedir}/runtimes/04-merge-sort.js[tag=merge]
 ----
 
-
-The merge function combines arrays in ascending order. Let’s say that we want to sort the array `[9, 2, 5, 1, 7, 6]`. In the following illustration you can see what each function does.
+The merge function combines two sorted arrays in ascending order. Let’s say that we want to sort the array `[9, 2, 5, 1, 7, 6]`. In the following illustration, you can see what each function does.
 
 .Mergesort visualization. Shows the split, sort and merge steps
 image:image11.png[Mergesort visualization,width=500,height=600]
 
-How do we obtain the running time of the merge sort algorithm? The mergesort divides the array in half each time in the split phase, log n, and the merge function join each splits, n. The total work we have *O(n log n)*. There more formal ways to reach to this runtime like using the https://adrianmejia.com/blog/2018/04/24/analysis-of-recursive-algorithms/[Master Method] and https://www.cs.cornell.edu/courses/cs3110/2012sp/lectures/lec20-master/lec20.html[recursion trees].
+How do we obtain the running time of the merge sort algorithm? The mergesort divides the array in half each time in the split phase, _log n_, and the merge function join each splits, _n_. The total work we have *O(n log n)*. There more formal ways to reach to this runtime like using the https://adrianmejia.com/blog/2018/04/24/analysis-of-recursive-algorithms/[Master Method] and https://www.cs.cornell.edu/courses/cs3110/2012sp/lectures/lec20-master/lec20.html[recursion trees].
 
 == Quadratic
 
-Running times that are quadratic, O(n^2^), are the ones to watch out for. They usually don’t scale well when they have large data to process.
+Running times that are quadratic, O(n^2^), are the ones to watch out for. They usually don’t scale well when they have a large amount of data to process.
 
-Usually, they have double nested loops that where each one visits all or most elements in the input. One example of this is a naïve implementation to find duplicate words on an array.
+Usually, they have double-nested loops that where each one visits all or most elements in the input. One example of this is a naïve implementation to find duplicate words on an array.
 
 [#quadratic-example]
 === Finding duplicates in an array (naïve approach)
 
-If you remember we have solved this problem on the <<Linear, Linear>> section. We solved this problem before a O(n), let’s analyze this time with a O(n^2^):
+If you remember we have solved this problem more efficiently on the <<Linear, Linear>> section. We solved this problem before using an _O(n)_, let’s solve it this time with an _O(n^2^)_:
 
 // image:image12.png[image,width=527,height=389]
 
@@ -139,14 +138,13 @@ If you remember we have solved this problem on the <<Linear, Linear>> section. W
 include::{codedir}/runtimes/05-has-duplicates-naive.js[tag=hasDuplicates]
 ----
 
-As you can see, we have two nested loops causing the running time to be quadratic. How much different is a linear vs quadratic algorithm?
+As you can see, we have two nested loops causing the running time to be quadratic. How much different is a linear vs. quadratic algorithm?
 
-Let’s say you want to find duplicated phone number in a phone directory of a city (e.g. 1 million people). If you use this quadratic solution you would have to wait for ~12 days to get an answer [big]#🐢#, while if you use the linear solution you will get the answer in seconds!
-
+Let’s say you want to find a duplicated middle name in a phone directory book of a city of ~1 million people. If you use this quadratic solution you would have to wait for ~12 days to get an answer [big]#🐢#; while if you use the <<Linear, linear solution>> you will get the answer in seconds! [big]#🚀#
 
 == Cubic
 
-Cubic *O(n^3^)* and higher polynomial functions usually involves many nested loops. As an example of a cubic algorithm looks like let’s say you want to solve a multi-variable equation (using brute force):
+Cubic *O(n^3^)* and higher polynomial functions usually involve many nested loops. As an example of a cubic algorithm is a multi-variable equation solver (using brute force):
 
 [#cubic-example]
 === Solving a multi-variable equation
@@ -167,16 +165,18 @@ include::{codedir}/runtimes/06-multi-variable-equation-solver.js[tag=findXYZ]
 
 WARNING: This just an example, there are better ways to solve multi-variable equations.
 
-As you can see three nested loops usually translates to O(n^3^). If you have a 4 variable equation and four nested loops it would be O(n^4^) and so on. When we have a runtime in the form of _O(n^c^)_, where _c > 1_, we can refer as a *polynomial runtime*.
+As you can see three nested loops usually translates to O(n^3^). If you have a four variable equation and four nested loops it would be O(n^4^) and so on when we have a runtime in the form of _O(n^c^)_, where _c > 1_, we can refer as a *polynomial runtime*.
 
 == Exponential
 
-Exponential runtimes, O(2^n^), means that every time the input grows by 1 the amount of operations done by the algorithms doubles. Exponential programs are only usable for very small size of inputs (<100) otherwise it might not finish on your lifetime ️. Let’s do an example.
+Exponential runtimes, O(2^n^), means that every time the input grows by one the number of operations doubles. Exponential programs are only usable for a tiny number of elements (<100) otherwise it might not finish on your lifetime.  [big]#💀#
+
+Let’s do an example.
 
 [#exponential-example]
 === Finding subsets of a set
 
-Finding all distinct subsets of a given set.
+Finding all distinct subsets of a given set can be implemented as follows:
 
 // image:image14.png[image,width=528,height=401]
 
@@ -190,19 +190,19 @@ include::{codedir}/runtimes/07-sub-sets.js[tag=snippet]
 <3> The new results array will be what it was before + the duplicated with the appended element.
 
 //.The way this algorithm generates all subsets is:
-//1.  Base case is empty element (line 13). E.g. ['']
+//1.  The base case is an empty element (line 13). E.g. ['']
 //2.  For each element from the input append it to the results array (line 16)
 //3.  The new results array will be what it was before + the duplicated with the appended element (line 17)
 
-Every time the input grows by one the size the result array doubles. That’s why it has an *O(2^n^)*.
+Every time the input grows by one the resulting array doubles. That’s why it has an *O(2^n^)*.
 
 == Factorial
 
-Factorial runtime, O(n!), is not scalable at all. Even with input sizes of ~10 elements it will take a couple of seconds to compute. It’s that slow! [big]*🍯🐝*
+Factorial runtime, O(n!), is not scalable at all. Even with input sizes of ~10 elements, it will take a couple of seconds to compute. It’s that slow! [big]*🍯🐝*
 
 .Factorial
 ****
-A factorial, is the multiplication of all the numbers less than itself down to 1.
+A factorial is the multiplication of all the numbers less than itself down to 1.
 
 .For instance:
 - 3! = 3 x 2 x 1 = 6
@@ -225,12 +225,12 @@ include::{codedir}/runtimes/08-permutations.js[tag=snippet]
 
 As you can see in the `getPermutations` function, the resulting array is the factorial of the word length.
 
-Factorial start very slow and then it quickly become unmanageable. A word size of just 11 characters would take a couple of hours in most computers!
+Factorial start very slow and then it quickly becomes uncontrollable. A word size of just 11 characters would take a couple of hours in most computers!
 [big]*🤯*
 
 == Summary
 
-We went through 8 of the most common time complexities and provided examples for each of them. Hopefully, this will give you a toolbox to analyze algorithms in the while.
+We went through 8 of the most common time complexities and provided examples for each of them. Hopefully, this will give you a toolbox to analyze algorithms.
 
 .Most common algorithmic running times and their examples
 [cols="2,2,5",options="header"]
