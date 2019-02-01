@@ -2,6 +2,59 @@
 
 This section summerize what we are  going to cover in the rest of this book.
 
+== Runtimes
+
+.Most common algorithmic running times and their examples
+[cols="2,2,5",options="header"]
+|===
+|Big O Notation
+|Name
+|Example(s)
+
+|O(1)
+|<<Constant>>
+|<<constant-example>>
+
+|O(log n)
+|<<Logarithmic>>
+|<<logarithmic-example>>
+
+|O(n)
+|<<Linear>>
+|<<linear-example>>
+
+|O(n log n)
+|<<Linearithmic>>
+|<<linearithmic-example>>
+
+|O(n^2^)
+|<<Quadratic>>
+|<<quadratic-example>>
+
+|O(n^3^)
+|<<Cubic>>
+|<<cubic-example>>
+
+|O(2^n^)
+|<<Exponential>>
+|<<exponential-example>>
+
+|O(n!)
+|<<Factorial>>
+|<<factorial-example>>
+|===
+
+.How long an algorithm takes to run based on their time complexity and input size
+[cols=",,,,,,",options="header",]
+|===============================================================
+|Input Size |O(1) |O(n) |O(n log n) |O(n^2^) |O(2^n^) |O(n!)
+|1 |< 1 sec. |< 1 sec. |< 1 sec. |< 1 sec. |< 1 sec. |< 1 sec.
+|10 |< 1 sec. |< 1 sec. |< 1 sec. |< 1 sec. |< 1 sec. |4 seconds
+|10k |< 1 sec. |< 1 sec. |< 1 sec. |2 minutes |∞ |∞
+|100k |< 1 sec. |< 1 sec. |1 second |3 hours |∞ |∞
+|1M |< 1 sec. |1 second |20 seconds |12 days |∞ |∞
+|===============================================================
+
 == Linear Data Structures
 
 .Time and Space Complexity of Linear Data Structures (Array, LinkedList, Stack & Queues)
