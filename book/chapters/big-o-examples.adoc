@@ -38,7 +38,9 @@ Let's implement a function that finds out if an array is empty or not.
 include::{codedir}/runtimes/01-is-empty.js[tag=isEmpty]
 ----
 
-As you can see, if the input is an array of 10 elements or 10M it would take the same amount of time to execute. You can't get any more performance than this!
+Another more real life example is adding an element to the begining of a <<Linked List>>. You can check out the implementation <<linked-list-inserting-beginning, here>>.
+
+As you can see, in both examples (array and linked list) if the input is a collection of 10 elements or 10M it would take the same amount of time to execute. You can't get any more performance than this!
 
 == Logarithmic
 

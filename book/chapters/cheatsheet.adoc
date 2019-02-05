@@ -13,7 +13,7 @@ This section summerize what we are  going to cover in the rest of this book.
 
 |O(1)
 |<<Constant>>
-|<<constant-example>>
+|#<<constant-example>>, #<<linked-list-inserting-beginning>>
 
 |O(log n)
 |<<Logarithmic>>
