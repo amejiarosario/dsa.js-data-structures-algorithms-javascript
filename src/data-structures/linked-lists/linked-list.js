@@ -110,6 +110,9 @@ class LinkedList {
    * Search by value. It finds first occurrence  of
    * the element matching the value.
    * Runtime: O(n)
+   * @example: assuming a linked list with: a -> b -> c
+   *  linkedList.indexOf('b') // ↪️ 1
+   *  linkedList.indexOf('z') // ↪️ undefined
    * @param {any} value
    * @returns {number} return index or undefined
    */
@@ -127,6 +130,9 @@ class LinkedList {
   /**
    * Search by index
    * Runtime: O(n)
+   * @example: assuming a linked list with: a -> b -> c
+   *  linkedList.get(1) // ↪️ 'b'
+   *  linkedList.get(40) // ↪️ undefined
    * @param {Number} index position of the element
    * @returns {Node} element at the specified position in this list.
    */
@@ -140,22 +146,26 @@ class LinkedList {
   }
   // end::searchByIndex[]
 
+  // tag::find[]
   /**
    * Iterate through the list until callback returns thruthy
-   * @param {Function} callback evaluates node and index
-   * @returns {any} callbacks's return value
+   * @example see #get and  #indexOf
+   * @param {Function} callback evaluates current node and index
+   * @returns {any} callbacks's return value or undefined
    */
   find(callback) {
-    for (let current = this.first, position = 0;
-      current;
-      position += 1, current = current.next) {
-      const result = callback(current, position);
+    for (let current = this.first, position = 0; // <1>
+      current; // <2>
+      position += 1, current = current.next) { // <3>
+      const result = callback(current, position); // <4>
+
       if (result !== undefined) {
-        return result;
+        return result; // <5>
       }
     }
     return undefined; // not found
   }
+  // end::find[]
 
 
   // tag::removeFirst[]

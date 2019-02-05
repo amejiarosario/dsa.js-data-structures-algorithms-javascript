@@ -36,18 +36,22 @@ include::chapters/algorithms-analysis-intro.adoc[]
 // (g)
 include::chapters/algorithms-analysis.adoc[]
 
+// (g)
 include::chapters/big-o-examples.adoc[]
 
 :leveloffset: -1
 
 = Linear Data Structures
 
+// (g)
 include::chapters/linear-data-structures-intro.adoc[]
 
 :leveloffset: +1
 
+//  (g)
 include::chapters/array.adoc[]
 
+//  (g)
 include::chapters/linked-list.adoc[]
 
 include::chapters/stack.adoc[]

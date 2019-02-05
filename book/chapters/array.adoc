@@ -1,10 +1,14 @@
 = Array
 
-Arrays in one of the most used data structure. It’s a collection of things (strings, characters, numbers, objects, etc.). They can be many or zero. Strings are a collection of Unicode characters and most of the array concepts apply to them.
+Arrays are one of the most used data structures. You probably have used it a lot but are you aware of the runtimes of  `splice`, `shift`  and other operations? In this chapter, we are going deeper into the most common operations and their runtimes.
 
-.Fixed vs Dynamic Size Arrays
+== Array  Basics
+
+An array is a collection of things (strings, characters, numbers, objects, etc.). They can be many or zero. Strings are a collection of Unicode characters and most of the array concepts apply to them.
+
+.Fixed vs. Dynamic Size Arrays
 ****
-Some programming languages has fixed size arrays like Java and C++. Fixed size arrays might be wasteful when you array gets filled and you have to create a new one with bigger size. For that, those programming languages also have built-in dynamic arrays: we have `vector` in C++ and `ArrayList` in Java. Dynamic programming languages like JavaScript, Ruby, Python use dynamic arrays by default.
+Some programming languages have fixed size arrays like Java and C++. Fixed size arrays might be a hassle when your collection gets full, and you have to create a new one with a bigger size. For that, those programming languages also have built-in dynamic arrays: we have `vector` in C++ and `ArrayList` in Java. Dynamic programming languages like JavaScript, Ruby, Python use dynamic arrays by default.
 ****
 
 Arrays look like this:
@@ -29,11 +33,11 @@ const array0 = [];
 array0[2] = 1;
 ----
 
-Using the index, you would replace whatever value was there.
+Using the index, you can replace whatever value you want.
 
 === Inserting at the beginning of the array
 
-What if you want to insert a new element at the beginning of the array? You would have to push every element to the right.
+What if you want to insert a new element at the beginning of the array? You would have to push every item to the right.
 
 .Insert to head
 [source, javascript]
@@ -41,7 +45,7 @@ What if you want to insert a new element at the beginning of the array? You woul
 array.unshift(0); //=> [0, 2, 5, 1, 9, 6, 7]
 ----
 
-As you can see 2 was the index 0, now was pushed to index 1, and everything else was pushed out. This takes *O(n)* since it affects all the elements in the array.
+As you can see, `2` was the index 0, now was pushed to index 1, and everything else was moved one place. `unshift` takes *O(n)* since it affects all the elements in the array.
 
 .JavaScript built-in `array.unshift`
 ****
@@ -59,7 +63,7 @@ array.splice(1, 0, 111); // <1>
 ----
 <1> at the position 1, delete 0 elements and insert 111. The array would be `[2, 111, 5, 1, 9, 6, 7]`
 
-The Big O for this operation would be *O(n)*, since in worst case it would move most of the elements to the right.
+The Big O for this operation would be *O(n)* since in worst case it would move most of the elements to the right.
 
 .JavaScript built-in `array.splice`
 ****
@@ -78,7 +82,7 @@ array.push(4); // <1>
 ----
 <1> The `4` element would be pushed to the end `[2, 5, 1, 9, 6, 7, 4]`.
 
-Adding to the tail of the array doesn’t change other indexes. E.g. element 2 is still at index 0. So, this is a constant time operation *O(1)*.
+Adding to the tail of the array doesn’t change other indexes. E.g., element 2 is still at index 0. So, this is a constant time operation *O(1)*.
 
 .JavaScript built-in `array.push`
 ****
@@ -96,7 +100,7 @@ const array = [2, 5, 1, 9, 6, 7];
 array[4]; //↪️ 6
 ----
 
-This is takes a constant time, *O(1)*, to retrieve values out of the array. If we want to get fancier we can create a function:
+Searching by index takes a constant time, *O(1)*, to retrieve values out of the array. If we want to get fancier we can create a function:
 
 // image:image17.png[image,width=528,height=293]
 
@@ -116,15 +120,15 @@ Finding out if an element is in the array or not is a different story.
 include::{codedir}/data-structures/arrays/array.js[tag=searchByValue]
 ----
 
-We would have to loop through the whole array (worst case) or until we find it. This takes *O(n)*.
+We would have to loop through the whole array (worst case) or until we find it: *O(n)*.
 
 == Deletion
 
-Deleting like insertion there are three possible scenarios, deleting at the beginning, middle or end.
+Deleting (similar to insertion) there are three possible scenarios, removing at the beginning, middle or end.
 
 === Deleting element from the beginning
 
-Deleting from beginning can be done using the splice funtion and also the shift. Let’s use the latter since it’s simpler:
+Deleting from the beginning can be done using the `splice` function and also the `shift`. Let’s use the `shift` since it’s simpler.
 
 .Deleting from the beginning of the array.
 [source, javascript]
@@ -142,7 +146,7 @@ The `shift()` method removes the first element from an array and returns that re
 
 === Deleting element from the middle
 
-We can use the splice operator for this
+We can use the splice operator for this.
 
 .Deleting from the middle
 [source, javascript]
@@ -151,7 +155,7 @@ array.splice(2, 1); // delete 1 element at position 2
 // => array: [2, 5, 9, 6, 7]
 ----
 
-This might cause most the elements of the array to move and occupied the deleted position. Thus, runtime: O(n).
+Deleting from the middle might cause most the elements of the array to move back one position to fill in for the eliminated item. Thus, runtime: O(n).
 
 === Deleting element from the end
 
@@ -163,7 +167,7 @@ Removing the last element is very straightforward:
 array.pop(); // => array: [2, 5, 1, 9, 6]
 ----
 
-No element other element has be shifted so it’s a O(1) runtime.
+No element other element has been shifted, so it’s an _O(1)_ runtime.
 
 .JavaScript built-in `array.pop`
 ****

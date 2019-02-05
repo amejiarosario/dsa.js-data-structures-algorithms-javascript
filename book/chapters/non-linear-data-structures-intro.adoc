@@ -1,6 +1,6 @@
 [partintro]
 --
-Non-Linear data structures are everywhere weather we realize it or not. They are used in databases, Web (HTML DOM tree), search algorithms, finding best route to get home and so on. We are going to learn the basic concepts and when to choose one over the other.
+Non-Linear data structures are everywhere whether you realize it or not. They are used in databases, Web (HTML DOM tree), search algorithms, finding the best route to get home and so on. We are going to learn the basic concepts and when to choose one over the other.
 
 .In this chapter we are going to learn:
 - Exciting <<Graph>> data structure applications
