@@ -54,11 +54,17 @@ include::chapters/array.adoc[]
 //  (g)
 include::chapters/linked-list.adoc[]
 
+//  (g)
 include::chapters/stack.adoc[]
 
+// (g)
 include::chapters/queue.adoc[]
 
+// (g)
+include::chapters/linear-data-structures-outro.adoc[]
+
 :leveloffset: -1
+
 
 = Non-Linear Data Structures
 
