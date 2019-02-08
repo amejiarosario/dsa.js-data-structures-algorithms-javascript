@@ -2,11 +2,10 @@
 
 A list (or Linked List) is a linear data structure where each node is linked to another one.
 
-.Linked Lists can be:
-- *Singly*: every item has a pointer to the next node
-- *Doubly*: every node has a reference to next and previous item
-- *Circular*: the last element points to the first one.
-
+Linked Lists can be:
+- Singly: every item has a pointer to the next node
+- Doubly: every node has a reference to the next and previous object
+- Circular: the last element points to the first one.
 We are going to explore the first two in the next sections.
 
 == Singly Linked List
@@ -73,9 +72,7 @@ Finding an element by value there’s no other way than iterating through the wh
 include::{codedir}/data-structures/linked-lists/linked-list.js[tag=searchByValue, indent=0]
 ----
 
-If we
-find
-the element, we will return the index otherwise `undefined`. The runtime for finding an item by value is _O(n)_.
+If we find the element, we will return the index otherwise `undefined`. The runtime for locating an item by value is _O(n)_.
 
 For finding elements by value or position we are using the following helper function:
 .Find elements using a callback
@@ -86,7 +83,7 @@ include::{codedir}/data-structures/linked-lists/linked-list.js[tag=find, indent=
 <1> We initialize two variables `current` to the first node and `position` to keep track of the index.
 <2> While `current` node is not null we keep going.
 <3> On each loop we move to the next node and increment the index.
-<4> We invoke the callback passing the current position and node. If the callback returns something then we stop and return that value.
+<4> We invoke the callback passing the current position and node. If the callback returns something, then we stop and return that value.
 <5> Return whatever result we got from the callback. E.g., we can return the index or the node itself or any other calculation.
 
 We are going to use this `find` method again to implement searching by index.
@@ -268,4 +265,4 @@ Use a doubly linked list when:
 * You want to insert elements at the start and end of the list. The linked list has O(1) while array has O(n).
 * You want to save some memory when dealing with possibly large data sets. Arrays pre-allocate a large chunk of contiguous memory on initialization. Lists are more “grow as you go”.
 
-For the next two linear data structures <<Stack>> and <<Queue>>, we are going to use doubly linked list to implement them. We could use an array as well, but since inserting/deleting from the start perform better on linked-list, we are going use that.
+For the next two linear data structures <<Stack>> and <<Queue>>, we are going to use a doubly linked list to implement them. We could use an array as well, but since inserting/deleting from the start perform better on linked-list, we are going use that.
