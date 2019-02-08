@@ -68,6 +68,7 @@ include::chapters/linear-data-structures-outro.adoc[]
 
 = Non-Linear Data Structures
 
+// (g)
 include::chapters/non-linear-data-structures-intro.adoc[]
 
 :leveloffset: +1
