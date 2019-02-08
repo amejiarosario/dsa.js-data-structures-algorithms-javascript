@@ -1,71 +1,75 @@
-= Queue
+= Stack
 
-A queue is a linear data structure where the data flows in a *First-In-First-Out* (FIFO) manner.
+The stack is a data structure that restricts the way you add and remove data. It only allows you to insert and retrieve in a *Last-In-First-Out* (LIFO) fashion.
 
-.Queue data structure is like a line of people: the First-in, is the First-out
-image:image30.png[image,width=528,height=171]
+An analogy is to think the stack is a rod and the data are discs. You can only take out the last one you put in.
 
-A queue is like a line of people at the bank, the person that arrived first is the first to go out as well.
+.Stack data structure is like a stack of disks: the last element in is the first element out
+image:image29.png[image,width=240,height=238]
 
-Similar to the stack, we only have two operations (insert and remove). In a Queue, we add elements to the back of the list and remove it from the front.
+// #Change image from https://www.khanacademy.org/computing/computer-science/algorithms/towers-of-hanoi/a/towers-of-hanoi[Khan Academy]#
 
-We could use an array or a linked list to implement a Queue. However, it is recommended only to use linked list. Why? An array has a linear runtime _O(n)_ to remove an element from the start while a linked list has constant time _O(1)_.
+As you can see in the image above, If you insert the disks in the order `5`, `4`, `3`, `2`, `1`. Then you can remove them on `1`, `2`, `3`, `4`, `5`.
 
-.Queue's constructor
+The stack inserts items to the end of the collection and also removes from the end. Both, an array and linked list would do it in constant time. However, since we don’t need the Array’s random access, a linked list makes more sense.
+
+.Stack's constructor
 [source, javascript]
 ----
-include::{codedir}/data-structures/queues/queue.js[tag=constructor]
+include::{codedir}/data-structures/stacks/stack.js[tag=constructor]
   // ... methods goes here ...
 }
 ----
 
-We initialize the Queue creating a linked list. Now, let’s add the `enqueue` and `dequeue` methods.
+As you can see in the stack constructor, we are using a  linked list as the underlying data structure.
+
+Let's now develop the insert and remove operations in a stack.
 
 == Insertion
 
-For inserting elements on queue, also know as *enqueue*, we add items to the back of the list using `addLast`:
+We can insert into a stack using the linked list’s `addLast` method.
 
-.Queue's enqueue
+.Stack's add
 [source, javascript]
 ----
-include::{codedir}/data-structures/queues/queue.js[tag=enqueue, indent=0]
+include::{codedir}/data-structures/stacks/stack.js[tag=add, indent=0]
 ----
 
-As discussed, this operation has a constant runtime.
+We are returning `this`, in case we want to chain multiple add commands.
 
 == Deletion
 
-For removing elements from a queue, also know as *dequeue*, we remove elements from the front of the list using `removeFirst`:
+Deleting is straightforward as well.
 
-.Queue's dequeue
+.Stack's remove
 [source, javascript]
 ----
-include::{codedir}/data-structures/queues/queue.js[tag=dequeue, indent=0]
+include::{codedir}/data-structures/stacks/stack.js[tag=remove, indent=0]
 ----
 
-As discussed, this operation has a constant runtime.
+This time we used the linked list’s `removeLast` method. That’s all we need for a stack implementation. Check out the full implementation https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/stacks/stack.js[here]
 
-== Implementation usage
+== Implementation Usage
 
-We can use our Queue class like follows:
+We can use our stack implementation as follows:
 
-.Queue usage example
+.Stack usage example
 [source, javascript]
 ----
-include::{codedir}/data-structures/queues/queue.js[tag=snippet, indent=0]
+include::{codedir}/data-structures/stacks/stack.js[tag=snippet, indent=0]
 ----
 
-You can see that the items are dequeue in the same order they were added, FIFO (first-in, first-out).
+As you can see if we add new items they will be the first to go out to honor LIFO.
 
-== Queue Complexity
+== Stack Complexity
 
-As an experiment, we can see in the following table that if we had implemented the Queue using an array, its enqueue time would be _O(n)_ instead of _O(1)_. Check it out:
+Implementing the stack with an array and linked list would lead to the same time complexity:
 
-
-.Time complexity for queue operations
+.Time complexity for the stack operations
 |===
 .2+.^s| Data Structure 2+^s| Searching By 3+^s| Inserting at the 3+^s| Deleting from .2+.^s| Space Complexity
 ^|_Index/Key_ ^|_Value_ ^|_beginning_ ^|_middle_ ^|_end_ ^|_beginning_ ^|_middle_ ^|_end_
-| Queue (w/array) ^|- ^|- ^|- ^|- ^|*O(n)* ^|- ^|- ^|O(1) ^|O(n)
-| Queue (w/list) ^|- ^|- ^|- ^|- ^|O(1) ^|- ^|- ^|O(1) ^|O(n)
+| Stack ^|- ^|- ^|- ^|- ^|O(1) ^|- ^|- ^|O(1) ^|O(n)
 |===
+
+It's not very common to search for values on a stack (other Data Structures are better suited for this). Stacks especially useful for implementing <<Depth First Search>>.
