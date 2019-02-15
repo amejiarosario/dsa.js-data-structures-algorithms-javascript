@@ -1,7 +1,7 @@
 {
-  "name": "algorithms.js",
-  "version": "1.0.0",
-  "description": "Algorithms in JS",
+  "name": "dsa.js",
+  "version": "0.0.1",
+  "description": "Data Structures & Algorithms in JS",
   "main": "./src/data-structures/graphs/graph.js",
   "dependencies": {
     "lodash": "4.17.10"
@@ -21,7 +21,7 @@
     "coverage": "jest src/ --coverage && open coverage/lcov-report/index.html",
     "linter": "npx eslint --fix -f codeframe src/"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["algorithms", "data structures", "javascript", "array", "linked lists", "binary search trees"],
+  "author": "Adrian Mejia <hi+dsajs@adrianmejia.com>",
   "license": "ISC"
 }
