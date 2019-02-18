@@ -1,4 +1,5 @@
-const TreeNode = require('./tree-node');
+const BinaryTreeNode = require('./binary-tree-node');
+
 const {
   leftRotation,
   rightRotation,
@@ -13,10 +14,10 @@ describe('Tree rotations', () => {
   let n4;
 
   beforeEach(() => {
-    n1 = new TreeNode(1);
-    n2 = new TreeNode(2);
-    n3 = new TreeNode(3);
-    n4 = new TreeNode(4);
+    n1 = new BinaryTreeNode(1);
+    n2 = new BinaryTreeNode(2);
+    n3 = new BinaryTreeNode(3);
+    n4 = new BinaryTreeNode(4);
   });
 
   describe('#leftRotation (LL Rotation)', () => {
@@ -28,8 +29,8 @@ describe('Tree rotations', () => {
        *     \
        *      3
        */
-      n1.right = n2;
-      n2.right = n3;
+      n1.setRightAndUpdateParent(n2);
+      n2.setRightAndUpdateParent(n3);
 
       const newParent = leftRotation(n1);
       expect(newParent.value).toBe(2);
@@ -52,9 +53,9 @@ describe('Tree rotations', () => {
       //     3
       //      \
       //       4
-      n1.right = n2;
-      n2.right = n3;
-      n3.right = n4;
+      n1.setRightAndUpdateParent(n2);
+      n2.setRightAndUpdateParent(n3);
+      n3.setRightAndUpdateParent(n4);
 
       const newParent = leftRotation(n2);
 
@@ -78,9 +79,9 @@ describe('Tree rotations', () => {
       // 1*
       //  \
       //   2
-      n4.left = n3;
-      n3.left = n1;
-      n1.right = n2;
+      n4.setLeftAndUpdateParent(n3);
+      n3.setLeftAndUpdateParent(n1);
+      n1.setRightAndUpdateParent(n2);
 
       const newParent = leftRotation(n1);
       expect(newParent).toBe(n2);
@@ -106,9 +107,9 @@ describe('Tree rotations', () => {
       //    2
       //  /
       // 1
-      n4.left = n3;
-      n3.left = n2;
-      n2.left = n1;
+      n4.setLeftAndUpdateParent(n3);
+      n3.setLeftAndUpdateParent(n2);
+      n2.setLeftAndUpdateParent(n1);
 
       const newParent = rightRotation(n3);
 
@@ -133,8 +134,8 @@ describe('Tree rotations', () => {
       //    2
       //  /
       // 1
-      n3.left = n2;
-      n2.left = n1;
+      n3.setLeftAndUpdateParent(n2);
+      n2.setLeftAndUpdateParent(n1);
 
       const newParent = rightRotation(n3);
 
@@ -150,8 +151,8 @@ describe('Tree rotations', () => {
       //     3*
       //   /
       //  2
-      n1.right = n3;
-      n3.left = n2;
+      n1.setRightAndUpdateParent(n3);
+      n3.setLeftAndUpdateParent(n2);
 
       const newParent = rightRotation(n3);
 
@@ -177,9 +178,9 @@ describe('Tree rotations', () => {
       // 1
       //  \
       //   2
-      n4.left = n3;
-      n3.left = n1;
-      n1.right = n2;
+      n4.setLeftAndUpdateParent(n3);
+      n3.setLeftAndUpdateParent(n1);
+      n1.setRightAndUpdateParent(n2);
 
       const newParent = leftRightRotation(n3);
 
@@ -203,8 +204,8 @@ describe('Tree rotations', () => {
       //     3
       //   /
       //  2
-      n1.right = n3;
-      n3.left = n2;
+      n1.setRightAndUpdateParent(n3);
+      n3.setLeftAndUpdateParent(n2);
 
       const newParent = rightLeftRotation(n1);
       expect(newParent).toBe(n2);
