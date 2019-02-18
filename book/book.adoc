@@ -73,8 +73,10 @@ include::chapters/non-linear-data-structures-intro.adoc[]
 
 :leveloffset: +1
 
+// (g)
 include::chapters/tree.adoc[]
 
+// ()
 include::chapters/binary-search-tree.adoc[]
 
 include::chapters/map.adoc[]
