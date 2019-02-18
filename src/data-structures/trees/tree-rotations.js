@@ -18,9 +18,9 @@
  */
 function swapParentChild(oldChild, newChild, parent) {
   if (parent) {
-    const side = oldChild.isParentRightChild ? 'right' : 'left';
-    // this set parent child AND also
-    parent[side] = newChild;
+    // this set parent child
+    const side = oldChild.isParentRightChild ? 'Right' : 'Left';
+    parent[`set${side}AndUpdateParent`](newChild);
   } else {
     // no parent? so set it to null
     newChild.parent = null;
@@ -50,8 +50,8 @@ function leftRotation(node) {
   swapParentChild(node, newParent, grandparent);
 
   // do LL rotation
-  newParent.left = node;
-  node.right = undefined;
+  newParent.setLeftAndUpdateParent(node);
+  node.setRightAndUpdateParent(null);
 
   return newParent;
 }
@@ -79,8 +79,8 @@ function rightRotation(node) {
   swapParentChild(node, newParent, grandparent);
 
   // do RR rotation
-  newParent.right = node;
-  node.left = undefined;
+  newParent.setRightAndUpdateParent(node);
+  node.setLeftAndUpdateParent(null);
 
   return newParent;
 }

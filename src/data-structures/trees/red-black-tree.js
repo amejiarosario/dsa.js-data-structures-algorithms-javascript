@@ -1,5 +1,5 @@
 const BinarySearchTree = require('./binary-search-tree');
-// const TreeNode = require('./tree-node');
+
 const RED = Symbol('red');
 const BLACK = Symbol('black');
 
@@ -93,8 +93,8 @@ class RedBlackTree extends BinarySearchTree {
     } else {
       this.root = node;
       node.parent = null;
-      node.left = oldParent;
-      oldParent.right = undefined;
+      node.setLeftAndUpdateParent(oldParent);
+      oldParent.setRightAndUpdateParent(null);
       // re-color
       node.color = BLACK;
       node.right.color = RED;
@@ -124,8 +124,8 @@ class RedBlackTree extends BinarySearchTree {
     } else {
       this.root = node;
       node.parent = null;
-      node.right = oldParent;
-      oldParent.left = undefined;
+      node.setRightAndUpdateParent(oldParent);
+      oldParent.setLeftAndUpdateParent(null);
       // re-color
       node.color = BLACK;
       node.right.color = RED;

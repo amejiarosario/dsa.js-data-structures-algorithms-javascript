@@ -1,4 +1,4 @@
-const TreeNode = require('./tree-node');
+const BinaryTreeNode = require('./binary-tree-node');
 const Queue = require('../queues/queue');
 const Stack = require('../stacks/stack');
 // tag::snippet[]
@@ -17,16 +17,16 @@ class BinarySearchTree {
    * @param {any} value value to insert in the tree
    */
   add(value) {
-    const newNode = new TreeNode(value);
+    const newNode = new BinaryTreeNode(value);
 
     if (this.root) {
       const { found, parent } = this.findNodeAndParent(value); // <1>
       if (found) { // duplicated: value already exist on the tree
         found.meta.multiplicity = (found.meta.multiplicity || 1) + 1; // <2>
       } else if (value < parent.value) {
-        parent.left = newNode;
+        parent.setLeftAndUpdateParent(newNode);
       } else {
-        parent.right = newNode;
+        parent.setRightAndUpdateParent(newNode);
       }
     } else {
       this.root = newNode;
@@ -74,8 +74,8 @@ class BinarySearchTree {
 
   /**
    * Get the node with the max value of subtree: the right-most value.
-   * @param {TreeNode} node subtree's root
-   * @returns {TreeNode} right-most node (max value)
+   * @param {BinaryTreeNode} node subtree's root
+   * @returns {BinaryTreeNode} right-most node (max value)
    */
   getRightmost(node = this.root) {
     if (!node || !node.right) {
@@ -87,8 +87,8 @@ class BinarySearchTree {
   // tag::leftMost[]
   /**
    * Get the node with the min value of subtree: the left-most value.
-   * @param {TreeNode} node subtree's root
-   * @returns {TreeNode} left-most node (min value)
+   * @param {BinaryTreeNode} node subtree's root
+   * @returns {BinaryTreeNode} left-most node (min value)
    */
   getLeftmost(node = this.root) {
     if (!node || !node.left) {
@@ -118,10 +118,11 @@ class BinarySearchTree {
       // Replace (root) node to delete with the combined subtree.
       this.root = removedNodeChildren;
       if (this.root) { this.root.parent = null; } // clearing up old parent
-    } else { // <6>
-      const side = nodeToRemove.isParentLeftChild ? 'left' : 'right';
+    } else if (nodeToRemove.isParentLeftChild) { // <6>
       // Replace node to delete with the combined subtree.
-      parent[side] = removedNodeChildren;
+      parent.setLeftAndUpdateParent(removedNodeChildren);
+    } else {
+      parent.setRightAndUpdateParent(removedNodeChildren);
     }
 
     this.size -= 1;
@@ -146,13 +147,13 @@ class BinarySearchTree {
    * It takes node 30 left subtree (10 and 15) and put it in the
    * leftmost node of the right subtree (40, 35, 50).
    *
-   * @param {TreeNode} node
-   * @returns {TreeNode} combined subtree
+   * @param {BinaryTreeNode} node
+   * @returns {BinaryTreeNode} combined subtree
    */
   combineLeftIntoRightSubtree(node) {
     if (node.right) {
       const leftmost = this.getLeftmost(node.right);
-      leftmost.left = node.left;
+      leftmost.setLeftAndUpdateParent(node.left);
       return node.right;
     }
     return node.left;
@@ -171,7 +172,9 @@ class BinarySearchTree {
     while (!queue.isEmpty()) {
       const node = queue.remove();
       yield node;
-      node.descendents.forEach(child => queue.add(child));
+
+      if (node.left) { queue.add(node.left); }
+      if (node.right) { queue.add(node.right); }
     }
   }
 
@@ -188,8 +191,9 @@ class BinarySearchTree {
     while (!stack.isEmpty()) {
       const node = stack.remove();
       yield node;
-      // reverse array, so left gets removed before right
-      node.descendents.reverse().forEach(child => stack.add(child));
+
+      if (node.right) { stack.add(node.right); }
+      if (node.left) { stack.add(node.left); }
     }
   }
 
@@ -198,19 +202,19 @@ class BinarySearchTree {
    *
    * If the tree is a BST, then the values will be sorted in ascendent order
    *
-   * @param {TreeNode} node first node to start the traversal
+   * @param {BinaryTreeNode} node first node to start the traversal
    */
   * inOrderTraversal(node = this.root) {
-    if (node.left) { yield* this.inOrderTraversal(node.left); }
+    if (node && node.left) { yield* this.inOrderTraversal(node.left); }
     yield node;
-    if (node.right) { yield* this.inOrderTraversal(node.right); }
+    if (node && node.right) { yield* this.inOrderTraversal(node.right); }
   }
 
   /**
    * Pre-order traversal on a tree: root-left-right.
    * Similar results to DFS
    *
-   * @param {TreeNode} node first node to start the traversal
+   * @param {BinaryTreeNode} node first node to start the traversal
    * @see dfs similar results to the breath first search
    */
   * preOrderTraversal(node = this.root) {
@@ -222,7 +226,7 @@ class BinarySearchTree {
   /**
    * Post-order traversal on a tree: left-right-root.
    *
-   * @param {TreeNode} node first node to start the traversal
+   * @param {BinaryTreeNode} node first node to start the traversal
    */
   * postOrderTraversal(node = this.root) {
     if (node.left) { yield* this.postOrderTraversal(node.left); }

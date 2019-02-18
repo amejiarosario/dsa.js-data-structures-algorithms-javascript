@@ -1,10 +1,10 @@
-const TreeNode = require('./tree-node');
+const BinaryTreeNode = require('./binary-tree-node');
 
-describe('Tree Node', () => {
+describe('Binary Tree Node', () => {
   let treeNode;
 
   beforeEach(() => {
-    treeNode = new TreeNode('hola');
+    treeNode = new BinaryTreeNode('hola');
   });
 
   it('should start with null parent', () => {
@@ -25,8 +25,8 @@ describe('Tree Node', () => {
 
   it('should set/get left node', () => {
     expect(treeNode.left).toBe(null);
-    const newNode = new TreeNode(1);
-    treeNode.left = newNode;
+    const newNode = new BinaryTreeNode(1);
+    treeNode.setLeftAndUpdateParent(newNode);
     expect(treeNode.left.value).toBe(1);
 
     expect(newNode.parent).toBe(treeNode);
@@ -36,8 +36,8 @@ describe('Tree Node', () => {
 
   it('should set/get right node', () => {
     expect(treeNode.right).toBe(null);
-    const newNode = new TreeNode(1);
-    treeNode.right = newNode;
+    const newNode = new BinaryTreeNode(1);
+    treeNode.setRightAndUpdateParent(newNode);
 
     expect(treeNode.right.value).toBe(1);
     expect(newNode.parent).toBe(treeNode);
@@ -53,16 +53,16 @@ describe('Tree Node', () => {
     let s;
 
     beforeEach(() => {
-      g = new TreeNode('grandparent');
-      p = new TreeNode('parent');
-      u = new TreeNode('uncle');
-      c = new TreeNode('child');
-      s = new TreeNode('sibling');
+      g = new BinaryTreeNode('grandparent');
+      p = new BinaryTreeNode('parent');
+      u = new BinaryTreeNode('uncle');
+      c = new BinaryTreeNode('child');
+      s = new BinaryTreeNode('sibling');
 
-      g.right = p;
-      g.left = u;
-      p.right = c;
-      p.left = s;
+      g.setRightAndUpdateParent(p);
+      g.setLeftAndUpdateParent(u);
+      p.setRightAndUpdateParent(c);
+      p.setLeftAndUpdateParent(s);
     });
 
     it('should set heights', () => {
