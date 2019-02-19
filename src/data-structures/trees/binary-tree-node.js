@@ -11,11 +11,11 @@ class BinaryTreeNode {
     this.value = value;
     this.left = null;
     this.right = null;
+    // end::snippet[]
     this.parent = null;
     this.parentSide = null;
     this.meta = {};
   }
-  // end::snippet[]
 
   /**
    * Set a left node descendents.
