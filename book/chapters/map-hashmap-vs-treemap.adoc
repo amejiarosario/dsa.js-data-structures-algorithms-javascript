@@ -1,0 +1,27 @@
+= HashMap vs TreeMap
+
+.A map can be implemented using hash functions or binary search tree:
+- *HashMap*: it’s a map implementation using an *array* and *hash function*. The job of the hash function is to convert the key into an index that contains the matching data. Optimized HashMap can have an average runtime of *O(1)*.
+- *TreeMap*: it’s a map implementation that uses a self-balanced Binary Search Tree (red-black tree). The BST nodes store the key, and the value and nodes are sorted by key guaranteeing an *O(log n)* look up.
+
+
+.When to use a TreeMap vs. HashMap?
+* `HashMap` is more time-efficient. A `TreeMap` is more space-efficient.
+* `TreeMap` search complexity is *O(log n)*, while an optimized `HashMap` is *O(1)* on average. 
+* `HashMap`’s keys are in insertion order (or random in some implementations). `TreeMap`’s keys are always sorted.
+* `TreeMap` offers some statistical data for free such as: get minimum, get maximum, median, find ranges of keys. `HashMap` doesn’t.
+* `TreeMap` has a guarantee always an *O(log n)*, while `HashMap`s has an amortized time of *O(1)* but in the rare case of a rehash, it would take an *O(n)*.
+
+== TreeMap Time complexity vs HashMap
+
+As we discussed so far, there are trade-off between the implementations
+
+.Time complexity for different Maps implementations
+|===
+.2+.^s| Data Structure 2+^s| Searching By .2+^.^s| Insert .2+^.^s| Delete .2+^.^s| Space Complexity
+^|_Index/Key_ ^|_Value_
+| Hash Map (naïve) ^|O(n) ^|O(n) ^|O(n) ^|O(n) ^|O(n)
+| Hash Map (optimized) ^|O(1)* ^|O(n) ^|O(1)* ^|O(1)* ^|O(1)*
+| Tree Map (Red-Black Tree) ^|O(log n) ^|O(n) ^|O(log n) ^|O(log n) ^|O(log n)
+|===
+{empty}* = Amortized run time. E.g. rehashing might affect run time to *O(n)*.

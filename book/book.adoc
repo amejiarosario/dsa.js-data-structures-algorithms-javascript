@@ -79,8 +79,19 @@ include::chapters/tree.adoc[]
 // (g)
 include::chapters/binary-search-tree.adoc[]
 
-// ()
-include::chapters/map.adoc[]
+// (g)
+// include::chapters/map.adoc[]
+include::chapters/map-intro.adoc[]
+
+:leveloffset: +1
+
+include::chapters/map-hashmap.adoc[]
+
+include::chapters/map-treemap.adoc[]
+
+include::chapters/map-hashmap-vs-treemap.adoc[]
+
+:leveloffset: -1
 
 include::chapters/set.adoc[]
 
