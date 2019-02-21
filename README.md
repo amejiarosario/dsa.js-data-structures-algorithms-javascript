@@ -33,6 +33,7 @@ We are covering the following data structures.
 2. Sorting algorithms (WIP)
 
 # Roadmap
+- [ ] Refactor LinkedList.remove(). It's doing to much maybe it can be refactor in terms of removeByPosition and indexOf
 - [ ] Use comparators on BST in case node's values are not just numbers but also objects.
 
 # Troubleshooting

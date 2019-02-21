@@ -37,6 +37,7 @@ class HashMap {
     this.buckets = buckets;
     this.size = size;
     this.collisions = collisions;
+    // keyTracker* is used to keep track of the insertion order
     this.keysTrackerArray = keysTrackerArray;
     this.keysTrackerIndex = keysTrackerIndex;
   }
@@ -64,30 +65,30 @@ class HashMap {
   /**
    * Find an entry inside a bucket.
    *
-   * The bucket is an array of LinkedList.
-   * Entries are each of the nodes in the linked list.
+   * The bucket is an array of Linked Lists.
+   * Entries are the nodes in the linked list
+   *  containing key/value objects.
    *
    * Avg. Runtime: O(1)
-   * If there are many collisions it could be O(n).
+   *  Usually O(1) but there are many collisions it could be O(n).
    *
    * @param {any} key
-   * @param {function} callback (optional) operation to
-   *  perform once the entry has been found
-   * @returns {object} object containing the bucket and entry (LinkedList's node's value)
+   * @returns {object} object containing the bucket and
+   *  entry (LinkedList's node matching value)
    */
-  getEntry(key, callback = () => {}) {
-    const index = this.hashFunction(key);
-    this.buckets[index] = this.buckets[index] || new LinkedList();
+  getEntry(key) {
+    const index = this.hashFunction(key); // <1>
+    this.buckets[index] = this.buckets[index] || new LinkedList(); // <2>
     const bucket = this.buckets[index];
 
-    const entry = bucket.find(({ value: node }) => {
+    const entry = bucket.find(({ value: node }) => { // <3>
       if (key === node.key) {
-        callback(node);
-        return node;
+        return node; // stop search
       }
-      return undefined;
+      return undefined; // continue searching
     });
-    return { bucket, entry };
+
+    return { bucket, entry }; // <4>
   }
   // end::getEntry[]
 
@@ -103,9 +104,7 @@ class HashMap {
    * @returns {HashMap} Return the Map object to allow chaining
    */
   set(key, value) {
-    const { entry: exists, bucket } = this.getEntry(key, (entry) => {
-      entry.value = value; // update value if key already exists
-    });
+    const { entry: exists, bucket } = this.getEntry(key);
 
     if (!exists) { // add key/value if it doesn't find the key
       bucket.push({ key, value, order: this.keysTrackerIndex });
@@ -114,6 +113,9 @@ class HashMap {
       this.size += 1;
       if (bucket.size > 1) { this.collisions += 1; }
       if (this.isBeyondloadFactor()) { this.rehash(); }
+    } else {
+      // update value if key already exists
+      exists.value = value;
     }
     return this;
   }
@@ -132,7 +134,7 @@ class HashMap {
   }
   // end::get[]
 
-
+  // tag::has[]
   /**
    * Search for key and return true if it was found
    * Avg. Runtime: O(1)
@@ -144,6 +146,7 @@ class HashMap {
     const { entry } = this.getEntry(key);
     return entry !== undefined;
   }
+  // end::has[]
 
   // tag::delete[]
   /**
