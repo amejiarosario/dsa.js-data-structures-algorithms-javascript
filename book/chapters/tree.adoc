@@ -14,11 +14,7 @@ Implementing a tree is not too hard. It’s similar to a <<Linked List>>. The ma
 .Tree's node constructor
 [source, javascript]
 ----
-include::{codedir}/data-structures/trees/binary-tree-node.js[tag=snippet]
-  }
-
-  // ... methods goes here ...
-}
+include::{codedir}/data-structures/trees/tree-node.js[tag=snippet]
 ----
 
 Simple! Right? But there are some constraints that you have to keep at all times.

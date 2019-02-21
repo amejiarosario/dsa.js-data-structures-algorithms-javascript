@@ -12,9 +12,11 @@ class BinarySearchTree {
   // tag::add[]
   /**
    * Insert value on the BST.
-   * If the value is already in the tree, t
-   * then it increase the multiplicity value
-   * @param {any} value value to insert in the tree
+   *
+   * If the value is already in the tree,
+   * then it increases the multiplicity value
+   * @param {any} value node's value to insert in the tree
+   * @returns {BinaryTreeNode} newly added node
    */
   add(value) {
     const newNode = new BinaryTreeNode(value);
@@ -49,7 +51,7 @@ class BinarySearchTree {
   // tag::find[]
   /**
    * @param {any} value value to find
-   * @returns {any} node if it found it or undefined if not
+   * @returns {BinaryTreeNode|null} node if it found it or null if not
    */
   find(value) {
     return this.findNodeAndParent(value).found;
@@ -57,9 +59,11 @@ class BinarySearchTree {
 
 
   /**
-   * Finds the node matching the value.
-   * If it doesn't find, it returns the leaf where the new value should be added.
+   * Recursively finds the node matching the value.
+   * If it doesn't find, it returns the leaf `parent` where the new value should be appended.
    * @param {any} value Node's value to find
+   * @param {BinaryTreeNode} node first element to start the search (root is default)
+   * @param {BinaryTreeNode} parent keep track of parent (usually filled by recursion)
    * @returns {object} node and its parent like {node, parent}
    */
   findNodeAndParent(value, node = this.root, parent = null) {
