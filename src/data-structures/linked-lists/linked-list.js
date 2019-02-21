@@ -150,7 +150,8 @@ class LinkedList {
   /**
    * Iterate through the list until callback returns thruthy
    * @example see #get and  #indexOf
-   * @param {Function} callback evaluates current node and index
+   * @param {Function} callback evaluates current node and index.
+   *  If any value other than undefined it's returned it will stop the search.
    * @returns {any} callbacks's return value or undefined
    */
   find(callback) {
@@ -249,6 +250,7 @@ class LinkedList {
       return this.removeByPosition(parseInt(callbackOrIndex, 10) || 0);
     }
 
+    // find desired position to remove using #find
     const position = this.find((node, index) => {
       if (callbackOrIndex(node, index)) {
         return index;
@@ -259,6 +261,7 @@ class LinkedList {
     if (position !== undefined) { // zero-based position.
       return this.removeByPosition(position);
     }
+
     return false;
   }
 

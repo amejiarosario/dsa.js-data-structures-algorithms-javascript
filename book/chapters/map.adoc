@@ -50,9 +50,9 @@ image:image41.png[image,width=528,height=299]
 1.  We use a *hash function* to transform the keys (e.g., dog, cat, rat, …) into an array index. This array is called *bucket*.
 2.  The bucket holds the values (linked list in case of collisions).
 
-In the illustration, we have a bucket size of 10. In bucket 0, we have a collision. Both cat and art keys are mapped to the same bucket even thought their hash codes are different.
+In the illustration, we have a bucket size of 10. In bucket 0, we have a collision. Both `cat` and `art` keys map to the same bucket even thought their hash codes are different.
 
-In a HashMap, a *collision* is when different keys are mapped to the same index. They are nasty for performance since it can reduce the search time from *O(1)* to *O(n)*.
+In a HashMap, a *collision* is when different keys lead to the same index. They are nasty for performance since it can reduce the search time from *O(1)* to *O(n)*.
 
 Having a big bucket size can avoid a collision but also can waste too much memory. We are going to build an _optimized_ HashMap that re-sizes itself when it is getting full. This avoids collisions and doesn’t spend too much memory upfront. Let’s start with the hash function.
 
@@ -101,7 +101,7 @@ include::{codedir}/data-structures/maps/hash-maps/hashing.js[tag=naiveHashCodeEx
 
 Notice that `rat` and `art` have the same hash code! These are collisions that we need to solve.
 
-Collisions happened because we are just summing the character's codes and are not taking the order into account nor the type. We can do better by offsetting the character value based on their position in the string and appending the type into the calculation.
+Collisions happened because we are just summing the character's codes and are not taking the order into account nor the type. We can do better by offsetting the character value based on their position in the string. We can also add the object type, so number `10` produce different output than string `'10'`.
 
 .Hashing function implementation that offset character value based on the position
 [source, javascript]
@@ -126,7 +126,7 @@ include::{codedir}/data-structures/maps/hash-maps/hashing.js[tag=hashCodeOffsetE
 
 As you can see We don’t have duplicates if the keys have different content or type. However, we need to represent these unbounded integers. We do that using *compression function* they can be as simple as `% BUCKET_SIZE`.
 
-However, there’s an issue with the last implementation. It doesn’t matter how humongous is the number (we are using BigInt), if we at the end use the modulus to get an array index, then the part of the number that truly matters is the last bits. Also, the modulus itself is much better if it's a prime number.
+However, there’s an issue with the last implementation. It doesn’t matter how humongous is the number if we at the end use the modulus to get an array index. The part of the hash code that truly matters is the last bits.
 
 .Look at this example with a bucket size of 4.
 [source, javascript]
@@ -139,6 +139,8 @@ However, there’s an issue with the last implementation. It doesn’t matter ho
 ----
 
 We get many collisions. [big]#😱#
+
+Based on statistical data, using a prime number as the modulus produce fewer collisions.
 
 .Let’s see what happens if the bucket size is a prime number:
 [source, javascript]
@@ -184,7 +186,7 @@ hashCode('cats') //↪️ 3304940933
 It is a non-cryptographic hash function designed to be fast while maintaining a low collision rate. The high dispersion of the FNV hashes makes them well suited for hashing nearly identical strings such as URLs, keys, IP addresses, zip codes, and others.
 ****
 
-We are using the FVN-1a prime number (16777619) and offset (2166136261) to reduce collisions even further. If you are curious where these numbers come from check out this https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function[link] .
+We are using the FVN-1a prime number (16777619) and offset (2166136261) to reduce collisions even further. If you are curious where these numbers come from check out this https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function[link].
 
 FVN-1a hash function is a good trade-off between speed and collision prevention.
 
@@ -220,7 +222,7 @@ There are multiple scenarios for inserting key/values in a HashMap:
 2.  Key already exists, then we will replace the value.
 3.  Key doesn’t exist, but the bucket already has other data, this is a collision! We push the new element to the bucket.
 
-In code it looks like this:
+In code, it looks like this:
 
 .HashMap's set method
 [source, javascript]
@@ -228,19 +230,7 @@ In code it looks like this:
 include::{codedir}/data-structures/maps/hash-maps/hash-map.js[tag=set, indent=0]
 ----
 
-Notice, that we are using a function called getEntry to check if the key already exists. We are going to implement that function next.
-
-=== Rehashing the HashMap
-
-The idea of rehashing is to double the size when the map is getting full so the collisions are minimized. When we double the size, we try to find the next prime. We explained that keeping the bucket size a prime number is beneficial for minimizing collisions.
-
-.HashMap's rehash method
-[source, javascript]
-----
-include::{codedir}/data-structures/maps/hash-maps/hash-map.js[tag=rehash, indent=0]
-----
-
-The algorithms for finding next prime is implemented https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/hash-maps/primes.js[here] and you can find the full HashMap implementation on this file: https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/hash-maps/hashmap.js
+Notice, that we are using a function called `getEntry` to check if the key already exists. It gets the index of the bucket corresponding to the key and then checks if the entry with the given key exists. We are going to implement this function in a bit.
 
 === Getting values out of a HashMap
 
@@ -251,8 +241,12 @@ For getting values out of the Map, we do something similar to inserting. We conv
 ----
 include::{codedir}/data-structures/maps/hash-maps/hash-map.js[tag=getEntry, indent=0]
 ----
+<1> Convert key to an array index.
+<2> If the bucket is empty create a new linked list
+<3> Use Linked list's <<Searching by value>> method to find value on the bucket.
+<4> Return bucket and entry if found.
 
-Later, we use the https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/linked-lists/linked-list.js[find method] of the linked list to get the node with the matching key. With getEntry, we can also define get and has method.
+With the help of the `getEntry` method, we can do the `HashMap.get` and `HashMap.has` methods:
 
 .HashMap's get method
 [source, javascript]
@@ -260,11 +254,19 @@ Later, we use the https://github.com/amejiarosario/algorithms.js/blob/master/src
 include::{codedir}/data-structures/maps/hash-maps/hash-map.js[tag=get, indent=0]
 ----
 
-For has we only care if the defined or not, while that for get we want to return the value or undefined if it doesn’t exist.
+and also,
+
+.HashMap's has method
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/hash-maps/hash-map.js[tag=has, indent=0]
+----
+
+For `HashMap.has` we only care if the value exists or not, while that for `HashMap.get` we want to return the value or `undefined` if it doesn’t exist.
 
 === Deleting from a HashMap
 
-Removing items from a HashMap not too different from what we did before:
+Removing items from a HashMap is not too different from what we did before:
 
 .HashMap's delete method
 [source, javascript]
@@ -272,7 +274,21 @@ Removing items from a HashMap not too different from what we did before:
 include::{codedir}/data-structures/maps/hash-maps/hash-map.js[tag=delete, indent=0]
 ----
 
-If the bucket doesn’t exist or is empty we are done. If the value exists we use the https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/linked-lists/linked-list.js[remove method] from the linked list.
+If the bucket doesn’t exist or is empty, we don't have to do anything else. If the value exists, we use the linked list `remove` method. If you wonder what
+
+=== Rehashing the HashMap
+
+Rehashing is a technique to minimize collisions. It doubles the size of the map and recomputes all the hash codes and insert data in the new bucket.
+
+When we increase the map size, we try to find the next prime. We explained that keeping the bucket size a prime number is beneficial for minimizing collisions.
+
+.HashMap's rehash method
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/hash-maps/hash-map.js[tag=rehash, indent=0]
+----
+
+The algorithms for finding the next prime is implemented https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/hash-maps/primes.js[here] and you can find the full HashMap implementation on this file: https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/hash-maps/hashmap.js
 
 == HashMap time complexity
 
