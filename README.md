@@ -32,7 +32,10 @@ We are covering the following data structures.
 1. Searching algorithms (WIP)
 2. Sorting algorithms (WIP)
 
-# Notes
+# Roadmap
+- [ ] Use comparators on BST in case node's values are not just numbers but also objects.
+
+# Troubleshooting
 Some notes while working on this project
 
 ## Tests

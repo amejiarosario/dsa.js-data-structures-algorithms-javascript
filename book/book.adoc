@@ -76,9 +76,10 @@ include::chapters/non-linear-data-structures-intro.adoc[]
 // (g)
 include::chapters/tree.adoc[]
 
-// ()
+// (g)
 include::chapters/binary-search-tree.adoc[]
 
+// ()
 include::chapters/map.adoc[]
 
 include::chapters/set.adoc[]
