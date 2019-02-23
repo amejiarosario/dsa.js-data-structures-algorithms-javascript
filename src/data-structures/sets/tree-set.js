@@ -1,7 +1,10 @@
-// const Tree = require('../trees/avl-tree'); // faster lookups
-const Tree = require('../trees/red-black-tree'); // faster insertion
+// faster lookups
+// const Tree = require('../trees/avl-tree');
 
+// faster insertion
 // tag::constructor[]
+const Tree = require('../trees/red-black-tree');
+
 /**
  * TreeSet implements a Set (collection of unique values)
  *  using a balanced binary search tree to guarantee a O(log n) in all operations.
@@ -9,7 +12,7 @@ const Tree = require('../trees/red-black-tree'); // faster insertion
 class TreeSet {
   /**
    * Initialize tree and accept initial values.
-   * @param {array} iterable initial values (duplicates will be added once)
+   * @param {array} iterable initial values (new set won't have duplicates)
    */
   constructor(iterable = []) {
     this.tree = new Tree();
@@ -24,7 +27,7 @@ class TreeSet {
   }
   // end::constructor[]
 
-  // tag::constructor[]
+  // tag::add[]
   /**
    * Add a new value (duplicates will be added only once)
    * Runtime: O(log n)
@@ -35,7 +38,7 @@ class TreeSet {
       this.tree.add(value);
     }
   }
-  // end::constructor[]
+  // end::add[]
 
   // tag::has[]
   /**

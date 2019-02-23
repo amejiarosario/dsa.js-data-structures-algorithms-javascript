@@ -85,13 +85,17 @@ include::chapters/map-intro.adoc[]
 
 :leveloffset: +1
 
+// (g)
 include::chapters/map-hashmap.adoc[]
 
+// (g)
 include::chapters/map-treemap.adoc[]
 
+// (g)
 include::chapters/map-hashmap-vs-treemap.adoc[]
 
 :leveloffset: -1
+
 
 include::chapters/set.adoc[]
 
