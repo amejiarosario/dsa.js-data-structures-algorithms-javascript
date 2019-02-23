@@ -1,13 +1,13 @@
-## Algorithms
-1. Searching algorithms (WIP)
-2. Sorting algorithms (WIP)
-
 # Roadmap
+- [ ] TreeSet should be able to store objects. Does it need a comparator? on BST in case node's values are not just numbers but also objects.
 - [ ] Refactor LinkedList.remove(). It's doing to much maybe it can be refactor in terms of removeByPosition and indexOf
-- [ ] Use comparators on BST in case node's values are not just numbers but also objects.
 - [ ] Writeup on balancing trees
 - [ ] More algorithm and datastructres! Greedy, Divide and Conquer etc.
 - [ ] Algorithms visualizations like https://bost.ocks.org/mike/algorithms/
+
+## Algorithms
+1. Searching algorithms (WIP)
+2. Sorting algorithms (WIP)
 
 Compare content with:
 - [ ]	https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Stacks
