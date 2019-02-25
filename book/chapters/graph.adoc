@@ -1,25 +1,24 @@
 = Graph
 
 Graphs are one of my favorite data structures.
-They have a lot of cool applications, and you are probably using apps that uses graphs.
+They have a lot of cool applications like optimizing routes, social network analysis to name a few. You are probably using apps that use graphs every day.
 First, let’s start with the basics.
 
-TIP: A graph is a non-linear data structure where a node can have zero or more linked nodes.
+TIP: A graph is a non-linear data structure where a node can have zero or more connected nodes.
 
-You can think of graph like an extension of a Linked List. Instead of having a `next` or `previous` reference, you can have as many as you want. You can implement a graph as an array of linked nodes.
+You can think of graph like an extension of a Linked List. Instead of having a `next` or `previous` reference, you can have as many as you want. You can implement a graph node as an array of associated nodes.
 
 .Node's constructor
 [source, javascript]
 ----
 include::{codedir}/data-structures/graphs/node.js[tag=constructor]
-}
 ----
 
-As you can see, it’s pretty similar to the Linked List node indeed.
-The only difference is that it uses an *array* of the linked nodes instead of just one or two.
+As you can see, it’s pretty similar to the Linked List node.
+The only difference is that it uses an *array* of adjacent nodes instead of just one or two.
 
-Other difference between a linked list and graph is that a linked list has a start/first/root node, while the graph doesn’t.
-You can start traversing a graph from anywhere, and there might be circular references as well. Let’s examine these graph properties!
+Other difference between a linked list and graph is that a linked list always has a root node, while the graph doesn’t.
+You can start traversing a graph from anywhere. Let’s examine these graph properties!
 
 == Graph Properties
 
@@ -31,15 +30,15 @@ image:image42.png[image,width=305,height=233]
 
 === Directed Graph vs Undirected
 
-A graph can *directed* and *undirected*.
+A graph can be either *directed* or *undirected*.
 
 .Graph: directed vs undirected
 image:image43.jpg[image,width=469,height=192]
 
 
-A *directed graph (digraph)* has edges that are *one-way street*. E.g. On the directed example, you can only go from green node to orange and not the other way around. When one node has an edge to itself is called a *self-loop*.
-
 An *undirected graph* has edges that are *two-way street*. E.g., On the undirected example, you can traverse from the green node to the orange and vice versa.
+
+A *directed graph (digraph)* has edges that are *one-way street*. E.g., On the directed example, you can only go from green node to orange and not the other way around. When one node has an edge to itself is called a *self-loop*.
 
 === Graph Cycles
 
@@ -49,15 +48,13 @@ A graph can have *cycles* or not.
 image:image44.jpg[image,width=444,height=194]
 
 
-A *cyclic graph* is the one that you can pass through a node more than.
+A *cyclic graph* is the one that you can pass through a node more than once.
 E.g., On the cyclic illustration, if you start in the green node, then go the orange and purple, finally, you could come back to green again.
 Thus, it has a *cycle*.
 
-All *undirected* graphs are cyclic, but not all *directed* graphs are cyclic.
-
 An acyclic graph is the one that you can’t pass through a node more than once. E.g., in the acyclic illustration, can you to find a path where you can pass through the same vertex more than one?
 
-*Directed Acyclic Graph (DAG)* is also a *Tree* data structure only when each node has only *one parent*.
+The *Directed Acyclic Graph (DAG)* is unique. It has many applications like scheduling tasks, spreadsheets change propagation, etc. DAG is also called *Tree* data structure only when each node has only *one parent*.
 
 === Connected vs Disconnected vs Complete Graphs
 
@@ -66,13 +63,13 @@ image:image45.png[image,width=1528,height=300]
 
 A *disconnected graph* is one that has one or more subgraph. In other words, a graph is *disconnected* if two nodes don’t have a path between them.
 
-A *connected graph* is the opposite to disconnected, there’s a path between every node.
+A *connected graph* is the opposite to disconnected, there’s a path between every node. No one is left behind.
 
 A *complete graph* is where every node is adjacent to all the other nodes in the graph. E.g., If there are seven nodes, every node has six edges.
 
 === Weighted Graphs
 
-Weighted graphs have labels in the edges (a.k.a *weight* or *cost*). The edge weight can represent many things like distance, travel time, or anything else.
+Weighted graphs have labels in the edges (a.k.a *weight* or *cost*). The link weight can represent many things like distance, travel time, or anything else.
 
 .Weighted Graph representing USA airports distance in miles.
 image:image46.png[image,width=528,height=337]
@@ -116,17 +113,16 @@ Representing graphs as adjacency matrix is done using a two-dimensional array. F
 .Graph and its adjacency matrix.
 image:image47.png[image,width=438,height=253]
 
-The size of the matrix is given by the number of vertices |V|, in the example we have 5 vertices so we have a 5x5 matrix.
+The number of vertices |V| define the size of the matrix. In the example, we have five vertices, so we have a 5x5 matrix.
 
-To fill up the matrix, we go row by row. Mark with 1 (or any other weight) when you find an edge. E.g.
+We fill up the matrix row by row. Mark with 1 (or any other weight) when you find an edge. E.g.
 
-* *Row 0:* It has a self-loop, so it has a 1 in the intersection of 0,0.
-The node 0 also has an edge to 1 and 4 so we mark it.
-* *Row 1:* The node 1 has one edge to 3 so we mark it.
-* *Row 2:* Node 2 goes to Node 4, so we mark the insertion with 1.
-* And so on…
+* *Row 0:* It has a self-loop, so it has a `1` in the coordinate 0,0. Node 0 also has an edge to 1 and 4, so we mark it.
+* *Row 1:* The node 1 has one edge to 3, so we check it.
+* *Row 2:* Node 2 goes to Node 4, so we note the insertion with 1.
+* etc.
 
-The example graph above is a directed graph (digraph). In case of undirected graph, the matrix would be symmetrical by the diagonal.
+The example graph above is a directed graph (digraph). In the case of an undirected graph, the matrix would be symmetrical by the diagonal.
 
 If we represent the example graph in code, it would be something like this:
 
@@ -149,28 +145,28 @@ digraph[2][3]; //=> 0
 digraph[3][2]; //=> 1
 ----
 
-As you can see we don’t have a link from node 2 to 3, but we do in the opposite direction. Querying arrays is constant time *O(1)*, so no bad at all.
+As you can see, we don’t have a link from node 2 to 3, but we do in the opposite direction. Querying arrays is constant time *O(1)*, so no bad at all.
 
-The issue with the adjacency matrix is the space it takes. Let’s say you want to represent the entire Facebook network on a digraph. You would have a huge matrix of 1.2 billion x 1.2 billion. The worst part is that most of it would be empty (zeros) since people are connected to at most few thousands.
+The issue with the adjacency matrix is the space it takes. Let’s say you want to represent the entire Facebook network on a digraph. You would have a massive matrix of 1.2 billion x 1.2 billion. The worst part is that most of it would be empty (zeros) since people are friends to at most few thousands.
 
-TIP: When the graph has few connections compared to the number of nodes we say that we have a *sparse graph*. On the opposite, if we have almost complete graphs we say we have a *dense graph*.
+TIP: When the graph has few connections compared to the number of nodes we say that we have a *sparse graph*. On the opposite, if we have almost complete graphs, we say we have a *dense graph*.
 
-The space complexity of adjacency matrix is *O(|V|^2^)*, where |V| is the number of vertices/nodes.
+The space complexity of the adjacency matrix is *O(|V|^2^)*, where |V| is the number of vertices/nodes.
 
 === Adjacency List
 
-Another way to represent a graph is using an adjacency list. This time instead of using an array (matrix) we use a list.
+Another way to represent a graph is by using an adjacency list. This time instead of using an array (matrix) we use a list.
 
 .Graph represented as an Adjacency List.
 image:image48.png[image,width=528,height=237]
 
-If we want to add a new node to the list, we can do it by adding one element to the end of the array of nodes *O(1)*. In the next section we are going to explore the running times of all operations in a adjacency list.
+If we want to add a new node to the list, we can do it by adding one element to the end of the array of nodes *O(1)*. In the next section, we are going to explore the running times of all operations in an adjacency list.
 
 == Implementing a Graph data structure
 
-Since, adjacency lists are more efficient (than adjacency matrix), we are going to use to implement a graph data structure.
+Since adjacency lists are more efficient (than adjacency matrix), we are going to use to implement a graph data structure.
 
-Let's start by creating the constructor of the Graph calss.
+Let's start by creating the constructor of the Graph class.
 
 .Graph's constructor
 [source, javascript]
@@ -178,11 +174,11 @@ Let's start by creating the constructor of the Graph calss.
 include::{codedir}/data-structures/graphs/graph.js[tag=constructor]
 ----
 
-We want to make it as generic as possible, so can pass if the the graph is directed or undirected.
+Notice that the constructor takes a parameter. The `edgeDirection` allow us to use one class for both indirected and directed graphs.
 
 == Adding a vertex
 
-For addding a vertex, we first need to check if the node already exists. If it exists we return the node and we are done.
+For adding a vertex, we first need to check if the node already exists. If so, we return the node.
 
 .Graphs's `addVertex` method
 [source, javascript]
@@ -197,7 +193,7 @@ If the node doesn't exist, then we create the new node and add it to a `HashMap`
 
 TIP: <<Map>> stores key/pair value very efficiently. Lookup is `O(1)`.
 
-The `key` is node's value, while the `value` is the newly created node.
+The `key` is the node's value, while the `value` is the newly created node.
 
 The `Node` class is constructed as follows:
 
@@ -219,7 +215,7 @@ include::{codedir}/data-structures/graphs/graph.js[tag=removeVertex, indent=0]
 <2> Remove related edges. See `removeAdjacent` below.
 <3> Remove node with the given value.
 
-Notice on the callout 2, that we visit every edge on the graph and remove the ones that contains the node to remove.
+Notice on the callout 2, that we visit every edge on the graph and remove the ones that contain the node to remove.
 
 For removing adjacent nodes, we use Node's method called `removeAdjacent` that can be implemented as follows:
 
@@ -229,13 +225,13 @@ For removing adjacent nodes, we use Node's method called `removeAdjacent` that c
 include::{codedir}/data-structures/graphs/node.js[tag=removeAdjacent, indent=0]
 ----
 
-All adjacecies are stored as a HashSet for to provide constant time deletion.
+All adjacencies are stored as a HashSet to provide constant time deletion.
 
 == Adding an edge
 
-An edge is a connection between two nodes (vertices). If the graph is undirected means that every edge is a two-way street so we create the edge from node 1 to node 2 and the other way arround.
+An edge is a connection between two nodes (vertices). If the graph is undirected means that every link is a two-way street. When we create the edge from node 1 to node 2, we also need to establish a connection between node 2 and 1 for undirected graphs.
 
-If we are dealing with a digraph (directed graph), then we just create one edge.
+If we are dealing with a digraph (directed graph), then we create one edge.
 
 .Graphs's `addEdge` method
 [source, javascript]
@@ -246,7 +242,7 @@ include::{codedir}/data-structures/graphs/graph.js[tag=addEdge, indent=0]
 <2> Create edge from source to destination.
 <3> If us a undirected graph, create the edge on the other direction.
 
-We can add adjacencies using the `addAdjacent` mehtod from the Node class
+We can add adjacencies using the `addAdjacent` method from the Node class
 
 .Node's `addAdjacent`
 [source, javascript]
@@ -296,4 +292,6 @@ include::{codedir}/data-structures/graphs/node.js[tag=removeAdjacent, indent=0]
 
 As you can see using a `HashSet` on for the adjacency list make a performance improvement.
 
-// = Summary
+= Summary
+
+In this section, we learned about Graphs applications, properties and how we can implement them. We mention that graphs can be represented as matrix or list of adjacencies. We went for implementing the later since it's more space efficient.

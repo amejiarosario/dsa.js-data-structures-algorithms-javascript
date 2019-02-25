@@ -99,9 +99,8 @@ include::chapters/map-hashmap-vs-treemap.adoc[]
 // (g)
 include::chapters/set.adoc[]
 
-// ()
+// (g)
 include::chapters/graph.adoc[]
-
 
 :leveloffset: -1
 
