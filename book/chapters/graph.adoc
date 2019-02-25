@@ -54,7 +54,7 @@ Thus, it has a *cycle*.
 
 An acyclic graph is the one that you can’t pass through a node more than once. E.g., in the acyclic illustration, can you to find a path where you can pass through the same vertex more than one?
 
-The *Directed Acyclic Graph (DAG)* is unique. It has many applications like scheduling tasks, spreadsheets change propagation, etc. DAG is also called *Tree* data structure only when each node has only *one parent*.
+The *Directed Acyclic Graph (DAG)* is unique. It has many applications like scheduling tasks, spreadsheets change propagation, and so forth. DAG is also called *Tree* data structure only when each node has only *one parent*.
 
 === Connected vs Disconnected vs Complete Graphs
 
@@ -174,7 +174,7 @@ Let's start by creating the constructor of the Graph class.
 include::{codedir}/data-structures/graphs/graph.js[tag=constructor]
 ----
 
-Notice that the constructor takes a parameter. The `edgeDirection` allow us to use one class for both indirected and directed graphs.
+Notice that the constructor takes a parameter. The `edgeDirection` allow us to use one class for both undirected and directed graphs.
 
 == Adding a vertex
 
@@ -242,7 +242,7 @@ include::{codedir}/data-structures/graphs/graph.js[tag=addEdge, indent=0]
 <2> Create edge from source to destination.
 <3> If us a undirected graph, create the edge on the other direction.
 
-We can add adjacencies using the `addAdjacent` method from the Node class
+We can add adjacencies using the `addAdjacent` method from the Node class.
 
 .Node's `addAdjacent`
 [source, javascript]
@@ -294,4 +294,4 @@ As you can see using a `HashSet` on for the adjacency list make a performance im
 
 = Summary
 
-In this section, we learned about Graphs applications, properties and how we can implement them. We mention that graphs can be represented as matrix or list of adjacencies. We went for implementing the later since it's more space efficient.
+In this section, we learned about Graphs applications, properties and how we can implement them. We mention that you can represent a graph as a matrix or as a list of adjacencies. We went for implementing the later since it's more space efficient. We cover the basic graph operations like adding and removing nodes and edges.  In the algorithms section, we are going to cover searching values in the graph.
