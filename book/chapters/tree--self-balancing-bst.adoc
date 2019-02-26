@@ -1,0 +1,62 @@
+= Self-balancing Binary Search Trees
+
+Binary Search Trees (BST) are a great data structure to find elements very fast _O(n log n)_.
+However, when the BST branches has different branch sizes then the performance suffers.
+In the worst case, all nodes can go to one side (e.g. right) and then the search time would be linear.
+At this point searching element won't be any better on that tree than an array or linked list. Yikes!
+
+Self-balanced trees will automatically balanced the tree when an element is inserted to keep search performace.
+We balance a tree by making the height (distance from a node to the root) of any leaf on the tree as similar as possible.
+
+.From unbalanced BST to balanced BST
+[source, javascript]
+----
+1                           2
+  \                       /   \
+   2        =>           1     3
+    \
+     3
+----
+
+In the example above:
+- Unbalanced BST: height node `3` is 2 and height node `2` is 1.
+- Balanced BST: height node `3` is 1 and height node `2` is 1. Much better!
+
+As you might notice, we balanced the tree in the example by doing a rotation.
+To be more specific we rotated node `1` to the left to balance the tree.
+Let's examine all the possible rotation we can do to balance a tree.
+
+== Tree Rotations
+
+We can do single rotations left and right and also we can do double rotations.
+Let's go one by one.
+
+=== Single Right Rotation
+
+Right rotation moves a node on the right as a child of other node.
+
+Take a look at the `@example` in the code below.
+As you can see we have an unbalanced tree `4-3-2-1`.
+We want to balance the tree, for that we need to do a right rotation of node 3.
+So, the node 3 is moved as the right child of the previous child.
+
+.Single right rotation implementation
+[source, javascript]
+----
+include::{codedir}/data-structures/trees/tree-rotations.js[tag=rightRotation]
+----
+
+.In the `rightRotation` we identify 3 nodes:
+- `node` this is the node we want to rotate to the right. E.g., `node 3`
+- `newParent` this is the new parent after the rotation. E.g., `node 2`
+- `grandparent` this the current's node parent. E.g. `node 4`.
+
+The `swapParentChild` as it name says, swap the children.
+
+.Swap Parent and Child Implementation
+[source, javascript]
+----
+include::{codedir}/data-structures/trees/tree-rotations.js[tag=swapParentChild]
+----
+
+

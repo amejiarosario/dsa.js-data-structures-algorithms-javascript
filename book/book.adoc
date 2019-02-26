@@ -79,6 +79,8 @@ include::chapters/tree.adoc[]
 // (g)
 include::chapters/tree--binary-search-tree.adoc[]
 
+include::chapters/tree--self-balancing-bst.adoc[]
+
 // (g)
 // include::chapters/map.adoc[]
 include::chapters/map-intro.adoc[]

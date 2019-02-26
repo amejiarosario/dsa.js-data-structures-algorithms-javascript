@@ -89,7 +89,7 @@ class RedBlackTree extends BinarySearchTree {
     const grandParent = oldParent.parent;
 
     if (grandParent) {
-      // do something
+      // do nothing
     } else {
       this.root = node;
       node.parent = null;
