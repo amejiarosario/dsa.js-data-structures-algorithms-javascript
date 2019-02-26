@@ -77,7 +77,7 @@ include::chapters/non-linear-data-structures-intro.adoc[]
 include::chapters/tree.adoc[]
 
 // (g)
-include::chapters/binary-search-tree.adoc[]
+include::chapters/tree--binary-search-tree.adoc[]
 
 // (g)
 // include::chapters/map.adoc[]
@@ -102,6 +102,9 @@ include::chapters/set.adoc[]
 // (g)
 include::chapters/graph.adoc[]
 
+// TODO: pending
+include::chapters/graph-search.adoc[]
+
 :leveloffset: -1
 
 = Algorithms
@@ -111,12 +114,14 @@ include::chapters/algorithms-intro.adoc[]
 
 :leveloffset: +1
 
+//
+// Sorting algorithms
+//
+
 // TODO: pending
 include::chapters/sorting-intro.adoc[]
 
-//
 // Slow Sorting
-//
 
 include::chapters/insertion-sort.adoc[]
 
@@ -124,20 +129,13 @@ include::chapters/selection-sort.adoc[]
 
 include::chapters/bubble-sort.adoc[]
 
-//
 // Fast Sorting
-//
 
 include::chapters/merge-sort.adoc[]
 
 include::chapters/quick-sort.adoc[]
 
-//
-// Searching
-//
 
-// TODO: pending
-include::chapters/graph-search.adoc[]
 
 :leveloffset: -1
 
