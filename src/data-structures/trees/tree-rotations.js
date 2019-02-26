@@ -47,13 +47,16 @@ function swapParentChild(oldChild, newChild, parent) {
  * @returns {TreeNode} new parent after the rotation
  */
 function leftRotation(node) {
-  const newParent = node.right;
-  const grandparent = node.parent;
+  const newParent = node.right; // E.g., node 3
+  const grandparent = node.parent; // E.g., node 1
 
+  // swap node 1 left child from 2 to 3.
   swapParentChild(node, newParent, grandparent);
 
-  // do LL rotation
+  // Update node 3 left child to be 2, and
+  // updates node 2 parent to be node 3 (instead of 1).
   newParent.setLeftAndUpdateParent(node);
+  // remove node 2 left child (previouly was node 3)
   node.setRightAndUpdateParent(null);
 
   return newParent;
@@ -137,61 +140,9 @@ function rightLeftRotation(node) {
 }
 // end::rightLeftRotation[]
 
-// tag::balance[]
-/**
- * Balance tree doing rotations based on balance factor.
- *
- * Depending on the `node` balance factor and child's factor
- * one of this rotation is performed:
- * - LL rotations: single left rotation
- * - RR rotations: single right rotation
- * - LR rotations: double rotation left-right
- * - RL rotations: double rotation right-left
- *
- * @param {TreeNode} node
- */
-function balance(node) {
-  if (node.balanceFactor > 1) {
-    // left subtree is higher than right subtree
-    if (node.left.balanceFactor > 0) {
-      return rightRotation(node);
-    } else if (node.left.balanceFactor < 0) {
-      return leftRightRotation(node);
-    }
-  } else if (node.balanceFactor < -1) {
-    // right subtree is higher than left subtree
-    if (node.right.balanceFactor < 0) {
-      return leftRotation(node);
-    } else if (node.right.balanceFactor > 0) {
-      return rightLeftRotation(node);
-    }
-  }
-  return node;
-}
-// end::balance[]
-
-// tag::balanceUptream[]
-/**
- * Bubbles up balancing nodes a their parents
- *
- * @param {TreeNode} node
- */
-function balanceUptream(node) {
-  let current = node;
-  let newParent;
-  while (current) {
-    newParent = balance(current);
-    current = current.parent;
-  }
-  return newParent;
-}
-// end::balanceUptream[]
-
 module.exports = {
   leftRotation,
   rightRotation,
   leftRightRotation,
   rightLeftRotation,
-  balance,
-  balanceUptream,
 };

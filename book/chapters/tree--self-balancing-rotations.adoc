@@ -101,13 +101,16 @@ include::{codedir}/data-structures/trees/tree-rotations.js[tag=leftRotation]
 As you can see, this function is just the opposite of `rightRotation`. Where ever we used the right now we use the left here and vice versa.
 This rotation is also known as `LL rotation`.
 
-If you are curious about the `setRightAndUpdateParent`. Here's the implementation:
+If you are curious about the `setRightAndUpdateParent` and `setLeftAndUpdateParent`. Here's the implementation:
 
 .Set and update parent implementation
 [source, javascript]
 ----
 include::{codedir}/data-structures/trees/binary-tree-node.js[tag=setAndUpdateParent]
 ----
+
+You can also checkout the full
+https://github.com/amejiarosario/dsa.js/blob/adfd8a660bbe0a7068fd7881aff9f51bdb9f92ae/src/data-structures/trees/binary-tree-node.js#L20[binary tree node implementation].
 
 === Left Right Rotation
 
@@ -125,7 +128,6 @@ As you can see we do a left and then a right rotation. This is also called `LR r
 
 Very similar to `leftRightRotation`. The difference is that we rotate right and then left.
 
-
 .Right-Left rotation implementation
 [source, javascript]
 ----
@@ -133,3 +135,7 @@ include::{codedir}/data-structures/trees/tree-rotations.js[tag=rightLeftRotation
 ----
 
 This rotation is also refered as `RL rotation`.
+
+== Self-balancing trees implementations
+
+So far, we have study how to make tree rotations which are the basis for self-balancing trees. There are different implementations of self-balancing trees such a Red-Black Tree and AVL Tree.

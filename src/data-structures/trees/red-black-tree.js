@@ -5,6 +5,7 @@ const BLACK = Symbol('black');
 
 /**
  * Red-Black Tree
+ * It's a self-balanced binary search tree optimized for fast insertion.
  *
  * Properties:
  *
