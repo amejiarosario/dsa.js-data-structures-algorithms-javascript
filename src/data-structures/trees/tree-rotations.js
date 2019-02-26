@@ -102,9 +102,9 @@ function rightRotation(node) {
  * Left Right Rotation (LR Rotation)
  *
  * @example LR rotation on node 3
- *        4                          4
- *      /                          /                            4
- *    3                          3*                           /
+ *        4                       4
+ *      /                        /                             4
+ *    3                         3*                            /
  *  /                          /                             2
  * 1*   --left-rotation(1)->  2   --right-rotation(3)->    /  \
  *  \                        /                            1    3*
