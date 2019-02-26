@@ -52,6 +52,9 @@ include::{codedir}/data-structures/trees/tree-rotations.js[tag=rightRotation]
 - `grandparent` this the current's node parent. E.g. `node 4`.
 
 The `swapParentChild` as it name says, swap the children.
+For our example, it swaps `node 4`'s left children from `node 3` to `node 2`.
+
+Take a look at the implementation
 
 .Swap Parent and Child Implementation
 [source, javascript]
@@ -59,4 +62,74 @@ The `swapParentChild` as it name says, swap the children.
 include::{codedir}/data-structures/trees/tree-rotations.js[tag=swapParentChild]
 ----
 
+After `swapParentChild`, we have the following:
+----
+      4
+     /
+    2 - 3*
+  /
+ 1
+----
 
+Still not quite what we want.
+So, `newParent.setRightAndUpdateParent(node)` will make `node 3` the right child of `node 2`.
+Finally, we remove left child of `node 3` to be `null`.
+
+----
+      4
+     /
+    2
+  /   \
+ 1     3*
+----
+
+Check out the <<Single Right Rotation, rightRotation>> implementation again. It should make more sense to you now.
+
+This rotation is also known as `RR rotation`.
+
+
+=== Single Left Rotation
+
+Left rotation is similar to the `rightRotation` we explained above.
+
+.Single left rotation implementation
+[source, javascript]
+----
+include::{codedir}/data-structures/trees/tree-rotations.js[tag=leftRotation]
+----
+
+As you can see, this function is just the opposite of `rightRotation`. Where ever we used the right now we use the left here and vice versa.
+This rotation is also known as `LL rotation`.
+
+If you are curious about the `setRightAndUpdateParent`. Here's the implementation:
+
+.Set and update parent implementation
+[source, javascript]
+----
+include::{codedir}/data-structures/trees/binary-tree-node.js[tag=setAndUpdateParent]
+----
+
+=== Left Right Rotation
+
+This time are we going to do a double rotation.
+
+.Left-Right rotation implementation
+[source, javascript]
+----
+include::{codedir}/data-structures/trees/tree-rotations.js[tag=leftRightRotation]
+----
+
+As you can see we do a left and then a right rotation. This is also called `LR rotation`
+
+=== Right Left Rotation
+
+Very similar to `leftRightRotation`. The difference is that we rotate right and then left.
+
+
+.Right-Left rotation implementation
+[source, javascript]
+----
+include::{codedir}/data-structures/trees/tree-rotations.js[tag=rightLeftRotation]
+----
+
+This rotation is also refered as `RL rotation`.
