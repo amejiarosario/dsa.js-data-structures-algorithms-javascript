@@ -1,3 +1,4 @@
+// tag::swapParentChild[]
 /**
  * Swap parent's child
  *
@@ -26,7 +27,10 @@ function swapParentChild(oldChild, newChild, parent) {
     newChild.parent = null;
   }
 }
+// end::swapParentChild[]
 
+
+// tag::leftRotation[]
 /**
  * Single Left Rotation (LL Rotation)
  *
@@ -55,26 +59,28 @@ function leftRotation(node) {
 
   return newParent;
 }
+// end::leftRotation[]
 
+// tag::rightRotation[]
 /**
  * Single Right Rotation (RR Rotation)
  *
  * @example rotate node 3 to the right
  *
- *       4                                          4
- *      /                                         /
- *     3*                                       2
- *    /                                       /  \
- *   2       ---| right-rotation(3) |-->     1    3*
+ *       4                                  4
+ *      /                                  /
+ *     3*                                 2
+ *    /                                 /  \
+ *   2    ---| right-rotation(3) |-->  1    3*
  *  /
  * 1
  *
- * @param {TreeNode} node
- * @returns {TreeNode} new parent after the rotation
+ * @param {TreeNode} node this is the node we want to rotate to the right. (E.g., node 3)
+ * @returns {TreeNode} new parent after the rotation (E.g., node 2)
  */
 function rightRotation(node) {
-  const newParent = node.left;
-  const grandparent = node.parent;
+  const newParent = node.left; // E.g., node 2
+  const grandparent = node.parent; // E.g., node 4
 
   swapParentChild(node, newParent, grandparent);
 
@@ -84,7 +90,9 @@ function rightRotation(node) {
 
   return newParent;
 }
+// end::rightRotation[]
 
+// tag::leftRightRotation[]
 /**
  * Left Right Rotation (LR Rotation)
  *
@@ -97,14 +105,16 @@ function rightRotation(node) {
  *  \                        /                            1    3*
  *   2                      1
  *
- * @param {TreeNode} node
+ * @param {TreeNode} node this is the node we want to rotate to the right. E.g., node 3
  * @returns {TreeNode} new parent after the rotation
  */
 function leftRightRotation(node) {
   leftRotation(node.left);
   return rightRotation(node);
 }
+// end::leftRightRotation[]
 
+// tag::rightLeftRotation[]
 /**
  * Right Left Rotation (RL Rotation)
  *
@@ -123,7 +133,9 @@ function rightLeftRotation(node) {
   rightRotation(node.right);
   return leftRotation(node);
 }
+// end::rightLeftRotation[]
 
+// tag::balance[]
 /**
  * Balance tree doing rotations based on balance factor.
  *
@@ -154,7 +166,9 @@ function balance(node) {
   }
   return node;
 }
+// end::balance[]
 
+// tag::balanceUptream[]
 /**
  * Bubbles up balancing nodes a their parents
  *
@@ -169,6 +183,7 @@ function balanceUptream(node) {
   }
   return newParent;
 }
+// end::balanceUptream[]
 
 module.exports = {
   leftRotation,
