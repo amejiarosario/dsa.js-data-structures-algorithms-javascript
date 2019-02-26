@@ -5,25 +5,6 @@
 - [ ] More algorithm and datastructres! Greedy, Divide and Conquer etc.
 - [ ] Algorithms visualizations like https://bost.ocks.org/mike/algorithms/
 
-## Algorithms
-1. Searching algorithms (WIP)
-2. Sorting algorithms (WIP)
-
-Compare content with:
-- [ ]	https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Stacks
-- [ ]	https://medium.freecodecamp.org/time-is-complex-but-priceless-f0abd015063c
-- [ ]	https://leetcode.com/explore/learn/
-- [ ]	https://github.com/trekhleb/javascript-algorithms
-- [ ]	https://www.khanacademy.org/computing/computer-science/algorithms
-- [ ]	Compare with: Data Structures and Algorithms.pdf by Lydia Hallie
-- [ ]	Cracking code interviews
-- [ ]	Grokking Algorithms
-- [ ]	CS Distilled
-- [ ]	Create poster like: http://bigocheatsheet.com/, http://bigoref.com/,
-- [ ]	https://introcs.cs.princeton.edu/java/11cheatsheet/
-
-
-
 # Troubleshooting
 Some notes while working on this project
 
