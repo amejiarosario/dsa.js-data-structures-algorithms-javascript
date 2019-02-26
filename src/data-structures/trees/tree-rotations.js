@@ -50,7 +50,6 @@ function leftRotation(node) {
   const newParent = node.right;
   const grandparent = node.parent;
 
-
   swapParentChild(node, newParent, grandparent);
 
   // do LL rotation
@@ -82,10 +81,13 @@ function rightRotation(node) {
   const newParent = node.left; // E.g., node 2
   const grandparent = node.parent; // E.g., node 4
 
+  // swap node 4 left children (node 3) with node 2.
   swapParentChild(node, newParent, grandparent);
 
-  // do RR rotation
+  // update right child on node 2 to be node 3,
+  // also make node 2 the new parent of node 3.
   newParent.setRightAndUpdateParent(node);
+  // remove node 3 left child (so it doesn't point to node 2)
   node.setLeftAndUpdateParent(null);
 
   return newParent;

@@ -17,6 +17,7 @@ class BinaryTreeNode {
     this.parentSide = null;
   }
 
+  // tag::setAndUpdateParent[]
   /**
    * Set a left node descendents.
    * Also, children get associated to parent.
@@ -40,6 +41,7 @@ class BinaryTreeNode {
       node.parentSide = RIGHT;
     }
   }
+  // end::setAndUpdateParent[]
 
   /**
    * Tell if is parent's left or right child
