@@ -114,6 +114,21 @@ class BinaryTreeNode {
     this.meta.color = value;
   }
 
+  // tag::avl[]
+  /**
+   * @returns {Number} left subtree height or 0 if no left child
+   */
+  get leftSubtreeHeight() {
+    return this.left ? this.left.height + 1 : 0;
+  }
+
+  /**
+   * @returns {Number} right subtree height or 0 if no right child
+   */
+  get rightSubtreeHeight() {
+    return this.right ? this.right.height + 1 : 0;
+  }
+
   /**
    * Get the max height of the subtrees.
    *
@@ -125,20 +140,13 @@ class BinaryTreeNode {
     return Math.max(this.leftSubtreeHeight, this.rightSubtreeHeight);
   }
 
-  get leftSubtreeHeight() {
-    return this.left ? this.left.height + 1 : 0;
-  }
-
-  get rightSubtreeHeight() {
-    return this.right ? this.right.height + 1 : 0;
-  }
-
   /**
    * Returns the difference the heights on the left and right subtrees
    */
   get balanceFactor() {
     return this.leftSubtreeHeight - this.rightSubtreeHeight;
   }
+  // end::avl[]
 
   /**
    * Serialize node's values
