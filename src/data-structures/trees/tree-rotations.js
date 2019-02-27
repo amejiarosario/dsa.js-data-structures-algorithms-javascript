@@ -77,7 +77,8 @@ function leftRotation(node) {
  *  /
  * 1
  *
- * @param {TreeNode} node this is the node we want to rotate to the right. (E.g., node 3)
+ * @param {TreeNode} node
+ *    this is the node we want to rotate to the right. (E.g., node 3)
  * @returns {TreeNode} new parent after the rotation (E.g., node 2)
  */
 function rightRotation(node) {
@@ -103,14 +104,15 @@ function rightRotation(node) {
  *
  * @example LR rotation on node 3
  *        4                       4
- *      /                        /                             4
- *    3                         3*                            /
- *  /                          /                             2
- * 1*   --left-rotation(1)->  2   --right-rotation(3)->    /  \
- *  \                        /                            1    3*
+ *      /                        /                           4
+ *    3                         3*                          /
+ *  /                          /                           2
+ * 1*   --left-rotation(1)->  2   --right-rotation(3)->  /  \
+ *  \                        /                          1    3*
  *   2                      1
  *
- * @param {TreeNode} node this is the node we want to rotate to the right. E.g., node 3
+ * @param {TreeNode} node
+ *    this is the node we want to rotate to the right. E.g., node 3
  * @returns {TreeNode} new parent after the rotation
  */
 function leftRightRotation(node) {
@@ -126,9 +128,9 @@ function leftRightRotation(node) {
  * @example RL rotation on 1
  *
  *   1*                           1*
- *    \                            \                              2
- *      3   -right-rotation(3)->    2   -left-rotation(1)->      /  \
- *    /                              \                          1*   3
+ *    \                            \                          2
+ *      3   -right-rotation(3)->    2   -left-rotation(1)->  /  \
+ *    /                              \                      1*   3
  *   2                                3
  *
  * @param {TreeNode} node

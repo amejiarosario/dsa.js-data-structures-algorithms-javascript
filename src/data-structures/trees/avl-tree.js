@@ -64,7 +64,6 @@ function balanceUptream(node) {
 class AvlTree extends BinarySearchTree {
   /**
    * Add node to tree. It self-balance itself.
-   *
    * @param {any} value node's value
    */
   add(value) {

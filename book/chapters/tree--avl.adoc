@@ -1,2 +1,60 @@
 = AVL Tree
 
+AVL Tree is named after their inventors (**A**delson-**V**elsky and **L**andis).
+This self-balancing tree keep track of subtree sizes to know if a rebalance is needed or not.
+We can compare the size of the left and right subtrees using a balance factor.
+
+[NOTE]
+====
+
+The *balanced factor* on each node is calculated recurviely as follows:
+
+----
+Balance Factor = (left subtree height) - (right subtree height)
+----
+
+====
+
+The implementation will got into the BST node.
+We will need two methods to calculate the left and right subtree, and with those we can get the balance factor.
+
+.Balance Factor methods on the BST node
+[source, javascript]
+----
+include::{codedir}/data-structures/trees/binary-tree-node.js[tag=avl, indent=0]
+----
+
+
+== Implementing AVL Tree
+
+Implementing an AVL Tree is not too hard, since it builds upon what we did in the Binary Search Tree.
+
+.AVL Tree class
+[source, javascript]
+----
+include::{codedir}/data-structures/trees/avl-tree.js[tag=AvlTree]
+----
+
+As you can see, AVL tree inherits from the BST class.
+The insert and remove operations works the same as in the BST, except that at the end we call `balanceUptream`.
+This function makes balance the tree after every change if is needed. Let's see how it's implemented.
+
+.Balance Upstream for AVL tree
+[source, javascript]
+----
+include::{codedir}/data-structures/trees/avl-tree.js[tag=balanceUptream]
+----
+
+This function recurively goes from the modified node to the root checking if each node in between is balanced.
+Now, let's examine how does the balancing works on AVL tree.
+
+.Balance method for AVL tree
+[source, javascript]
+----
+include::{codedir}/data-structures/trees/avl-tree.js[tag=balance]
+----
+
+The first thing we do is to see if one subtree is longer than the other.
+If so, then we check the children balance to determine if need a single or double rotation and in which direction.
+
+You can review <<Tree Roations>> in case you want a refresher.
