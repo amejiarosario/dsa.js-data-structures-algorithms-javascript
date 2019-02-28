@@ -76,12 +76,18 @@ include::chapters/non-linear-data-structures-intro.adoc[]
 // (g)
 include::chapters/tree.adoc[]
 
+include::chapters/tree--binary-tree-traversal.adoc[]
+
 // (g)
 include::chapters/tree--binary-search-tree.adoc[]
 
 include::chapters/tree--self-balancing-rotations.adoc[]
 
+:leveloffset: +1
+
 include::chapters/tree--avl.adoc[]
+
+:leveloffset: -1
 
 // (g)
 // include::chapters/map.adoc[]
