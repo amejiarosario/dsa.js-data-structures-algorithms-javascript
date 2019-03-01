@@ -201,6 +201,7 @@ class BinarySearchTree {
     }
   }
 
+  // tag::inOrderTraversal[]
   /**
    * In-order traversal on a tree: left-root-right.
    *
@@ -213,7 +214,9 @@ class BinarySearchTree {
     yield node;
     if (node && node.right) { yield* this.inOrderTraversal(node.right); }
   }
+  // end::inOrderTraversal[]
 
+  // tag::preOrderTraversal[]
   /**
    * Pre-order traversal on a tree: root-left-right.
    * Similar results to DFS
@@ -226,7 +229,9 @@ class BinarySearchTree {
     if (node.left) { yield* this.preOrderTraversal(node.left); }
     if (node.right) { yield* this.preOrderTraversal(node.right); }
   }
+  // end::preOrderTraversal[]
 
+  // tag::postOrderTraversal[]
   /**
    * Post-order traversal on a tree: left-right-root.
    *
@@ -237,6 +242,7 @@ class BinarySearchTree {
     if (node.right) { yield* this.postOrderTraversal(node.right); }
     yield node;
   }
+  // end::postOrderTraversal[]
 
   /**
    * Represent Binary Tree as an array.
