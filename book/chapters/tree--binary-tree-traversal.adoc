@@ -1,0 +1,122 @@
+= Binary Tree Traversal
+
+There are different ways to visit all the nodes or search for a value in a binary tree. Tree traversal implementations are often recursive since it's more elegant and concise. Let's explore them.
+
+== In Order Traversal
+
+If you tree happens to be a binary search tree (BST), then could use "in order" traversal to get the values sorted in ascending order.
+
+If we have the following tree:
+----
+         10
+       /    \
+      5      30
+    /       /  \
+   4       15   40
+ /
+3
+----
+
+In-order traverval will return `[3, 4, 5, 10, 15, 30, 40]`.
+
+Check out the implementation:
+
+.In-order traversal implementation
+[source, javascript]
+----
+include::{codedir}/data-structures/trees/binary-search-tree.js[tag=inOrderTraversal, indent=0]
+----
+
+This function goes recursively to the leftmost element and then yield that node, then we go to the right child (if any) and repeat the process. This will get us the values ordered.
+
+Note the asterisk (`*`) in front of the function means that this functino is a generator that yield values.
+
+.JavaScript Generators
+****
+
+JavaScript generators were added as part of ES6, they allow process possibly expensive operations one by one. You can convert any function into a generator by adding the asterisk in front and `yield`ing a value.
+
+Then you can use `next()` to get the value and also `done` to know if it's the last value. Here are some examples:
+
+[source, javascript]
+----
+function* dummyIdMaker() {
+  yield 0;
+  yield 1;
+  yield 2;
+}
+
+const generator = dummyIdMaker()
+
+// getting values
+console.log(generator.next()); // ↪️ {value: 0, done: false}
+console.log(generator.next()); // ↪️ {value: 1, done: false}
+console.log(generator.next()); // ↪️ {value: 2, done: false}
+console.log(generator.next()); // ↪️ {value: undefined, done: true}
+
+// iterating with for..of loops
+for(const n of dummyIdMaker()) {
+  console.log(n);
+}
+
+// converting generator to an array
+console.log(Array.from(dummyIdMaker())); // [0, 1, 2]
+----
+
+****
+
+== Pre Order Traversal
+
+Pre-order traveral visits nodes in this order `root-left-right` recursively.
+
+.Usage of pre-order traversal:
+- Create a copy of the tree.
+- Get prefix expression on of an expression tree used in the https://en.wikipedia.org/wiki/Polish_notation[polish notation].
+
+
+.Pre-order traversal implementation
+[source, javascript]
+----
+include::{codedir}/data-structures/trees/binary-search-tree.js[tag=inOrderTraversal, indent=0]
+----
+
+If we have the following tree:
+----
+         10
+       /    \
+      5      30
+    /       /  \
+   4       15   40
+ /
+3
+----
+
+Pre-order traverval will return `[10, 5, 4, 3, 30, 15, 40]`.
+
+== Post-order Traversal
+
+Post-order traveral goes to each node in this order `left-right-root` recursively.
+
+.Usages of the post-order tree traveral
+- Traversal is used to delete the tree because you visit the children before removing the parent.
+- Get the postfix expression of an expression tree used in the http://en.wikipedia.org/wiki/Reverse_Polish_notation[reverse polish notation].
+
+.Post-order traversal implementation
+[source, javascript]
+----
+include::{codedir}/data-structures/trees/binary-search-tree.js[tag=postOrderTraversal, indent=0]
+----
+
+
+If we have the following tree:
+----
+         10
+       /    \
+      5      30
+    /       /  \
+   4       15   40
+ /
+3
+----
+
+Post-order traverval will return `[3, 4, 5, 15, 40, 30, 10]`.
