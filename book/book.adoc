@@ -80,9 +80,10 @@ include::chapters/tree.adoc[]
 // (g)
 include::chapters/tree--binary-search-tree.adoc[]
 
-include::chapters/tree--binary-tree-traversal.adoc[]
+include::chapters/tree--search.adoc[]
 
 include::chapters/tree--self-balancing-rotations.adoc[]
+
 
 :leveloffset: +1
 

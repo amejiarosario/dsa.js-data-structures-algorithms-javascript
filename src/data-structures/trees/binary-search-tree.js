@@ -164,9 +164,10 @@ class BinarySearchTree {
   }
   // end::combine[]
 
+  // tag::bfs[]
   /**
    * Breath-first search for a tree (always starting from the root element).
-   *
+   * @yields {BinaryTreeNode}
    */
   * bfs() {
     const queue = new Queue();
@@ -181,11 +182,13 @@ class BinarySearchTree {
       if (node.right) { queue.add(node.right); }
     }
   }
+  // end::bfs[]
 
+  // tag::dfs[]
   /**
    * Depth-first search for a tree (always starting from the root element)
-   *
    * @see preOrderTraversal Similar results to the pre-order transversal.
+   * @yields {BinaryTreeNode}
    */
   * dfs() {
     const stack = new Stack();
@@ -200,14 +203,14 @@ class BinarySearchTree {
       if (node.left) { stack.add(node.left); }
     }
   }
+  // end::dfs[]
 
   // tag::inOrderTraversal[]
   /**
    * In-order traversal on a tree: left-root-right.
-   *
    * If the tree is a BST, then the values will be sorted in ascendent order
-   *
    * @param {BinaryTreeNode} node first node to start the traversal
+   * @yields {BinaryTreeNode}
    */
   * inOrderTraversal(node = this.root) {
     if (node && node.left) { yield* this.inOrderTraversal(node.left); }
@@ -220,9 +223,8 @@ class BinarySearchTree {
   /**
    * Pre-order traversal on a tree: root-left-right.
    * Similar results to DFS
-   *
    * @param {BinaryTreeNode} node first node to start the traversal
-   * @see dfs similar results to the breath first search
+   * @yields {BinaryTreeNode}
    */
   * preOrderTraversal(node = this.root) {
     yield node;
@@ -234,8 +236,8 @@ class BinarySearchTree {
   // tag::postOrderTraversal[]
   /**
    * Post-order traversal on a tree: left-right-root.
-   *
    * @param {BinaryTreeNode} node first node to start the traversal
+   * @yields {BinaryTreeNode}
    */
   * postOrderTraversal(node = this.root) {
     if (node.left) { yield* this.postOrderTraversal(node.left); }
