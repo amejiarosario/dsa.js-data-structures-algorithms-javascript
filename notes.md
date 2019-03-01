@@ -1,7 +1,8 @@
 # Roadmap
+- [x] Writeup on balancing trees
+- [ ] `BinaryTree` implementation on its own. So far, we only have BST.
 - [ ] TreeSet should be able to store objects. Does it need a comparator? on BST in case node's values are not just numbers but also objects.
 - [ ] Refactor LinkedList.remove(). It's doing to much maybe it can be refactor in terms of removeByPosition and indexOf
-- [ ] Writeup on balancing trees
 - [ ] More algorithm and datastructres! Greedy, Divide and Conquer etc.
 - [ ] Algorithms visualizations like https://bost.ocks.org/mike/algorithms/
 
