@@ -25,6 +25,7 @@ page:
   background_color: ffffff
   layout: portrait
   margin: [0.5in, 0.67in, 0.67in, 0.67in]
+  # margin_inner and margin_outer keys are used for recto/verso print margins when media=prepress
   margin_inner: 0.75in
   margin_outer: 0.59in
   size: A4
@@ -39,16 +40,16 @@ base:
   #font_color: [0, 0, 0, 92%]
   font_family: Noto Serif
   # choose one of these font_size/line_height_length combinations
-  font_size: 14
-  line_height_length: 20
+  #font_size: 14
+  #line_height_length: 20
   #font_size: 11.25
   #line_height_length: 18
   #font_size: 11.2
   #line_height_length: 16
-  #font_size: 10.5
+  font_size: 10.5
   #line_height_length: 15
   # correct line height for Noto Serif metrics
-  #line_height_length: 12
+  line_height_length: 12
   #font_size: 11.25
   #line_height_length: 18
   line_height: $base_line_height_length / $base_font_size
@@ -74,11 +75,12 @@ literal:
   font_family: M+ 1mn
 menu_caret_content: " <font size=\"1.15em\"><color rgb=\"b12146\">\u203a</color></font> "
 heading:
+  align: left
   #font_color: 181818
   font_color: $base_font_color
-  font_family: M+ 1p Fallback
+  font_family: $base_font_family
   font_style: bold
-  # h1 is used for part titles (book doctype only)
+  # h1 is used for part titles (book doctype) or the doctitle (article doctype)
   h1_font_size: floor($base_font_size * 2.6)
   # h2 is used for chapter titles (book doctype only)
   h2_font_size: floor($base_font_size * 2.15)
@@ -115,6 +117,7 @@ block:
   margin_bottom: $vertical_rhythm
 caption:
   align: left
+  font_size: $base_font_size * 0.95
   font_style: italic
   # FIXME perhaps set line_height instead of / in addition to margins?
   margin_inside: $vertical_rhythm / 3
@@ -129,21 +132,31 @@ abstract:
   line_height: $lead_line_height
   font_style: italic
   first_line_font_style: bold
+  title:
+    align: center
+    font_color: $heading_font_color
+    font_family: $heading_font_family
+    font_size: $heading_h4_font_size
+    font_style: $heading_font_style
 admonition:
-  border_color: $base_border_color
-  border_width: $base_border_width
+  column_rule_color: $base_border_color
+  column_rule_width: $base_border_width
   padding: [0, $horizontal_rhythm, 0, $horizontal_rhythm]
-#  icon:
-#    tip:
-#      name: fa-lightbulb-o
-#      stroke_color: 111111
-#      size: 24
+  #icon:
+  #  tip:
+  #    name: fa-lightbulb-o
+  #    stroke_color: 111111
+  #    size: 24
+  label:
+    text_transform: uppercase
+    font_style: bold
 blockquote:
   font_color: $base_font_color
   font_size: $base_font_size_large
   border_color: $base_border_color
   border_width: 5
-  padding: [$vertical_rhythm / 2, $horizontal_rhythm, $vertical_rhythm / -2, $horizontal_rhythm + $blockquote_border_width / 2]
+  # FIXME disable negative padding bottom once margin collapsing is implemented
+  padding: [0, $horizontal_rhythm, $block_margin_bottom * -0.75, $horizontal_rhythm + $blockquote_border_width / 2]
   cite_font_size: $base_font_size_small
   cite_font_color: 999999
 # code is used for source blocks (perhaps change to source or listing?)
@@ -153,6 +166,8 @@ code:
   font_size: ceil($base_font_size)
   padding: $code_font_size
   line_height: 1.25
+  # line_gap is an experimental property to control how a background color is applied to an inline block element
+  line_gap: 3.8
   background_color: f5f5f5
   border_color: cccccc
   border_radius: $base_border_radius
@@ -166,20 +181,20 @@ example:
   border_color: $base_border_color
   border_radius: $base_border_radius
   border_width: 0.75
-  background_color: transparent
-  # FIXME reenable margin bottom once margin collapsing is implemented
+  background_color: ffffff
+  # FIXME reenable padding bottom once margin collapsing is implemented
   padding: [$vertical_rhythm, $horizontal_rhythm, 0, $horizontal_rhythm]
 image:
   align: left
 prose:
-  margin_top: 0
-  margin_bottom: $vertical_rhythm
+  margin_top: $block_margin_top
+  margin_bottom: $block_margin_bottom
 sidebar:
-  border_color: $page_background_color
+  background_color: eeeeee
+  border_color: e1e1e1
   border_radius: $base_border_radius
   border_width: $base_border_width
-  background_color: eeeeee
-  # FIXME reenable margin bottom once margin collapsing is implemented
+  # FIXME reenable padding bottom once margin collapsing is implemented
   padding: [$vertical_rhythm, $vertical_rhythm * 1.25, 0, $vertical_rhythm * 1.25]
   title:
     align: center
@@ -194,35 +209,35 @@ thematic_break:
   margin_top: $vertical_rhythm * 0.5
   margin_bottom: $vertical_rhythm * 1.5
 description_list:
-  term_font_style: italic
+  term_font_style: bold
   term_spacing: $vertical_rhythm / 4
   description_indent: $horizontal_rhythm * 1.25
 outline_list:
   indent: $horizontal_rhythm * 1.5
-  # NOTE item_spacing applies to list items that do not have complex content
-  item_spacing: $vertical_rhythm / 2
   #marker_font_color: 404040
+  # NOTE outline_list_item_spacing applies to list items that do not have complex content
+  item_spacing: $vertical_rhythm / 2
 table:
   background_color: $page_background_color
   #head_background_color: <hex value>
   #head_font_color: $base_font_color
   head_font_style: bold
-  even_row_background_color: f9f9f9
-  #odd_row_background_color: <hex value>
+  #body_background_color: <hex value>
+  body_stripe_background_color: f9f9f9
   foot_background_color: f0f0f0
   border_color: dddddd
   border_width: $base_border_width
-  # HACK accounting for line-height
-  cell_padding: [3, 3, 6, 3]
+  cell_padding: 3
 toc:
-  dot_leader_color: dddddd
-  #dot_leader_content: '. '
   indent: $horizontal_rhythm
   line_height: 1.4
-# NOTE In addition to footer, header is also supported
+  dot_leader:
+    #content: ". "
+    font_color: a9a9a9
+    #levels: 2 3
+# NOTE in addition to footer, header is also supported
 footer:
   font_size: $base_font_size_small
-  font_color: $base_font_color
   # NOTE if background_color is set, background and border will span width of page
   border_color: dddddd
   border_width: 0.25
@@ -239,12 +254,18 @@ footer:
   # * {chapter-title}
   # * {section-title}
   # * {section-or-chapter-title}
-  recto_content:
-    #right: '{section-or-chapter-title} | {page-number}'
-    #right: '{document-title} | {page-number}'
-    right: '{page-number}'
-    #center: '{page-number}'
-  verso_content:
-    #left: '{page-number} | {chapter-title}'
-    left: '{page-number}'
-    #center: '{page-number}'
+  recto:
+    #columns: "<50% =0% >50%"
+    right:
+      content: '{page-number}'
+      #content: '{section-or-chapter-title} | {page-number}'
+      #content: '{document-title} | {page-number}'
+    #center:
+    #  content: '{page-number}'
+  verso:
+    #columns: $footer_recto_columns
+    left:
+      content: $footer_recto_right_content
+      #content: '{page-number} | {chapter-title}'
+    #center:
+    #  content: '{page-number}'
