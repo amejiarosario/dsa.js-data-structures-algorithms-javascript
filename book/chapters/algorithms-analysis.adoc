@@ -24,9 +24,9 @@ Before going deeper, into space and time complexity, let's cover the basics real
 Algorithms (as you might know) are steps of how to do some task. When you cook, you follow a recipe (or an algorithm) to prepare a dish. Let's say you want to make a pizza.
 
 .Example of an algorithm
-//[source, js]
+// [source, js] // undefined functions
 ----
-function bakePizza(dough, toppins = []) {
+function bakePizza(dough, toppins = ['cheese']) {
     const heatedOven = heatOvenTo(550);
     punchDown(dough);
     rollOut(dough);
@@ -34,8 +34,6 @@ function bakePizza(dough, toppins = []) {
     const pizza = heatedOven.bakePizza(dough)
     return pizza;
 }
-
-bakePizza(new Dough, ['ham', 'cheese']);
 ----
 
 If you play a game, you are devising strategies (or algorithms) to help you win. Likewise, algorithms in computers are a set of instructions used to solve a problem.

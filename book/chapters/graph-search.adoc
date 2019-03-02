@@ -1,11 +1,14 @@
 = Graph Search
 
-Quis officia proident fugiat elit cupidatat voluptate. Aliqua anim nulla nulla nisi anim cupidatat eu culpa velit cupidatat. Id duis do esse aliquip fugiat non ea. Fugiat dolore aliquip eu commodo. Sint ex et ullamco laboris consequat non sint id.
+Graph search allows you to visit all the elements connected given a starting node. There are two ways to navigate the graph, one is using Depth-First Search (DFS) and the other one is Breadth-First Search (BFS). Let's see the difference.
 
-== Depth First Search
+== Depth-First Search
 
-Commodo culpa qui officia eiusmod irure culpa elit excepteur culpa. Tempor aute nisi excepteur qui. Sit in irure aliqua Lorem tempor ut minim. Magna amet nisi sint labore tempor in commodo consequat dolor cupidatat cillum non pariatur reprehenderit. Ex esse cupidatat sunt dolore non commodo est aute.
+As we saw in <<Depth-First Search for Binary Tree>>, depth-first search goes as deep as it can and then backs down visiting adjacent nodes.
 
-== Breadth First Search
+
+https://www.google.com/search?q=graph+dfs+vs+bfs&rlz=1C5CHFA_enUS818US818&source=lnms&tbm=isch&sa=X&ved=0ahUKEwimx4bs-uHgAhVNeKwKHS-aATMQ_AUIDigB&biw=1384&bih=977#imgrc=oGB49w2DS4afkM:
+
+== Breadth-First Search
 
 Irure ipsum deserunt culpa cillum deserunt. Adipisicing officia cillum culpa reprehenderit ullamco nulla irure. Ad nostrud excepteur eiusmod magna nostrud magna irure velit veniam sunt labore qui. Esse pariatur ullamco laborum sint. Eiusmod anim consectetur est eiusmod do ullamco est duis qui magna. Esse laboris ea quis id tempor laboris incididunt incididunt quis consectetur. Id esse enim excepteur magna ut.
