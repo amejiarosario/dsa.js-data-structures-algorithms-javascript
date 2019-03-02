@@ -88,7 +88,7 @@ This section covers Binary Search Tree (BST) time complexity (Big O).
 {empty}* = Amortized run time. E.g. rehashing might affect run time to *O(n)*.
 
 
-Time complexity for a Graph data structure
+.Time complexity for a Graph data structure
 |===
 .2+.^s| Data Structure 2+^s| Vertices 2+^s| Edges .2+^.^s| Space Complexity
 ^|_Add_ ^|_Remove_ ^|_Add_ ^|_Remove_
@@ -99,6 +99,7 @@ Time complexity for a Graph data structure
 
 == Sorting Algorithms
 
+.Sorting algorithms comparison
 |===
 | Algorithms     | Runtime    | Space       | Stable | In-place | Online | Adaptive | Comments
 | Insertion sort | O(n^2^)    | O(1)        | Yes    | Yes      | Yes    | Yes      |

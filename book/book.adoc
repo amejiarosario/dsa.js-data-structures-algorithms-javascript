@@ -84,7 +84,6 @@ include::chapters/tree--search.adoc[]
 
 include::chapters/tree--self-balancing-rotations.adoc[]
 
-
 :leveloffset: +1
 
 include::chapters/tree--avl.adoc[]
