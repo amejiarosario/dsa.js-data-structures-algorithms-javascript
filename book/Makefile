@@ -10,7 +10,7 @@ OUTPUT_FOLDER = --destination-dir=${DIR}
 MANPAGE = --backend=manpage
 HTML = --backend=html5 -a max-width=75em
 RAW_HTML = --backend=html5 -a stylesheet! -a source-highlighter!
-PDF =  --backend=pdf --require=asciidoctor-pdf
+PDF =  --backend=pdf --require=asciidoctor-pdf -a pdf-fontsdir=fonts
 EPUB = --backend=epub3 --require=asciidoctor-epub3
 KINDLE = ${EPUB} -a ebook-format=kf8
 
