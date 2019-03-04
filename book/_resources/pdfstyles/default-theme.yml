@@ -269,9 +269,10 @@ footer:
   recto:
     #columns: "<50% =0% >50%"
     right:
-      content: '{page-number}'
-      #content: '{section-or-chapter-title} | {page-number}'
-      #content: '{document-title} | {page-number}'
+      # content: '{page-number}'
+      content: '{section-or-chapter-title} | {page-number}'
+      # content: '{section-title} | {page-number}'
+      # content: '{document-title} | {page-number}'
     #center:
     #  content: '{page-number}'
   verso:
