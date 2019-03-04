@@ -2,11 +2,11 @@
 font:
   catalog:
     # Noto Serif supports Latin, Latin-1 Supplement, Latin Extended-A, Greek, Cyrillic, Vietnamese & an assortment of symbols
-    # Noto Serif:
-    #   normal: notoserif-regular-subset.ttf
-    #   bold: notoserif-bold-subset.ttf
-    #   italic: notoserif-italic-subset.ttf
-    #   bold_italic: notoserif-bold_italic-subset.ttf
+    Noto Serif:
+      normal: notoserif-regular-subset.ttf
+      bold: notoserif-bold-subset.ttf
+      italic: notoserif-italic-subset.ttf
+      bold_italic: notoserif-bold_italic-subset.ttf
     Literata:
       normal: Literata-regular.ttf
       bold: Literata-bold.ttf
@@ -17,21 +17,54 @@ font:
       bold: FiraCode-Bold.ttf
       italic: FiraCode-Italic.ttf
       bold_italic: FiraCode-Bold-italic.ttf
-  #   # M+ 1mn supports ASCII and the circled numbers used for conums
-  #   M+ 1mn:
-  #     normal: mplus1mn-regular-ascii-conums.ttf
-  #     bold: mplus1mn-bold-ascii.ttf
-  #     italic: mplus1mn-italic-ascii.ttf
-  #     bold_italic: mplus1mn-bold_italic-ascii.ttf
-  #   # M+ 1p supports Latin, Latin-1 Supplement, Latin Extended, Greek, Cyrillic, Vietnamese, Japanese & an assortment of symbols
-  #   # It also provides arrows for ->, <-, => and <= replacements in case these glyphs are missing from font
-  #   M+ 1p Fallback:
-  #     normal: mplus1p-regular-fallback.ttf
-  #     bold: mplus1p-regular-fallback.ttf
-  #     italic: mplus1p-regular-fallback.ttf
-  #     bold_italic: mplus1p-regular-fallback.ttf
-  # fallbacks:
-  #   - M+ 1p Fallback
+    # M+ 1mn supports ASCII and the circled numbers used for conums
+    M+ 1mn:
+      normal: mplus1mn-regular-ascii-conums.ttf
+      bold: mplus1mn-bold-ascii.ttf
+      italic: mplus1mn-italic-ascii.ttf
+      bold_italic: mplus1mn-bold_italic-ascii.ttf
+    # M+ 1p supports Latin, Latin-1 Supplement, Latin Extended, Greek, Cyrillic, Vietnamese, Japanese & an assortment of symbols
+    # It also provides arrows for ->, <-, => and <= replacements in case these glyphs are missing from font
+    M+ 1p Fallback:
+      normal: mplus1p-regular-fallback.ttf
+      bold: mplus1p-regular-fallback.ttf
+      italic: mplus1p-regular-fallback.ttf
+      bold_italic: mplus1p-regular-fallback.ttf
+    # https://github.com/asciidoctor/asciidoctor-pdf/issues/323#issuecomment-143966293
+    OpenSansEmoji:
+      normal: OpenSansEmoji.ttf
+      bold: OpenSansEmoji.ttf
+      italic: OpenSansEmoji.ttf
+      bold_italic: OpenSansEmoji.ttf
+    Symbola:
+      normal: Symbola.ttf
+      bold: Symbola.ttf
+      italic: Symbola.ttf
+      bold_italic: Symbola.ttf
+    # https://github.com/emojione/emojione/tree/master/extras/fonts
+    Emojione:
+      normal: emojione-android.ttf
+      bold: emojione-android.ttf
+      italic: emojione-android.ttf
+      bold_italic: emojione-android.ttf
+    # https://www.google.com/get/noto/#emoji-zsye-color
+    NotoColorEmoji:
+      normal: NotoColorEmoji.ttf
+      bold: NotoColorEmoji.ttf
+      italic: NotoColorEmoji.ttf
+      bold_italic: NotoColorEmoji.ttf
+    # https://graphicdesign.stackexchange.com/a/64918
+    NotoEmoji:
+      normal: NotoEmoji-Regular.ttf
+      bold: NotoEmoji-Regular.ttf
+      italic: NotoEmoji-Regular.ttf
+      bold_italic: NotoEmoji-Regular.ttf
+  fallbacks:
+    - M+ 1p Fallback
+    - NotoEmoji # works (black and white)
+    # - Symbola
+    # - NotoColorEmoji # Didn't work
+    # - Emojione # Didn't work
 page:
   background_color: ffffff
   layout: portrait
@@ -184,8 +217,8 @@ code:
   border_radius: $base_border_radius
   border_width: 0.75
 conum:
-  # font_family: M+ 1mn
-  font_family: $literal_font_family
+  font_family: M+ 1mn
+  # font_family: $literal_font_family
   font_color: $literal_font_color
   font_size: $base_font_size
   line_height: 4 / 3

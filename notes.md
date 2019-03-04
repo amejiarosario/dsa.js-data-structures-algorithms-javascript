@@ -1,4 +1,5 @@
 # Roadmap
+- [ ] PDF: callouts and emojis are not showing correctly
 - [x] Writeup on balancing trees
 - [ ] `BinaryTree` implementation on its own. So far, we only have BST.
 - [ ] TreeSet should be able to store objects. Does it need a comparator? on BST in case node's values are not just numbers but also objects.
