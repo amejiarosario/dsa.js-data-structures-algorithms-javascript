@@ -133,6 +133,8 @@ describe('Graph', () => {
     let n4;
 
     beforeEach(() => {
+      //   5
+      //  /^
       // 0 -> 1 <- 2
       //      ^\-> 4 -> 3
       graph.addEdge(0, 1);

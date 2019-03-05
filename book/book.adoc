@@ -17,11 +17,24 @@ ifndef::backend-epub3[:leveloffset: -1]
 // (g)
 include::chapters/preface.adoc[]
 
-// TODO: review and complete when the rest is completed
-include::chapters/cheatsheet.adoc[]
-
 // add sections to chapters
 :sectnums:
+
+
+//-----------------------------------
+// TODO: commment out sample on final
+//-----------------------------------
+= Sample Section
+
+:leveloffset: +1
+
+include::chapters/sample.adoc[]
+
+:leveloffset: -1
+
+//-----------------------------------
+// TODO: end remove ------
+//-----------------------------------
 
 //
 // chapters
@@ -128,6 +141,9 @@ include::chapters/algorithms-intro.adoc[]
 //
 // Sorting algorithms
 //
+= Sorting Algorithms
+
+:leveloffset: +1
 
 // TODO: pending
 include::chapters/sorting-intro.adoc[]
@@ -146,7 +162,45 @@ include::chapters/merge-sort.adoc[]
 
 include::chapters/quick-sort.adoc[]
 
+:leveloffset: -1
 
+= Greedy Algorithms
+
+:leveloffset: +1
+
+:leveloffset: -1
+
+= Divide and Conquer Algorithms
+
+:leveloffset: +1
+
+:leveloffset: -1
+
+= Dynamic Programming
+
+:leveloffset: +1
+
+:leveloffset: -1
+
+= Backtracking Algorithms
+
+:leveloffset: +1
+
+:leveloffset: -1
+
+
+// --- end algorithms ---
+
+:leveloffset: -1
+
+:sectnums!:
+
+= Appendix
+
+:leveloffset: +1
+
+// TODO: review and complete when the rest is completed
+include::chapters/cheatsheet.adoc[]
 
 :leveloffset: -1
 
