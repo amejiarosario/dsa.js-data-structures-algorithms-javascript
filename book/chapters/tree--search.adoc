@@ -90,6 +90,20 @@ This is a iterative implementation of a DFS using an <<Stack>>.
 It's almost identical to the BFS but instead of using a <<Queue>> we usa a Stack.
 We can also implement it as recursive functions are we are going to see in the <<Binary Tree Traversal>> section.
 
+== Depth-First Search vs. Breadth-First Search
+
+We can see visually the difference on how the DFS and BFS search for nodes:
+
+.Depth-First Search vs. Breadth-First Search
+image:depth-first-search-dfs-breadth-first-search-bfs.jpg[]
+
+As you can see the DFS in two iterations is already at one of the farthest node from the root while BFS search nearby nodes first.
+
+.Use DFS when:
+- The node you are looking for is likely to be *far* from the root.
+
+.Use BFS when:
+- The node you are looking for is *nearby* the root.
 
 :leveloffset: +1
 

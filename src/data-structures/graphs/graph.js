@@ -121,6 +121,7 @@ class Graph {
   }
   // end::areAdjacents[]
 
+  // tag::graphSearch[]
   /**
    * Depth-first search
    * Use a stack to visit nodes (LIFO)
@@ -159,6 +160,7 @@ class Graph {
       }
     }
   }
+  // end::graphSearch[]
 
   /**
    * Return true if two nodes are connected and false if not

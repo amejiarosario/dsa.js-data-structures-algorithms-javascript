@@ -1,0 +1,185 @@
+= Sample Title 1
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident architecto soluta commodi odit accusamus non molestias necessitatibus, culpa possimus repudiandae, ex sit officiis, sint hic doloribus harum vero quisquam aspernatur.
+
+== Sample Title 2
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab voluptate impedit, iusto explicabo tempore? Ipsam eaque accusamus mollitia accusantium quod aperiam. Sit cum tempora quod! Placeat assumenda adipisci eius?
+
+=== Sample Title 3
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, vero facere voluptatem impedit optio fuga accusamus non dignissimos, exercitationem culpa error debitis, molestiae corporis? Repudiandae eum dolor quae nemo reiciendis.
+
+==== Sample Title 4
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Error incidunt provident cumque eum totam perspiciatis ab corrupti officia pariatur, cum nulla. Commodi quisquam ratione repudiandae natus sapiente ipsum quidem suscipit!
+
+===== Sample title 5
+
+Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum, quisquam illum laudantium sed eius saepe itaque ad incidunt neque ex, tempora earum possimus quis provident minus alias corporis numquam ullam?
+
+
+== Code
+
+.Subsets in a Set
+[source, javascript]
+----
+include::{codedir}/runtimes/07-sub-sets.js[tag=snippet]
+----
+<1> Base case is empty element.
+<2> For each element from the input append it to the results array.
+<3> The new results array will be what it was before + the duplicated with the appended element.
+
+//.The way this algorithm generates all subsets is:
+//1.  The base case is an empty element (line 13). E.g. ['']
+//2.  For each element from the input append it to the results array (line 16)
+//3.  The new results array will be what it was before + the duplicated with the appended element (line 17)
+
+
+== Emojis
+
+[big]#💸#
+[big]#⏱#
+[big]*🍯🐝*
+[big]#💀#
+[big]#😱#
+[big]#😎👍#
+[big]#🐢#
+[big]#🚀#
+[big]*🤯*
+
+- Space Complexity: [big]#⚠️# <<Linear>> _O(n)_
+- <<Adaptive>>: [big]#✅# Yes
+- Time Complexity: [big]#⛔️# <<Quadratic>> _O(n^2^)_
+
+
+== Images
+
+.CPU operations vs. Algorithm runtime as the input size grows
+image:image5.png[CPU time needed vs. Algorithm runtime as the input size increases]
+
+== Quotes
+
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis doloremque fuga nobis tempora saepe sed iste quod quia blanditiis dolorem alias, accusantium quas nihil ullam assumenda nostrum similique ad itaque?
+
+[quote, H. J. Harrington]
+Measurement is the first step that leads to control and eventually to improvement. If you can’t measure something, you can’t understand it. If you can’t understand it, you can’t control it. If you can’t manage it, you can’t improve it.
+
+== Tables
+
+.Time and Space Complexity of Linear Data Structures (Array, LinkedList, Stack & Queues)
+|===
+.2+.^s| Data Structure 2+^s| Searching By 3+^s| Inserting at the 3+^s| Deleting from .2+.^s| Space Complexity
+^|_Index/Key_ ^|_Value_ ^|_beginning_ ^|_middle_ ^|_end_ ^|_beginning_ ^|_middle_ ^|_end_
+| <<Array>> ^|O(1) ^|O(n) ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(n) ^|O(1) ^|O(n)
+| <<Singly Linked List>> ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(1) ^|O(1) ^|O(n) ^|*O(n)* ^|O(n)
+| <<Doubly Linked List>> ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(1) ^|O(1) ^|O(n) ^|*O(1)* ^|O(n)
+| <<Stack>> ^|- ^|- ^|- ^|- ^|O(1) ^|- ^|- ^|O(1) ^|O(n)
+| Queue (w/array) ^|- ^|- ^|- ^|- ^|*O(n)* ^|- ^|- ^|O(1) ^|O(n)
+| <<Queue>> (w/list) ^|- ^|- ^|- ^|- ^|O(1) ^|- ^|- ^|O(1) ^|O(n)
+|===
+{empty}* = Amortized run time. E.g. rehashing might affect run time to *O(n)*.
+
+.Time complexity for a Graph data structure
+|===
+.2+.^s| Data Structure 2+^s| Vertices 2+^s| Edges .2+^.^s| Space Complexity
+^|_Add_ ^|_Remove_ ^|_Add_ ^|_Remove_
+| Graph (adj. matrix) ^| O(\|V\|^2^) ^| O(\|V\|^2^) ^|O(1) ^|O(1) ^|O(\|V\|^2^)
+| Graph (adj. list w/array) ^| O(1) ^| O(\|V\| + \|E\|)) ^|O(1) ^|O(\|V\| + \|E\|) ^|O(\|V\| + \|E\|)
+| Graph (adj. list w/HashSet) ^| O(1) ^| O(\|V\|)) ^|O(1) ^|O(\|V\|) ^|O(\|V\| + \|E\|)
+|===
+
+
+.Most common algorithmic running times and their examples
+[cols="2,2,5",options="header"]
+|===
+|Big O Notation
+|Name
+|Example(s)
+
+|O(1)
+|<<Constant>>
+|#<<constant-example>>, #<<linked-list-inserting-beginning>>
+
+|O(log n)
+|<<Logarithmic>>
+|<<logarithmic-example>>
+
+|O(n)
+|<<Linear>>
+|<<linear-example>>
+
+|O(n log n)
+|<<Linearithmic>>
+|<<linearithmic-example>>
+
+|O(n^2^)
+|<<Quadratic>>
+|<<quadratic-example>>
+
+|O(n^3^)
+|<<Cubic>>
+|<<cubic-example>>
+
+|O(2^n^)
+|<<Exponential>>
+|<<exponential-example>>
+
+|O(n!)
+|<<Factorial>>
+|<<factorial-example>>
+|===
+
+== Admonitions
+
+The following admonitions are used to highlight content
+
+IMPORTANT: Reword essential concepts. Good for memorizing, tweeting and sharing.
+
+.Side Note with Title
+[NOTE]
+====
+Side notes. E.g. provide language specific: BigInt, charCodeAt...
+[source,javascript]
+----
+function a(test) {
+  return `${test}`;
+}
+----
+====
+
+=== Legend
+
+==== Note
+
+NOTE: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio laudantium et consequuntur, eveniet numquam voluptatibus molestias nostrum reprehenderit blanditiis enim asperiores consequatur dolore tempore laboriosam! At aliquam mollitia aspernatur magnam.
+
+==== Tip
+
+TIP: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id nesciunt quaerat sint provident beatae. Assumenda necessitatibus ea non illum ipsa eveniet! Odio, blanditiis debitis harum porro autem ut fugiat deserunt.
+
+==== Important
+
+IMPORTANT: Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi maiores aperiam quasi error facilis ducimus quis vero architecto soluta! Fuga alias aspernatur voluptate voluptas veniam maxime eligendi nemo neque excepturi.
+
+
+==== Caution
+
+CAUTION: Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed deserunt error alias quod, modi ex, repudiandae voluptatem atque saepe, vero eius vel numquam aperiam neque incidunt eum nobis earum nostrum.
+
+==== Warning
+
+WARNING: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque quam delectus consequatur omnis nostrum, minus consectetur animi quod adipisci, architecto similique quasi voluptatem voluptas repudiandae minima. Fuga incidunt maiores magnam!
+
+== HTML-only content (iframe)
+
+Later, in the 2nd part we are going to explore non-linear data structures like Graphs and Trees.
+ifdef::backend-html5[]
+If you want to have a general overview of each one, take a look at the following interactive diagram:
++++
+<iframe
+  src="https://embed.kumu.io/85f1a4de5fb8430a10a1bf9c5118e015"
+  width="940" height="600" frameborder="0"></iframe>
++++
+endif::[]
+

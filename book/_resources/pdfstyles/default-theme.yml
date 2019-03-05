@@ -61,9 +61,9 @@ font:
       bold_italic: NotoEmoji-Regular.ttf
   fallbacks:
     - M+ 1p Fallback
-    - NotoEmoji # works (black and white)
+    # - NotoEmoji # works (black and white)
+    - NotoColorEmoji # Didn't work
     # - Symbola
-    # - NotoColorEmoji # Didn't work
     # - Emojione # Didn't work
 page:
   background_color: ffffff
