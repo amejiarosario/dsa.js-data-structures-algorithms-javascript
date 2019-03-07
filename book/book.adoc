@@ -164,19 +164,29 @@ include::chapters/quick-sort.adoc[]
 
 :leveloffset: -1
 
-= Greedy Algorithms
+= Dynamic Programming
+
+include::chapters/dynamic-programming--intro.adoc[]
 
 :leveloffset: +1
+
+include::chapters/dynamic-programming--fibonacci.adoc[]
+
+// include::chapters/dynamic-programming--knapsack-problem.adoc[]
+
+:leveloffset: -1
+
+= Greedy Algorithms
+
+include::chapters/greedy-algorithms--intro.adoc[]
+
+:leveloffset: +1
+
+include::chapters/greedy-algorithms--knapsack-problem.adoc[]
 
 :leveloffset: -1
 
 = Divide and Conquer Algorithms
-
-:leveloffset: +1
-
-:leveloffset: -1
-
-= Dynamic Programming
 
 :leveloffset: +1
 
