@@ -48,3 +48,7 @@ Let's implement this algorithm!
 ----
 include::{codedir}/algorithms/knapsack-fractional.js[tag=snippet,indent=0]
 ----
+
+What's the runtime of this algorithm?
+
+We have to sort the array based on value/weight ratio. Sorting runtime is O(n log n). The rest is linear operations, so we the answer is _O(n log n)_ for our greedy algorithm.
