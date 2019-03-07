@@ -75,6 +75,10 @@ BigInt allows to operate beyond the maximum safe limit of integers (Number.MAX_S
 - <<Adaptive>>: [big]#✅# Yes
 - Time Complexity: [big]#⛔️# <<Quadratic>> _O(n^2^)_
 
+.How to explain dynamic programming to kids? 👶
+----
+test [big]*🤯*
+----
 
 == Images
 
