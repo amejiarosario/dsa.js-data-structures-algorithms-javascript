@@ -1,22 +1,38 @@
+= Sample Section
+
+
+:leveloffset: +1
+
+// ------------------
+
+
 = Sample Title 1
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident architecto soluta commodi odit accusamus non molestias necessitatibus, culpa possimus repudiandae, ex sit officiis, sint hic doloribus harum vero quisquam aspernatur.
+Provident architecto soluta commodi odit accusamus non molestias necessitatibus, culpa possimus repudiandae, ex sit officiis, sint hic doloribus harum vero quisquam aspernatur.
 
 == Sample Title 2
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio ab voluptate impedit, iusto explicabo tempore? Ipsam eaque accusamus mollitia accusantium quod aperiam. Sit cum tempora quod! Placeat assumenda adipisci eius?
+Optio ab voluptate impedit, iusto explicabo tempore? Ipsam eaque accusamus mollitia accusantium quod aperiam. Sit cum tempora quod! Placeat assumenda adipisci eius?
 
 === Sample Title 3
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, vero facere voluptatem impedit optio fuga accusamus non dignissimos, exercitationem culpa error debitis, molestiae corporis? Repudiandae eum dolor quae nemo reiciendis.
+Quisquam, vero facere voluptatem impedit optio fuga accusamus non dignissimos, exercitationem culpa error debitis, molestiae corporis? Repudiandae eum dolor quae nemo reiciendis.
 
 ==== Sample Title 4
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Error incidunt provident cumque eum totam perspiciatis ab corrupti officia pariatur, cum nulla. Commodi quisquam ratione repudiandae natus sapiente ipsum quidem suscipit!
+Laboris commodo labore anim ea. Nostrud culpa Lorem enim labore esse qui enim incididunt sunt eiusmod cupidatat veniam enim irure. Culpa velit duis duis esse amet adipisicing fugiat dolore do minim exercitation. Nostrud magna id nostrud nostrud minim cupidatat. Sunt amet qui amet deserunt commodo Lorem.
 
 ===== Sample title 5
 
-Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum, quisquam illum laudantium sed eius saepe itaque ad incidunt neque ex, tempora earum possimus quis provident minus alias corporis numquam ullam?
+Irure nisi laboris amet do sit Lorem do. Aliqua esse ex in dolore nulla. Aute deserunt nostrud eiusmod fugiat aliquip proident ad eiusmod incididunt est in nisi deserunt Lorem.
+
+====== Sample title 6
+
+Et nisi fugiat in culpa id voluptate incididunt anim commodo. Irure non dolor velit irure non incididunt nisi laborum minim. Elit duis consectetur aliqua laborum tempor et nulla. Nulla dolore magna dolor occaecat velit magna sint nulla. Proident veniam officia in nisi cillum ut deserunt consequat mollit laborum.
+
+======= Sample title 7
+
+Ullamco ipsum consequat consequat in pariatur ad tempor nisi minim deserunt sunt ex. Minim enim irure quis aliqua anim nisi amet aliquip labore excepteur nisi amet commodo mollit. Est dolor eu commodo Lorem cillum. Elit deserunt cillum excepteur proident aliquip sunt incididunt. Deserunt voluptate enim incididunt incididunt pariatur.
 
 
 == Code
@@ -53,6 +69,7 @@ BigInt allows to operate beyond the maximum safe limit of integers (Number.MAX_S
 [big]#🐢#
 [big]#🚀#
 [big]*🤯*
+[big]#👎#
 
 - Space Complexity: [big]#⚠️# <<Linear>> _O(n)_
 - <<Adaptive>>: [big]#✅# Yes
@@ -235,3 +252,8 @@ graph G {
 }
 ....
 
+
+
+// ------------------
+
+:leveloffset: -1

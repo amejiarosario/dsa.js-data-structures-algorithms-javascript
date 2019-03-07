@@ -36,6 +36,7 @@ Don't get the wrong idea some greedy algorithms works very well if they are desi
 
 .In general, we can follow these steps to design Greedy Algorithms:
 1. Take a sample from the input data (usually in a data structure like array/list, tree, graph).
-2. Use a heuristic function that will choose the best candidate (Greedy choice). E.g., Largest/smallest number.
+2. Greedy choice: use a heuristic function that will choose the best candidate. E.g., Largest/smallest number, best ratio, etc.
 3. Reduce the processed input and pepeat step #1 and #2 until all data is gone.
 4. Return solution.
+5. Check correctness with different examples and edge cases.

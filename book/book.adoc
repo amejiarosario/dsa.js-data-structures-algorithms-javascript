@@ -24,13 +24,8 @@ include::chapters/preface.adoc[]
 //-----------------------------------
 // TODO: commment out sample on final
 //-----------------------------------
-= Sample Section
-
-:leveloffset: +1
 
 include::chapters/sample.adoc[]
-
-:leveloffset: -1
 
 //-----------------------------------
 // TODO: end remove ------
