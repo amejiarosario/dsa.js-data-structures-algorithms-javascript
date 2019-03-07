@@ -64,4 +64,24 @@ describe('solveFractionalKnapsack', () => {
     expect(knapsack.weight).toBeCloseTo(1);
     expect(knapsack.value).toBeCloseTo(1);
   });
+
+  it('should solve take fractional items with non-integer max weight', () => {
+    const maxWeight = 7.5;
+    const items = [
+      { value: 1, weight: 1 },
+      { value: 4, weight: 3 },
+      { value: 5, weight: 4 },
+      { value: 7, weight: 5 },
+    ];
+
+    const knapsack = solveFractionalKnapsack(items, maxWeight);
+
+    expect(knapsack.weight).toBeCloseTo(7.5);
+    expect(knapsack.value).toBeCloseTo(7 + ((2.5 / 3) * 4));
+    expect(knapsack.items.length).toEqual(2);
+    expect(knapsack.items).toEqual(expect.arrayContaining([
+      { value: 7, weight: 5, proportion: 1 },
+      { value: 4, weight: 3, proportion: (2.5 / 3) },
+    ]));
+  });
 });
