@@ -1,4 +1,9 @@
 // tag::snippet[]
+/**
+ *
+ * @param {Array} input array of objects with the shape {value, weight}
+ * @param {Number} max maximum weight for knapsack
+ */
 function solveFractionalKnapsack(input, max) {
   let weight = 0;
   let value = 0;
