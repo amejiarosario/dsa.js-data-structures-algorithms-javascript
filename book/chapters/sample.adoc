@@ -35,6 +35,12 @@ include::{codedir}/runtimes/07-sub-sets.js[tag=snippet]
 //2.  For each element from the input append it to the results array (line 16)
 //3.  The new results array will be what it was before + the duplicated with the appended element (line 17)
 
+== Side notes
+
+.JavaScript built-in `BigInt`
+****
+BigInt allows to operate beyond the maximum safe limit of integers (Number.MAX_SAFE_INTEGER => 9,007,199,254,740,991). BigInt uses the suffix n, e.g. 1n + 3n === 4n.
+****
 
 == Emojis
 
@@ -182,4 +188,50 @@ If you want to have a general overview of each one, take a look at the following
   width="940" height="600" frameborder="0"></iframe>
 +++
 endif::[]
+
+
+== Graphviz Diagrams
+
+=== Graphviz with png
+
+[graphviz, dfs-graph, png]
+....
+digraph G {
+
+     node [fillcolor="#F8E71C" style=filled shape=circle] 0;
+     node [fillcolor="#F5A623"] 1;
+     node [fillcolor="#B8E986"] 2;
+     node [fillcolor="#BD10E0"] 3;
+     node [fillcolor="#50E3C2"] 4;
+     node [fillcolor="#4A90E2"] 5;
+    //  node [fillcolor="#FF5252"] 6;
+
+        0 -> 5
+        0 -> 4
+        0 -> 1
+        1 -> 4
+        1 -> 3
+        2 -> 1
+        3 -> 4
+        3 -> 2
+
+    label="DFS"
+
+    { rank=same; 3, 1 }
+    { rank=same; 0, 4 }
+
+}
+....
+
+=== Graphviz with svg
+
+[graphviz, Recursive Fibonacci call tree with dp, svg]
+....
+graph G {
+    "fib(5)" -- { "fib(4)" }
+    "fib(4)" -- { "fib(3)" }
+    "fib(3)" -- { "fib(2)" }
+    "fib(2)" -- { "fib(1)", "fib(0)" }
+}
+....
 

@@ -1,0 +1,10 @@
+In this 2nd part of the book we are going to cover algorithms in more details.
+We are going to start with sorting and searching algorithms, then you are going to learn some techniques for solving problems.
+
+IMPORTANT: There's not a single approach to solve all problems but knowing well-known techniques can help you build your own faster.
+
+.We are going to discuss the following approaches for solving algorithms problems:
+- <<Greedy Algorithms>>: makes choices at each step trying to find the optimal solution.
+- <<Dynamic Programming>>: use memoization for repated subproblems.
+- <<Backtracking>>: search all possible combinations until it finds the solution.
+- <<Divide and conquer>>: break problems into smaller pieces and then join the results.

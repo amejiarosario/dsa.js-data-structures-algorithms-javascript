@@ -1,0 +1,42 @@
+= Fractional Knapsack Problem
+
+We are going to use the "Fractional Knapsack Problem" to learn how to design greedy algorithms. The problem is the following:
+
+> You are going to steal legumes (rice, beans, chickpeas, lentils) and you only brought a knapsack. What items you choose to to get the highest loot without exceeding the maximum weight of the bag?
+
+Let's say we have the following items available.
+
+.Knpasack Input
+[source, javascript]
+----
+const items = [
+  { value: 1, weight: 1},
+  { value: 4, weight: 3 },
+  { value: 5, weight: 4 },
+  { value: 7, weight: 5 },
+];
+
+const maxWeight = 7;
+----
+
+So, we have 4 items that we can take. We can't take them all because the total weight is `13` and maximum we can carry is `7`. We can't just take the first one because with value `1` because obviosly is not the best profit.
+
+How would you solve this problem?
+
+
+
+First, we have to make a *greedy choice*. This is the heuristic function that we are going to use to determine which choice to make on each step. Let's explore our options:
+
+We can take items with the *largest* value in hopes to get maximize profit. Based on that we can make take the last item and first having a total weight of 7 and total value of 8.
+
+Also, we could take items *smallest* weight so we can fit as much as possible. Let's analyze both options. So we can take the first 2 items for a total value of 5 and total weight of 4. This is not good.
+
+Finally, we can take items based on the *best* value/weight ratio.
+
+----
+  { value: 1, weight: 1}, // 1
+  { value: 4, weight: 3 }, // 4/3 = 1.33
+  { value: 5, weight: 4 }, // 5/4 =
+  { value: 7, weight: 5 },
+----
+

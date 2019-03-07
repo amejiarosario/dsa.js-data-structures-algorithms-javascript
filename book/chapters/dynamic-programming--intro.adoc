@@ -1,0 +1,19 @@
+Dynamic programming (dp) is a way to solve algorithmic problems by finding the base case and building a solution from the ground-up. We also keep track of previous answers to avoid re-computing the same operations.
+
+// https://twitter.com/amejiarosario/status/1103050924933726208
+// https://www.quora.com/How-should-I-explain-dynamic-programming-to-a-4-year-old/answer/Jonathan-Paulson
+// https://medium.com/@codingfreak/top-50-dynamic-programming-practice-problems-4208fed71aa3
+// https://www.slideshare.net/balamoorthy39/greedy-algorithm-knapsack-problem
+
+.How to explain dynamic programming to kids? 👶
+----
+
+*Write down 1+1+1+1+1+1+1+1+1+1*
+
+- What's that equal to?
+- *Kid counting* Ten!
+- Add another "+1". What's the total now?
+- *Quickly*  Eleven!
+- Why you get the result so quickly? Ah, you got it faster by adding one to the memorized previous result. So Dynamic Programming is a fancy way of saying: "remembering past results to save time later"
+----
+
