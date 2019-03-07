@@ -5,9 +5,8 @@
  * @returns {integer} n-th number
  */
 function getFibonacci(n) {
-  if (n < 2) {
-    return n;
-  }
+  if (n < 0) return 0;
+  if (n < 2) return n;
 
   let prev = 0;
   let result = 1;

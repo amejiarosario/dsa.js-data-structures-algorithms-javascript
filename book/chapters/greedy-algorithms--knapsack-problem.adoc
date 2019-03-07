@@ -24,19 +24,27 @@ So, we have 4 items that we can take. We can't take them all because the total w
 How would you solve this problem?
 
 
-
 First, we have to make a *greedy choice*. This is the heuristic function that we are going to use to determine which choice to make on each step. Let's explore our options:
 
-We can take items with the *largest* value in hopes to get maximize profit. Based on that we can make take the last item and first having a total weight of 7 and total value of 8.
+- We can take items with the *largest* value in hopes to get maximize profit. Based on that we can make take the last item and first having a total weight of 7 and total value of 8.
 
-Also, we could take items *smallest* weight so we can fit as much as possible. Let's analyze both options. So we can take the first 2 items for a total value of 5 and total weight of 4. This is not good.
+- Also, we could take items *smallest* weight so we can fit as much as possible. Let's analyze both options. So we can take the first 2 items for a total value of 5 and total weight of 4. This is worst! [big]#👎#
 
-Finally, we can take items based on the *best* value/weight ratio.
+- One last idea, we can take items based on the *best* value/weight ratio and take fractions of an item to fill up the knapsack to maximum weight. In that case, we can take the last item and 2/3 of the 2nd item. We get a total value of `9.67` and total weight of `7`.
 
+.Items value/weight ratio
 ----
-  { value: 1, weight: 1}, // 1
-  { value: 4, weight: 3 }, // 4/3 = 1.33
-  { value: 5, weight: 4 }, // 5/4 =
-  { value: 7, weight: 5 },
+  { value: 1, weight: 1 }, // 1/1  = 1
+  { value: 4, weight: 3 }, // 4/3 = 1.33 ✅
+  { value: 5, weight: 4 }, // 5/4 = 1.25
+  { value: 7, weight: 5 }, // 7/5 = 1.4 ✅
 ----
 
+Let's implement this algorithm!
+
+
+.Factional Knapsack Problem Implementation
+[source, javascript]
+----
+include::{codedir}/algorithms/knapsack-fractional.js[tag=snippet,indent=0]
+----

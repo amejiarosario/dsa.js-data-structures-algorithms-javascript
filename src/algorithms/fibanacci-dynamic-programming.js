@@ -5,9 +5,8 @@
  * @returns {integer} n-th number
  */
 function fib(n, memo = new Map()) {
-  if (n < 2) {
-    return n;
-  }
+  if (n < 0) return 0;
+  if (n < 2) return n;
 
   if (memo.has(n)) {
     return memo.get(n);

@@ -6,6 +6,7 @@
 - [ ] Refactor LinkedList.remove(). It's doing to much maybe it can be refactor in terms of removeByPosition and indexOf
 - [ ] More algorithm and datastructres! Greedy, Divide and Conquer etc.
 - [ ] Algorithms visualizations like https://bost.ocks.org/mike/algorithms/
+- [ ] sorting algorithms needs a comparator. So, it can sort objects as well. Replace `Array.sort` for `mergesort` in `src/algorithms/knapsack-fractional.js`
 
 # Troubleshooting
 Some notes while working on this project

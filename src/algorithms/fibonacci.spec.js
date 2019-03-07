@@ -24,5 +24,9 @@ implementations.forEach((fileName) => {
     it('should calculate 13th fib number', () => {
       expect(getFibonacci(12)).toBe(144);
     });
+
+    it('should return 0 for negative numbers', () => {
+      expect(getFibonacci(-12)).toBe(0);
+    });
   });
 });
