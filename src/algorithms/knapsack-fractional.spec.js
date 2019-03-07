@@ -42,4 +42,26 @@ describe('solveFractionalKnapsack', () => {
     expect(knapsack.value).toBeCloseTo(6 + 7 + 4);
     expect(knapsack.items.length).toEqual(3);
   });
+
+  it('should take none if max is 0', () => {
+    const maxWeight = 0;
+    const items = [
+      { value: 1, weight: 1 }, // 1/1  = 1
+    ];
+    const knapsack = solveFractionalKnapsack(items, maxWeight);
+    expect(knapsack.items.length).toEqual(0);
+    expect(knapsack.weight).toBeCloseTo(0);
+    expect(knapsack.value).toBeCloseTo(0);
+  });
+
+  it('should take all if capacity allows it', () => {
+    const maxWeight = 10;
+    const items = [
+      { value: 1, weight: 1 }, // 1/1  = 1
+    ];
+    const knapsack = solveFractionalKnapsack(items, maxWeight);
+    expect(knapsack.items.length).toEqual(1);
+    expect(knapsack.weight).toBeCloseTo(1);
+    expect(knapsack.value).toBeCloseTo(1);
+  });
 });
