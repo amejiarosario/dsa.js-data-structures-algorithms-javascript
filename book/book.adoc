@@ -185,7 +185,6 @@ include::chapters/greedy-algorithms--knapsack-problem.adoc[]
 
 include::chapters/divide-and-conquer--intro.adoc[]
 
-
 :leveloffset: +1
 
 

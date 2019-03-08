@@ -27,6 +27,7 @@ Why do we care? Well, there are certain problems that you solve more optimally u
 
 Let's cover Breadth-first search (BFS) and Depth-first search (DFS).
 
+[Breadth First Search]
 == Breadth-First Search for Binary Tree
 
 Breadth-first search goeas wide (breadth) before going deep. Hence, the name. In other words, it goes level by level. It visits all the inmediate nodes or children and then move on to the children's children.
@@ -75,6 +76,7 @@ console.log(Array.from(dummyIdMaker())); // [0, 1, 2]
 ----
 
 ****
+
 
 == Depth-First Search for Binary Tree
 

@@ -106,7 +106,7 @@ This section covers Binary Search Tree (BST) time complexity (Big O).
 | Selection sort | O(n^2^)    | O(1)        | Yes    | Yes      | Yes    | Yes      |
 | Bubble sort    | O(n^2^)    | O(1)        | Yes    | Yes      | Yes    | Yes      |
 | Merge sort     | O(n log n) | O(n)        | Yes    | No       | No     | No       |
-| Quick sort     | O(n log n) | O(log n)    | Yes    | No       | No     | No       |
+| Quicksort     | O(n log n) | O(log n)    | Yes    | No       | No     | No       |
 // | Tim sort       | O(n log n) | O(log n)    | Yes    | No       | No     | Yes      | Hybrid of merge and insertion sort
 |===
 
