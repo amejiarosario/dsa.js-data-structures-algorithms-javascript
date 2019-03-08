@@ -1,4 +1,4 @@
-Dynamic programming (dp) is a way to solve algorithmic problems by finding the base case and building a solution from the ground-up. We also keep track of previous answers to avoid re-computing the same operations.
+Dynamic programming (dp) is a way to solve algorithmic problems with *overlapping subproblems*. Algorithms using dp find the base case and building a solution from the ground-up. They also _keep track_ of previous answers to avoid re-computing the same operations.
 
 // https://twitter.com/amejiarosario/status/1103050924933726208
 // https://www.quora.com/How-should-I-explain-dynamic-programming-to-a-4-year-old/answer/Jonathan-Paulson

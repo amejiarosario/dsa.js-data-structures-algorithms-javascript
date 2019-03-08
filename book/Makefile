@@ -1,7 +1,12 @@
 DIR = dist
+
+# INPUT = sample
+# OUTPUT = sample
+
 INPUT = book
 OUTPUT = book
 # OUTPUT = book-$(date +%Y-%m-%d)
+
 DIAGRAM = --require=asciidoctor-diagram
 MATH = --require=asciidoctor-mathematical
 # HTML5S = --require=asciidoctor-html5s --backend=html5
@@ -35,6 +40,9 @@ raw_html:
 # check _resources/pdfstyles
 pdf:
 	asciidoctor ${PDF} ${REQUIRES} ${OUTPUT_FOLDER} --out-file=${OUTPUT}.pdf ${INPUT}.adoc; \
+
+sample-pdf:
+	asciidoctor ${PDF} ${REQUIRES} ${OUTPUT_FOLDER} --out-file=${OUTPUT}.pdf sample.adoc; \
 
 # Courtesy of
 # http://www.smartjava.org/content/compress-pdf-mac-using-command-line-free

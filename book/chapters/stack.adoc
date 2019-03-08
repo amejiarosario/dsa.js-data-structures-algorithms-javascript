@@ -72,4 +72,4 @@ Implementing the stack with an array and linked list would lead to the same time
 | Stack ^|- ^|- ^|- ^|- ^|O(1) ^|- ^|- ^|O(1) ^|O(n)
 |===
 
-It's not very common to search for values on a stack (other Data Structures are better suited for this). Stacks especially useful for implementing <<Depth First Search>>.
+It's not very common to search for values on a stack (other Data Structures are better suited for this). Stacks especially useful for implementing <<Depth-First Search for Binary Tree, Depth-First Search>>.
