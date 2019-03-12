@@ -1,5 +1,7 @@
-Divide and conquer is another strategy for solving algorithmic problems.
+Divide and conquer is an strategy for solving algorithmic problems.
 It splits the input into manageble parts recursively and finally join solved pieces to form the end result.
+
+We have already done some divide and conquer algorithms. This list will refresh you the memory.
 
 .Examples of divide and conquer algorithms:
 - <<Merge Sort>>: *divides* the input into pairs, sort them and them *join* all the pieces in ascending order.

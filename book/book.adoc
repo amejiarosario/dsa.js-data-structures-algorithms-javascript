@@ -159,43 +159,18 @@ include::chapters/quick-sort.adoc[]
 
 :leveloffset: -1
 
-= Dynamic Programming
 
-include::chapters/dynamic-programming--intro.adoc[]
+//
+// Algorithms Techniques
+//
 
-:leveloffset: +1
+include::chapters/divide-and-conquer.adoc[]
 
-include::chapters/dynamic-programming--fibonacci.adoc[]
+include::chapters/dynamic-programming.adoc[]
 
-// include::chapters/dynamic-programming--knapsack-problem.adoc[]
+include::chapters/greedy-algorithms.adoc[]
 
-:leveloffset: -1
-
-= Greedy Algorithms
-
-include::chapters/greedy-algorithms--intro.adoc[]
-
-:leveloffset: +1
-
-include::chapters/greedy-algorithms--knapsack-problem.adoc[]
-
-:leveloffset: -1
-
-= Divide and Conquer Algorithms
-
-include::chapters/divide-and-conquer--intro.adoc[]
-
-:leveloffset: +1
-
-
-:leveloffset: -1
-
-= Backtracking Algorithms
-
-:leveloffset: +1
-
-:leveloffset: -1
-
+include::chapters/backtracking.adoc[]
 
 // --- end algorithms ---
 

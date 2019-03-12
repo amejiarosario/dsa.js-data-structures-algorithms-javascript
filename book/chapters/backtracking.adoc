@@ -1,0 +1,68 @@
+= Backtracking
+
+Backtracking algorithms are used to find *all (or some)* solutions that satisfy a contraint.
+
+Bracktracking builds a solution step by step using recursion.
+If during the process it realizes a given path is not going to lead to a solution,
+it stops and step back (backtracking) to try a different alternative.
+
+Some examples that use backtracking is a solving Sudoku/crosswords puzzle, and graph operations.
+
+ifndef::backend-pdf[]
+image:Sudoku_solved_by_bactracking.gif[]
+endif::backend-pdf[]
+
+Listing all possible solutions might sound like a brute force.
+However, is not the same.
+Backtracking algorithms are faster than brute force one.
+
+.Brute Force vs Backtracking Algorithms
+****
+*Brute force* evaluates every possiblity.
+*Bracktracking* is an optimized brute force.
+It stops evaluating a path as soon as some of the conditions are broken and move on to the next.
+However, it an only be applied if a quick test can be run to tell if a candidate will contribute to a valid solution.
+****
+
+
+Let's do an example to explain better how backtracking works.
+
+// https://leetcode.com/problems/combination-sum/description/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// == Finding largest sum
+
+// [graphviz, Find largest sum, svg]
+// ....
+// graph G {
+//   5 -- 3 [color="#B8E986", penwidth=2]
+//   5 -- 7 [color="#FF5252", penwidth=2]
+//   3 -- 87 [color="#B8E986", penwidth=2]
+//   3 -- 1
+//   7 -- 2
+//   7 -- 4 [color="#FF5252", penwidth=2]
+
+//   label="Optimal vs. Greedy path"
+// }
+// ....
+
+// https://medium.com/leetcode-patterns/leetcode-pattern-3-backtracking-5d9e5a03dc26
+// https://leetcode.com/problems/subsets/

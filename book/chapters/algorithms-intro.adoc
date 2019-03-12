@@ -6,5 +6,6 @@ IMPORTANT: There's not a single approach to solve all problems but knowing well-
 .We are going to discuss the following approaches for solving algorithms problems:
 - <<Greedy Algorithms>>: makes greedy choices using heuristics to find the best solution without looking back.
 - <<Dynamic Programming>>: technique for solving problems with *overlapping subproblems*. It uses *memoization* to avoid duplicated work.
-- <<Divide and conquer>>: *divide* problems into smaller pieces, *conquer* each subproblem and then *join* the results.
-- <<Backtracking>>: search all possible combinations until it finds the solution.
+- <<Divide and Conquer>>: *divide* problems into smaller pieces, *conquer* each subproblem and then *join* the results.
+- <<Backtracking>>: search *all (or some)* possible paths. However it stops and *go back* as soon as some contraint is broken.
+- *Brute Force*: generate all possible solutions. (Use it as the last resort or as starting point to optimize it with other techniques).
