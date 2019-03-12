@@ -17,15 +17,22 @@ function combinationSum(
 
   let candidate = candidates[index];
   let newSum = currentSum + candidate;
+  let newCurrent = current.concat(candidate);
 
   if (newSum <= target) {
-    combinationSum(candidates, target, solution, current.concat(candidate), newSum, index);
+    combinationSum(candidates, target, solution, newCurrent, newSum, index);
   } else if (index < candidates.length - 1) {
     const newIndex = index + 1;
-    while (currentSum + candidates[newIndex] > target) current.pop();
     candidate = candidates[newIndex];
-    newSum = currentSum + candidate;
-    combinationSum(candidates, target, solution, current.concat(candidate), newSum, newIndex);
+    newSum = currentSum;
+    const reducedCurrent = current.slice(); // clone current
+    while (newSum + candidate > target) {
+      const deletedCandidate = reducedCurrent.pop();
+      newSum -= deletedCandidate;
+    }
+    newSum += candidate;
+    newCurrent = reducedCurrent.concat(candidate);
+    combinationSum(candidates, target, solution, newCurrent, newSum, newIndex);
   }
 
 
