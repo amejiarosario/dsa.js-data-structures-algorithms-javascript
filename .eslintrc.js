@@ -12,7 +12,7 @@ module.exports = {
 
     // https://eslint.org/docs/rules/no-plusplus
     // allows unary operators ++ and -- in the afterthought (final expression) of a for loop.
-    "allowForLoopAfterthoughts": true,
+    "no-plusplus": [2, { "allowForLoopAfterthoughts": true }],
 
     // Allow for..of
     "no-restricted-syntax": [0, "ForOfStatement"],
