@@ -2,7 +2,7 @@
 
 We are going to use the "Fractional Knapsack Problem" to learn how to design greedy algorithms. The problem is the following:
 
-> You are going to steal legumes (rice, beans, chickpeas, lentils) and you only brought a knapsack. What items you choose to to get the highest loot without exceeding the maximum weight of the bag?
+> You are going to steal legumes (rice, beans, chickpeas, lentils) and you only brought a knapsack. What proportion of items can you choose to to get the highest loot without exceeding the maximum weight of the bag?
 
 Let's say we have the following items available.
 
@@ -19,12 +19,12 @@ const items = [
 const maxWeight = 7;
 ----
 
-So, we have 4 items that we can take. We can't take them all because the total weight is `13` and maximum we can carry is `7`. We can't just take the first one because with value `1` because obviosly is not the best profit.
+So, we have 4 items that we can take. We can't take them all because the total weight is `13` and the maximum we can carry is `7`. We can't just take the first one because with value `1` because obviosly is not the best profit.
 
 How would you solve this problem?
 
 
-First, we have to make a *greedy choice*. This is the heuristic function that we are going to use to determine which choice to make on each step. Let's explore our options:
+First, we have to define what parameters are we going to use to make our *greedy choice*. This some ideas:
 
 - We can take items with the *largest* value in hopes to get maximize profit. Based on that we can make take the last item and first having a total weight of 7 and total value of 8.
 
