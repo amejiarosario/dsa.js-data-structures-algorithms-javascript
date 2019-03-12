@@ -17,8 +17,15 @@ describe('combinationSum', () => {
     expect(combinationSum([2], 1)).toEqual([]);
   });
 
-  fit('should not find solution', () => {
+  it('should find solution using two values', () => {
     expect(combinationSum([1, 2], 3)).toEqual([
+      [1, 1, 1],
+      [1, 2],
+    ]);
+  });
+
+  it('should move on with next index', () => {
+    expect(combinationSum([1, 10, 2], 3)).toEqual([
       [1, 1, 1],
       [1, 2],
     ]);
