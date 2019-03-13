@@ -5,235 +5,235 @@
  -->
 <!-- Title: g Pages: 1 -->
 <svg width="765pt" height="177pt"
- viewBox="0.00 0.00 764.78 177.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ viewBox="0.00 0.00 764.75 177.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 173)">
 <title>g</title>
-<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-173 760.7806,-173 760.7806,4 -4,4"/>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-173 760.7451,-173 760.7451,4 -4,4"/>
 <!-- art -->
 <g id="node1" class="node">
 <title>art</title>
-<polygon fill="none" stroke="#000000" points="282.2806,-146.5 282.2806,-168.5 358.2806,-168.5 358.2806,-146.5 282.2806,-146.5"/>
-<text text-anchor="middle" x="295.3358" y="-153.3" font-family="Times,serif" font-size="14.00" fill="#000000">A</text>
-<polyline fill="none" stroke="#000000" points="308.391,-146.5 308.391,-168.5 "/>
-<text text-anchor="middle" x="321.0599" y="-153.3" font-family="Times,serif" font-size="14.00" fill="#000000">R</text>
-<polyline fill="none" stroke="#000000" points="333.7289,-146.5 333.7289,-168.5 "/>
-<text text-anchor="middle" x="346.0048" y="-153.3" font-family="Times,serif" font-size="14.00" fill="#000000">T</text>
+<polygon fill="none" stroke="#000000" points="278.7451,-146.5 278.7451,-168.5 361.7451,-168.5 361.7451,-146.5 278.7451,-146.5"/>
+<text text-anchor="middle" x="295.3002" y="-153.3" font-family="Times,serif" font-size="14.00" fill="#000000">A*</text>
+<polyline fill="none" stroke="#000000" points="311.8554,-146.5 311.8554,-168.5 "/>
+<text text-anchor="middle" x="324.5244" y="-153.3" font-family="Times,serif" font-size="14.00" fill="#000000">R</text>
+<polyline fill="none" stroke="#000000" points="337.1933,-146.5 337.1933,-168.5 "/>
+<text text-anchor="middle" x="349.4692" y="-153.3" font-family="Times,serif" font-size="14.00" fill="#000000">T</text>
 </g>
 <!-- art1 -->
 <g id="node2" class="node">
 <title>art1</title>
-<polygon fill="none" stroke="#000000" points="72.2806,-73.5 72.2806,-95.5 148.2806,-95.5 148.2806,-73.5 72.2806,-73.5"/>
-<text text-anchor="middle" x="85.3358" y="-80.3" font-family="Times,serif" font-size="14.00" fill="#000000">A</text>
-<polyline fill="none" stroke="#000000" points="98.391,-73.5 98.391,-95.5 "/>
-<text text-anchor="middle" x="111.0599" y="-80.3" font-family="Times,serif" font-size="14.00" fill="#000000">R</text>
-<polyline fill="none" stroke="#000000" points="123.7289,-73.5 123.7289,-95.5 "/>
-<text text-anchor="middle" x="136.0048" y="-80.3" font-family="Times,serif" font-size="14.00" fill="#000000">T</text>
+<polygon fill="none" stroke="#000000" points="67.7451,-73.5 67.7451,-95.5 150.7451,-95.5 150.7451,-73.5 67.7451,-73.5"/>
+<text text-anchor="middle" x="80.8002" y="-80.3" font-family="Times,serif" font-size="14.00" fill="#000000">A</text>
+<polyline fill="none" stroke="#000000" points="93.8554,-73.5 93.8554,-95.5 "/>
+<text text-anchor="middle" x="110.0244" y="-80.3" font-family="Times,serif" font-size="14.00" fill="#000000">R*</text>
+<polyline fill="none" stroke="#000000" points="126.1933,-73.5 126.1933,-95.5 "/>
+<text text-anchor="middle" x="138.4692" y="-80.3" font-family="Times,serif" font-size="14.00" fill="#000000">T</text>
 </g>
 <!-- art&#45;&gt;art1 -->
 <g id="edge1" class="edge">
 <title>art:f0&#45;&gt;art1:f0</title>
-<path fill="none" stroke="#000000" d="M282.2806,-157.5C239.7922,-157.5 107.1308,-143.6966 87.6729,-105.2321"/>
-<polygon fill="#000000" stroke="#000000" points="91.0666,-104.3754 85.2806,-95.5 84.269,-106.0464 91.0666,-104.3754"/>
-<text text-anchor="middle" x="150.0892" y="-116.8" font-family="Times,serif" font-size="14.00" fill="#000000">1. swap A/A</text>
+<path fill="none" stroke="#000000" d="M278.2451,-157.5C235.7566,-157.5 103.0952,-143.6966 83.6373,-105.2321"/>
+<polygon fill="#000000" stroke="#000000" points="87.031,-104.3754 81.2451,-95.5 80.2334,-106.0464 87.031,-104.3754"/>
+<text text-anchor="middle" x="146.0537" y="-116.8" font-family="Times,serif" font-size="14.00" fill="#000000">1. swap A/A</text>
 </g>
 <!-- rat -->
 <g id="node5" class="node">
 <title>rat</title>
-<polygon fill="none" stroke="#000000" points="311.2806,-73.5 311.2806,-95.5 387.2806,-95.5 387.2806,-73.5 311.2806,-73.5"/>
-<text text-anchor="middle" x="323.9496" y="-80.3" font-family="Times,serif" font-size="14.00" fill="#000000">R</text>
-<polyline fill="none" stroke="#000000" points="336.6185,-73.5 336.6185,-95.5 "/>
-<text text-anchor="middle" x="349.6737" y="-80.3" font-family="Times,serif" font-size="14.00" fill="#000000">A</text>
-<polyline fill="none" stroke="#000000" points="362.7289,-73.5 362.7289,-95.5 "/>
-<text text-anchor="middle" x="375.0048" y="-80.3" font-family="Times,serif" font-size="14.00" fill="#000000">T</text>
+<polygon fill="none" stroke="#000000" points="305.7451,-73.5 305.7451,-95.5 388.7451,-95.5 388.7451,-73.5 305.7451,-73.5"/>
+<text text-anchor="middle" x="318.414" y="-80.3" font-family="Times,serif" font-size="14.00" fill="#000000">R</text>
+<polyline fill="none" stroke="#000000" points="331.083,-73.5 331.083,-95.5 "/>
+<text text-anchor="middle" x="347.6381" y="-80.3" font-family="Times,serif" font-size="14.00" fill="#000000">A*</text>
+<polyline fill="none" stroke="#000000" points="364.1933,-73.5 364.1933,-95.5 "/>
+<text text-anchor="middle" x="376.4692" y="-80.3" font-family="Times,serif" font-size="14.00" fill="#000000">T</text>
 </g>
 <!-- art&#45;&gt;rat -->
 <g id="edge7" class="edge">
 <title>art:f1&#45;&gt;rat:f0</title>
-<path fill="none" stroke="#000000" d="M321.2806,-146.5C321.2806,-130.1318 297.6009,-142.1863 289.4359,-128 280.4989,-112.4724 286.5082,-92.8305 301.1244,-86.5373"/>
-<polygon fill="#000000" stroke="#000000" points="302.1643,-89.8985 311.2806,-84.5 300.7876,-83.0352 302.1643,-89.8985"/>
-<text text-anchor="middle" x="324.703" y="-116.8" font-family="Times,serif" font-size="14.00" fill="#000000">7. swap A/R</text>
+<path fill="none" stroke="#000000" d="M324.2451,-146.5C324.2451,-130.1318 300.5654,-142.1863 292.4003,-128 289.2965,-122.6072 289.556,-119.534 292.4003,-114 296.6381,-105.7551 306.4442,-106.4479 312.6851,-103.9061"/>
+<polygon fill="#000000" stroke="#000000" points="315.6476,-105.7715 318.2451,-95.5 309.8091,-101.9098 315.6476,-105.7715"/>
+<text text-anchor="middle" x="327.6674" y="-116.8" font-family="Times,serif" font-size="14.00" fill="#000000">7. swap A/R</text>
 </g>
 <!-- tra -->
 <g id="node8" class="node">
 <title>tra</title>
-<polygon fill="none" stroke="#000000" points="529.2806,-73.5 529.2806,-95.5 605.2806,-95.5 605.2806,-73.5 529.2806,-73.5"/>
-<text text-anchor="middle" x="541.5565" y="-80.3" font-family="Times,serif" font-size="14.00" fill="#000000">T</text>
-<polyline fill="none" stroke="#000000" points="553.8324,-73.5 553.8324,-95.5 "/>
-<text text-anchor="middle" x="566.5013" y="-80.3" font-family="Times,serif" font-size="14.00" fill="#000000">R</text>
-<polyline fill="none" stroke="#000000" points="579.1703,-73.5 579.1703,-95.5 "/>
-<text text-anchor="middle" x="592.2255" y="-80.3" font-family="Times,serif" font-size="14.00" fill="#000000">A</text>
+<polygon fill="none" stroke="#000000" points="525.7451,-73.5 525.7451,-95.5 608.7451,-95.5 608.7451,-73.5 525.7451,-73.5"/>
+<text text-anchor="middle" x="538.0209" y="-80.3" font-family="Times,serif" font-size="14.00" fill="#000000">T</text>
+<polyline fill="none" stroke="#000000" points="550.2968,-73.5 550.2968,-95.5 "/>
+<text text-anchor="middle" x="566.4658" y="-80.3" font-family="Times,serif" font-size="14.00" fill="#000000">R*</text>
+<polyline fill="none" stroke="#000000" points="582.6347,-73.5 582.6347,-95.5 "/>
+<text text-anchor="middle" x="595.6899" y="-80.3" font-family="Times,serif" font-size="14.00" fill="#000000">A</text>
 </g>
 <!-- art&#45;&gt;tra -->
 <g id="edge13" class="edge">
 <title>art:f2&#45;&gt;tra:f0</title>
-<path fill="none" stroke="#000000" d="M358.2806,-157.5C437.3655,-157.5 446.0107,-90.6387 519.0422,-84.8928"/>
-<polygon fill="#000000" stroke="#000000" points="519.4222,-88.3809 529.2806,-84.5 519.1538,-81.386 519.4222,-88.3809"/>
-<text text-anchor="middle" x="489.8099" y="-116.8" font-family="Times,serif" font-size="14.00" fill="#000000">13. swap A/T</text>
+<path fill="none" stroke="#000000" d="M362.2451,-157.5C438.0571,-157.5 445.3343,-90.9113 514.9889,-84.9287"/>
+<polygon fill="#000000" stroke="#000000" points="515.4,-88.4147 525.2451,-84.5 515.1076,-81.4208 515.4,-88.4147"/>
+<text text-anchor="middle" x="489.7744" y="-116.8" font-family="Times,serif" font-size="14.00" fill="#000000">13. swap A/T</text>
 </g>
 <!-- art1&#45;&gt;art -->
 <g id="edge6" class="edge">
 <title>art1:f1&#45;&gt;art:f0</title>
-<path fill="none" stroke="#c0c0c0" d="M111.2806,-95.5C111.2806,-113.3142 172.4579,-108.14 189.2806,-114 228.8376,-127.7792 235.6864,-152.9166 271.8416,-156.948"/>
-<polygon fill="#c0c0c0" stroke="#c0c0c0" points="272.1098,-160.467 282.2806,-157.5 272.4794,-153.4768 272.1098,-160.467"/>
-<text text-anchor="middle" x="222.5306" y="-116.8" font-family="Times,serif" font-size="14.00" fill="#c0c0c0">6.</text>
+<path fill="none" stroke="#c0c0c0" d="M110.2451,-95.5C110.2451,-129.8324 152.8743,-102.5611 185.2451,-114 224.7399,-127.9563 231.6406,-152.9457 267.8048,-156.9516"/>
+<polygon fill="#c0c0c0" stroke="#c0c0c0" points="268.0752,-160.4706 278.2451,-157.5 268.4425,-153.4802 268.0752,-160.4706"/>
+<text text-anchor="middle" x="218.4951" y="-116.8" font-family="Times,serif" font-size="14.00" fill="#c0c0c0">6.</text>
 </g>
 <!-- art2 -->
 <g id="node3" class="node">
 <title>art2</title>
-<polygon fill="none" stroke="#ff0000" points="16.2806,-.5 16.2806,-22.5 92.2806,-22.5 92.2806,-.5 16.2806,-.5"/>
-<text text-anchor="middle" x="29.3358" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">A</text>
-<polyline fill="none" stroke="#ff0000" points="42.391,-.5 42.391,-22.5 "/>
-<text text-anchor="middle" x="55.0599" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">R</text>
-<polyline fill="none" stroke="#ff0000" points="67.7289,-.5 67.7289,-22.5 "/>
-<text text-anchor="middle" x="80.0048" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">T</text>
+<polygon fill="none" stroke="#ff0000" points="16.2451,-.5 16.2451,-22.5 92.2451,-22.5 92.2451,-.5 16.2451,-.5"/>
+<text text-anchor="middle" x="29.3002" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">A</text>
+<polyline fill="none" stroke="#ff0000" points="42.3554,-.5 42.3554,-22.5 "/>
+<text text-anchor="middle" x="55.0244" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">R</text>
+<polyline fill="none" stroke="#ff0000" points="67.6933,-.5 67.6933,-22.5 "/>
+<text text-anchor="middle" x="79.9692" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">T</text>
 </g>
 <!-- art1&#45;&gt;art2 -->
 <g id="edge2" class="edge">
 <title>art1:f0&#45;&gt;art2:f0</title>
-<path fill="none" stroke="#000000" d="M72.2806,-84.5C38.5861,-84.5 21.0647,-83.0811 2.4427,-55 -.9961,-49.8144 -.4506,-46.5086 2.4427,-41 6.8636,-32.5831 17.0402,-33.4853 23.5142,-31.0056"/>
-<polygon fill="#000000" stroke="#000000" points="26.5661,-32.7412 29.2806,-22.5 20.7721,-28.8131 26.5661,-32.7412"/>
-<text text-anchor="middle" x="37.6996" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#000000">2. swap R/R</text>
+<path fill="none" stroke="#000000" d="M67.2451,-84.5C35.5858,-84.5 19.5423,-81.6214 2.4072,-55 -.9605,-49.7679 -.4862,-46.5086 2.4072,-41 6.8281,-32.5831 17.0047,-33.4853 23.4787,-31.0056"/>
+<polygon fill="#000000" stroke="#000000" points="26.5305,-32.7412 29.2451,-22.5 20.7365,-28.8131 26.5305,-32.7412"/>
+<text text-anchor="middle" x="37.664" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#000000">2. swap R/R</text>
 </g>
 <!-- atr -->
 <g id="node4" class="node">
 <title>atr</title>
-<polygon fill="none" stroke="#ff0000" points="126.2806,-.5 126.2806,-22.5 202.2806,-22.5 202.2806,-.5 126.2806,-.5"/>
-<text text-anchor="middle" x="139.3358" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">A</text>
-<polyline fill="none" stroke="#ff0000" points="152.391,-.5 152.391,-22.5 "/>
-<text text-anchor="middle" x="164.6669" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">T</text>
-<polyline fill="none" stroke="#ff0000" points="176.9427,-.5 176.9427,-22.5 "/>
-<text text-anchor="middle" x="189.6117" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">R</text>
+<polygon fill="none" stroke="#ff0000" points="126.2451,-.5 126.2451,-22.5 202.2451,-22.5 202.2451,-.5 126.2451,-.5"/>
+<text text-anchor="middle" x="139.3002" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">A</text>
+<polyline fill="none" stroke="#ff0000" points="152.3554,-.5 152.3554,-22.5 "/>
+<text text-anchor="middle" x="164.6313" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">T</text>
+<polyline fill="none" stroke="#ff0000" points="176.9072,-.5 176.9072,-22.5 "/>
+<text text-anchor="middle" x="189.5761" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">R</text>
 </g>
 <!-- art1&#45;&gt;atr -->
 <g id="edge4" class="edge">
 <title>art1:f2&#45;&gt;atr:f0</title>
-<path fill="none" stroke="#000000" d="M136.2806,-73.5C136.2806,-64.5328 130.0565,-63.779 128.2289,-55 126.9607,-48.9084 126.5737,-46.998 128.2289,-41 129.5027,-36.3837 132.2657,-34.1531 134.7102,-31.8794"/>
-<polygon fill="#000000" stroke="#000000" points="138.0464,-33.0227 139.2806,-22.5 131.7538,-29.9563 138.0464,-33.0227"/>
-<text text-anchor="middle" x="162.3065" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#000000">4. swap R/T</text>
+<path fill="none" stroke="#000000" d="M138.2451,-73.5C138.2451,-64.1425 130.498,-64.0692 128.1933,-55 126.6608,-48.9695 126.5381,-46.998 128.1933,-41 129.4672,-36.3837 132.2301,-34.1531 134.6746,-31.8794"/>
+<polygon fill="#000000" stroke="#000000" points="138.0109,-33.0227 139.2451,-22.5 131.7182,-29.9563 138.0109,-33.0227"/>
+<text text-anchor="middle" x="162.2709" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#000000">4. swap R/T</text>
 </g>
 <!-- art2&#45;&gt;art1 -->
 <g id="edge3" class="edge">
 <title>art2:f2&#45;&gt;art1:f1</title>
-<path fill="none" stroke="#c0c0c0" d="M80.2806,-22.5C80.2806,-45.0882 102.7606,-46.9537 109.4343,-63.3899"/>
-<polygon fill="#c0c0c0" stroke="#c0c0c0" points="106.041,-64.2915 111.2806,-73.5 112.9271,-63.0339 106.041,-64.2915"/>
-<text text-anchor="middle" x="109.5306" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#c0c0c0">3.</text>
+<path fill="none" stroke="#c0c0c0" d="M80.2451,-22.5C80.2451,-38.3169 86.3632,-41.5867 94.7451,-55 97.9425,-60.1169 102.4472,-61.9368 105.7767,-64.4589"/>
+<polygon fill="#c0c0c0" stroke="#c0c0c0" points="102.6766,-66.0859 110.2451,-73.5 108.952,-62.9844 102.6766,-66.0859"/>
+<text text-anchor="middle" x="100.4951" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#c0c0c0">3.</text>
 </g>
 <!-- atr&#45;&gt;art1 -->
 <g id="edge5" class="edge">
 <title>atr:f2&#45;&gt;art1:f2</title>
-<path fill="none" stroke="#c0c0c0" d="M189.2806,-22.5C189.2806,-37.2757 203.492,-42.1036 196.2806,-55 185.8737,-73.6112 176.5416,-81.9174 158.5376,-83.9732"/>
-<polygon fill="#c0c0c0" stroke="#c0c0c0" points="158.0879,-80.4916 148.2806,-84.5 158.447,-87.4824 158.0879,-80.4916"/>
-<text text-anchor="middle" x="204.5306" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#c0c0c0">5.</text>
+<path fill="none" stroke="#c0c0c0" d="M189.2451,-22.5C189.2451,-37.2757 203.2674,-41.9997 196.2451,-55 186.6553,-72.7533 178.2372,-81.5494 161.4758,-83.8647"/>
+<polygon fill="#c0c0c0" stroke="#c0c0c0" points="161.0089,-80.3869 151.2451,-84.5 161.4428,-87.3734 161.0089,-80.3869"/>
+<text text-anchor="middle" x="203.4951" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#c0c0c0">5.</text>
 </g>
 <!-- rat&#45;&gt;art -->
 <g id="edge12" class="edge">
 <title>rat:f2&#45;&gt;art:f2</title>
-<path fill="none" stroke="#c0c0c0" d="M375.2806,-95.5C375.2806,-119.8314 383.6726,-147.6832 368.5199,-155.4156"/>
-<polygon fill="#c0c0c0" stroke="#c0c0c0" points="367.3815,-152.0755 358.2806,-157.5 368.7779,-158.9348 367.3815,-152.0755"/>
-<text text-anchor="middle" x="387.0306" y="-116.8" font-family="Times,serif" font-size="14.00" fill="#c0c0c0">12.</text>
+<path fill="none" stroke="#c0c0c0" d="M376.2451,-95.5C376.2451,-111.4087 368.9267,-114.0688 361.2451,-128 358.7311,-132.5593 355.5015,-134.7296 353.0261,-137.2318"/>
+<polygon fill="#c0c0c0" stroke="#c0c0c0" points="349.7818,-135.9188 349.2451,-146.5 356.2632,-138.563 349.7818,-135.9188"/>
+<text text-anchor="middle" x="379.9951" y="-116.8" font-family="Times,serif" font-size="14.00" fill="#c0c0c0">12.</text>
 </g>
 <!-- rat1 -->
 <g id="node6" class="node">
 <title>rat1</title>
-<polygon fill="none" stroke="#ff0000" points="255.2806,-.5 255.2806,-22.5 331.2806,-22.5 331.2806,-.5 255.2806,-.5"/>
-<text text-anchor="middle" x="267.9496" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">R</text>
-<polyline fill="none" stroke="#ff0000" points="280.6185,-.5 280.6185,-22.5 "/>
-<text text-anchor="middle" x="293.6737" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">A</text>
-<polyline fill="none" stroke="#ff0000" points="306.7289,-.5 306.7289,-22.5 "/>
-<text text-anchor="middle" x="319.0048" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">T</text>
+<polygon fill="none" stroke="#ff0000" points="255.2451,-.5 255.2451,-22.5 331.2451,-22.5 331.2451,-.5 255.2451,-.5"/>
+<text text-anchor="middle" x="267.914" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">R</text>
+<polyline fill="none" stroke="#ff0000" points="280.583,-.5 280.583,-22.5 "/>
+<text text-anchor="middle" x="293.6381" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">A</text>
+<polyline fill="none" stroke="#ff0000" points="306.6933,-.5 306.6933,-22.5 "/>
+<text text-anchor="middle" x="318.9692" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">T</text>
 </g>
 <!-- rat&#45;&gt;rat1 -->
 <g id="edge8" class="edge">
 <title>rat:f0&#45;&gt;rat1:f0</title>
-<path fill="none" stroke="#000000" d="M311.2806,-84.5C282.5117,-84.5 268.6711,-79.5443 253.6634,-55 250.4176,-49.6915 251.6216,-46.8777 253.6634,-41 255.544,-35.5866 259.7393,-33.6953 263.1551,-31.3788"/>
-<polygon fill="#000000" stroke="#000000" points="266.3123,-32.9104 268.2806,-22.5 260.2499,-29.4107 266.3123,-32.9104"/>
-<text text-anchor="middle" x="289.0892" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#000000">8. swap A/A</text>
+<path fill="none" stroke="#000000" d="M305.2451,-84.5C278.8218,-84.5 266.8897,-77.8542 253.6279,-55 250.505,-49.6182 251.5861,-46.8777 253.6279,-41 255.5084,-35.5866 259.7037,-33.6953 263.1196,-31.3788"/>
+<polygon fill="#000000" stroke="#000000" points="266.2767,-32.9104 268.2451,-22.5 260.2143,-29.4107 266.2767,-32.9104"/>
+<text text-anchor="middle" x="289.0537" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#000000">8. swap A/A</text>
 </g>
 <!-- rta -->
 <g id="node7" class="node">
 <title>rta</title>
-<polygon fill="none" stroke="#ff0000" points="388.2806,-.5 388.2806,-22.5 464.2806,-22.5 464.2806,-.5 388.2806,-.5"/>
-<text text-anchor="middle" x="400.9496" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">R</text>
-<polyline fill="none" stroke="#ff0000" points="413.6185,-.5 413.6185,-22.5 "/>
-<text text-anchor="middle" x="425.8944" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">T</text>
-<polyline fill="none" stroke="#ff0000" points="438.1703,-.5 438.1703,-22.5 "/>
-<text text-anchor="middle" x="451.2255" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">A</text>
+<polygon fill="none" stroke="#ff0000" points="388.2451,-.5 388.2451,-22.5 464.2451,-22.5 464.2451,-.5 388.2451,-.5"/>
+<text text-anchor="middle" x="400.914" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">R</text>
+<polyline fill="none" stroke="#ff0000" points="413.583,-.5 413.583,-22.5 "/>
+<text text-anchor="middle" x="425.8588" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">T</text>
+<polyline fill="none" stroke="#ff0000" points="438.1347,-.5 438.1347,-22.5 "/>
+<text text-anchor="middle" x="451.1899" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">A</text>
 </g>
 <!-- rat&#45;&gt;rta -->
 <g id="edge10" class="edge">
 <title>rat:f2&#45;&gt;rta:f0</title>
-<path fill="none" stroke="#000000" d="M375.2806,-73.5C375.2806,-58.8896 373.2118,-53.8188 380.222,-41 383.8646,-34.3393 390.8876,-33.5527 395.8186,-31.1355"/>
-<polygon fill="#000000" stroke="#000000" points="398.893,-32.8223 401.2806,-22.5 392.9771,-29.0804 398.893,-32.8223"/>
-<text text-anchor="middle" x="417.8099" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#000000">10. swap A/T</text>
+<path fill="none" stroke="#000000" d="M376.2451,-73.5C376.2451,-58.9497 373.3987,-53.87 380.1865,-41 383.728,-34.2851 390.7731,-33.5104 395.7368,-31.1107"/>
+<polygon fill="#000000" stroke="#000000" points="398.8046,-32.8099 401.2451,-22.5 392.9079,-29.0378 398.8046,-32.8099"/>
+<text text-anchor="middle" x="417.7744" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#000000">10. swap A/T</text>
 </g>
 <!-- rat1&#45;&gt;rat -->
 <g id="edge9" class="edge">
 <title>rat1:f2&#45;&gt;rat:f1</title>
-<path fill="none" stroke="#c0c0c0" d="M319.2806,-22.5C319.2806,-44.8939 341.0354,-47.0615 347.4938,-63.4507"/>
-<polygon fill="#c0c0c0" stroke="#c0c0c0" points="344.084,-64.2671 349.2806,-73.5 350.9759,-63.0417 344.084,-64.2671"/>
-<text text-anchor="middle" x="347.5306" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#c0c0c0">9.</text>
+<path fill="none" stroke="#c0c0c0" d="M319.2451,-22.5C319.2451,-44.5198 339.5495,-47.269 345.5774,-63.5678"/>
+<polygon fill="#c0c0c0" stroke="#c0c0c0" points="342.1374,-64.2176 347.2451,-73.5 349.0408,-63.0585 342.1374,-64.2176"/>
+<text text-anchor="middle" x="345.4951" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#c0c0c0">9.</text>
 </g>
 <!-- rta&#45;&gt;rat -->
 <g id="edge11" class="edge">
 <title>rta:f2&#45;&gt;rat:f2</title>
-<path fill="none" stroke="#c0c0c0" d="M451.2806,-22.5C451.2806,-37.0534 463.2652,-42.8325 455.2806,-55 439.1833,-79.5303 423.9522,-83.7658 397.5397,-84.3988"/>
-<polygon fill="#c0c0c0" stroke="#c0c0c0" points="397.2456,-80.9015 387.2806,-84.5 397.3147,-87.9011 397.2456,-80.9015"/>
-<text text-anchor="middle" x="466.7743" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#c0c0c0">11.</text>
+<path fill="none" stroke="#c0c0c0" d="M451.2451,-22.5C451.2451,-37.0534 463.1626,-42.7887 455.2451,-55 439.6772,-79.0106 424.9736,-83.6521 399.2449,-84.3802"/>
+<polygon fill="#c0c0c0" stroke="#c0c0c0" points="399.2024,-80.8804 389.2451,-84.5 399.2863,-87.8798 399.2024,-80.8804"/>
+<text text-anchor="middle" x="466.7387" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#c0c0c0">11.</text>
 </g>
 <!-- tra&#45;&gt;art -->
 <g id="edge18" class="edge">
 <title>tra:f2&#45;&gt;art:f2</title>
-<path fill="none" stroke="#c0c0c0" d="M592.2806,-95.5C592.2806,-146.2474 431.9107,-156.4242 368.5824,-157.4142"/>
-<polygon fill="#c0c0c0" stroke="#c0c0c0" points="368.2511,-153.9168 358.2806,-157.5 368.3095,-160.9165 368.2511,-153.9168"/>
-<text text-anchor="middle" x="592.0306" y="-116.8" font-family="Times,serif" font-size="14.00" fill="#c0c0c0">18.</text>
+<path fill="none" stroke="#c0c0c0" d="M595.2451,-95.5C595.2451,-146.0447 435.574,-156.4012 372.5051,-157.4123"/>
+<polygon fill="#c0c0c0" stroke="#c0c0c0" points="372.2147,-153.9145 362.2451,-157.5 372.2747,-160.9143 372.2147,-153.9145"/>
+<text text-anchor="middle" x="594.9951" y="-116.8" font-family="Times,serif" font-size="14.00" fill="#c0c0c0">18.</text>
 </g>
 <!-- tra1 -->
 <g id="node9" class="node">
 <title>tra1</title>
-<polygon fill="none" stroke="#ff0000" points="528.2806,-.5 528.2806,-22.5 604.2806,-22.5 604.2806,-.5 528.2806,-.5"/>
-<text text-anchor="middle" x="540.5565" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">T</text>
-<polyline fill="none" stroke="#ff0000" points="552.8324,-.5 552.8324,-22.5 "/>
-<text text-anchor="middle" x="565.5013" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">R</text>
-<polyline fill="none" stroke="#ff0000" points="578.1703,-.5 578.1703,-22.5 "/>
-<text text-anchor="middle" x="591.2255" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">A</text>
+<polygon fill="none" stroke="#ff0000" points="528.2451,-.5 528.2451,-22.5 604.2451,-22.5 604.2451,-.5 528.2451,-.5"/>
+<text text-anchor="middle" x="540.5209" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">T</text>
+<polyline fill="none" stroke="#ff0000" points="552.7968,-.5 552.7968,-22.5 "/>
+<text text-anchor="middle" x="565.4658" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">R</text>
+<polyline fill="none" stroke="#ff0000" points="578.1347,-.5 578.1347,-22.5 "/>
+<text text-anchor="middle" x="591.1899" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">A</text>
 </g>
 <!-- tra&#45;&gt;tra1 -->
 <g id="edge14" class="edge">
 <title>tra:f0&#45;&gt;tra1:f0</title>
-<path fill="none" stroke="#000000" d="M541.2806,-73.5C541.2806,-60.4374 524.0654,-66.7906 518.4427,-55 515.7645,-49.3837 515.8264,-46.6454 518.4427,-41 521.7857,-33.7868 529.4804,-33.3324 534.7813,-30.9004"/>
-<polygon fill="#000000" stroke="#000000" points="537.7317,-32.7837 540.2806,-22.5 531.8751,-28.9496 537.7317,-32.7837"/>
-<text text-anchor="middle" x="557.1996" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#000000">14. swap R/R</text>
+<path fill="none" stroke="#000000" d="M538.2451,-73.5C538.2451,-61.4442 523.2143,-66.0559 518.4072,-55 515.9261,-49.2938 515.7908,-46.6454 518.4072,-41 521.7501,-33.7868 529.4448,-33.3324 534.7457,-30.9004"/>
+<polygon fill="#000000" stroke="#000000" points="537.6961,-32.7837 540.2451,-22.5 531.8395,-28.9496 537.6961,-32.7837"/>
+<text text-anchor="middle" x="557.164" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#000000">14. swap R/R</text>
 </g>
 <!-- tar -->
 <g id="node10" class="node">
 <title>tar</title>
-<polygon fill="none" stroke="#ff0000" points="669.2806,-.5 669.2806,-22.5 745.2806,-22.5 745.2806,-.5 669.2806,-.5"/>
-<text text-anchor="middle" x="681.5565" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">T</text>
-<polyline fill="none" stroke="#ff0000" points="693.8324,-.5 693.8324,-22.5 "/>
-<text text-anchor="middle" x="706.8876" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">A</text>
-<polyline fill="none" stroke="#ff0000" points="719.9427,-.5 719.9427,-22.5 "/>
-<text text-anchor="middle" x="732.6117" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">R</text>
+<polygon fill="none" stroke="#ff0000" points="669.2451,-.5 669.2451,-22.5 745.2451,-22.5 745.2451,-.5 669.2451,-.5"/>
+<text text-anchor="middle" x="681.5209" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">T</text>
+<polyline fill="none" stroke="#ff0000" points="693.7968,-.5 693.7968,-22.5 "/>
+<text text-anchor="middle" x="706.852" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">A</text>
+<polyline fill="none" stroke="#ff0000" points="719.9072,-.5 719.9072,-22.5 "/>
+<text text-anchor="middle" x="732.5761" y="-7.3" font-family="Times,serif" font-size="14.00" fill="#000000">R</text>
 </g>
 <!-- tra&#45;&gt;tar -->
 <g id="edge16" class="edge">
 <title>tra:f2&#45;&gt;tar:f0</title>
-<path fill="none" stroke="#000000" d="M605.2806,-84.5C605.3488,-84.5 654.0428,-44.7971 673.4417,-28.9342"/>
-<polygon fill="#000000" stroke="#000000" points="675.7715,-31.5499 681.2806,-22.5 671.3304,-26.1391 675.7715,-31.5499"/>
-<text text-anchor="middle" x="695.5858" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#000000">16. swap R/A</text>
+<path fill="none" stroke="#000000" d="M609.2451,-84.5C638.4961,-84.5 636.3362,-59.9314 658.6347,-41 664.9756,-35.6166 672.4716,-34.867 677.0403,-31.6097"/>
+<polygon fill="#000000" stroke="#000000" points="680.232,-33.0463 681.2451,-22.5 673.8764,-30.1127 680.232,-33.0463"/>
+<text text-anchor="middle" x="697.5502" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#000000">16. swap R/A</text>
 </g>
 <!-- tra1&#45;&gt;tra -->
 <g id="edge15" class="edge">
 <title>tra1:f2&#45;&gt;tra:f2</title>
-<path fill="none" stroke="#c0c0c0" d="M591.2806,-22.5C591.2806,-30.8296 593.6118,-32.6973 594.2806,-41 594.7802,-47.2021 594.6155,-48.7868 594.2806,-55 594.0859,-58.6129 593.6788,-61.0226 593.2823,-63.2829"/>
-<polygon fill="#c0c0c0" stroke="#c0c0c0" points="589.7731,-63.2062 592.2806,-73.5 596.7397,-63.8892 589.7731,-63.2062"/>
-<text text-anchor="middle" x="604.0306" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#c0c0c0">15.</text>
+<path fill="none" stroke="#c0c0c0" d="M591.2451,-22.5C591.2451,-30.8296 593.4486,-32.7085 594.2451,-41 595.2382,-51.3393 595.3203,-56.1398 595.2879,-63.3882"/>
+<polygon fill="#c0c0c0" stroke="#c0c0c0" points="591.7876,-63.4852 595.2451,-73.5 598.7875,-63.515 591.7876,-63.4852"/>
+<text text-anchor="middle" x="603.9951" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#c0c0c0">15.</text>
 </g>
 <!-- tar&#45;&gt;tra -->
 <g id="edge17" class="edge">
 <title>tar:f2&#45;&gt;tra:f2</title>
-<path fill="none" stroke="#c0c0c0" d="M732.2806,-22.5C732.2806,-37.0059 744.332,-43.6645 735.2806,-55 718.6014,-75.8882 650.2939,-83.0993 615.347,-84.3086"/>
-<polygon fill="#c0c0c0" stroke="#c0c0c0" points="615.2122,-80.8104 605.2806,-84.5 615.3454,-87.8091 615.2122,-80.8104"/>
-<text text-anchor="middle" x="748.0306" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#c0c0c0">17.</text>
+<path fill="none" stroke="#c0c0c0" d="M732.2451,-22.5C732.2451,-37.0059 744.2576,-43.6337 735.2451,-55 719.1927,-75.2447 653.491,-82.9243 619.4559,-84.2754"/>
+<polygon fill="#c0c0c0" stroke="#c0c0c0" points="619.1656,-80.7808 609.2451,-84.5 619.3196,-87.7792 619.1656,-80.7808"/>
+<text text-anchor="middle" x="747.9951" y="-43.8" font-family="Times,serif" font-size="14.00" fill="#c0c0c0">17.</text>
 </g>
 </g>
 </svg>
