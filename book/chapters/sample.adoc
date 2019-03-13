@@ -77,7 +77,7 @@ BigInt allows to operate beyond the maximum safe limit of integers (Number.MAX_S
 
 .How to explain dynamic programming to kids? 👶
 ----
-test [big]*🤯*
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos commodi qui maxime fugiat at eveniet blanditiis adipisci ex autem, numquam quidem iusto! Ex illum cupiditate ratione vero, molestiae beatae laboriosam? test [big]*🤯*
 ----
 
 == Images
