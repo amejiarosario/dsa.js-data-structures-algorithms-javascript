@@ -24,14 +24,14 @@ It stops evaluating a path as soon as some of the conditions are broken and move
 However, it an only be applied if a quick test can be run to tell if a candidate will contribute to a valid solution.
 ****
 
-== How to develop Backtracking algorithms?
+== How to develop backtracking algorithms?
 
 Backtracking algorithms can be tricky to get right or reason about but we are going to follow this recipe to make it easier.
 
 .Steps to create backtracking algorithms
 . Iterate through all the elements in the input
 . Make a change
-. Call recursive function
+. Recursive function moving to the next element
 . Test if the current change is a solution
 . Revert back the change (backtracking)
 
@@ -43,7 +43,7 @@ Let's do an exercise to explain better how backtracking works.
 
 > Return all the permutations (without repetitions) of a given word.
 
-For instace, if are given the word `art` we can have the following permutions
+For instace, if you are given the word `art` these are the possible permutations:
 
 ----
 [ [ 'art' ],
@@ -54,23 +54,39 @@ For instace, if are given the word `art` we can have the following permutions
   [ 'tar' ] ]
 ----
 
+Now, let's implement the program to generate all permutations of a word.
 
-We already solved this problem using an <<Getting all permutations of a word, iterative program>>, now let's do it using backtracking.
 
+NOTE: We already solved this problem using an <<Getting all permutations of a word, iterative program>>, now let's do it using backtracking.
+
+.Word permutations using backtracking
+[source, javascript]
+----
+include::{codedir}/algorithms/permutations-backtracking.js[tag=snippet,indent=0]
+----
+<1> Iterate through all the elements in the input
+<2> Make a change: swap letters
+<3> Recursive function moving to the next element
+<4> Test if the current change is a solution: reached the end of the string.
+<5> Revert back the change (backtracking): Undo swap from step 2
+
+As you can see, we iterate through each letter and swap with the following letters until we reach the end of the string. Then, we rollback the change and try another path.
+
+In the following tree, you can visualize how the backtracking algorithm is swaping the letters.
 
 [graphviz, Recursive Fibonacci call tree with dp, svg]
 ....
 digraph g {
   node [shape = record,height=.1];
 
-  art[label = "<f0> A|<f1> R|<f2> T"];
-  art1[label = "<f0> A|<f1> R|<f2> T"];
+  art[label = "<f0> A*|<f1> R|<f2> T"];
+  art1[label = "<f0> A|<f1> R*|<f2> T"];
   art2[label = "<f0> A|<f1> R|<f2> T", color="red"];
   atr[label = "<f0> A|<f1> T|<f2> R", color="red"];
-  rat[label = "<f0> R|<f1> A|<f2> T"];
+  rat[label = "<f0> R|<f1> A*|<f2> T"];
   rat1[label = "<f0> R|<f1> A|<f2> T", color="red"];
   rta[label = "<f0> R|<f1> T|<f2> A", color="red"];
-  tra[label = "<f0> T|<f1> R|<f2> A"];
+  tra[label = "<f0> T|<f1> R*|<f2> A"];
   tra1[label = "<f0> T|<f1> R|<f2> A", color="red"];
   tar[label = "<f0> T|<f1> A|<f2> R", color="red"];
 
@@ -97,18 +113,13 @@ digraph g {
 }
 ....
 
+.Legend:
+- The [red]#red# words are the iterations added to the solution array.
+- *Black* arrows indicate the `swap` operations.
+- *Grey* arrows indicate the _backtracking_ operation (undo swap).
+- The asterisk (`*`) indicates `start` index.
 
-
-
-
-
-
-
-
-
-
-
-
+Most of backtracking algorihtms do something similar. What changes is the test function to determine if a current iteration is a solution or not.
 
 
 
