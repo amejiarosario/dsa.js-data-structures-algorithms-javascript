@@ -256,6 +256,41 @@ graph G {
 }
 ....
 
+[graphviz, Recursive Fibonacci call tree with dp, svg]
+....
+digraph g {
+    node [shape = record,height=.1];
+
+    art[label = "<f0> A|<f1> R|<f2> T"];
+    art1[label = "<f0> A|<f1> R|<f2> T"];
+    art2[label = "<f0> A|<f1> R|<f2> T", color="red"];
+    atr[label = "<f0> A|<f1> T|<f2> R", color="red"];
+    rat[label = "<f0> R|<f1> A|<f2> T"];
+    rat1[label = "<f0> R|<f1> A|<f2> T", color="red"];
+    rta[label = "<f0> R|<f1> T|<f2> A", color="red"];
+    tra[label = "<f0> T|<f1> R|<f2> A"];
+    tra1[label = "<f0> T|<f1> R|<f2> A", color="red"];
+    tar[label = "<f0> T|<f1> A|<f2> R", color="red"];
+
+    "art":f0 -> "art1":f0 [ label = "1. swap A/A"];
+    "art1":f0 -> "art2":f0 [ label = "2. swap R/R"];
+    "art2":f2 -> "art1":f1 [ label = "3", color="grey"];
+    "art1":f2 -> "atr":f0 [ label = "4. swap R/T"];
+    "atr":f2 -> "art1":f2  [ label = "5", color="grey"];
+    "art1":f1 -> "art":f0  [ label = "6", color="grey"];
+
+    "art":f1 -> "rat":f0 [ label = "7. swap A/R"];
+    "rat":f0 -> "rat1":f0 [ label = "8. swap A/A"];
+    "rat1":f2 -> "rat":f1 [ label = "9", color="grey"];
+    "rat":f2 -> "rta":f0 [ label = "10. swap A/T"];
+
+    "art":f2 -> "tra":f0 [ label = "swap A/T"];
+    "tra":f0 -> "tra1":f0 [ label = "swap R/R"];
+    "tra":f2 -> "tar":f0 [ label = "swap R/A"];
+
+}
+....
+
 
 
 // ------------------

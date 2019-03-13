@@ -13,16 +13,16 @@ var permute = function (nums) {
   return result;
 };
 
-function backtrack(nums, result, first = 0) {
+function backtrack(nums, result, index = 0) {
   // console.log(Array(first).fill("    ").join(""), JSON.stringify({nums, first}));
-  if (first === nums.length - 1) {
+  if (index === nums.length - 1) {
     // console.log(nums);
     result.push(nums.slice());
   } else {
-    for (let i = first; i < nums.length; i++) {
-      swap(nums, first, i);
-      backtrack(nums, result, first + 1);
-      swap(nums, first, i);
+    for (let current = index; current < nums.length; current++) {
+      swap(nums, index, current);
+      backtrack(nums, result, index + 1);
+      swap(nums, index, current);
     }
   }
 };
@@ -51,5 +51,8 @@ function test() {
     [3, 2, 1],
     [3, 1, 2]
   ]);
+
+  console.log(permute(Array.from('art')));
+
 }
 test();
