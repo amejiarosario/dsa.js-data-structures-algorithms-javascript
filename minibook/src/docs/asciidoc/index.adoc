@@ -1,0 +1,52 @@
+= My InfoQ Mini-Book
+:book-title: {doctitle}
+:author: Your Name
+:email:  youremail@infoq.com
+:revnumber: 1.0
+:revdate: {docdate}
+:revyear: 2018
+:subject: JHipster
+:keywords: Angular, Bootstrap, Spring Boot
+:doctype: book
+:media: screen
+ifeval::["{media}" != "prepress"]
+:front-cover-image: image:cover.png[Front Cover,1050,1600]
+endif::[]
+:toc:
+:icons: font
+:lang: en
+:language: javadocript
+:experimental:
+:pdf-fontsdir: ./styles/pdf/fonts
+:pdf-stylesdir: ./styles/pdf
+:pdf-style: infoq-screen
+ifndef::ebook-format[:leveloffset: 1]
+
+[colophon#colophon%nonfacing]
+include::chapters/colophon.adoc[]
+
+[dedication]
+include::chapters/dedication.adoc[]
+
+[%nonfacing]
+include::chapters/acknowledgements.adoc[]
+
+[preface]
+include::chapters/preface.adoc[]
+
+include::chapters/introduction.adoc[]
+
+include::chapters/chapter1.adoc[]
+
+include::chapters/chapter2.adoc[]
+
+include::chapters/chapter3.adoc[]
+
+include::chapters/action.adoc[]
+
+include::chapters/about.adoc[]
+
+//ifdef::backend-pdf,backend-docbook[]
+//[index]
+//== Index
+//endif::[]s

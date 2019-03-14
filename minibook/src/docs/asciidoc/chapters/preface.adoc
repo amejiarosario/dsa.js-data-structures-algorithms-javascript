@@ -1,0 +1,96 @@
+= Preface
+
+Why did you write this book?
+
+== What is in an InfoQ mini-book?
+
+InfoQ mini-books are designed to be concise, intending to serve technical architects looking to get a firm conceptual understanding of a new technology or technique in a quick yet in-depth fashion. You can think of these books as covering a topic strategically or essentially. After reading a mini-book, the reader should have a fundamental understanding of a technology, including when and where to apply it, how it relates to other technologies, and an overall feeling that they have assimilated the combined knowledge of other professionals who have already figured out what this technology is about. The reader will then be able to make intelligent decisions about the technology once their projects require it, and can delve into sources of more detailed information (such as larger books or tutorials) at that time.
+
+== Who this book is for
+
+== What you need for this book
+
+To try code samples in this book, you will need a computer running an up-to-date operating system (Windows, Linux, or Mac OS X). You will need Node.js and Java installed. The book code was tested against Node.js v0.12 and JDK 8, but newer versions should also work.
+
+== Conventions
+
+*[red]#TODO: Replace the code examples below with code examples from this book.#*
+
+We use a number of typographical conventions within this book that distinguish between different kinds of information.
+
+Code in the text, including commands, variables, file names, CSS class names, and property names are shown as follows:
+
+[example]
+Spring Boot uses a `public static void main` entry-point that launches an embedded web server for you.
+
+A block of code is set out as follows. It may be colored, depending on the format in which you're reading this book.
+
+[source,html]
+.src/app/search/search.component.html
+----
+<form>
+  <input type="search" name="query" [(ngModel)]="query" (keyup.enter)="search()">
+  <button type="button" (click)="search()">Search</button>
+</form>
+----
+
+[source,java]
+.src/main/java/demo/DemoApplication.java
+----
+@RestController
+class BlogController {
+    private final BlogRepository repository;
+
+    // Yay! No annotations needed for constructor injection in Spring 4.3+.
+    public BlogController(BlogRepository repository) {
+        this.repository = repository;
+    }
+
+    @RequestMapping("/blogs")
+    Collection<Blog> list() {
+        return repository.findAll();
+    }
+}
+----
+
+When we want to draw your attention to certain lines of code, those lines are annotated using numbers accompanied by brief descriptions.
+
+[source,javascript]
+----
+export class SearchComponent {
+  constructor(private searchService: SearchService) {} <1>
+
+  search(): void { <2>
+    this.searchService.search(this.query).subscribe( <3>
+      data => { this.searchResults = data; },
+      error => console.log(error)
+    );
+  }
+}
+----
+<1> To inject `SearchService` into `SearchComponent`, add it as a parameter to the constructors's argument list.
+<2> `search()` is a method that's called from the HTML's `<button>`, wired up using the `(click)` event handler.
+<3> `this.query` is a variable that's wired to `<input>` using two-way binding with `[(ngModel)]="query"`.
+
+
+TIP: Tips are shown using callouts like this.
+
+WARNING: Warnings are shown using callouts like this.
+
+.Sidebar
+****
+Additional information about a certain topic may be displayed in a sidebar like this one.
+****
+
+Finally, this text shows what a quote looks like:
+
+"In the end, it's not the years in your life that count. It's the life in your years."
+-- Abraham Lincoln
+
+== Reader feedback
+
+We always welcome feedback from our readers. Let us know what you thought about this book — what you liked or disliked. Reader feedback helps us develop titles that deliver the most value to you.
+
+To send us feedback, e-mail us at feedback@infoq.com, send a tweet to @jhipster_book, or post a question on Stack Overflow using the "`jhipster`" tag.
+
+If you're interested in writing a mini-book for InfoQ, see http://www.infoq.com/minibook-guidelines.

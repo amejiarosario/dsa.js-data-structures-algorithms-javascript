@@ -1,0 +1,118 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
+        classpath 'com.bluepapa32:gradle-watch-plugin:0.1.5'
+        classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.3'
+        classpath 'org.asciidoctor:asciidoctorj-epub3:1.5.0-alpha.7'
+        classpath 'org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.16'
+        classpath 'org.jruby:jruby-complete:9.1.12.0'
+    }
+}
+
+plugins {
+    id "de.undercouch.download" version "3.4.2"
+}
+
+apply plugin: 'java'
+apply plugin: 'org.asciidoctor.convert'
+apply plugin: 'com.github.ben-manes.versions'
+apply plugin: 'com.bluepapa32.watch'
+
+version = '4.1.0-SNAPSHOT'
+
+asciidoctorj {
+    version = '1.5.7'
+}
+
+import org.asciidoctor.gradle.AsciidoctorTask
+import org.gradle.internal.os.OperatingSystem
+
+def attrs = ['sourcedir'         : '../../../main/webapp',
+             'source-highlighter': 'coderay',
+             'epub3-stylesdir'   : './styles/epub',
+             // NOTE don't include leading ./ because it messes up paths in the epub files
+             'imagesdir'         : 'images',
+             'toc'               : 'left',
+             'icons'             : 'font',
+             'sectanchors'       : '',
+             'idprefix'          : '',
+             'idseparator'       : '-']
+
+tasks.withType(AsciidoctorTask) { task ->
+    attributes attrs
+    sources {
+        include 'index.adoc'
+    }
+}
+
+task html(type: AsciidoctorTask, description: 'Generates single page HTML') {
+    backends 'html5'
+}
+
+// NOTE please use ./generate-pdf.sh instead of this task for now
+task prepress(type: AsciidoctorTask, description: 'Generates PDF for prepress printing') {
+    attributes attrs + ['media' : 'prepress', 'pdfmarks': '', 'pdf-theme': 'infoq-prepress']
+    attrs.remove('source-highlighter')
+    requires file('src/main/ruby/asciidoctor-pdf-extensions.rb')
+    backends 'pdf'
+    outputDir "$buildDir/asciidoc/pdf-prepress"
+    separateOutputDirs false
+}
+
+// NOTE please use ./generate-pdf.sh screen instead of this task for now
+task pdf(type: AsciidoctorTask, description: 'Generates PDF') {
+    attributes attrs + ['pdfmarks': '']
+    requires file('src/main/ruby/asciidoctor-pdf-extensions.rb')
+    backends 'pdf'
+}
+
+task epub(type: AsciidoctorTask, description: 'Generates EPUB3') {
+    backends 'epub3'
+}
+
+task mobi(type: AsciidoctorTask, description: 'Generates MOBI') {
+    backends 'epub3'
+    attrs.put('ebook-format', 'kf8')
+    attributes attrs
+}
+
+task downloadKindlegen(type: Download) {
+    ext.output = file("$buildDir/kindlegen/kindlegen" + (OperatingSystem.current().isMacOsX() ? '.zip' : '.tgz'))
+    src OperatingSystem.current().isMacOsX() ? 'https://kindlegen.s3.amazonaws.com/KindleGen_Mac_i386_v2_9.zip' : 'http://kindlegen.s3.amazonaws.com/kindlegen_linux_2.6_i386_v2_9.tar.gz'
+    dest output
+    overwrite false
+    onlyIfModified true
+}
+
+task extractKindlegen(type: Copy) {
+  dependsOn downloadKindlegen
+  from {
+    if (downloadKindlegen.output.name.endsWith('.zip')) {
+      zipTree(downloadKindlegen.output)
+    }
+    else {
+      tarTree(downloadKindlegen.output)
+    }
+  }
+  into "$buildDir/kindlegen/"
+}
+
+mobi.dependsOn extractKindlegen
+pdf.shouldRunAfter html
+epub.shouldRunAfter pdf
+
+//task all(dependsOn: ['html', 'pdf', 'epub', 'mobi'])
+task all(dependsOn: ['html', 'epub', 'mobi'])
+
+defaultTasks 'all'
+
+watch {
+    asciidoc {
+        files fileTree(dir: 'src/docs/asciidoc', include: '**/*.adoc')
+        tasks 'asciidoctor'
+    }
+}

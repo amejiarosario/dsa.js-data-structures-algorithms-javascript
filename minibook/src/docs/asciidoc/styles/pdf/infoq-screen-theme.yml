@@ -1,0 +1,240 @@
+font:
+  catalog:
+    Akkurat:
+      normal: Akkurat-Light.ttf
+      bold: Akkurat-Bold.ttf
+      italic: Akkurat-Normal-Italic.ttf
+      bold_italic: Akkurat-Bold-Italic.ttf
+    # Noto Serif supports Latin, Latin-1 Supplement, Latin Extended-A, Greek, Cyrillic, Vietnamese & an assortment of symbols
+    Noto Serif:
+      normal: notoserif-regular-subset.ttf
+      bold: notoserif-bold-subset.ttf
+      italic: notoserif-italic-subset.ttf
+      bold_italic: notoserif-bold_italic-subset.ttf
+    # M+ 1mn supports ASCII and the circled numbers used for conums
+    M+ 1mn:
+      normal: mplus1mn-regular-ascii-conums.ttf
+      bold: mplus1mn-bold-ascii.ttf
+      italic: mplus1mn-italic-ascii.ttf
+      bold_italic: mplus1mn-bold_italic-ascii.ttf
+    # M+ 1p supports Latin, Latin-1 Supplement, Latin Extended, Greek, Cyrillic, Vietnamese, Japanese & an assortment of symbols
+    # It also provides arrows for ->, <-, => and <= replacements in case these glyphs are missing from font
+    M+ 1p Fallback:
+      normal: mplus1p-regular-fallback.ttf
+      bold: mplus1p-regular-fallback.ttf
+      italic: mplus1p-regular-fallback.ttf
+      bold_italic: mplus1p-regular-fallback.ttf
+  fallbacks:
+    - M+ 1p Fallback
+page:
+  background_color: ffffff
+  layout: portrait
+  margin: [0.5in, 0.67in, 0.67in, 0.67in]
+  size: LETTER
+base:
+  align: justify
+  # color as hex string (leading # is optional)
+  font_color: 333333
+  # color as RGB array
+  #font_color: [51, 51, 51]
+  # color as CMYK array (approximated)
+  #font_color: [0, 0, 0, 0.92]
+  #font_color: [0, 0, 0, 92%]
+  font_family: Noto Serif
+  # choose one of these font_size/line_height_length combinations
+  #font_size: 14
+  #line_height_length: 20
+  #font_size: 11.25
+  #line_height_length: 18
+  #font_size: 11.2
+  #line_height_length: 16
+  font_size: 10.5
+  #line_height_length: 15
+  # correct line height for Noto Serif metrics
+  line_height_length: 12
+  #font_size: 11.25
+  #line_height_length: 18
+  line_height: $base_line_height_length / $base_font_size
+  font_size_large: round($base_font_size * 1.25)
+  font_size_small: round($base_font_size * 0.85)
+  font_size_min: 7
+  font_style: normal
+  border_color: eeeeee
+  border_radius: 4
+  border_width: 0.5
+# FIXME vertical_rhythm is weird; we should think in terms of ems
+#vertical_rhythm: $base_line_height_length * 2 / 3
+# correct line height for Noto Serif metrics (comes with built-in line height)
+vertical_rhythm: $base_line_height_length
+horizontal_rhythm: $base_line_height_length
+# QUESTION should vertical_spacing be block_spacing instead?
+vertical_spacing: $vertical_rhythm
+link:
+  font_color: 428bca
+# literal is currently used for inline monospaced in prose and table cells
+literal:
+  font_color: b12146
+  font_family: M+ 1mn
+heading:
+  #font_color: 181818
+  font_color: $base_font_color
+  font_family: $base_font_family
+  font_style: bold
+  # h1 is used for part titles
+  h1_font_size: floor($base_font_size * 2.6)
+  # h2 is used for chapter titles
+  h2_font_size: floor($base_font_size * 2.15)
+  h3_font_size: round($base_font_size * 1.7)
+  h4_font_size: $base_font_size_large
+  h5_font_size: $base_font_size
+  h6_font_size: $base_font_size_small
+  #line_height: 1.4
+  # correct line height for Noto Serif metrics (comes with built-in line height)
+  line_height: 1.2
+  margin_top: $vertical_rhythm * 0.2
+  margin_bottom: $vertical_rhythm * 0.8
+title_page:
+  align: center
+  # hide text by default
+  font_color: ffffff
+  font_family: Akkurat
+  font_style: bold
+  title:
+    top: 10%
+    font_size: $heading_h1_font_size * 2
+    font_color: 181818
+    text_transform: uppercase
+    line_height: 1.25
+  authors:
+    margin_top: 445.0
+    font_size: $heading_h1_font_size
+    font_color: 181818
+  revision:
+    margin_top: 0
+block:
+  margin_top: 0
+  margin_bottom: $vertical_rhythm
+caption:
+  align: left
+  font_style: italic
+  # FIXME perhaps set line_height instead of / in addition to margins?
+  margin_inside: $vertical_rhythm / 3
+  #margin_inside: $vertical_rhythm / 4
+  margin_outside: 0
+lead:
+  font_size: $base_font_size_large
+  line_height: 1.4
+abstract:
+  font_color: 5c6266
+  font_size: $lead_font_size
+  line_height: $lead_line_height
+  font_style: italic
+admonition:
+  column_rule_color: $base_border_color
+  column_rule_width: $base_border_width
+  padding: [0, $horizontal_rhythm, 0, $horizontal_rhythm]
+blockquote:
+  font_color: $base_font_color
+  font_size: $base_font_size_large
+  border_color: $base_border_color
+  border_width: 5
+  padding: [$vertical_rhythm / 2, $horizontal_rhythm, $vertical_rhythm / -2, $horizontal_rhythm + $blockquote_border_width / 2]
+  cite_font_size: $base_font_size_small
+  cite_font_color: 999999
+# code is used for source blocks (perhaps change to source or listing?)
+code:
+  font_color: $base_font_color
+  font_family: $literal_font_family
+  font_size: ceil($base_font_size)
+  padding: $code_font_size
+  line_height: 1.25
+  background_color: f5f5f5
+  border_color: cccccc
+  border_radius: $base_border_radius
+  border_width: 0.75
+conum:
+  font_family: M+ 1mn
+  font_color: $literal_font_color
+  font_size: $base_font_size
+  line_height: 4 / 3
+example:
+  border_color: $base_border_color
+  border_radius: $base_border_radius
+  border_width: 0.75
+  background_color: transparent
+  # FIXME reenable margin bottom once margin collapsing is implemented
+  padding: [$vertical_rhythm, $horizontal_rhythm, 0, $horizontal_rhythm]
+image:
+  align: left
+prose:
+  margin_top: 0
+  margin_bottom: $vertical_rhythm
+sidebar:
+  border_color: $page_background_color
+  border_radius: $base_border_radius
+  border_width: $base_border_width
+  background_color: eeeeee
+  # FIXME reenable margin bottom once margin collapsing is implemented
+  padding: [$vertical_rhythm, $vertical_rhythm * 1.25, 0, $vertical_rhythm * 1.25]
+  title:
+    align: center
+    font_color: $heading_font_color
+    font_family: $heading_font_family
+    font_size: $heading_h4_font_size
+    font_style: $heading_font_style
+thematic_break:
+  border_color: $base_border_color
+  border_style: solid
+  border_width: $base_border_width
+  margin_top: $vertical_rhythm * 0.5
+  margin_bottom: $vertical_rhythm * 1.5
+description_list:
+  term_font_style: italic
+  term_spacing: $vertical_rhythm / 4
+  description_indent: $horizontal_rhythm * 1.25
+outline_list:
+  indent: $horizontal_rhythm * 1.5
+  # NOTE item_spacing applies to list items that do not have complex content
+  item_spacing: $vertical_rhythm / 2
+  #marker_font_color: 404040
+table:
+  background_color: $page_background_color
+  #head_background_color: <hex value>
+  #head_font_color: $base_font_color
+  head_font_style: bold
+  even_row_background_color: f9f9f9
+  #odd_row_background_color: <hex value>
+  foot_background_color: f0f0f0
+  border_color: dddddd
+  border_width: $base_border_width
+  # HACK accounting for line-height
+  cell_padding: [3, 3, 6, 3]
+toc:
+  dot_leader_font_color: a9a9a9
+  #dot_leader_content: '. '
+  indent: $horizontal_rhythm
+  line_height: 1.4
+header:
+  font_color: A6A6A6
+  height: 0.5in
+  line_height: 1
+  columns: =100%
+  recto:
+    center:
+      content: '{chapter-title}'
+  verso:
+    center:
+      content: '{document-title}'
+footer:
+  font_color: [61, 51, 45, 5]
+  font_size: $base_font_size_small
+  font_style: bold
+  height: 0.5in
+  line_height: 1
+  columns: <50% >50%
+  recto:
+    right:
+      content: '{page-number}'
+  verso:
+    left:
+      content: '{page-number}'

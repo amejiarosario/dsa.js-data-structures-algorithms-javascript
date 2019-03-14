@@ -1,0 +1,94 @@
+@font-face {
+  font-family: "Noto Serif";
+  font-style: normal;
+  font-weight: normal;
+  src: url(fonts/notoserif-regular-latin.ttf);
+}
+
+@font-face {
+  font-family: "Noto Serif";
+  font-style: italic;
+  font-weight: normal;
+  src: url(fonts/notoserif-italic-latin.ttf);
+}
+
+@font-face {
+  font-family: "Noto Serif";
+  font-style: normal;
+  font-weight: bold;
+  src: url(fonts/notoserif-bold-latin.ttf);
+}
+
+@font-face {
+  font-family: "Noto Serif";
+  font-style: italic;
+  font-weight: bold;
+  src: url(fonts/notoserif-bolditalic-latin.ttf);
+}
+
+/* NOTE: use numeric font weights for M+ 1p since we're using weight variations */
+@font-face {
+  font-family: "M+ 1p";
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/mplus1p-regular-latin.ttf);
+}
+
+@font-face {
+  font-family: "M+ 1p";
+  font-style: normal;
+  font-weight: 200;
+  src: url(fonts/mplus1p-light-latin.ttf);
+}
+
+@font-face {
+  font-family: "M+ 1p";
+  font-style: normal;
+  font-weight: 700;
+  src: url(fonts/mplus1p-bold-latin.ttf);
+}
+
+@font-face {
+  font-family: "M+ 1mn";
+  font-style: normal;
+  font-weight: normal;
+  src: url(fonts/mplus1mn-regular-ascii-conums.ttf);
+}
+
+@font-face {
+  font-family: "M+ 1mn";
+  font-style: italic;
+  font-weight: normal;
+  /* actually the M+ 1mn light font repurposed using FontForge to stand-in for Italic */
+  src: url(fonts/mplus1mn-italic-ascii.ttf);
+}
+
+@font-face {
+  font-family: "M+ 1mn";
+  font-style: normal;
+  font-weight: bold;
+  /* actually the M+ 1mn medium font repurposed using FontForge to stand-in for Bold */
+  src: url(fonts/mplus1mn-bold-ascii.ttf);
+}
+
+@font-face {
+  font-family: "M+ 1mn";
+  font-style: italic;
+  font-weight: bold;
+  /* actually the M+ 1mn bold font repurposed using FontForge to stand-in for Bold Italic */
+  src: url(fonts/mplus1mn-bolditalic-ascii.ttf);
+}
+
+@font-face {
+  font-family: "FontAwesome";
+  font-style: normal;
+  font-weight: normal;
+  src: url(fonts/fontawesome-icons.ttf);
+}
+
+@font-face {
+  font-family: "FontIcons";
+  font-style: normal;
+  font-weight: normal;
+  src: url(fonts/assorted-icons.ttf);
+}

@@ -1,0 +1,2 @@
+[[chapter-3]]
+= Chapter 3

@@ -1,0 +1,28 @@
+.palette-grayscale {
+  color: #191918; /* black :: literal, blockquote text */
+  color: #333332; /* off-black :: body text, heading default, chapter header background */
+  color: #4F4F4C; /* deep gray :: h4 */
+  /* what about 40403E or 4C4C4B? for h4 */
+  color: #666665; /* dark gray :: h5, visited link, list bullets, abstract, caption, open quote */
+  color: #80807F; /* medium gray :: table borders */
+  color: #B3B3B1; /* gray :: chapter title, footer subtitle, sidebar border */
+  color: #DCDCDE; /* lighter gray :: footer lines, byline text, pre border, masthead bottom line */
+  /* what about DEDEDC instead of DCDCDE? */
+  color: #F2F2F2; /* off white :: pre background, sidebar background */
+  color: #FFFFFF; /* white :: chapter subtitle */
+}
+
+.palette-color {
+  color: #468C54; /* medium green :: code annotation numbers */
+  color: #57AD68; /* green :: end mark, chapter title keyword */
+  color: #A9D8B2; /* light green */
+}
+
+/*
+type scale::
+50 2.27
+32 1.45
+30 1.36
+24 1.1
+22 1
+*/

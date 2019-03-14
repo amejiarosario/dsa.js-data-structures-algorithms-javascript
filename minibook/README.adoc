@@ -1,0 +1,71 @@
+= An InfoQ Mini-Book
+
+This is an awesome book. It's written in AsciiDoc and compiles to HTML, PDF, EPUB, and MOBI using the
+http://asciidoctor.org/docs/asciidoctor-gradle-plugin/[Asciidoctor Gradle plugin].
+
+== Building
+
+To convert this book to HTML, EPUB, and MOBI, run the following command:
+
+----
+$ build.sh
+----
+
+To convert this book to a 6x9" PDF for printing:
+
+----
+$ generate-pdf.sh
+----
+
+To convert this book to a 8.5x11" PDF for downloading:
+
+----
+$ generate-pdf.sh screen
+----
+
+* Open _build/asciidoc/html5/index.html_ in your browser to see the generated HTML file.
+* Open _build/asciidoc/pdf-prepress/index.pdf_ to see the 6x9" printable PDF file.
+* Open _build/asciidoc/pdf-pdf-screen/index.pdf_ to see the downloadable 8.5x11" PDF file.
+* Open _build/asciidoc/epub3/index.epub_ in iBooks to see the generated EPUB file.
+* Open _build/asciidoc/epub3/index.mobi_ in http://calibre-ebook.com/[Calibre] to see the generated MOBI file.
+
+[NOTE]
+====
+To be able to generate the PDF, you need have some dependencies installed.
+
+On macOS, run the following commands:
+
+. `rvm install "ruby-2.3.1"`
+. `gem install bundler -v '< 2'`
+. `bundle install`
+. `brew install gs`
+====
+
+== Sweet Authoring Experience
+
+If you'd like a very pleasant authoring experience, the project provides build files that make it possible. First of all,
+you'll need to run `gradlew` once. After running it once, you can run `./gradlew watch` to watch for any changes and
+recompile files as you save them.
+
+To have a similar awesome experience (watch and auto-reload) in your browser, install https://nodejs.org/[Node.js] on your machine.
+
+After installing Node, you can run the following command to install development tools (like http://www.browsersync.io/[Browsersync]).
+You will only need to run this command when dependencies change in `package.json`.
+
+----
+npm install
+----
+
+This project use http://gulpjs.com/[Gulp] as the client-code build system. You can install the `gulp` command-line
+tool globally with:
+
+----
+npm install -g gulp-cli
+----
+
+Now you can run the following `gulp` command to create a blissful development experience where your browser auto-refreshes
+when files change on your hard drive.
+
+----
+gulp
+----
