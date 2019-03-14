@@ -8,7 +8,7 @@
 
 = Sample Title 1
 
-Provident architecto soluta `commodi` odit accusamus non molestias necessitatibus, culpa possimus repudiandae, ex sit officiis, sint hic doloribus harum vero quisquam aspernatur.
+((Provident)) architecto soluta `commodi` odit accusamus non molestias necessitatibus, culpa possimus repudiandae, ex sit officiis, sint hic doloribus harum vero quisquam aspernatur.
 
 Voluptate minim `laborum` velit irure labore commodo officia cillum qui. Id excepteur aliqua eiusmod voluptate dolor laboris. Ex laboris deserunt laboris consectetur adipisicing mollit consequat reprehenderit amet eiusmod. Anim magna ut culpa aliquip ea commodo proident exercitation duis nulla. Nulla sunt officia aliquip est sit incididunt sint ad fugiat. Qui fugiat elit magna id duis culpa aute. Officia magna et id esse qui nisi sint eu nostrud ex exercitation anim sunt magna.
 
@@ -18,8 +18,9 @@ Ullamco eu veniam nisi `aliqua`. Lorem nulla nostrud Lorem quis ex. Minim magna 
 
 Optio ab voluptate impedit, iusto explicabo tempore? Ipsam eaque accusamus mollitia accusantium quod aperiam. Sit cum tempora quod! Placeat assumenda adipisci eius?
 
-Minim pariatur in aute nulla non ea commodo velit enim ad nostrud culpa. Occaecat laborum aute nostrud excepteur aliquip eiusmod irure est nisi ut. Deserunt mollit qui pariatur irure voluptate labore adipisicing. Lorem exercitation pariatur cupidatat minim do sit ea cillum. Esse duis cillum veniam Lorem cillum do nulla. Sint esse dolor veniam dolor non cillum id voluptate. Nulla irure incididunt cillum in incididunt dolore sit amet pariatur.
+Minim pariatur in aute nulla non ea commodo velit enim ad nostrud culpa. Occaecat laborum aute nostrud excepteur aliquip eiusmod irure est nisi ut. Deserunt mollit qui pariatur irure voluptate labore adipisicing. Lorem exercitation pariatur cupidatat minim do sit ea cillum. Esse duis cillum veniam Lorem cillum do nulla. Sint esse ((dolor)) veniam dolor non cillum id voluptate. Nulla irure incididunt cillum in incididunt dolore sit amet pariatur.
 
+[#random-ref]
 Sint nisi do deserunt elit. Laboris qui eiusmod ut et dolore laboris dolore tempor consectetur aliqua aliqua quis culpa. Duis deserunt ea reprehenderit duis commodo consequat et ea tempor culpa laborum anim. Tempor pariatur aute labore consectetur. Ut laboris amet aliquip in fugiat laborum ex.
 
 Occaecat eu ex incididunt proident consectetur proident eiusmod fugiat veniam dolor voluptate adipisicing. Eiusmod ullamco pariatur adipisicing fugiat ipsum cillum ullamco. Reprehenderit eu do tempor et amet. Ex ea sint non nisi enim tempor consequat labore.
@@ -47,6 +48,8 @@ Irure nisi laboris amet do sit Lorem do. Aliqua esse ex in dolore nulla. Aute de
 ====== Sample title 6
 
 Et nisi fugiat in culpa id voluptate incididunt anim commodo. Irure non dolor velit irure non incididunt nisi laborum minim. Elit duis consectetur aliqua laborum tempor et nulla. Nulla dolore magna dolor occaecat velit magna sint nulla. Proident veniam officia in nisi cillum ut deserunt consequat mollit laborum.
+
+<<random-ref, this is a random reference>>
 
 ======= Sample title 7
 
@@ -76,7 +79,7 @@ include::{codedir}/runtimes/07-sub-sets.js[tag=snippet]
 BigInt allows to operate beyond the maximum safe limit of integers (Number.MAX_SAFE_INTEGER => 9,007,199,254,740,991). BigInt uses the suffix n, e.g. 1n + 3n === 4n.
 ****
 
-== Emojis
+== ((Emojis))
 
 Money flying:
 [big]#💸#
@@ -124,7 +127,7 @@ image:image5.png[CPU time needed vs. Algorithm runtime as the input size increas
 
 == Quotes
 
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis doloremque fuga nobis tempora saepe sed iste quod quia blanditiis dolorem alias, accusantium quas nihil ullam assumenda nostrum similique ad itaque?
+Lorem, ipsum ((dolor)) sit amet consectetur adipisicing elit. Perspiciatis doloremque fuga nobis tempora saepe sed iste quod quia blanditiis dolorem alias, accusantium quas nihil ullam assumenda nostrum similique ad itaque?
 
 [quote, H. J. Harrington]
 Measurement is the first step that leads to control and eventually to improvement. If you can’t measure something, you can’t understand it. If you can’t understand it, you can’t control it. If you can’t manage it, you can’t improve it.
@@ -216,7 +219,7 @@ function a(test) {
 
 ==== Note
 
-NOTE: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio laudantium et consequuntur, eveniet numquam voluptatibus molestias nostrum reprehenderit blanditiis enim asperiores consequatur dolore tempore laboriosam! At aliquam mollitia aspernatur magnam.
+NOTE: Lorem ipsum ((dolor)) sit amet, consectetur adipisicing elit. Odio laudantium et consequuntur, eveniet numquam voluptatibus molestias nostrum reprehenderit blanditiis enim asperiores consequatur dolore tempore laboriosam! At aliquam mollitia aspernatur magnam.
 
 ==== Tip
 
@@ -346,7 +349,7 @@ Quis aute et consectetur ad pariatur ea commodo amet cupidatat velit ullamco. Cu
 
 Cupidatat sit aute et minim do. Non est anim fugiat proident ex enim voluptate non et consectetur. Culpa proident deserunt ipsum irure reprehenderit voluptate irure tempor tempor proident. Quis ipsum eiusmod tempor et reprehenderit non adipisicing. Consectetur dolore ullamco adipisicing ad adipisicing aliqua eu. Eu excepteur ipsum magna aliqua cillum in sint sint id exercitation est. Enim occaecat ut aute elit.
 
-Eiusmod excepteur eiusmod dolor magna nulla pariatur exercitation ex. Laborum sunt quis dolor qui do magna. Non velit reprehenderit minim duis est dolor commodo irure fugiat. Velit culpa laboris mollit esse minim sit id incididunt minim duis excepteur eiusmod ullamco. Pariatur pariatur ut laboris aute velit id nulla reprehenderit.
+Eiusmod excepteur eiusmod ((dolor)) magna nulla pariatur exercitation ex. Laborum sunt quis dolor qui do magna. Non velit reprehenderit minim duis est dolor commodo irure fugiat. Velit culpa laboris mollit esse minim sit id incididunt minim duis excepteur eiusmod ullamco. Pariatur pariatur ut laboris aute velit id nulla reprehenderit.
 
 Officia sint sit Lorem eu officia sint ad et et do. Deserunt nulla exercitation aute nulla enim laboris aliquip nulla. Commodo laboris amet enim veniam cupidatat culpa culpa duis deserunt esse ipsum. Deserunt nisi qui ullamco deserunt pariatur nisi velit tempor fugiat et pariatur do deserunt cillum. Dolore officia occaecat eiusmod occaecat reprehenderit cillum laboris irure irure ad tempor fugiat amet Lorem. Qui dolor elit ipsum consectetur commodo amet mollit eiusmod ex officia. Sit enim sunt nisi consectetur sint est id.
 

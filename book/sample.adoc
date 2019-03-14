@@ -38,4 +38,9 @@ include::chapters/sample.adoc[]
 //
 // end chapters
 //
+:sectnums!:
+
 include::chapters/epigraph.adoc[]
+
+[index]
+= Index
