@@ -93,24 +93,47 @@ heading:
   line_height: 1.2
   margin_top: $vertical_rhythm * 0.2
   margin_bottom: $vertical_rhythm * 0.8
+
 title_page:
-  align: center
-  # hide text by default
-  font_color: ffffff
-  font_family: Akkurat
-  font_style: bold
-  title:
+  align: right
+#   font_family: Akkurat
+  logo:
     top: 10%
-    font_size: $heading_h1_font_size * 2
-    font_color: 181818
-    text_transform: uppercase
-    line_height: 1.25
-  authors:
-    margin_top: 445.0
+  title:
+    top: 55%
     font_size: $heading_h1_font_size
+    font_color: 999999
+    line_height: 0.9
+  subtitle:
+    font_size: $heading_h3_font_size
+    font_style: bold_italic
+    line_height: 1
+  authors:
+    margin_top: $base_font_size * 1.25
+    font_size: $base_font_size_large
     font_color: 181818
   revision:
-    margin_top: 0
+    margin_top: $base_font_size * 1.25
+
+# title_page:
+#   align: center
+#   # hide text by default
+#   font_color: ffffff
+#   font_family: Akkurat
+#   font_style: bold
+#   title:
+#     top: 10%
+#     font_size: $heading_h1_font_size * 2
+#     font_color: 181818
+#     text_transform: uppercase
+#     line_height: 1.25
+#   authors:
+#     margin_top: 445.0
+#     font_size: $heading_h1_font_size
+#     font_color: 181818
+#   revision:
+#     margin_top: 0
+
 block:
   margin_top: 0
   margin_bottom: $vertical_rhythm

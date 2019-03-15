@@ -2,9 +2,12 @@
 
 Why did you write this book?
 
-== What is in an InfoQ mini-book?
+== What is in this book?
 
-InfoQ mini-books are designed to be concise, intending to serve technical architects looking to get a firm conceptual understanding of a new technology or technique in a quick yet in-depth fashion. You can think of these books as covering a topic strategically or essentially. After reading a mini-book, the reader should have a fundamental understanding of a technology, including when and where to apply it, how it relates to other technologies, and an overall feeling that they have assimilated the combined knowledge of other professionals who have already figured out what this technology is about. The reader will then be able to make intelligent decisions about the technology once their projects require it, and can delve into sources of more detailed information (such as larger books or tutorials) at that time.
+_Data Structure and Algorithms Explained in JavaScript_ is a reference book that can be read from cover to cover, where each section builds on top of the previous one.
+This book can also serve as a reference manual where developers can refresh certain topics before an interview or to solve a problem more optimally.
+
+_Data Structure and Algorithms Explained in JavaScript_ is designed to be concise, intending to serve software developers looking to get a firm conceptual understanding of algorithms in a quick yet in-depth fashion. After reading a mini-book, the reader should have a fundamental understanding of a technology, including when and where to apply it, how it relates to other technologies, and an overall feeling that they have assimilated the combined knowledge of other professionals who have already figured out what this technology is about. The reader will then be able to make intelligent decisions about the technology once their projects require it, and can delve into sources of more detailed information (such as larger books or tutorials) at that time.
 
 == Who this book is for
 

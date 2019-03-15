@@ -1,12 +1,12 @@
-= My InfoQ Mini-Book
+= Data Structures and Algorithms Explained in JavaScript
 :book-title: {doctitle}
-:author: Your Name
-:email:  youremail@infoq.com
+:author: Adrian Mejia
+:email:  hello+dsajs@adrianmejia.com
 :revnumber: 1.0
 :revdate: {docdate}
-:revyear: 2018
-:subject: JHipster
-:keywords: Angular, Bootstrap, Spring Boot
+:revyear: 2019
+:subject: Algorithms
+:keywords: Algorithms, Data Structures, JavaScript, Time Complexity, Linked Lists, Graphs
 :doctype: book
 :media: screen
 ifeval::["{media}" != "prepress"]
@@ -20,6 +20,7 @@ endif::[]
 :pdf-fontsdir: ./styles/pdf/fonts
 :pdf-stylesdir: ./styles/pdf
 :pdf-style: infoq-screen
+:title-logo-image: image:logo.png[Logo,50,50]
 ifndef::ebook-format[:leveloffset: 1]
 
 [colophon#colophon%nonfacing]
@@ -28,8 +29,8 @@ include::chapters/colophon.adoc[]
 [dedication]
 include::chapters/dedication.adoc[]
 
-[%nonfacing]
-include::chapters/acknowledgements.adoc[]
+// [%nonfacing]
+// include::chapters/acknowledgements.adoc[]
 
 [preface]
 include::chapters/preface.adoc[]
