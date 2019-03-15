@@ -1,47 +1,62 @@
-include::_conf/variables.adoc[]
+= Data Structures and Algorithms Explained in JavaScript
+:book-title: {doctitle}
+:author: Adrian Mejia
+:email:  hello+dsajs@adrianmejia.com
+:revnumber: 1.0.0
+:revdate: {docdate}
+:revyear: 2019
+:subject: Algorithms
+:keywords: Algorithms, Data Structures, JavaScript, Time Complexity, Linked Lists, Graphs
+:doctype: book
+:media: screen
+:imagesdir: {docdir}/images
+ifeval::["{media}" != "prepress"]
+:front-cover-image: image:cover.png[Front Cover,1050,1600]
+endif::[]
+:toc:
+:icons: font
+:lang: en
+:language: javadocript
+:experimental:
+:pdf-fontsdir: ./fonts
+:pdf-stylesdir: ./_resources/pdfstyles
+:pdf-style: infoq-screen
+:title-logo-image: image:logo.png[Logo,50,50]
 
-= {doctitle}
+// custom variables
+:codedir: ../../src
+:datadir: {docdir}/data
+:source-highlighter: pygments
+:pygments-style: xcode
 
-// remove numbering from titles, and sub-titles e.g. 1.1
-:sectnums!:
 
-// Copyright © 2018 Adrian Mejia (g)
+ifndef::ebook-format[:leveloffset: 1]
+
+[colophon#colophon%nonfacing]
 include::chapters/colophon.adoc[]
 
-// Abstract and Dedication MUST have a level-0 heading in EPUB and Kindle
-// but level-1 in PDF and HTML
-// ifndef::backend-epub3[:leveloffset: +1]
-// include::chapters/dedication.adoc[]
-// ifndef::backend-epub3[:leveloffset: -1]
+[dedication]
 include::chapters/dedication.adoc[]
 
-// (g)
+// [%nonfacing]
+// include::chapters/acknowledgements.adoc[]
+
+[preface]
 include::chapters/preface.adoc[]
 
-// add sections to chapters
-:sectnums:
+include::chapters/introduction.adoc[]
 
+include::chapters/chapter1.adoc[]
 
-//-----------------------------------
-// TODO: commment out sample on final
-//-----------------------------------
+include::chapters/chapter2.adoc[]
 
-include::chapters/sample.adoc[]
+include::chapters/chapter3.adoc[]
 
-//-----------------------------------
-// TODO: end remove ------
-//-----------------------------------
+include::chapters/action.adoc[]
 
+include::chapters/about.adoc[]
 
-// --- end algorithms ---
-
-
-//
-// end chapters
-//
-:sectnums!:
-
-include::chapters/epigraph.adoc[]
-
-[index]
-= Index
+//ifdef::backend-pdf,backend-docbook[]
+//[index]
+//== Index
+//endif::[]s

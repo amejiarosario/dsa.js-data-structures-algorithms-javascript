@@ -1,14 +1,21 @@
-[colophon#colophon%nonfacing]
-= {doctitle}
+= {book-title}
 
-Copyright © {docyear} Adrian Mejia
+(C) {revyear} {author}. All rights reserved. Version {revnumber}.
 
-All rights reserved.
+// Published by Admerox, publisher of AdrianMejia.com.
 
 For online information and ordering this and other books, please visit https://adrianmejia.com. The publisher offers discounts on this book when ordered in quantity for more information contact sales@adrianmejia.com.
 
-No part of this publication may be produced, the store in the retrieval system, or transmitted, in any form or by means electronic, mechanical, photocopying, or otherwise, without the prior written permission of the publisher.
+No part of this publication may be reproduced, stored in a retrieval system or transmitted in any form or by any means,
+electronic, mechanical, photocopying, recoding, scanning or otherwise except as permitted under Sections 107 or 108 of
+the 1976 United States Copyright Act, without the prior written permission of the publisher.
 
-While every precaution has been taking in the preparation of this book, the publisher and author assume no responsibility for errors or omissions, or damages resulting from the use of the information contained herein.
+// While every precaution has been taking in the preparation of this book, the publisher and author assume no responsibility for errors or omissions, or damages resulting from the use of the information contained herein.
 
-{revremark}, {revdate}.
+// [%hardbreaks]
+// Production Editor: Ana Ciobotaru
+// Copy Editor: Lawrence Nyveen
+// Cover and Interior Design: Dragos Balasoiu
+
+Library of Congress Cataloguing-in-Publication Data:
+ISBN: XXX-X-XXX-XXXXX-X
