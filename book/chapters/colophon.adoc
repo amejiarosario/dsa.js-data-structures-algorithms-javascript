@@ -1,7 +1,5 @@
-[colophon]
-= Colophon
-
-{doctitle}
+[colophon#colophon%nonfacing]
+= {doctitle}
 
 Copyright © {docyear} Adrian Mejia
 

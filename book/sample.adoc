@@ -10,9 +10,10 @@ include::chapters/colophon.adoc[]
 
 // Abstract and Dedication MUST have a level-0 heading in EPUB and Kindle
 // but level-1 in PDF and HTML
-ifndef::backend-epub3[:leveloffset: +1]
+// ifndef::backend-epub3[:leveloffset: +1]
+// include::chapters/dedication.adoc[]
+// ifndef::backend-epub3[:leveloffset: -1]
 include::chapters/dedication.adoc[]
-ifndef::backend-epub3[:leveloffset: -1]
 
 // (g)
 include::chapters/preface.adoc[]
