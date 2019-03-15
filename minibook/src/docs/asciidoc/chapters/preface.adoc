@@ -1,30 +1,27 @@
 = Preface
 
-Why did you write this book?
-
 == What is in this book?
 
-_Data Structure and Algorithms Explained in JavaScript_ is a reference book that can be read from cover to cover, where each section builds on top of the previous one.
-This book can also serve as a reference manual where developers can refresh certain topics before an interview or to solve a problem more optimally.
+_{book-title}_ is a book that can be read from cover to cover, where each section builds on top of the previous one. Also, it can be used as a reference manual where developers can refresh certain topics before an interview or looking for ideas to solve a problem optimally.
 
-_Data Structure and Algorithms Explained in JavaScript_ is designed to be concise, intending to serve software developers looking to get a firm conceptual understanding of algorithms in a quick yet in-depth fashion. After reading a mini-book, the reader should have a fundamental understanding of a technology, including when and where to apply it, how it relates to other technologies, and an overall feeling that they have assimilated the combined knowledge of other professionals who have already figured out what this technology is about. The reader will then be able to make intelligent decisions about the technology once their projects require it, and can delve into sources of more detailed information (such as larger books or tutorials) at that time.
+This publication is designed to be concise, intending to serve software developers looking to get a firm conceptual understanding of data structures in a quick yet in-depth fashion. After reading this book, the reader should have a fundamental understanding of algorithms, including when and where to apply it, what are the trade-offs of using one data structure over the other. The reader will then be able to make intelligent decisions about algorithms and data structures in their projects require.
 
 == Who this book is for
 
+This book is for JavaScript software developers looking to improve their problem-solving skills.
+
 == What you need for this book
 
-To try code samples in this book, you will need a computer running an up-to-date operating system (Windows, Linux, or Mac OS X). You will need Node.js and Java installed. The book code was tested against Node.js v0.12 and JDK 8, but newer versions should also work.
+You will need Node.js. The book code was tested against Node.js v10.12, but newer versions should also work.
 
 == Conventions
-
-*[red]#TODO: Replace the code examples below with code examples from this book.#*
 
 We use a number of typographical conventions within this book that distinguish between different kinds of information.
 
 Code in the text, including commands, variables, file names, CSS class names, and property names are shown as follows:
 
 [example]
-Spring Boot uses a `public static void main` entry-point that launches an embedded web server for you.
+The `edgeDirection` parameter allow us to use one class for both undirected and directed graphs.
 
 A block of code is set out as follows. It may be colored, depending on the format in which you're reading this book.
 
