@@ -10,6 +10,8 @@ This publication is designed to be concise, intending to serve software develope
 
 This book is for JavaScript software developers looking to improve their problem-solving skills.
 
+_NOTE: The concepts in this book can be applied to any programming language. However, instead of doing examples on pseudo-code we are going to use JavaScript to implement the examples._
+
 == What you need for this book
 
 You will need Node.js. The book code was tested against Node.js v10.12, but newer versions should also work.
@@ -25,57 +27,42 @@ The `edgeDirection` parameter allow us to use one class for both undirected and 
 
 A block of code is set out as follows. It may be colored, depending on the format in which you're reading this book.
 
-[source,html]
-.src/app/search/search.component.html
+[source, javascript]
 ----
-<form>
-  <input type="search" name="query" [(ngModel)]="query" (keyup.enter)="search()">
-  <button type="button" (click)="search()">Search</button>
-</form>
-----
-
-[source,java]
-.src/main/java/demo/DemoApplication.java
-----
-@RestController
-class BlogController {
-    private final BlogRepository repository;
-
-    // Yay! No annotations needed for constructor injection in Spring 4.3+.
-    public BlogController(BlogRepository repository) {
-        this.repository = repository;
-    }
-
-    @RequestMapping("/blogs")
-    Collection<Blog> list() {
-        return repository.findAll();
-    }
+function* dummyIdMaker() {
+  yield 0;
+  yield 1;
+  yield 2;
 }
+
+const generator = dummyIdMaker()
+
+// getting values
+console.log(generator.next()); // ↪️ {value: 0, done: false}
 ----
 
 When we want to draw your attention to certain lines of code, those lines are annotated using numbers accompanied by brief descriptions.
 
-[source,javascript]
+.Quicksort implementation in JavaScript (QuickSort)
+[source, javascript]
 ----
-export class SearchComponent {
-  constructor(private searchService: SearchService) {} <1>
-
-  search(): void { <2>
-    this.searchService.search(this.query).subscribe( <3>
-      data => { this.searchResults = data; },
-      error => console.log(error)
-    );
-  }
-}
+include::{codedir}/algorithms/sorting/quick-sort.js[tag=quickSort, indent=0]
 ----
-<1> To inject `SearchService` into `SearchComponent`, add it as a parameter to the constructors's argument list.
-<2> `search()` is a method that's called from the HTML's `<button>`, wired up using the `(click)` event handler.
-<3> `this.query` is a variable that's wired to `<input>` using two-way binding with `[(ngModel)]="query"`.
+<1> Partition: picks a pivot and find the index where the pivot will be when the array is sorted.
+<2> Do the partition of the sub-array at the left of the pivot.
+<3> Do the partition of the sub-array at the right of the pivot.
+<4> Only do the partition when there's something to divide.
 
+
+The following admonitions are used to highlight content
+
+IMPORTANT: Reword essential concepts. Good for memorizing, tweeting and sharing.
 
 TIP: Tips are shown using callouts like this.
 
 WARNING: Warnings are shown using callouts like this.
+
+NOTE: This is a side note
 
 .Sidebar
 ****
@@ -84,13 +71,11 @@ Additional information about a certain topic may be displayed in a sidebar like 
 
 Finally, this text shows what a quote looks like:
 
-"In the end, it's not the years in your life that count. It's the life in your years."
--- Abraham Lincoln
+[quote, H. J. Harrington]
+Measurement is the first step that leads to control and eventually to improvement. If you can’t measure something, you can’t understand it. If you can’t understand it, you can’t control it. If you can’t manage it, you can’t improve it.
 
 == Reader feedback
 
-We always welcome feedback from our readers. Let us know what you thought about this book — what you liked or disliked. Reader feedback helps us develop titles that deliver the most value to you.
+Your feedback is very welcome and valuable. Let us know what your thoughts about this book — what you like or ideas to make it better.
 
-To send us feedback, e-mail us at feedback@infoq.com, send a tweet to @jhipster_book, or post a question on Stack Overflow using the "`jhipster`" tag.
-
-If you're interested in writing a mini-book for InfoQ, see http://www.infoq.com/minibook-guidelines.
+To send us feedback, e-mail us at hello+dsajs@adrianmejia.com, send a tweet to @amejiarosario, or post a question on Stack Overflow using the `algorithms` `javascript` tags.

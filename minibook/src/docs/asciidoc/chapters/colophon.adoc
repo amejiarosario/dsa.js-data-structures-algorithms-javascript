@@ -2,7 +2,7 @@
 
 (C) {revyear} {author}. All rights reserved. Version {revnumber}.
 
-Published by Admerox, publisher of AdrianMejia.com.
+// Published by Admerox, publisher of AdrianMejia.com.
 
 For online information and ordering this and other books, please visit https://adrianmejia.com. The publisher offers discounts on this book when ordered in quantity for more information contact sales@adrianmejia.com.
 

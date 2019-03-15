@@ -8,8 +8,10 @@ function merge(array1, array2 = []) {
   const mergedLength = array1.length + array2.length;
   const mergedArray = Array(mergedLength);
 
-  for (let index = 0, i1 = 0, i2 = 0; index < mergedLength; index += 1) { // <1>
-    if (i2 >= array2.length || (i1 < array1.length && array1[i1] <= array2[i2])) {
+  for (let index = 0, i1 = 0, i2 = 0;
+    index < mergedLength; index += 1) { // <1>
+    if (i2 >= array2.length ||
+      (i1 < array1.length && array1[i1] <= array2[i2])) {
       mergedArray[index] = array1[i1]; // <2>
       i1 += 1;
     } else {
