@@ -16,7 +16,7 @@ endif::[]
 :toc:
 :icons: font
 :lang: en
-:language: javadocript
+:language: javascript
 :experimental:
 :pdf-fontsdir: ./fonts
 :pdf-stylesdir: ./_resources/pdfstyles

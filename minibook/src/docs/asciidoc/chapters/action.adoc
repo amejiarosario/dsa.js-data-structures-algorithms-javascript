@@ -1,4 +1,0 @@
-[[action]]
-= Action!
-
-== Additional reading
