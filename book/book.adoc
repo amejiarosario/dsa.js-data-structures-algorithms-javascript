@@ -22,7 +22,7 @@ endif::[]
 :experimental:
 :pdf-fontsdir: ./fonts
 :pdf-stylesdir: ./_resources/pdfstyles
-:pdf-style: infoq-screen
+:pdf-style: adrian-screen
 :title-logo-image: image:logo.png[Logo,50,50]
 
 // custom variables
