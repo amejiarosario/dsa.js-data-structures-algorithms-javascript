@@ -1,4 +1,4 @@
 [epigraph]
 = Epigraph
 
-Thanks for reading!
+Thanks for reading this book!

@@ -54,11 +54,13 @@ include::chapters/chapter3.adoc[]
 
 include::chapters/chapter4.adoc[]
 
-// include::chapters/action.adoc[]
+include::chapters/appendix.adoc[]
 
-include::chapters/about.adoc[]
+// include::chapters/epigraph.adoc[]
 
-//ifdef::backend-pdf,backend-docbook[]
-//[index]
-//== Index
-//endif::[]s
+// include::chapters/about.adoc[]
+
+ifdef::backend-pdf,backend-docbook[]
+[index]
+= Index
+endif::[]

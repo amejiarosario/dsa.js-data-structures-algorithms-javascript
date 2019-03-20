@@ -1,4 +1,5 @@
-= Cheatsheet
+[appendix]
+= Time Complexity Cheatsheet
 
 This section summerize what we are  going to cover in the rest of this book.
 
