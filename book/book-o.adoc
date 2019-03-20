@@ -126,7 +126,7 @@ include::chapters/graph-search.adoc[]
 
 :leveloffset: -1
 
-= Algorithms
+= Algorithmic Techniques
 
 // TODO: pending
 include::chapters/algorithms-intro.adoc[]

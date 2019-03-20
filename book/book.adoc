@@ -52,6 +52,8 @@ include::chapters/chapter2.adoc[]
 
 include::chapters/chapter3.adoc[]
 
+include::chapters/chapter4.adoc[]
+
 include::chapters/action.adoc[]
 
 include::chapters/about.adoc[]

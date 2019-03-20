@@ -1,0 +1,50 @@
+[[chapter-4]]
+= Algorithmic Techniques
+
+// TODO: pending
+include::algorithms-intro.adoc[]
+
+:leveloffset: +1
+
+//
+// Sorting algorithms
+//
+= Sorting Algorithms
+
+:leveloffset: +1
+
+// TODO: pending
+include::sorting-intro.adoc[]
+
+// Slow Sorting
+
+include::insertion-sort.adoc[]
+
+include::selection-sort.adoc[]
+
+include::bubble-sort.adoc[]
+
+// Fast Sorting
+
+include::merge-sort.adoc[]
+
+include::quick-sort.adoc[]
+
+:leveloffset: -1
+
+
+//
+// Algorithms Techniques
+//
+
+include::divide-and-conquer.adoc[]
+
+include::dynamic-programming.adoc[]
+
+include::greedy-algorithms.adoc[]
+
+include::backtracking.adoc[]
+
+// --- end algorithms ---
+
+:leveloffset: -1

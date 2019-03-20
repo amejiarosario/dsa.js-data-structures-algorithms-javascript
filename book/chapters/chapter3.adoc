@@ -1,2 +1,57 @@
 [[chapter-3]]
-= Chapter 3
+= Non-Linear Data Structures
+
+// (g)
+include::non-linear-data-structures-intro.adoc[]
+
+:leveloffset: +1
+
+// (g)
+include::tree.adoc[]
+
+
+// (g)
+include::tree--binary-search-tree.adoc[]
+
+include::tree--search.adoc[]
+
+include::tree--self-balancing-rotations.adoc[]
+
+:leveloffset: +1
+
+include::tree--avl.adoc[]
+
+:leveloffset: -1
+
+// (g)
+// include::map.adoc[]
+include::map-intro.adoc[]
+
+:leveloffset: +1
+
+// (g)
+include::map-hashmap.adoc[]
+
+// (g)
+include::map-treemap.adoc[]
+
+// (g)
+include::map-hashmap-vs-treemap.adoc[]
+
+:leveloffset: -1
+
+// (g)
+include::set.adoc[]
+
+// (g)
+include::graph.adoc[]
+
+// TODO: pending
+include::graph-search.adoc[]
+
+// Graph summary
+= Summary
+
+In this section, we learned about Graphs applications, properties and how we can implement them. We mention that you can represent a graph as a matrix or as a list of adjacencies. We went for implementing the later since it's more space efficient. We cover the basic graph operations like adding and removing nodes and edges.  In the algorithms section, we are going to cover searching values in the graph.
+
+:leveloffset: -1
