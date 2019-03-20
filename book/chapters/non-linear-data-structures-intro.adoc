@@ -1,0 +1,12 @@
+[partintro]
+--
+Non-Linear data structures are everywhere whether you realize it or not. They are used in databases, Web (HTML DOM tree), search algorithms, finding the best route to get home and so on. We are going to learn the basic concepts and when to choose one over the other.
+
+.In this chapter we are going to learn:
+- Exciting <<Graph>> data structure applications
+- Searching efficiently with a <<Tree>> data structures.
+- One of the most versatile data structure of all <<HashMaps>>.
+- Keeping dups out with a <<Sets>>.
+
+By the end of this section, you will know the data structures trade-offs and when to use one over the other.
+--

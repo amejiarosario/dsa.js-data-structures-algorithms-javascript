@@ -1,0 +1,4 @@
+[partintro]
+--
+In this section we are going to cover the basics about algorithms analysis. We are also going to discuss eight of the most commmon runtimes of algorithms.
+--

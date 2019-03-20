@@ -1,0 +1,35 @@
+= Insertion Sort
+
+Insertion sort is a simple sorting algorithm. It is onne of the most natural way of sorting. You take an element and move it to the sorted pile. You take the next element and move it where it belongs in the sorted pile. Repeat for the rest of the elements.
+
+If you are given some cards that's probably how you are going to sort them.
+
+// Good illustration on of sorting a deck of cards:  https://www.khanacademy.org/computing/computer-science/algorithms/insertion-sort/a/insertion-sort
+
+.This is how it works:
+. Visit 2nd. If the current element is smaller than the previous one move to the place it should be.
+. Visit next element and do the same thing. The left is always sorted and the right is not (yet).
+. Repeat for the rest of the array.
+
+== Insertion Sort Implementation
+
+.Insertion sort
+[source, javascript]
+----
+include::{codedir}/algorithms/sorting/insertion-sort.js[tag=sort, indent=0]
+----
+
+//.Swap function
+//[source, javascript]
+//----
+//include::{codedir}/algorithms/insertion-sort.js[tag=swap, indent=0]
+//----
+
+== Insertion Sort Properties
+
+- <<Stable>>: [big]#✅# Yes
+- <<In-place>>: [big]#✅# Yes
+- <<Online>>: [big]#✅# Yes
+- <<Adaptive>>: [big]#✅# Yes
+- Time Complexity: [big]#⛔️# <<Quadratic>> _O(n^2^)_
+- Space Complexity: [big]#✅# <<Constant>> _O(1)_

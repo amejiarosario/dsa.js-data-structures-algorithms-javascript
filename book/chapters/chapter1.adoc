@@ -1,2 +1,16 @@
 [[chapter-1]]
-= Chapter 1
+= Algorithms Analysis
+
+include::algorithms-analysis-intro.adoc[]
+
+:leveloffset: +1
+
+// (g)
+include::algorithms-analysis.adoc[]
+
+// (g)
+include::big-o-examples.adoc[]
+
+:leveloffset: -1
+
+

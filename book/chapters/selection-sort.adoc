@@ -1,0 +1,71 @@
+= Selection Sort
+
+The selection sort is a simple sorting algorithm. As its name indicates, it chooses the lowest element from the list and move it where it should be.
+
+TIP: selection sort is a in-place sorting algorithms, it should be used when auxiliary memory is limited.
+
+.Selection sort algorithm
+. Start with the element in position 0.
+. Find minimum element in the rest of array. If a new minimun is found swap them.
+. Repeat with the element in postion 1 and so until the last one.
+
+image:selection-sort.gif[]
+
+== Selection sort implementation
+For implementing the selection sort we need 2 indexes.
+
+.Selection sort
+[source, javascript]
+----
+include::{codedir}/algorithms/sorting/selection-sort.js[tag=sort, indent=0]
+----
+
+One index is for the position in question (selection/outer) and another one for finding the minimun in the rest of the array (element/inner).
+
+The swap function is implemented as follows.
+
+.Swap function
+[source, javascript]
+----
+include::{codedir}/algorithms/sorting/sorting-common.js[tag=swap, indent=0]
+----
+
+It uses JavaScript ES6 destructing arrays.
+
+.JavaScript Array destructuring
+****
+*Assignment separate from declaration*
+
+A variable can be assign to its values using the destructing syntax.
+
+[source, js]
+----
+let a, b;
+
+[a, b] = [1, 2];
+console.log(a); //↪️ 1
+console.log(b); //️↪️ 2
+----
+
+*Swapping variables*
+
+Two variables values can be swapped in one destructuring expression.
+
+[source, js]
+----
+[a, b] = [b, a];
+console.log(a); //↪️ 2
+console.log(b); //️↪️ 1
+----
+
+Without destructuring assignment, swapping two values requires a temporary variable.
+****
+
+== Selection Sort Properties
+
+- <<Stable>>: [big]#✅# Yes
+- <<In-place>>: [big]#✅# Yes
+- <<Online>>: [big]#✅# Yes
+- <<Adaptive>>: [big]#✅# Yes
+- Time Complexity: [big]#⛔️# <<Quadratic>> _O(n^2^)_
+- Space Complexity: [big]#✅# <<Constant>> _O(1)_

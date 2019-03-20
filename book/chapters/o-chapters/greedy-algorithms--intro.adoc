@@ -1,0 +1,42 @@
+Greedy algorithms are designed to find solution by going one step at time and using heuristics to determine the best choice.
+They are quick but not always lead to most optimum results since it might not take into consideration all the options to give a solution.
+
+A good example of a greedy algorithms that doesn't work well is finding the largest sum on a tree.
+
+[graphviz, Find largest sum, svg]
+....
+graph G {
+  5 -- 3 [color="#B8E986", penwidth=2]
+  5 -- 7 [color="#FF5252", penwidth=2]
+  3 -- 87 [color="#B8E986", penwidth=2]
+  3 -- 1
+  7 -- 2
+  7 -- 4 [color="#FF5252", penwidth=2]
+
+  label="Optimal vs. Greedy path"
+}
+....
+
+The greedy algorithm will start at the root and say "Which number is bigger 3 or 7?" Then go with 7 and later 4. As you can see in the diagram, the largest sum would be the path `7 - 3 - 87`. A greedy algorithm never go back on it's options. This makes it different from dynamic programming which exhaustive and it's gurantee to find the best option.
+
+Greedy algorithms are well suited when a local optimal solution is also a global optimal solution.
+
+[TIP]
+====
+Greedy algorithms makes the choice that looks best in the moment based on a heuristic such as smallest, largest, best ratio, and so on.
+This algorithm only give one shot at finding the solution and never goes back to consider other options.
+====
+
+Don't get the wrong idea some greedy algorithms works very well if they are designed correctly.
+
+.Some examples greedy algorithms that works well:
+- <<Selection Sort>>: we select the best (minimum value) remove it from the input and then select the next minimum until everything is processed.
+- <<Merge Sort>>: the "merge" uses a greedy algorithm, where it combine two sorted arrays by looking at their current values and choosing the best (minimum) at every time.
+
+
+.In general, we can follow these steps to design Greedy Algorithms:
+1. Take a sample from the input data (usually in a data structure like array/list, tree, graph).
+2. Greedy choice: use a heuristic function that will choose the best candidate. E.g., Largest/smallest number, best ratio, etc.
+3. Reduce the processed input and pepeat step #1 and #2 until all data is gone.
+4. Return solution.
+5. Check correctness with different examples and edge cases.

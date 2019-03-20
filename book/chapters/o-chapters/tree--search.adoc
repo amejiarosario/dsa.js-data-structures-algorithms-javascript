@@ -1,0 +1,121 @@
+= Tree Search & Traversal
+
+So far we covered, how to insert/delete/search values in a binary search tree (BST).
+However, not all binary trees are BST, so there are other ways to look for values or visit all nodes in a certain order.
+
+If we have the following tree:
+----
+         10
+       /    \
+      5      30
+    /       /  \
+   4       15   40
+ /
+3
+----
+
+Depending on what traversal methods we used we will have a different visiting order.
+
+.Tree traversal methods
+- Breadth-first traversal (a.k.a level order traversal): `10, 5, 30, 4, 15, 40, 3`
+- Depth-first traversal
+** In-order (left-root-right): `3, 4, 5, 10, 15, 30, 40`
+** Pre-order (root-left-right): `10, 5, 4, 3, 30, 15, 40`
+** Post-order (left-right-root): `3, 4, 5, 15, 40, 30, 10`
+
+Why do we care? Well, there are certain problems that you solve more optimally using one or another traversal method. For instance to get the size of a subtree, finding maximums/minimums, and so on.
+
+Let's cover Breadth-first search (BFS) and Depth-first search (DFS).
+
+[Breadth First Search]
+== Breadth-First Search for Binary Tree
+
+Breadth-first search goeas wide (breadth) before going deep. Hence, the name. In other words, it goes level by level. It visits all the inmediate nodes or children and then move on to the children's children.
+Let's how can we implement it!
+
+.Breath-First Search (BFS) Implementation
+[source, javascript]
+----
+include::{codedir}/data-structures/trees/binary-search-tree.js[tag=bfs,indent=0]
+----
+
+As you see, the BFS uses a <<Queue>> data structure. We enqueue all the children of the current node and then dequeue them as we visit them.
+
+Note the asterisk (`*`) in front of the function means that this function is a generator that yield values.
+
+.JavaScript Generators
+****
+
+JavaScript generators were added as part of ES6, they allow process possibly expensive operations one by one. You can convert any function into a generator by adding the asterisk in front and `yield`ing a value.
+
+Then you can use `next()` to get the value and also `done` to know if it's the last value. Here are some examples:
+
+[source, javascript]
+----
+function* dummyIdMaker() {
+  yield 0;
+  yield 1;
+  yield 2;
+}
+
+const generator = dummyIdMaker()
+
+// getting values
+console.log(generator.next()); // ↪️ {value: 0, done: false}
+console.log(generator.next()); // ↪️ {value: 1, done: false}
+console.log(generator.next()); // ↪️ {value: 2, done: false}
+console.log(generator.next()); // ↪️ {value: undefined, done: true}
+
+// iterating generator values with for..of loops
+for(const n of dummyIdMaker()) {
+  console.log(n);
+}
+
+// converting a generator to an array
+console.log(Array.from(dummyIdMaker())); // [0, 1, 2]
+----
+
+****
+
+
+== Depth-First Search for Binary Tree
+
+Depth-First search goes deep before going wide. It means, that starting for the root it goes as deep as it can until it found a leaf node (node without children), then it visits all the remaing nodes that were in the path.
+
+.Depth-First Search (DFS) Implementation with a Stack
+[source, javascript]
+----
+include::{codedir}/data-structures/trees/binary-search-tree.js[tag=dfs,indent=0]
+----
+
+This is a iterative implementation of a DFS using an <<Stack>>.
+It's almost identical to the BFS but instead of using a <<Queue>> we usa a Stack.
+We can also implement it as recursive functions are we are going to see in the <<Binary Tree Traversal>> section.
+
+== Depth-First Search vs. Breadth-First Search
+
+We can see visually the difference on how the DFS and BFS search for nodes:
+
+.Depth-First Search vs. Breadth-First Search
+image:depth-first-search-dfs-breadth-first-search-bfs.jpg[]
+
+As you can see the DFS in two iterations is already at one of the farthest node from the root while BFS search nearby nodes first.
+
+.Use DFS when:
+- The node you are looking for is likely to be *far* from the root.
+
+.Use BFS when:
+- The node you are looking for is *nearby* the root.
+
+:leveloffset: +1
+
+include::tree--binary-tree-traversal.adoc[]
+
+:leveloffset: -1
+
+
+
+
+
+
+

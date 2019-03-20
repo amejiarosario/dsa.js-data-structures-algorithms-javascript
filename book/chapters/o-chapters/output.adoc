@@ -1,0 +1,515 @@
+[[_Toc525822218]]Learning Fast Sorting Algorithms
+
+Introduction.
+
+* _______
+Topic 1
+_______
+* _______
+Topic 2
+_______
+* _______
+Topic 3
+_______
+
+= Avoiding Slow Sorting Algorithms
+
+Iterate and expand on the sub-topic.
+
+== Selection Sort
+
+Body text
+
+== Bubble Sort
+
+Body text
+
+== Insertion Sort
+
+Body text
+
+= Understanding Efficient Sorting Algorithms
+
+Iterate and expand on the sub-topic.
+https://en.wikipedia.org/wiki/Sorting_algorithm[https://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorithms]
+
+== Merge Sort
+
+Stable but uses additional memory, Block merge sort uses constant memory
+https://en.wikipedia.org/wiki/Block_sort
+
+The entire input must be iterated through, and this must occur O(log(n))
+times (the input can only be halved O(log(n)) times). n items iterated
+log(n) times gives O(n log(n)).
+
+== Quicksort
+
+Body text
+
+A binary search tree is a dynamic version of what happens during
+quicksort.
+
+== Tim Sort
+
+Stable but use additional memory
+
+== Heapsort
+
+Body text
+
+== Radix Sort
+
+t's been proven that no comparison sort can operate faster than this.
+Only sorts that rely on a special property of the input such as radix
+sort can beat this complexity. The constant factors of mergesort are
+typically not that great though so algorithms with worse complexity can
+often take less time.
+https://softwareengineering.stackexchange.com/a/297161/106607
+
+A trie is a dynamic version of what happens during radix sort.
+
+= Summary
+
+Body text
+
+5
+
+[[_Toc525822222]]Searching Efficiently
+
+Introduction.
+
+* _______
+Topic 1
+_______
+* _______
+Topic 2
+_______
+* _______
+Topic 3
+_______
+
+= Linear Search
+
+Iterate and expand on the sub-topic.
+
+== Linear Search
+
+Body text
+
+== Binary Search
+
+Body text
+
+== Sub-topic
+
+Body text
+
+= Searching in a Graph
+
+Iterate and expand on the sub-topic.
+
+== Depth First Search (DFS)
+
+Body text
+
+== Breadth First Search (BFS)
+
+Body text
+
+== Sub-topic
+
+Body text
+
+= Shortest Path with Dijkstra
+
+Iterate and expand on the sub-topic.
+
+== Sub-topic
+
+Body text
+
+== Sub-topic
+
+Body text
+
+== Sub-topic
+
+Body text
+
+= Summary
+
+Body text
+
+5
+
+[[_Toc525822227]]Balancing Binary Search Trees for Max Performance
+
+Introduction.
+
+* _______
+Topic 1
+_______
+* _______
+Topic 2
+_______
+* _______
+Topic 3
+_______
+
+= Tree Rotations
+
+Iterate and expand on the sub-topic.
+
+== Left Rotation
+
+Body text
+
+== Right Rotation
+
+Body text
+
+== Left-Right Rotation
+
+Body text
+
+== Right-Left Rotation
+
+Body text
+
+= AVL Tree
+
+Iterate and expand on the sub-topic.
+
+== Insertion
+
+Body text
+
+== Search by Value
+
+Body text
+
+== Deletion
+
+Body text
+
+= Summary
+
+Body text
+
+0
+
+[[_Toc525822231]]Algorithmic Thinking
+
+Introduction. Firstly, address your headings. Next introduce _yourself_
+to the chapter. Start with the topic. What is it. Tell them why it’s
+useful. Now explain your chapter structure. What key milestones will hit
+throughout the chapter.
+
+Reiterate the chapter structure with bullet points:
+
+* _______
+Topic 1
+_______
+* _______
+Topic 2
+_______
+* _______
+Topic 3
+_______
+
+= Algorithmic Paradigms
+
+Write your heading. Your headings should generally always try to tell
+the reader what they will be _doing_ with the section. A useful device
+are “gerund” words. These are –ing words, like “Implementing”,
+“Building, “Creating”, “Programming”, “Testing.
+
+Iterate and expand on the sub-topic. Explain what the sub-topic is.
+Where does it fit in to the wider topic? Explain the key steps/subtopics
+the reader will perform.
+
+Towards the end, outline any prerequisites the reader will need – will
+they need anything new installed? Will they want any specific files or
+programmes open?
+
+== Brute Force
+
+Body text. Now outline the key steps needed to perform the topic.
+
+Linear search
+
+== Greedy
+
+Body text,
+
+A Dijkstra Algorithm - finding shortest path to all graph vertices
+
+== Divide and Conquer
+
+Binary Search,
+https://github.com/trekhleb/javascript-algorithms#algorithms-by-paradigm
+
+B Merge Sort
+
+B Quicksort
+
+B Tree Depth-First Search (DFS)
+
+B Graph Depth-First Search (DFS)
+
+== Dynamic Programming
+
+Binary Search,
+
+= Topic
+
+Iterate and expand on the sub-topic.
+
+== Sub-topic
+
+Body text
+
+== Sub-topic
+
+Body text
+
+== Sub-topic
+
+Body text
+
+= Topic
+
+Iterate and expand on the sub-topic.
+
+== Sub-topic
+
+Body text
+
+== Sub-topic
+
+Body text
+
+== Sub-topic
+
+Body text
+
+= Summary
+
+Body text
+
+0
+
+[[_Toc525822236]]Stepping up your game with Advanced Data Structures
+
+Introduction.
+
+* _______
+Topic 1
+_______
+* _______
+Topic 2
+_______
+* _______
+Topic 3
+_______
+
+= Heap
+
+Iterate and expand on the sub-topic.
+
+== Insert
+
+Body text
+
+== Heapify
+
+Body text
+
+== Find max/min
+
+Body text
+
+== Extract max/min
+
+Body text
+
+== Increase Key
+
+Body text
+
+== Delete
+
+Body text
+
+== Merge
+
+Body text
+
+= Tries
+
+Iterate and expand on the sub-topic.
+https://github.com/trekhleb/javascript-algorithms/tree/master/src/data-structures/trie
+
+Why Trie? :-
+
+1.  With Trie, we can insert and find strings in O(L) time where L
+represent the length of a single word. This is obviously faster that
+BST. This is also faster than Hashing because of the ways it is
+implemented. We do not need to compute any hash function. No collision
+handling is required (like we do in open addressing and separate
+chaining)
+2.  Another advantage of Trie is, we can easily print all words in
+alphabetical order which is not easily possible with hashing.
+3.  We can efficiently do prefix search (or auto-complete) with Trie.
+
+Issues with Trie :-
+
+The main disadvantage of tries is that they need lot of memory for
+storing the strings. For each node we have too many node pointers(equal
+to number of characters of the alphabet), If space is concern, then
+Ternary Search Tree can be preferred for dictionary implementations. In
+Ternary Search Tree, time complexity of search operation is O(h) where h
+is height of the tree. Ternary Search Trees also supports other
+operations supported by Trie like prefix search, alphabetical order
+printing and nearest neighbor search.
+
+https://thenextcode.wordpress.com/2015/04/12/trie-vs-bst-vs-hashtable/
+
+https://en.wikipedia.org/wiki/Deterministic_acyclic_finite_state_automaton
+
+http://jayant7k.blogspot.com/2011/06/data-structures-trie.html
+
+The final conclusion is regarding tries data structure is that they are
+faster but require huge memory for storing the strings.
+
+Binary Tree, BST, Heaps, Tries, …
+
+Body text
+https://en.wikipedia.org/wiki/Heap_(data_structure)[https://en.wikipedia.org/wiki/Heap_(data_structure)#Comparison_of_theoretic_bounds_for_variants]
+
+== Applications
+
+Body text
+
+== Insert word
+
+Body text
+
+== Suggesting next characters
+
+Body text
+
+== Delete Word
+
+Body text
+
+Summary
+
+Body text
+
+Code
+
+_const_ Node = require('./node');
+
+_/**_
+
+_* Doubly linked list that keeps track of_
+
+_* the last and first element_
+
+_*/_
+
+_class_ LinkedList \{
+
+_constructor_() \{
+
+this.first = null; // head/root element
+
+_this_.last = null; _// last element of the list_
+
+_this_.size = 0; _// total number of elements in the list_
+
+}
+
+}
+
+===== Testing.ts
+
+// code
+
+Code end
+
+High 0
+
+Highend
+
+$ curl –-path-as-is http://localhost:3000/../test.txt
+
+Big O Cheatsheet
+
+[cols=",,,,,,,,,",options="header",]
+|=======================================================================
+|Data Structure |Searching by |Inserting at the |Deleting from the
+|Space Complexity | | | | |
+| |_Index/Key_ |_Value_ |_start_ |_middle_ |_end_ |_start_ |_middle_
+|_end_ |
+
+|Array |*O(1)* |*O(n)* |*O(n)* |*O(n)* |*O(1)* |*O(n)* |*O(n)* |*O(1)*
+|*O(n)*
+
+|Linked List (singly) |*O(n)* |*O(n)* |*O(1)* |*O(n)* |*O(1)* |*O(1)*
+|*O(n)* |*O(n)* |*O(n)*
+
+|Linked List (doubly) |*O(n)* |*O(n)* |*O(1)* |*O(n)* |*O(1)* |*O(1)*
+|*O(n)* |*O(1)* |*O(n)*
+
+|Stack |- |- |- |- |*O(1)* |- |- |*O(1)* |*O(n)*
+
+|Queue (w/array) |- |- |*O(n)* |- |- |- |- |*O(1)* |*O(n)*
+
+|Queue (w/list) |- |- |*O(1)* |- |- |- |- |*O(1)* |*O(n)*
+|=======================================================================
+
+[cols=",,,,,",options="header",]
+|=======================================================================
+|Data Structure |Searching by |Insert |Delete |Space Complexity |
+| |_Index/Key_ |_Value_ | | |
+
+|Binary Search Tree (unbalanced) |- |*O(n)* |*O(n)* |*O(n)* |*O(n)*
+
+|Binary Search Tree (balanced: AVL tree) |- |*O(log n)* |*O(log n)*
+|*O(log n)* |*O(n)*
+
+|Hash Map (Imperfect) |*O(n)* |*O(n)* |*O(n)* |*O(n)* |*O(n)*
+
+|Hash Map (optimized) |*O(1)** |*O(n)* |*O(1)** |*O(1)** |*O(n)*
+
+|Tree Map |*O(log n)* |*O(n)* |*O(log n)* |*O(log n)* |*O(n)*
+
+|Set (using Hash Map) |- |*O(1)** |*O(1)** |*O(1)** |*O(n)*
+
+|Set (using Tree Map) |- |*O(log n)* |*O(log n)* |*O(log n)* |*O(n)*
+|=======================================================================
+
+* = Amortized time. E.g. rehashing might affect run time
+
+image:extracted-media/media/image49.jpeg[image,width=528,height=186]
+
+Implementing an LRU Cache with HashMap
+
+Discards the least recently used items first. 
+
+https://leetcode.com/problems/lru-cache/description/
+
+TODO: Compare content with:
+
+* https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/[https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Stacks]
+* https://leetcode.com/explore/learn/
+* https://github.com/trekhleb/javascript-algorithms
+* Compare with: Data Structures and Algorithms.pdf by Lydia Hallie
+* Cracking code interviews
+* Grokking Algorithms
+* CS Distilled
+* Create poster like: http://bigocheatsheet.com/, http://bigoref.com/,
+* Princeton
+** https://introcs.cs.princeton.edu/java/11cheatsheet/

@@ -1,0 +1,21 @@
+[partintro]
+--
+Data Structures comes in many flavors. There’s no one to rule them all. There are tradeoffs for each one of them. Even thought in your day-to-day work, you might not need to re-implementing them. However, knowing how they work internally would help to choose one over another depending on your needs. We are going to explore the most common data structures time and space complexity.
+
+.In this part we are going to learn about the following linear data structures:
+-	Array
+-	Linked List
+-	Stack
+-	Queue
+
+Later, in the 2nd part we are going to explore non-linear data structures like Graphs and Trees.
+ifdef::backend-html5[]
+If you want to have a general overview of each one, take a look at the following interactive diagram:
++++
+<iframe
+  src="https://embed.kumu.io/85f1a4de5fb8430a10a1bf9c5118e015"
+  width="940" height="600" frameborder="0"></iframe>
++++
+endif::[]
+
+--

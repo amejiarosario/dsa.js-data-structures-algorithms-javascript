@@ -1,0 +1,54 @@
+= Fractional Knapsack Problem
+
+We are going to use the "Fractional Knapsack Problem" to learn how to design greedy algorithms. The problem is the following:
+
+> You are going to steal legumes (rice, beans, chickpeas, lentils) and you only brought a knapsack. What proportion of items can you choose to to get the highest loot without exceeding the maximum weight of the bag?
+
+Let's say we have the following items available.
+
+.Knpasack Input
+[source, javascript]
+----
+const items = [
+  { value: 1, weight: 1},
+  { value: 4, weight: 3 },
+  { value: 5, weight: 4 },
+  { value: 7, weight: 5 },
+];
+
+const maxWeight = 7;
+----
+
+So, we have 4 items that we can take. We can't take them all because the total weight is `13` and the maximum we can carry is `7`. We can't just take the first one because with value `1` because obviosly is not the best profit.
+
+How would you solve this problem?
+
+
+First, we have to define what parameters are we going to use to make our *greedy choice*. This some ideas:
+
+- We can take items with the *largest* value in hopes to get maximize profit. Based on that we can make take the last item and first having a total weight of 7 and total value of 8.
+
+- Also, we could take items *smallest* weight so we can fit as much as possible. Let's analyze both options. So we can take the first 2 items for a total value of 5 and total weight of 4. This is worst! [big]#👎#
+
+- One last idea, we can take items based on the *best* value/weight ratio and take fractions of an item to fill up the knapsack to maximum weight. In that case, we can take the last item and 2/3 of the 2nd item. We get a total value of `9.67` and total weight of `7`.
+
+.Items value/weight ratio
+----
+  { value: 1, weight: 1 }, // 1/1  = 1
+  { value: 4, weight: 3 }, // 4/3 = 1.33 ✅
+  { value: 5, weight: 4 }, // 5/4 = 1.25
+  { value: 7, weight: 5 }, // 7/5 = 1.4 ✅
+----
+
+Let's implement this algorithm!
+
+
+.Factional Knapsack Problem Implementation
+[source, javascript]
+----
+include::{codedir}/algorithms/knapsack-fractional.js[tag=snippet,indent=0]
+----
+
+What's the runtime of this algorithm?
+
+We have to sort the array based on value/weight ratio. Sorting runtime is O(n log n). The rest is linear operations, so we the answer is _O(n log n)_ for our greedy algorithm.
