@@ -5,22 +5,24 @@
 :revnumber: 1.0.0
 :revdate: {docdate}
 :revyear: 2019
+:revremark: First Edition
 :subject: Algorithms
-:keywords: Algorithms, Data Structures, JavaScript, Time Complexity, Linked Lists, Graphs
+:keywords: Algorithms, Data Structures, JavaScript, Coding Interviews, Computer Science, Time Complexity, Linked Lists, Graphs, Binary Search Trees
 :doctype: book
 :media: screen
 :imagesdir: {docdir}/images
 ifeval::["{media}" != "prepress"]
-:front-cover-image: image:cover.png[Front Cover,1050,1600]
+:front-cover-image: image:cover.png[Front Cover,1050,2600]
 endif::[]
 :toc:
+:toclevels: 3
 :icons: font
 :lang: en
 :language: javascript
 :experimental:
 :pdf-fontsdir: ./fonts
 :pdf-stylesdir: ./_resources/pdfstyles
-:pdf-style: infoq-screen
+:pdf-style: adrian-screen
 :title-logo-image: image:logo.png[Logo,50,50]
 
 // custom variables
@@ -52,11 +54,15 @@ include::chapters/chapter1.adoc[]
 
 // include::chapters/chapter3.adoc[]
 
-include::chapters/action.adoc[]
+// include::chapters/chapter4.adoc[]
 
-include::chapters/about.adoc[]
+include::chapters/appendix.adoc[]
 
-//ifdef::backend-pdf,backend-docbook[]
-//[index]
-//== Index
-//endif::[]s
+// include::chapters/epigraph.adoc[]
+
+// include::chapters/about.adoc[]
+
+ifdef::backend-pdf,backend-docbook[]
+[index]
+= Index
+endif::[]
