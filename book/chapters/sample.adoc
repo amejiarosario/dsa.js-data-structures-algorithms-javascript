@@ -287,7 +287,7 @@ digraph G {
 
 === Graphviz with svg
 
-[graphviz, Recursive Fibonacci call tree with dp, svg]
+[graphviz, Recursive Fibonacci call tree with dp (sample), svg]
 ....
 graph G {
     "fib(5)" -- { "fib(4)" }
@@ -297,7 +297,7 @@ graph G {
 }
 ....
 
-[graphviz, Recursive Fibonacci call tree with dp, svg]
+[graphviz, Words permutations (sample), svg]
 ....
 digraph g {
     node [shape = record,height=.1];
