@@ -7,7 +7,7 @@
 :revyear: 2019
 :revremark: First Edition
 :subject: Algorithms
-:keywords: Algorithms, Data Structures, JavaScript, Time Complexity, Linked Lists, Graphs
+:keywords: Algorithms, Data Structures, JavaScript, Coding Interviews, Computer Science, Time Complexity, Linked Lists, Graphs, Binary Search Trees
 :doctype: book
 :media: screen
 :imagesdir: {docdir}/images
@@ -15,6 +15,7 @@ ifeval::["{media}" != "prepress"]
 :front-cover-image: image:cover.png[Front Cover,1050,1600]
 endif::[]
 :toc:
+:toclevels: 3
 :icons: font
 :lang: en
 :language: javascript
