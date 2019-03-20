@@ -74,7 +74,7 @@ As you can see, we iterate through each letter and swap with the following lette
 
 In the following tree, you can visualize how the backtracking algorithm is swaping the letters.
 
-[graphviz, Recursive Fibonacci call tree with dp, svg]
+[graphviz, Words Permutations, svg]
 ....
 digraph g {
   node [shape = record,height=.1];
