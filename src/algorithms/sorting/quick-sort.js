@@ -34,9 +34,9 @@ function partition(array, low, high) {
 /**
  * QuickSort - Efficient in-place recursive sorting algorithm.
  * Avg. Runtime: O(n log n) | Worst: O(n^2)
- * @param {*} array
- * @param {*} low
- * @param {*} high
+ * @param {Number[]} array
+ * @param {Number} low
+ * @param {Number} high
  */
 function quickSort(array, low = 0, high = array.length - 1) {
   if (low < high) { // <4>
