@@ -5,8 +5,8 @@ Non-Linear data structures are everywhere whether you realize it or not. They ar
 .In this chapter we are going to learn:
 - Exciting <<Graph>> data structure applications
 - Searching efficiently with a <<Tree>> data structures.
-- One of the most versatile data structure of all <<HashMaps>>.
-- Keeping dups out with a <<Sets>>.
+- One of the most versatile data structure of all <<HashMap>>.
+- Keeping dups out with a <<Set>>.
 
 By the end of this section, you will know the data structures trade-offs and when to use one over the other.
 --

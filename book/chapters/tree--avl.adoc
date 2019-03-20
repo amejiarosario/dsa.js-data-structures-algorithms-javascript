@@ -57,4 +57,4 @@ include::{codedir}/data-structures/trees/avl-tree.js[tag=balance]
 The first thing we do is to see if one subtree is longer than the other.
 If so, then we check the children balance to determine if need a single or double rotation and in which direction.
 
-You can review <<Tree Roations>> in case you want a refresher.
+You can review <<Tree Rotations>> in case you want a refresher.

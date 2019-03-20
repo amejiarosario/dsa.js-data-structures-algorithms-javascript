@@ -30,6 +30,7 @@ endif::[]
 :datadir: {docdir}/data
 :source-highlighter: pygments
 :pygments-style: xcode
+// :chapter-label:
 
 
 ifndef::ebook-format[:leveloffset: 1]
@@ -48,6 +49,9 @@ include::chapters/preface.adoc[]
 
 // include::chapters/introduction.adoc[]
 
+// TODO: (optional) include numbers but need to fix the part/chapter labels
+// :sectnums:
+
 include::chapters/chapter1.adoc[]
 
 include::chapters/chapter2.adoc[]
@@ -55,6 +59,8 @@ include::chapters/chapter2.adoc[]
 include::chapters/chapter3.adoc[]
 
 include::chapters/chapter4.adoc[]
+
+// :sectnums!:
 
 include::chapters/appendix.adoc[]
 

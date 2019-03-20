@@ -35,7 +35,7 @@ module AsciidoctorPdfExtensions
   end
 
   def layout_chapter_title node, title, opts = {}
-    puts node.id
+    puts node.id + ': ' + title
 
     if (sect_id = node.id) == '_dedication' || sect_id == 'acknowledgements'
       layout_heading_custom title, align: :center

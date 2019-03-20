@@ -72,7 +72,7 @@ Find bottlenecks of existing software and have an "algorithmic toolbox" to switc
 The first step to improve your code performance is to measure it. As somebody said:
 
 [quote, H. J. Harrington]
-Measurement is the first step that leads to control and eventually to improvement. If you can’t measure something, you can’t understand it. If you can’t understand it, you can’t control it. If you can’t manage it, you can’t improve it.
+Measurement is the first step that leads to control and eventually to improvement. If you can’t measure something, you can’t understand it. If you can’t understand it, you can’t control it. If you can’t control it, you can’t improve it.
 
 In this section, we are going to learn the basics of measuring our current code performance and compare it with other algorithms.
 
