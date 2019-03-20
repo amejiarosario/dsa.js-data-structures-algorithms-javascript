@@ -5,6 +5,7 @@
 :revnumber: 1.0.0
 :revdate: {docdate}
 :revyear: 2019
+:revremark: First Edition
 :subject: Algorithms
 :keywords: Algorithms, Data Structures, JavaScript, Time Complexity, Linked Lists, Graphs
 :doctype: book
