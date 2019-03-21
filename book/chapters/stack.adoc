@@ -47,7 +47,7 @@ Deleting is straightforward as well.
 include::{codedir}/data-structures/stacks/stack.js[tag=remove, indent=0]
 ----
 
-This time we used the linked list’s `removeLast` method. That’s all we need for a stack implementation. Check out the full implementation https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/stacks/stack.js[here].
+This time we used the linked list’s `removeLast` method. That’s all we need for a stack implementation. Check out the full implementation https://github.com/amejiarosario/dsa.js/blob/f69b744a1bddd3d99243ca64b3ad46f3f2dd7342/src/data-structures/stacks/stack.js#L6[here].
 
 == Implementation Usage
 

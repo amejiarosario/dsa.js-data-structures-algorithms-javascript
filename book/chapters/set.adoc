@@ -140,7 +140,7 @@ Array.from(set); //↪️ (4) [1, 2, 3, 5]
 
 No more duplicates in our array!
 
-Check out our https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/sets/tree-set.js[GitHub repo for the full TreeSet implementation].
+Check out our https://github.com/amejiarosario/dsa.js/blob/f69b744a1bddd3d99243ca64b3ad46f3f2dd7342/src/data-structures/sets/tree-set.js#L12[GitHub repo for the full TreeSet implementation].
 
 Let’s now, implement a `HashSet`.
 

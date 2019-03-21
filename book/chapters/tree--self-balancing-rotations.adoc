@@ -110,7 +110,7 @@ include::{codedir}/data-structures/trees/binary-tree-node.js[tag=setAndUpdatePar
 ----
 
 You can also checkout the full
-https://github.com/amejiarosario/dsa.js/blob/adfd8a660bbe0a7068fd7881aff9f51bdb9f92ae/src/data-structures/trees/binary-tree-node.js#L20[binary tree node implementation].
+https://github.com/amejiarosario/dsa.js/blob/adfd8a660bbe0a7068fd7881aff9f51bdb9f92ae/src/data-structures/trees/binary-tree-node.js#L9[binary tree node implementation].
 
 === Left Right Rotation
 
