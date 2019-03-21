@@ -2,7 +2,7 @@
 
 The selection sort is a simple sorting algorithm. As its name indicates, it chooses the lowest element from the list and move it where it should be.
 
-TIP: selection sort is a in-place sorting algorithms, it should be used when auxiliary memory is limited.
+TIP: Selection sort is a in-place sorting algorithms, it should be used when auxiliary memory is limited.
 
 .Selection sort algorithm
 . Start with the element in position 0.
@@ -38,7 +38,7 @@ It uses JavaScript ES6 destructing arrays.
 
 A variable can be assign to its values using the destructing syntax.
 
-[source, js]
+[source, javascript]
 ----
 let a, b;
 
@@ -51,7 +51,7 @@ console.log(b); //️↪️ 2
 
 Two variables values can be swapped in one destructuring expression.
 
-[source, js]
+[source, javascript]
 ----
 [a, b] = [b, a];
 console.log(a); //↪️ 2

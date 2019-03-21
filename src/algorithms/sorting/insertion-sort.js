@@ -11,10 +11,10 @@ const { swap } = require('./sorting-common');
 function insertionSort(collection) {
   const array = Array.from(collection);
 
-  for (let outer = 0; outer < array.length; outer += 1) {
+  for (let outer = 1; outer < array.length; outer++) {
     const insert = array[outer];
 
-    for (let inner = outer - 1; inner >= 0 && array[inner] > insert; inner -= 1) {
+    for (let inner = outer - 1; array[inner] > insert; inner--) {
       swap(array, inner + 1, inner);
     }
   }
