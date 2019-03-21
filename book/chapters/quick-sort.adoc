@@ -43,13 +43,13 @@ Merge sort has a _O(n log n)_ running time. For more details about the how to ex
 
 == Quicksort Properties
 
-- Time Complexity: [big]#✅# <<Linearithmic>> _O(n log n)_
-- Space Complexity: [big]#⚠️# <<Linear>> _O(n)_
 - <<Stable>>: [big]#✅# Yes
 - <<In-place>>: [big]#✅# Yes
-- <<Adaptive>>: [big]#️️️️️️️⛔️️️️️# No, mostly sorted array takes the same time O(n log n).
-- <<Online>>: [big]#️️️️️️️⛔️️️️️# No, the pivot element can be choose at random.
+- <<Adaptive>>: [big]#️❌# No, mostly sorted array takes the same time O(n log n).
+- <<Online>>: [big]#️❌# No, the pivot element can be choose at random.
 - Recursive: Yes
+- Time Complexity: [big]#✅# <<Linearithmic>> _O(n log n)_
+- Space Complexity: [big]#⚠️# <<Linear>> _O(n)_
 
 
 // Resources:

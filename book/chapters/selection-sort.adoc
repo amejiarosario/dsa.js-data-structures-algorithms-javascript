@@ -63,7 +63,8 @@ Without destructuring assignment, swapping two values requires a temporary varia
 
 == Selection Sort Properties
 
-- <<Stable>>: [big]#✅# Yes
+// - <<Stable>>: [big]#✅# Yes
+- <<Stable>>: [big]#️️❌# No
 - <<In-place>>: [big]#✅# Yes
 - <<Online>>: [big]#✅# Yes
 - <<Adaptive>>: [big]#✅# Yes

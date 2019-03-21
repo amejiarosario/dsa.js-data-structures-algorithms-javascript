@@ -23,11 +23,14 @@ include::sorting-intro.adoc[]
 
 // Slow Sorting
 
-include::insertion-sort.adoc[]
+include::bubble-sort.adoc[]
 
 include::selection-sort.adoc[]
 
-include::bubble-sort.adoc[]
+include::insertion-sort.adoc[]
+
+
+// include::insertion-selection-bubble-sort.adoc[]
 
 // Fast Sorting
 

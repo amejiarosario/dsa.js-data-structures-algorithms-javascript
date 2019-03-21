@@ -6,11 +6,6 @@ If you are given some cards that's probably how you are going to sort them.
 
 // Good illustration on of sorting a deck of cards:  https://www.khanacademy.org/computing/computer-science/algorithms/insertion-sort/a/insertion-sort
 
-.This is how it works:
-. Visit 2nd. If the current element is smaller than the previous one move to the place it should be.
-. Visit next element and do the same thing. The left is always sorted and the right is not (yet).
-. Repeat for the rest of the array.
-
 == Insertion Sort Implementation
 
 .Insertion sort
@@ -19,11 +14,16 @@ If you are given some cards that's probably how you are going to sort them.
 include::{codedir}/algorithms/sorting/insertion-sort.js[tag=sort, indent=0]
 ----
 
-//.Swap function
-//[source, javascript]
-//----
-//include::{codedir}/algorithms/insertion-sort.js[tag=swap, indent=0]
-//----
+// .Swap function
+// [source, javascript]
+// ----
+// include::{codedir}/algorithms/insertion-sort.js[tag=swap, indent=0]
+// ----
+
+.This is how it works:
+. Visit 2nd. If the current element is smaller than the previous one move to the place it should be.
+. Visit next element and do the same thing. The left side is always sorted and the right is not (yet).
+. Repeat for the rest of the array.
 
 == Insertion Sort Properties
 

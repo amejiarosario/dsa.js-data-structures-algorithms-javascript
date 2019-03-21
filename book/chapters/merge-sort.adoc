@@ -52,10 +52,10 @@ Merge sort has a _O(n log n)_  running time. For more details about the how to e
 
 == Merge Sort Properties
 
+- <<Stable>>: [big]#✅# Yes
+- <<In-place>>: [big]#️❌# No, it requires auxiliary memory O(n).
+- <<Online>>: [big]#️❌# No, new elements will require to sort the whole array.
+- <<Adaptive>>: [big]#️❌# No, mostly sorted array takes the same time O(n log n).
+- Recursive: Yes
 - Time Complexity: [big]#✅# <<Linearithmic>> _O(n log n)_
 - Space Complexity: [big]#⚠️# <<Linear>> _O(n)_
-- <<Stable>>: [big]#✅# Yes
-- <<In-place>>: [big]#⛔️️️️️# No, it requires auxiliary memory O(n).
-- <<Online>>: [big]#️️️️️️️⛔️️️️️# No, new elements will require to sort the whole array.
-- <<Adaptive>>: [big]#️️️️️️️⛔️️️️️# No, mostly sorted array takes the same time O(n log n).
-- Recursive: Yes
