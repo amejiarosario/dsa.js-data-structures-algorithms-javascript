@@ -1,7 +1,8 @@
 require 'asciidoctor-pdf' unless defined? ::Asciidoctor::Pdf
 
 module AsciidoctorPdfExtensions
-  # Override the built-in layout_toc to move colophon before front of table of contents
+  # Override the built-in https://github.com/asciidoctor/asciidoctor-pdf/blob/master/lib/asciidoctor-pdf/converter.rb
+  # layout_toc to move colophon before front of table of contents
   # NOTE we assume that the colophon fits on a single page
   def layout_toc doc, num_levels = 2, toc_page_number = 2, num_front_matter_pages = 0
     go_to_page toc_page_number unless (page_number == toc_page_number) || scratch?
@@ -49,6 +50,15 @@ module AsciidoctorPdfExtensions
       layout_heading title, size: @theme.base_font_size
     elsif sect_id.include? 'chapter' # chapters
       puts 'Processing ' + sect_id + '...'
+
+      blue = [91, 54, 8, 13]
+      green = [42, 1, 83, 1]
+      black = [0, 0, 0, 100]
+      yellow = 'FFCC02'
+      red = 'ff0267' # https://www.sessions.edu/color-calculator/
+      purple = '9a02ff'
+      light_green = '26FFF4'
+
       # use Akkurat font for all custom headings
       font 'Akkurat' do
         if node.document.attr? 'media', 'prepress'
@@ -56,11 +66,15 @@ module AsciidoctorPdfExtensions
         else
           move_down 180
         end
+
         if @ppbook
           layout_heading 'PART', align: :right, size: 100, style: :normal
         else
-          layout_heading 'PART', align: :right, size: 100, color: [91, 54, 8, 13], style: :normal
+          # layout_heading 'PART', align: :right, size: 100, color: blue, style: :normal
+          # layout_heading 'PART', align: :right, size: 100, color: red, style: :normal
+          layout_heading 'PART', align: :right, size: 100, color: yellow, style: :normal
         end
+
         move_up 40
 
         part_number = 'ONE'
@@ -73,12 +87,16 @@ module AsciidoctorPdfExtensions
         elsif sect_id.include? 'chapter-5'
           part_number = 'FIVE'
         end
+
+
         if @ppbook
           layout_heading part_number, align: :right, size: 100, style: :bold
           layout_heading title, align: :right, style: :normal, size: 30
         else
-          layout_heading part_number, align: :right, size: 100, color: [42, 1, 83, 1], style: :bold
-          layout_heading title, align: :right, color: [42, 1, 83, 1], style: :normal, size: 30
+          # layout_heading part_number, align: :right, size: 100, color: green, style: :bold
+          # layout_heading title, align: :right, color: green, style: :normal, size: 30
+          layout_heading part_number, align: :right, size: 100, color: yellow, style: :bold
+          layout_heading title, align: :right, style: :normal, size: 30
         end
       end
 
