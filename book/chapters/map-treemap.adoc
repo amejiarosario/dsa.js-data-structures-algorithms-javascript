@@ -36,8 +36,7 @@ For inserting a value on a TreeMap, we first need to inialize the tree:
 include::{codedir}/data-structures/maps/tree-maps/tree-map.js[tag=constructor, indent=0]
 ----
 
-The tree can be an instance of any Binary Search Tree that we implemented so far. However, for better performance, it should be a self-balanced tree like a https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/trees/red-black-tree.js[Red-Black Tree] or https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/trees/avl-tree.js[AVL Tree].
-
+The tree can be an instance of any Binary Search Tree that we implemented so far. However, for better performance, it should be a self-balanced tree like a https://github.com/amejiarosario/dsa.js/blob/f69b744a1bddd3d99243ca64b3ad46f3f2dd7342/src/data-structures/trees/red-black-tree.js[Red-Black Tree] or https://github.com/amejiarosario/dsa.js/blob/f69b744a1bddd3d99243ca64b3ad46f3f2dd7342/src/data-structures/trees/avl-tree.js[AVL Tree].
 
 Let's implement the method to add values to the tree.
 
@@ -85,4 +84,4 @@ include::{codedir}/data-structures/maps/tree-maps/tree-map.js[tag=delete, indent
 
 The BST implementation does all the heavy lifting.
 
-That’s it! To see the full file in context, click here: https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/maps/tree-maps/tree-map.js[here]
+That’s it! To see the full file in context, click here: https://github.com/amejiarosario/dsa.js/blob/f69b744a1bddd3d99243ca64b3ad46f3f2dd7342/src/data-structures/maps/tree-maps/tree-map.js[here]

@@ -1,7 +1,7 @@
 // tag::naiveHashCode[]
 /**
  * Naïve implementation of a non-cryptographic hashing function
- * @param {any} key key to be converted to a positive integer
+ * @param {any} key to be converted to a positive integer
  * @returns {integer} hash code (numeric representation of the key)
  */
 function hashCodeNaive(key) {
@@ -25,7 +25,7 @@ hashCode(10); //=> 97 ('1'=49 + '0'=48)
 /**
  * Calculates hash code that maps a key (value) to an integer (unbounded).
  * It uses a 20 bit offset to avoid Unicode value overlaps
- * @param {any} key key to be converted to a positive integer
+ * @param {any} key to be converted to a positive integer
  * @returns {BigInt} returns big integer (unbounded) that maps to the key
  */
 function hashCode(key) {

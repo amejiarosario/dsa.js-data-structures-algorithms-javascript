@@ -24,12 +24,16 @@ endif::[]
 :pdf-stylesdir: ./_resources/pdfstyles
 :pdf-style: adrian-screen
 :title-logo-image: image:logo.png[Logo,50,50]
-
 // custom variables
 :codedir: ../../src
 :datadir: {docdir}/data
 :source-highlighter: pygments
 :pygments-style: xcode
+:stem:
+:plantuml-config: {docdir}/_conf/umlconfig.txt
+// :hide-uri-scheme:
+// :chapter-label: Chapter
+// :appendix-caption: Appendix
 // :chapter-label:
 
 

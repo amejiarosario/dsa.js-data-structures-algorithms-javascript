@@ -3,9 +3,9 @@
 const myMap = new Map();
 
 // mapping values to keys
-myMap.set('string', 'foo');
-myMap.set(1, 'bar');
-myMap.set({}, 'baz');
+myMap.set('string', 'foo'); // string as key
+myMap.set(1, 'bar'); // number as key
+myMap.set({}, 'baz'); // object as key
 const obj1 = {};
 myMap.set(obj1, 'test');
 

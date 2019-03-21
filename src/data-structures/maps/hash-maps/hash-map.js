@@ -3,7 +3,7 @@ const LinkedList = require('../../linked-lists/linked-list');
 const { nextPrime } = require('./primes');
 
 /**
- * The Map object holds key-value pairs.
+ * The map holds key-value pairs.
  * Any value (both objects and primitive values) may be used as either a key or a value.
  *
  * Features:
@@ -16,9 +16,8 @@ class HashMap {
   // tag::constructorPartial[]
   /**
    * Initialize array that holds the values.
-   * @param {number} initialCapacity initial size of the array (should be a prime)
-   * @param {number} loadFactor if set, the Map will automatically
-   *  rehash when the load factor threshold is met
+   * @param {number} initialCapacity initial size of the array (preferably a prime)
+   * @param {number} loadFactor rehash is called when this threshold is met.
    */
   constructor(initialCapacity = 19, loadFactor = 0.75) {
     this.initialCapacity = initialCapacity;
@@ -46,7 +45,7 @@ class HashMap {
   /**
    * Polynomial hash codes are used to hash String typed keys.
    * It uses FVN-1a hashing algorithm for 32 bits
-   * @see https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
+   * @see http://bit.ly/fvn-1a
    * @param {any} key
    * @return {integer} bucket index
    */
@@ -70,11 +69,11 @@ class HashMap {
    *  containing key/value objects.
    *
    * Avg. Runtime: O(1)
-   *  Usually O(1) but there are many collisions it could be O(n).
+   *  Usually O(1) but if there are many collisions it could be O(n).
    *
    * @param {any} key
-   * @returns {object} object containing the bucket and
-   *  entry (LinkedList's node matching value)
+   * @returns {object} object `{ bucket, entry }` containing the bucket
+   *  and entry (LinkedList's node matching value)
    */
   getEntry(key) {
     const index = this.hashFunction(key); // <1>
@@ -97,25 +96,24 @@ class HashMap {
   /**
    * Insert a key/value pair into the hash map.
    * If the key is already there replaces its content.
-   * Avg. Runtime: O(1)
-   * In the case a rehash is needed O(n).
+   * Avg. Runtime: O(1). In the case a rehash is needed O(n).
    * @param {any} key
    * @param {any} value
-   * @returns {HashMap} Return the Map object to allow chaining
+   * @returns {HashMap} Return the map to allow chaining
    */
   set(key, value) {
     const { entry: exists, bucket } = this.getEntry(key);
 
-    if (!exists) { // add key/value if it doesn't find the key
+    if (!exists) { // key/value doesn't exist <1>
       bucket.push({ key, value, order: this.keysTrackerIndex });
-      this.keysTrackerArray[this.keysTrackerIndex] = key;
+      this.keysTrackerArray[this.keysTrackerIndex] = key; // <4>
       this.keysTrackerIndex += 1;
       this.size += 1;
-      if (bucket.size > 1) { this.collisions += 1; }
+      if (bucket.size > 1) { this.collisions += 1; } // <3>
       if (this.isBeyondloadFactor()) { this.rehash(); }
     } else {
       // update value if key already exists
-      exists.value = value;
+      exists.value = value; // <2>
     }
     return this;
   }
@@ -150,10 +148,10 @@ class HashMap {
 
   // tag::delete[]
   /**
-   * Removes the specified element from a Map object.
+   * Removes the specified element from the map.
    * Avg. Runtime: O(1)
    * @param {*} key
-   * @returns {boolean} true if an element in the Map object existed
+   * @returns {boolean} true if an element in the map existed
    *  and has been removed, or false if the element did not exist.
    */
   delete(key) {
@@ -193,7 +191,7 @@ class HashMap {
   // tag::rehash[]
   /**
    * Rehash means to create a new Map with a new (higher)
-   *  capacity with the purpose of outgrow collisions.
+   *  capacity with the purpose of outgrowing collisions.
    * @param {integer} newBucketSize new bucket size by default
    *  is the 2x the amount of data or bucket size.
    */
@@ -201,12 +199,14 @@ class HashMap {
     const newCapacity = nextPrime(newBucketSize);
     const newMap = new HashMap(newCapacity);
 
+    // copy all values to the new map
     for (const key of this.keys()) {
       newMap.set(key, this.get(key));
     }
 
     const newArrayKeys = Array.from(newMap.keys());
 
+    // override this map with the newMap
     this.reset(
       newMap.buckets,
       newMap.size,
@@ -219,7 +219,7 @@ class HashMap {
 
 
   /**
-   * Keys for each element in the Map object in insertion order.
+   * Keys for each element in the map in insertion order.
    * @returns {Iterator} keys without holes (empty spaces of deleted keys)
    */
   * keys() {
@@ -232,7 +232,7 @@ class HashMap {
   }
 
   /**
-   * Values for each element in the Map object in insertion order.
+   * Values for each element in the map in insertion order.
    * @returns {Iterator} values without holes (empty spaces of deleted values)
    */
   * values() {
@@ -242,7 +242,7 @@ class HashMap {
   }
 
   /**
-   * Contains the [key, value] pairs for each element in the Map object in insertion order.
+   * Contains the [key, value] pairs for each element in the map in insertion order.
    * @returns {Iterator}
    */
   * entries() {
