@@ -89,6 +89,8 @@ module AsciidoctorPdfExtensions
   end
 
   def layout_heading_custom string, opts = {}
+    puts "layout_heading_custom: #{string}"
+
     move_down 100
     typeset_text string, calc_line_metrics((opts.delete :line_height) || @theme.heading_line_height), {
       inline_format: true
