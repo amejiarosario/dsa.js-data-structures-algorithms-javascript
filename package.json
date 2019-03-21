@@ -20,10 +20,6 @@
     "coverage": "jest src/data-structures --coverage && open coverage/lcov-report/index.html",
     "linter": "npx eslint --fix -f codeframe src/"
   },
-<<<<<<< HEAD
-  "keywords": [],
-  "author": "",
-=======
   "keywords": [
     "algorithms",
     "data structures",
@@ -33,6 +29,5 @@
     "binary search trees"
   ],
   "author": "Adrian Mejia <hi+dsajs@adrianmejia.com>",
->>>>>>> dde5f7d... update lodash
   "license": "ISC"
 }
