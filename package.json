@@ -4,7 +4,7 @@
   "description": "Algorithms in JS",
   "main": "./src/data-structures/graphs/graph.js",
   "dependencies": {
-    "lodash": "4.17.10"
+    "lodash": "4.17.11"
   },
   "devDependencies": {
     "benchmark": "2.1.4",
@@ -20,7 +20,19 @@
     "coverage": "jest src/data-structures --coverage && open coverage/lcov-report/index.html",
     "linter": "npx eslint --fix -f codeframe src/"
   },
+<<<<<<< HEAD
   "keywords": [],
   "author": "",
+=======
+  "keywords": [
+    "algorithms",
+    "data structures",
+    "javascript",
+    "array",
+    "linked lists",
+    "binary search trees"
+  ],
+  "author": "Adrian Mejia <hi+dsajs@adrianmejia.com>",
+>>>>>>> dde5f7d... update lodash
   "license": "ISC"
 }
