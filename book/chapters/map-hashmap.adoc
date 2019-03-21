@@ -264,7 +264,7 @@ include::{codedir}/data-structures/maps/hash-maps/hash-map.js[tag=rehash, indent
 ----
 
 In the
-https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/hash-maps/primes.js[prime.js] file you can find the implementation for finding the next prime. Also, you can see the full HashMap implementation on this file: https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/hash-maps/hashmap.js[hashmap.js]
+https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/hash-maps/primes.js[prime.js] file you can find the implementation for finding the next prime. Also, you can see the full HashMap implementation on this file: https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/hash-maps/hashmap.js[hashmap.js]
 
 == HashMap time complexity
 

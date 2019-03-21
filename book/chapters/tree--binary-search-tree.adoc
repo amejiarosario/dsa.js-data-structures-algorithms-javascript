@@ -148,7 +148,7 @@ Take a look at the code above and the example. You will see how to remove node `
 include::{codedir}/data-structures/trees/binary-search-tree.js[tag=leftMost, indent=0]
 ----
 
-That’s all we need to remove elements from a BST. Check out the complete BST implementation https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/trees/binary-search-tree.js[here].
+That’s all we need to remove elements from a BST. Check out the complete BST implementation https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/trees/binary-search-tree.js[here].
 
 == Differentiating a balanced and non-balanced Tree
 

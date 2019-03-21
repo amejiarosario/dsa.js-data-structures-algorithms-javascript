@@ -98,7 +98,7 @@ Searching by index is very similar, we iterate through the list until we find th
 include::{codedir}/data-structures/linked-lists/linked-list.js[tag=searchByIndex, indent=0]
 ----
 
-If there’s no match, we return `undefined` then. The runtime is _O(n)_. As you might notice the search by index and by position methods looks pretty similar. If you want to take a look at the whole implementation https://github.com/amejiarosario/algorithms.js/blob/7694c20d13f6c53457ee24fbdfd3c0ac57139ff4/src/data-structures/linked-lists/linked-list.js#L8[click here].
+If there’s no match, we return `undefined` then. The runtime is _O(n)_. As you might notice the search by index and by position methods looks pretty similar. If you want to take a look at the whole implementation https://github.com/amejiarosario/dsa.js/blob/7694c20d13f6c53457ee24fbdfd3c0ac57139ff4/src/data-structures/linked-lists/linked-list.js#L8[click here].
 
 == Insertion
 
