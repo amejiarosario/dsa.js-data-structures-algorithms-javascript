@@ -50,6 +50,8 @@ include::chapters/preface.adoc[]
 
 include::chapters/chapter1.adoc[]
 
+include::chapters/sample.adoc[]
+
 // include::chapters/chapter2.adoc[]
 
 // include::chapters/chapter3.adoc[]

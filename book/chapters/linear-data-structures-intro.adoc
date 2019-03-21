@@ -1,6 +1,6 @@
 [partintro]
 --
-Data Structures comes in many flavors. There’s no one to rule them all. There are tradeoffs for each one of them. Even thought in your day-to-day work, you might not need to re-implementing them. However, knowing how they work internally would help to choose one over another depending on your needs. We are going to explore the most common data structures time and space complexity.
+Data Structures comes in many flavors. There’s no one to rule them all. There are tradeoffs for each one of them. Even thought in your day-to-day, you might not need to re-implementing them, knowing how they work internally would help you choose the right tool for the job. We are going to explore the most common data structures time and space complexity.
 
 .In this part we are going to learn about the following linear data structures:
 -	Array
@@ -8,7 +8,8 @@ Data Structures comes in many flavors. There’s no one to rule them all. There 
 -	Stack
 -	Queue
 
-Later, in the 2nd part we are going to explore non-linear data structures like Graphs and Trees.
+Later, in the next part we are going to explore non-linear data structures like Graphs and Trees.
+
 ifdef::backend-html5[]
 If you want to have a general overview of each one, take a look at the following interactive diagram:
 +++

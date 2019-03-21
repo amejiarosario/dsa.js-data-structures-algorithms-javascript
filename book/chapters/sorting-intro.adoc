@@ -1,19 +1,73 @@
-= Sorting
+= Sorting Properties
 
-Excepteur ad occaecat ex dolor reprehenderit esse occaecat exercitation Lorem. Consectetur laboris qui aliquip nisi cillum ea. Laborum Lorem ullamco tempor nisi Lorem qui tempor.
+Sorting implementations with the same time complexity might manipulate the data differently. We want to understand these differences so we can be aware of the side-effects it will have on data or extra resources. For instance, some solutions will need auxiliary memory to store temporary data while sorting while other can do it in place.
 
 == Stable
 
-Does not change the relative order of elements with equal keys.
+An stable sorting algorithms keeps the relative order of items with the same comparison criteria.
 
-== Online
+This specially useful when you want to sort on multiple phases. Let's say you have the following data:
 
-Can sort a list as it receives it.
+[source, javascript]
+----
+const users = [
+  { name: 'Bob', age: 32 },
+  { name: 'Alice', age: 30 },
+  { name: 'Don', age: 30 },
+  { name: 'Charly', age: 32 },
+];
+----
+
+If you sort by `name` you would have
+
+[source, javascript]
+----
+[
+  { name: 'Alice', age: 30 },
+  { name: 'Bob', age: 32 },
+  { name: 'Charly', age: 32 },
+  { name: 'Don', age: 30 },
+];
+----
+
+Then, here comes the important part, if you sort by `age` you might two different results.
+
+If the sorting algorithm is *stable*, it should keep the items with the same age ordered by `name`:
+
+[source, javascript]
+----
+[
+  { name: 'Alice', age: 30 },
+  { name: 'Don', age: 30 },
+  { name: 'Bob', age: 32 },
+  { name: 'Charly', age: 32 },
+];
+----
+
+However, if the sorting is *not stable*, then you will lose the relative order of the items and get something like this:
+
+[source, javascript]
+----
+[
+  { name: 'Don', age: 30 },
+  { name: 'Alice', age: 30 },
+  { name: 'Charly', age: 32 },
+  { name: 'Bob', age: 32 },
+];
+----
+
+Both results are correct, however, having a sorting algorithm is better if you want to do multiple sorting passes.
 
 == In-place
 
-only requires a constant amount O(1) of additional memory space. Does not use any other auxiliary memory.
+An in-place sorting algorithm would a space complexity of O(1). In other words, it does not use any other auxiliary memory because it moves the items in the collection itself.
+This is specially useful for memory constraint enviroments like robotics or embedded systems in appliances.
+
+== Online
+
+It can sort a list as it receives it.
+Online algorithms doesn't have to re-sort the whole collection for every new item added.
 
 == Adaptive
 
-Efficient for data sets that are already substantially sorted.
+It runs faster an already sorted or partially sorted collection.

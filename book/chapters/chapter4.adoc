@@ -11,6 +11,11 @@ include::algorithms-intro.adoc[]
 //
 = Sorting Algorithms
 
+Sorting is one of the most common solutions when we want to extract some insights about a collection of data.
+We can sort to get the maximum or minimun value and many algorithmic problems involves sorting data first.
+
+Before we dive into the most well-known sorting algorithms, let's discuess about the sorting properties.
+
 :leveloffset: +1
 
 // TODO: pending
