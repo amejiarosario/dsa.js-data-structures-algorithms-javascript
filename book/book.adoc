@@ -12,7 +12,8 @@
 :media: screen
 :imagesdir: {docdir}/images
 ifeval::["{media}" != "prepress"]
-:front-cover-image: image:cover.png[Front Cover,1050,1600]
+// :front-cover-image: image:cover.png[Front Cover,1050,1600]
+:front-cover-image: image:cover.png[pdfwidth=5.5in,align=center]
 endif::[]
 :toc:
 :toclevels: 3
