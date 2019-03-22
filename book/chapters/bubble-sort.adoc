@@ -1,21 +1,13 @@
 = Bubble Sort
 
 Bubble sort is a simple sorting algorithm that "bubbles up" the biggest values to the right side of the array.
+It's also call _((sinking sort))_ because the largest values sinks to the right side of the array.
+This algorithm is adaptive which means that if the array is already sorted it will take only _O(n)_ to "sort".
+However, if the array is quite out of order it will require _O(n^2^)_ to sort.
 
 == Bubble Sort Implementation
 
-Bubble sort can be implemented in any programming language. This are the general steps that this sorting algorithm follows:
-
-.Bubble Sort Algorithm
-. It moves one element at a time (from left to right). Everything on the left of the current element is already sorted, while everything to the right is not.
-. Start with the first element and make it the current element.
-. Compare elements to right of the current element.
-. Bubble up big values to the right of the array.
-.. Swap elements if the previous element is bigger than the previous one.
-. Move the current pointer to the next element and repeat for the rest of the array
-
-
-Let's convert these words into code!
+Bubble sort can be implemented in any programming language. Let's implement it first and explain it.
 
 .Bubble Sort implementation in JavaScript
 [source, javascript]
@@ -23,10 +15,11 @@ Let's convert these words into code!
 include::{codedir}/algorithms/sorting/bubble-sort.js[tag=sort, indent=0]
 ----
 <1> Convert any kind of iterable (array, sets, etc.) into an array or if is already and array it clones it so the input is not modified.
-<2> Goes through all the elements in the array
-<3> *Compares in pairs* (current vs next element) and swap them only if they are out of order. Bubbles up largest
-<4> If no swap was needed that means everything is sorted (this make this sorting adaptive, if everything is sorted it will be _O(n)_)
-<5> If a swap as performed means that the largest element is all the way to the right side and no need compare it anymore, thus `array.length - left`.
+<2> Starting from 0 compare current and next element
+<3> If they are out of order, swap the pair
+<4> Repeat pair comparison `n - 1` times, until the largest element is on the right side.
+<5> (optimization) If there was no swap means that the array is already sorted and no more work is needed. This make this sorting adaptive, if everything is sorted it will be only one pass: _O(n)_.
+<6> Each step moves the largest element from `0` to `n - i` to the right side. So, we need to do this `n - 1` to sort the array in case most elements needs to be swapped.
 
 Bubble sort has a <<Quadratic>> running time, as you might infer from the nested for-loop.
 

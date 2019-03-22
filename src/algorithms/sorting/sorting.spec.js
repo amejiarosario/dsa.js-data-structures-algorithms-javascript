@@ -29,7 +29,7 @@ sortingAlgorithms.forEach((sort) => {
       expect(sort([3, 2, 1])).toEqual([1, 2, 3]);
     });
 
-    it('should sort with with already sorted array', () => {
+    it('should sort with already sorted array', () => {
       expect(sort([1, 2, 3])).toEqual([1, 2, 3]);
     });
 
@@ -39,6 +39,10 @@ sortingAlgorithms.forEach((sort) => {
 
     it('should sort with duplicated values', () => {
       expect(sort([1, 3, 2, 1])).toEqual([1, 1, 2, 3]);
+    });
+
+    it('should sort with almost already sorted array', () => {
+      expect(sort([1, 2, 3, 0])).toEqual([0, 1, 2, 3]);
     });
   });
 });

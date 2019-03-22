@@ -9,16 +9,17 @@ const { swap } = require('./sorting-common');
 function bubbleSort(collection) {
   const array = Array.from(collection); // <1>
 
-  let swapped = false;
+  for (let i = 1; i < array.length; i++) { // <6>
+    let swapped = false;
 
-  for (let left = 0; left < array.length; left++) { // <2>
-    for (let right = 0; right < array.length - left; right++) { // <5>
-      if (array[right] > array[right + 1]) { // <3>
-        swap(array, right, right + 1);
+    for (let current = 0; current < array.length - i; current++) { // <4>
+      if (array[current] > array[current + 1]) { // <2>
+        swap(array, current, current + 1); // <3>
         swapped = true;
       }
     }
-    if (!swapped) break; // <4>
+
+    if (!swapped) break; // <5>
   }
 
   return array;
