@@ -1,3 +1,4 @@
+/*eslint-disable */
 const sortingAlgorithms = [
   require('./selection-sort'),
   require('./insertion-sort'),
@@ -38,10 +39,6 @@ sortingAlgorithms.forEach((sort) => {
 
     it('should sort with duplicated values', () => {
       expect(sort([1, 3, 2, 1])).toEqual([1, 1, 2, 3]);
-    });
-
-    it('should sort longer arrays', () => {
-
     });
   });
 });

@@ -22,10 +22,11 @@ Let's convert these words into code!
 ----
 include::{codedir}/algorithms/sorting/bubble-sort.js[tag=sort, indent=0]
 ----
-<1> Convert any kind of iterable (array, sets, etc.) into an array
-<2> Start on the first element (position 0)
-<3> Start scanning elements that are to the right of the current element.
-<4> If the previous element is bigger than the previous one, then swap them. This is called bubbling up bigger values to the right.
+<1> Convert any kind of iterable (array, sets, etc.) into an array or if is already and array it clones it so the input is not modified.
+<2> Goes through all the elements in the array
+<3> *Compares in pairs* (current vs next element) and swap them only if they are out of order. Bubbles up largest
+<4> If no swap was needed that means everything is sorted (this make this sorting adaptive, if everything is sorted it will be _O(n)_)
+<5> If a swap as performed means that the largest element is all the way to the right side and no need compare it anymore, thus `array.length - left`.
 
 Bubble sort has a <<Quadratic>> running time, as you might infer from the nested for-loop.
 

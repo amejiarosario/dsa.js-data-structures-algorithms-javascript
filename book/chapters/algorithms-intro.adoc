@@ -8,7 +8,7 @@ We are going to start with <<Sorting Algorithms>>
 then you are going to learn some techniques for solving problems.
 
 
-.We are going to discuss the following approaches for solving algorithms problems:
+.We are going to discuss the following techniques for solving algorithms problems:
 - <<Greedy Algorithms>>: makes greedy choices using heuristics to find the best solution without looking back.
 - <<Dynamic Programming>>: technique for solving problems with _overlapping subproblems_. It uses _memoization_ to avoid duplicated work.
 - <<Divide and Conquer>>: _divide_ problems into smaller pieces, _conquer_ each subproblem and then _join_ the results.
