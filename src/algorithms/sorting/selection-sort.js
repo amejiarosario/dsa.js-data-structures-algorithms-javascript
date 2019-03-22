@@ -13,18 +13,19 @@ const { swap } = require('./sorting-common');
  * @param {Array|Set} collection elements to be sorted
  */
 function selectionSort(collection) {
-  const array = Array.from(collection);
+  const array = Array.from(collection); // <1>
 
-  for (let left = 0; left < array.length; left++) {
-    let selection = array[left];
+  for (let left = 0; left < array.length; left++) { // <2>
+    let selection = left; // minimum value <3>
 
-    for (let right = left + 1; right < array.length; right++) {
-      const element = array[right];
-
-      if (element < selection) {
-        swap(array, left, right);
-        selection = array[left];
+    for (let right = left + 1; right < array.length; right++) { // <4>
+      if (array[selection] > array[right]) {
+        selection = right; // <5>
       }
+    }
+
+    if (selection !== left) {
+      swap(array, selection, left); // <6>
     }
   }
 

@@ -32,6 +32,7 @@ Don't get the wrong idea some greedy algorithms works very well if they are desi
 .Some examples greedy algorithms that works well:
 - <<Selection Sort>>: we select the best (minimum value) remove it from the input and then select the next minimum until everything is processed.
 - <<Merge Sort>>: the "merge" uses a greedy algorithm, where it combine two sorted arrays by looking at their current values and choosing the best (minimum) at every time.
+indexterm:[Merge Sort]
 
 
 .In general, we can follow these steps to design Greedy Algorithms:

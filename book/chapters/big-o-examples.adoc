@@ -95,7 +95,7 @@ An algorithm with a linearithmic runtime is represented as _O(n log n)_. This on
 [#linearithmic-example]
 === Sorting elements in an array
 
-The merge sort, like its name indicates, has two functions merge and sort. Let’s start with the sort function:
+The ((Merge Sort)), like its name indicates, has two functions merge and sort. Let’s start with the sort function:
 
 // image:image9.png[image,width=528,height=383]
 

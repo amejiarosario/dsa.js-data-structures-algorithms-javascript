@@ -1,6 +1,6 @@
 = Bubble Sort
 
-Bubble sort is a simple sorting algorithm that "bubbles up" the biggest values to the right side of the array.
+((Bubble sort)) is a simple sorting algorithm that "bubbles up" the biggest values to the right side of the array.
 It's also call _((sinking sort))_ because the largest values sinks to the right side of the array.
 This algorithm is adaptive which means that if the array is already sorted it will take only _O(n)_ to "sort".
 However, if the array is quite out of order it will require _O(n^2^)_ to sort.
@@ -20,6 +20,47 @@ include::{codedir}/algorithms/sorting/bubble-sort.js[tag=sort, indent=0]
 <4> Repeat pair comparison `n - 1` times, until the largest element is on the right side.
 <5> (optimization) If there was no swap means that the array is already sorted and no more work is needed. This make this sorting adaptive, if everything is sorted it will be only one pass: _O(n)_.
 <6> Each step moves the largest element from `0` to `n - i` to the right side. So, we need to do this `n - 1` to sort the array in case most elements needs to be swapped.
+
+
+The swap function is implemented as follows.
+
+.Swap function
+[source, javascript]
+----
+include::{codedir}/algorithms/sorting/sorting-common.js[tag=swap, indent=0]
+----
+
+It uses JavaScript ES6 destructing arrays.
+
+.JavaScript Array destructuring
+****
+*Assignment separate from declaration*
+
+A variable can be assign to its values using the destructing syntax.
+
+[source, javascript]
+----
+let a, b;
+
+[a, b] = [1, 2];
+console.log(a); //↪️ 1
+console.log(b); //️↪️ 2
+----
+
+*Swapping variables*
+
+Two variables values can be swapped in one destructuring expression.
+
+[source, javascript]
+----
+[a, b] = [b, a];
+console.log(a); //↪️ 2
+console.log(b); //️↪️ 1
+----
+
+Without destructuring assignment, swapping two values requires a temporary variable.
+****
+
 
 Bubble sort has a <<Quadratic>> running time, as you might infer from the nested for-loop.
 

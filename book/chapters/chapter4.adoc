@@ -6,28 +6,20 @@ include::algorithms-intro.adoc[]
 
 :leveloffset: +1
 
-//
-// Sorting algorithms
-//
-= Sorting Algorithms
-
-Sorting is one of the most common solutions when we want to extract some insights about a collection of data.
-We can sort to get the maximum or minimun value and many algorithmic problems involves sorting data first.
-
-Before we dive into the most well-known sorting algorithms, let's discuess about the sorting properties.
+include::sorting-intro.adoc[]
 
 :leveloffset: +1
 
-// TODO: pending
-include::sorting-intro.adoc[]
+include::sorting-properties.adoc[]
+
 
 // Slow Sorting
 
 include::bubble-sort.adoc[]
 
-include::selection-sort.adoc[]
-
 include::insertion-sort.adoc[]
+
+include::selection-sort.adoc[]
 
 
 // include::insertion-selection-bubble-sort.adoc[]

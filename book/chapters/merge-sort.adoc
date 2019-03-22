@@ -1,8 +1,10 @@
 = Merge Sort
 
-Merge sort is an efficient sorting algorithm that uses "divide and conquer" paradigm to accomplish it task faster. It uses auxiliary memory in the process of sorting.
+((Merge sort)) is an efficient sorting algorithm that uses <<Divide and Conquer, divide and conquer>> paradigm to accomplish its task faster. It uses auxiliary memory in the process of sorting.
 
 Merge sort algorithm splits the array in halves until 2 or less elements are left. It sorts these two elements and then merge back all halves until the whole array is sorted.
+
+image:image11.png[Mergesort visualization,width=500,height=600]
 
 == Merge Sort Implementation
 
