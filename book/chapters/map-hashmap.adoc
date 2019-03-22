@@ -296,5 +296,4 @@ Hash Map it’s very optimal for searching values by key in constant time *O(1)*
 {empty}* = Amortized run time. E.g. rehashing might affect run time.
 
 indexterm:[Runtime, Linear]
-
 As you can notice we have amortized times since, in the unfortunate case of a rehash, it will take O(n) while it resizes. After that, it will be *O(1)*.

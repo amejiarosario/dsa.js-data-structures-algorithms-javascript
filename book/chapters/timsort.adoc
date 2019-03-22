@@ -1,7 +1,6 @@
 = Tim Sort
 
 tim sort is an efficient recursive sorting algorithm that uses "divide and conquer" paradigm to sort faster. It can be implemented in-place so it doesn't require additonal memory.
-
 indexterm:[Divide and Conquer]
 
 In practice timsort outperforms efficient sorting algorithms like <<Merge Sort>>. And, of course, It also outperforms simple sorting algorithms like <<Selection Sort>>, <<Insertion Sort>> and <<Bubble Sort>>.

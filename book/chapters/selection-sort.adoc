@@ -38,5 +38,4 @@ One index is for the position in question (selection/left) and another one for f
 - Space Complexity: [big]#✅# <<Constant>> _O(1)_
 
 CAUTION: Selection sort is the worst compared <<Bubble Sort>> and <<Insertion Sort>>. The only advantage of selection sort is that it minimizes the number of swaps. In case, that swapping is expensive then it could make sense to use this one over the others.
-
 indexterm:[Runtime, Quadratic]

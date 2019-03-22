@@ -44,7 +44,6 @@ Let's do an exercise to explain better how backtracking works.
 > Return all the permutations (without repetitions) of a given word.
 
 indexterm:[Permutation]
-
 For instace, if you are given the word `art` these are the possible permutations:
 
 ----

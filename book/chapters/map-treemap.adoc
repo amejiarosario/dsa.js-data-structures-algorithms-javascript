@@ -10,7 +10,6 @@ Implementing a Map with a tree, TreeMap, has a couple of advantages over a HashM
 * Trees are more space efficient and don’t need to allocate memory beforehand (e.g. `HashMap`’s initial capacity) nor you have to rehash when is getting full.
 
 indexterm:[Runtime, Logarithmic]
-
 Ok, now that you know the advantages, let’s implement it!
 For a full comparison read the <<HashMap vs TreeMap>> section.
 

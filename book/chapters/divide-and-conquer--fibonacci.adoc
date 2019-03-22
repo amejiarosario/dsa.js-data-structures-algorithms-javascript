@@ -1,7 +1,6 @@
 = Recursive Fibonacci Numers
 
 To illustrate how we can solve a problem using divide and conquer, let's write a program to find the n-th fibonacci number.
-
 indexterm:[Fibonacci]
 
 .Fibonacci Numbers

@@ -96,5 +96,4 @@ image:image35.png[image,width=258,height=169]
 ****
 Heap is better at finding max or min values in constant time *O(1)*, while a balanced BST is good a finding any element in *O(log n)*. Heaps are often used to implement priority queues while BST is used when you need every value sorted.
 ****
-
 indexterm:[Runtime, Logarithmic]

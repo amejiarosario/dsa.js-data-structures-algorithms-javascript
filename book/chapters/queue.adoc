@@ -69,7 +69,6 @@ As an experiment, we can see in the following table that if we had implemented t
 | Queue (w/array) ^|- ^|- ^|- ^|- ^|*O(n)* ^|- ^|- ^|O(1) ^|O(n)
 | Queue (w/list) ^|- ^|- ^|- ^|- ^|O(1) ^|- ^|- ^|O(1) ^|O(n)
 |===
-
 indexterm:[Runtime, Linear]
 
 = Summary

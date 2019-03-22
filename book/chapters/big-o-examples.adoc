@@ -46,7 +46,6 @@ As you can see, in both examples (array and linked list) if the input is a colle
 == Logarithmic
 
 Represented in Big O notation as *O(log n)*, when an algorithm has this running time it means that as the size of the input grows the number of operations grows very slowly. Logarithmic algorithms are very scalable. One example is the *binary search*.
-
 indexterm:[Runtime, Logarithmic]
 
 [#logarithmic-example]
@@ -128,7 +127,6 @@ How do we obtain the running time of the merge sort algorithm? The mergesort div
 == Quadratic
 
 indexterm:[Runtime, Quadratic]
-
 Running times that are quadratic, O(n^2^), are the ones to watch out for. They usually don’t scale well when they have a large amount of data to process.
 
 Usually, they have double-nested loops that where each one visits all or most elements in the input. One example of this is a naïve implementation to find duplicate words on an array.
@@ -223,7 +221,6 @@ A factorial is the multiplication of all the numbers less than itself down to 1.
 === Getting all permutations of a word
 
 One classic example of an _O(n!)_ algorithm is finding all the different words that can be formed with a given set of letters.
-
 indexterm:[Permutation]
 
 .Word's permutations
