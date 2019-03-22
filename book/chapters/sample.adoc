@@ -287,6 +287,8 @@ digraph G {
 
 === Graphviz with svg
 
+indexterm:[Fibonacci]
+
 [graphviz, Recursive Fibonacci call tree with dp (sample), svg]
 ....
 graph G {

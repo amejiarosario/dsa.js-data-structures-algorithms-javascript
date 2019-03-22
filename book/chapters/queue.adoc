@@ -70,6 +70,7 @@ As an experiment, we can see in the following table that if we had implemented t
 | Queue (w/list) ^|- ^|- ^|- ^|- ^|O(1) ^|- ^|- ^|O(1) ^|O(n)
 |===
 
+indexterm:[Runtime, Linear]
 
 = Summary
 

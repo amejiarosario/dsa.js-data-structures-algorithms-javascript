@@ -211,6 +211,8 @@ rehash happens, it will take *O(n)* instead of *O(1)*. A `TreeSet` is always *O(
 |===
 {empty}* = Amortized run time. E.g. rehashing might affect run time to *O(n)*.
 
+indexterm:[Runtime, Linear]
+
 To recap, HashSet and TreeSet will keep data without duplicates. The
 difference besides runtime is that:
 

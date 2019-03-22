@@ -25,3 +25,5 @@ As we discussed so far, there are trade-off between the implementations
 | Tree Map (Red-Black Tree) ^|O(log n) ^|O(n) ^|O(log n) ^|O(log n) ^|O(log n)
 |===
 {empty}* = Amortized run time. E.g. rehashing might affect run time to *O(n)*.
+
+indexterm:[Runtime, Logarithmic]

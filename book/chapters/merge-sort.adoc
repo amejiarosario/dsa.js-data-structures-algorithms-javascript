@@ -1,6 +1,8 @@
 = Merge Sort
 
-((Merge sort)) is an efficient sorting algorithm that uses <<Divide and Conquer, divide and conquer>> paradigm to accomplish its task faster. It uses auxiliary memory in the process of sorting.
+((Merge Sort)) is an efficient sorting algorithm that uses <<Divide and Conquer, divide and conquer>> paradigm to accomplish its task faster. It uses auxiliary memory in the process of sorting.
+
+indexterm:[Divide and Conquer]
 
 Merge sort algorithm splits the array in halves until 2 or less elements are left. It sorts these two elements and then merge back all halves until the whole array is sorted.
 
@@ -35,8 +37,8 @@ As you can see this function is just a wrapper to transform things to array. The
 ----
 include::{codedir}/algorithms/sorting/merge-sort.js[tag=splitSort, indent=0]
 ----
-<1> Recursively divide the array in half until two or less elements are left.
-<2> Sort two or less elements.
+<1> Sort two elements manually.
+<2> Recursively divide the array in half until two or less elements are left.
 <3> Merge back the sorted halves in ascending order.
 
 Let's now take a look at the merge function:
@@ -60,4 +62,4 @@ Merge sort has a _O(n log n)_  running time. For more details about the how to e
 - <<Adaptive>>: [big]#️❌# No, mostly sorted array takes the same time O(n log n).
 - Recursive: Yes
 - Time Complexity: [big]#✅# <<Linearithmic>> _O(n log n)_
-- Space Complexity: [big]#⚠️# <<Linear>> _O(n)_
+- Space Complexity: [big]#⚠️# <<Linear>> _O(n)_, use auxiliary memory

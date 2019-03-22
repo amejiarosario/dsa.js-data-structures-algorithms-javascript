@@ -4,6 +4,8 @@ Let's solve the same Fibonacci problem but this time with dynamic programming.
 
 When we have recursive functions doing duplicated work is the perfect place for a dynamic programming optimization. We can save (or cache) the results of previous operations and speed up future computations.
 
+indexterm:[Fibonacci]
+
 .Recursive Fibonacci Implemenation using Dynamic Programming
 [source, javascript]
 ----
@@ -23,5 +25,7 @@ graph G {
 ....
 
 This looks pretty linear now. It's runtime _O(n)_!
+
+indexterm:[Runtime, Linear]
 
 TIP: Saving previous results for later is a technique called "memoization" and is very common to optimize recursive algorithms with exponential time complexity.

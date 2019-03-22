@@ -47,6 +47,8 @@ As you can see, in both examples (array and linked list) if the input is a colle
 
 Represented in Big O notation as *O(log n)*, when an algorithm has this running time it means that as the size of the input grows the number of operations grows very slowly. Logarithmic algorithms are very scalable. One example is the *binary search*.
 
+indexterm:[Runtime, Logarithmic]
+
 [#logarithmic-example]
 === Searching on a sorted array
 
@@ -102,17 +104,18 @@ The ((Merge Sort)), like its name indicates, has two functions merge and sort. L
 .Sort part of the mergeSort
 [source, javascript]
 ----
-include::{codedir}/runtimes/04-merge-sort.js[tag=sort]
+include::{codedir}/algorithms/sorting/merge-sort.js[tag=splitSort]
 ----
-
-Starting with the sort part, we divide the array into two halves and then merge them (line 16) recursively with the following function:
+<1> If the array only has two elements we can sort them manually.
+<2> We divide the array into two halves.
+<3> Merge the two parts recursively with the `merge` function explained below
 
 // image:image10.png[image,width=528,height=380]
 
 .Merge part of the mergeSort
 [source, javascript]
 ----
-include::{codedir}/runtimes/04-merge-sort.js[tag=merge]
+include::{codedir}/algorithms/sorting/merge-sort.js[tag=merge]
 ----
 
 The merge function combines two sorted arrays in ascending order. Let’s say that we want to sort the array `[9, 2, 5, 1, 7, 6]`. In the following illustration, you can see what each function does.
@@ -123,6 +126,8 @@ image:image11.png[Mergesort visualization,width=500,height=600]
 How do we obtain the running time of the merge sort algorithm? The mergesort divides the array in half each time in the split phase, _log n_, and the merge function join each splits, _n_. The total work we have *O(n log n)*. There more formal ways to reach to this runtime like using the https://adrianmejia.com/blog/2018/04/24/analysis-of-recursive-algorithms/[Master Method] and https://www.cs.cornell.edu/courses/cs3110/2012sp/lectures/lec20-master/lec20.html[recursion trees].
 
 == Quadratic
+
+indexterm:[Runtime, Quadratic]
 
 Running times that are quadratic, O(n^2^), are the ones to watch out for. They usually don’t scale well when they have a large amount of data to process.
 
@@ -218,6 +223,8 @@ A factorial is the multiplication of all the numbers less than itself down to 1.
 === Getting all permutations of a word
 
 One classic example of an _O(n!)_ algorithm is finding all the different words that can be formed with a given set of letters.
+
+indexterm:[Permutation]
 
 .Word's permutations
 // image:image15.png[image,width=528,height=377]

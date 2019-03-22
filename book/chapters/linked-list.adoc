@@ -249,6 +249,8 @@ So far, we have seen two liner data structures with different use cases. Here’
 | Linked List (doubly) ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(1) ^|O(1) ^|O(n) ^|*O(1)* ^|O(n)
 |===
 
+indexterm:[Runtime, Linear]
+
 If you compare the singly linked list vs. doubly linked list, you will notice that the main difference is deleting elements from the end. For a singly list is *O(n)*, while for a doubly list is *O(1)*.
 
 Comparing an array with a doubly linked list, both have different use cases:

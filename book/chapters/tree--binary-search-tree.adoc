@@ -170,3 +170,6 @@ We can sum up the tree operations using Big O notation:
 | BST (**un**balanced) ^|- ^|O(n) ^|O(n) ^|O(n) ^|O(n)
 | BST (balanced) ^|- ^|O(log n) ^|O(log n) ^|O(log n) ^|O(n)
 |===
+
+indexterm:[Runtime, Linear]
+indexterm:[Runtime, Logarithmic]

@@ -1,6 +1,8 @@
 = Quicksort
 
-Quicksort is an efficient recursive sorting algorithm that uses "divide and conquer" paradigm to sort faster. It can be implemented in-place so it doesn't require additonal memory.
+Quicksort is an efficient recursive sorting algorithm that uses <<Divide and Conquer, divide and conquer>> paradigm to sort faster. It can be implemented in-place so it doesn't require additonal memory.
+
+indexterm:[Divide and Conquer]
 
 In practice quicksort outperforms efficient sorting algorithms like <<Merge Sort>>. And, of course, It also outperforms simple sorting algorithms like <<Selection Sort>>, <<Insertion Sort>> and <<Bubble Sort>>.
 
@@ -51,6 +53,7 @@ Merge sort has a _O(n log n)_ running time. For more details about the how to ex
 - Time Complexity: [big]#✅# <<Linearithmic>> _O(n log n)_
 - Space Complexity: [big]#⚠️# <<Linear>> _O(n)_
 
+indexterm:[Space Complexity, Linear]
 
 // Resources:
 // https://www.khanacademy.org/computing/computer-science/algorithms/quick-sort/a/linear-time-partitioning
