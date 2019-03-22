@@ -59,8 +59,9 @@ module AsciidoctorPdfExtensions
       purple = '9a02ff'
       light_green = '26FFF4'
 
-      # use Akkurat font for all custom headings
-      font 'Akkurat' do
+      # use custom font for all custom headings
+      # font 'Akkurat' do
+      font 'Open Sans' do
         if node.document.attr? 'media', 'prepress'
           move_down 120
         else

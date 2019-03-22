@@ -13,9 +13,6 @@
 :imagesdir: {docdir}/images
 ifeval::["{media}" != "prepress"]
 :front-cover-image: image:cover-a4.png[Front Cover,595,842]
-// :front-cover-image: image:front-cover.pdf[]
-// :front-cover-image: image:cover.png[Front Cover,1050,646]
-// :front-cover-image: image:cover.png[pdfwidth=8.3in,align=center]
 endif::[]
 :toc:
 :toclevels: 3
