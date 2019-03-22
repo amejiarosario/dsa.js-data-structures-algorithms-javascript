@@ -8,6 +8,19 @@
 - [ ] Algorithms visualizations like https://bost.ocks.org/mike/algorithms/
 - [ ] sorting algorithms needs a comparator. So, it can sort objects as well. Replace `Array.sort` for `mergesort` in `src/algorithms/knapsack-fractional.js`
 
+# Watcher
+
+Install fswatch http://emcrisostomo.github.io/fswatch/usage.html
+```sh
+# Watch for changes
+brew install fswatch
+```
+
+Watch for changes in *.js and *.adoc
+```sh
+fswatch /Users/admejiar/Code/algorithmsJS/src/**/*.js /Users/admejiar/Code/algorithmsJS/**/*.adoc | xargs -n1 -I{} make pdf
+```
+
 # Troubleshooting
 Some notes while working on this project
 
@@ -50,3 +63,4 @@ alert('foo');
 console.log('bar');
 /* eslint-enable no-alert */
 ```
+

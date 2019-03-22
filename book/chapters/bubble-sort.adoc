@@ -28,6 +28,6 @@ Bubble sort has a <<Quadratic>> running time, as you might infer from the nested
 - <<Stable>>: [big]#✅# Yes
 - <<In-place>>: [big]#✅# Yes
 - <<Online>>: [big]#✅# Yes
-- <<Adaptive>>: [big]#✅# Yes
+- <<Adaptive>>: [big]#✅# Yes, _O(n)_ when already sorted
 - Time Complexity: [big]#⛔️# <<Quadratic>> _O(n^2^)_
 - Space Complexity: [big]#✅# <<Constant>> _O(1)_
