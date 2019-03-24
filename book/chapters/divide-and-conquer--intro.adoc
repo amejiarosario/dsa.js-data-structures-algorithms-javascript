@@ -10,9 +10,7 @@ We have already done some divide and conquer algorithms. This list will refresh 
 - <<logarithmic-example, Binary Search>>: find a value in a sorted collection by *spliting* the data in half until it finds the value.
 - <<Getting all permutations of a word, Permutations>>: *Take out* the first element from the input and solve permutation for the reminder of the data recursively, then *join* results and append the elements that were take out.
 
-We can solve algorithms using D&C algorithms using the following steps.
-
-.Divide and conquer algorithms steps:
+.In general, the divide and conquer algorithms have the following receipe:
 1. *Divide* data into subproblems.
 2. *Conquer* each subproblem.
 3. *Combine* solutions.
