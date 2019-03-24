@@ -257,7 +257,7 @@ class Graph {
   }
 }
 
-Graph.UNDIRECTED = Symbol('directed graph'); // one-way edges
-Graph.DIRECTED = Symbol('undirected graph'); // two-ways edges
+Graph.UNDIRECTED = Symbol('undirected graph'); // one-way edges
+Graph.DIRECTED = Symbol('directed graph'); // two-ways edges
 
 module.exports = Graph;
