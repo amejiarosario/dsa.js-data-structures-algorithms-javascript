@@ -10,7 +10,7 @@ We are covering the following data structures.
 [![Interactive Data Structures](https://user-images.githubusercontent.com/418605/46118890-ba721180-c1d6-11e8-82bc-6a671428b422.png)](https://embed.kumu.io/85f1a4de5fb8430a10a1bf9c5118e015)
 
 ### Linear Data Structures
-1. **Arrays**: Built-in in most languages so not implemented here. [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/arrays/array.js) | [Details](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Array).
+1. **Arrays**: Built-in in most languages so not implemented here. [Details](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Array).
 2. **Linked Lists**: each data node has a link to the next (and previous). [Code](https://github.com/amejiarosario/algorithms.js/tree/master/src/data-structures/linked-lists) | [Details](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Linked-Lists).
 3. **Queue**: data flows in a "first-in, first-out" (FIFO) manner. [Code](https://github.com/amejiarosario/algorithms.js/tree/master/src/data-structures/queues) | [Details](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Queues).
 4. **Stacks**:  data flows in a "last-in, first-out" (LIFO) manner. [Code](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Stacks) | [Details](https://github.com/amejiarosario/algorithms.js/tree/master/src/data-structures/stacks).
@@ -31,11 +31,11 @@ We are covering the following data structures.
 We cover the following algorithms and techniques.
 
 - Sorting algorithms
-  - Bubble Sort
-  - Insertion Sort
-  - Selection Sort
-  - Merge Sort
-  - Quicksort
+  - Bubble Sort: [Code](https://github.com/amejiarosario/dsa.js/blob/master/src/algorithms/sorting/bubble-sort.js)
+  - Insertion Sort: [Code](https://github.com/amejiarosario/dsa.js/blob/master/src/algorithms/sorting/insertion-sort.js)
+  - Selection Sort: [Code](https://github.com/amejiarosario/dsa.js/blob/master/src/algorithms/sorting/selection-sort.js)
+  - Merge Sort: [Code](https://github.com/amejiarosario/dsa.js/blob/master/src/algorithms/sorting/merge-sort.js)
+  - Quicksort: [Code](https://github.com/amejiarosario/dsa.js/blob/master/src/algorithms/sorting/quick-sort.js)
 - Greedy Algorithms
 - Divide and Conquer
 - Dynamic Programming
