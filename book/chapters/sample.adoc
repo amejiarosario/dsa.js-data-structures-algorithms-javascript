@@ -1,4 +1,4 @@
-[[chapter-1]]
+[[chapter-3]]
 = Sample Section
 
 
