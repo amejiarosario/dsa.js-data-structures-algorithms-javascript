@@ -2,33 +2,26 @@
 
 (((Sorting, Insertion Sort)))
 (((Insertion Sort)))
-Insertion sort is a simple sorting algorithm. It is one of the most natural way of sorting. If you are given some cards that's probably how you are going to sort them.
+Insertion sort is a simple sorting algorithm. It is one of the most natural ways of sorting. If I give you some cards to sort you will probably use this algorithm without knowing.
 
 // Good illustration on of sorting a deck of cards:  https://www.khanacademy.org/computing/computer-science/algorithms/insertion-sort/a/insertion-sort
 
 == Insertion Sort Implementation
+
+Insertion sort does the following: It starts from the 2nd element, and it tries to find anything to the left that could be bigger than the current item.
+ It will swap all the elements with higher value
+ and insert the current element where it belongs.
 
 .Insertion sort
 [source, javascript]
 ----
 include::{codedir}/algorithms/sorting/insertion-sort.js[tag=sort, indent=0]
 ----
-<1> Convert to array or clone the array.
+<1> Convert to an array or clone the array.
 <2> Start with the 2nd element. Everything on the left is considered sorted.
-<3> Compare current element (2nd) to the previous one. If is bigger swap them, if not move to the next one.
+<3> Compare current element (2nd) to the previous one. If `left - 1` is bigger, it will swap places. If not, it will continue checking the next one to the left.
 <4> We check every element on the left side and swap any of them that are out of order
 
-
-// .Swap function
-// [source, javascript]
-// ----
-// include::{codedir}/algorithms/insertion-sort.js[tag=swap, indent=0]
-// ----
-
-// .This is how it works:
-// . Visit 2nd. If the current element is smaller than the previous one move to the place it should be.
-// . Visit next element and do the same thing. The left side is always sorted and the right is not (yet).
-// . Repeat for the rest of the array.
 
 == Insertion Sort Properties
 

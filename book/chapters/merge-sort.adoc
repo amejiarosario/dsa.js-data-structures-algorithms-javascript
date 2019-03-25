@@ -1,27 +1,14 @@
 = Merge Sort
 (((Sorting, Merge Sort)))
 (((Merge Sort)))
-Merge Sort is an efficient sorting algorithm that uses <<Divide and Conquer, divide and conquer>> paradigm to accomplish its task faster. It uses auxiliary memory in the process of sorting.
+Merge Sort is an efficient sorting algorithm that uses <<Divide and Conquer, divide and conquer>> paradigm to accomplish its task faster. However, It uses auxiliary memory in the process of sorting.
 
 indexterm:[Divide and Conquer]
-Merge sort algorithm splits the array in halves until 2 or less elements are left. It sorts these two elements and then merge back all halves until the whole array is sorted.
+Merge sort algorithm splits the array into halves until 2 or fewer elements are left. It sorts these two elements and then merges back all halves until the whole collection is sorted.
 
 image:image11.png[Mergesort visualization,width=500,height=600]
 
 == Merge Sort Implementation
-
-Merge sort implementation is as follows
-
-.Merge Sort Algorithm
-. It moves one element at a time (from left to right). Everything on the left of the current element is already sorted, while everything to the right is not.
-. Start with the first element and make it the current element.
-. Compare elements to right of the current element.
-. Merge up big values to the right of the array.
-.. Swap elements if the previous element is bigger than the previous one.
-. Move the current pointer to the next element and repeat for the rest of the array
-
-
-Let's convert these words into code!
 
 .Merge Sort implementation in JavaScript (mergeSort)
 [source, javascript]
@@ -30,29 +17,29 @@ include::{codedir}/algorithms/sorting/merge-sort.js[tag=sort, indent=0]
 ----
 <1> Convert any kind of iterable (array, sets, etc.) into an array
 
-As you can see this function is just a wrapper to transform things to array. The heavy lifting is done in `splitSort` as you can see below.
+As you can see this function is just a wrapper to transform things into an array. The heavy lifting is done in `splitSort` as you can see below.
 
 .Merge Sort implementation in JavaScript (splitSort)
 [source, javascript]
 ----
 include::{codedir}/algorithms/sorting/merge-sort.js[tag=splitSort, indent=0]
 ----
-<1> Sort two elements manually.
+<1> Base case: Sort two or less items manually.
 <2> Recursively divide the array in half until two or less elements are left.
 <3> Merge back the sorted halves in ascending order.
 
-Let's now take a look at the merge function:
+Let's take a look at the merge function:
 
 .Merge Sort implementation in JavaScript (merge)
 [source, javascript]
 ----
 include::{codedir}/algorithms/sorting/merge-sort.js[tag=merge, indent=0]
 ----
-<1> We need to keep track of 3 arrays indices (mergedArray, a1 and a2).
-<2> If `array1` has the lowest current value, we insert it into the merged array if not we then insert `array2`.
-<3> End result is array1 and array2 combined in ascending order (sorted).
+<1> We need to keep track of 3 arrays indices: `index` which keeps track of the combined array position, `i1` which is the `array1` index and `a2` for `array2`.
+<2> If `array1` current element (`i1`) has the lowest value, we insert it into the `mergedArray` if not we then insert `array2` element.
+<3> `mergedArray` is `array1` and `array2` combined in ascending order (sorted).
 
-Merge sort has a _O(n log n)_  running time. For more details about the how to extract the runtime go to <<Linearithmic>>.
+Merge sort has an _O(n log n)_  running time. For more details about how to extract the runtime go to <<Linearithmic>> section.
 
 == Merge Sort Properties
 
