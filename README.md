@@ -1,15 +1,13 @@
 # Data Structures and Algorithms in JavaScript
 
-This repository covers the implementation of the classical algorithms and data structures.
+This repository covers the implementation of the classical algorithms and data structures in JavaScript.
 
 <!-- This goes along with [these posts series](https://adrianmejia.com/tags/tutorial-algorithms/) that explain each implementation in details and also this [book](https://gum.co/dsajs) that explain these topics and some with more examples and illustrations. -->
 
-
-
-[![Interactive Data Structures](https://user-images.githubusercontent.com/418605/46118890-ba721180-c1d6-11e8-82bc-6a671428b422.png)](https://embed.kumu.io/85f1a4de5fb8430a10a1bf9c5118e015)
-
 ## Data Structures
 We are covering the following data structures.
+
+[![Interactive Data Structures](https://user-images.githubusercontent.com/418605/46118890-ba721180-c1d6-11e8-82bc-6a671428b422.png)](https://embed.kumu.io/85f1a4de5fb8430a10a1bf9c5118e015)
 
 ### Linear Data Structures
 1. **Arrays**: Built-in in most languages so not implemented here. [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/arrays/array.js) | [Details](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Array).
@@ -27,3 +25,24 @@ We are covering the following data structures.
 	1. **Hash Maps**: implements map using a hash function. [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/hash-maps/hashmap.js) | [Details](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#HashMaps)
 	2. **Tree Maps**: implement map using a self-balanced BST. WIP
 3. **Graphs**: data *nodes* that can have a connection or *edge* to zero or more adjacent nodes. Unlike trees, nodes can have multiple parents, loops. [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/graphs/graph.js) | [Details](https://adrianmejia.com/blog/2018/05/14/data-structures-for-beginners-graphs-time-complexity-tutorial/)
+
+## Algorithms
+
+We cover the following algorithms and techniques.
+
+- Sorting algorithms
+  - Bubble Sort
+  - Insertion Sort
+  - Selection Sort
+  - Merge Sort
+  - Quicksort
+- Greedy Algorithms
+- Divide and Conquer
+- Dynamic Programming
+- Backtracking algorithms
+
+## Book
+
+You can check out the book that goes deeper into each topic and provide addtional illustrations and explanations.
+
+<a href="https://gum.co/dsajs"><img src="book/cover.png" height="400px"></a>
