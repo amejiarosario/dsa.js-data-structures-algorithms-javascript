@@ -1,6 +1,8 @@
 = Insertion Sort
 
-((Insertion sort)) is a simple sorting algorithm. It is one of the most natural way of sorting.  If you are given some cards that's probably how you are going to sort them.
+(((Sorting, Insertion Sort)))
+(((Insertion Sort)))
+Insertion sort is a simple sorting algorithm. It is one of the most natural way of sorting. If you are given some cards that's probably how you are going to sort them.
 
 // Good illustration on of sorting a deck of cards:  https://www.khanacademy.org/computing/computer-science/algorithms/insertion-sort/a/insertion-sort
 

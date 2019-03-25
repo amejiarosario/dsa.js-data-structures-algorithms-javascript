@@ -1,16 +1,17 @@
-In this part of the book, we are going to cover algorithms in more details. We will provide algorithmic tools for classic problems that will help you improve your problem-solving skills.
+In this part of the book, we are going to cover examples of classical algorithms in more details. Also, we will provide algorithmic tools for improving your problem-solving skills.
 
 
 IMPORTANT: There's not a single approach to solve all problems but knowing well-known techniques can help you build your own faster.
 
 We are going to start with <<Sorting Algorithms>>
 //  and searching algorithms,
-then you are going to learn some techniques for solving problems.
+such as <<Insertion Sort>>, <<Merge Sort>> and some others.
+Later, you are going to learn some algorithmic paradigms that will help you to identify common patterns and solve problems from different angles.
 
 
 .We are going to discuss the following techniques for solving algorithms problems:
 - <<Greedy Algorithms>>: makes greedy choices using heuristics to find the best solution without looking back.
-- <<Dynamic Programming>>: technique for solving problems with _overlapping subproblems_. It uses _memoization_ to avoid duplicated work.
+- <<Dynamic Programming>>: a technique for speeding up recursive algorithms when there are many _overlapping subproblems_. It uses _memoization_ to avoid duplicating work.
 - <<Divide and Conquer>>: _divide_ problems into smaller pieces, _conquer_ each subproblem and then _join_ the results.
-- <<Backtracking>>: search _all (or some)_ possible paths. However it stops and _go back_ as soon as some contraint is broken.
-- _Brute Force_: generate all possible solutions. (Use it as the last resort or as starting point to optimize it with other techniques).
+- <<Backtracking>>: search _all (or some)_ possible paths. However, it stops and _go back_ as soon as notice the current solution is not working.
+- _Brute Force_: generate all possible solutions and tries all of them. (Use it as a last resort or as the starting point to optimize it with other techniques).

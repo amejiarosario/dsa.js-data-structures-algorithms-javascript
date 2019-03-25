@@ -1,12 +1,14 @@
 = Sorting Properties
 
-Sorting implementations with the same time complexity might manipulate the data differently. We want to understand these differences so we can be aware of the side-effects it will have on data or extra resources. For instance, some solutions will need auxiliary memory to store temporary data while sorting while other can do it in place.
+Sorting implementations with the same time complexity might manipulate the data differently. We want to understand these differences so we can be aware of the side-effects it will have on data or extra resources they will require. For instance, some solutions will need auxiliary memory to store temporary data while sorting while others can do it in place.
+
+Sorting properties are stable, adaptive, online and in-place. Let's go one by one.
 
 == Stable
+(((Sorting, stable)))
+An ((stable sorting)) algorithms keep the relative order of items with the same comparison criteria.
 
-An ((stable sorting)) algorithms keeps the relative order of items with the same comparison criteria.
-
-This specially useful when you want to sort on multiple phases.
+This especially useful when you want to sort on multiple phases.
 
 .Let's say you have the following data:
 [source, javascript]
@@ -30,9 +32,9 @@ const users = [
 ];
 ----
 
-Then, here comes the important part, if you sort by `age` you might get two different results.
+Then, here comes the _critical_ part, if you sort by `age` you might get (at least two) different results.
 
-.If the sorting algorithm is *stable*, it should keep the items with the same age ordered by `name`:
+.If the sorting algorithm is *stable*; it should keep the items with the same age ordered by `name`:
 [source, javascript]
 ----
 [
@@ -54,18 +56,18 @@ Then, here comes the important part, if you sort by `age` you might get two diff
 ];
 ----
 
-Both results are correctly sorted by `age`, however, having a stable sorting is better if you want to keep the relative possition of keys with the same value.
+Both results are sorted by `age`; however, having a stable sorting is better if you want to keep the relative position of data with the same value.
 
 == In-place
-
-An ((in-place sorting)) algorithm would a _space complexity_ of O(1). In other words, it does not use any other auxiliary memory because it moves the items in the collection itself.
-This is specially useful for memory constraint enviroments like robotics or embedded systems in appliances.
+(((Sorting, in-place)))
+An ((in-place sorting)) algorithm would have a _space complexity_ of O(1). In other words, it does not use any other auxiliary memory because it moves the items in the collection itself.
+No requiring extra memory for sorting is especially useful for memory constraint environments like robotics, smart devices, or embedded systems in appliances.
 
 == Online
-
+(((Sorting, online)))
 It can sort a list as it receives it.
-((Online sorting)) algorithms doesn't have to re-sort the whole collection for every new item added.
+((Online sorting)) algorithms don't have to re-sort the whole collection for every new item added.
 
 == Adaptive
-
+(((Sorting, adaptive)))
 Algorithms with ((adaptive sorting)) run faster, close to _O(n)_, on an already sorted (or partially sorted) collection.

@@ -248,7 +248,6 @@ class Graph {
     });
     return paths;
   }
-// tag::constructor[]
 }
 
 Graph.UNDIRECTED = Symbol('undirected graph'); // one-way edges

@@ -1,6 +1,8 @@
 = Selection Sort
 
-The ((selection sort)) is a simple sorting algorithm. As its name indicates, it chooses the lowest element from the list and move it where it should be.
+(((Sorting, Selection Sort)))
+(((Selection Sort)))
+The selection sort is a simple sorting algorithm. As its name indicates, it chooses the lowest element from the list and move it where it should be.
 
 .Selection sort algorithm
 . Start with the element in position 0.

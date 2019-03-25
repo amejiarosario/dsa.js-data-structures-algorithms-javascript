@@ -1,5 +1,6 @@
 = Quicksort
-
+(((Sorting, QuickSort)))
+(((QuickSort)))
 Quicksort is an efficient recursive sorting algorithm that uses <<Divide and Conquer, divide and conquer>> paradigm to sort faster. It can be implemented in-place so it doesn't require additonal memory.
 
 indexterm:[Divide and Conquer]
