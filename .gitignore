@@ -125,6 +125,27 @@ Desktop.ini
 .merge_file*
 
 ######################
+# My files
+# ln -s ~/OneDrive/Authoring/dsaJS/asciidoc/book/Makefile .
+# ln -s ~/OneDrive/Authoring/dsaJS/asciidoc/book/Gemfile .
+# ln -s ~/OneDrive/Authoring/dsaJS/asciidoc/book/Gemfile.lock .
+# ln -s ~/OneDrive/Authoring/dsaJS/asciidoc/book/_conf .
+# ln -s ~/OneDrive/Authoring/dsaJS/asciidoc/book/_resources .
+# ln -s ~/OneDrive/Authoring/dsaJS/asciidoc/book/extensions .
+# ln -s ~/OneDrive/Authoring/dsaJS/asciidoc/book/fonts .
+# ln -s ~/OneDrive/Authoring/dsaJS/asciidoc/book/images .
+######################
+Gemfile
+Gemfile.lock
+Makefile
+_conf
+_resources
+extensions
+fonts
+images
+
+
+######################
 # Gradle Wrapper
 ######################
 !gradle/wrapper/gradle-wrapper.jar
