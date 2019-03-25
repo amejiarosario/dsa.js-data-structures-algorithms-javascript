@@ -20,13 +20,16 @@ const Tree = require('../../trees/red-black-tree'); // fast insertion
  *
  */
 class TreeMap {
+  // tag::constructor[]
   /**
    * Initialize tree
    */
   constructor() {
     this.tree = new Tree();
   }
+  // end::constructor[]
 
+  // tag::set[]
   /**
    * Insert a key/value pair into the map.
    * If the key is already there replaces its content.
@@ -50,7 +53,9 @@ class TreeMap {
   get size() {
     return this.tree.size;
   }
+  // end::set[]
 
+  // tag::get[]
   /**
    * Gets the value out of the map
    * Runtime: O(log n)
@@ -72,7 +77,9 @@ class TreeMap {
   has(key) {
     return !!this.get(key);
   }
+  // end::get[]
 
+  // tag::delete[]
   /**
    * Removes the specified element from the map.
    * Runtime: O(log n)
@@ -83,12 +90,14 @@ class TreeMap {
   delete(key) {
     return this.tree.remove(key);
   }
+  // end::delete[]
 
+  // tag::iterators[]
   /**
    * Default iterator for this map
    */
   * [Symbol.iterator]() {
-    yield* this.tree.inOrderTraversal();
+    yield* this.tree.inOrderTraversal(); // <1>
   }
 
   /**
@@ -112,6 +121,7 @@ class TreeMap {
       yield node.data();
     }
   }
+  // end::iterators[]
 
   /**
    * Contains the [key, value] pairs for each element in the Map object

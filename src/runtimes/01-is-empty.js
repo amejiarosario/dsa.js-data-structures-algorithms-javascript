@@ -14,7 +14,7 @@ function isEmpty2(thing) {
   return !thing || thing.length < 1 || !Object.keys(thing).length;
 }
 
-
+// tag::isEmpty[]
 /**
  * Return true if an array is empty and false otherwise
  * @param {array|string} thing
@@ -28,5 +28,6 @@ function isEmpty2(thing) {
 function isEmpty(thing) {
   return !thing || thing.length < 1;
 }
+// end::isEmpty[]
 
 module.exports = isEmpty;

@@ -1,14 +1,15 @@
 const assert = require('assert');
 
+// tag::hasDuplicates[]
 /**
  * Finds out if an array has duplicates
- *
+ * Runtime: O(n)
+ * @example
+ *    hasDuplicates([]); //↪️ false
+ *    hasDuplicates([1, 1]); //↪️ true
+ *    hasDuplicates([1, 2]); //↪️ false
  * @param {Array} array
  * @returns {boolean} true if has duplicates, false otherwise
- * @example
- *    hasDuplicates([]) => false
- *    hasDuplicates([1, 1]) => true
- *    hasDuplicates([1, 2]) => false
  */
 function hasDuplicates(array) {
   const words = new Map();
@@ -21,6 +22,7 @@ function hasDuplicates(array) {
   }
   return false;
 }
+// end::hasDuplicates[]
 
 assert.equal(hasDuplicates([]), false);
 assert.equal(hasDuplicates([1, 1]), true);

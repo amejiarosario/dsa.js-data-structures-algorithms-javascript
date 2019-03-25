@@ -1,5 +1,6 @@
 const RedBlackTree = require('./red-black-tree.js');
-const {RED, BLACK} = RedBlackTree;
+
+const { RED, BLACK } = RedBlackTree;
 
 describe('RedBlackTree', () => {
   let tree;

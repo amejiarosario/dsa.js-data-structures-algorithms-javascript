@@ -1,0 +1,82 @@
+[preface]
+= Preface
+
+== What is in this book?
+
+_{book-title}_ is a book that can be read from cover to cover, where each section builds on top of the previous one. Also, it can be used as a reference manual where developers can refresh certain topics before an interview or looking for ideas to solve a problem optimally. (Cheat sheet summarizing all time complexities and implementations can be found in the <<Time Complexity Cheatsheet, appendix>>)
+
+This publication is designed to be concise, intending to serve software developers looking to get a firm conceptual understanding of data structures in a quick yet in-depth fashion. After reading this book, the reader should have a fundamental understanding of algorithms, including when and where to apply it, what are the trade-offs of using one data structure over the other. The reader will then be able to make intelligent decisions about algorithms and data structures in their projects require.
+
+== Who this book is for
+
+This book is for software developers familiar with JavaScript looking to improve their problem-solving skills or preparing for a job interview.
+
+_NOTE: The concepts in this book can be applied to any programming language. However, instead of doing examples on pseudo-code we are going to use JavaScript to implement the examples._
+
+== What you need for this book
+
+You will need Node.js. The book code was tested against Node.js v10.12, but newer versions should also work.
+
+== Conventions
+
+We use a number of typographical conventions within this book that distinguish between different kinds of information.
+
+Code in the text, including commands, variables, file names, CSS class names, and property names are shown as follows:
+
+[example]
+The `edgeDirection` parameter allow us to use one class for both undirected and directed graphs.
+
+A block of code is set out as follows. It may be colored, depending on the format in which you're reading this book.
+
+[source, javascript]
+----
+function* dummyIdMaker() {
+  yield 0;
+  yield 1;
+  yield 2;
+}
+
+const generator = dummyIdMaker()
+
+// getting values
+console.log(generator.next()); // ↪️ {value: 0, done: false}
+----
+
+When we want to draw your attention to certain lines of code, those lines are annotated using numbers accompanied by brief descriptions.
+
+.Quicksort implementation in JavaScript (QuickSort)
+[source, javascript]
+----
+include::{codedir}/algorithms/sorting/quick-sort.js[tag=quickSort, indent=0]
+----
+<1> Partition: picks a pivot and find the index where the pivot will be when the array is sorted.
+<2> Do the partition of the sub-array at the left of the pivot.
+<3> Do the partition of the sub-array at the right of the pivot.
+<4> Only do the partition when there's something to divide.
+
+
+The following admonitions are used to highlight content
+
+IMPORTANT: Reword essential concepts. Good for memorizing, tweeting and sharing.
+
+TIP: Tips are shown using callouts like this.
+
+WARNING: Warnings are shown using callouts like this.
+
+NOTE: This is a side note
+
+.Sidebar
+****
+Additional information about a certain topic may be displayed in a sidebar like this one.
+****
+
+Finally, this text shows what a quote looks like:
+
+[quote, H. J. Harrington]
+Measurement is the first step that leads to control and eventually to improvement. If you can’t measure something, you can’t understand it. If you can’t understand it, you can’t control it. If you can’t manage it, you can’t improve it.
+
+== Reader feedback
+
+Your feedback is very welcome and valuable. Let us know what your thoughts about this book — what you like or ideas to make it better.
+
+To send us feedback, e-mail us at hello+dsajs@adrianmejia.com, send a tweet to @amejiarosario, or post a question on Stack Overflow using the `algorithms`, `javascript` tags.

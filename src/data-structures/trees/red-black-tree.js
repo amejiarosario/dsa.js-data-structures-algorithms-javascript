@@ -1,10 +1,11 @@
 const BinarySearchTree = require('./binary-search-tree');
-// const TreeNode = require('./tree-node');
+
 const RED = Symbol('red');
 const BLACK = Symbol('black');
 
 /**
  * Red-Black Tree
+ * It's a self-balanced binary search tree optimized for fast insertion.
  *
  * Properties:
  *
@@ -89,12 +90,12 @@ class RedBlackTree extends BinarySearchTree {
     const grandParent = oldParent.parent;
 
     if (grandParent) {
-      // do something
+      // do nothing
     } else {
       this.root = node;
       node.parent = null;
-      node.left = oldParent;
-      oldParent.right = undefined;
+      node.setLeftAndUpdateParent(oldParent);
+      oldParent.setRightAndUpdateParent(null);
       // re-color
       node.color = BLACK;
       node.right.color = RED;
@@ -124,8 +125,8 @@ class RedBlackTree extends BinarySearchTree {
     } else {
       this.root = node;
       node.parent = null;
-      node.right = oldParent;
-      oldParent.left = undefined;
+      node.setRightAndUpdateParent(oldParent);
+      oldParent.setLeftAndUpdateParent(null);
       // re-color
       node.color = BLACK;
       node.right.color = RED;

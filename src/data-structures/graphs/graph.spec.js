@@ -43,18 +43,18 @@ describe('Graph', () => {
 
     it('should add node a as adjacent of b', () => {
       const [a, b] = graph.addEdge('a', 'b');
-      expect(a.adjacents.map(getValues)).toEqual(['b']);
-      expect(b.adjacents.map(getValues)).toEqual([]);
+      expect(a.getAdjacents().map(getValues)).toEqual(['b']);
+      expect(b.getAdjacents().map(getValues)).toEqual([]);
 
       graph.addEdge('b', 'a');
-      expect(b.adjacents.map(getValues)).toEqual(['a']);
+      expect(b.getAdjacents().map(getValues)).toEqual(['a']);
     });
 
     it('should add both connection on undirected graph', () => {
       graph = new Graph(Graph.UNDIRECTED);
       const [a, b] = graph.addEdge('a', 'b');
-      expect(a.adjacents.map(getValues)).toEqual(['b']);
-      expect(b.adjacents.map(getValues)).toEqual(['a']);
+      expect(a.getAdjacents().map(getValues)).toEqual(['b']);
+      expect(b.getAdjacents().map(getValues)).toEqual(['a']);
     });
 
     it('should add falsy values', () => {
@@ -71,23 +71,23 @@ describe('Graph', () => {
 
     it('should remove edges if they exist', () => {
       const [a, b] = graph.removeEdge('a', 'b');
-      expect(a.adjacents.map(getValues)).toEqual([]);
-      expect(b.adjacents.map(getValues)).toEqual([]);
+      expect(a.getAdjacents().map(getValues)).toEqual([]);
+      expect(b.getAdjacents().map(getValues)).toEqual([]);
     });
 
     it('should remove edges with falsy values', () => {
       const [a, b] = graph.addEdge(0, false);
-      expect(a.adjacents.map(getValues)).toEqual([false]);
-      expect(b.adjacents.map(getValues)).toEqual([]);
+      expect(a.getAdjacents().map(getValues)).toEqual([false]);
+      expect(b.getAdjacents().map(getValues)).toEqual([]);
       graph.removeEdge(0, false);
-      expect(a.adjacents.map(getValues)).toEqual([]);
-      expect(b.adjacents.map(getValues)).toEqual([]);
+      expect(a.getAdjacents().map(getValues)).toEqual([]);
+      expect(b.getAdjacents().map(getValues)).toEqual([]);
     });
 
     it('should not create node when removing unexisting target', () => {
       const [a, c] = graph.removeEdge('a', 'c');
       expect(graph.nodes.size).toBe(2);
-      expect(a.adjacents.map(getValues)).toEqual(['b']);
+      expect(a.getAdjacents().map(getValues)).toEqual(['b']);
       expect(c).toBe(undefined);
     });
 
@@ -133,6 +133,8 @@ describe('Graph', () => {
     let n4;
 
     beforeEach(() => {
+      //   5
+      //  /^
       // 0 -> 1 <- 2
       //      ^\-> 4 -> 3
       graph.addEdge(0, 1);

@@ -58,6 +58,7 @@ setImplementations.forEach((MySet) => {
       expect(set.delete(2)).toBe(true);
       expect(Array.from(set.entries())).toEqual([[0, 0], [1, 1], [3, 3]]);
       expect(set.delete(0)).toBe(true);
+      expect(Array.from(set.entries())).toEqual([[1, 1], [3, 3]]);
 
       expect(Array.from(set)).toEqual([1, 3]);
       expect(set.size).toBe(2);

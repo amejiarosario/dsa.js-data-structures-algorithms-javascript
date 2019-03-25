@@ -1,0 +1,41 @@
+= Selection Sort
+
+The ((selection sort)) is a simple sorting algorithm. As its name indicates, it chooses the lowest element from the list and move it where it should be.
+
+.Selection sort algorithm
+. Start with the element in position 0.
+. Find minimum element in the rest of array. If a new minimun is found swap them.
+. Repeat with the element in postion 1 and so until the last one.
+
+image:selection-sort.gif[]
+
+== Selection sort implementation
+For implementing the selection sort we need 2 indexes.
+
+.Selection sort
+[source, javascript]
+----
+include::{codedir}/algorithms/sorting/selection-sort.js[tag=sort, indent=0]
+----
+<1> Converts any collection to an array or clone existing array
+<2> Visit all elements in the array starting from 1st element (index 0)
+<3> Everything to the left side is considered sorted in it's final position. So, select `left` as the minimun value
+<4> Compare the `selection` to every element to the right
+<5> If it finds a value *smaller* than the selection, then update the `selection`.
+<6> Put the next smallest item to it's final position
+
+TIP: Selection sort minimize the number of swaps. It only does a swap per cycle while insertion sort and bubble sort swap inmediately.
+
+One index is for the position in question (selection/left) and another one for finding the minimun in the rest of the array (right).
+
+== Selection Sort Properties
+
+- <<In-place>>: [big]#✅# Yes
+- <<Stable>>: [big]#️️❌# No
+- <<Adaptive>>: [big]#️️❌# No
+- <<Online>>: [big]#️️❌# No
+- Time Complexity: [big]#⛔️# <<Quadratic>> _O(n^2^)_
+- Space Complexity: [big]#✅# <<Constant>> _O(1)_
+
+CAUTION: Selection sort is the worst compared <<Bubble Sort>> and <<Insertion Sort>>. The only advantage of selection sort is that it minimizes the number of swaps. In case, that swapping is expensive then it could make sense to use this one over the others.
+indexterm:[Runtime, Quadratic]

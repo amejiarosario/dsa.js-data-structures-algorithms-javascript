@@ -41,7 +41,7 @@ function diff(obj1, obj2) {
 // console.log(process.argv);
 const args = process.argv.slice(2);
 const fargs = args.slice(1).map(a => JSON.parse(a));
-console.log({args, fargs});
+console.log({ args, fargs });
 
 // const ELEMENTS = 1e10; // 11,803.013ms
 // const ELEMENTS = 1e9; // 1,000,000,000-elements: 634.663ms
@@ -59,7 +59,7 @@ const chunks = [];
 process.stdin.on('readable', () => {
   const chunk = process.stdin.read();
   if (chunk !== null) {
-    process.stdout.write(`.`);
+    process.stdout.write('.');
     chunks.push(chunk);
   }
 });

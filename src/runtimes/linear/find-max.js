@@ -4,7 +4,7 @@ function findMax(n) {
 
   for (let i = 0; i < n.length; i++) {
     counter++;
-    if(max === undefined || max < n[i]) {
+    if (max === undefined || max < n[i]) {
       max = n[i];
     }
   }
@@ -14,7 +14,8 @@ function findMax(n) {
 }
 
 const assert = require('assert');
+
 assert.equal(findMax([3, 1, 2]), 3);
-assert.equal(findMax([4,5,6,1,9,2,8,3,7]), 9);
-assert.equal(findMax([4,2,8,3,7,0,-1]), 8);
+assert.equal(findMax([4, 5, 6, 1, 9, 2, 8, 3, 7]), 9);
+assert.equal(findMax([4, 2, 8, 3, 7, 0, -1]), 8);
 

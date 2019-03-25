@@ -1,16 +1,18 @@
 const assert = require('assert');
 
+// tag::findXYZ[]
 /**
  * Brute force approach to find solutions for
  * this multi-variable equation:
  *   3x + 9y + 8z = 79
  *
+ * Runtime: O(n^3)
+ * @example
+ *    findXYZ({ start: -5, end: 5 }) //↪️ []
+ *    findXYZ({ end: 6 }) //↪️ [{ x: 1, y: 4, z: 5 }, { x: 4, y: 3, z: 5 }]
  * @param {Number} start where to start searching for solution
  * @param {Number} end last value to try (exclusive)
  * @returns {Array} array of objects with solutions e.g. [{x:1, y:1, z:1}]
- * @example
- *    findXYZ({ start: -5, end: 5 }) => []
- *    findXYZ({ end: 6 }) => [{ x: 1, y: 4, z: 5 }, { x: 4, y: 3, z: 5 }]
  */
 function findXYZ({ start = 0, end = 10 } = {}) {
   const solutions = [];
@@ -25,6 +27,7 @@ function findXYZ({ start = 0, end = 10 } = {}) {
   }
   return solutions;
 }
+// end::findXYZ[]
 
 assert.equal(findXYZ().length, 9);
 assert.deepStrictEqual(findXYZ({ start: -5, end: 5 }), []);

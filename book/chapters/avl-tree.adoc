@@ -1,0 +1,5 @@
+= AVL Tree
+
+The AVL tree builds on top of a <<Binary Search Tree>> and it keeps it balanced on insertions. It prevents a BST worst case scenario when the tree is totally unbalanced to one side (similar to linked list), then it takes O(n) to find an element instead of O(log n).
+
+

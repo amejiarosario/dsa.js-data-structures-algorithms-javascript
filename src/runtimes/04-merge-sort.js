@@ -1,12 +1,13 @@
 const assert = require('assert');
 
+// tag::merge[]
 /**
  * Merge two arrays in asc order
+ * @example
+ *    merge([2,5,9], [1,6,7]) => [1, 2, 5, 6, 7, 9]
  * @param {array} array1
  * @param {array} array2
  * @returns {array} merged arrays in asc order
- * @example
- *    merge([2,5,9], [1,6,7]) => [1, 2, 5, 6, 7, 9]
  */
 function merge(array1 = [], array2 = []) {
   const merged = [];
@@ -24,14 +25,16 @@ function merge(array1 = [], array2 = []) {
   }
   return merged;
 }
+// end::merge[]
 
+// tag::sort[]
 /**
  * Sort array in asc order using merge-sort
- * @param {array} array
  * @example
  *    sort([3, 2, 1]) => [1, 2, 3]
  *    sort([3]) => [3]
  *    sort([3, 2]) => [2, 3]
+ * @param {array} array
  */
 function sort(array = []) {
   const size = array.length;
@@ -46,6 +49,7 @@ function sort(array = []) {
   const mid = size / 2;
   return merge(sort(array.slice(0, mid)), sort(array.slice(mid)));
 }
+// end::sort[]
 
 assert.deepStrictEqual(sort([3, 2, 1]), [1, 2, 3]);
 assert.deepStrictEqual(sort([3]), [3]);

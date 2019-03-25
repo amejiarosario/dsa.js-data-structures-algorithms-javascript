@@ -1,12 +1,69 @@
 const BinarySearchTree = require('./binary-search-tree');
 const {
-  balanceUptream,
+  leftRotation,
+  rightRotation,
+  leftRightRotation,
+  rightLeftRotation,
 } = require('./tree-rotations');
 
+// tag::balance[]
+/**
+ * Balance tree doing rotations based on balance factor.
+ *
+ * Depending on the `node` balance factor and child's factor
+ * one of this rotation is performed:
+ * - LL rotations: single left rotation
+ * - RR rotations: single right rotation
+ * - LR rotations: double rotation left-right
+ * - RL rotations: double rotation right-left
+ *
+ * @param {TreeNode} node
+ */
+function balance(node) {
+  if (node.balanceFactor > 1) {
+    // left subtree is higher than right subtree
+    if (node.left.balanceFactor > 0) {
+      return rightRotation(node);
+    } else if (node.left.balanceFactor < 0) {
+      return leftRightRotation(node);
+    }
+  } else if (node.balanceFactor < -1) {
+    // right subtree is higher than left subtree
+    if (node.right.balanceFactor < 0) {
+      return leftRotation(node);
+    } else if (node.right.balanceFactor > 0) {
+      return rightLeftRotation(node);
+    }
+  }
+  return node;
+}
+// end::balance[]
+
+// tag::balanceUptream[]
+/**
+ * Bubbles up balancing nodes a their parents
+ *
+ * @param {TreeNode} node
+ */
+function balanceUptream(node) {
+  let current = node;
+  let newParent;
+  while (current) {
+    newParent = balance(current);
+    current = current.parent;
+  }
+  return newParent;
+}
+// end::balanceUptream[]
+
+// tag::AvlTree[]
+/**
+ * AVL Tree
+ * It's a self-balanced binary search tree optimized for fast lookups.
+ */
 class AvlTree extends BinarySearchTree {
   /**
    * Add node to tree. It self-balance itself.
-   *
    * @param {any} value node's value
    */
   add(value) {
@@ -30,5 +87,6 @@ class AvlTree extends BinarySearchTree {
     return false;
   }
 }
+// end::AvlTree[]
 
 module.exports = AvlTree;

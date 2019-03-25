@@ -1,15 +1,16 @@
 const assert = require('assert');
 
+// tag::snippet[]
 /**
  * Find all the different permutations a word can have
- *
- * @param {string} word string or array of chars to find permutations
- * @param {string} prefix used internally for recursion
- * @returns {array} collection of all the ways the letters can be arranged
+ * Runtime: O(n!)
  * @example
  *    getPermutations('a') => ['a']
  *    getPermutations('ab') => ['ab', 'ba']
  *    getPermutations('mad') => ['mad', 'mda', 'amd', 'adm', 'dma', 'dam']
+ * @param {string} word string or array of chars to find permutations
+ * @param {string} prefix used internally for recursion
+ * @returns {array} collection of all the ways the letters can be arranged
  */
 function getPermutations(word = '', prefix = '') {
   if (word.length <= 1) {
@@ -20,6 +21,8 @@ function getPermutations(word = '', prefix = '') {
     return result.concat(getPermutations(reminder, prefix + char));
   }, []);
 }
+// end::snippet[]
+
 
 assert.deepStrictEqual(getPermutations(), ['']);
 assert.deepStrictEqual(getPermutations('a'), ['a']);

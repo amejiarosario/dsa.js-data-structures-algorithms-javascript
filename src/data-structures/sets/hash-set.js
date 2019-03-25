@@ -1,5 +1,5 @@
-const HashMap = require('../maps/hash-maps/hashmap');
-
+const HashMap = require('../maps/hash-maps/hash-map');
+// tag::constructor[]
 /**
  * Set implemented with our HashMap
  * Have an average of O(1) time on all operations
@@ -16,6 +16,15 @@ class HashMapSet {
   }
 
   /**
+   * Get size of the set
+   */
+  get size() {
+    return this.hashMap.size;
+  }
+  // end::constructor[]
+
+  // tag::add[]
+  /**
    * Add a new value (duplicates will be added only once)
    * Avg. Runtime: O(1)
    * @param {any} value
@@ -23,7 +32,9 @@ class HashMapSet {
   add(value) {
     this.hashMap.set(value);
   }
+  // end::add[]
 
+  // tag::has[]
   /**
    * Check if value is already on the set
    * Avg. Runtime: O(1)
@@ -32,14 +43,9 @@ class HashMapSet {
   has(value) {
     return this.hashMap.has(value);
   }
+  // end::has[]
 
-  /**
-   * Get size of the set
-   */
-  get size() {
-    return this.hashMap.size;
-  }
-
+  // tag::delete[]
   /**
    * Delete a value from the set
    * Avg. Runtime: O(1)
@@ -48,7 +54,9 @@ class HashMapSet {
   delete(value) {
     return this.hashMap.delete(value);
   }
+  // end::delete[]
 
+  // tag::iterators[]
   /**
    * Make this class iterable
    */
@@ -75,6 +83,7 @@ class HashMapSet {
       yield [value, value];
     }
   }
+// end::iterators[]
 }
 
 module.exports = HashMapSet;

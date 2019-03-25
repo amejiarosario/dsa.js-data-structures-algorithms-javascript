@@ -1,0 +1,64 @@
+= Merge Sort
+
+((Merge Sort)) is an efficient sorting algorithm that uses <<Divide and Conquer, divide and conquer>> paradigm to accomplish its task faster. It uses auxiliary memory in the process of sorting.
+
+indexterm:[Divide and Conquer]
+Merge sort algorithm splits the array in halves until 2 or less elements are left. It sorts these two elements and then merge back all halves until the whole array is sorted.
+
+image:image11.png[Mergesort visualization,width=500,height=600]
+
+== Merge Sort Implementation
+
+Merge sort implementation is as follows
+
+.Merge Sort Algorithm
+. It moves one element at a time (from left to right). Everything on the left of the current element is already sorted, while everything to the right is not.
+. Start with the first element and make it the current element.
+. Compare elements to right of the current element.
+. Merge up big values to the right of the array.
+.. Swap elements if the previous element is bigger than the previous one.
+. Move the current pointer to the next element and repeat for the rest of the array
+
+
+Let's convert these words into code!
+
+.Merge Sort implementation in JavaScript (mergeSort)
+[source, javascript]
+----
+include::{codedir}/algorithms/sorting/merge-sort.js[tag=sort, indent=0]
+----
+<1> Convert any kind of iterable (array, sets, etc.) into an array
+
+As you can see this function is just a wrapper to transform things to array. The heavy lifting is done in `splitSort` as you can see below.
+
+.Merge Sort implementation in JavaScript (splitSort)
+[source, javascript]
+----
+include::{codedir}/algorithms/sorting/merge-sort.js[tag=splitSort, indent=0]
+----
+<1> Sort two elements manually.
+<2> Recursively divide the array in half until two or less elements are left.
+<3> Merge back the sorted halves in ascending order.
+
+Let's now take a look at the merge function:
+
+.Merge Sort implementation in JavaScript (merge)
+[source, javascript]
+----
+include::{codedir}/algorithms/sorting/merge-sort.js[tag=merge, indent=0]
+----
+<1> We need to keep track of 3 arrays indices (mergedArray, a1 and a2).
+<2> If `array1` has the lowest current value, we insert it into the merged array if not we then insert `array2`.
+<3> End result is array1 and array2 combined in ascending order (sorted).
+
+Merge sort has a _O(n log n)_  running time. For more details about the how to extract the runtime go to <<Linearithmic>>.
+
+== Merge Sort Properties
+
+- <<Stable>>: [big]#✅# Yes
+- <<In-place>>: [big]#️❌# No, it requires auxiliary memory O(n).
+- <<Online>>: [big]#️❌# No, new elements will require to sort the whole array.
+- <<Adaptive>>: [big]#️❌# No, mostly sorted array takes the same time O(n log n).
+- Recursive: Yes
+- Time Complexity: [big]#✅# <<Linearithmic>> _O(n log n)_
+- Space Complexity: [big]#⚠️# <<Linear>> _O(n)_, use auxiliary memory
