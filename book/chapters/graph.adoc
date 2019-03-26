@@ -18,7 +18,7 @@ include::{codedir}/data-structures/graphs/node.js[tag=constructor]
 As you can see, it’s pretty similar to the Linked List node.
 The only difference is that it uses an *array* of adjacent nodes instead of just one or two.
 
-Other difference between a linked list and graph is that a linked list always has a root node, while the graph doesn’t.
+Other difference between a linked list and graph is that a linked list always has a root node (or first element), while the graph doesn’t.
 You can start traversing a graph from anywhere. Let’s examine these graph properties!
 
 == Graph Properties
@@ -48,13 +48,15 @@ A graph can have *cycles* or not.
 .Cyclic vs Acyclic Graphs.
 image:image44.jpg[image,width=444,height=194]
 
-
+(((Cyclic Graph)))
 A *cyclic graph* is the one that you can pass through a node more than once.
 E.g., On the cyclic illustration, if you start in the green node, then go the orange and purple, finally, you could come back to green again.
 Thus, it has a *cycle*.
-
+(((Acyclic Graph)))
 An acyclic graph is the one that you can’t pass through a node more than once. E.g., in the acyclic illustration, can you to find a path where you can pass through the same vertex more than one?
 
+(((Directed Acyclic Graph)))
+(((DAG)))
 The *Directed Acyclic Graph (DAG)* is unique. It has many applications like scheduling tasks, spreadsheets change propagation, and so forth. DAG is also called *Tree* data structure only when each node has only *one parent*.
 
 === Connected vs Disconnected vs Complete Graphs
@@ -69,7 +71,7 @@ A *connected graph* is the opposite to disconnected, there’s a path between ev
 A *complete graph* is where every node is adjacent to all the other nodes in the graph. E.g., If there are seven nodes, every node has six edges.
 
 === Weighted Graphs
-
+(((Weighted Graphs)))
 Weighted graphs have labels in the edges (a.k.a *weight* or *cost*). The link weight can represent many things like distance, travel time, or anything else.
 
 .Weighted Graph representing USA airports distance in miles.
@@ -108,7 +110,7 @@ There are two main ways to graphs one is:
 * Adjacency List
 
 === Adjacency Matrix
-
+(((Adjacency Matrix)))
 Representing graphs as adjacency matrix is done using a two-dimensional array. For instance, let’s say we have the following graph:
 
 .Graph and its adjacency matrix.
@@ -155,7 +157,7 @@ TIP: When the graph has few connections compared to the number of nodes we say t
 The space complexity of the adjacency matrix is *O(|V|^2^)*, where |V| is the number of vertices/nodes.
 
 === Adjacency List
-
+(((Adjacency List)))
 Another way to represent a graph is by using an adjacency list. This time instead of using an array (matrix) we use a list.
 
 .Graph represented as an Adjacency List.

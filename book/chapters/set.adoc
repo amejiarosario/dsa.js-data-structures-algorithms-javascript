@@ -46,8 +46,9 @@ We can implement a `map` using a *balanced BST* and using a *hash function*. If 
 Let’s implement both!
 
 == Implementing a TreeSet
-
-We are to use a balanced BST (Red-Black Tree) to implement TreeSet.
+(((TreeSet)))
+(((Data Structures, Non-Linear, TreeSet)))
+We are to use a self-balanced BST (Red-Black Tree) to implement TreeSet.
 
 .TreeSet's constructor method and size attribute
 [source, javascript]
@@ -146,7 +147,8 @@ Check out our https://github.com/amejiarosario/dsa.js/blob/f69b744a1bddd3d99243c
 Let’s now, implement a `HashSet`.
 
 == Implementing a HashSet
-
+(((HashSet)))
+(((Data Structures, Non-Linear, HashSet)))
 The *HashSet* is the set implementation using a HashMap as its underlying data structure.
 
 The HashSet interface will be the same as the built-in `Set` or our previously implemented `TreeSet`.

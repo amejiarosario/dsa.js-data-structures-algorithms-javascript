@@ -3,8 +3,8 @@
 (((HashTable)))
 (((Data Structures, Non-Linear, HashMap)))
 A HashMap is a Map implementation. HashMaps are composed of two things:
-1) a hash function and
-2) a bucket array to store values.
+1) a _hash function_ and
+2) a bucket _array_ to store values.
 
 Before going into the implementation details let’s give an overview of how it works. Let’s say we want to keep a tally of things and animals:
 
@@ -22,14 +22,14 @@ image:image41.png[image,width=528,height=299]
 
 
 .This is the main idea:
-1.  We use a *hash function* to transform the keys (e.g., dog, cat, rat, …) into an array index. This array is called *bucket*.
-2.  The bucket holds the values (linked list in case of collisions).
+1.  We use a *hash function* to transform the keys (e.g., dog, cat, rat, …) into an array index. This _array_ is called *bucket*.
+2.  The bucket holds the values or list of values in case of collisions.
 
 In the illustration, we have a bucket size of 10. In bucket 0, we have a collision. Both `cat` and `art` keys map to the same bucket even thought their hash codes are different.
 
 In a HashMap, a *collision* is when different keys lead to the same index. They are nasty for performance since it can reduce the search time from *O(1)* to *O(n)*.
 
-Having a big bucket size can avoid a collision but also can waste too much memory. We are going to build an _optimized_ HashMap that re-sizes itself when it is getting full. This avoids collisions and doesn’t spend too much memory upfront. Let’s start with the hash function.
+Having a big bucket size can avoid a collision but also can waste too much memory. We are going to build an _optimized_ HashMap that re-sizes itself when it is getting full. This auto-resizing avoids collisions and don't need to allocate too much memory upfront. Let’s start with the *hash function*.
 
 == Designing an optimized hash function
 
@@ -76,7 +76,7 @@ include::{codedir}/data-structures/maps/hash-maps/hashing.js[tag=naiveHashCodeEx
 
 Notice that `rat` and `art` have the same hash code! These are collisions that we need to solve.
 
-Collisions happened because we are adding the letter's unicode and are not taking the order into account nor the type. We can do better by offsetting the character value based on their position in the string. We can also add the object type, so number `10` produce different output than string `'10'`.
+Collisions happened because we are adding the letter's Unicode and are not taking the order into account nor the type. We can do better by offsetting the character value based on their position in the string. We can also add the object type, so number `10` produce different output than string `'10'`.
 
 .Hashing function implementation that offset character value based on the position
 [source, javascript]
@@ -88,14 +88,14 @@ Since Unicode uses 20 bits, we can offset each character by 20 bits based on the
 
 .JavaScript built-in `BigInt`
 ****
-BigInt allows to operate beyond the maximum safe limit of integers.
+BigInt allows operating beyond the maximum safe limit of integers.
 
 [source, javascript]
 ----
 Number.MAX_SAFE_INTEGER // => 9,007,199,254,740,991
 ----
 
-BigInt has no virtually limits (until you run out of memory). It uses the suffix `n`.
+BigInt has no virtual limits (until you run out of physical memory). It uses the suffix `n`.
 
 [source, javascript]
 ----
@@ -103,7 +103,7 @@ BigInt has no virtually limits (until you run out of memory). It uses the suffix
 ----
 ****
 
-As you can imagine, summing 20bits per letter leads to a humongous number! That's the case even for 3 letters words. We are using `BigInt` so it doesn’t overflow.
+As you can imagine, summing 20bits per letter leads to a humongous number! That's the case even for three letters words. We are using `BigInt`, so it doesn’t overflow.
 
 .Verifying there's not hashing code duplicates
 [source, javascript]
@@ -111,9 +111,9 @@ As you can imagine, summing 20bits per letter leads to a humongous number! That'
 include::{codedir}/data-structures/maps/hash-maps/hashing.js[tag=hashCodeOffsetExample, indent=0]
 ----
 
-We don’t have duplicates anymore! If the keys have different content or type they have a different hash code. However, we need to represent these unbounded integers to finite buckets in an array. We do that using *compression function*. This function can be as simple as `% BUCKET_SIZE`.
+We don’t have duplicates anymore! If the keys have different content or type, they have a different hash code. However, we need to represent these unbounded integers to finite buckets in an array. We do that using *compression function*. This function can be as simple as `% BUCKET_SIZE`.
 
-However, there’s an issue with the last implementation. It doesn’t matter how big (and different) is the hash code number if we at the end use the modulus to get an array index. The part of the hash code that truly matters is the last bits.
+However, there’s an issue with the last implementation. It doesn’t matter how enormous (and different) is the hash code number if we at the end use the modulus to get an array index. The part of the hash code that truly matters is the last bits.
 
 .Look at this example with a bucket size of 4.
 [source, javascript]
@@ -149,7 +149,7 @@ Let’s design a better HashMap with what we learned.
 
 === Implementing an optimized hash function
 
-We are going to use a battle tested non-cryptographic hash function called FNV Hash.
+We are going to use a battle-tested non-cryptographic hash function called FNV Hash.
 
 .FNV (Fowler/Noll/Vo) Hash
 ****
@@ -176,7 +176,7 @@ hashCode('cat') //↪️ 4201630708
 hashCode('cats') //↪️ 3304940933
 ----
 
-A one letter change produce a totally different output.
+A one letter change produce a very different output.
 
 We are using the FVN-1a prime number (`16777619`) and the offset (`2166136261`) to reduce collisions even further. If you are curious where these numbers come from check out this http://bit.ly/fvn-1a[link].
 

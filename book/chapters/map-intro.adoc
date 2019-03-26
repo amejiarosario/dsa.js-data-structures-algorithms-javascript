@@ -15,7 +15,7 @@ include::{codedir}/data-structures/maps/map.js[tag=snippet, indent=0]
 
 In short, you set `key`/`value` pair and then you can get the `value` using the `key`.
 
-The attractive part of Maps is that they are very performant usually *O(1)* or *O(log n)* depending on the implementation. We can implement the maps using two different techniques:
+The attractive part of Maps is that they are very performant usually *O(1)* or *O(log n)* depending on the implementation. We can implement the maps using two different underlying data structures:
 
 * *HashMap*: it’s a map implementation using an *array* and a *hash function*. The job of the hash function is to convert the `key` into an index that maps to the `value`. Optimized HashMap can have an average runtime of *O(1)*.
 * *TreeMap*: it’s a map implementation that uses a self-balanced Binary Search Tree (like <<AVL Tree>>). The BST nodes store the key, and the value and nodes are sorted by key guaranteeing an *O(log n)* look up.

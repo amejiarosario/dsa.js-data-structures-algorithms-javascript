@@ -1,14 +1,12 @@
 = Graph Search
 
-Graph search allows you to visit all the elements connected given a starting node. There are two ways to navigate the graph, one is using Depth-First Search (DFS) and the other one is Breadth-First Search (BFS). Let's see the difference.
+Graph search allows you to visit search elements.
 
-== Depth-First Search for Graphs
+WARNING:  Graph search is very similar to <<Tree Search & Traversal>>. So, if you read that sections some of the concepts here will be familiar to you.
 
-With Depth-First Search (DFS) we go deep before going wide.
+There are two ways to navigate the graph, one is using Depth-First Search (DFS) and the other one is Breadth-First Search (BFS). Let's see the difference using the following graph.
 
-// TODO: add arrows to show DFS and create another one for BFS
-
-[graphviz, dfs-graph, png]
+[graphviz, directed graph, png]
 ....
 digraph G {
 
@@ -29,7 +27,7 @@ digraph G {
         3 -> 4
         3 -> 2
 
-    label="DFS"
+    // label="DFS"
 
     { rank=same; 3, 1 }
     { rank=same; 0, 4 }
@@ -37,30 +35,48 @@ digraph G {
 }
 ....
 
+== Depth-First Search for Graphs
+
+With Depth-First Search (DFS) we go deep before going wide.
+
+Let's say that we use DFS on the graph shown above, starting with node `0`.
+A DFS, will probably visit 5, then visit `1` and continue going down `3` and `2`. As you can see, we need to keep track of visited nodes, since in graphs we can have cycles like `1-3-2`.
+Finally, we back up to the remaining node `0` children: node `4`.
+
+So, DFS would visit the graph: `[0, 5, 1, 3, 2, 4]`.
+
+// TODO: add arrows to show DFS and create another one for BFS
+
 == Breadth-First Search for Graphs
 
 With Breadth-First Search (BFS) we go wide before going deep.
 
 // TODO: BFS traversal
+Let's say that we use BFS on the graph shown above, starting with the same node `0`.
+A BFS, will visit 5 as well, then visit `1` and will not go down to it's children.
+It will first finish all the children of node `0`, so it will visit node `4`.
+After all the children of node `0` are visited it continue with all the children of node `5`, `1` and `4`.
 
-== Depth-First Search vs Breadth-First Search in a Graph
+In summary, BFS would visit the graph: `[0, 5, 1, 4, 3, 2]`
 
-DFS and BFS can implementation can be almost identical the difference is the underlying data structured. In our implementation, we have a generic `graphSearch` where we pass the first element to start the search the data structure that we can to use:
+== Depth-First Search vs. Breadth-First Search in a Graph
 
-.DFS and BFS implemenation
+DFS and BFS can implementation can be almost identical; the difference is the underlying data structured. In our implementation, we have a generic `graphSearch` where we pass the first element to start the search the data structure that we can to use:
+
+.DFS and BFS implementation
 [source, javascript]
 ----
 include::{codedir}/data-structures/graphs/graph.js[tag=graphSearch,indent=0]
 ----
 
-Using an <<Stack>> (LIFO) for DFS will make use keep visiting the last node children, while having a <<Queue>> (FIFO) will allows to visit adjacent nodes first and "queue" their children for later visting.
+Using an <<Stack>> (LIFO) for DFS will make use keep visiting the last node children while having a <<Queue>> (FIFO) will allow to visit adjacent nodes first and "queue" their children for later visiting.
 
 TIP: you can also implement the DFS as a recursive function, similar to what we did in the <<Depth-First Search for Binary Tree, DFS for trees>>.
 
-You might wonder what's the difference between search algorithms in a tree and a graph? Check out the next section.
+You might wonder what the difference between search algorithms in a tree and a graph is? Check out the next section.
 
 == DFS/BFS on Tree vs Graph
 
-The difference between searching a tree and a graph is that the tree has always an starting point (root node). However, in a graph you can start searching anywhere. There's no root in graph.
+The difference between searching a tree and a graph is that the tree always has a starting point (root node). However, in a graph, you can start searching anywhere. There's no root.
 
-NOTE: Every tree is a graph but not every graph is a tree.
+NOTE: Every tree is a graph, but not every graph is a tree.

@@ -8,13 +8,13 @@
 .When to use a TreeMap vs. HashMap?
 * `HashMap` is more time-efficient. A `TreeMap` is more space-efficient.
 * `TreeMap` search complexity is *O(log n)*, while an optimized `HashMap` is *O(1)* on average. 
-* `HashMap`’s keys are in insertion order (or random in some implementations). `TreeMap`’s keys are always sorted.
+* `HashMap`’s keys are in insertion order (or random depending in the implementation). `TreeMap`’s keys are always sorted.
 * `TreeMap` offers some statistical data for free such as: get minimum, get maximum, median, find ranges of keys. `HashMap` doesn’t.
 * `TreeMap` has a guarantee always an *O(log n)*, while `HashMap`s has an amortized time of *O(1)* but in the rare case of a rehash, it would take an *O(n)*.
 
 == TreeMap Time complexity vs HashMap
 
-As we discussed so far, there are trade-off between the implementations
+As we discussed so far, there is a trade-off between the implementations.
 
 .Time complexity for different Maps implementations
 |===
