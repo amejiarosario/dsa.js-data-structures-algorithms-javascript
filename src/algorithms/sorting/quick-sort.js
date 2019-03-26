@@ -1,4 +1,4 @@
-const { swap } = require('./sorting-common');
+const { swap, shuffle } = require('./sorting-common');
 
 // tag::partition[]
 /**
@@ -14,18 +14,18 @@ const { swap } = require('./sorting-common');
  * @returns {integer} pivot index
  */
 function partition(array, low, high) {
-  const pivotInitialIndex = high; // <1>
-  let pivotIndex = low; // <2>
+  const pivotIndex = low; // <1>
+  let pivotFinalIndex = pivotIndex; // <2>
 
-  for (let current = low; current < high; current += 1) { // <3>
-    if (array[current] <= array[pivotInitialIndex]) { // <4>
-      swap(array, current, pivotIndex);
-      pivotIndex += 1;
+  for (let current = pivotIndex + 1; current <= high; current++) {
+    if (array[current] < array[pivotIndex]) { // <3>
+      pivotFinalIndex += 1; // <4>
+      swap(array, current, pivotFinalIndex); // <5>
     }
   }
 
-  swap(array, pivotInitialIndex, pivotIndex);
-  return pivotIndex;
+  swap(array, pivotIndex, pivotFinalIndex); // <6>
+  return pivotFinalIndex;
 }
 // end::partition[]
 
@@ -54,9 +54,11 @@ function quickSort(array, low = 0, high = array.length - 1) {
  * Quick sort
  * Runtime: O(n log n)
  * @param {Array|Set} collection elements to be sorted
+ * @returns {Array} sorted array
  */
 function quickSortWrapper(collection) {
   const array = Array.from(collection); // <1>
+  shuffle(array); // <2>
   return quickSort(array);
 }
 // end::sort[]

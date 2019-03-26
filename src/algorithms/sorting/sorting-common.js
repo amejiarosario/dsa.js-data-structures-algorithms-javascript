@@ -12,20 +12,23 @@ function swap(array, from, to) {
 }
 // end::swap[]
 
+// tag::shuffle[]
 /**
- * Move an element in an array *from* a postion *to* another.
+ * Shuffle items in an array in-place
  * Runtime: O(n)
- * @param {array} array
- * @param {integer} from index of the element to remove (source)
- * @param {integer} to index where the removed element would be move (destination)
+ * @param {*} array
  */
-function moveElement(array, from, to) {
-  if (from === to + 1) return;
-  const [elementToInsert] = array.splice(from, 1); // delete from position
-  array.splice(to + 1, 0, elementToInsert); // insert element in to the position.
+function shuffle(array) {
+  const { length } = array;
+  for (let index = 0; index < length; index++) {
+    const newIndex = Math.floor(Math.random() * length);
+    swap(array, index, newIndex);
+  }
+  return array;
 }
+// end::shuffle[]
 
 module.exports = {
   swap,
-  moveElement,
+  shuffle,
 };
