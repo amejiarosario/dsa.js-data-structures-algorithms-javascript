@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-operators */
 // tag::snippet[]
 /**
  * Solves Bounded Knapsack Problem (BKP)
@@ -11,7 +12,7 @@ function solveFractionalKnapsack(input, max) {
   const items = [];
 
   // sort by value/weight ratio
-  input.sort((a, b) => a.value/a.weight - b.value/b.weight); // eslint-disable-line
+  input.sort((a, b) => a.value / a.weight - b.value / b.weight);
 
   while (input.length && weight < max) {
     const bestRatioItem = input.pop();

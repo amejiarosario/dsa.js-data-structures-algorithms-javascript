@@ -1,7 +1,7 @@
 = Quicksort
 (((Sorting, QuickSort)))
 (((QuickSort)))
-Quicksort is an efficient recursive sorting algorithm that uses <<Divide and Conquer, divide and conquer>> paradigm to sort faster. It can be implemented in-place, so it doesn't require additonal memory.
+Quicksort is an efficient recursive sorting algorithm that uses <<Divide and Conquer, divide and conquer>> paradigm to sort faster. It can be implemented in-place, so it doesn't require additional memory.
 
 indexterm:[Divide and Conquer]
 In practice, quicksort outperforms other sorting algorithms like <<Merge Sort>>. And, of course, It also outperforms simple sorting algorithms like <<Selection Sort>>, <<Insertion Sort>> and <<Bubble Sort>>.
@@ -41,7 +41,7 @@ include::{codedir}/algorithms/sorting/Quick-sort.js[tag=partition, indent=0]
 <3> Check all values other than the pivot to see if any value is smaller than the pivot.
 <4> If the `current` element's value is less than the pivot, then increment `pivotFinalIndex` to make room on the left side.
 <5> We also swap the smaller element to the left side since it's smaller than the pivot.
-<6> Finally, we move the pivot to its final position. Everything to the left is smaller than the pivot and everything to the right is bigger.
+<6> Finally, we move the pivot to its final position. Everything to the left is smaller than the pivot, and everything to the right is bigger.
 
 *What would happen if use Quicksort for an array in reverse order?*
 
@@ -49,8 +49,8 @@ E.g. `[10, 7, 5, 4, 2, 1]`, if we always choose the first element as the pivot, 
 
 So in the first partition we would have `[7, 5, 4, 2, 1, 10]`.
 Then, we take `7` would be the next pivot and we have to swap everything to the left.
-This is the worst-case for this quicksort since it will perform O(n^2^) work.
-If instead of partitioning by the first we do it by the middle element (or even better at random) we would have better peformance. That's why we usually shuffle the array to avoid edge cases.
+Descending arrays are the worst-case for this quicksort since it will perform O(n^2^) work.
+If instead of partitioning by the first element we do it by the middle (or even better at random) we would have better performance. That's why we usually shuffle the array before doing quicksort to avoid edge cases.
 
 [source, javascript]
 ----
@@ -67,7 +67,7 @@ And you can see the implementation of `shuffle` below:
 include::{codedir}/algorithms/sorting/sorting-common.js[tag=shuffle, indent=0]
 ----
 
-With the optimization, Quicksort has a _O(n log n)_ running time. Similar to the merge sort we divide the array into halves each time. For more details about the how to extract the runtime go to <<Linearithmic>>.
+With the optimization, Quicksort has an _O(n log n)_ running time. Similar to the merge sort we divide the array into halves each time. For more details about how to extract the runtime go to <<Linearithmic>>.
 
 == Quicksort Properties
 

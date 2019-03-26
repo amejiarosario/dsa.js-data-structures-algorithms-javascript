@@ -1,9 +1,8 @@
 = Fibonacci Sequence with Dynamic Programming
-
+(((Fibonacci)))
 Let's solve the same Fibonacci problem but this time with dynamic programming.
 
 When we have recursive functions doing duplicated work is the perfect place for a dynamic programming optimization. We can save (or cache) the results of previous operations and speed up future computations.
-indexterm:[Fibonacci]
 
 .Recursive Fibonacci Implemenation using Dynamic Programming
 [source, javascript]
@@ -11,7 +10,7 @@ indexterm:[Fibonacci]
 include::{codedir}/algorithms/fibanacci-dynamic-programming.js[tag=snippet,indent=0]
 ----
 
-This implementation checks if we already calculated the value in the past, if not it will save it for later use.
+This implementation checks if we already calculated the value, if so it will save it for later use.
 
 [graphviz, Recursive Fibonacci call tree with dp, svg]
 ....
@@ -23,7 +22,8 @@ graph G {
 }
 ....
 
-This looks pretty linear now. It's runtime _O(n)_!
+This graph looks pretty linear now. It's runtime _O(n)_!
 indexterm:[Runtime, Linear]
 
-TIP: Saving previous results for later is a technique called "memoization" and is very common to optimize recursive algorithms with exponential time complexity.
+(((Memoization)))
+TIP: Saving previous results for later is a technique called "memoization". This is very common to optimize recursive algorithms with overlapping subproblems. It can make exponential algorithms linear!

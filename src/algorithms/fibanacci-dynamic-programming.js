@@ -2,6 +2,7 @@
 /**
  * Get Fibonacci number on the n-th position.
  * @param {integer} n position on the sequence
+ * @param {Map} memo cache of previous solutions
  * @returns {integer} n-th number
  */
 function fib(n, memo = new Map()) {

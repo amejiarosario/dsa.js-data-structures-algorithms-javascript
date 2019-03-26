@@ -1,5 +1,6 @@
 = Backtracking
-
+(((Backtracking)))
+(((Algorithmic Techniques, Backtracking)))
 Backtracking algorithms are used to find *all (or some)* solutions that satisfy a contraint.
 
 Bracktracking builds a solution step by step using recursion.
