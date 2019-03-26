@@ -31,4 +31,6 @@ include::{codedir}/algorithms/sorting/insertion-sort.js[tag=sort, indent=0]
 - <<Adaptive>>: [big]#✅# Yes
 - Time Complexity: [big]#⛔️# <<Quadratic>> _O(n^2^)_
 - Space Complexity: [big]#✅# <<Constant>> _O(1)_
-indexterm:[Runtime, Quadratic]
+
+(((Quadratic)))
+(((Runtime, Quadratic)))

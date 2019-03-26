@@ -23,7 +23,8 @@ graph G {
 ....
 
 This graph looks pretty linear now. It's runtime _O(n)_!
-indexterm:[Runtime, Linear]
+(((Linear)))
+(((Runtime, Linear)))
 
 (((Memoization)))
 TIP: Saving previous results for later is a technique called "memoization". This is very common to optimize recursive algorithms with overlapping subproblems. It can make exponential algorithms linear!

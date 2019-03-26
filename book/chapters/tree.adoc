@@ -1,5 +1,6 @@
 = Tree
-
+(((Tree)))
+(((Data Structures, Non-Linear, Tree)))
 A tree is a non-linear data structure where a node can have zero or more connections. The topmost node in a tree is called *root*. The linked nodes to the root are called *children* or *descendants*.
 
 .Tree Data Structure: root node and descendants.
@@ -50,13 +51,14 @@ image:image31.jpg[image]
 There are different kinds of trees depending on the restrictions. E.g. The trees that have two children or less are called *binary tree*, while trees with at most three children are called *Ternary Tree*. Since binary trees are most common we are going to cover them here and others in another chapter.
 
 === Binary Tree
-
+(((Binary Tree)))
+(((Data Structures, Non-Linear, Binary Tree)))
 The binary restricts the nodes to have at most two children. Trees, in general, can have 3, 4, 23 or more, but not binary trees.
 
 .Binary tree has at most 2 children while non-binary trees can have more.
 image:image32.png[image,width=321,height=193]
 
-Binary trees are the one of the most common types and it's used to build other data structures and applications.
+Binary trees are one of the most used kinds of tree, and they are used to build other data structures.
 
 .Binary Tree Applications
 - <<Map>>
@@ -66,7 +68,8 @@ Binary trees are the one of the most common types and it's used to build other d
 
 
 === Binary Search Tree (BST)
-
+(((Binary Search Tree)))
+(((Data Structures, Non-Linear, Binary Search Tree)))
 The Binary Search Tree (BST) is a specialization of the binary tree. BST has the same restriction as a binary tree; each node has at most two children. However, there’s another restriction: the values are ordered. It means the left child’s value has to be less or equal than the parent. In turn, the right child’s value has to be bigger than the parent.
 
 > BST: left ≤ parent < right
@@ -76,16 +79,19 @@ image:image33.png[image,width=348,height=189]
 
 
 === Binary Heap
-
+(((Binary Heap)))
+(((Heap)))
+(((Max-Heap)))
+(((Min-Heap)))
+(((Data Structures, Non-Linear, Binary Heap)))
 The heap (max-heap) is a type of binary tree where the children's values are higher than the parent. Opposed to the BST, the left child doesn’t have to be smaller than the right child.
 
 .Heap vs BST
 image:image34.png[image,width=325,height=176]
 
-
 The (max) heap has the maximum value in the root, while BST doesn’t.
 
-There is two kind of heaps: min-heap and max-heap.
+There are two kinds of heaps: min-heap and max-heap.
 For a *max-heap*, the root has the highest value. The heap guarantee that as you move away from the root, the values get smaller. The opposite is true for a *min-heap*. In a min-heap, the lowest value is at the root, and as you go down the lower to the descendants, they will keep increasing values.
 
 .Max-heap keeps the highest value at the top while min-heap keep the lowest at the root.

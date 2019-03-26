@@ -39,13 +39,13 @@ function balance(node) {
 }
 // end::balance[]
 
-// tag::balanceUptream[]
+// tag::balanceUpstream[]
 /**
  * Bubbles up balancing nodes a their parents
  *
  * @param {TreeNode} node
  */
-function balanceUptream(node) {
+function balanceUpstream(node) {
   let current = node;
   let newParent;
   while (current) {
@@ -54,7 +54,7 @@ function balanceUptream(node) {
   }
   return newParent;
 }
-// end::balanceUptream[]
+// end::balanceUpstream[]
 
 // tag::AvlTree[]
 /**
@@ -68,7 +68,7 @@ class AvlTree extends BinarySearchTree {
    */
   add(value) {
     const node = super.add(value);
-    this.root = balanceUptream(node);
+    this.root = balanceUpstream(node);
     return node;
   }
 
@@ -80,7 +80,7 @@ class AvlTree extends BinarySearchTree {
     const node = super.find(value);
     if (node) {
       const found = super.remove(value);
-      this.root = balanceUptream(node.parent);
+      this.root = balanceUpstream(node.parent);
       return found;
     }
 

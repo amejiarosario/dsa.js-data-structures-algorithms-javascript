@@ -1,5 +1,6 @@
 = Queue
-
+(((Queue)))
+(((Data Structures, Linear, Queue)))
 A queue is a linear data structure where the data flows in a *First-In-First-Out* (FIFO) manner.
 
 .Queue data structure is like a line of people: the First-in, is the First-out

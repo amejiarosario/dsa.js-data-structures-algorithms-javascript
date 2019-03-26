@@ -50,3 +50,7 @@ Merge sort has an _O(n log n)_  running time. For more details about how to extr
 - Recursive: Yes
 - Time Complexity: [big]#✅# <<Linearithmic>> _O(n log n)_
 - Space Complexity: [big]#⚠️# <<Linear>> _O(n)_, use auxiliary memory
+
+(((Linearithmic)))
+(((Runtime, Linearithmic)))
+(((Space complexity, Linear)))

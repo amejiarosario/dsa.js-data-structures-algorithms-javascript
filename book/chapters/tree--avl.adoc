@@ -1,13 +1,14 @@
 = AVL Tree
-
+(((AVL Tree)))
+(((Tree, AVL)))
 AVL Tree is named after their inventors (**A**delson-**V**elsky and **L**andis).
-This self-balancing tree keep track of subtree sizes to know if a rebalance is needed or not.
+This self-balancing tree keeps track of subtree sizes to know if a rebalance is needed or not.
 We can compare the size of the left and right subtrees using a balance factor.
 
 [NOTE]
 ====
 
-The *balanced factor* on each node is calculated recurviely as follows:
+The *balanced factor* on each node is calculated recursively as follows:
 
 ----
 Balance Factor = (left subtree height) - (right subtree height)
@@ -15,8 +16,8 @@ Balance Factor = (left subtree height) - (right subtree height)
 
 ====
 
-The implementation will got into the BST node.
-We will need two methods to calculate the left and right subtree, and with those we can get the balance factor.
+The implementation will go in the BST node class.
+We will need two methods to calculate the left and right subtree, and with those, we can get the balance factor.
 
 .Balance Factor methods on the BST node
 [source, javascript]
@@ -27,7 +28,7 @@ include::{codedir}/data-structures/trees/binary-tree-node.js[tag=avl, indent=0]
 
 == Implementing AVL Tree
 
-Implementing an AVL Tree is not too hard, since it builds upon what we did in the Binary Search Tree.
+Implementing an AVL Tree is not too hard since it builds upon what we did in the Binary Search Tree.
 
 .AVL Tree class
 [source, javascript]
@@ -35,17 +36,17 @@ Implementing an AVL Tree is not too hard, since it builds upon what we did in th
 include::{codedir}/data-structures/trees/avl-tree.js[tag=AvlTree]
 ----
 
-As you can see, AVL tree inherits from the BST class.
-The insert and remove operations works the same as in the BST, except that at the end we call `balanceUptream`.
-This function makes balance the tree after every change if is needed. Let's see how it's implemented.
+As you can see, the AVL tree inherits from the BST class.
+The insert and remove operations work the same as in the BST, except that at the end we call `balanceUpstream`.
+This function checks if the tree is symmetrical after every change to the tree. If the tree went out of balance, it would execute the appropriated rotation to fix it.
 
 .Balance Upstream for AVL tree
 [source, javascript]
 ----
-include::{codedir}/data-structures/trees/avl-tree.js[tag=balanceUptream]
+include::{codedir}/data-structures/trees/avl-tree.js[tag=balanceUpstream]
 ----
 
-This function recurively goes from the modified node to the root checking if each node in between is balanced.
+This function recursively goes from the modified node to the root checking if each node in between is balanced.
 Now, let's examine how does the balancing works on AVL tree.
 
 .Balance method for AVL tree

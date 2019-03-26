@@ -1,5 +1,6 @@
 = TreeMap
-
+(((TreeMap)))
+(((Data Structures, Non-Linear, TreeMap)))
 A TreeMap is a Map implementation using Binary Search Trees.
 
 Implementing a Map with a tree, TreeMap, has a couple of advantages over a HashMap:

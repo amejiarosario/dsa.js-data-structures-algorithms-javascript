@@ -1,5 +1,6 @@
 = Stack
-
+(((Stack)))
+(((Data Structures, Linear, Stack)))
 The stack is a data structure that restricts the way you add and remove data. It only allows you to insert and retrieve in a *Last-In-First-Out* (LIFO) fashion.
 
 An analogy is to think the stack is a rod and the data are discs. You can only take out the last one you put in.

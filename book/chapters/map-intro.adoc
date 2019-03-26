@@ -1,5 +1,6 @@
 = Map
-
+(((Map)))
+(((Data Structures, Non-Linear, Map)))
 A map is a data structure to store pairs of data: *key* and *value*. In an array, you can only store values. The array’s key is always the position index. However, in a *Map* the key can be whatever you want.
 
 IMPORTANT: Map is a data structure that _maps_ *keys* to *values*.

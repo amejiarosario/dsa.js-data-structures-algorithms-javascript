@@ -1,5 +1,6 @@
 = Array
-
+(((Array)))
+(((Data Structures, Linear, Array)))
 Arrays are one of the most used data structures. You probably have used it a lot but are you aware of the runtimes of  `splice`, `shift`  and other operations? In this chapter, we are going deeper into the most common operations and their runtimes.
 
 == Array  Basics
@@ -184,4 +185,5 @@ To sum up, the time complexity on an array is:
 ^|_Index/Key_ ^|_Value_ ^|_beginning_ ^|_middle_ ^|_end_ ^|_beginning_ ^|_middle_ ^|_end_
 | Array ^|O(1) ^|O(n) ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(n) ^|O(1) ^|O(n)
 |===
-indexterm:[Runtime, Linear]
+(((Linear)))
+(((Runtime, Linear)))

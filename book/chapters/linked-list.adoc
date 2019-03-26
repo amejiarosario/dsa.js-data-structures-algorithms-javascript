@@ -1,5 +1,7 @@
 = Linked List
-
+(((Linked List)))
+(((List)))
+(((Data Structures, Linear, Linked List)))
 A list (or Linked List) is a linear data structure where each node is linked to another one.
 
 Linked Lists can be:
@@ -248,8 +250,9 @@ So far, we have seen two liner data structures with different use cases. Here’
 | Linked List (singly) ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(1) ^|O(1) ^|O(n) ^|*O(n)* ^|O(n)
 | Linked List (doubly) ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(1) ^|O(1) ^|O(n) ^|*O(1)* ^|O(n)
 |===
+(((Linear)))
+(((Runtime, Linear)))
 
-indexterm:[Runtime, Linear]
 If you compare the singly linked list vs. doubly linked list, you will notice that the main difference is deleting elements from the end. For a singly list is *O(n)*, while for a doubly list is *O(1)*.
 
 Comparing an array with a doubly linked list, both have different use cases:

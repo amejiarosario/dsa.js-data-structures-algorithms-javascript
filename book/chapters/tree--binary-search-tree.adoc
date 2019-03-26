@@ -1,10 +1,12 @@
 = Binary Search Tree
-
-.The Binary Search Tree (BST) is a tree data structure that keeps the following constraints:
+(((Binary Search Tree)))
+(((BST)))
+(((Data Structures, Non-Linear, Binary Search Tree)))
+.To recap, the Binary Search Tree (BST) is a tree data structure that keeps the following constraints:
 * Each node must have at most two children. Usually referred to as "left" and "right".
 * All trees must a have a "root" node.
-* The order of nodes values must be: left child < parent < right child.
-* Nodes might need re-ordering after each insert/delete operation to keep the `left < parent < right` constraint.
+* The order of nodes values must be: `left child < parent < right child`.
+* Nodes might need re-ordering after each insert/delete operation to keep the `left <= parent < right` constraint.
 
 == Implementing a Binary Search Tree
 
@@ -42,8 +44,8 @@ With the methods `add` and `remove` we have to guarantee that our tree always ha
 === Inserting new elements in a BST
 
 .For inserting an element, in a BST, we have two scenarios:
-1.  If the tree is empty (root element is null), we add the newly created node as root, and we are done!
-2.  If the root is not null. Start from the root, then compare the node’s value against the new element. If the node has higher than a new item, we move to the right child, otherwise to the left. We check each node recursively until we find an empty spot where we can put the new element and keep the rule `right < parent < left`.
+1.  If the tree is empty (root element is null), we add the newly created node as root, and that's it!
+2.  If the root is not null. Start from it and compare the node’s value against the new element. If the node has higher than a new item, we move to the right child, otherwise to the left. We check each node recursively until we find an empty spot where we can put the new element and keep the rule `right < parent < left`.
 3.  If we insert the same value multiple times, we don’t want duplicates. So, we can keep track of multiples using a duplicity counter.
 
 For instance, let’s say that we want to insert the values 19, 21, 10, 2, 8 in a BST:
@@ -84,7 +86,7 @@ Deleting a node from a BST have three cases.
 
 ==== Removing a leaf (Node with 0 children)
 
-Deleting a leaf is the easiest, we look for their parent and set the child to null.
+Deleting a leaf is the easiest; we look for their parent and set the child to null.
 
 .Removing node without children from a BST.
 image:image37.png[image,width=528,height=200]
@@ -110,7 +112,7 @@ Removing a parent of two children is the trickiest of all cases because we need 
 image:image39.png[image,width=528,height=404]
 
 
-In the example, we delete the root node 19. This leaves the two orphans (node 10 and node 21). There are no more parents because node 19 was the *root* element. One way to solve this problem is to *combine* the left subtree (Node 10 and descendants) into the right subtree (node 21). The final result is node 21 is the new root.
+In the example, we delete the root node 19. This deletion leaves two orphans (node 10 and node 21). There are no more parents because node 19 was the *root* element. One way to solve this problem is to *combine* the left subtree (Node 10 and descendants) into the right subtree (node 21). The final result is node 21 is the new root.
 
 What would happen if node 21 had a left child (e.g., node 20)? Well, we would move node 10 and its descendants' bellow node 20.
 
@@ -126,7 +128,7 @@ include::{codedir}/data-structures/trees/binary-search-tree.js[tag=remove, inden
 <1> Try to find if the value exists on the tree.
 <2> If the value doesn’t exist we are done!
 <3> Create new subtree without the value to delete
-<4> Check the multiplicity (duplicates) and decrement the count in case we have multiple nodes with the same value
+<4> Check the multiplicity (duplicates) and decrement the count if we have multiple nodes with the same value
 <5> If the `nodeToRemove` was the root, then we move the removed node’s children as the new root.
 <6> If it was not the root, then we go to the deleted node’s parent and put their children there.
 

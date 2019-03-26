@@ -77,8 +77,11 @@ With the optimization, Quicksort has an _O(n log n)_ running time. Similar to th
 - <<Online>>: [big]#️❌# No, the pivot element can be choose at random.
 - Recursive: Yes
 - Time Complexity: [big]#✅# <<Linearithmic>> _O(n log n)_
-- Space Complexity: [big]#⚠️# <<Linear>> _O(n)_
-indexterm:[Space Complexity, Linear]
+- Space Complexity: [big]#✅# <<Constant>> _O(1)_
+
+(((Linearithmic)))
+(((Runtime, Linearithmic)))
+(((Space complexity, Constant)))
 
 // Resources:
 // https://www.khanacademy.org/computing/computer-science/algorithms/quick-sort/a/linear-time-partitioning

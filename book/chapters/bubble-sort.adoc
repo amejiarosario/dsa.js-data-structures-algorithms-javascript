@@ -7,6 +7,8 @@ Bubble sort is a simple sorting algorithm that "bubbles up" the biggest values t
 It's also called _sinking sort_ because the most significant values "sink" to the right side of the array.
 This algorithm is adaptive, which means that if the array is already sorted, it will take only _O(n)_ to "sort".
 However, if the array is entirely out of order, it will require _O(n^2^)_ to sort.
+(((Quadratic)))
+(((Runtime, Quadratic)))
 
 == Bubble Sort Implementation
 

@@ -51,4 +51,5 @@ There you have it, `2b` now comes before `2a`.
 
 // CAUTION: In practice, selection sort performance is the worst compared <<Bubble Sort>> and <<Insertion Sort>>. The only advantage of selection sort is that it minimizes the number of swaps. In case, that swapping is expensive, then it could make sense to use this one over the others.
 
-indexterm:[Runtime, Quadratic]
+(((Quadratic)))
+(((Runtime, Quadratic)))

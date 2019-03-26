@@ -1,5 +1,7 @@
 = HashMap
-
+(((HashMap)))
+(((HashTable)))
+(((Data Structures, Non-Linear, HashMap)))
 A HashMap is a Map implementation. HashMaps are composed of two things:
 1) a hash function and
 2) a bucket array to store values.

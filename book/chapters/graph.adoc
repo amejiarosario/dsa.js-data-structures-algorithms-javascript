@@ -1,5 +1,6 @@
 = Graph
-
+(((Graph)))
+(((Data Structures, Non-Linear, Graph)))
 Graphs are one of my favorite data structures.
 They have a lot of cool applications like optimizing routes, social network analysis to name a few. You are probably using apps that use graphs every day.
 First, let’s start with the basics.

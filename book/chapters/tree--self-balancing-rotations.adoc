@@ -1,11 +1,11 @@
 = Self-balancing Binary Search Trees
 
-Binary Search Trees (BST) are a great data structure to find elements very fast _O(n log n)_.
-However, when the BST branches has different branch sizes then the performance suffers.
-In the worst case, all nodes can go to one side (e.g. right) and then the search time would be linear.
+Binary Search Trees (BST) are an excellent data structure to find elements very fast _O(log n)_.
+However, when the BST branches have different branch sizes, then the performance suffers.
+In the worst case, all nodes can go to one side (e.g., right) and then the search time would be linear.
 At this point searching element won't be any better on that tree than an array or linked list. Yikes!
 
-Self-balanced trees will automatically balanced the tree when an element is inserted to keep search performace.
+Self-balanced trees will automatically rebalance the tree when an element is inserted to keep search performance.
 We balance a tree by making the height (distance from a node to the root) of any leaf on the tree as similar as possible.
 
 .From unbalanced BST to balanced BST
@@ -27,18 +27,18 @@ To be more specific we rotated node `1` to the left to balance the tree.
 Let's examine all the possible rotation we can do to balance a tree.
 
 == Tree Rotations
-
+(((Tree Rotations)))
 We can do single rotations left and right and also we can do double rotations.
 Let's go one by one.
 
 === Single Right Rotation
 
-Right rotation moves a node on the right as a child of other node.
+Right rotation moves a node on the right as a child of another node.
 
 Take a look at the `@example` in the code below.
 As you can see we have an unbalanced tree `4-3-2-1`.
 We want to balance the tree, for that we need to do a right rotation of node 3.
-So, the node 3 is moved as the right child of the previous child.
+So, we move node 3 as the right child of the previous child.
 
 .Single right rotation implementation
 [source, javascript]
@@ -54,7 +54,7 @@ include::{codedir}/data-structures/trees/tree-rotations.js[tag=rightRotation]
 The `swapParentChild` as it name says, swap the children.
 For our example, it swaps `node 4`'s left children from `node 3` to `node 2`.
 
-Take a look at the implementation
+Take a look at the implementation.
 
 .Swap Parent and Child Implementation
 [source, javascript]
@@ -73,7 +73,7 @@ After `swapParentChild`, we have the following:
 
 Still not quite what we want.
 So, `newParent.setRightAndUpdateParent(node)` will make `node 3` the right child of `node 2`.
-Finally, we remove left child of `node 3` to be `null`.
+Finally, we remove the left child of `node 3` to be `null`.
 
 ----
       4
@@ -109,7 +109,7 @@ If you are curious about the `setRightAndUpdateParent` and `setLeftAndUpdatePare
 include::{codedir}/data-structures/trees/binary-tree-node.js[tag=setAndUpdateParent]
 ----
 
-You can also checkout the full
+You can also check out the full
 https://github.com/amejiarosario/dsa.js/blob/adfd8a660bbe0a7068fd7881aff9f51bdb9f92ae/src/data-structures/trees/binary-tree-node.js#L9[binary tree node implementation].
 
 === Left Right Rotation
@@ -122,7 +122,7 @@ This time are we going to do a double rotation.
 include::{codedir}/data-structures/trees/tree-rotations.js[tag=leftRightRotation]
 ----
 
-As you can see we do a left and then a right rotation. This is also called `LR rotation`
+As you can see we do a left and then a right rotation. This rotation is also known as `LR rotation`
 
 === Right Left Rotation
 
@@ -134,7 +134,7 @@ Very similar to `leftRightRotation`. The difference is that we rotate right and 
 include::{codedir}/data-structures/trees/tree-rotations.js[tag=rightLeftRotation]
 ----
 
-This rotation is also refered as `RL rotation`.
+This rotation is also referred to as `RL rotation`.
 
 == Self-balancing trees implementations
 
