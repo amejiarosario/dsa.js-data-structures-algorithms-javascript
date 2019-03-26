@@ -59,7 +59,7 @@ To give you a clearer picture of how different algorithms perform as the input s
 |Find all permutations of a string |4 sec. |> vigintillion years |> centillion years |∞ |∞
 |=============================================================================================
 
-indexterm:[Permutation]
+indexterm:(((Permutations)))
 However, if you keep the input size constant, you can notice the difference between an efficient algorithm and a slow one. An excellent sorting algorithm is `mergesort` for instance, and inefficient algorithm for large inputs is `bubble sort` .
 Organizing 1 million elements with merge sort takes 20 seconds while bubble sort takes 12 days, ouch!
 The amazing thing is that both programs are measured on the same hardware with the same data!

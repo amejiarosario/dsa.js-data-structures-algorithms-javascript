@@ -19,7 +19,7 @@ const items = [
 const maxWeight = 7;
 ----
 
-So, we have four items that we can choose from. We can't take them all because the total weight is `13` and the maximum we can carry is `7`. We can't just take the first one because with value `1` because is not the best profit.
+So, we have four items that we can choose from. We can't take them all because the total weight is `13` and the maximum we can carry is `7`. We can't just take the first one because with value `1` because it is not the best profit.
 
 How would you solve this problem?
 

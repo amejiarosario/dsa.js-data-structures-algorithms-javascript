@@ -51,6 +51,9 @@ include::greedy-algorithms.adoc[]
 <<<
 include::backtracking.adoc[]
 
+<<<
+include::algorithmic-toolbox.adoc[]
+
 // --- end algorithms ---
 
 :leveloffset: -1

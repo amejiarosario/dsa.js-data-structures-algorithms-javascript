@@ -219,9 +219,9 @@ A factorial is the multiplication of all the numbers less than itself down to 1.
 
 [#factorial-example]
 === Getting all permutations of a word
-
+(((Permutations)))
+(((Words permutations)))
 One classic example of an _O(n!)_ algorithm is finding all the different words that can be formed with a given set of letters.
-indexterm:[Permutation]
 
 .Word's permutations
 // image:image15.png[image,width=528,height=377]
