@@ -5,45 +5,7 @@ This section summerize what we are  going to cover in the rest of this book.
 
 == Runtimes
 
-.Most common algorithmic running times and their examples
-[cols="2,2,5",options="header"]
-|===
-|Big O Notation
-|Name
-|Example(s)
-
-|O(1)
-|<<Constant>>
-|#<<constant-example>>, #<<linked-list-inserting-beginning>>
-
-|O(log n)
-|<<Logarithmic>>
-|<<logarithmic-example>>
-
-|O(n)
-|<<Linear>>
-|<<linear-example>>
-
-|O(n log n)
-|<<Linearithmic>>
-|<<linearithmic-example>>
-
-|O(n^2^)
-|<<Quadratic>>
-|<<quadratic-example>>
-
-|O(n^3^)
-|<<Cubic>>
-|<<cubic-example>>
-
-|O(2^n^)
-|<<Exponential>>
-|<<exponential-example>>
-
-|O(n!)
-|<<Factorial>>
-|<<factorial-example>>
-|===
+include::big-o-examples.adoc[tag=table]
 
 .How long an algorithm takes to run based on their time complexity and input size
 [cols=",,,,,,",options="header",]

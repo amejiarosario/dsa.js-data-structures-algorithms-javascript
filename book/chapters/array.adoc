@@ -203,7 +203,9 @@ Runtime: O(1).
 == Array Complexity
 
 To sum up, the time complexity on an array is:
+(((table)))
 
+// tag::table[]
 .Time/Space complexity for the array operations
 |===
 .2+.^s| Data Structure 2+^s| Searching By 3+^s| Inserting at the 3+^s| Deleting from .2+.^s| Space
@@ -215,7 +217,7 @@ To sum up, the time complexity on an array is:
 (((Constant)))
 (((Runtime, Constant)))
 
-Array Operations
+.Array Operations timex complexity
 |===
 | Operation | Time Complexity | Usage
 | push ^| O(1) | Insert element to the right side.
@@ -224,3 +226,4 @@ Array Operations
 | shift ^| O(n) | Remove leftmost element.
 | splice ^| O(n) | Insert and remove from anywhere.
 |===
+//end::table

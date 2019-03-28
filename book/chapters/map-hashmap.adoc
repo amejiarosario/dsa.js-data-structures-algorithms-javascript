@@ -287,7 +287,9 @@ https://github.com/amejiarosario/dsa.js/blob/7694c20d13f6c53457ee24fbdfd3c0ac571
 == HashMap time complexity
 
 Hash Map it’s very optimal for searching values by key in constant time *O(1)*. However, searching by value is not any better than an array since we have to visit every value *O(n)*.
+(((table)))
 
+// tag::table[]
 .Time complexity for a Hash Map
 |===
 .2+.^s| Data Structure 2+^s| Searching By .2+^.^s| Insert .2+^.^s| Delete .2+^.^s| Space Complexity
@@ -296,6 +298,7 @@ Hash Map it’s very optimal for searching values by key in constant time *O(1)*
 | Hash Map (optimized) ^|O(1)* ^|O(n) ^|O(1)* ^|O(1)* ^|O(1)*
 |===
 {empty}* = Amortized run time. E.g. rehashing might affect run time.
+// end::table[]
 
 indexterm:[Runtime, Linear]
 As you can notice we have amortized times since, in the unfortunate case of a rehash, it will take O(n) while it resizes. After that, it will be *O(1)*.

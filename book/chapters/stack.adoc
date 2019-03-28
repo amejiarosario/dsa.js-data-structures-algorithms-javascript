@@ -67,12 +67,15 @@ As you can see if we add new items they will be the first to go out to honor LIF
 == Stack Complexity
 
 Implementing the stack with an array and linked list would lead to the same time complexity:
+(((table)))
 
+// tag::table[]
 .Time/Space complexity for the stack operations
 |===
 .2+.^s| Data Structure 2+^s| Searching By 3+^s| Inserting at the 3+^s| Deleting from .2+.^s| Space
 ^|_Index/Key_ ^|_Value_ ^|_beginning_ ^|_middle_ ^|_end_ ^|_beginning_ ^|_middle_ ^|_end_
 | Stack ^|- ^|- ^|- ^|- ^|O(1) ^|- ^|- ^|O(1) ^|O(n)
 |===
+// end::table[]
 
 It's not very common to search for values on a stack (other Data Structures are better suited for this). Stacks especially useful for implementing <<Depth-First Search for Binary Tree, Depth-First Search>>.

@@ -11,7 +11,7 @@ This publication is designed to be concise, intending to serve software develope
 
 This book is for software developers familiar with JavaScript looking to improve their problem-solving skills or preparing for a job interview.
 
-NOTE: You can apply the concepts in this book to any programming language. However, instead of doing examples on pseudo-code we are going to use JavaScript to implement the code examples.
+NOTE: You can apply the concepts in this book to any programming language. However, instead of doing examples in pseudo-code we are going to use JavaScript to implement the code examples.
 
 == What you need for this book
 

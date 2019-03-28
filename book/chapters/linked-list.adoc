@@ -233,8 +233,9 @@ Notice that we are using the `get` method to get the node at the current positio
 == Linked List Complexity vs. Array Complexity
 
 So far, we have seen two liner data structures with different use cases. Here’s a summary:
+(((table)))
 
-
+// tag::table[]
 .Big O cheat sheet for Linked List and Array
 |===
 .2+.^s| Data Structure 2+^s| Searching By 3+^s| Inserting at the 3+^s| Deleting from .2+.^s| Space
@@ -243,6 +244,7 @@ So far, we have seen two liner data structures with different use cases. Here’
 | Linked List (singly) ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(1) ^|O(1) ^|O(n) ^|*O(n)* ^|O(n)
 | Linked List (doubly) ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(1) ^|O(1) ^|O(n) ^|*O(1)* ^|O(n)
 |===
+// end::table[]
 (((Linear)))
 (((Runtime, Linear)))
 
