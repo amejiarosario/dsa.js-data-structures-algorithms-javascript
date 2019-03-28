@@ -148,7 +148,7 @@ class LinkedList {
 
   // tag::find[]
   /**
-   * Iterate through the list until callback returns thruthy
+   * Iterate through the list until callback returns a truthy value
    * @example see #get and  #indexOf
    * @param {Function} callback evaluates current node and index.
    *  If any value other than undefined it's returned it will stop the search.

@@ -59,6 +59,6 @@ include::graph-search.adoc[]
 // Graph summary
 = Summary
 
-In this section, we learned about Graphs applications, properties and how we can implement them. We mention that you can represent a graph as a matrix or as a list of adjacencies. We went for implementing the later since it's more space efficient. We cover the basic graph operations like adding and removing nodes and edges.  In the algorithms section, we are going to cover searching values in the graph.
+In this section, we learned about Graphs applications, properties and how we can create them. We mention that you can represent a graph as a matrix or as a list of adjacencies. We went for implementing the later since it's more space efficient. We cover the basic graph operations like adding and removing nodes and edges.  In the algorithms section, we are going to cover searching values in the graph.
 
 :leveloffset: -1

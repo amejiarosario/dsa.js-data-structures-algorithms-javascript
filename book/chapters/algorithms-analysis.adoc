@@ -13,7 +13,7 @@ But why stop with the running time?
 We could also compare the memory "used" by different algorithms, and we called that *space complexity*.
 
 .In this chapter you will learn:
--    What’s the best way to measure your code performance.
+-    What’s the best way to measure the performance of your code regardless of what hardware you use.
 -    Learn how to use Big O notation to compare algorithms.
 -    How to use algorithms analysis to improve your programs speed.
 
@@ -24,15 +24,17 @@ Before going deeper, into space and time complexity, let's cover the basics real
 Algorithms (as you might know) are steps of how to do some task. When you cook, you follow a recipe (or an algorithm) to prepare a dish. Let's say you want to make a pizza.
 
 .Example of an algorithm
-// [source, js] // undefined functions
+[source, javascript]
 ----
-function bakePizza(dough, toppins = ['cheese']) {
-    const heatedOven = heatOvenTo(550);
-    punchDown(dough);
-    rollOut(dough);
-    applyToppings(dough, toppings);
-    const pizza = heatedOven.bakePizza(dough)
-    return pizza;
+import { punchDown, rollOut, applyToppings, Oven } from '../pizza-utils';
+
+function makePizza(dough, toppins = ['cheese']) {
+    const oven = new Oven(450);
+    const punchedDough = punchDown(dough);
+    const rolledDough = rollOut(punchedDough);
+    const rawPizza = applyToppings(rolledDough, toppings);
+    const pizzaPromise = oven.bake(rawPizza, { minutes: 20 });
+    return pizzaPromise;
 }
 ----
 
@@ -43,8 +45,6 @@ TIP: Algorithms are instructions on how to perform a task.
 == Comparing Algorithms
 
 Not all algorithms are created equal. There are “good” and “bad” algorithms. The good ones are fast; the bad ones are slow. Slow algorithms cost more money to run. Inefficient algorithms could make some calculations impossible in our lifespan!
-
-Most algorithms are affected by the size of the input. Let's say you need to arrange numbers in ascending order. Sorting ten digits will naturally take much less time than sorting 2 million of them.
 
 To give you a clearer picture of how different algorithms perform as the input size grows, take a look at the following table.
 
@@ -59,8 +59,9 @@ To give you a clearer picture of how different algorithms perform as the input s
 |Find all permutations of a string |4 sec. |> vigintillion years |> centillion years |∞ |∞
 |=============================================================================================
 
-indexterm:(((Permutations)))
-However, if you keep the input size constant, you can notice the difference between an efficient algorithm and a slow one. An excellent sorting algorithm is `mergesort` for instance, and inefficient algorithm for large inputs is `bubble sort` .
+Most algorithms are affected by the size of the input (`n`). Let's say you need to arrange numbers in ascending order. Sorting ten digits will naturally take much less time than sorting out 2 million. But, how much longer? Some algorithms as the input size grow they take proportionally more time, we classify them as <<Linear, linear>> runtime [or `O(n)`]. Others might take power two longer; we call them <<Quadratic, quadratic>> running time [or `O(n^2^)`].
+
+If you keep the input size the same, and run diffferent algorithms implementations you would notice the difference between an efficient algorithm and a slow one. An excellent sorting algorithm is `mergesort` for instance, and inefficient algorithm for large inputs is `bubble sort` .
 Organizing 1 million elements with merge sort takes 20 seconds while bubble sort takes 12 days, ouch!
 The amazing thing is that both programs are measured on the same hardware with the same data!
 

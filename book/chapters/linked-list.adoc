@@ -2,36 +2,37 @@
 (((Linked List)))
 (((List)))
 (((Data Structures, Linear, Linked List)))
-A list (or Linked List) is a linear data structure where each node is linked to another one.
+A list (or Linked List) is a linear data structure where each node is "linked" to the next.
 
-Linked Lists can be:
+.Linked Lists can be:
 - Singly: every item has a pointer to the next node
 - Doubly: every node has a reference to the next and previous object
 - Circular: the last element points to the first one.
-We are going to explore the first two in the next sections.
+
 
 == Singly Linked List
 
-Each element or node is *linked* to the next one by a reference. When a node only has the reference to the next element, it's called *singly linked list*:
+Each element or node is *connected* to the next one by a reference. When a node only has one connection it's called *singly linked list*:
 
 .Singly Linked List Representation: each node has a reference (blue arrow) to the next one.
 image:image19.png[image,width=498,height=97]
 
-
-Usually, a Linked List is referenced by the first element in called *head* (or *root* node). For instance, if you want to get the `cat` element from the example above, then the only way to get there is using the next field on the head node. You would get `art` first, then use the next field recursively until you eventually get the `cat` element.
+Usually, a Linked List is referenced by the first element in called *head* (or *root* node). For instance, if you want to get the `cat` element from the example above, then the only way to get there is using the `next` field on the head node. You would get `art` first, then use the next field recursively until you eventually get the `cat` element.
 
 == Doubly Linked List
 
-When each node has a reference to the next item and also the previous one, then we have a *doubly linked list*.
+When each node has a connection to the `next` item and also the `previous` one, then we have a *doubly linked list*.
 
 .Doubly Linked List: each node has a reference to the next and previous element.
 image:image20.png[image,width=528,height=74]
+
+With a doubly list you can not only move forward but also backward. If you keep the reference to the last element (`cat`) you can step back and reach the middle part.
 
 If we implement the code for the `Node` elements, it would be something like this:
 
 // image:image21.png[image,width=528,height=285]
 
-.Linked List Node
+.Linked List Node Implementation
 [source, javascript]
 ----
 include::{codedir}/data-structures/linked-lists/node.js[tag=snippet]
@@ -39,11 +40,11 @@ include::{codedir}/data-structures/linked-lists/node.js[tag=snippet]
 
 == Linked List vs. Array
 
-Arrays allow you to access data anywhere in the collection using an index. However, Linked List visits nodes in sequential order. In the worst case scenario, it takes _O(n)_ to get an element from a Linked List. You might be wondering: Isn’t always an array more efficient with O(1) access time? It depends.
+Arrays allow you to access data anywhere in the collection using an index. However, Linked List visits nodes in sequential order. In the worst case scenario, it takes _O(n)_ to get an element from a Linked List. You might be wondering: Isn’t always an array more efficient with _O(1)_ access time? It depends.
 
-We also have to understand the space complexity to see the trade-offs between arrays and linked lists. An array pre-allocates contiguous blocks of memory. When the array is getting full, it has to copy all the elements over to a new space usually 2x bigger.  It takes _O(n)_ to copy all the items over. On the other hand, LinkedList’s nodes only reserve precisely the amount of memory it needs. They don’t have to be next to each other, nor large chunks of memory have to be booked beforehand like arrays. Linked List is more on a "grow as you go" basis.
+We also have to understand the space complexity to see the trade-offs between arrays and linked lists. An array pre-allocates contiguous blocks of memory. When it is getting full, it has to create a bigger array (usually 2x) and copy all the elements.  It takes _O(n)_ to copy all the items over. On the other hand, LinkedList’s nodes only reserve precisely the amount of memory it needs. They don’t have to be next to each other, nor large chunks of memory have to be booked beforehand like arrays. Linked List is more on a "grow as you go" basis.
 
-Another difference is that adding/deleting at the beginning on an array takes O(n), however, in the linked list is a constant operation O(1) as we will implement later.
+Another difference is that adding/deleting at the beginning on an array takes O(n); however, the linked list is a constant operation O(1) as we will implement later.
 
 A drawback of a linked list is that if you want to insert/delete an element at the end of the list, you would have to navigate the whole collection to find the last one O(n). However, this can be solved by keeping track of the last element in the list. We are going to implement that!
 
@@ -62,7 +63,7 @@ include::{codedir}/data-structures/linked-lists/linked-list.js[tag=constructor]
 }
 ----
 
-In our constructor, we keep a reference of the first (and last node for performance reasons).
+In our constructor, we keep a reference of the `first` and also `last` node for performance reasons.
 
 == Searching by value
 
@@ -77,6 +78,7 @@ include::{codedir}/data-structures/linked-lists/linked-list.js[tag=searchByValue
 If we find the element, we will return the index otherwise `undefined`. The runtime for locating an item by value is _O(n)_.
 
 For finding elements by value or position we are using the following helper function:
+
 .Find elements using a callback
 [source, javascript]
 ----
@@ -134,9 +136,6 @@ Appending an element at the end of the list can be done very effectively if we h
 .Add element to the end of the linked list
 image:image24.png[image,width=498,height=208]
 
-
-In code:
-
 .Linked List's add to the end of the list implementation
 [source, javascript]
 ----
@@ -154,8 +153,6 @@ Let’s do an example, with a doubly linked list. We want to insert the `new` no
 
 .Inserting node in the middle of a doubly linked list.
 image:image25.png[image,width=528,height=358]
-
-Let’s work in the code to do this:
 
 .Linked List's add to the middle of the list
 [source, javascript]
@@ -186,8 +183,6 @@ image:image26.png[image,width=528,height=74]
 
 For instance, to remove the head (“art”) node, we change the variable `first` to point to the second node “dog”. We also remove the variable `previous` from the "dog" node, so it doesn't point to the “art” node. The garbage collector will get rid of the “art” node when it seems nothing is using it anymore.
 
-In code, it looks like this:
-
 .Linked List's remove from the beginning of the list
 [source, javascript]
 ----
@@ -205,8 +200,6 @@ image:image27.png[image,width=528,height=221]
 
 
 For instance, if we want to remove the last node “cat”. We use the last pointer to avoid iterating through the whole list. We check `last.previous` to get the “dog” node and make it the new `last` and remove its next reference to “cat”. Since nothing is pointing to “cat” then is out of the list and eventually is deleted from memory by the garbage collector.
-
-Let’s code this up like this:
 
 .Linked List's remove from the end of the list
 [source, javascript]
@@ -244,7 +237,7 @@ So far, we have seen two liner data structures with different use cases. Here’
 
 .Big O cheat sheet for Linked List and Array
 |===
-.2+.^s| Data Structure 2+^s| Searching By 3+^s| Inserting at the 3+^s| Deleting from .2+.^s| Space Complexity
+.2+.^s| Data Structure 2+^s| Searching By 3+^s| Inserting at the 3+^s| Deleting from .2+.^s| Space
 ^|_Index/Key_ ^|_Value_ ^|_beginning_ ^|_middle_ ^|_end_ ^|_beginning_ ^|_middle_ ^|_end_
 | Array ^|O(1) ^|O(n) ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(n) ^|O(1) ^|O(n)
 | Linked List (singly) ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(1) ^|O(1) ^|O(n) ^|*O(n)* ^|O(n)

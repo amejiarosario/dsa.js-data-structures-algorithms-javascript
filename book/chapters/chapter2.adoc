@@ -10,15 +10,19 @@ include::linear-data-structures-intro.adoc[]
 include::array.adoc[]
 
 //  (g)
+<<<
 include::linked-list.adoc[]
 
 //  (g)
+<<<
 include::stack.adoc[]
 
 // (g)
+<<<
 include::queue.adoc[]
 
 // (g)
+<<<
 include::linear-data-structures-outro.adoc[]
 
 :leveloffset: -1
