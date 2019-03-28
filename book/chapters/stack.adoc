@@ -67,7 +67,7 @@ As you can see if we add new items they will be the first to go out to honor LIF
 == Stack Complexity
 
 Implementing the stack with an array and linked list would lead to the same time complexity:
-(((Tables, Stack complexities)))
+(((Tables, Linear DS, Stack complexities)))
 
 // tag::table[]
 .Time/Space complexity for the stack operations

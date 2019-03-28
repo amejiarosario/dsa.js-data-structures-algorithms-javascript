@@ -287,7 +287,7 @@ https://github.com/amejiarosario/dsa.js/blob/7694c20d13f6c53457ee24fbdfd3c0ac571
 == HashMap time complexity
 
 Hash Map it’s very optimal for searching values by key in constant time *O(1)*. However, searching by value is not any better than an array since we have to visit every value *O(n)*.
-(((Tables, HashMap complexities)))
+(((Tables, Non-Linear DS, HashMap complexities)))
 
 // tag::table[]
 .Time complexity for a Hash Map

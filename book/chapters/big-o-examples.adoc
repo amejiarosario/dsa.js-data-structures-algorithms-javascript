@@ -245,7 +245,7 @@ Factorial start very slow and then it quickly becomes uncontrollable. A word siz
 == Summary
 
 We went through 8 of the most common time complexities and provided examples for each of them. Hopefully, this will give you a toolbox to analyze algorithms.
-(((Tables, Common time complexities and examples)))
+(((Tables, Intro, Common time complexities and examples)))
 
 // tag::table[]
 .Most common algorithmic running times and their examples

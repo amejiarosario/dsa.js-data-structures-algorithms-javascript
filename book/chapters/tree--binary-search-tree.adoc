@@ -2,6 +2,7 @@
 (((Binary Search Tree)))
 (((BST)))
 (((Data Structures, Non-Linear, Binary Search Tree)))
+
 .To recap, the Binary Search Tree (BST) is a tree data structure that keeps the following constraints:
 * Each node must have at most two children. Usually referred to as "left" and "right".
 * All trees must a have a "root" node.
@@ -164,7 +165,7 @@ The tree on the left is unbalanced. It looks like a Linked List and has the same
 == Tree Complexity
 
 We can sum up the tree operations using Big O notation:
-(((Tables, Binary Search Tree complexities)))
+(((Tables, Non-Linear DS, Binary Search Tree complexities)))
 
 // tag::table[]
 .Time complexity for a Binary Search Tree (BST)

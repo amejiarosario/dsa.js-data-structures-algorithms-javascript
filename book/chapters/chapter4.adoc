@@ -33,6 +33,9 @@ include::merge-sort.adoc[]
 <<<
 include::quick-sort.adoc[]
 
+<<<
+include::sorting--summary.adoc[]
+
 :leveloffset: -1
 
 

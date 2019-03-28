@@ -47,7 +47,7 @@ TIP: Algorithms are instructions on how to perform a task.
 Not all algorithms are created equal. There are “good” and “bad” algorithms. The good ones are fast; the bad ones are slow. Slow algorithms cost more money to run. Inefficient algorithms could make some calculations impossible in our lifespan!
 
 To give you a clearer picture of how different algorithms perform as the input size grows, take a look at the following problems and how their relative execution time changes as the input size increases.
-(((Tables, Algorithms input size vs Time)))
+(((Tables, Intro, Algorithms input size vs Time)))
 
 .Relationship between algorithm input size and time taken to complete
 [cols=",,,,,",options="header",]
@@ -111,7 +111,7 @@ When we are comparing algorithms, we don't want to have complex expressions. Wha
 TIP: Asymptotic analysis describes the behavior of functions as their inputs approach to infinity.
 
 In the previous example, we analyzed `getMin` with an array of size 3; what happen size is 10 or 10k or a million?
-(((Tables, Operations of 3n+3)))
+(((Tables, Intro, Operations of 3n+3)))
 
 .Operations performed by an algorithm with a time complexity of `3n + 3`
 [cols=",,",options="header",]
@@ -152,8 +152,9 @@ WARNING: Don't drop terms that multiplying other terms. _O(n log n)_ is not equi
 There are many common notations like polynomial, _O(n^2^)_ like we saw in the `getMin` example; constant _O(1)_ and many more that we are going to explore in the next chapter.
 
 Again, time complexity is not a direct measure of how long a program takes to execute but rather how many operations it performs in given the input size. Nevertheless, there’s a relationship between time complexity and clock time as we can see in the following table.
+(((Tables, Intro, Input size vs clock time by Big O)))
 
-(((Tables, Input size vs clock time by Big O)))
+// tag::table[]
 .How long an algorithm takes to run based on their time complexity and input size
 [cols=",,,,,,",options="header",]
 |===============================================================
@@ -164,6 +165,7 @@ Again, time complexity is not a direct measure of how long a program takes to ex
 |100k |< 1 sec. |< 1 sec. |1 second |3 hours |∞ |∞
 |1M |< 1 sec. |1 second |20 seconds |12 days |∞ |∞
 |===============================================================
+// end::table[]
 
 This just an illustration since in different hardware the times will be slightly different.
 

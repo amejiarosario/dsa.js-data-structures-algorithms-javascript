@@ -203,7 +203,7 @@ Runtime: O(1).
 == Array Complexity
 
 To sum up, the time complexity on an array is:
-(((Tables, Array Complexities)))
+(((Tables, Linear DS, Array Complexities)))
 
 // tag::table[]
 .Time/Space complexity for the array operations
@@ -217,7 +217,7 @@ To sum up, the time complexity on an array is:
 (((Constant)))
 (((Runtime, Constant)))
 
-(((Tables, JavaScript Array buit-in operations Complexities)))
+(((Tables, Linear DS, JavaScript Array buit-in operations Complexities)))
 .Array Operations timex complexity
 |===
 | Operation | Time Complexity | Usage

@@ -45,7 +45,7 @@ We can implement a `map` using a *balanced BST* and using a *hash function*. If 
 
 Let’s implement both!
 
-== Implementing a TreeSet
+== TreeSet
 (((TreeSet)))
 (((Data Structures, Non-Linear, TreeSet)))
 We are to use a self-balanced BST (Red-Black Tree) to implement TreeSet.
@@ -146,7 +146,7 @@ Check out our https://github.com/amejiarosario/dsa.js/blob/f69b744a1bddd3d99243c
 
 Let’s now, implement a `HashSet`.
 
-== Implementing a HashSet
+== HashSet
 (((HashSet)))
 (((Data Structures, Non-Linear, HashSet)))
 The *HashSet* is the set implementation using a HashMap as its underlying data structure.
@@ -205,7 +205,7 @@ This method has an average runtime of *O(1)*.
 We can say that `HashMap` in on average more performant O(1) vs. O(log n). However, if a
 rehash happens, it will take *O(n)* instead of *O(1)*. A `TreeSet` is always *O(log n)*.
 
-(((Tables, HashSet/TreeSet complexities)))
+(((Tables, Non-Linear DS, HashSet/TreeSet complexities)))
 
 // tag::table[]
 .Time complexity HashSet vs TreeSet

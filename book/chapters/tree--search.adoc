@@ -17,6 +17,7 @@ If we have the following tree:
 Depending on what traversal methods we used we will have a different visiting order.
 (((Tree Traversal)))
 (((Tree, Traversal)))
+
 .Tree traversal methods
 - Breadth-first traversal (a.k.a level order traversal): `10, 5, 30, 4, 15, 40, 3`
 - Depth-first traversal

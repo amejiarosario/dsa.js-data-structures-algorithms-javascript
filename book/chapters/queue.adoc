@@ -63,7 +63,7 @@ You can see that the items are dequeue in the same order they were added, FIFO (
 == Queue Complexity
 
 As an experiment, we can see in the following table that if we had implemented the Queue using an array, its enqueue time would be _O(n)_ instead of _O(1)_. Check it out:
-(((Tables, Queue complexities)))
+(((Tables, Linear DS, Queue complexities)))
 
 // tag::table[]
 .Time/Space complexity for queue operations

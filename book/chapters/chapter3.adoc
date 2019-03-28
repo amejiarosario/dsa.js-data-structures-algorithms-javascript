@@ -60,5 +60,24 @@ include::graph-search.adoc[]
 = Summary
 
 In this section, we learned about Graphs applications, properties and how we can create them. We mention that you can represent a graph as a matrix or as a list of adjacencies. We went for implementing the later since it's more space efficient. We cover the basic graph operations like adding and removing nodes and edges.  In the algorithms section, we are going to cover searching values in the graph.
+(((Tables, Non-Linear DS, BST/Maps/Sets Complexities)))
+
+// tag::table[]
+.Time and Space Complexity for Non-Linear Data Structures
+|===
+.2+.^s| Data Structure 2+^s| Searching By .2+^.^s| Insert .2+^.^s| Delete .2+^.^s| Space Complexity
+^|_Index/Key_ ^|_Value_
+| <<Binary Search Tree, BST (unbalanced)>> ^|- ^|O(n) ^|O(n) ^|O(n) ^|O(n)
+| <<Self-balancing Binary Search Trees, BST (balanced)>> ^|- ^|O(log n) ^|O(log n) ^|O(log n) ^|O(n)
+| Hash Map (naïve) ^|O(n) ^|O(n) ^|O(n) ^|O(n) ^|O(n)
+| <<HashMap>> (optimized) ^|O(1)* ^|O(n) ^|O(1)* ^|O(1)* ^|O(1)*
+| <<TreeMap>> (Red-Black Tree) ^|O(log n) ^|O(n) ^|O(log n) ^|O(log n) ^|O(log n)
+| <<HashSet>> ^|- ^|O(n) ^|O(1)* ^|O(1)* ^|O(1)*
+| <<TreeSet>> ^|- ^|O(n) ^|O(log n) ^|O(log n) ^|O(log n)
+|===
+{empty}* = Amortized run time. E.g. rehashing might affect run time to *O(n)*.
+// end::table[]
+
+]
 
 :leveloffset: -1

@@ -18,7 +18,7 @@ In this part of the book, we explored the most used linear data structures such 
 .Use a Stack when:
 * You need to access your data as last-in, first-out (LIFO).
 * You need to implement a <<Depth-First Search for Binary Tree, Depth-First Search>>
-(((Tables, Array/Lists/Stack/Queue complexities)))
+(((Tables, Linear DS, Array/Lists/Stack/Queue complexities)))
 
 // tag::table[]
 .Time/Space Complexity of Linear Data Structures (Array, LinkedList, Stack & Queues)
