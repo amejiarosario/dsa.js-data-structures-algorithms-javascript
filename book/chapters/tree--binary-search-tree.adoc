@@ -164,7 +164,7 @@ The tree on the left is unbalanced. It looks like a Linked List and has the same
 == Tree Complexity
 
 We can sum up the tree operations using Big O notation:
-(((table)))
+(((Tables, Binary Search Tree complexities)))
 
 // tag::table[]
 .Time complexity for a Binary Search Tree (BST)

@@ -283,8 +283,7 @@ include::{codedir}/data-structures/graphs/node.js[tag=removeAdjacent, indent=0]
 ----
 
 == Graph Complexity
-
-(((table)))
+(((Tables, Graph adjacency matrix/list complexities)))
 
 // tag::table[]
 .Time complexity for a Graph data structure

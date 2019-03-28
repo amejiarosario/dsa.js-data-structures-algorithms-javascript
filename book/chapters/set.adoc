@@ -205,7 +205,7 @@ This method has an average runtime of *O(1)*.
 We can say that `HashMap` in on average more performant O(1) vs. O(log n). However, if a
 rehash happens, it will take *O(n)* instead of *O(1)*. A `TreeSet` is always *O(log n)*.
 
-(((table)))
+(((Tables, HashSet/TreeSet complexities)))
 
 // tag::table[]
 .Time complexity HashSet vs TreeSet

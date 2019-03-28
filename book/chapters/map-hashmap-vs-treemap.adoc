@@ -15,7 +15,7 @@
 == TreeMap Time complexity vs HashMap
 
 As we discussed so far, there is a trade-off between the implementations.
-(((table)))
+(((Tables, HashMap/TreeMap complexities)))
 
 // tag::table[]
 .Time complexity for different Maps implementations
