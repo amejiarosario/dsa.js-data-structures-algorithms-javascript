@@ -60,6 +60,7 @@ Exponential time complexity is pretty bad. Can we do better?
 
 In the call tree, you can notice that every element in red and with asterisks `*` it's called more than once. We are repeating calculations too many times!
 
+(((quotes)))
 [quote, Dynamic Programming]
 Those who cannot remember the past are condemned to repeat it.
 
