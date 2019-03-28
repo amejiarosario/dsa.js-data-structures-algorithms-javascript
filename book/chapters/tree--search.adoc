@@ -46,9 +46,9 @@ include::{codedir}/data-structures/trees/binary-search-tree.js[tag=bfs,indent=0]
 As you see, the BFS uses a <<Queue>> data structure. We enqueue all the children of the current node and then dequeue them as we visit them.
 
 Note the asterisk (`*`) in front of the function means that this function is a generator that yields values.
-
 (((JavaScript Notes, Generators)))
 (((Generators)))
+
 .JavaScript Generators
 ****
 

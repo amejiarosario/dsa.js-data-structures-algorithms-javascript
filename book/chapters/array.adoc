@@ -216,8 +216,8 @@ To sum up, the time complexity on an array is:
 (((Runtime, Linear)))
 (((Constant)))
 (((Runtime, Constant)))
-
 (((Tables, Linear DS, JavaScript Array buit-in operations Complexities)))
+
 .Array Operations timex complexity
 |===
 | Operation | Time Complexity | Usage
