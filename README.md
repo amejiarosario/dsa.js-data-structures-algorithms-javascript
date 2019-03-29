@@ -13,7 +13,7 @@ You can check out the book that goes deeper into each topic and provide addtiona
 - Algorithm analysis fundamentals (Big O notation, Time/Space complexity) and examples.
 - Time/space complexity cheatsheet.
 
-<a href="https://gum.co/dsajs"><img src="book/cover.png" height="400px" alt="dsajs algorithms javascript book"></a>
+<a href="https://gum.co/dsajs"><img src="https://user-images.githubusercontent.com/418605/55248546-60ebad80-5220-11e9-8cb5-85923f44e196.png" height="400px" alt="dsajs algorithms javascript book"></a>
 
 ## Data Structures
 We are covering the following data structures.
