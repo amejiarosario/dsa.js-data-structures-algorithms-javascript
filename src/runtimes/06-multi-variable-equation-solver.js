@@ -19,7 +19,7 @@ function findXYZ({ start = 0, end = 10 } = {}) {
   for (let x = start; x < end; x++) {
     for (let y = start; y < end; y++) {
       for (let z = start; z < end; z++) {
-        if (3 * x + 9 * y + 8 * z === 79) {
+        if (3 * x + 9 * y + 8 * z === 79) { // eslint-disable-line
           solutions.push({ x, y, z });
         }
       }

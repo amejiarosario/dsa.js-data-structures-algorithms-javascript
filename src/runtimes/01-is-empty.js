@@ -1,5 +1,6 @@
 /**
  * Return true if an array is empty and false otherwise
+ * Check for objects keys as well
  * @param {array|string|object} thing
  * @example
  *      isEmpty() // => true
@@ -30,4 +31,7 @@ function isEmpty(thing) {
 }
 // end::isEmpty[]
 
-module.exports = isEmpty;
+module.exports = {
+  isEmpty,
+  isEmpty2,
+};
