@@ -87,4 +87,3 @@ class HashMapSet {
 }
 
 module.exports = HashMapSet;
-

@@ -85,4 +85,3 @@ class ArraySet {
 }
 
 module.exports = ArraySet;
-

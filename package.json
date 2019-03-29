@@ -3,14 +3,12 @@
   "version": "1.1.0",
   "description": "Data Structures & Algorithms in JS",
   "main": "./src/index.js",
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "devDependencies": {
     "benchmark": "2.1.4",
     "eslint": "4.19.1",
-    "eslint-config-airbnb-base": "12.1.0",
-    "eslint-plugin-import": "2.12.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jest": "21.17.0",
     "jest": "23.6.0",
     "textlint-plugin-asciidoctor": "1.0.2"
@@ -19,7 +17,8 @@
     "test": "jest src/",
     "watch": "jest src/ --watch --coverage",
     "coverage": "jest src/ --coverage && open coverage/lcov-report/index.html",
-    "linter": "npx eslint --fix -f codeframe src/"
+    "linter": "npx eslint --fix --format codeframe src/",
+    "ci": "npm run linter && npm test"
   },
   "keywords": [
     "algorithms",

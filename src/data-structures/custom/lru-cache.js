@@ -1,4 +1,3 @@
-
 /**
  * Design and implement a data structure for Least Recently Used (LRU) cache.
  * It should support the following operations: get and put.
@@ -31,46 +30,41 @@
  *
  * @param {number} capacity
  */
-const LRUCache = (capacity) => {
-  this.map = new Map();
-  this.capacity = capacity;
-};
-
-/**
-* @param {number} key
-* @return {number}
-*/
-LRUCache.prototype.get = (key) => {
-  const value = this.map.get(key);
-  if (value) {
-    this.moveToTop(key);
-    return value;
+class LRUCache {
+  constructor(capacity) {
+    this.map = new Map();
+    this.capacity = capacity;
   }
-  return -1;
-};
 
-/**
-* @param {number} key
-* @param {number} value
-* @return {void}
-*/
-LRUCache.prototype.put = (key, value) => {
-  this.map.set(key, value);
-  this.rotate(key);
-};
-
-LRUCache.prototype.rotate = (key) => {
-  this.moveToTop(key);
-  while (this.map.size > this.capacity) {
-    const it = this.map.keys();
-    this.map.delete(it.next().value);
-  }
-};
-
-LRUCache.prototype.moveToTop = (key) => {
-  if (this.map.has(key)) {
+  get(key) {
     const value = this.map.get(key);
-    this.map.delete(key);
-    this.map.set(key, value);
+    if (value) {
+      this.moveToTop(key);
+      return value;
+    }
+    return -1;
   }
-};
+
+  put(key, value) {
+    this.map.set(key, value);
+    this.rotate(key);
+  }
+
+  rotate(key) {
+    this.moveToTop(key);
+    while (this.map.size > this.capacity) {
+      const it = this.map.keys();
+      this.map.delete(it.next().value);
+    }
+  }
+
+  moveToTop(key) {
+    if (this.map.has(key)) {
+      const value = this.map.get(key);
+      this.map.delete(key);
+      this.map.set(key, value);
+    }
+  }
+}
+
+module.exports = LRUCache;

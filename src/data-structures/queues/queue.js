@@ -32,6 +32,7 @@ class Queue {
   dequeue() {
     return this.items.removeFirst();
   }
+
   // end::dequeue[]
   /**
    * Size of the queue
@@ -66,4 +67,3 @@ queue.dequeue(); //↪️ b
 queue.dequeue(); //↪️ c
 // end::snippet[]
 // */
-

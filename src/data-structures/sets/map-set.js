@@ -72,4 +72,3 @@ class MapSet {
 }
 
 module.exports = MapSet;
-

@@ -69,7 +69,7 @@ class BinarySearchTree {
   findNodeAndParent(value, node = this.root, parent = null) {
     if (!node || node.value === value) {
       return { found: node, parent };
-    } else if (value < node.value) {
+    } if (value < node.value) {
       return this.findNodeAndParent(value, node.left, node);
     }
     return this.findNodeAndParent(value, node.right, node);
