@@ -17,7 +17,7 @@ toc::[]
 
 image:book/cover.png[link=https://gum.co/dsajs, height=400]
 
-## Data Structures
+== Data Structures
 We are covering the following data structures.
 
 image:https://user-images.githubusercontent.com/418605/46118890-ba721180-c1d6-11e8-82bc-6a671428b422.png[link=https://embed.kumu.io/85f1a4de5fb8430a10a1bf9c5118e015]
