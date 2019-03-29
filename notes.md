@@ -1,3 +1,15 @@
+# Semantic Versioning
+
+This project is using semantic versioning which means that versions has tree numbers:
+
+> Major.Minor.Patch, e.g. 1.3.7
+
+and the meaning the the following:
+
+- Major: breaking (remove functionality or change API)
+- Minor: Features (new functionality, adding new topics)
+- Patch: Fixes (bug fixes, typos, etc.)
+
 # Roadmap
 - [x] PDF: callouts and emojis are not showing correctly
 - [x] Writeup on balancing trees

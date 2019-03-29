@@ -2,7 +2,7 @@
   "name": "dsa.js",
   "version": "1.0.0",
   "description": "Data Structures & Algorithms in JS",
-  "main": "./src/data-structures/graphs/graph.js",
+  "main": "./src/index.js",
   "dependencies": {
     "lodash": "4.17.11"
   },
