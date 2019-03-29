@@ -1,4 +1,4 @@
-const BinarySearchTree = require('./binary-search-tree');
+const { BinarySearchTree } = require('../../index');
 
 describe('Binary Search Tree', () => {
   let bst;

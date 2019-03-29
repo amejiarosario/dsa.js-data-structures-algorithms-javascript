@@ -1,4 +1,4 @@
-const Graph = require('./graph');
+const { Graph } = require('../../index');
 
 describe('Graph', () => {
   let graph;

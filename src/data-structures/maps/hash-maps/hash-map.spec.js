@@ -1,5 +1,4 @@
-const HashMap = require('./hash-map');
-// import HashMap from './hash-map';
+const { HashMap } = require('../../../index');
 
 
 describe('HashMap Tests', () => {

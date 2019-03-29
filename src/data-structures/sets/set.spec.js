@@ -1,7 +1,6 @@
-const ArraySet = require('./array-set');
-const HashSet = require('./hash-set');
-const MapSet = require('./map-set');
-const TreeSet = require('./tree-set');
+const {
+  ArraySet, HashSet, MapSet, TreeSet,
+} = require('../../index');
 
 const setImplementations = [Set, HashSet, TreeSet, MapSet, ArraySet];
 

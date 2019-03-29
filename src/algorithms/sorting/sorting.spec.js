@@ -1,10 +1,13 @@
-/*eslint-disable */
+const {
+  selectionSort, insertionSort, bubbleSort, mergeSort, quickSort,
+} = require('../../index');
+
 const sortingAlgorithms = [
-  require('./selection-sort'),
-  require('./insertion-sort'),
-  require('./bubble-sort'),
-  require('./merge-sort'),
-  require('./quick-sort'),
+  selectionSort,
+  insertionSort,
+  bubbleSort,
+  mergeSort,
+  quickSort,
 ];
 
 sortingAlgorithms.forEach((sort) => {

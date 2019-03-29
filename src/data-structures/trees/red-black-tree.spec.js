@@ -1,4 +1,4 @@
-const RedBlackTree = require('./red-black-tree.js');
+const { RedBlackTree } = require('../../index');
 
 const { RED, BLACK } = RedBlackTree;
 

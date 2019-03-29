@@ -1,5 +1,4 @@
-const HashMap = require('./hash-maps/hash-map');
-const TreeMap = require('./tree-maps/tree-map');
+const { HashMap, TreeMap } = require('../../index');
 
 const mapImplementations = [
   Map,
