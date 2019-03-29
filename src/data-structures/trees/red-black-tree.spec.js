@@ -27,11 +27,6 @@ describe('RedBlackTree', () => {
     });
 
     it('should balance tree by rotating left', () => {
-      // const n1 = tree.add(1);
-      // const n2 = tree.add(2);
-      // const n3 = tree.add(3);
-      // console.log(n3)
-
       expect(tree.size).toBe(3);
 
       expect(tree.toArray()).toEqual([
