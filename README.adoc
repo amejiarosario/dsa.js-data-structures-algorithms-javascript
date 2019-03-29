@@ -3,6 +3,8 @@
 :toclevels: 2
 Adrian Mejia <https://github.com/amejiarosario[@amejiarosario]>
 
+image:https://travis-ci.com/amejiarosario/dsa.js.svg?branch=master["Build Status", link="https://travis-ci.com/amejiarosario/dsa.js"]
+
 This repository covers the implementation of the classical algorithms and data structures in JavaScript.
 
 toc::[]

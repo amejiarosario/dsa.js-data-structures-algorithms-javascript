@@ -1,4 +1,5 @@
 # Data Structures and Algorithms in JavaScript
+[![Build Status](https://travis-ci.com/amejiarosario/dsa.js.svg?branch=master)](https://travis-ci.com/amejiarosario/dsa.js)
 
 This repository covers the implementation of the classical algorithms and data structures in JavaScript.
 
