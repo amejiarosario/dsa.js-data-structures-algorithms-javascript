@@ -17,7 +17,7 @@ include::linear-data-structures-outro.adoc[tag=table]
 
 This section covers Binary Search Tree (BST) time complexity (Big O).
 
-include::chapter3.adoc[tag=table]
+include::part3.adoc[tag=table]
 
 include::graph.adoc[tag=table]
 

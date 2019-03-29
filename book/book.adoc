@@ -27,15 +27,21 @@ endif::[]
 // custom variables
 :codedir: ../../src
 :datadir: {docdir}/data
-:source-highlighter: pygments
-:pygments-style: xcode
+// :source-highlighter: pygments
+// paraiso-light, xcode, monokai
+// :pygments-style: xcode
 :stem:
 :plantuml-config: {docdir}/_conf/umlconfig.txt
 // :hide-uri-scheme:
 // :chapter-label: Chapter
 // :appendix-caption: Appendix
 // :chapter-label:
-
+// dark
+// :pygments-style: monokai
+// light theme with colorful code
+// solarized-light, tomorrow
+// :source-highlighter: highlightjs
+// :highlightjs-theme: tomorrow
 
 ifndef::ebook-format[:leveloffset: 1]
 
