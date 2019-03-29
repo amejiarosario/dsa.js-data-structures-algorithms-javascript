@@ -16,7 +16,7 @@
     "textlint-plugin-asciidoctor": "1.0.2"
   },
   "scripts": {
-    "test": "jest src/ # jest # mocha src/**/*spec.js # jasmine JASMINE_CONFIG_PATH=jasmine.json # node jasmine-runner.js",
+    "test": "jest src/",
     "watch": "jest src/ --watch --coverage",
     "coverage": "jest src/ --coverage && open coverage/lcov-report/index.html",
     "linter": "npx eslint --fix -f codeframe src/"
