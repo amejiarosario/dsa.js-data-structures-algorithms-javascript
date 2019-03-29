@@ -1,4 +1,4 @@
-= Data Structures and Algorithms Explained in JavaScript
+= Data Structures and Algorithms in JavaScript
 :book-title: {doctitle}
 :author: Adrian Mejia
 :email:  hello+dsajs@adrianmejia.com
@@ -7,7 +7,7 @@
 :revyear: 2019
 :revremark: First Edition
 :subject: Algorithms
-:keywords: Algorithms, Data Structures, JavaScript, Coding Interviews, Computer Science, Time Complexity, Linked Lists, Graphs, Binary Search Trees
+:keywords: dsa.js, Algorithms, Data Structures, JavaScript, Coding Interviews, Computer Science, Time Complexity, Linked Lists, Graphs, Binary Search Trees
 :doctype: book
 :media: screen
 :imagesdir: {docdir}/images
