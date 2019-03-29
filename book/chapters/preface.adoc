@@ -17,6 +17,9 @@ NOTE: You can apply the concepts in this book to any programming language. Howev
 
 You will need Node.js. The book code was tested against Node.js v10.15, but newer versions should also work.
 
+All the code examples used in this book can be found on:
+https://github.com/amejiarosario/dsa.js
+
 == Conventions
 
 We use some typographical conventions within this book that distinguish between different kinds of information.

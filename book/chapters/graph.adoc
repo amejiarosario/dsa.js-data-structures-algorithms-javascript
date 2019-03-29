@@ -281,7 +281,7 @@ include::{codedir}/data-structures/graphs/graph.js[tag=removeEdge, indent=0]
 ----
 include::{codedir}/data-structures/graphs/node.js[tag=removeAdjacent, indent=0]
 ----
-
+<<<
 == Graph Complexity
 (((Tables, Non-Linear DS, Graph adjacency matrix/list complexities)))
 

@@ -1,4 +1,4 @@
 [partintro]
 --
-In this part, we are going to cover the basics of algorithms analysis. Also, we are going to discuss the most common runtimes of algorithms and provide a code example for each one.
+In this part, we are going to cover the basics of algorithms analysis. Also, we will discuss the most common runtimes of algorithms and provide a code example for each one.
 --

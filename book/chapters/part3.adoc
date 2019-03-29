@@ -78,6 +78,4 @@ In this section, we learned about Graphs applications, properties and how we can
 {empty}* = Amortized run time. E.g. rehashing might affect run time to *O(n)*.
 // end::table[]
 
-]
-
 :leveloffset: -1

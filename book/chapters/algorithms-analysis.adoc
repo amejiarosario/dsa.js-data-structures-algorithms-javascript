@@ -1,15 +1,15 @@
 = Fundamentals of Algorithms Analysis
 
-Chances are you are reading this book because you want to write better and faster code.
+Probably you are reading this book because you want to write better and faster code.
 How can you do that? Can you time how long it takes to run a program? Of course, you can!
 [big]#⏱#
-However, if you run the same program on a smartwatch, cellphone or desktop computer, it will give you different very times.
+However, if you run the same program on a smartwatch, cellphone or desktop computer, it will take different times.
 
 image:image3.png[image,width=528,height=137]
 
 Wouldn't it be great if we can compare algorithms regardless of the hardware where we run them?
 That's what *time complexity* is for!
-But why stop with the running time?
+But, why stop with the running time?
 We could also compare the memory "used" by different algorithms, and we called that *space complexity*.
 
 .In this chapter you will learn:
@@ -17,11 +17,11 @@ We could also compare the memory "used" by different algorithms, and we called t
 -    Learn how to use Big O notation to compare algorithms.
 -    How to use algorithms analysis to improve your programs speed.
 
-Before going deeper, into space and time complexity, let's cover the basics real quick.
+Before going deeper into space and time complexity, let's cover the basics real quick.
 
 == What are Algorithms?
 
-Algorithms (as you might know) are steps of how to do some task. When you cook, you follow a recipe (or an algorithm) to prepare a dish. Let's say you want to make a pizza.
+Algorithms (as you might know) are steps of how to do some tasks. When you cook, you follow a recipe (or an algorithm) to prepare a dish. Let's say you want to make a pizza.
 
 .Example of an algorithm
 [source, javascript]
@@ -60,11 +60,11 @@ To give you a clearer picture of how different algorithms perform as the input s
 |Find all permutations of a string |4 sec. |> vigintillion years |> centillion years |∞ |∞
 |=============================================================================================
 
-Most algorithms are affected by the size of the input (`n`). Let's say you need to arrange numbers in ascending order. Sorting ten items will naturally take much less time than sorting out 2 million. But, how much longer? Some algorithms as the input size grow they take proportionally more time, we classify them as <<Linear, linear>> runtime [or `O(n)`]. Others might take power two longer; we call them <<Quadratic, quadratic>> running time [or `O(n^2^)`].
+Most algorithms are affected by the size of the input (`n`). Let's say you need to arrange numbers in ascending order. Sorting ten items will naturally take less time than sorting out 2 million. But, how much longer? As the input size grow, some algorithms take proportionally more time, we classify them as <<Linear, linear>> runtime [or `O(n)`]. Others might take power two longer; we call them <<Quadratic, quadratic>> running time [or `O(n^2^)`].
 
 From another perspective, if you keep the input size the same and run different algorithms implementations, you would notice the difference between an efficient algorithm and a slow one. For example, a good sorting algorithm is <<Merge Sort>>, and an inefficient algorithm for large inputs is <<Selection Sort>>.
 Organizing 1 million elements with merge sort takes 20 seconds while bubble sort takes 12 days, ouch!
-The amazing thing is that both programs are solving the same problem with the same data and hardware and yet there's a big difference in time!
+The amazing thing is that both programs are solving the same problem with equal data and hardware; and yet, there's a big difference in time!
 
 After completing this book, you are going to _think algorithmically_.
 You will be able to scale your programs while you are designing them.
@@ -85,7 +85,7 @@ In this section, we are going to learn the basics of measuring our current code 
 (((Time complexity)))
 Time complexity, in computer science, is a function that describes the number of operations a program will execute given the size of the input `n`.
 
-How do you get a function that gives us the number of operations that will be executed? Well, we count line by line and mind code inside loops. Let's do an example to explain this point. For instance, we have a function to find the minimum value on an array called `getMin`.
+How do you get a function that gives you the number of operations that will be executed? Well, we count line by line and mind code inside loops. Let's do an example to explain this point. For instance, we have a function to find the minimum value on an array called `getMin`.
 
 .Translating lines of code to an approximate number of operations
 image:image4.png[Operations per line]
@@ -96,7 +96,7 @@ _3n + 3_
 
 `n` =  input size.
 
-That means that if give an array of 3 elements e.g. `getMin([3, 2, 9])`, then it will execute around _3(3)+3 = 12_ operations. Of course, this is not for every case. For instance, Line 12 is only executed if the condition on line 11 is met. As you might learn in the next section, we want to get the big picture and get rid of smaller terms to compare algorithms easier.
+That means that if you have an array of 3 elements e.g. `getMin([3, 2, 9])`, then it will execute around _3(3)+3 = 12_ operations. Of course, this is not for every case. For instance, Line 12 is only executed if the condition on line 11 is met. As you might learn in the next section, we want to get the big picture and get rid of smaller terms to compare algorithms easier.
 
 == Space Complexity
 (((Space Complexity)))
@@ -169,7 +169,7 @@ Again, time complexity is not a direct measure of how long a program takes to ex
 
 This just an illustration since in different hardware the times will be slightly different.
 
-NOTE: These times are under the assumption of running on 1 GHz CPU and that it can execute on average one instruction in 1 nanosecond (usually takes more time). Also, bear in mind that each line might be translated into dozens of CPU instructions depending on the programming language. Regardless, bad algorithms would perform poorly even on a supercomputer.
+NOTE: These times are under the assumption of running on 1 GHz CPU and it can execute on average one instruction in 1 nanosecond (usually takes more time). Also, keep in mind that each line might be translated into dozens of CPU instructions depending on the programming language. Regardless, bad algorithms would perform poorly even on a supercomputer.
 
 == Summary
 
