@@ -4,6 +4,7 @@ coverage
 dist
 _book
 .DS_Store
+.asciidoctor
 
 # https://raw.githubusercontent.com/mraible/infoq-mini-book/master/.gitignore
 ######################
