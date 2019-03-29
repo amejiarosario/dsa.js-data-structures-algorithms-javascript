@@ -4,7 +4,7 @@
   "description": "Data Structures & Algorithms in JS",
   "main": "./src/index.js",
   "dependencies": {
-    "lodash": "4.17.11"
+
   },
   "devDependencies": {
     "benchmark": "2.1.4",
