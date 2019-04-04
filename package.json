@@ -13,7 +13,7 @@
     "test": "jest src/",
     "watch": "jest src/ --watch --coverage",
     "coverage": "jest src/ --coverage && open coverage/lcov-report/index.html",
-    "linter": "npx eslint --fix --format codeframe src/",
+    "lint": "npx eslint --fix --format codeframe src/",
     "ci": "npx eslint src/ && npm test"
   },
   "keywords": [
