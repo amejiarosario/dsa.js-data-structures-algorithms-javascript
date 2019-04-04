@@ -18,9 +18,9 @@ function binarySearchRecursive(array, search, offset = 0) {
 
   if (current === search) {
     return offset + half;
-  } else if (array.length < 2) {
+  } if (array.length < 2) {
     return -1;
-  } else if (search > current) {
+  } if (search > current) {
     const right = array.slice(half);
     return binarySearchRecursive(right, search, offset + half);
   }
@@ -49,7 +49,7 @@ function binarySearchIterative(array, search) {
 
     if (current === search) {
       return currentIndex;
-    } else if (search > current) {
+    } if (search > current) {
       start = currentIndex;
     } else if (search < current) {
       end = currentIndex;
@@ -62,24 +62,26 @@ function binarySearchIterative(array, search) {
 // const binarySearch = binarySearchRecursive;
 const binarySearch = binarySearchIterative;
 
-function test() {
-  const directory = ['Adrian', 'Bella', 'Charlotte', 'Daniel', 'Emma', 'Hanna', 'Isabella', 'Jayden', 'Kaylee', 'Luke', 'Mia', 'Nora', 'Olivia', 'Paisley', 'Riley', 'Thomas', 'Wyatt', 'Xander', 'Zoe'];
+// function test() {
+//  const directory = ['Adrian', 'Bella', 'Charlotte', 'Daniel',
+//  'Emma', 'Hanna', 'Isabella', 'Jayden', 'Kaylee', 'Luke', 'Mia',
+//  'Nora', 'Olivia', 'Paisley', 'Riley', 'Thomas', 'Wyatt', 'Xander', 'Zoe'];
+//
+//   const assert = require('assert');
+//   assert.equal(binarySearch([], 'not found'), -1);
+//   assert.equal(binarySearch([1], 2), -1);
+//   assert.equal(binarySearch([1], 1), 0);
+//   assert.equal(binarySearch([1, 2, 3], 1), 0);
+//   assert.equal(binarySearch([1, 2, 3], 2), 1);
+//   assert.equal(binarySearch([1, 2, 3], 3), 2);
+//   assert.equal(binarySearch([1, 2, 3], 31), -1);
+//   assert.equal(binarySearch(directory, 'Adrian'), 0);
+//   assert.equal(binarySearch(directory, 'Hanna'), 5);
+//   assert.equal(binarySearch(directory, 'Zoe'), 18);
+//   assert.equal(binarySearch(directory, 'not found'), -1);
+// }
 
-  const assert = require('assert');
-  assert.equal(binarySearch([], 'not found'), -1);
-  assert.equal(binarySearch([1], 2), -1);
-  assert.equal(binarySearch([1], 1), 0);
-  assert.equal(binarySearch([1, 2, 3], 1), 0);
-  assert.equal(binarySearch([1, 2, 3], 2), 1);
-  assert.equal(binarySearch([1, 2, 3], 3), 2);
-  assert.equal(binarySearch([1, 2, 3], 31), -1);
-  assert.equal(binarySearch(directory, 'Adrian'), 0);
-  assert.equal(binarySearch(directory, 'Hanna'), 5);
-  assert.equal(binarySearch(directory, 'Zoe'), 18);
-  assert.equal(binarySearch(directory, 'not found'), -1);
-}
-
-test();
+// test();
 
 
-module.exports = binarySearch;
+module.exports = { binarySearch, binarySearchIterative, binarySearchRecursive };

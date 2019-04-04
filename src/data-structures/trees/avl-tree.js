@@ -24,14 +24,14 @@ function balance(node) {
     // left subtree is higher than right subtree
     if (node.left.balanceFactor > 0) {
       return rightRotation(node);
-    } else if (node.left.balanceFactor < 0) {
+    } if (node.left.balanceFactor < 0) {
       return leftRightRotation(node);
     }
   } else if (node.balanceFactor < -1) {
     // right subtree is higher than left subtree
     if (node.right.balanceFactor < 0) {
       return leftRotation(node);
-    } else if (node.right.balanceFactor > 0) {
+    } if (node.right.balanceFactor > 0) {
       return rightLeftRotation(node);
     }
   }

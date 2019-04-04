@@ -16,8 +16,8 @@ function merge(array1, array2 = []) {
   // merge elements on a and b in asc order. Run-time O(a + b)
   for (let index = 0, i1 = 0, i2 = 0;
     index < mergedLength; index++) { // <1>
-    if (i2 >= array2.length ||
-      (i1 < array1.length && array1[i1] <= array2[i2])) {
+    if (i2 >= array2.length
+      || (i1 < array1.length && array1[i1] <= array2[i2])) {
       mergedArray[index] = array1[i1]; // <2>
       i1 += 1;
     } else {
@@ -45,7 +45,7 @@ function splitSort(array) {
   // base case
   if (size < 2) {
     return array;
-  } else if (size === 2) {
+  } if (size === 2) {
     return array[0] < array[1] ? array : [array[1], array[0]]; // <1>
   }
 

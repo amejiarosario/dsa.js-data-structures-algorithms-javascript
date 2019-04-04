@@ -74,4 +74,3 @@ module.exports = HashMap;
 // assert.equal(hashMap.get('cat'), 8); // got overwritten by art 😱
 // assert.equal(hashMap.get('rat'), 8); // got overwritten by art 😱
 // assert.equal(hashMap.get('dog'), 8); // got overwritten by art 😱
-

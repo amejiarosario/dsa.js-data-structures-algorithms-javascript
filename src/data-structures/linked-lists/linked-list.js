@@ -1,5 +1,5 @@
-const Node = require('./node');
 const util = require('util');
+const Node = require('./node');
 
 // tag::constructor[]
 /**

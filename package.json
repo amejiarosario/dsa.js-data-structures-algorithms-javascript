@@ -2,24 +2,19 @@
   "name": "dsa.js",
   "version": "1.1.0",
   "description": "Data Structures & Algorithms in JS",
+  "author": "Adrian Mejia <hi+dsajs@adrianmejia.com> (https://adrianmejia.com)",
+  "homepage": "https://github.com/amejiarosario/dsa.js",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/amejiarosario/dsa.js.git"
+  },
   "main": "./src/index.js",
-  "dependencies": {
-
-  },
-  "devDependencies": {
-    "benchmark": "2.1.4",
-    "eslint": "4.19.1",
-    "eslint-config-airbnb-base": "12.1.0",
-    "eslint-plugin-import": "2.12.0",
-    "eslint-plugin-jest": "21.17.0",
-    "jest": "23.6.0",
-    "textlint-plugin-asciidoctor": "1.0.2"
-  },
   "scripts": {
-    "test": "jest src/ # jest # mocha src/**/*spec.js # jasmine JASMINE_CONFIG_PATH=jasmine.json # node jasmine-runner.js",
+    "test": "jest src/",
     "watch": "jest src/ --watch --coverage",
     "coverage": "jest src/ --coverage && open coverage/lcov-report/index.html",
-    "linter": "npx eslint --fix -f codeframe src/"
+    "lint": "npx eslint --fix --format codeframe src/",
+    "ci": "npx eslint src/ && npm test"
   },
   "keywords": [
     "algorithms",
@@ -29,6 +24,20 @@
     "linked lists",
     "binary search trees"
   ],
-  "author": "Adrian Mejia <hi+dsajs@adrianmejia.com>",
-  "license": "ISC"
+  "license": "MIT",
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "benchmark": "2.1.4",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jest": "21.17.0",
+    "jest": "23.6.0",
+    "textlint-plugin-asciidoctor": "1.0.2"
+  },
+  "engines": {
+    "node" : ">=10.0.0"
+  }
 }

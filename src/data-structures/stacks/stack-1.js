@@ -37,4 +37,3 @@ Stack.prototype.push = Stack.prototype.add;
 Stack.prototype.pop = Stack.prototype.remove;
 
 module.exports = Stack;
-

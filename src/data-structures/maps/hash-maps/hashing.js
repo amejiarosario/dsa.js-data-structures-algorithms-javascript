@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // tag::naiveHashCode[]
 /**
  * Naïve implementation of a non-cryptographic hashing function
