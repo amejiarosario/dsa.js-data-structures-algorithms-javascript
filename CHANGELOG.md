@@ -5,14 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
 ## [Unreleased]
 
-### Breaking changes
+### Breaking changes (major)
 
-### New Features
+### New Features (minor)
+
+### Fixes (patch)
+
+## [1.2.0] - 2019-04-04
+
+### Breaking changes (major)
+
+### New Features (minor)
+
 - Added Eslint and Travis ci
 
-### Patches
+### Fixes (patch)
+
 - Readme improvements
 - Badges for npm versions and build status
 
@@ -49,6 +60,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -
 
 
-[Unreleased]: https://github.com/amejiarosario/dsa.js/compare/1.1.0...HEAD
+[Unreleased]: https://github.com/amejiarosario/dsa.js/compare/1.2.0...HEAD
+[1.2.0]: https://github.com/amejiarosario/dsa.js/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/amejiarosario/dsa.js/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/amejiarosario/dsa.js/releases/tag/1.0.0
