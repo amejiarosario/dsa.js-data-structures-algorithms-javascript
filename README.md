@@ -19,7 +19,7 @@ and then you can import it into your programs or CLI
 const { LinkedList, Queue, Stack } = require('dsa.js');
 ```
 
-For a full list of all the exposed data structures and algorithms [see](https://github.com/amejiarosario/dsa.js/blob/master/src/index.js)
+For a full list of all the exposed data structures and algorithms [see](https://github.com/amejiarosario/dsa.js/blob/master/src/index.js).
 
 ## Book
 
