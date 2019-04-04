@@ -2,6 +2,12 @@
   "name": "dsa.js",
   "version": "1.1.0",
   "description": "Data Structures & Algorithms in JS",
+  "author": "Adrian Mejia <hi+dsajs@adrianmejia.com> (https://adrianmejia.com)",
+  "homepage": "https://github.com/amejiarosario/dsa.js",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/amejiarosario/dsa.js.git"
+  },
   "main": "./src/index.js",
   "scripts": {
     "test": "jest src/",
@@ -18,10 +24,10 @@
     "linked lists",
     "binary search trees"
   ],
-  "author": "Adrian Mejia <hi+dsajs@adrianmejia.com>",
-  "homepage": "https://github.com/amejiarosario/dsa.js",
-  "license": "ISC",
-  "dependencies": {},
+  "license": "MIT",
+  "dependencies": {
+
+  },
   "devDependencies": {
     "benchmark": "2.1.4",
     "eslint": "4.19.1",
@@ -30,5 +36,8 @@
     "eslint-plugin-jest": "21.17.0",
     "jest": "23.6.0",
     "textlint-plugin-asciidoctor": "1.0.2"
+  },
+  "engines": {
+    "node" : ">=10.0.0"
   }
 }
