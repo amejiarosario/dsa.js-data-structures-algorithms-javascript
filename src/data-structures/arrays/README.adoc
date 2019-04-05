@@ -1,0 +1,3 @@
+= Array
+
+include::../../book/chapters/array.adoc[]
