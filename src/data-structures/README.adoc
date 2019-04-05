@@ -1,0 +1,7 @@
+= Data Structures
+
+This directory contains all the data structures. Documentation can be found inline and also:
+
+include::../book/chapters/part2.adoc[]
+
+include::../book/chapters/part3.adoc[]
