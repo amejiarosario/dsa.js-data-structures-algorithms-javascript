@@ -34,10 +34,10 @@ You can check out the [dsa.js book](https://gum.co/dsajs) that goes deeper into 
 
 The book text is available to read here:
 
-1. [Algorithms Analysis](/amejiarosario/dsa.js/blob/master/book/chapters/part1.adoc)
-1. [Linear Data Structures](/amejiarosario/dsa.js/blob/master/book/chapters/part2.adoc)
-1. [Non-Linear Data Structures](/amejiarosario/dsa.js/blob/master/book/chapters/part3.adoc)
-1. [Algorithmic Techniques](/amejiarosario/dsa.js/blob/master/book/chapters/part4.adoc)
+1. [Algorithms Analysis](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/part1.adoc)
+1. [Linear Data Structures](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/part2.adoc)
+1. [Non-Linear Data Structures](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/part3.adoc)
+1. [Algorithmic Techniques](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/part4.adoc)
 
 ## Data Structures
 
