@@ -1,3 +1,1 @@
-= Linked List
-
-include::../../book/chapters/linked-list.adoc[]
+include::../../../book/chapters/linked-list.adoc[]

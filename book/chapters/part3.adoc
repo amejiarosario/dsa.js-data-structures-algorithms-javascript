@@ -28,25 +28,7 @@ include::tree--avl.adoc[]
 :leveloffset: -1
 
 // (g)
-// include::map.adoc[]
-<<<
-include::map-intro.adoc[]
-
-:leveloffset: +1
-
-// (g)
-<<<
-include::map-hashmap.adoc[]
-
-// (g)
-<<<
-include::map-treemap.adoc[]
-
-// (g)
-<<<
-include::map-hashmap-vs-treemap.adoc[]
-
-:leveloffset: -1
+include::map.adoc[]
 
 // (g)
 include::set.adoc[]

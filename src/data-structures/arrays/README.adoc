@@ -1,3 +1,1 @@
-= Array
-
-include::../../book/chapters/array.adoc[]
+include::../../../book/chapters/array.adoc[]
