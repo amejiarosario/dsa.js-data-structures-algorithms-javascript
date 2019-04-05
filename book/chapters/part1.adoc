@@ -1,7 +1,11 @@
 [[chapter-1]]
 = Algorithms Analysis
 
-include::algorithms-analysis-intro.adoc[]
+[partintro]
+--
+In this part, we are going to cover the basics of algorithms analysis. Also, we will discuss the most common runtimes of algorithms and provide a code example for each one.
+--
+
 
 :leveloffset: +1
 

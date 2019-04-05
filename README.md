@@ -23,7 +23,7 @@ For a full list of all the exposed data structures and algorithms [see](https://
 
 ## Book
 
-You can check out the book that goes deeper into each topic and provide additional illustrations and explanations.
+You can check out the [dsa.js book](https://gum.co/dsajs) that goes deeper into each topic and provide additional illustrations and explanations.
 
 - Algorithmic toolbox to avoid getting stuck while coding.
 - Explains data structures similarities and differences.
@@ -32,7 +32,15 @@ You can check out the book that goes deeper into each topic and provide addition
 
 <a href="https://gum.co/dsajs"><img src="https://user-images.githubusercontent.com/418605/55248546-60ebad80-5220-11e9-8cb5-85923f44e196.png" height="400px" alt="dsajs algorithms javascript book"></a>
 
+The book text is available to read here:
+
+1. [Algorithms Analysis](/amejiarosario/dsa.js/blob/master/book/chapters/part1.adoc)
+1. [Linear Data Structures](/amejiarosario/dsa.js/blob/master/book/chapters/part2.adoc)
+1. [Non-Linear Data Structures](/amejiarosario/dsa.js/blob/master/book/chapters/part3.adoc)
+1. [Algorithmic Techniques](/amejiarosario/dsa.js/blob/master/book/chapters/part4.adoc)
+
 ## Data Structures
+
 We are covering the following data structures.
 
 [![Interactive Data Structures](https://user-images.githubusercontent.com/418605/46118890-ba721180-c1d6-11e8-82bc-6a671428b422.png)](https://embed.kumu.io/85f1a4de5fb8430a10a1bf9c5118e015)
