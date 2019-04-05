@@ -10,6 +10,26 @@ and the meaning the the following:
 - Minor: Features (new functionality, adding new topics)
 - Patch: Fixes (bug fixes, typos, etc.)
 
+# Generating Changelog
+
+We use these three sections in changelog: new features, bug fixes, breaking changes.
+
+List of all subjects (first lines in commit message) since last release:
+
+```sh
+git log <last tag> HEAD --pretty=format:%s
+
+# example
+git log 1.1.0..HEAD --pretty=format:%s
+```
+
+New features in this release
+
+```sh
+git log <last release> HEAD --grep feat
+```
+
+
 # Roadmap
 - [x] PDF: callouts and emojis are not showing correctly
 - [x] Writeup on balancing trees
