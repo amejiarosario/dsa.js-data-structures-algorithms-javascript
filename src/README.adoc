@@ -1,0 +1,9 @@
+= Welcome to DSA.js!
+
+In the following file you can find all the exposed classes:
+
+include::index.js[]
+
+The implementations are divided in two parts `algorithms` and `data-structures`.
+
+NOTE: runtime is just for examples
