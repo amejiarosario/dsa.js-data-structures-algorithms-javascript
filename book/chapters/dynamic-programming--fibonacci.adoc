@@ -1,3 +1,8 @@
+ifndef::imagesdir[]
+:imagesdir: ../images
+:codedir: ../../src
+endif::[]
+
 = Fibonacci Sequence with Dynamic Programming
 (((Fibonacci)))
 Let's solve the same Fibonacci problem but this time with dynamic programming.

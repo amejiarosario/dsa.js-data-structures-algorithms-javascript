@@ -1,3 +1,8 @@
+ifndef::imagesdir[]
+:imagesdir: ../images
+:codedir: ../../src
+endif::[]
+
 = Fractional Knapsack Problem
 
 We are going to use the "Fractional Knapsack Problem" to learn how to design greedy algorithms. The problem is the following:

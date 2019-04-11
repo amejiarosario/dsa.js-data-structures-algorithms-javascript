@@ -1,3 +1,8 @@
+ifndef::imagesdir[]
+:imagesdir: ../images
+:codedir: ../../src
+endif::[]
+
 = Set
 (((Set)))
 (((Data Structures, Non-Linear, Set)))

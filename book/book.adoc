@@ -10,7 +10,6 @@
 :keywords: dsa.js, Algorithms, Data Structures, JavaScript, Coding Interviews, Computer Science, Time Complexity, Linked Lists, Graphs, Binary Search Trees
 :doctype: book
 :media: screen
-:imagesdir: {docdir}/images
 ifeval::["{media}" != "prepress"]
 :front-cover-image: image:cover-a4.png[Front Cover,595,842]
 endif::[]
@@ -25,6 +24,7 @@ endif::[]
 :pdf-style: adrian-screen
 :title-logo-image: image:logo.png[Logo,50,50]
 // custom variables
+:imagesdir: {docdir}/images
 :codedir: ../../src
 :datadir: {docdir}/data
 // :source-highlighter: pygments

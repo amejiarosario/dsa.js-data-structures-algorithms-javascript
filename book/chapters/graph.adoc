@@ -1,3 +1,8 @@
+ifndef::imagesdir[]
+:imagesdir: ../images
+:codedir: ../../src
+endif::[]
+
 = Graph
 (((Graph)))
 (((Data Structures, Non-Linear, Graph)))

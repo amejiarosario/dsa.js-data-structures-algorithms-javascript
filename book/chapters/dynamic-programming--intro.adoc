@@ -1,3 +1,8 @@
+ifndef::imagesdir[]
+:imagesdir: ../images
+:codedir: ../../src
+endif::[]
+
 (((Dynamic Programming)))
 (((Algorithmic Techniques, Dynamic Programming)))
 Dynamic programming (dp) is a way to solve algorithmic problems with *overlapping subproblems*. Algorithms using dp find the base case and building a solution from the ground-up. Dp _keep track_ of previous results to avoid re-computing the same operations.

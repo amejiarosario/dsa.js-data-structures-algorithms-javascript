@@ -1,3 +1,8 @@
+ifndef::imagesdir[]
+:imagesdir: ../images
+:codedir: ../../src
+endif::[]
+
 = Self-balancing Binary Search Trees
 
 Binary Search Trees (BST) are an excellent data structure to find elements very fast _O(log n)_.
