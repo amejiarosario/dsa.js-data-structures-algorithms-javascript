@@ -1,9 +1,12 @@
-= Welcome to DSA.js!
+= Welcome to DSA.js implementations!
 
 In the following file you can find all the exposed classes:
 
 include::index.js[]
 
-The implementations are divided in two parts `algorithms` and `data-structures`.
+The implementations are divided in two main parts:
 
-NOTE: runtime is just for examples
+- https://github.com/amejiarosario/dsa.js/tree/master/src/algorithms[Algorithms]
+- https://github.com/amejiarosario/dsa.js/tree/master/src/data-structures[Data Structures]
+
+NOTE: `runtimes` directory is just for blog/book examples but not exposed throught the public API.
