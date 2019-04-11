@@ -1,3 +1,8 @@
+ifndef::imagesdir[]
+:imagesdir: ../images
+:codedir: ../../src
+endif::[]
+
 = Backtracking
 (((Backtracking)))
 (((Algorithmic Techniques, Backtracking)))

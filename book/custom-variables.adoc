@@ -1,0 +1,2 @@
+:imagesdir: {docdir}/images
+:codedir: ../../src

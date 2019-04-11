@@ -1,3 +1,8 @@
+ifndef::imagesdir[]
+:imagesdir: ../images
+:codedir: ../../src
+endif::[]
+
 = Fundamentals of Algorithms Analysis
 
 Probably you are reading this book because you want to write better and faster code.

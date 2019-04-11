@@ -1,3 +1,8 @@
+ifndef::imagesdir[]
+:imagesdir: ../images
+:codedir: ../../src
+endif::[]
+
 = Sorting Properties
 
 Sorting implementations with the same time complexity might manipulate the data differently. We want to understand these differences so we can be aware of the side-effects it will have on data or extra resources they will require. For instance, some solutions will need auxiliary memory to store temporary data while sorting while others can do it in place.

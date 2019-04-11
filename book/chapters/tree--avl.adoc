@@ -1,3 +1,8 @@
+ifndef::imagesdir[]
+:imagesdir: ../images
+:codedir: ../../src
+endif::[]
+
 = AVL Tree
 (((AVL Tree)))
 (((Tree, AVL)))

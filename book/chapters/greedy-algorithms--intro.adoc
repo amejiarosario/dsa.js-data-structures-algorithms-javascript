@@ -1,3 +1,8 @@
+ifndef::imagesdir[]
+:imagesdir: ../images
+:codedir: ../../src
+endif::[]
+
 (((Greedy Algorithms)))
 (((Algorithmic Techniques, Greedy Algorithms)))
 Greedy algorithms are designed to find a solution by going one step at a time and using heuristics to determine the best choice.

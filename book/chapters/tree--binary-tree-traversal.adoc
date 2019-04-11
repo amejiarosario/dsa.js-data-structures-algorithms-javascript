@@ -1,3 +1,8 @@
+ifndef::imagesdir[]
+:imagesdir: ../images
+:codedir: ../../src
+endif::[]
+
 = Binary Tree Traversal
 (((Binary Tree Traversal)))
 As mentioned before, there are different ways to visit all the nodes or search for a value in a binary tree. On this section, we are going to focus on depth-first tree traversal.

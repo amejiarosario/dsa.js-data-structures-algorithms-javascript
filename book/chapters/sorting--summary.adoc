@@ -1,3 +1,8 @@
+ifndef::imagesdir[]
+:imagesdir: ../images
+:codedir: ../../src
+endif::[]
+
 = Summary
 
 We explored many algorithms some of them simple and other more performant. Also, we cover the properties of sorting algorithms such as stable, in-place, online and adaptive.

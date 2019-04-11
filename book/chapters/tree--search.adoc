@@ -1,3 +1,8 @@
+ifndef::imagesdir[]
+:imagesdir: ../images
+:codedir: ../../src
+endif::[]
+
 = Tree Search & Traversal
 
 So far we covered, how to insert/delete/search values in a binary search tree (BST).

@@ -32,7 +32,7 @@ You can check out the [dsa.js book](https://gum.co/dsajs) that goes deeper into 
 
 <a href="https://gum.co/dsajs"><img src="https://user-images.githubusercontent.com/418605/55248546-60ebad80-5220-11e9-8cb5-85923f44e196.png" height="400px" alt="dsajs algorithms javascript book"></a>
 
-WARNING: Although you can find the [book text on this repo](https://github.com/amejiarosario/dsa.js/blob/master/book/book.adoc), there are some things that doesn't work well with Github's Asciidoc unfortunately, such as rendering Graphviz diagrams, including referenced chunks of code within text and some so on. For better reading experience and nicer presentation you can get the [PDF format here](https://gum.co/dsajs).
+WARNING: Although you can find the [book text on this repo](https://github.com/amejiarosario/dsa.js/blob/master/book/book.adoc), there are some things that doesn't work well with Github's Asciidoc unfortunately. For instance rendering Graphviz diagrams, internal link references, embedding code into docs and so on. For better reading experience and nicer presentation you can get the [PDF format here](https://gum.co/dsajs).
 
 ## Data Structures
 

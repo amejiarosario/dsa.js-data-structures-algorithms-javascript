@@ -1,3 +1,8 @@
+ifndef::imagesdir[]
+:imagesdir: ../images
+:codedir: ../../src
+endif::[]
+
 = Knapsack Problem
 
 The knapsack (backpack [big]#🎒#) problem is the following:

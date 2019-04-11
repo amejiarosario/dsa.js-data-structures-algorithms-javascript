@@ -1,3 +1,8 @@
+ifndef::imagesdir[]
+:imagesdir: ../images
+:codedir: ../../src
+endif::[]
+
 = Recursive Fibonacci Numbers
 (((Fibonacci)))
 To illustrate how we can solve a problem using divide and conquer, let's write a program to find the n-th Fibonacci number.
