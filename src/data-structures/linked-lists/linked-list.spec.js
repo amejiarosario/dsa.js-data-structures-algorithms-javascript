@@ -165,8 +165,12 @@ describe('LinkedList Test', () => {
       it('should insert at the middle', () => {
         const newNode = linkedList.add('middle', 1);
         expect(newNode.value).toBe('middle');
+        // checking the 4 surrounding links were updated
         expect(newNode.next.value).toBe('found');
         expect(newNode.previous.value).toBe(0);
+        expect(linkedList.get(0).next.value).toBe('middle');
+        expect(linkedList.get(2).previous.value).toBe('middle');
+
         expect(linkedList.size).toBe(3);
         expect(linkedList.first.value).toBe(0);
       });
