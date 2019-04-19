@@ -154,10 +154,25 @@ If there’s no element in the list yet, the first and last node would be the sa
 
 For inserting an element at the middle of the list, you would need to specify the position (index) in the collection. Then, you create the new node and update the references to it.
 
-Let’s do an example, with a doubly linked list. We want to insert the `new` node in the 2^nd^ position.
+.There are 4 references to update:
+1. New node's `next`.
+1. New node's `previous`.
+1. New node's previous `next`.
+1. New node's next `previous`.
+
+
+Let’s do an example, with the following doubly linked list:
+
+----
+art <-> dog <-> cat
+----
+
+We want to insert the `new` node in the 2^nd^ position. For that we first create the "new" node and update the references around it.
 
 .Inserting node in the middle of a doubly linked list.
 image:image25.png[image,width=528,height=358]
+
+Take a look into the implementation of https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/linked-lists/linked-list.js#L83[LinkedList.add]:
 
 .Linked List's add to the middle of the list
 [source, javascript]
@@ -172,8 +187,7 @@ include::{codedir}/data-structures/linked-lists/linked-list.js[tag=addMiddle, in
 <6> No other node in the list is pointing to `newNode`, so we have to make the prior element point to `newNode`.
 <7> Make the next element point to `newNode`.
 
-
-Take notice that we reused, `addFirst` and `addLast` methods. For all the other cases the insertion is in the middle. We use `current.previous.next` and `current.next.previous` to update the surrounding elements and make them point to the new node. Inserting on the middle takes *O(n)* because we have to iterate through the list using the `get` method.
+Take notice that we reused, `addFirst` and `addLast` methods. For all the other cases the insertion is in the middle. We use `current.previous.next` and `current.next` to update the surrounding elements and make them point to the new node. Inserting on the middle takes *O(n)* because we have to iterate through the list using the `get` method.
 
 == Deletion
 
