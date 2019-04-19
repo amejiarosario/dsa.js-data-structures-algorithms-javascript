@@ -28,7 +28,7 @@ Arrays are a sequential collection of elements that can be accessed randomly usi
 
 == Insertion
 
-Arrays are built-in into most languages. Inserting element in an array is you can either:
+Arrays are built-in into most languages. Inserting an element is simple; you can either add them on creation time or after initialization. Below you can find an example for both cases:
 
 .Inserting elements into an array
 [source, javascript]
@@ -36,12 +36,23 @@ Arrays are built-in into most languages. Inserting element in an array is you ca
 // (1) Add elements at the creation time:
 const array = [2, 5, 1, 9, 6, 7];
 
-// (2) initialize the array (empty) and values later
-const array0 = [];
-array0[2] = 1;
+// (2) initialize an empty array and add values later
+const array2 = [];
+array2[3] = 1;
+array2[100] = 2;
+array2 // [empty × 3, 1, empty × 96, 2]
 ----
 
-Using the index, you can replace whatever value you want. The runtime is constant: _O(1)_.
+Using the index, you can replace whatever value you want. Also, you don't have to add items next to each other. The size of the array will dynamically expand to accommodate the data. You can reference values in whatever index you like index 3 or even 100! In the `array2` we inserted 2 numbers, but the length is 101, and there are 99 empty spaces.
+
+[source, javascript]
+----
+console.log(array2.length); // 101
+console.log(array2); // [empty × 3, 1, empty × 96, 2]
+----
+
+
+The runtime for inserting elements using index is always is constant: _O(1)_.
 
 === Inserting at the beginning of the array
 
@@ -55,7 +66,7 @@ array.unshift(0); // ↪️ 8
 // array: [0, 2, 5, 1, 9, 6, 7]
 ----
 
-As you can see, `2` was the index 0, now was pushed to index 1, and everything else was moved one place. `unshift` takes *O(n)* since it affects all the elements in the array.
+As you can see, `2` was at index 0, now was pushed to index 1, and everything else is on a different index. `unshift` takes *O(n)* since it affects all the elements in the array.
 
 .JavaScript built-in `array.unshift`
 ****
@@ -81,7 +92,7 @@ The Big O for this operation would be *O(n)* since in worst case it would move m
 
 .JavaScript built-in `array.splice`
 ****
-The `splice()` method changes the contents of an array by removing existing elements and/or adding new elements.  Returns an array containing the deleted elements.
+The `splice()` method changes the contents of an array by removing existing elements or adding new elements.  Splice returns an array containing the deleted elements.
 
 Runtime: O(n).
 ****
@@ -119,7 +130,7 @@ const array = [2, 5, 1, 9, 6, 7];
 array[4]; // ↪️ 6
 ----
 
-Searching by index takes a constant time, *O(1)*, to retrieve values out of the array. If we want to get fancier we can create a function:
+Searching by index takes constant time, *O(1)*, to retrieve values out of the array. If we want to get fancier we can create a function:
 
 // image:image17.png[image,width=528,height=293]
 
@@ -235,7 +246,7 @@ Runtime: O(1).
 
 == Array Complexity
 
-To sum up, the time complexity on an array is:
+To sum up, the time complexity of an array is:
 (((Tables, Linear DS, Array Complexities)))
 
 // tag::table[]

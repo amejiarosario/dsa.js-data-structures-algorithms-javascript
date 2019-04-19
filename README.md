@@ -87,7 +87,7 @@ We are covering the following data structures.
         <!-- [Post](https://adrianmejia.com/blog/2018/06/11/data-structures-for-beginners-trees-binary-search-tree-tutorial/#Binary-Trees) -->
 
     2. **Binary Search Trees** (BST): same as binary tree, but the
-        nodes value keep this order `left < parent < rigth`.
+        nodes value keep this order `left < parent < right`.
         [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/trees/binary-search-tree.js)
         |
         [BST Time complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/tree--binary-search-tree.adoc#tree-complexity)
@@ -109,7 +109,7 @@ We are covering the following data structures.
 2. **Maps**: key-value store.
 
     1. **Hash Maps**: implements map using a hash function.
-        [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/hash-maps/hashmap.js)
+        [Code](https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/maps/hash-maps/hash-map.js)
         |
         [HashMap time complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/map-hashmap.adoc#hashmap-time-complexity)
         <!-- [Docs](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#HashMaps) -->
