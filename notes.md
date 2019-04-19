@@ -21,6 +21,12 @@ git log <last tag> HEAD --pretty=format:%s
 
 # example
 git log 1.1.0..HEAD --pretty=format:%s
+
+git log 1.2.0..HEAD --pretty=format:"- %s [commit](https://github.com/amejiarosario/dsa.js/commit/%H)" --grep "^fix.*:"
+
+git log 1.2.0..HEAD --pretty=format:"- %s [commit](https://github.com/amejiarosario/dsa.js/commit/%H)" --grep "^break.*:"
+
+git log 1.2.0..HEAD --pretty=format:"- %s [commit](https://github.com/amejiarosario/dsa.js/commit/%H)" --grep "^feat.*:"
 ```
 
 New features in this release
