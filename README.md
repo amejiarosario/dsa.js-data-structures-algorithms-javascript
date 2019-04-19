@@ -109,7 +109,7 @@ We are covering the following data structures.
 2. **Maps**: key-value store.
 
     1. **Hash Maps**: implements map using a hash function.
-        [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/hash-maps/hashmap.js)
+        [Code](https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/maps/hash-maps/hash-map.js)
         |
         [HashMap time complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/map-hashmap.adoc#hashmap-time-complexity)
         <!-- [Docs](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#HashMaps) -->
