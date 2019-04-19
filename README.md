@@ -53,21 +53,18 @@ We are covering the following data structures.
     |
     [Linked List Time Complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/linked-list.adoc#linked-list-complexity-vs-array-complexity)
     <!-- [Post](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Linked-Lists) -->
-    .
 
 3. **Queue**: data flows in a "first-in, first-out" (FIFO) manner.
     [Code](https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/queues/queue.js)
     |
     [Queue Time Complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/queue.adoc#queue-complexity)
     <!-- [Post](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Queues) -->
-    .
 
 4. **Stacks**: data flows in a "last-in, first-out" (LIFO) manner.
     [Code](https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/stacks/stack.js)
     |
     [Stack Time Complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/stack.adoc#stack-complexity)
     <!-- [Post](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Stacks) -->
-    .
 
 ### Non-Linear Data Structures
 
@@ -100,7 +97,6 @@ We are covering the following data structures.
         |
         [Self-balancing & tree rotations docs](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/tree--self-balancing-rotations.adoc)
         <!-- [Post](https://adrianmejia.com/blog/2018/07/16/self-balanced-binary-search-trees-with-avl-tree-data-structure-for-beginners/) -->
-        .
 
     4. **Red-Black Trees**: Self-balanced BST more loose than AVL to
         maximize insertion speed.
@@ -121,7 +117,6 @@ We are covering the following data structures.
         [TreeMap docs](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/map-treemap.adoc)
         |
         [TreeMap time complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/map-hashmap-vs-treemap.adoc#treemap-time-complexity-vs-hashmap)
-        .
 
 3. **Graphs**: data **nodes** that can have a connection or **edge** to
     zero or more adjacent nodes. Unlike trees, nodes can have multiple
