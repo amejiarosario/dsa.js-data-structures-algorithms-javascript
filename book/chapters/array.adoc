@@ -126,7 +126,20 @@ Searching by index takes a constant time, *O(1)*, to retrieve values out of the 
 .Search by index
 [source, javascript]
 ----
-include::{codedir}/data-structures/arrays/array.js[tag=searchByIndex]
+/**
+ * Search for array's element by index
+ *
+ * @example Given array = [2, 5, 1, 9, 6, 7, -1];
+ *    searchByIndex(array, 3); //↪️ 9
+ *    searchByIndex(array, 6); //↪️ -1
+ *    searchByIndex(array, 13); //↪️ undefined
+ * @param {array} array
+ * @param {number} index
+ * @returns {any} value or undefined if not found
+ */
+function searchByIndex(array, index) {
+  return array[index];
+}
 ----
 
 Finding out if a value is in the array or not is a different story.
@@ -136,7 +149,22 @@ Finding out if a value is in the array or not is a different story.
 .Search by value
 [source, javascript]
 ----
-include::{codedir}/data-structures/arrays/array.js[tag=searchByValue]
+/**
+ * Search for array's element by value
+ *
+ * @example Given array = [2, 5, 1, 9, 6, 7];
+ *    searchByValue(array, 9); //↪️ 3
+ *    searchByValue(array, 13); //↪️ -1
+ * @param {array} array
+ * @param {any} value
+ */
+function searchByValue(array, value) {
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+    if (element === value) return index;
+  }
+  return -1;
+}
 ----
 
 We would have to loop through the whole array (worst case) or until we find it: *O(n)*.
