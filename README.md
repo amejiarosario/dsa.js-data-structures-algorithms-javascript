@@ -87,7 +87,7 @@ We are covering the following data structures.
         <!-- [Post](https://adrianmejia.com/blog/2018/06/11/data-structures-for-beginners-trees-binary-search-tree-tutorial/#Binary-Trees) -->
 
     2. **Binary Search Trees** (BST): same as binary tree, but the
-        nodes value keep this order `left < parent < rigth`.
+        nodes value keep this order `left < parent < right`.
         [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/trees/binary-search-tree.js)
         |
         [BST Time complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/tree--binary-search-tree.adoc#tree-complexity)
