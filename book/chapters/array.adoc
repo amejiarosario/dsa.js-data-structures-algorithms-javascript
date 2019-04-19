@@ -28,7 +28,7 @@ Arrays are a sequential collection of elements that can be accessed randomly usi
 
 == Insertion
 
-Arrays are built-in into most languages. Inserting element in an array is you can either:
+Arrays are built-in into most languages. Inserting element in an array is simple, you can either:
 
 .Inserting elements into an array
 [source, javascript]
