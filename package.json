@@ -5,10 +5,13 @@
   "author": "Adrian Mejia <hi+dsajs@adrianmejia.com> (https://adrianmejia.com)",
   "homepage": "https://github.com/amejiarosario/dsa.js",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/amejiarosario/dsa.js.git"
+    "type": "git",
+    "url": "https://github.com/amejiarosario/dsa.js.git"
   },
   "main": "./src/index.js",
+  "files": [
+    "src/**/*.js"
+  ],
   "scripts": {
     "test": "jest src/",
     "watch": "jest src/ --watch --coverage",
@@ -25,9 +28,7 @@
     "binary search trees"
   ],
   "license": "MIT",
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "devDependencies": {
     "benchmark": "2.1.4",
     "eslint": "4.19.1",
@@ -38,6 +39,6 @@
     "textlint-plugin-asciidoctor": "1.0.2"
   },
   "engines": {
-    "node" : ">=10.0.0"
+    "node": ">=10.0.0"
   }
 }
