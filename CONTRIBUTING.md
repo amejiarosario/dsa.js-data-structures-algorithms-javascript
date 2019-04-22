@@ -127,16 +127,15 @@ If the commit reverts a previous commit, it should begin with `revert: `, follow
 ### Type
 Must be one of the following:
 
-* **break**: Breaking changes. Remove functionality or change API. Breaks backward compatibility
 * **feat**: A new feature
 * **fix**: A bug fix
+* **docs**: Documentation only changes
 * **build**: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
 * **ci**: Changes to our CI configuration files and scripts (example scopes: Circle, BrowserStack, SauceLabs)
-* **docs**: Documentation only changes
-* **perf**: A code change that improves performance
+* **test**: Adding missing tests or correcting existing tests
 * **refactor**: A code change that neither fixes a bug nor adds a feature
 * **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-* **test**: Adding missing tests or correcting existing tests
+* **perf**: A code change that improves performance
 
 ### Scope
 The scope should be the name of the npm package affected (as perceived by the person reading the changelog generated from commit messages.
@@ -190,8 +189,8 @@ New features in this release
 ```sh
 git log <last release> HEAD --grep feat
 
-# example
-git log 6.0.0..HEAD --pretty=format:%s | grep feat
-#
-git log 6.0.0..HEAD --pretty=format:"- %s [commit](https://github.com/amejiarosario/dsa.js/commit/%H)" | grep feat
+# examples
+git log 1.2.0..HEAD --pretty=format:"- %s [commit](https://github.com/amejiarosario/dsa.js/commit/%H)" --grep "BREAKING CHANGE:"
+git log 1.2.0..HEAD --pretty=format:"- %s [commit](https://github.com/amejiarosario/dsa.js/commit/%H)" --grep "^feat\S*:"
+git log 1.2.0..HEAD --pretty=format:"- %s [commit](https://github.com/amejiarosario/dsa.js/commit/%H)" --grep "^fix\S*:"
 ```
