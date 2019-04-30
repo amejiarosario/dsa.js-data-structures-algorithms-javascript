@@ -155,10 +155,10 @@ If there’s no element in the list yet, the first and last node would be the sa
 For inserting an element at the middle of the list, you would need to specify the position (index) in the collection. Then, you create the new node and update the references to it.
 
 .There are 4 references to update:
-1. New node's `next`.
-1. New node's `previous`.
-1. New node's previous `next`.
-1. New node's next `previous`.
+. New node's `next`.
+. New node's `previous`.
+. New node's previous `next`.
+. New node's next `previous`.
 
 
 Let’s do an example, with the following doubly linked list:

@@ -13,6 +13,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Bug Fixes (patch)
 
+## [1.2.2]
+
+### Breaking Changes (major)
+
+### New Features (minor)
+
+### Bug Fixes (patch)
+- Optimize NPM package
+
 ## [1.2.1]
 
 ### Breaking Changes (major)
@@ -68,7 +77,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -
 
-[Unreleased]: https://github.com/amejiarosario/dsa.js/compare/1.2.0...HEAD
+[Unreleased]: https://github.com/amejiarosario/dsa.js/compare/1.2.2...HEAD
+[1.2.2]: https://github.com/amejiarosario/dsa.js/compare/1.2.1...1.2.2
 [1.2.1]: https://github.com/amejiarosario/dsa.js/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/amejiarosario/dsa.js/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/amejiarosario/dsa.js/compare/1.0.0...1.1.0
