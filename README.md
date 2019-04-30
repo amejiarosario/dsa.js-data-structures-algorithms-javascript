@@ -1,7 +1,13 @@
 # Data Structures and Algorithms in JavaScript
 
-[![Build Status](https://travis-ci.com/amejiarosario/dsa.js.svg?branch=master)](https://travis-ci.com/amejiarosario/dsa.js)
-[![npm version](https://badge.fury.io/js/dsa.js.svg)](https://badge.fury.io/js/dsa.js)
+[![Build Status](https://travis-ci.com/amejiarosario/dsa.js.svg?branch=master)](https://travis-ci.com/amejiarosario/dsa.js) [![NPM version](https://badge.fury.io/js/dsa.js.svg)](https://badge.fury.io/js/dsa.js) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com) [![Code Style Airbnb](https://img.shields.io/badge/code%20style-Airbnb-brightgreen.svg)](https://github.com/airbnb/javascript)
+[![ProductHunt](https://img.shields.io/badge/product%20hunt-vote-orange.svg)](https://www.producthunt.com/posts/dsa-js)
+
+<!--
+https://bundlephobia.com/result?p=dsa.js
+https://img.shields.io/bundlephobia/min/dsa.js.svg - 16.7kB
+https://img.shields.io/github/repo-size/amejiarosario/dsa.js.svg - 98.1 MB
+-->
 
 This repository covers the implementation of the classical algorithms and data structures in JavaScript.
 
