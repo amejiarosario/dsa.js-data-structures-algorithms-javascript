@@ -10,17 +10,17 @@ jobs: # a collection of steps
           name: update-npm
           command: 'sudo npm install -g npm@latest'
       - run:
-          name: Check current version of node
+          name: node version
           command: node -v
       - run:
-          name: Check current version of NPM
+          name: NPM version
           command: npm -v
 
       - restore_cache: # special step to restore the dependency cache
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: install-npm-wee
+          name: npm install
           command: npm install
       - save_cache: # special step to save the dependency cache
           key: dependency-cache-{{ checksum "package.json" }}
@@ -28,7 +28,7 @@ jobs: # a collection of steps
             - ./node_modules
 
       - run: # run tests
-          name: test
+          name: run tests
           command: npm run ci
 
       - store_artifacts: # special step to save test results as as artifact
@@ -40,3 +40,22 @@ jobs: # a collection of steps
           prefix: coverage
       - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: test-results.xml
+
+  book:
+    docker:
+      - image: circleci/ruby:2.5.3-stretch
+    steps:
+      - checkout
+      - run:
+          name: bundler version
+          command: bundle -v
+      - run:
+          name: ruby version
+          command: ruby -v
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - book

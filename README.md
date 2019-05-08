@@ -1,6 +1,6 @@
 # Data Structures and Algorithms in JavaScript
 
-[![Build Status](https://travis-ci.com/amejiarosario/dsa.js.svg?branch=master)](https://travis-ci.com/amejiarosario/dsa.js) [![NPM version](https://badge.fury.io/js/dsa.js.svg)](https://badge.fury.io/js/dsa.js) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com) [![Code Style Airbnb](https://img.shields.io/badge/code%20style-Airbnb-brightgreen.svg)](https://github.com/airbnb/javascript)
+[![CircleCI](https://circleci.com/gh/amejiarosario/dsa.js.svg?style=svg)](https://circleci.com/gh/amejiarosario/dsa.js) [![NPM version](https://badge.fury.io/js/dsa.js.svg)](https://badge.fury.io/js/dsa.js) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com) [![Code Style Airbnb](https://img.shields.io/badge/code%20style-Airbnb-brightgreen.svg)](https://github.com/airbnb/javascript)
 [![ProductHunt](https://img.shields.io/badge/product%20hunt-vote-orange.svg)](https://www.producthunt.com/posts/dsa-js)
 
 <!--
