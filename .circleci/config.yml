@@ -58,27 +58,24 @@ jobs: # a collection of steps
       - run:
           name: ruby version
           command: ruby -v
-      - run:
-          name: go to directory
-          command: cd book/config
 
       # Restore bundle cache
       - restore_cache:
           keys:
-            - ruby-{{ checksum "Gemfile.lock" }}
+            - ruby-{{ checksum "book/config/Gemfile.lock" }}
             - ruby-
       - run:
           name: Bundle Install
-          command: bundle check || bundle install
+          command: cd book/config && bundle check || bundle install
       # Store bundle cache
       - save_cache:
-          key: ruby-{{ checksum "Gemfile.lock" }}
+          key: ruby-{{ checksum "book/config/Gemfile.lock" }}
           paths:
-            - vendor/bundle
+            - book/config/vendor/bundle
 
       - run:
           name: generate PDF
-          command: make pdf
+          command: cd book/config && make pdf
 
 workflows:
   version: 2
