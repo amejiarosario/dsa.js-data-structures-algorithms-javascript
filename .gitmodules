@@ -1,0 +1,3 @@
+[submodule "book/config"]
+	path = book/config
+	url = git@github.com:amejiarosario/dsa.js-private.git
