@@ -47,7 +47,7 @@ jobs: # a collection of steps
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "27:8b:f5:af:bc:66:a9:db:bf:d2:02:4a:cc:d0:58:6d"
+            - "b5:40:36:ee:3c:52:25:dd:c7:41:f3:10:d1:ce:f9:33"
       - checkout
       - run:
           name: checkout repo and submodules
@@ -82,7 +82,7 @@ jobs: # a collection of steps
 
 workflows:
   version: 2
-  build_and_test:
+  build_and_book:
     jobs:
       - build
       - book
