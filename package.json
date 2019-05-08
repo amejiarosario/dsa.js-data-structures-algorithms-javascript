@@ -17,7 +17,7 @@
     "watch": "jest src/ --watch --coverage",
     "coverage": "jest src/ --coverage && open coverage/lcov-report/index.html",
     "lint": "npx eslint --fix --format codeframe src/",
-    "ci": "npx eslint src/ && npm test"
+    "ci": "npx eslint src/ && jest src/ --coverage"
   },
   "keywords": [
     "algorithms",
