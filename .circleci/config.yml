@@ -70,7 +70,7 @@ jobs: # a collection of steps
 
       - run:
           name: install GraphicsMagick for 'prawn-gmagick' gem
-          command: cd book/config && bundle check || sudo apt-get -qq -y install python-software-properties software-properties-common && sudo add-apt-repository ppa:rwky/graphicsmagick && sudo apt-get update && sudo apt-get install graphicsmagick
+          command: cd book/config && bundle check || sudo apt-get -qq -y install software-properties-common && sudo add-apt-repository ppa:rwky/graphicsmagick && sudo apt-get update && sudo apt-get -qq -y install graphicsmagick
 
       - run:
           name: Bundle Install
