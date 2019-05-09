@@ -99,7 +99,7 @@ jobs: # a collection of steps
           command: cd book/config && make VERSION=1.2.2 pdf
 
       - store_artifacts:
-          path: /book/dist
+          path: book/dist
 
 workflows:
   version: 2
