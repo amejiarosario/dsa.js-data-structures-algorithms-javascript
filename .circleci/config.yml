@@ -69,8 +69,8 @@ jobs: # a collection of steps
       # Restore bundle cache
       - restore_cache:
           keys:
-            - gemfile-{{ checksum "book/config/Gemfile.lock" }}
-            - gemfile-
+            - gemfile-cache-{{ checksum "book/config/Gemfile.lock" }}
+            - gemfile-cache-
 
       - run:
           name: Bundle Install.pre - install mathematical for 'asciidoctor-mathematical' gem
@@ -86,7 +86,7 @@ jobs: # a collection of steps
 
       # Store bundle cache
       - save_cache:
-          key: gemfile-{{ checksum "book/config/Gemfile.lock" }}
+          key: gemfile-cache-{{ checksum "book/config/Gemfile.lock" }}
           paths:
             - book/config/vendor/bundle
 
