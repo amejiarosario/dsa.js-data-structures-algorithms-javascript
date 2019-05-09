@@ -65,6 +65,10 @@ jobs: # a collection of steps
             - ruby-{{ checksum "book/config/Gemfile.lock" }}
             - ruby-
       - run:
+          name: install mathematical
+          command: cd book/config && bundle check || sudo apt-get update && sudo apt-get -qq -y install bison flex libffi-dev libxml2-dev libgdk-pixbuf2.0-dev libcairo2-dev libpango1.0-dev ttf-lyx
+
+      - run:
           name: Bundle Install
           command: cd book/config && bundle check || bundle install
       # Store bundle cache
