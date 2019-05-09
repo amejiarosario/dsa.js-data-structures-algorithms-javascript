@@ -65,6 +65,12 @@ jobs: # a collection of steps
       - run:
           name: ruby version
           command: ruby -v
+      - run:
+          name: node version
+          command: node -v
+      - run:
+          name: NPM version
+          command: npm -v
 
       # Restore bundle cache
       - restore_cache:
