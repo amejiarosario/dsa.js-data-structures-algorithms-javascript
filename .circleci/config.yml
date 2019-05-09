@@ -65,8 +65,12 @@ jobs: # a collection of steps
             - ruby-{{ checksum "book/config/Gemfile.lock" }}
             - ruby-
       - run:
-          name: install mathematical
-          command: cd book/config && bundle check || sudo apt-get update && sudo apt-get -qq -y install cmake bison flex libffi-dev libxml2-dev libgdk-pixbuf2.0-dev libcairo2-dev libpango1.0-dev ttf-lyx && MATHEMATICAL_USE_SYSTEM_LASEM=1 gem install mathematical
+          name: install mathematical for 'asciidoctor-mathematical' gem
+          command: cd book/config && bundle check || sudo apt-get update && sudo apt-get -qq -y install cmake bison flex libffi-dev libxml2-dev libgdk-pixbuf2.0-dev libcairo2-dev libpango1.0-dev ttf-lyx
+
+      - run:
+          name: install GraphicsMagick for 'prawn-gmagick' gem
+          command: cd book/config && bundle check || sudo apt-get -qq -y install python-software-properties software-properties-common && sudo add-apt-repository ppa:rwky/graphicsmagick && sudo apt-get update && sudo apt-get install graphicsmagick
 
       - run:
           name: Bundle Install
