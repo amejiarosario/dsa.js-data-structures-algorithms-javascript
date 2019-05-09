@@ -74,15 +74,15 @@ jobs: # a collection of steps
 
       - run:
           name: Bundle Install.pre - install mathematical for 'asciidoctor-mathematical' gem
-          command: cd book/config && bundle check --path vendor/bundle || sudo apt-get update && sudo apt-get -qq -y install cmake bison flex libffi-dev libxml2-dev libgdk-pixbuf2.0-dev libcairo2-dev libpango1.0-dev ttf-lyx
+          command: cd book/config && bundle check --path vendor/bundle || ( sudo apt-get update && sudo apt-get -qq -y install cmake bison flex libffi-dev libxml2-dev libgdk-pixbuf2.0-dev libcairo2-dev libpango1.0-dev ttf-lyx )
 
       - run:
           name: Bundle Install.pre - install GraphicsMagick for 'prawn-gmagick' gem
-          command: cd book/config && bundle check --path vendor/bundle || sudo apt-get -qq -y install graphicsmagick-imagemagick-compat graphicsmagick-libmagick-dev-compat
+          command: cd book/config && bundle check --path vendor/bundle || ( sudo apt-get -qq -y install graphicsmagick-imagemagick-compat graphicsmagick-libmagick-dev-compat )
 
       - run:
           name: Bundle Install
-          command: cd book/config && bundle check --path vendor/bundle || bundle install --path vendor/bundle
+          command: cd book/config && bundle check --path vendor/bundle || ( bundle install --path vendor/bundle )
 
       # Store bundle cache
       - save_cache:
