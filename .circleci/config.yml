@@ -82,8 +82,8 @@ jobs: # a collection of steps
             - book/config/vendor/bundle
 
       - run:
-        name: graphviz for dot diagrams
-        command: sudo apt-get install graphviz
+          name: graphviz for dot diagrams
+          command: sudo apt-get install graphviz
 
       - run:
           name: generate PDF
