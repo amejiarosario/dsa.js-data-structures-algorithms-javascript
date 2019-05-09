@@ -48,7 +48,7 @@ jobs: # a collection of steps
 
   docs:
     docker:
-      - image: circleci/ruby:2.5.3-stretch
+      - image: circleci/ruby:2.5.3-stretch-node
     environment:
       NOKOGIRI_USE_SYSTEM_LIBRARIES: true
     steps:
@@ -96,7 +96,7 @@ jobs: # a collection of steps
 
       - run:
           name: generate PDF
-          command: cd book/config && make VERSION=1.2.2 pdf
+          command: cd book/config && make VERSION="$(npx -c 'echo "$npm_package_version"')" pdf
 
       - store_artifacts:
           path: book/dist
