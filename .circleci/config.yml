@@ -18,10 +18,15 @@ jobs: # a collection of steps
 
       - restore_cache: # special step to restore the dependency cache
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: npm-package-{{ checksum "package-lock.json" }}
+          keys:
+            # Find a cache corresponding to this specific package-lock.json checksum
+            - npm-package-{{ checksum "package-lock.json" }}
+            # Find the most recently generated cache used from any branch
+            - npm-package-
       - run:
           name: npm install
           command: npm install
+
       - save_cache: # special step to save the dependency cache
           key: npm-package-{{ checksum "package-lock.json" }}
           paths:
@@ -65,6 +70,8 @@ jobs: # a collection of steps
       - restore_cache:
           keys:
             - gemfile-{{ checksum "book/config/Gemfile.lock" }}
+            - gemfile-
+
       - run:
           name: Bundle Install.pre - install mathematical for 'asciidoctor-mathematical' gem
           command: cd book/config && bundle check --path vendor/bundle || sudo apt-get update && sudo apt-get -qq -y install cmake bison flex libffi-dev libxml2-dev libgdk-pixbuf2.0-dev libcairo2-dev libpango1.0-dev ttf-lyx
@@ -75,7 +82,7 @@ jobs: # a collection of steps
 
       - run:
           name: Bundle Install
-          command: cd book/config && bundle check || bundle install --path vendor/bundle
+          command: cd book/config && bundle check --path vendor/bundle || bundle install --path vendor/bundle
 
       # Store bundle cache
       - save_cache:
