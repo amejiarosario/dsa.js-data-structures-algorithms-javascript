@@ -41,7 +41,7 @@ jobs: # a collection of steps
       - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: test-results.xml
 
-  book:
+  docs:
     docker:
       - image: circleci/ruby:2.5.3-stretch
     environment:
@@ -67,15 +67,15 @@ jobs: # a collection of steps
             - gemfile-{{ checksum "book/config/Gemfile.lock" }}
       - run:
           name: Bundle Install.pre - install mathematical for 'asciidoctor-mathematical' gem
-          command: cd book/config && bundle check || sudo apt-get update && sudo apt-get -qq -y install cmake bison flex libffi-dev libxml2-dev libgdk-pixbuf2.0-dev libcairo2-dev libpango1.0-dev ttf-lyx
+          command: cd book/config && bundle check --path vendor/bundle || sudo apt-get update && sudo apt-get -qq -y install cmake bison flex libffi-dev libxml2-dev libgdk-pixbuf2.0-dev libcairo2-dev libpango1.0-dev ttf-lyx
 
       - run:
           name: Bundle Install.pre - install GraphicsMagick for 'prawn-gmagick' gem
-          command: cd book/config && bundle check || sudo apt-get -qq -y install graphicsmagick-imagemagick-compat graphicsmagick-libmagick-dev-compat
+          command: cd book/config && bundle check --path vendor/bundle || sudo apt-get -qq -y install graphicsmagick-imagemagick-compat graphicsmagick-libmagick-dev-compat
 
       - run:
           name: Bundle Install
-          command: cd book/config && bundle check || bundle install
+          command: cd book/config && bundle check || bundle install --path vendor/bundle
 
       # Store bundle cache
       - save_cache:
@@ -89,11 +89,14 @@ jobs: # a collection of steps
 
       - run:
           name: generate PDF
-          command: cd book/config && make pdf
+          command: cd book/config && make VERSION=1.2.2 pdf
+
+      - store_artifacts:
+          path: /book/dist
 
 workflows:
   version: 2
-  build_and_book:
+  build_and_docs:
     jobs:
       - build
-      - book
+      - docs
