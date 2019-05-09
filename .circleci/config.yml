@@ -44,6 +44,8 @@ jobs: # a collection of steps
   book:
     docker:
       - image: circleci/ruby:2.5.3-stretch
+    environment:
+      NOKOGIRI_USE_SYSTEM_LIBRARIES: true
     steps:
       - add_ssh_keys:
           fingerprints:
@@ -67,9 +69,9 @@ jobs: # a collection of steps
           name: Bundle Install.pre - install mathematical for 'asciidoctor-mathematical' gem
           command: cd book/config && bundle check || sudo apt-get update && sudo apt-get -qq -y install cmake bison flex libffi-dev libxml2-dev libgdk-pixbuf2.0-dev libcairo2-dev libpango1.0-dev ttf-lyx
 
-      # - run:
-      #     name: Bundle Install.pre - install GraphicsMagick for 'prawn-gmagick' gem
-      #     command: cd book/config && bundle check || sudo apt-get -qq -y install software-properties-common && sudo apt-get -qq -y install graphicsmagick imagemagick
+      - run:
+          name: Bundle Install.pre - install GraphicsMagick for 'prawn-gmagick' gem
+          command: cd book/config && bundle check || sudo apt-get -qq -y install graphicsmagick-imagemagick-compat graphicsmagick-libmagick-dev-compat
 
       - run:
           name: Bundle Install
