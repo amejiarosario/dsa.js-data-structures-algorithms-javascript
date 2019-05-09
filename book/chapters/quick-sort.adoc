@@ -39,7 +39,7 @@ The `partition` function does the real heavy-lifting. 🏋️‍♀️
 .Quicksort implementation in JavaScript (partition)
 [source, javascript]
 ----
-include::{codedir}/algorithms/sorting/Quick-sort.js[tag=partition, indent=0]
+include::{codedir}/algorithms/sorting/quick-sort.js[tag=partition, indent=0]
 ----
 <1> Take the leftmost element as the pivot.
 <2> `pivotFinalIndex` is the placeholder for the final position where the pivot will be placed when the array is sorted.
@@ -59,7 +59,7 @@ If instead of partitioning by the first element we do it by the middle (or even 
 
 [source, javascript]
 ----
-include::{codedir}/algorithms/sorting/Quick-sort.js[tag=sort, indent=0]
+include::{codedir}/algorithms/sorting/quick-sort.js[tag=sort, indent=0]
 ----
 <1> Convert to array (or clone array). If you want to modify the input directly remove this line.
 <2> Shuffle array to avoid edge cases (desc order arrays)

@@ -18,12 +18,12 @@ jobs: # a collection of steps
 
       - restore_cache: # special step to restore the dependency cache
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: dependency-cache-{{ checksum "package-lock.json" }}
+          key: npm-package-{{ checksum "package-lock.json" }}
       - run:
           name: npm install
           command: npm install
       - save_cache: # special step to save the dependency cache
-          key: dependency-cache-{{ checksum "package-lock.json" }}
+          key: npm-package-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
 
@@ -62,24 +62,28 @@ jobs: # a collection of steps
       # Restore bundle cache
       - restore_cache:
           keys:
-            - ruby-{{ checksum "book/config/Gemfile.lock" }}
-            - ruby-
+            - gemfile-{{ checksum "book/config/Gemfile.lock" }}
       - run:
-          name: install mathematical for 'asciidoctor-mathematical' gem
+          name: Bundle Install.pre - install mathematical for 'asciidoctor-mathematical' gem
           command: cd book/config && bundle check || sudo apt-get update && sudo apt-get -qq -y install cmake bison flex libffi-dev libxml2-dev libgdk-pixbuf2.0-dev libcairo2-dev libpango1.0-dev ttf-lyx
 
-      - run:
-          name: install GraphicsMagick for 'prawn-gmagick' gem
-          command: cd book/config && bundle check || sudo apt-get -qq -y install software-properties-common && sudo apt-get -qq -y install graphicsmagick
+      # - run:
+      #     name: Bundle Install.pre - install GraphicsMagick for 'prawn-gmagick' gem
+      #     command: cd book/config && bundle check || sudo apt-get -qq -y install software-properties-common && sudo apt-get -qq -y install graphicsmagick imagemagick
 
       - run:
           name: Bundle Install
           command: cd book/config && bundle check || bundle install
+
       # Store bundle cache
       - save_cache:
-          key: ruby-{{ checksum "book/config/Gemfile.lock" }}
+          key: gemfile-{{ checksum "book/config/Gemfile.lock" }}
           paths:
             - book/config/vendor/bundle
+
+      - run:
+        name: graphviz for dot diagrams
+        command: sudo apt-get install graphviz
 
       - run:
           name: generate PDF
