@@ -20,15 +20,15 @@ jobs: # a collection of steps
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
           keys:
             # Find a cache corresponding to this specific package-lock.json checksum
-            - npm-package-{{ checksum "package-lock.json" }}
+            - npm-v1-{{ checksum "package-lock.json" }}
             # Find the most recently generated cache used from any branch
-            - npm-package-
+            - npm-v1-
       - run:
           name: npm install
           command: npm install
 
       - save_cache: # special step to save the dependency cache
-          key: npm-package-{{ checksum "package-lock.json" }}
+          key: npm-v1-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
 
@@ -72,19 +72,25 @@ jobs: # a collection of steps
           name: NPM version
           command: npm -v
 
-      # Restore bundle cache
-      - restore_cache:
-          keys:
-            - gemfile-cache-{{ checksum "book/config/Gemfile.lock" }}
-            - gemfile-cache-
+      - run: sudo apt-get update
 
       - run:
-          name: Bundle Install.pre - install mathematical for 'asciidoctor-mathematical' gem
-          command: cd book/config && bundle check --path vendor/bundle || ( sudo apt-get update && sudo apt-get -qq -y install cmake bison flex libffi-dev libxml2-dev libgdk-pixbuf2.0-dev libcairo2-dev libpango1.0-dev ttf-lyx )
+          name: graphviz for dot diagrams
+          command: sudo apt-get -qq -y install graphviz
+
+      - run:
+          name: Bundle Install.pre - needed for mathematical -> 'asciidoctor-mathematical' gem
+          command: sudo apt-get -qq -y install cmake bison flex libffi-dev libxml2-dev libgdk-pixbuf2.0-dev libcairo2-dev libpango1.0-dev ttf-lyx
 
       - run:
           name: Bundle Install.pre - install GraphicsMagick for 'prawn-gmagick' gem
-          command: cd book/config && bundle check --path vendor/bundle || ( sudo apt-get -qq -y install graphicsmagick-imagemagick-compat graphicsmagick-libmagick-dev-compat )
+          command: sudo apt-get -qq -y install graphicsmagick-imagemagick-compat graphicsmagick-libmagick-dev-compat
+
+      # Restore bundle cache
+      - restore_cache:
+          keys:
+            - gemfile-v1-{{ checksum "book/config/Gemfile.lock" }}
+            - gemfile-v1-
 
       - run:
           name: Bundle Install
@@ -92,13 +98,9 @@ jobs: # a collection of steps
 
       # Store bundle cache
       - save_cache:
-          key: gemfile-cache-{{ checksum "book/config/Gemfile.lock" }}
+          key: gemfile-v1-{{ checksum "book/config/Gemfile.lock" }}
           paths:
             - book/config/vendor/bundle
-
-      - run:
-          name: graphviz for dot diagrams
-          command: sudo apt-get -qq -y install graphviz
 
       - run:
           name: generate PDF
