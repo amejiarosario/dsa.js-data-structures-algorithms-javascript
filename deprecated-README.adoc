@@ -18,7 +18,7 @@ toc::[]
 - Algorithm analysis fundamentals (Big O notation, Time/Space complexity) and examples.
 - Time/space complexity cheatsheet.
 
-image:book/cover.png[link=https://gum.co/dsajs, height=400]
+image:book/cover.png[link=https://books.adrianmejia.com, height=400]
 
 == Data Structures
 We are covering the following data structures.
