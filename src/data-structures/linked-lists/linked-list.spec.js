@@ -116,6 +116,12 @@ describe('LinkedList Test', () => {
       linkedList.addLast('found');
     });
 
+    describe('#length', () => {
+      it('should have length property', () => {
+        expect(linkedList.length).toBe(2);
+      });
+    });
+
     describe('#indexOf', () => {
       it('should find element index', () => {
         expect(linkedList.indexOf(0)).toBe(0);
@@ -201,6 +207,20 @@ describe('LinkedList Test', () => {
         expect(newNode).toBe(undefined);
         expect(linkedList.last.value).toBe('found');
         expect(linkedList.size).toBe(2);
+      });
+    });
+
+    describe('#removeByPosition', () => {
+      it('should remove last element', () => {
+        expect(linkedList.length).toBe(2);
+        expect(linkedList.removeByPosition(1)).toBe('found');
+        expect(linkedList.length).toBe(1);
+      });
+
+      it('should remove last element', () => {
+        expect(linkedList.length).toBe(2);
+        expect(linkedList.removeByPosition(0)).toBe(0);
+        expect(linkedList.length).toBe(1);
       });
     });
   });
