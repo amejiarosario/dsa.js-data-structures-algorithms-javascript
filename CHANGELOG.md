@@ -13,6 +13,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Bug Fixes (patch)
 
+## [1.2.3]
+
+### Breaking Changes (major)
+
+### New Features (minor)
+
+### Bug Fixes (patch)
+- fix(linkedlist): removeFirst's last reference [commit](https://github.com/amejiarosario/dsa.js/commit/d4f9a71f6a22971ad8edcfd982d6b113f627d108)
+
 ## [1.2.2]
 
 ### Breaking Changes (major)
@@ -77,7 +86,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -
 
-[Unreleased]: https://github.com/amejiarosario/dsa.js/compare/1.2.2...HEAD
+[Unreleased]: https://github.com/amejiarosario/dsa.js/compare/1.2.3...HEAD
+[1.2.2]: https://github.com/amejiarosario/dsa.js/compare/1.2.2...1.2.3
 [1.2.2]: https://github.com/amejiarosario/dsa.js/compare/1.2.1...1.2.2
 [1.2.1]: https://github.com/amejiarosario/dsa.js/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/amejiarosario/dsa.js/compare/1.1.0...1.2.0
