@@ -183,10 +183,10 @@ class LinkedList {
       this.first = head.next;
       if (this.first) {
         this.first.previous = null;
+      } else {
+        this.last = null;
       }
       this.size -= 1;
-    } else {
-      this.last = null;
     }
     return head && head.value;
   }

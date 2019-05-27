@@ -32,6 +32,17 @@ describe('LinkedList Test', () => {
       linkedList.addLast('b');
     });
 
+    it('should remove with only one element', () => {
+      linkedList = new LinkedList();
+      linkedList.addLast('a');
+
+      expect(linkedList.removeFirst()).toBe('a');
+
+      expect(linkedList.size).toBe(0);
+      expect(linkedList.first).toBe(null);
+      expect(linkedList.last).toBe(null);
+    });
+
     it('should remove first item: a', () => {
       expect(linkedList.removeFirst()).toBe('a');
       expect(linkedList.first.value).toBe('b');
@@ -44,6 +55,7 @@ describe('LinkedList Test', () => {
 
       expect(linkedList.first).toBe(null);
       expect(linkedList.last).toBe(null);
+      expect(linkedList.size).toBe(0);
     });
   });
 
