@@ -1,6 +1,6 @@
 # Data Structures and Algorithms in JavaScript
 
-[![CircleCI](https://circleci.com/gh/amejiarosario/dsa.js.svg?style=svg)](https://circleci.com/gh/amejiarosario/dsa.js) [![NPM version](https://badge.fury.io/js/dsa.js.svg)](https://badge.fury.io/js/dsa.js) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com) [![Code Style Airbnb](https://img.shields.io/badge/code%20style-Airbnb-brightgreen.svg)](https://github.com/airbnb/javascript)
+[![CircleCI](https://circleci.com/gh/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript.svg?style=svg)](https://circleci.com/gh/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript) [![NPM version](https://badge.fury.io/js/dsa.js.svg)](https://badge.fury.io/js/dsa.js) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com) [![Code Style Airbnb](https://img.shields.io/badge/code%20style-Airbnb-brightgreen.svg)](https://github.com/airbnb/javascript)
 [![ProductHunt](https://img.shields.io/badge/product%20hunt-vote-orange.svg)](https://www.producthunt.com/posts/dsa-js)
 
 <!--
@@ -169,6 +169,11 @@ We are covering the following data structures.
     [Docs](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/greedy-algorithms--knapsack-problem.adoc)
 
 - Divide and Conquer
+
+  - Merge Sort.
+    [Code](https://github.com/amejiarosario/dsa.js/blob/master/src/algorithms/sorting/merge-sort.js)
+    |
+    [Docs](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/merge-sort.adoc)
 
   - Fibonacci Numbers.
     [Code](https://github.com/amejiarosario/dsa.js/blob/master/src/algorithms/fibonacci-recursive.js)
