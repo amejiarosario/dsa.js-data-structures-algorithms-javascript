@@ -1,7 +1,6 @@
 # Data Structures and Algorithms in JavaScript
 
-![CircleCI](https://img.shields.io/circleci/build/github/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/master.svg) [![NPM version](https://badge.fury.io/js/dsa.js.svg)](https://badge.fury.io/js/dsa.js) [![Slack](https://dsajs-slackin.herokuapp.com/badge.svg)](https://dsajs-slackin.herokuapp.com)
-
+[![CircleCI](https://img.shields.io/circleci/build/github/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/master.svg)](https://circleci.com/gh/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript) [![NPM version](https://badge.fury.io/js/dsa.js.svg)](https://badge.fury.io/js/dsa.js) [![Slack](https://dsajs-slackin.herokuapp.com/badge.svg)](https://dsajs-slackin.herokuapp.com)
 
 <!--
 [![CircleCI](https://circleci.com/gh/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript.svg?style=svg)](https://circleci.com/gh/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript)
@@ -33,17 +32,17 @@ For a full list of all the exposed data structures and algorithms [see](https://
 
 ## Book
 
-You can check out the [dsa.js book](https://books.adrianmejia.com) that goes deeper into each topic and provide additional illustrations and explanations.
+You can also buy this repo in [book format](https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/) that goes deeper into each topic and provide additional illustrations and explanations.
 
 - Algorithmic toolbox to avoid getting stuck while coding.
 - Explains data structures similarities and differences.
 - Algorithm analysis fundamentals (Big O notation, Time/Space complexity) and examples.
 - Time/space complexity cheatsheet.
 
-<a href="https://books.adrianmejia.com"><img src="https://user-images.githubusercontent.com/418605/55248546-60ebad80-5220-11e9-8cb5-85923f44e196.png" height="400px" alt="dsajs algorithms javascript book"></a>
+<a href="https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/"><img src="https://user-images.githubusercontent.com/418605/55248546-60ebad80-5220-11e9-8cb5-85923f44e196.png" height="400px" alt="dsajs algorithms javascript book"></a>
 
 <!--
-WARNING: Although you can find the [book text on this repo](https://github.com/amejiarosario/dsa.js/blob/master/book/book.adoc), there are some things that doesn't work well with Github's Asciidoc unfortunately. For instance rendering Graphviz diagrams, internal link references, embedding code into docs and so on. For better reading experience and nicer presentation you can get the [PDF format here](https://books.adrianmejia.com).
+WARNING: Although you can find the [book text on this repo](https://github.com/amejiarosario/dsa.js/blob/master/book/book.adoc), there are some things that doesn't work well with Github's Asciidoc unfortunately. For instance rendering Graphviz diagrams, internal link references, embedding code into docs and so on. For better reading experience and nicer presentation you can get the [PDF format here](https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/).
 -->
 
 ## Data Structures
