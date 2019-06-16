@@ -1,6 +1,15 @@
+[![image](https://user-images.githubusercontent.com/418605/59557258-10742880-8fa3-11e9-84fb-4d66a9d89faa.png)](https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/)
+
 # Data Structures and Algorithms in JavaScript
 
 [![CircleCI](https://img.shields.io/circleci/build/github/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/master.svg)](https://circleci.com/gh/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript) [![NPM version](https://badge.fury.io/js/dsa.js.svg)](https://badge.fury.io/js/dsa.js) [![Slack](https://dsajs-slackin.herokuapp.com/badge.svg)](https://dsajs-slackin.herokuapp.com)
+
+> This is the coding implementations of the [DSA.js book](https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/).
+
+> In this repository you can find classical algorithms and data structures implemented and explained in JavaScript. it can be used as a reference manual where developers can refresh specific topics before an interview or looking for ideas to solve a problem optimally.
+
+<!-- (Check out the Time Complexity Cheatsheet) -->
+
 
 <!--
 [![CircleCI](https://circleci.com/gh/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript.svg?style=svg)](https://circleci.com/gh/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript)
@@ -12,9 +21,16 @@ https://img.shields.io/bundlephobia/min/dsa.js.svg - 16.7kB
 https://img.shields.io/github/repo-size/amejiarosario/dsa.js.svg - 98.1 MB
 -->
 
-This repository covers the implementation of the classical algorithms and data structures in JavaScript.
+[![Interactive Data Structures](https://user-images.githubusercontent.com/418605/46118890-ba721180-c1d6-11e8-82bc-6a671428b422.png)](https://embed.kumu.io/85f1a4de5fb8430a10a1bf9c5118e015)
 
-## Usage
+
+## Table of Contents (TODO)
+
+<!-- START doctoc -->
+<!-- END doctoc -->
+
+
+## Installation
 
 You can clone the repo or install the code from NPM:
 
@@ -29,6 +45,98 @@ const { LinkedList, Queue, Stack } = require('dsa.js');
 ```
 
 For a full list of all the exposed data structures and algorithms [see](https://github.com/amejiarosario/dsa.js/blob/master/src/index.js).
+
+
+## Features
+
+> Algorithms + Data Structures = Programs.
+
+Algorithms are an essential toolbox for every programmer.
+You usually need them when you have to sort data, search for a value, transform data, scale your code to many users and so on.
+Algorithms are the step you follow to solve a problem while data structures are where you store the data.
+Both combined create programs.
+It's true that most programming languages and libraries provides implementations for basic data structures and algorithms.
+However, to make use of data structures properly, you have to know the tradeoffs so you can choose the best tool for the job.
+That's what you are going to learn here:
+
+- 🛠 Apply strategies to tackle algorithm questions. Never to get stuck again. Ace those interviews!
+- ✂️ Construct efficient algorithms. Learn how to break down problems in manageable pieces.
+- 🧠 Improve your problem-solving skills and become a stronger developer by understanding fundamental computer science concepts.
+- 🤓 Cover essential topics, such as big O time, data structures, and must-know algorithms. Implement 10+ data structures from scratch.
+
+## What's Inside
+
+### 📈 Algorithms Analysis
+
+- Computer Science nuggets without all the mumbo-jumbo.
+- Learn how to compare algorithms using Big O notation.
+- 8 examples to explain with code how to calculate time complexity.
+
+### 🥞 Linear Data Structures
+
+- Understand the ins and outs of the most common data structures.
+- When to use an Array or Linked List. Know the tradeoffs.
+- Build a Stack and a Queue from scratch.
+
+### 🌲 Non-Linear Data Structures
+- Understand how hash maps and sets work.
+- Know the properties of Graphs and Trees.
+- Implement a binary search tree for fast lookups.
+
+### ⚒ Algorithms Techniques
+
+- Never get stuck solving a problem with 7 simple steps.
+- Master the most popular sorting algorithms (mergesort, quicksort, insertion sort, ...)
+- Learn different approaches to solve problems such as divide and conquer, dynamic programming, greedy algorithms, and backtracking.
+
+## FAQ
+
+<details>
+    <summary>How would I apply these to my day-to-day work?</summary>
+    <p>
+    As a programmer, we have to solve problems every day. If you want to solve problems well, then it's good to
+    know about a broad range of solutions. A lot of times, it's more efficient to learn existing resources than
+    stumble upon the answer yourself. The more tools and practice you have, the better. This book helps you
+    understand the tradeoffs among data structures and reason about algorithms performance.
+    </p>
+</details>
+
+<details>
+    <summary>Hey OP, why you created this repo/book?</summary>
+    <p>
+        There are not many books about Algorithms in JavaScript. This material fills the gap.
+        Also, it's good practice :)
+    </p>
+</details>
+
+<details>
+    <summary>Is there anyone I can contact if I have questions about something in particular?
+    </summary>
+    <p>
+    Yes, open an issue or ask questions on the slack channel.
+    </p>
+</details>
+
+## Support
+
+Reach out to me at one of the following places!
+
+- Twitter at <a href="http://twitter.com/amejiarosario" target="_blank">`@amejiarosario`</a>
+- Slack at <a href="https://dsajs-slackin.herokuapp.com" target="_blank">`dsajs.slack.com`</a>
+
+
+## Donations
+
+The best way to support this project is buying the [book](https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/), so I can invest more time into this project and keep improving it.
+
+## License
+
+[![License](https://img.shields.io/:license-mit-blue.svg?style=flat-square)](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/LICENSE)
+
+---
+---
+---
+
 
 ## Book
 
