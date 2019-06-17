@@ -6,7 +6,7 @@
 
 > This is the coding implementations of the [DSA.js book](https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/) and the repo for the [npm package](https://www.npmjs.com/package/dsa.js).
 
-> In this repository, you can find classical algorithms and data structures implemented and explained in JavaScript. It can be used as a reference manual where developers can refresh specific topics before an interview or looking for ideas to solve a problem more optimally.
+> In this repository, you can find the implementation of algorithms and data structures. They are implemented and explained in JavaScript. This material can be used as a reference manual for developers. You can refresh specific topics before an interview. Also, you can find ideas to solve problems more efficiently.
 
 <!-- (Check out the Time Complexity Cheatsheet) -->
 
@@ -154,7 +154,7 @@ they take different time to complete.
 
 #### Most common time complexities
 
-![image](https://user-images.githubusercontent.com/418605/59617342-2a715080-90f4-11e9-9de9-9315fb0133f9.png)
+[![image](https://user-images.githubusercontent.com/418605/59617342-2a715080-90f4-11e9-9de9-9315fb0133f9.png)](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/big-o-examples.adoc#summary)
 
 <!-- - Constant time: _O(1)_
 - Logarithmic time: _O(log n)_
