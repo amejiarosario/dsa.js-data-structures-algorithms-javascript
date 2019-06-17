@@ -12,18 +12,18 @@ include::tree.adoc[]
 
 // (g)
 <<<
-include::tree--binary-search-tree.adoc[]
+include::tree-binary-search-tree.adoc[]
 
 <<<
-include::tree--search.adoc[]
+include::tree-search.adoc[]
 
 <<<
-include::tree--self-balancing-rotations.adoc[]
+include::tree-self-balancing-rotations.adoc[]
 
 :leveloffset: +1
 
 <<<
-include::tree--avl.adoc[]
+include::tree-avl.adoc[]
 
 :leveloffset: -1
 

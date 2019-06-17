@@ -86,15 +86,15 @@ include::chapters/tree.adoc[]
 
 
 // (g)
-include::chapters/tree--binary-search-tree.adoc[]
+include::chapters/tree-binary-search-tree.adoc[]
 
-include::chapters/tree--search.adoc[]
+include::chapters/tree-search.adoc[]
 
-include::chapters/tree--self-balancing-rotations.adoc[]
+include::chapters/tree-self-balancing-rotations.adoc[]
 
 :leveloffset: +1
 
-include::chapters/tree--avl.adoc[]
+include::chapters/tree-avl.adoc[]
 
 :leveloffset: -1
 

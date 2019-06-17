@@ -23,7 +23,7 @@ include::graph.adoc[tag=table]
 
 == Sorting Algorithms
 
-include::sorting--summary.adoc[tag=table]
+include::sorting-summary.adoc[tag=table]
 
 // https://algs4.cs.princeton.edu/cheatsheet/
 // http://bigocheatsheet.com/

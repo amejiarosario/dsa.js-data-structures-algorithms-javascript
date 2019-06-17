@@ -33,6 +33,24 @@ New features in this release
 git log <last release> HEAD --grep feat
 ```
 
+# Generate TOC
+
+Install
+```
+npm install -g doctoc
+```
+
+Add to *.md:
+```
+<!-- START doctoc -->
+<!-- END doctoc -->
+```
+
+Run:
+```
+doctoc README.md
+```
+
 
 # Roadmap
 - [x] PDF: callouts and emojis are not showing correctly
