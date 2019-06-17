@@ -335,15 +335,15 @@ Learn all the different kinds of trees and its properties.
         nodes value keep this order `left < parent < right`.
         [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/trees/binary-search-tree.js)
         |
-        [BST Time complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/tree--binary-search-tree.adoc#tree-complexity)
+        [BST Time complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/tree-binary-search-tree.adoc#tree-complexity)
         <!-- [Post](https://adrianmejia.com/blog/2018/06/11/data-structures-for-beginners-trees-binary-search-tree-tutorial/#Binary-Search-Tree-BST) -->
 
     - **AVL Trees**: Self-balanced BST to maximize look up time.
         [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/trees/avl-tree.js)
         |
-        [AVL Tree docs](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/tree--avl.adoc)
+        [AVL Tree docs](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/tree-avl.adoc)
         |
-        [Self-balancing & tree rotations docs](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/tree--self-balancing-rotations.adoc)
+        [Self-balancing & tree rotations docs](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/tree-self-balancing-rotations.adoc)
         <!-- [Post](https://adrianmejia.com/blog/2018/07/16/self-balanced-binary-search-trees-with-avl-tree-data-structure-for-beginners/) -->
 
     - **Red-Black Trees**: Self-balanced BST more loose than AVL to
@@ -385,9 +385,9 @@ From unbalanced BST to balanced BST
 
 ### ⚒ [Algorithms Techniques](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/part4.adoc)
 
-- Never get stuck solving a problem with 7 simple steps.
-- Master the most popular sorting algorithms (mergesort, quicksort, insertion sort, ...)
-- Learn different approaches to solve problems such as divide and conquer, dynamic programming, greedy algorithms, and backtracking.
+<!-- - Never get stuck solving a problem with 7 simple steps. -->
+<!-- - Master the most popular sorting algorithms (mergesort, quicksort, insertion sort, ...) -->
+<!-- - Learn different approaches to solve problems such as divide and conquer, dynamic programming, greedy algorithms, and backtracking. -->
 
 <blockquote>
   <details>

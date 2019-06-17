@@ -122,6 +122,6 @@ As you can see the DFS in two iterations is already at one of the farthest nodes
 
 :leveloffset: +1
 <<<
-include::tree--binary-tree-traversal.adoc[]
+include::tree-binary-tree-traversal.adoc[]
 
 :leveloffset: -1

@@ -1,9 +1,9 @@
 = Greedy Algorithms
 
-include::greedy-algorithms--intro.adoc[]
+include::greedy-algorithms-intro.adoc[]
 
 :leveloffset: +1
 
-include::greedy-algorithms--knapsack-problem.adoc[]
+include::greedy-algorithms-knapsack-problem.adoc[]
 
 :leveloffset: -1
