@@ -1,5 +1,5 @@
-[partintro]
---
+// [partintro]
+// --
 Non-Linear data structures are everywhere whether you realize it or not. You can find them in databases, Web (HTML DOM tree), search algorithms, finding the best route to get home and many more uses. We are going to learn the basic concepts and when to choose one over the other.
 
 .In this chapter we are going to learn:
@@ -9,4 +9,4 @@ Non-Linear data structures are everywhere whether you realize it or not. You can
 - Keeping dups out with a <<Set>>.
 
 By the end of this section, you will know the data structures trade-offs and when to use one over the other.
---
+// --
