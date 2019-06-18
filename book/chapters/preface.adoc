@@ -1,4 +1,3 @@
-[preface]
 = Preface
 
 == What is in this book?
