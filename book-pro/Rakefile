@@ -1,3 +1,5 @@
+# rake book:build || echo -ne '\007'
+
 namespace :book do
   desc 'build basic book formats'
   task :build do
@@ -35,14 +37,14 @@ namespace :book do
 
       puts "\r\n>> Converting to EPub..."
       # cmd = "bundle exec asciidoctor-epub3 #{require} -a ebook-validate #{params} progit.asc 2>&1"
-      cmd = "bundle exec asciidoctor-epub3 #{require} #{params} progit.asc 2>&1"
+      cmd = "bundle exec asciidoctor-epub3 -a ebook-validate #{require} #{params} progit.asc 2>&1"
       puts cmd
       puts `#{cmd}`
       puts "\t-- Epub output at progit.epub"
 
-      puts "\r\nConverting to Mobi (kf8)..."
-      puts `bundle exec asciidoctor-epub3 #{params} -a ebook-format=kf8 progit.asc 2>&1`
-      puts " -- Mobi output at progit.mobi"
+      # puts "\r\nConverting to Mobi (kf8)..."
+      # puts `bundle exec asciidoctor-epub3 #{params} -a ebook-format=kf8 progit.asc 2>&1`
+      # puts " -- Mobi output at progit.mobi"
 
     end
   end
