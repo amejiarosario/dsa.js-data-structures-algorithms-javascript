@@ -1,0 +1,51 @@
+namespace :book do
+  desc 'build basic book formats'
+  task :build do
+
+    begin
+      version_string = ENV['TRAVIS_TAG'] || `git describe --tags`.chomp
+      if version_string.empty?
+        version_string = '0'
+      end
+      date_string = Time.now.strftime("%Y-%m-%d")
+
+      # puts "Generating contributors list"
+      # `git shortlog -s | grep -v -E "(Straub|Chacon)" | cut -f 2- | column -c 120 > book/contributors.txt`
+
+      params = "-D dist -a revnumber='#{version_string}' -a revdate='#{date_string}'"
+
+      # require = '--trace --require=asciidoctor-diagram'
+      # require = '--trace -r asciidoctor-diagram'
+      require = ''
+
+      require_pdf = '-r ./config/extensions/asciidoctor-pdf-extensions.rb'
+      require_pdf = ''
+
+      puts "\r\n>> Converting to HTML..."
+      cmd = "asciidoctor #{require} #{params} progit.asc 2>&1"
+      puts cmd
+      puts `#{cmd}`
+      puts "\t-- HTML output at progit.html"
+
+      puts "\r\nConverting to PDF... (this one takes a while)"
+      cmd = "bundle exec asciidoctor-pdf #{require} #{require_pdf} #{params} progit.asc 2>&1"
+      puts cmd
+      puts `#{cmd}`
+      puts " -- PDF output at progit.pdf"
+
+      puts "\r\n>> Converting to EPub..."
+      # cmd = "bundle exec asciidoctor-epub3 #{require} -a ebook-validate #{params} progit.asc 2>&1"
+      cmd = "bundle exec asciidoctor-epub3 #{require} #{params} progit.asc 2>&1"
+      puts cmd
+      puts `#{cmd}`
+      puts "\t-- Epub output at progit.epub"
+
+      puts "\r\nConverting to Mobi (kf8)..."
+      puts `bundle exec asciidoctor-epub3 #{params} -a ebook-format=kf8 progit.asc 2>&1`
+      puts " -- Mobi output at progit.mobi"
+
+    end
+  end
+end
+
+task :default => "book:build"

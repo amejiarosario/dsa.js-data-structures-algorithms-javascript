@@ -1,0 +1,94 @@
+/* syntax highlighting and coloring text in general */
+
+/* Pygments with manni theme */
+pre code.hll { background-color: #ffffcc }
+pre code.c { color: #0099FF; font-style: italic } /* Comment */
+pre code.err { color: #AA0000 } /* Error */
+pre code.k { color: #006699; font-weight: bold } /* Keyword */
+pre code.o { color: #555555 } /* Operator */
+pre code.cm { color: #35586C; font-style: italic } /* Comment.Multiline */
+pre code.cp { color: #009999 } /* Comment.Preproc */
+pre code.c1 { color: #35586C; font-style: italic } /* Comment.Single */
+pre code.cs { color: #35586C; font-weight: bold; font-style: italic } /* Comment.Special */
+pre code.gd { background-color: #FFCCCC } /* Generic.Deleted */
+pre code.ge { font-style: italic } /* Generic.Emph */
+pre code.gr { color: #FF0000 } /* Generic.Error */
+pre code.gh { color: #003300; font-weight: bold } /* Generic.Heading */
+pre code.gi { background-color: #CCFFCC } /* Generic.Inserted */
+
+/* Overriding default manni style of #AAAAAA gray for Generic Output with #000000 black, which is better suited to ORM terminal output */
+pre code.go { color: #000000 } /* Generic.Output  */
+
+pre code.gp { color: #000099; font-weight: bold } /* Generic.Prompt */
+pre code.gs { font-weight: bold } /* Generic.Strong */
+pre code.gu { color: #003300; font-weight: bold } /* Generic.Subheading */
+pre code.gt { color: #99CC66 } /* Generic.Traceback */
+pre code.kc { color: #006699; font-weight: bold } /* Keyword.Constant */
+pre code.kd { color: #006699; font-weight: bold } /* Keyword.Declaration */
+pre code.kn { color: #006699; font-weight: bold } /* Keyword.Namespace */
+pre code.kp { color: #006699 } /* Keyword.Pseudo */
+pre code.kr { color: #006699; font-weight: bold } /* Keyword.Reserved */
+pre code.kt { color: #007788; font-weight: bold } /* Keyword.Type */
+pre code.m { color: #FF6600 } /* Literal.Number */
+pre code.s { color: #CC3300 } /* Literal.String */
+pre code.na { color: #330099 } /* Name.Attribute */
+pre code.nb { color: #336666 } /* Name.Builtin */
+pre code.nc { color: #00AA88; font-weight: bold } /* Name.Class */
+pre code.no { color: #336600 } /* Name.Constant */
+pre code.nd { color: #9999FF } /* Name.Decorator */
+pre code.ni { color: #999999; font-weight: bold } /* Name.Entity */
+pre code.ne { color: #CC0000; font-weight: bold } /* Name.Exception */
+pre code.nf { color: #CC00FF } /* Name.Function */
+pre code.nl { color: #9999FF } /* Name.Label */
+pre code.nn { color: #00CCFF; font-weight: bold } /* Name.Namespace */
+pre code.nt { color: #330099; font-weight: bold } /* Name.Tag */
+pre code.nv { color: #003333 } /* Name.Variable */
+pre code.ow { color: #000000; font-weight: bold } /* Operator.Word */
+pre code.w { color: #bbbbbb } /* Text.Whitespace */
+pre code.mf { color: #FF6600 } /* Literal.Number.Float */
+pre code.mh { color: #FF6600 } /* Literal.Number.Hex */
+pre code.mi { color: #FF6600 } /* Literal.Number.Integer */
+pre code.mo { color: #FF6600 } /* Literal.Number.Oct */
+pre code.sb { color: #CC3300 } /* Literal.String.Backtick */
+pre code.sc { color: #CC3300 } /* Literal.String.Char */
+pre code.sd { color: #CC3300; font-style: italic } /* Literal.String.Doc */
+pre code.s2 { color: #CC3300 } /* Literal.String.Double */
+pre code.se { color: #CC3300; font-weight: bold } /* Literal.String.Escape */
+pre code.sh { color: #CC3300 } /* Literal.String.Heredoc */
+pre code.si { color: #AA0000 } /* Literal.String.Interpol */
+pre code.sx { color: #CC3300 } /* Literal.String.Other */
+pre code.sr { color: #33AAAA } /* Literal.String.Regex */
+pre code.s1 { color: #CC3300 } /* Literal.String.Single */
+
+/* Overriding manni default yellow #FFCC33 with brown #AA6600, which is easier to read */
+pre code.ss { color: #AA6600 } /* Literal.String.Symbol */
+
+pre code.bp { color: #336666 } /* Name.Builtin.Pseudo */
+pre code.vc { color: #003333 } /* Name.Variable.Class */
+pre code.vg { color: #003333 } /* Name.Variable.Global */
+pre code.vi { color: #003333 } /* Name.Variable.Instance */
+pre code.il { color: #FF6600 } /* Literal.Number.Integer.Long */
+
+/* Sanders's additions to manni */
+pre code.g { color: #005500 } /* Generic */
+pre code.l { color: #CC6600 } /* Literal */
+pre code.l { color: #FF9900 } /* Literal.Date */
+pre code.n { color: #000088 } /* Name */
+pre code.nx { color: #000088 } /* Name.Other */
+pre code.py { color: #9966FF } /* Name.Property */
+pre code.p { color: #000000 } /* Punctuation */
+pre code.x { color: #FF0066 } /* Other */
+
+/* Chacon's additions to make command line look more like a command line */
+pre[data-code-language="console"] {
+  background: #ddd;
+  padding: 10px;
+}
+pre[data-code-language="console"] code.go {
+  color: #555;
+  font-size: 1.0em;
+}
+pre[data-code-language="console"] code.gp {
+  color: #009900;
+  font-weight: bold;
+}
