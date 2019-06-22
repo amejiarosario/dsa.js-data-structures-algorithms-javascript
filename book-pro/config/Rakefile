@@ -14,7 +14,9 @@ namespace :book do
       # puts "Generating contributors list"
       # `git shortlog -s | grep -v -E "(Straub|Chacon)" | cut -f 2- | column -c 120 > book/contributors.txt`
 
-      params = "-D dist -a revnumber='#{version_string}' -a revdate='#{date_string}'"
+      input = '../book.asc'
+      outputFolder = '../dist'
+      params = "-D #{outputFolder} -a revnumber='#{version_string}' -a revdate='#{date_string}'"
 
       # require = '--trace --require=asciidoctor-diagram'
       # require = '--trace -r asciidoctor-diagram'
@@ -23,27 +25,28 @@ namespace :book do
       require_pdf = '-r ./config/extensions/asciidoctor-pdf-extensions.rb'
       require_pdf = ''
 
+
       puts "\r\n>> Converting to HTML..."
-      cmd = "asciidoctor #{require} #{params} progit.asc 2>&1"
+      cmd = "asciidoctor #{require} #{params} #{input} 2>&1"
       puts cmd
       puts `#{cmd}`
       puts "\t-- HTML output at progit.html"
 
       puts "\r\nConverting to PDF... (this one takes a while)"
-      cmd = "bundle exec asciidoctor-pdf #{require} #{require_pdf} #{params} progit.asc 2>&1"
+      cmd = "bundle exec asciidoctor-pdf #{require} #{require_pdf} #{params} #{input} 2>&1"
       puts cmd
       puts `#{cmd}`
       puts " -- PDF output at progit.pdf"
 
       puts "\r\n>> Converting to EPub..."
-      # cmd = "bundle exec asciidoctor-epub3 #{require} -a ebook-validate #{params} progit.asc 2>&1"
-      cmd = "bundle exec asciidoctor-epub3 -a ebook-validate #{require} #{params} progit.asc 2>&1"
+      # cmd = "bundle exec asciidoctor-epub3 #{require} -a ebook-validate #{params} #{input} 2>&1"
+      cmd = "bundle exec asciidoctor-epub3 -a ebook-validate #{require} #{params} #{input} 2>&1"
       puts cmd
       puts `#{cmd}`
       puts "\t-- Epub output at progit.epub"
 
       # puts "\r\nConverting to Mobi (kf8)..."
-      # puts `bundle exec asciidoctor-epub3 #{params} -a ebook-format=kf8 progit.asc 2>&1`
+      # puts `bundle exec asciidoctor-epub3 #{params} -a ebook-format=kf8 #{input} 2>&1`
       # puts " -- Mobi output at progit.mobi"
 
     end
