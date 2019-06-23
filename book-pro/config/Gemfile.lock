@@ -29,15 +29,20 @@ GEM
       thread_safe (~> 0.3.6)
       treetop (= 1.5.3)
     awesome_print (1.8.0)
+    cmdparse (3.0.4)
     coderay (1.1.2)
     concurrent-ruby (1.1.5)
     css_parser (1.7.0)
       addressable
     epubcheck (3.0.1)
+    geom2d (0.2.0)
     gepub (1.0.4)
       nokogiri (>= 1.8.2, < 1.11)
       rubyzip (>= 1.1.1)
     hashery (2.1.2)
+    hexapdf (0.9.3)
+      cmdparse (~> 3.0, >= 3.0.3)
+      geom2d (~> 0.2)
     json (2.2.0)
     kindlegen (3.0.3)
       rake
@@ -93,6 +98,7 @@ DEPENDENCIES
   awesome_print
   coderay
   epubcheck
+  hexapdf
   json
   kindlegen
   prawn-gmagick (~> 0.0.8)

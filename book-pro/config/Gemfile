@@ -18,3 +18,4 @@ gem 'kindlegen'
 
 gem 'asciidoctor-diagram', '1.5.11'
 gem "prawn-gmagick", "~> 0.0.8" # brew install GraphicsMagick # sudo apt-get install -y graphicsmagick-imagemagick-compat graphicsmagick-libmagick-dev-compat
+gem 'hexapdf' # pdf compression

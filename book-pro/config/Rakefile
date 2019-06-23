@@ -1,18 +1,18 @@
 # rake book:build || echo -ne '\007'
-
+# rake book:build && say "done"
 namespace :book do
   desc 'build basic book formats'
   task :build do
 
     begin
-      version_string = ENV['TRAVIS_TAG'] || `git describe --tags`.chomp
+      version_string = `npx -c 'echo "$npm_package_version"'`.chomp || `git describe --tags`.chomp
       if version_string.empty?
         version_string = '0'
       end
       date_string = Time.now.strftime("%Y-%m-%d")
 
       # puts "Generating contributors list"
-      # `git shortlog -s | grep -v -E "(Straub|Chacon)" | cut -f 2- | column -c 120 > book/contributors.txt`
+      # `git shortlog -s | grep -v -E "(Mejia)" | cut -f 2- | column -c 120 > book/contributors.txt`
 
       name = 'dsajs'
       input = "../#{name}.asc"
@@ -34,6 +34,12 @@ namespace :book do
 
       puts "\r\nConverting to PDF... (this one takes a while)"
       cmd = "bundle exec asciidoctor-pdf #{require} #{require_pdf} #{params} #{input} 2>&1"
+      puts cmd
+      puts `#{cmd}`
+      puts " -- PDF output at #{name}.pdf"
+
+      puts "\r\nCompressing PDF"
+      cmd = "bundle exec hexapdf optimize --force #{outputFolder}/#{name}.pdf #{outputFolder}/#{name}-v#{version_string}.pdf"
       puts cmd
       puts `#{cmd}`
       puts " -- PDF output at #{name}.pdf"
