@@ -1,0 +1,84 @@
+= Data Structures and Algorithms in JavaScript
+:book-title: {doctitle}
+:author: Adrian Mejia
+:email:  hello+dsajs@adrianmejia.com
+:revnumber: 1.0.0
+:revdate: {docdate}
+:revyear: 2019
+:revremark: First Edition
+:subject: Algorithms
+:keywords: dsa.js, Algorithms, Data Structures, JavaScript, Coding Interviews, Computer Science, Time Complexity, Linked Lists, Graphs, Binary Search Trees
+:doctype: book
+:media: screen
+ifeval::["{media}" != "prepress"]
+:front-cover-image: image:cover-a4.png[Front Cover,595,842]
+endif::[]
+:toc:
+:toclevels: 3
+:icons: font
+:lang: en
+:language: javascript
+:experimental:
+:pdf-fontsdir: ./fonts
+:pdf-stylesdir: ./_resources/pdfstyles
+:pdf-style: adrian-screen
+:title-logo-image: image:logo.png[Logo,50,50]
+// custom variables
+:imagesdir: {docdir}/images
+:codedir: ../../src
+:datadir: {docdir}/data
+// :source-highlighter: pygments
+// paraiso-light, xcode, monokai
+// :pygments-style: xcode
+:stem:
+:plantuml-config: {docdir}/_conf/umlconfig.txt
+// :hide-uri-scheme:
+// :chapter-label: Chapter
+// :appendix-caption: Appendix
+// :chapter-label:
+// dark
+// :pygments-style: monokai
+// light theme with colorful code
+// solarized-light, tomorrow
+// :source-highlighter: highlightjs
+// :highlightjs-theme: tomorrow
+
+ifndef::ebook-format[:leveloffset: 1]
+
+[colophon#colophon%nonfacing]
+include::chapters/colophon.adoc[]
+
+[dedication]
+include::chapters/dedication.adoc[]
+
+// [%nonfacing]
+// include::chapters/acknowledgements.adoc[]
+
+[preface]
+include::chapters/preface.adoc[]
+
+// include::chapters/introduction.adoc[]
+
+// TODO: (optional) include numbers but need to fix the part/chapter labels
+// :sectnums:
+
+include::chapters/part1.adoc[]
+
+include::chapters/part2.adoc[]
+
+include::chapters/part3.adoc[]
+
+include::chapters/part4.adoc[]
+
+// :sectnums!:
+
+include::chapters/appendix.adoc[]
+
+// include::chapters/epigraph.adoc[]
+
+// include::chapters/about.adoc[]
+
+ifdef::backend-pdf,backend-docbook[]
+[index]
+= Index
+endif::[]

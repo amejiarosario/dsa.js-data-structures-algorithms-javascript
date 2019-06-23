@@ -1,0 +1,14 @@
+[colophon#colophon%nonfacing]
+= {doctitle}
+
+Copyright © {docyear} Adrian Mejia
+
+All rights reserved.
+
+For online information and ordering this and other books, please visit https://adrianmejia.com. The publisher offers discounts on this publication when ordered in quantity. For more information, contact sales@adrianmejia.com.
+
+No part of this publication may be produced, store in a retrieval system, or transmitted, in any form or by means electronic, mechanical, photocopying, or otherwise, without the prior written permission of the publisher.
+
+While every precaution has been taking in the preparation of this book, the publisher and author assume no responsibility for errors or omissions, or damages resulting from the use of the information contained herein.
+
+{revremark}, {revdate}.

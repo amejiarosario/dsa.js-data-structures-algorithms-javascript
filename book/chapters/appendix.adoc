@@ -1,0 +1,3 @@
+// Appendix A:
+include::cheatsheet.adoc[]
+
