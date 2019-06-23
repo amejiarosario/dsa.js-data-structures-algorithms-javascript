@@ -73,6 +73,7 @@ GEM
     pygments.rb (1.2.1)
       multi_json (>= 1.0.0)
     rake (12.3.2)
+    rouge (3.4.1)
     ruby-rc4 (0.1.5)
     rubyzip (1.2.3)
     safe_yaml (1.0.5)
@@ -97,6 +98,7 @@ DEPENDENCIES
   prawn-gmagick (~> 0.0.8)
   pygments.rb
   rake
+  rouge
   thread_safe
 
 BUNDLED WITH

@@ -137,11 +137,11 @@ Desktop.ini
 ######################
 # Gemfile
 # Gemfile.lock
-Makefile
-_conf
-_resources
-extensions
-fonts
+# Makefile
+# _conf
+# _resources
+# extensions
+# fonts
 
 
 ######################

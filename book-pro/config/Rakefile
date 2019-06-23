@@ -22,8 +22,8 @@ namespace :book do
       require = '--trace -r asciidoctor-diagram'
       # require = ''
 
-      require_pdf = '-r ./config/extensions/asciidoctor-pdf-extensions.rb'
-      require_pdf = ''
+      require_pdf = '-r ./extensions/asciidoctor-pdf-extensions.rb'
+      # require_pdf = ''
 
 
       puts "\r\n>> Converting to HTML..."
@@ -38,12 +38,12 @@ namespace :book do
       puts `#{cmd}`
       puts " -- PDF output at progit.pdf"
 
-      puts "\r\n>> Converting to EPub..."
-      # cmd = "bundle exec asciidoctor-epub3 #{require} -a ebook-validate #{params} #{input} 2>&1"
-      cmd = "bundle exec asciidoctor-epub3 -a ebook-validate #{require} #{params} #{input} 2>&1"
-      puts cmd
-      puts `#{cmd}`
-      puts "\t-- Epub output at progit.epub"
+      # puts "\r\n>> Converting to EPub..."
+      # # cmd = "bundle exec asciidoctor-epub3 #{require} -a ebook-validate #{params} #{input} 2>&1"
+      # cmd = "bundle exec asciidoctor-epub3 -a ebook-validate #{require} #{params} #{input} 2>&1"
+      # puts cmd
+      # puts `#{cmd}`
+      # puts "\t-- Epub output at progit.epub"
 
       # puts "\r\nConverting to Mobi (kf8)..."
       # puts `bundle exec asciidoctor-epub3 #{params} -a ebook-format=kf8 #{input} 2>&1`

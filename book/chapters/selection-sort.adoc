@@ -14,7 +14,7 @@ The selection sort is a simple sorting algorithm. As its name indicates, it _sel
 . Find the minimum item in the rest of the array. If a new minimum is found swap them.
 . Repeat step #1 and #2 with the next element until the last one.
 
-image:selection-sort.gif[]
+image:images/selection-sort.gif[]
 
 == Selection sort implementation
 For implementing the selection sort, we need two indexes.

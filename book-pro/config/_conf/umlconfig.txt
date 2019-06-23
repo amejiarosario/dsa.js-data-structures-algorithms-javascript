@@ -1,0 +1,29 @@
+hide empty members
+skinparam defaultFontName Helvetica
+skinparam backgroundColor transparent
+skinparam monochrome true
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor Black
+}
+skinparam legend {
+    BackgroundColor LightGray
+    ArrowColor Black
+    BorderColor Black
+}
+skinparam note {
+    BackgroundColor LightGray
+    ArrowColor Black
+    BorderColor Black
+}
+skinparam stereotype {
+    CBackgroundColor LightGray
+}
+skinparam state {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor Black
+}
+skinparam shadowing false
+
