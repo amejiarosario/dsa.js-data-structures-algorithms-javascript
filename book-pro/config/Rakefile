@@ -32,18 +32,18 @@ namespace :book do
       puts `#{cmd}`
       puts "\t-- HTML output at progit.html"
 
-      puts "\r\nConverting to PDF... (this one takes a while)"
-      cmd = "bundle exec asciidoctor-pdf #{require} #{require_pdf} #{params} #{input} 2>&1"
-      puts cmd
-      puts `#{cmd}`
-      puts " -- PDF output at progit.pdf"
-
-      # puts "\r\n>> Converting to EPub..."
-      # # cmd = "bundle exec asciidoctor-epub3 #{require} -a ebook-validate #{params} #{input} 2>&1"
-      # cmd = "bundle exec asciidoctor-epub3 -a ebook-validate #{require} #{params} #{input} 2>&1"
+      # puts "\r\nConverting to PDF... (this one takes a while)"
+      # cmd = "bundle exec asciidoctor-pdf #{require} #{require_pdf} #{params} #{input} 2>&1"
       # puts cmd
       # puts `#{cmd}`
-      # puts "\t-- Epub output at progit.epub"
+      # puts " -- PDF output at progit.pdf"
+
+      puts "\r\n>> Converting to EPub..."
+      # cmd = "bundle exec asciidoctor-epub3 #{require} -a ebook-validate #{params} #{input} 2>&1"
+      cmd = "bundle exec asciidoctor-epub3 #{require} #{params} #{input} 2>&1"
+      puts cmd
+      puts `#{cmd}`
+      puts "\t-- Epub output at progit.epub"
 
       # puts "\r\nConverting to Mobi (kf8)..."
       # puts `bundle exec asciidoctor-epub3 #{params} -a ebook-format=kf8 #{input} 2>&1`
