@@ -1,0 +1,20 @@
+ifndef::imagesdir[]
+:imagesdir: ../images
+:codedir: ../../src
+endif::[]
+
+= Sorting Algorithms
+
+Sorting is one of the most common solutions when we want to extract some insights about a collection of data.
+We can sort to get the maximum or minimum value and many algorithmic problems involves sorting data first.
+
+.We are going to explore three basic sorting algorithms _O(n^2^)_ which have low overhead:
+- <<Bubble Sort>>
+- <<Selection Sort>>
+- <<Insertion Sort>>
+
+.and then discuss efficient sorting algorithms _O(n log n)_ such as:
+- <<Merge Sort>>
+- <<Quicksort>>
+
+Before we dive into the most well-known sorting algorithms, let's discuss the sorting properties.

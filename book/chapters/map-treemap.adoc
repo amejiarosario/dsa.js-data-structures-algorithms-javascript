@@ -1,0 +1,96 @@
+ifndef::imagesdir[]
+:imagesdir: ../images
+:codedir: ../../src
+endif::[]
+
+= TreeMap
+(((TreeMap)))
+(((Data Structures, Non-Linear, TreeMap)))
+A TreeMap is a Map implementation using Binary Search Trees.
+(((Binary Search Tree)))
+(((BST)))
+
+Implementing a Map with a tree, TreeMap, has a couple of advantages over a HashMap:
+
+* Keys are always sorted.
+* Statistical data can be easily obtained like the median, highest, lowest key.
+* Collisions are not a concern so in the worst case is still *O(log n)*.
+* Trees are more space efficient and don’t need to allocate memory beforehand (e.g. `HashMap`’s initial capacity) nor you have to rehash when is getting full.
+
+indexterm:[Runtime, Logarithmic]
+Ok, now that you know the advantages, let’s implement it!
+For a full comparison read the <<HashMap vs TreeMap>> section.
+
+Let’s get started with the essential functions. They have the same interface as the `HashMap` (but the implementation is different).
+
+.TreeMap class overview
+[source, javascript]
+----
+class TreeMap {
+  constructor(){}
+  set(key, value) {}
+  get(key) {}
+  has(key) {}
+  delete(key) {}
+}
+----
+
+== Inserting values into a TreeMap
+
+For inserting a value on a TreeMap, we first need to inialize the tree:
+
+.TreeMap constructor
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/tree-maps/tree-map.js[tag=constructor, indent=0]
+----
+
+The tree can be an instance of any Binary Search Tree that we implemented so far. However, for better performance, it should be a self-balanced tree like a https://github.com/amejiarosario/dsa.js/blob/f69b744a1bddd3d99243ca64b3ad46f3f2dd7342/src/data-structures/trees/red-black-tree.js#L20[Red-Black Tree] or https://github.com/amejiarosario/dsa.js/blob/f69b744a1bddd3d99243ca64b3ad46f3f2dd7342/src/data-structures/trees/avl-tree.js#L64[AVL Tree].
+
+Let's implement the method to add values to the tree.
+
+.TreeMap `add` method and `size` attribute
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/tree-maps/tree-map.js[tag=set, indent=0]
+----
+
+Adding values is very easy (once we have the underlying tree implementation).
+
+== Getting values out of a TreeMap
+
+When We search by key in a tree map, it takes *O(log n)*. This is the implementation:
+
+.TreeMap `get` and `has` method
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/tree-maps/tree-map.js[tag=get, indent=0]
+----
+
+One side effect of storing keys in a tree is that they don't come up in insertion order. Instead, they ordered by value.
+
+.TreeMap iterators
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/tree-maps/tree-map.js[tag=iterators, indent=0]
+----
+<1> We implemented the default iterator using the in-order traversal. That's useful for getting the keys sorted.
+
+.JavaScript Iterators and Generators
+****
+Generators are useful for producing values that can you can iterate in a `for...of` loop. Generators use the `function*` syntax which expects to have a `yield` with a value.
+****
+
+== Deleting values from a TreeMap
+
+Removing elements from TreeMap is simple.
+
+.TreeMap `delete` method
+[source, javascript]
+----
+include::{codedir}/data-structures/maps/tree-maps/tree-map.js[tag=delete, indent=0]
+----
+
+The BST implementation does all the heavy lifting.
+
+That’s it! To see the full file in context, click here: https://github.com/amejiarosario/dsa.js/blob/f69b744a1bddd3d99243ca64b3ad46f3f2dd7342/src/data-structures/maps/tree-maps/tree-map.js#L22[here]

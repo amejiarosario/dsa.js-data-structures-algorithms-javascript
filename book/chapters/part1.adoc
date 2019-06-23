@@ -1,0 +1,20 @@
+[[chapter-1]]
+= Algorithms Analysis
+
+[partintro]
+--
+In this part, we are going to cover the basics of algorithms analysis. Also, we will discuss the most common runtimes of algorithms and provide a code example for each one.
+--
+
+
+:leveloffset: +1
+
+// (g)
+include::algorithms-analysis.adoc[]
+
+// (g)
+include::big-o-examples.adoc[]
+
+:leveloffset: -1
+
+

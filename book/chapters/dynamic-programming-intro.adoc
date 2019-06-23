@@ -1,0 +1,30 @@
+ifndef::imagesdir[]
+:imagesdir: ../images
+:codedir: ../../src
+endif::[]
+
+(((Dynamic Programming)))
+(((Algorithmic Techniques, Dynamic Programming)))
+Dynamic programming (dp) is a way to solve algorithmic problems with *overlapping subproblems*. Algorithms using dp find the base case and building a solution from the ground-up. Dp _keep track_ of previous results to avoid re-computing the same operations.
+
+// https://twitter.com/amejiarosario/status/1103050924933726208
+// https://www.quora.com/How-should-I-explain-dynamic-programming-to-a-4-year-old/answer/Jonathan-Paulson
+// https://medium.com/@codingfreak/top-50-dynamic-programming-practice-problems-4208fed71aa3
+// https://www.slideshare.net/balamoorthy39/greedy-algorithm-knapsack-problem
+
+.How to explain dynamic programming to kids? 👶
+****
+
+$$*$$*_Write down 1+1+1+1+1+1+1+1+1+1_*$$*$$
+
+--{sp} What's that equal to?
+
+--{sp} $$*$$*_Kid counting one by one_*$$*$$ Ten!
+
+--{sp} Add another "+1". What's the total now?
+
+--{sp} $$*$$*_Quickly_*$$*$$  Eleven!
+
+--{sp} Why you get the result so quickly? Ah, you got it faster by adding one to the memorized previous answer. So Dynamic Programming is a fancy way of saying: "remembering past solutions to save time later."
+****
+

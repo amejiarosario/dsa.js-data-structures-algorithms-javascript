@@ -1,0 +1,194 @@
+include::_conf/variables.adoc[]
+
+= {doctitle}
+
+// remove numbering from titles, and sub-titles e.g. 1.1
+:sectnums!:
+
+// Copyright © 2018 Adrian Mejia (g)
+include::chapters/colophon.adoc[]
+
+// Abstract and Dedication MUST have a level-0 heading in EPUB and Kindle
+// but level-1 in PDF and HTML
+ifndef::backend-epub3[:leveloffset: +1]
+include::chapters/dedication.adoc[]
+ifndef::backend-epub3[:leveloffset: -1]
+
+// (g)
+include::chapters/preface.adoc[]
+
+// add sections to chapters
+:sectnums:
+
+
+//-----------------------------------
+// TODO: commment out sample on final
+//-----------------------------------
+
+include::chapters/sample.adoc[]
+
+//-----------------------------------
+// TODO: end remove ------
+//-----------------------------------
+
+//
+// chapters
+//
+
+= Algorithms Analysis
+
+include::chapters/algorithms-analysis-intro.adoc[]
+
+:leveloffset: +1
+
+// (g)
+include::chapters/algorithms-analysis.adoc[]
+
+// (g)
+include::chapters/big-o-examples.adoc[]
+
+:leveloffset: -1
+
+= Linear Data Structures
+
+// (g)
+include::chapters/linear-data-structures-intro.adoc[]
+
+:leveloffset: +1
+
+//  (g)
+include::chapters/array.adoc[]
+
+//  (g)
+include::chapters/linked-list.adoc[]
+
+//  (g)
+include::chapters/stack.adoc[]
+
+// (g)
+include::chapters/queue.adoc[]
+
+// (g)
+include::chapters/linear-data-structures-outro.adoc[]
+
+:leveloffset: -1
+
+
+= Non-Linear Data Structures
+
+// (g)
+include::chapters/non-linear-data-structures-intro.adoc[]
+
+:leveloffset: +1
+
+// (g)
+include::chapters/tree.adoc[]
+
+
+// (g)
+include::chapters/tree-binary-search-tree.adoc[]
+
+include::chapters/tree-search.adoc[]
+
+include::chapters/tree-self-balancing-rotations.adoc[]
+
+:leveloffset: +1
+
+include::chapters/tree-avl.adoc[]
+
+:leveloffset: -1
+
+// (g)
+// include::chapters/map.adoc[]
+include::chapters/map-intro.adoc[]
+
+:leveloffset: +1
+
+// (g)
+include::chapters/map-hashmap.adoc[]
+
+// (g)
+include::chapters/map-treemap.adoc[]
+
+// (g)
+include::chapters/map-hashmap-vs-treemap.adoc[]
+
+:leveloffset: -1
+
+// (g)
+include::chapters/set.adoc[]
+
+// (g)
+include::chapters/graph.adoc[]
+
+// TODO: pending
+include::chapters/graph-search.adoc[]
+
+:leveloffset: -1
+
+= Algorithmic Techniques
+
+// TODO: pending
+include::chapters/algorithms-intro.adoc[]
+
+:leveloffset: +1
+
+//
+// Sorting algorithms
+//
+= Sorting Algorithms
+
+:leveloffset: +1
+
+// TODO: pending
+include::chapters/sorting-intro.adoc[]
+
+// Slow Sorting
+
+include::chapters/insertion-sort.adoc[]
+
+include::chapters/selection-sort.adoc[]
+
+include::chapters/bubble-sort.adoc[]
+
+// Fast Sorting
+
+include::chapters/merge-sort.adoc[]
+
+include::chapters/quick-sort.adoc[]
+
+:leveloffset: -1
+
+
+//
+// Algorithms Techniques
+//
+
+include::chapters/divide-and-conquer.adoc[]
+
+include::chapters/dynamic-programming.adoc[]
+
+include::chapters/greedy-algorithms.adoc[]
+
+include::chapters/backtracking.adoc[]
+
+// --- end algorithms ---
+
+:leveloffset: -1
+
+:sectnums!:
+
+= Appendix
+
+:leveloffset: +1
+
+// TODO: review and complete when the rest is completed
+include::chapters/cheatsheet.adoc[]
+
+:leveloffset: -1
+
+//
+// end chapters
+//
+
+include::chapters/epigraph.adoc[]

@@ -1,0 +1,35 @@
+= Array vs. Linked List & Queue vs. Stack
+
+In this part of the book, we explored the most used linear data structures such as Arrays, Linked Lists, Stacks and Queues. We implemented them and discussed the runtime of their operations.
+
+.Use Arrays when…
+* You need to access data in random order fast (using an index).
+* Your data is multi-dimensional (e.g., matrix, tensor).
+
+.Use Linked Lists when:
+* You will access your data sequentially.
+* You want to save memory and only allocate memory as you need it.
+* You want constant time to remove/add from extremes of the list.
+
+.Use a Queue when:
+* You need to access your data in a first-come, first served basis (FIFO).
+* You need to implement a <<Breadth-First Search for Binary Tree, Breadth-First Search>>
+
+.Use a Stack when:
+* You need to access your data as last-in, first-out (LIFO).
+* You need to implement a <<Depth-First Search for Binary Tree, Depth-First Search>>
+(((Tables, Linear DS, Array/Lists/Stack/Queue complexities)))
+
+// tag::table[]
+.Time/Space Complexity of Linear Data Structures (Array, LinkedList, Stack & Queues)
+|===
+.2+.^s| Data Structure 2+^s| Searching By 3+^s| Inserting at the 3+^s| Deleting from .2+.^s| Space
+^|_Index/Key_ ^|_Value_ ^|_beginning_ ^|_middle_ ^|_end_ ^|_beginning_ ^|_middle_ ^|_end_
+| <<Array>> ^|O(1) ^|O(n) ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(n) ^|O(1) ^|O(n)
+| <<Singly Linked List>> ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(1) ^|O(1) ^|O(n) ^|*O(n)* ^|O(n)
+| <<Doubly Linked List>> ^|O(n) ^|O(n) ^|O(1) ^|O(n) ^|O(1) ^|O(1) ^|O(n) ^|*O(1)* ^|O(n)
+| <<Stack>> ^|- ^|- ^|- ^|- ^|O(1) ^|- ^|- ^|O(1) ^|O(n)
+| Queue (w/array) ^|- ^|- ^|- ^|- ^|*O(n)* ^|- ^|- ^|O(1) ^|O(n)
+| <<Queue>> (w/list) ^|- ^|- ^|- ^|- ^|O(1) ^|- ^|- ^|O(1) ^|O(n)
+|===
+// end::table[]

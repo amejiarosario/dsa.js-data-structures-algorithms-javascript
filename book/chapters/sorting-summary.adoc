@@ -1,0 +1,35 @@
+ifndef::imagesdir[]
+:imagesdir: ../images
+:codedir: ../../src
+endif::[]
+
+= Summary
+
+We explored many algorithms some of them simple and other more performant. Also, we cover the properties of sorting algorithms such as stable, in-place, online and adaptive.
+(((Tables, Algorithms, Sorting Complexities)))
+(((Tables, Algorithms, Sorting Summary)))
+
+// tag::table[]
+.Sorting algorithms comparison
+[cols="20,80"]
+|===
+| Algorithms         | Comments
+| <<Bubble Sort>>    | Swap pairs bubbling up largest numbers to the right
+| <<Insertion Sort>> | Look for biggest number to the left and swap it with current
+| <<Selection Sort>> | Iterate array looking for smallest value to the right
+| <<Merge Sort>>     | Split numbers in pairs, sort pairs and join them in ascending order
+| <<Quicksort>>      | Choose a pivot, set smaller values to the left and bigger to the right.
+// | Tim sort        | Hybrid of merge sort and insertion sort
+|===
+
+.Sorting algorithms time/space complexity and properties
+|===
+| Algorithms         | Avg        | Best | Worst | Space       | Stable | In-place | Online | Adaptive
+| <<Bubble Sort>>    | O(n^2^)    | O(n) | O(n^2^) | O(1)      | Yes    | Yes      | Yes    | Yes
+| <<Insertion Sort>> | O(n^2^)    | O(n) | O(n^2^) | O(1)      | Yes    | Yes      | Yes    | Yes
+| <<Selection Sort>> | O(n^2^)    | O(n^2^) | O(n^2^) | O(1)        | No     | Yes      | No    | No
+| <<Merge Sort>>     | O(n log n) | O(n log n) | O(n log n) | O(n)        | Yes     | No       | No     | No
+| <<Quicksort>>      | O(n log n) | O(n^2^) | O(n log n) | O(log n)    | Yes     | Yes      | No     | No
+// | Tim sort       | O(n log n) | O(log n)    | Yes    | No       | No     | Yes
+|===
+// end::table[]

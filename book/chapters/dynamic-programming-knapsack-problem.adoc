@@ -1,0 +1,52 @@
+ifndef::imagesdir[]
+:imagesdir: ../images
+:codedir: ../../src
+endif::[]
+
+= Knapsack Problem
+
+The knapsack (backpack [big]#🎒#) problem is the following:
+
+> A thief breaks into a museum with a backpack that can carry certain weight.
+What items shoud he pick to maximize his loot?
+
+Take a look at the following example to understand better the problem.
+
+.Knapsack Problem Examples
+[source, javascript]
+----
+
+// Input:
+const museumGoods = [
+  { value: 1, weight: 1},
+  { value: 4, weight: 3 },
+  { value: 5, weight: 4 },
+  { value: 7, weight: 5 },
+]
+
+const maxBackpackWeight = 7;
+
+// Solution:
+const backpack = solveKnapsackProblem(museumGoods, maxBackpackWeight);
+
+// Output:
+expect(backpack.items).to.equal([
+  { value: 4, weight: 3 },
+  { value: 5, weight: 4 }
+])
+
+expect(backpack.weight).toBeLessThanOrEqual(7);
+expect(backpack.value).toBe(9);
+----
+
+How can we solve this problem? You cannot take them all since total weight is 13 and we only can carry 7. You should not take only one, since that would not be the maximum loot and you would
+
+One idea would be sort the items by weight and take the items if they do not exceed the max weight.
+In that case, the result would be:
+
+----
+  { value: 7, weight: 5 },
+  { value: 1, weight: 1},
+----
+
+As you can see, this solution is not optimal. The value total value is `8` and the weight just `6`.
