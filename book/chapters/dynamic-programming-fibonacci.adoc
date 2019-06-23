@@ -17,7 +17,7 @@ include::{codedir}/algorithms/fibanacci-dynamic-programming.js[tag=snippet,inden
 
 This implementation checks if we already calculated the value, if so it will save it for later use.
 
-[graphviz, Recursive Fibonacci call tree with dp, svg]
+[graphviz, Recursive Fibonacci call tree with dp, png]
 ....
 graph G {
     "fib(5)" -- { "fib(4)" }
