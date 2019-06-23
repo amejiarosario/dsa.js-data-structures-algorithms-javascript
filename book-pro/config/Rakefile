@@ -14,7 +14,8 @@ namespace :book do
       # puts "Generating contributors list"
       # `git shortlog -s | grep -v -E "(Straub|Chacon)" | cut -f 2- | column -c 120 > book/contributors.txt`
 
-      input = '../dsajs.asc'
+      name = 'dsajs'
+      input = "../#{name}.asc"
       outputFolder = '../dist'
       params = "-D #{outputFolder} -a revnumber='#{version_string}' -a revdate='#{date_string}'"
 
@@ -25,32 +26,30 @@ namespace :book do
       require_pdf = '-r ./extensions/asciidoctor-pdf-extensions.rb'
       # require_pdf = ''
 
+      puts "\r\n>> Converting to HTML..."
+      cmd = "asciidoctor #{require} #{params} #{input} 2>&1"
+      puts cmd
+      puts `#{cmd}`
+      puts "\t-- HTML output at #{name}.html"
 
-      # puts "\r\n>> Converting to HTML..."
-      # cmd = "asciidoctor #{require} #{params} #{input} 2>&1"
-      # puts cmd
-      # puts `#{cmd}`
-      # puts "\t-- HTML output at progit.html"
-
-      # puts "\r\nConverting to PDF... (this one takes a while)"
-      # cmd = "bundle exec asciidoctor-pdf #{require} #{require_pdf} #{params} #{input} 2>&1"
-      # puts cmd
-      # puts `#{cmd}`
-      # puts " -- PDF output at progit.pdf"
+      puts "\r\nConverting to PDF... (this one takes a while)"
+      cmd = "bundle exec asciidoctor-pdf #{require} #{require_pdf} #{params} #{input} 2>&1"
+      puts cmd
+      puts `#{cmd}`
+      puts " -- PDF output at #{name}.pdf"
 
       puts "\r\n>> Converting to EPub..."
       cmd = "bundle exec asciidoctor-epub3 #{require} -a ebook-validate #{params} #{input} 2>&1"
       # cmd = "bundle exec asciidoctor-epub3 #{require} #{params} #{input} 2>&1"
       puts cmd
       puts `#{cmd}`
-      puts "\t-- Epub output at progit.epub"
+      puts "\t-- Epub output at #{name}.epub"
 
-      # puts "\r\nConverting to Mobi (kf8)..."
-      # cmd = "bundle exec asciidoctor-epub3 #{require} #{params} #{input} 2>&1"
-      # puts cmd
-      # puts `#{cmd}`
-      # puts `bundle exec asciidoctor-epub3 #{params} -a ebook-format=kf8 #{input} 2>&1`
-      # puts " -- Mobi output at progit.mobi"
+      puts "\r\nConverting to Mobi (kf8)..."
+      cmd = "bundle exec asciidoctor-epub3 #{require} -a ebook-format=kf8 #{params} #{input} 2>&1"
+      puts cmd
+      puts `#{cmd}`
+      puts " -- Mobi output at #{name}.mobi"
     end
   end
 end
