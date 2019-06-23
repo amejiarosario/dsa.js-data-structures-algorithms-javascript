@@ -104,7 +104,7 @@ jobs: # a collection of steps
 
       - run:
           name: generate PDF
-          command: cd book/config && make VERSION="$(npx -c 'echo "$npm_package_version"')" pdf
+          command: cd book/config && make VERSION="$(npx -c 'echo "$npm_package_version"')"
 
       - store_artifacts:
           path: book/dist

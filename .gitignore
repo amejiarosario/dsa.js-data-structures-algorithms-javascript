@@ -72,7 +72,6 @@ local.properties
 # Ruby
 ######################
 /.bundle/
-/Gemfile.lock
 
 ######################
 # Package Files
@@ -136,13 +135,13 @@ Desktop.ini
 # ln -s ~/OneDrive/Authoring/dsaJS/asciidoc/book/fonts .
 # ln -s ~/OneDrive/Authoring/dsaJS/asciidoc/book/images .
 ######################
-Gemfile
-Gemfile.lock
-Makefile
-_conf
-_resources
-extensions
-fonts
+# Gemfile
+# Gemfile.lock
+# Makefile
+# _conf
+# _resources
+# extensions
+# fonts
 
 
 ######################
