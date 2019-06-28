@@ -1,1 +1,1 @@
-include::../../book/chapters/part4.adoc[]
+include::../../book/part04-algorithmic-toolbox.asc[]

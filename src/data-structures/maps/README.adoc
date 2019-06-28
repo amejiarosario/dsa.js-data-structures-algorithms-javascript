@@ -1,1 +1,7 @@
-include::../../../book/chapters/map.adoc[]
+include::../../../book/content/part03/map.asc[]
+
+<<<
+include::../../../book/content/part03/hashmap.asc[]
+
+<<<
+include::../../../book/content/part03/treemap.asc[]

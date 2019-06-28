@@ -9,4 +9,3 @@ The implementations are divided in two main parts:
 - https://github.com/amejiarosario/dsa.js/tree/master/src/algorithms[Algorithms]
 - https://github.com/amejiarosario/dsa.js/tree/master/src/data-structures[Data Structures]
 
-NOTE: `runtimes` directory is just for blog/book examples but not exposed throught the public API.

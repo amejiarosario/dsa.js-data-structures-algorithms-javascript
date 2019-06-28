@@ -1,9 +1,0 @@
-= Divide and Conquer
-
-include::divide-and-conquer-intro.adoc[]
-
-:leveloffset: +1
-
-include::divide-and-conquer-fibonacci.adoc[]
-
-:leveloffset: -1

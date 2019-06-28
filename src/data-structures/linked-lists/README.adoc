@@ -1,1 +1,1 @@
-include::../../../book/chapters/linked-list.adoc[]
+include::../../../book/content/part02/linked-list.asc[]
