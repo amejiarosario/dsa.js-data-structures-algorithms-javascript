@@ -4,7 +4,7 @@
 
 [![CircleCI](https://img.shields.io/circleci/build/github/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/master.svg)](https://circleci.com/gh/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript) [![NPM version](https://badge.fury.io/js/dsa.js.svg)](https://badge.fury.io/js/dsa.js) [![Slack](https://dsajs-slackin.herokuapp.com/badge.svg)](https://dsajs-slackin.herokuapp.com)
 
-> This is the coding implementations of the [DSA.js book](https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/) and the repo for the [npm package](https://www.npmjs.com/package/dsa.js).
+> This is the coding implementations of the [DSA.js book](https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/) and the repo for the NPM package.
 
 > In this repository, you can find the implementation of algorithms and data structures. They are implemented and explained in JavaScript. This material can be used as a reference manual for developers. You can refresh specific topics before an interview. Also, you can find ideas to solve problems more efficiently.
 
@@ -21,7 +21,8 @@ https://img.shields.io/bundlephobia/min/dsa.js.svg - 16.7kB
 https://img.shields.io/github/repo-size/amejiarosario/dsa.js.svg - 98.1 MB
 -->
 
-[![Interactive Data Structures](https://user-images.githubusercontent.com/418605/46118890-ba721180-c1d6-11e8-82bc-6a671428b422.png)](https://embed.kumu.io/85f1a4de5fb8430a10a1bf9c5118e015)
+![Interactive Data Structures](https://user-images.githubusercontent.com/418605/46118890-ba721180-c1d6-11e8-82bc-6a671428b422.png)
+<!-- [](https://embed.kumu.io/85f1a4de5fb8430a10a1bf9c5118e015) -->
 
 
 ## Table of Contents
@@ -96,7 +97,7 @@ The topics are divided in 4 main categories as you can see below:
 
 _(You can click on the ⯈ to expand the topics)_
 
-### 📈 [Algorithms Analysis](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/part1.adoc)
+### 📈 [Algorithms Analysis](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/part01-algorithms-analysis.asc)
 
 <!-- - Computer Science nuggets without all the mumbo-jumbo.
 - Learn how to compare algorithms using Big O notation.
@@ -111,7 +112,7 @@ _(You can click on the ⯈ to expand the topics)_
 
 ---
 
-### [Computer Science nuggets without all the mumbo-jumbo](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/algorithms-analysis.adoc)
+### [Computer Science nuggets without all the mumbo-jumbo](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part01/algorithms-analysis.asc)
 
 #### Learn to calculate run time from code examples
 
@@ -128,7 +129,7 @@ _(You can click on the ⯈ to expand the topics)_
 
 ---
 
-### [Learn how to compare algorithms using Big O notation.](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/big-o-examples.adoc#finding-duplicates-in-an-array-na%C3%AFve-approach)
+### [Learn how to compare algorithms using Big O notation.](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part01/big-o-examples.asc#finding-if-an-array-is-empty)
 
 #### Comparing algorithms using Big O notation
 
@@ -136,8 +137,8 @@ Let's say you want to find the duplicates on an array.
 Using Big O notation we can compare different implementations that do exactly the same but
 they take different time to complete.
 
-- [Optimal solution using a map](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/big-o-examples.adoc#linear-example)
-- [Finding duplicates in an array (naïve approach)](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/big-o-examples.adoc#quadratic-example)
+- [Optimal solution using a map](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part01/big-o-examples.asc#linear-example)
+- [Finding duplicates in an array (naïve approach)](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part01/big-o-examples.asc#quadratic-example)
 
 ---
 
@@ -150,11 +151,11 @@ they take different time to complete.
 
 ---
 
-[8 examples to explain with code how to calculate time complexity](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/big-o-examples.adoc#summary)
+[8 examples to explain with code how to calculate time complexity](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part01/big-o-examples.asc#summary)
 
 #### Most common time complexities
 
-[![image](https://user-images.githubusercontent.com/418605/59617342-2a715080-90f4-11e9-9de9-9315fb0133f9.png)](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/big-o-examples.adoc#summary)
+[![image](https://user-images.githubusercontent.com/418605/59617342-2a715080-90f4-11e9-9de9-9315fb0133f9.png)](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part01/big-o-examples.asc#summary)
 
 <!-- - Constant time: _O(1)_
 - Logarithmic time: _O(log n)_
@@ -174,7 +175,7 @@ they take different time to complete.
 </details>
 </blockquote>
 
-### 🥞 [Linear Data Structures](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/part2.adoc)
+### 🥞 [Linear Data Structures](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/part02-linear-data-structures.asc)
 
 <!-- - Understand the ins and outs of the most common data structures.
 - When to use an Array or Linked List. Know the tradeoffs.
@@ -189,29 +190,29 @@ they take different time to complete.
 
 ---
 
-#### [Understand the ins and outs of the most common data structures](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/part2.adoc)
+#### [Understand the ins and outs of the most common data structures](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/part02-linear-data-structures.asc)
 
 
-- [Arrays](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/array.adoc): Built-in in most languages so not implemented here. [Array Time complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/array.adoc#array-complexity)
+- [Arrays](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part02/array.asc): Built-in in most languages so not implemented here. [Array Time complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/content/part02/array.asc#array-complexity)
     <!-- [Post](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Array). -->
 
-- [Linked List](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/linked-list.adoc): each data node has a link to the next (and
+- [Linked List](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part02/linked-list.asc): each data node has a link to the next (and
     previous).
     [Code](https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/linked-lists/linked-list.js)
     |
-    [Linked List Time Complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/linked-list.adoc#linked-list-complexity-vs-array-complexity)
+    [Linked List Time Complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/content/part02/linked-list.asc#linked-list-complexity-vs-array-complexity)
     <!-- [Post](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Linked-Lists) -->
 
-- [Queue](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/queue.adoc): data flows in a "first-in, first-out" (FIFO) manner.
+- [Queue](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part02/queue.asc): data flows in a "first-in, first-out" (FIFO) manner.
     [Code](https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/queues/queue.js)
     |
-    [Queue Time Complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/queue.adoc#queue-complexity)
+    [Queue Time Complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/content/part02/queue.asc#queue-complexity)
     <!-- [Post](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Queues) -->
 
-- [Stack](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/stack.adoc): data flows in a "last-in, first-out" (LIFO) manner.
+- [Stack](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part02/stack.asc): data flows in a "last-in, first-out" (LIFO) manner.
     [Code](https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/stacks/stack.js)
     |
-    [Stack Time Complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/stack.adoc#stack-complexity)
+    [Stack Time Complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/content/part02/stack.asc#stack-complexity)
     <!-- [Post](https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Stacks) -->
 
 ---
@@ -224,7 +225,7 @@ they take different time to complete.
 
 ---
 
-#### [When to use an Array or Linked List. Know the tradeoffs](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/linear-data-structures-outro.adoc)
+#### [When to use an Array or Linked List. Know the tradeoffs](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part02/array-vs-list-vs-queue-vs-stack.asc)
 
 Use Arrays when…
 - You need to access data in random order fast (using an index).
@@ -245,7 +246,7 @@ Use Linked Lists when:
 
   ---
 
-  #### [Build a List, Stack and a Queue from scratch](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/part2.adoc)
+  #### [Build a List, Stack and a Queue from scratch](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/part02-linear-data-structures.asc)
 
   Build any of these data structures from scratch:
   - [Linked List](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/src/data-structures/linked-lists/linked-list.js)
@@ -257,7 +258,7 @@ Use Linked Lists when:
   </details>
 </blockquote>
 
-### 🌲 [Non-Linear Data Structures](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/part3.adoc)
+### 🌲 [Non-Linear Data Structures](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/part03-graph-data-structures.asc)
 <!-- - Understand one of the most versatile data structure of all: Maps -->
 <!-- - Know the properties of Graphs and Trees. -->
 <!-- - Implement a binary search tree for fast lookups. -->
@@ -270,13 +271,13 @@ Use Linked Lists when:
 
 ---
 
-#### [HashMaps](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/map.adoc)
+#### [HashMaps](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part03/map.asc)
 
 Learn how to implement different types of Maps such as:
-- [HashMap](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/map-hashmap.adoc)
-- [TreeMap](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/map-treemap.adoc)
+- [HashMap](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part03/hashmap.asc)
+- [TreeMap](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part03/treemap.asc)
 
-Also, [learn the difference between the different Maps implementations](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/map-hashmap-vs-treemap.adoc):
+Also, [learn the difference between the different Maps implementations](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part03/time-complexity-graph-data-structures.asc):
 
 - `HashMap` is more time-efficient. A `TreeMap` is more space-efficient.
 - `TreeMap` search complexity is *O(log n)*, while an optimized `HashMap` is *O(1)* on average.
@@ -295,9 +296,9 @@ Also, [learn the difference between the different Maps implementations](https://
 
 ---
 
-#### [Know the properties of Graphs and Trees](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/part3.adoc)
+#### [Know the properties of Graphs and Trees](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/part03-graph-data-structures.asc)
 
-##### [Graphs](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/graph.adoc)
+##### [Graphs](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part03/graph.asc)
 
 Know all the graphs properties with many images and illustrations.
 
@@ -308,9 +309,9 @@ Know all the graphs properties with many images and illustrations.
     parents, loops.
     [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/graphs/graph.js)
     |
-    [Graph Time Complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/graph.adoc#graph-complexity)
+    [Graph Time Complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/content/part03/graph.asc#graph-complexity)
 
-#### [Trees](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/tree.adoc)
+#### [Trees](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part03/tree-intro.asc)
 
 Learn all the different kinds of trees and its properties.
 
@@ -321,29 +322,29 @@ Learn all the different kinds of trees and its properties.
     graph not a tree.
     [Code](https://github.com/amejiarosario/algorithms.js/tree/master/src/data-structures/trees)
     |
-    [Docs](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/tree.adoc)
+    [Docs](https://github.com/amejiarosario/dsa.js/blob/master/book/content/part03/tree-intro.asc)
     <!-- [Post](https://adrianmejia.com/blog/2018/06/11/data-structures-for-beginners-trees-binary-search-tree-tutorial/) -->
 
     - **Binary Trees**: same as tree but only can have two children at
         most.
         [Code](https://github.com/amejiarosario/algorithms.js/tree/master/src/data-structures/trees)
         |
-        [Docs](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/tree.adoc#binary-tree)
+        [Docs](https://github.com/amejiarosario/dsa.js/blob/master/book/content/part03/tree-intro.asc#binary-tree)
         <!-- [Post](https://adrianmejia.com/blog/2018/06/11/data-structures-for-beginners-trees-binary-search-tree-tutorial/#Binary-Trees) -->
 
     - **Binary Search Trees** (BST): same as binary tree, but the
         nodes value keep this order `left < parent < right`.
         [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/trees/binary-search-tree.js)
         |
-        [BST Time complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/tree-binary-search-tree.adoc#tree-complexity)
+        [BST Time complexity](https://github.com/amejiarosario/dsa.js/blob/master/book/content/part03/binary-search-tree.asc#tree-complexity)
         <!-- [Post](https://adrianmejia.com/blog/2018/06/11/data-structures-for-beginners-trees-binary-search-tree-tutorial/#Binary-Search-Tree-BST) -->
 
     - **AVL Trees**: Self-balanced BST to maximize look up time.
         [Code](https://github.com/amejiarosario/algorithms.js/blob/master/src/data-structures/trees/avl-tree.js)
         |
-        [AVL Tree docs](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/tree-avl.adoc)
+        [AVL Tree docs](https://github.com/amejiarosario/dsa.js/blob/master/book/C-AVL-tree.asc)
         |
-        [Self-balancing & tree rotations docs](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/tree-self-balancing-rotations.adoc)
+        [Self-balancing & tree rotations docs](https://github.com/amejiarosario/dsa.js/blob/master/book/B-self-balancing-binary-search-trees.asc)
         <!-- [Post](https://adrianmejia.com/blog/2018/07/16/self-balanced-binary-search-trees-with-avl-tree-data-structure-for-beginners/) -->
 
     - **Red-Black Trees**: Self-balanced BST more loose than AVL to
@@ -361,12 +362,12 @@ Learn all the different kinds of trees and its properties.
 
 ---
 
-#### [Implement a binary search tree for fast lookups](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/tree-binary-search-tree.adoc)
+#### [Implement a binary search tree for fast lookups](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part03/binary-search-tree.asc)
 
 - Learn how to add/remove/update values in a tree:
 ![inserting node in a tree](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/raw/master/book/images/image36.png)
 
-- [How to make a tree balanced?](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/tree-self-balancing-rotations.adoc)
+- [How to make a tree balanced?](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/B-self-balancing-binary-search-trees.asc)
 
 From unbalanced BST to balanced BST
 ```
@@ -383,7 +384,7 @@ From unbalanced BST to balanced BST
   </details>
 </blockquote>
 
-### ⚒ [Algorithms Techniques](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/part4.adoc)
+### ⚒ [Algorithmic Toolbox](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/part04-algorithmic-toolbox.asc)
 
 <!-- - Never get stuck solving a problem with 7 simple steps. -->
 <!-- - Master the most popular sorting algorithms (mergesort, quicksort, insertion sort, ...) -->
@@ -397,7 +398,7 @@ From unbalanced BST to balanced BST
 
 ---
 
-#### [Never get stuck solving a problem with 7 simple steps](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/algorithmic-toolbox.adoc)
+#### [Never get stuck solving a problem with 7 simple steps](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/part04-algorithmic-toolbox.asc)
 
 1. Understand the problem
 1. Build a simple example (no edge cases yet)
@@ -407,7 +408,7 @@ From unbalanced BST to balanced BST
 1. Write Code, yes, now you can code.
 1. Test your written code
 
-Full details [here](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/algorithmic-toolbox.adoc)
+Full details [here](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/part04-algorithmic-toolbox.asc)
 
 ---
 
@@ -419,34 +420,34 @@ Full details [here](https://github.com/amejiarosario/dsa.js-data-structures-and-
 
 ---
 
-#### [Master the most popular sorting algorithms](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/sorting-intro.adoc)
+#### [Master the most popular sorting algorithms](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part04/sorting-algorithms.asc)
 
 We are going to explore three basic sorting algorithms O(n2) which have low overhead:
   - Bubble Sort.
     [Code](https://github.com/amejiarosario/dsa.js/blob/master/src/algorithms/sorting/bubble-sort.js)
     |
-    [Docs](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/bubble-sort.adoc)
+    [Docs](https://github.com/amejiarosario/dsa.js/blob/master/book/content/part04/bubble-sort.asc)
 
   - Insertion Sort.
     [Code](https://github.com/amejiarosario/dsa.js/blob/master/src/algorithms/sorting/insertion-sort.js)
     |
-    [Docs](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/insertion-sort.adoc)
+    [Docs](https://github.com/amejiarosario/dsa.js/blob/master/book/content/part04/insertion-sort.asc)
 
   - Selection Sort.
     [Code](https://github.com/amejiarosario/dsa.js/blob/master/src/algorithms/sorting/selection-sort.js)
     |
-    [Docs](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/selection-sort.adoc)
+    [Docs](https://github.com/amejiarosario/dsa.js/blob/master/book/content/part04/selection-sort.asc)
 
 and then discuss efficient sorting algorithms O(n log n) such as:
   - Merge Sort.
     [Code](https://github.com/amejiarosario/dsa.js/blob/master/src/algorithms/sorting/merge-sort.js)
     |
-    [Docs](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/merge-sort.adoc)
+    [Docs](https://github.com/amejiarosario/dsa.js/blob/master/book/content/part04/merge-sort.asc)
 
   - Quick sort.
     [Code](https://github.com/amejiarosario/dsa.js/blob/master/src/algorithms/sorting/quick-sort.js)
     |
-    [Docs](https://github.com/amejiarosario/dsa.js/blob/master/book/chapters/quick-sort.adoc)
+    [Docs](https://github.com/amejiarosario/dsa.js/blob/master/book/content/part04/quick-sort.asc)
 
 ---
 
@@ -458,13 +459,13 @@ and then discuss efficient sorting algorithms O(n log n) such as:
 
 ---
 
-#### [Learn different approaches to solve algorithmic problems](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/algorithms-intro.adoc)
+#### [Learn different approaches to solve algorithmic problems](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/part04-algorithmic-toolbox.asc)
 
 We are going to discuss the following techniques for solving algorithms problems:
-- [Greedy Algorithms](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/greedy-algorithms.adoc): makes greedy choices using heuristics to find the best solution without looking back.
-- [Dynamic Programming](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/dynamic-programming.adoc): a technique for speeding up recursive algorithms when there are many _overlapping subproblems_. It uses _memoization_ to avoid duplicating work.
-- [Divide and Conquer](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/divide-and-conquer.adoc): _divide_ problems into smaller pieces, _conquer_ each subproblem and then _join_ the results.
-- [Backtracking](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/chapters/backtracking.adoc): search _all (or some)_ possible paths. However, it stops and _go back_ as soon as notice the current solution is not working.
+- [Greedy Algorithms](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/bbook/content/part04/greedy-algorithms.asc): makes greedy choices using heuristics to find the best solution without looking back.
+- [Dynamic Programming](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part04/dynamic-programming.asc): a technique for speeding up recursive algorithms when there are many _overlapping subproblems_. It uses _memoization_ to avoid duplicating work.
+- [Divide and Conquer](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part04/divide-and-conquer.asc): _divide_ problems into smaller pieces, _conquer_ each subproblem and then _join_ the results.
+- [Backtracking](https://github.com/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/blob/master/book/content/part04/backtracking.asc): search _all (or some)_ possible paths. However, it stops and _go back_ as soon as notice the current solution is not working.
 - _Brute Force_: generate all possible solutions and tries all of them. (Use it as a last resort or as the starting point to optimize it with other techniques).
 
 ---

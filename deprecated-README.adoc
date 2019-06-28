@@ -3,8 +3,8 @@
 :toclevels: 2
 Adrian Mejia <https://github.com/amejiarosario[@amejiarosario]>
 
-image:https://travis-ci.com/amejiarosario/dsa.js.svg?branch=master["Build Status", link="https://travis-ci.com/amejiarosario/dsa.js"]
-image:https://badge.fury.io/js/dsa.js.svg["npm version", link="https://badge.fury.io/js/dsa.js"]
+image::https://travis-ci.com/amejiarosario/dsa.js.svg?branch=master["Build Status", link="https://travis-ci.com/amejiarosario/dsa.js"]
+image::https://badge.fury.io/js/dsa.js.svg["npm version", link="https://badge.fury.io/js/dsa.js"]
 
 This repository covers the implementation of the classical algorithms and data structures in JavaScript.
 
@@ -18,12 +18,12 @@ toc::[]
 - Algorithm analysis fundamentals (Big O notation, Time/Space complexity) and examples.
 - Time/space complexity cheatsheet.
 
-image:book/cover.png[link=https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/, height=400]
+image::book/cover.png[link=https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/, height=400]
 
 == Data Structures
 We are covering the following data structures.
 
-image:https://user-images.githubusercontent.com/418605/46118890-ba721180-c1d6-11e8-82bc-6a671428b422.png[link=https://embed.kumu.io/85f1a4de5fb8430a10a1bf9c5118e015]
+image::https://user-images.githubusercontent.com/418605/46118890-ba721180-c1d6-11e8-82bc-6a671428b422.png[link=https://embed.kumu.io/85f1a4de5fb8430a10a1bf9c5118e015]
 
 ### Linear Data Structures
 1. **Arrays**: Built-in in most languages so not implemented here. https://adrianmejia.com/blog/2018/04/28/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#Array[Post].
