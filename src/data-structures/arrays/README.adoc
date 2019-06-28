@@ -1,1 +1,1 @@
-include::../../../book/chapters/array.adoc[]
+include::../../../book/content/part02/array.asc[]

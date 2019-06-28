@@ -1,1 +1,16 @@
-include::../../../book/chapters/tree.adoc[]
+include::../../../book/content/part03/tree-intro.asc[]
+
+<<<
+include::../../../book/content/part03/binary-search-tree.asc[]
+
+<<<
+include::../../../book/content/part03/tree-search-traversal.asc[]
+
+<<<
+include::../../../book/content/part03/binary-search-tree-traversal.asc[]
+
+<<<
+include::../../../book/B-self-balancing-binary-search-trees.asc[]
+
+<<<
+include::../../../book/C-AVL-tree.asc[]

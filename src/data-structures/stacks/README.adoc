@@ -1,1 +1,1 @@
-include::../../../book/chapters/stack.adoc[]
+include::../../../book/content/part02/stack.asc[]

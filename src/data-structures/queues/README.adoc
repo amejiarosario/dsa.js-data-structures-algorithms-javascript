@@ -1,1 +1,1 @@
-include::../../../book/chapters/queue.adoc[]
+include::../../../book/content/part02/queue.asc[]

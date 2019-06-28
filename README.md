@@ -1,8 +1,8 @@
-[![image](https://user-images.githubusercontent.com/418605/59557258-10742880-8fa3-11e9-84fb-4d66a9d89faa.png)](https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/)
+![image](https://user-images.githubusercontent.com/418605/59557258-10742880-8fa3-11e9-84fb-4d66a9d89faa.png)
 
 # Data Structures and Algorithms in JavaScript
 
-[![CircleCI](https://img.shields.io/circleci/build/github/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/master.svg)](https://circleci.com/gh/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript) [![NPM version](https://badge.fury.io/js/dsa.js.svg)](https://badge.fury.io/js/dsa.js) [![Slack](https://dsajs-slackin.herokuapp.com/badge.svg)](https://dsajs-slackin.herokuapp.com)
+[![CircleCI](https://img.shields.io/circleci/build/github/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript/master.svg)](https://circleci.com/gh/amejiarosario/dsa.js-data-structures-and-algorithms-in-javascript) [![NPM version](https://badge.fury.io/js/dsa.js.svg)](https://badge.fury.io/js/dsa.js) [![chat](https://dsajs-slackin.herokuapp.com/badge.svg)](https://dsajs-slackin.herokuapp.com)
 
 > This is the coding implementations of the [DSA.js book](https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/) and the repo for the NPM package.
 
@@ -38,15 +38,11 @@ https://img.shields.io/github/repo-size/amejiarosario/dsa.js.svg - 98.1 MB
   - [🥞 Linear Data Structures](#-linear-data-structures)
   - [🌲 Non-Linear Data Structures](#-non-linear-data-structures)
   - [⚒ Algorithms Techniques](#%E2%9A%92-algorithms-techniques)
+- [Book](#book)
 - [FAQ](#faq)
 - [Support](#support)
-- [Donations](#donations)
 - [License](#license)
-- [Book](#book)
-- [Data Structures](#data-structures)
-  - [Linear Data Structures](#linear-data-structures)
-  - [Non-Linear Data Structures](#non-linear-data-structures)
-- [Algorithms](#algorithms)
+
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -486,7 +482,7 @@ We are going to discuss the following techniques for solving algorithms problems
 </details>
 
 <details>
-    <summary>Hey OP, why you created this repo/book?</summary>
+    <summary>Why you created this repo/book?</summary>
     <p>
         There are not many books about Algorithms in JavaScript. This material fills the gap.
         Also, it's good practice :)
@@ -497,21 +493,22 @@ We are going to discuss the following techniques for solving algorithms problems
     <summary>Is there anyone I can contact if I have questions about something in particular?
     </summary>
     <p>
-    Yes, open an issue or ask questions on the slack channel.
+    Yes, open an issue or ask questions on the [slack channel](https://dsajs-slackin.herokuapp.com).
     </p>
 </details>
+
+## Book
+
+This project is also available in a [book](https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/). You will get a nicely formatted PDF with 180+ pages + ePub and Mobi version.
+
+[![dsa.js book](https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/img/dsajs-cover-320h2.png)](https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/)
 
 ## Support
 
 Reach out to me at one of the following places!
 
 - Twitter at <a href="http://twitter.com/amejiarosario" target="_blank">`@amejiarosario`</a>
-- Slack at <a href="https://dsajs-slackin.herokuapp.com" target="_blank">`dsajs.slack.com`</a>
-
-
-## Donations
-
-The best way to support this project is buying the [book](https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/), so I can invest more time into this project and keep improving it.
+- Chat on <a href="https://dsajs-slackin.herokuapp.com" target="_blank">`dsajs.slack.com`</a>
 
 ## License
 

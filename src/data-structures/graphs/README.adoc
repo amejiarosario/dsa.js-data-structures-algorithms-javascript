@@ -1,1 +1,1 @@
-include::../../../book/chapters/graph.adoc[]
+include::../../../book/content/part03/graph.asc[]
