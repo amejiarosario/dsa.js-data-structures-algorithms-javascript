@@ -8,6 +8,7 @@ class Queue {
 
   /**
    * Add element to the queue
+   * Insert to the end of the array
    * Runtime: O(1)
    * @param {any} element
    */
@@ -17,7 +18,8 @@ class Queue {
 
   /**
    * Add element to the queue
-   * Runtime: O(1)
+   * Removing from the beginning of the array
+   * Runtime: O(n)
    * @param {any} element
    */
   remove() {
