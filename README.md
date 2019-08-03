@@ -511,4 +511,4 @@ Reach out to me at one of the following places!
 
 [![License](https://img.shields.io/:license-mit-blue.svg?style=flat-square)](LICENSE)
 
-<img src="http://app.uxeranalytics.com/image1.png?uxa=github-dsajs" alt="test">
+![](http://app.uxeranalytics.com/image1.png?uxa=github-dsajs)
