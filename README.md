@@ -498,7 +498,7 @@ We are going to discuss the following techniques for solving algorithms problems
 
 This project is also available in a [book](https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/). You will get a nicely formatted PDF with 180+ pages + ePub and Mobi version.
 
-[![dsa.js book](https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/img/dsajs-cover-320h2.png)](https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/)
+[![dsa.js book](https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/images/dsajs-cover-320h2.png)](https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/)
 
 ## Support
 
