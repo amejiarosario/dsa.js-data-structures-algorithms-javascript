@@ -2,7 +2,6 @@
 /**
  * Swap parent's child
  *
- *
  * @example Child on the left side (it also work for the right side)
  *
  * p = parent
@@ -34,7 +33,7 @@ function swapParentChild(oldChild, newChild, parent) {
 /**
  * Single Left Rotation (LL Rotation)
  *
- * @example: tree with values 1-2-3-4
+ * @example: #1 tree with values 1-2-3-4
  *
  * 1                                 1
  *  \                                 \
@@ -43,21 +42,34 @@ function swapParentChild(oldChild, newChild, parent) {
  *     3                           2*    4
  *      \
  *       4
- * @param {TreeNode} node
- * @returns {TreeNode} new parent after the rotation
+ *
+ * @example: #2 left rotation
+ *
+ *     1                                          1
+ *      \                                          \
+ *       4*                                         16
+ *      / \                                        / \
+ *    2    16    -- left-rotation(4) ->          4   32
+ *       /  \                                   / \    \
+ *      8   32                                2   8    64
+ *            \
+ *            64
+ * @param {TreeNode} node current node to rotate (e.g. 4)
+ * @returns {TreeNode} new parent after the rotation (e.g. 16)
  */
 function leftRotation(node) {
-  const newParent = node.right; // E.g., node 3
+  const newParent = node.right; // E.g., node 16
   const grandparent = node.parent; // E.g., node 1
+  const previousLeft = newParent.left; // E.g., node 8
 
-  // swap node 1 left child from 2 to 3.
+  // swap parent of node 4 from node 1 to node 16
   swapParentChild(node, newParent, grandparent);
 
-  // Update node 3 left child to be 2, and
-  // updates node 2 parent to be node 3 (instead of 1).
+  // Update node 16 left child to be 4, and
+  // updates node 4 parent to be node 16 (instead of 1).
   newParent.setLeftAndUpdateParent(node);
-  // remove node 2 left child (previouly was node 3)
-  node.setRightAndUpdateParent(null);
+  // set node4 right child to be previousLeft (node 8)
+  node.setRightAndUpdateParent(previousLeft);
 
   return newParent;
 }
@@ -66,8 +78,7 @@ function leftRotation(node) {
 // tag::rightRotation[]
 /**
  * Single Right Rotation (RR Rotation)
- *
- * @example rotate node 3 to the right
+* @example: #1 rotate node 3 to the right
  *
  *       4                                  4
  *      /                                  /
@@ -77,22 +88,34 @@ function leftRotation(node) {
  *  /
  * 1
  *
+ * @example: #2 rotate 16 to the right and preserve nodes
+ *       64                                       64
+ *       /                                        /
+ *      16*                                      4
+ *      / \                                     / \
+ *     4  32    -- right-rotation(16) -->      2   16
+ *    / \                                     /    / \
+ *   2   8                                   1    8   32
+ *  /
+ * 1
+ *
  * @param {TreeNode} node
- *    this is the node we want to rotate to the right. (E.g., node 3)
- * @returns {TreeNode} new parent after the rotation (E.g., node 2)
+ *    this is the node we want to rotate to the right. (E.g., node 16)
+ * @returns {TreeNode} new parent after the rotation (E.g., node 4)
  */
 function rightRotation(node) {
-  const newParent = node.left; // E.g., node 2
-  const grandparent = node.parent; // E.g., node 4
+  const newParent = node.left; // E.g., node 4
+  const grandparent = node.parent; // E.g., node 64
+  const previousRight = newParent.right; // E.g., node 8
 
-  // swap node 4 left children (node 3) with node 2.
+  // swap node 64's left children (node 16) with node 4 (newParent).
   swapParentChild(node, newParent, grandparent);
 
-  // update right child on node 2 to be node 3,
-  // also make node 2 the new parent of node 3.
+  // update node 4's right child to be node 16,
+  // also make node 4 the new parent of node 16.
   newParent.setRightAndUpdateParent(node);
-  // remove node 3 left child (so it doesn't point to node 2)
-  node.setLeftAndUpdateParent(null);
+  // Update 16's left child to be the `previousRight` node.
+  node.setLeftAndUpdateParent(previousRight);
 
   return newParent;
 }
