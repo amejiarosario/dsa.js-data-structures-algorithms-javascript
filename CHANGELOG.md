@@ -13,6 +13,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Bug Fixes (patch)
 
+## [1.3.6]
+
+### Breaking Changes (major)
+
+### New Features (minor)
+
+### Bug Fixes (patch)
+- update deps [commit](https://github.com/amejiarosario/dsa.js/commit/d8ce2f5b1a3bfeb861928d6c99d7624cd9ac144a)
+- style: fix eslint issue [commit](https://github.com/amejiarosario/dsa.js/commit/72e3d68e09bb9c7dd3fabf5cbeba1ae5571fc686)%
+
 ## [1.3.5]
 
 ### Breaking Changes (major)
@@ -106,7 +116,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -
 
-[Unreleased]: https://github.com/amejiarosario/dsa.js/compare/1.3.5...HEAD
+[Unreleased]: https://github.com/amejiarosario/dsa.js/compare/1.3.6...HEAD
+[1.3.6]: https://github.com/amejiarosario/dsa.js/compare/1.3.5...1.3.6
 [1.3.5]: https://github.com/amejiarosario/dsa.js/compare/1.3.4...1.3.5
 [1.3.4]: https://github.com/amejiarosario/dsa.js/compare/1.2.3...1.3.4
 [1.2.2]: https://github.com/amejiarosario/dsa.js/compare/1.2.2...1.2.3
