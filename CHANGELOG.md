@@ -13,6 +13,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Bug Fixes (patch)
 
+## [1.3.5]
+
+### Breaking Changes (major)
+
+### New Features (minor)
+
+### Bug Fixes (patch)
+- fix(tree-rotations): prevent losing nodes [commit](https://github.com/amejiarosario/dsa.js/commit/1fa93415a6e14acc24e90443b2e9bdf053c4c983)
+
 ## [1.3.4]
 
 ### Breaking Changes (major)
@@ -97,7 +106,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -
 
-[Unreleased]: https://github.com/amejiarosario/dsa.js/compare/1.3.4...HEAD
+[Unreleased]: https://github.com/amejiarosario/dsa.js/compare/1.3.5...HEAD
+[1.3.5]: https://github.com/amejiarosario/dsa.js/compare/1.3.4...1.3.5
 [1.3.4]: https://github.com/amejiarosario/dsa.js/compare/1.2.3...1.3.4
 [1.2.2]: https://github.com/amejiarosario/dsa.js/compare/1.2.2...1.2.3
 [1.2.2]: https://github.com/amejiarosario/dsa.js/compare/1.2.1...1.2.2
