@@ -155,12 +155,14 @@ describe('AvlTree', () => {
     });
 
     it('should have all nodes', () => {
-      expect(tree.toArray()).toEqual([16, 4, 32, 2, 8, null, null, null, null, null, null]);
+      expect(tree.toArray()).toEqual([16, 4, 32, 2, 8,
+        null, null, null, null, null, null]);
     });
 
     it('should rebalance and keep all nodes', () => {
       tree.add(1);
-      expect(tree.toArray()).toEqual([4, 2, 16, 1, null, 8, 32, null, null, null, null, null, null]);
+      expect(tree.toArray()).toEqual([4, 2, 16, 1, null, 8, 32,
+        null, null, null, null, null, null]);
     });
   });
 });
