@@ -17,23 +17,21 @@ const {
  * - LR rotations: double rotation left-right
  * - RL rotations: double rotation right-left
  *
- * @param {TreeNode} node
+ * @param {BinaryTreeNode} node
  */
 function balance(node) {
   if (node.balanceFactor > 1) {
     // left subtree is higher than right subtree
-    if (node.left.balanceFactor > 0) {
-      return rightRotation(node);
-    } if (node.left.balanceFactor < 0) {
+    if (node.left.balanceFactor < 0) {
       return leftRightRotation(node);
     }
-  } else if (node.balanceFactor < -1) {
+    return rightRotation(node);
+  } if (node.balanceFactor < -1) {
     // right subtree is higher than left subtree
-    if (node.right.balanceFactor < 0) {
-      return leftRotation(node);
-    } if (node.right.balanceFactor > 0) {
+    if (node.right.balanceFactor > 0) {
       return rightLeftRotation(node);
     }
+    return leftRotation(node);
   }
   return node;
 }
@@ -43,7 +41,7 @@ function balance(node) {
 /**
  * Bubbles up balancing nodes a their parents
  *
- * @param {TreeNode} node
+ * @param {BinaryTreeNode} node
  */
 function balanceUpstream(node) {
   let current = node;
