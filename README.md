@@ -226,11 +226,13 @@ they take different time to complete.
 Use Arrays when…
 - You need to access data in random order fast (using an index).
 - Your data is multi-dimensional (e.g., matrix, tensor).
+- when there is a limit on memory as the requirement of memory is less due to actual data being stored within the index in the array.
 
 Use Linked Lists when:
 - You will access your data sequentially.
 - You want to save memory and only allocate memory as you need it.
 - You want constant time to remove/add from extremes of the list.
+- when size requirement is unknown - dynamic size advantage
 
 ---
 
@@ -394,7 +396,7 @@ From unbalanced BST to balanced BST
 
 ---
 
-#### [Never get stuck solving a problem with 7 simple steps](book/part04-algorithmic-toolbox.asc)
+#### [Never get stuck solving a problem with 8 simple steps](book/part04-algorithmic-toolbox.asc)
 
 1. Understand the problem
 1. Build a simple example (no edge cases yet)
@@ -403,6 +405,7 @@ From unbalanced BST to balanced BST
 1. Optimize the solution
 1. Write Code, yes, now you can code.
 1. Test your written code
+1. Analyse the complexity, both space and time and make sure to optimise further.
 
 Full details [here](book/part04-algorithmic-toolbox.asc)
 
