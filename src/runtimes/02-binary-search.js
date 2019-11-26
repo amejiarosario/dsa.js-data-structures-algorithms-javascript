@@ -18,7 +18,7 @@ function binarySearchRecursive(array, search, offset = 0) {
 
   if (current === search) {
     return offset + half;
-  } if (array.length < 2) {
+  } if (array.length === 1) {
     return -1;
   } if (search > current) {
     const right = array.slice(half);
