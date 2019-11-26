@@ -5,8 +5,8 @@
 function getMin(n = []) {
   let min = n[0];
 
-  n.forEach(element => {
-    if(element < min) {
+  n.forEach((element) => {
+    if (element < min) {
       min = element;
     }
   });
