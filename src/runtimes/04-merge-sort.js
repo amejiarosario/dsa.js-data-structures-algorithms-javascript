@@ -5,22 +5,20 @@ const assert = require('assert');
  * Merge two arrays in asc order
  * @example
  *    merge([2,5,9], [1,6,7]) => [1, 2, 5, 6, 7, 9]
- * @param {array} array1
- * @param {array} array2
+ * @param {array} a
+ * @param {array} b
  * @returns {array} merged arrays in asc order
  */
-function merge(array1 = [], array2 = []) {
+function merge(a = [], b = []) {
   const merged = [];
-  let array1Index = 0;
-  let array2Index = 0;
+  let ai = 0;
+  let bi = 0;
   // merge elements on a and b in asc order. Run-time O(a + b)
-  while (array1Index < array1.length || array2Index < array2.length) {
-    if (array1Index >= array1.length || array1[array1Index] > array2[array2Index]) {
-      merged.push(array2[array2Index]);
-      array2Index += 1;
+  for (let ai = 0, bi = 0; ai < a.length || bi < b.length;) {
+    if(ai >= a.length || a[ai] > b[bi]) {
+      merged.push(b[bi++]);
     } else {
-      merged.push(array1[array1Index]);
-      array1Index += 1;
+      merged.push(a[ai++]);
     }
   }
   return merged;
@@ -46,7 +44,7 @@ function sort(array = []) {
     return array[0] > array[1] ? [array[1], array[0]] : array;
   }
   // slit and merge
-  const mid = size / 2;
+  const mid = parseInt(size / 2, 10);
   return merge(sort(array.slice(0, mid)), sort(array.slice(mid)));
 }
 // end::sort[]
@@ -59,3 +57,4 @@ assert.deepStrictEqual(sort(), []);
 
 assert.deepStrictEqual(merge([2, 5, 9], [1, 6, 7]), [1, 2, 5, 6, 7, 9]);
 assert.deepStrictEqual(merge(), []);
+assert.deepStrictEqual(merge([3, 5, 7], [2, 4]), [2, 3, 4, 5, 7]);
