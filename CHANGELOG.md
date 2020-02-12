@@ -13,6 +13,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Bug Fixes (patch)
 
+## [1.3.8]
+
+### Breaking Changes (major)
+
+### New Features (minor)
+
+### Bug Fixes (patch)
+- fix(book): fix typo, array pop, and BST images [commit](https://github.com/amejiarosario/dsa.js/commit/ac9858348943f9678d116c8076bfa3a3c5362741)
+
 ## [1.3.7]
 
 ### Breaking Changes (major)
@@ -125,7 +134,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -
 
-[Unreleased]: https://github.com/amejiarosario/dsa.js/compare/1.3.7...HEAD
+[Unreleased]: https://github.com/amejiarosario/dsa.js/compare/1.3.8...HEAD
+[1.3.7]: https://github.com/amejiarosario/dsa.js/compare/1.3.7...1.3.8
 [1.3.6]: https://github.com/amejiarosario/dsa.js/compare/1.3.6...1.3.7
 [1.3.6]: https://github.com/amejiarosario/dsa.js/compare/1.3.5...1.3.6
 [1.3.5]: https://github.com/amejiarosario/dsa.js/compare/1.3.4...1.3.5
