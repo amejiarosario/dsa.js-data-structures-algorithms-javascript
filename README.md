@@ -507,7 +507,7 @@ This project is also available in a [book](https://books.adrianmejia.com/dsajs-d
 
 Reach out to me at one of the following places!
 
-- Twitter at <a href="http://twitter.com/amejiarosario" target="_blank">`@amejiarosario`</a>
+- Twitter at <a href="http://twitter.com/iAmAdrianMejia" target="_blank">`@iAmAdrianMejia`</a>
 - Chat on <a href="https://dsajs-slackin.herokuapp.com" target="_blank">`dsajs.slack.com`</a>
 
 ## License
