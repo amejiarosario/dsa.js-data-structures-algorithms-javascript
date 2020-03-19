@@ -13,6 +13,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Bug Fixes (patch)
 
+## [1.3.9]
+
+### Breaking Changes (major)
+
+### New Features (minor)
+
+### Bug Fixes (patch)
+- fix(book): fix table typos [commit](https://github.com/amejiarosario/dsa.js/commit/bc51a7a0c97aea9dea1afa5f8af22c0bed1382d3)
+
 ## [1.3.8]
 
 ### Breaking Changes (major)
@@ -134,7 +143,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -
 
-[Unreleased]: https://github.com/amejiarosario/dsa.js/compare/1.3.8...HEAD
+[Unreleased]: https://github.com/amejiarosario/dsa.js/compare/1.3.9...HEAD
+[1.3.9]: https://github.com/amejiarosario/dsa.js/compare/1.3.8...1.3.9
 [1.3.7]: https://github.com/amejiarosario/dsa.js/compare/1.3.7...1.3.8
 [1.3.6]: https://github.com/amejiarosario/dsa.js/compare/1.3.6...1.3.7
 [1.3.6]: https://github.com/amejiarosario/dsa.js/compare/1.3.5...1.3.6
