@@ -65,17 +65,18 @@ class Trie {
    *
    * @param {string} prefix - The prefix to append to each word.
    * @param {string} node - Current node to start backtracking.
-   * @param {string[]} words - Accumulated words.
-   * @param {string} string - Current string.
    */
-  getAllWords(prefix = '', node = this, words = [], string = '') {
+  getAllWords(prefix = '', node = this) {
+    let words = [];
+
     if (!node) { return words; }
     if (node.isWord) {
-      words.push(`${prefix}${string}`);
+      words.push(prefix);
     }
 
     for (const char of Object.keys(node.children)) {
-      this.getAllWords(prefix, node.children[char], words, `${string}${char}`);
+      const newWords = this.getAllWords(`${prefix}${char}`, node.children[char]);
+      words = words.concat(newWords);
     }
 
     return words;
