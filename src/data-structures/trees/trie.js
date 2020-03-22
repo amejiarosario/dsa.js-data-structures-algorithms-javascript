@@ -22,6 +22,40 @@ class Trie {
   }
 
   /**
+   * Return true if found the word to be removed, otherwise false.
+   * @param {string} word - The word to remove
+   * @returns {boolean}
+   */
+  remove(word) {
+    return this.removeHelper(word);
+  }
+
+  /**
+   * Remove word from trie, return true if found, otherwise false.
+   * @param {string} word - The word to remove.
+   * @param {Trie} parent - The parent node.
+   * @param {number} index - The index.
+   * @param {number} meta.stop - Keeps track of the last letter that won't be removed.
+   * @returns {boolean}
+   */
+  removeHelper(word, parent = this, index = 0, meta = { stop: 0 }) {
+    if (index === word.length) {
+      parent.isWord = false;
+      if (Object.keys(parent.children)) { meta.stop = index; }
+      return true;
+    }
+    const child = parent.children[word.charAt(index)];
+    if (!child) { return false; }
+    if (parent.isWord) { meta.stop = index; }
+    const found = this.removeHelper(word, child, index + 1, meta);
+    // deletes all the nodes beyond `meta.stop`.
+    if (found && index >= meta.stop) {
+      delete parent.children[word.charAt(index)];
+    }
+    return found;
+  }
+
+  /**
    * Retun last node that matches word or prefix or false if not found.
    * @param {string} word - Word to search.
    * @param {boolean} options.partial - Whether or not match partial matches.

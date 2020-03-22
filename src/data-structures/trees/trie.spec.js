@@ -69,6 +69,13 @@ describe('Trie', () => {
       expect(trie.startsWith('do')).toEqual(true);
     });
 
+    it('should match full words if partial is set', () => {
+      expect(trie.search('dogs', {
+        partial: true,
+      })).toEqual(true);
+      expect(trie.startsWith('dogs')).toEqual(true);
+    });
+
     it('should not match non existing words', () => {
       expect(trie.search('doors')).toEqual(false);
     });
@@ -127,6 +134,54 @@ describe('Trie', () => {
         const words = trie.autocomplete('co');
         expect(words.length).toBe(0);
         expect(words).toEqual([]);
+      });
+    });
+
+    describe('remove', () => {
+      it('should remove a word', () => {
+        trie = new Trie();
+        trie.insert('a');
+        expect(trie.remove('a')).toEqual(true);
+        expect(trie.getAllWords()).toEqual([]);
+      });
+
+      it('should remove word and keep other words', () => {
+        trie = new Trie();
+        trie.insert('a');
+        trie.insert('ab');
+        expect(trie.remove('a')).toEqual(true);
+        expect(trie.getAllWords()).toEqual(['ab']);
+      });
+
+      it('should remove surrounding word', () => {
+        trie = new Trie();
+        trie.insert('a');
+        trie.insert('ab');
+        expect(trie.remove('ab')).toEqual(true);
+        expect(trie.getAllWords()).toEqual(['a']);
+      });
+
+      it('should return false when word is not found', () => {
+        expect(trie.remove('not there')).toBe(false);
+      });
+
+      it('should remove words in between and still match', () => {
+        expect(trie.remove('dog')).toBe(true);
+        expect(trie.search('dogs')).toBe(true);
+        expect(trie.startsWith('dog')).toBe(true);
+        expect(trie.getAllWords()).toEqual([
+          'dogs', 'door', 'day', 'cat',
+        ]);
+      });
+
+      it('should remove word and no longer match partials', () => {
+        expect(trie.remove('dogs')).toBe(true);
+        expect(trie.search('dogs')).toBe(false);
+        expect(trie.search('dog')).toBe(true);
+        expect(trie.startsWith('dog')).toBe(true);
+        expect(trie.getAllWords()).toEqual([
+          'dog', 'door', 'day', 'cat',
+        ]);
       });
     });
   });
