@@ -67,6 +67,54 @@ class Trie {
 
     return words;
   }
+
+  /**
+   * Return true if found the word to be removed, otherwise false.
+   * Iterative approach
+   * @param {string} word - The word to remove
+   * @returns {boolean}
+   */
+  remove(word) {
+    const stack = [];
+    let curr = this;
+
+    for (const char of word) {
+      if (!curr.children[char]) { return false; }
+      stack.push(curr);
+      curr = curr.children[char];
+    }
+
+    if (!curr.isWord) { return false; }
+    let node = stack.pop();
+
+    do {
+      node.children = {};
+      node = stack.pop();
+    } while (node && !node.isWord);
+
+    return true;
+  }
+
+  /**
+   * Return true if found the word to be removed, otherwise false.
+   * recursive approach
+   * @param {string} word - The word to remove
+   * @returns {boolean}
+   */
+  remove2(word, i = 0, parent = this) {
+    if (i === word.length - 1) {
+      return true;
+    }
+    const child = parent.children[word.charAt(i)];
+    if (!child) return false;
+
+    const found = this.remove(word, i + 1, child);
+
+    if (found) {
+      delete parent.children[word.charAt(i)];
+    }
+    return true;
+  }  
 }
 
 // Aliases
