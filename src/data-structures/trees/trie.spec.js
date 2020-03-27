@@ -137,7 +137,7 @@ describe('Trie', () => {
       });
     });
 
-    describe('remove', () => {
+    fdescribe('remove', () => {
       it('should remove a word', () => {
         trie = new Trie();
         trie.insert('a');

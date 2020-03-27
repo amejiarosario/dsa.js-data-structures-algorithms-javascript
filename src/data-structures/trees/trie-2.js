@@ -27,31 +27,32 @@ class Trie {
    * @returns {boolean}
    */
   remove(word) {
-    let curr = this;
-    // let lastWordToKeep = 0;
-    const stack = [curr];
+    return this.removeHelper(word);
+  }
 
-    // find word and stack path
-    for (const char of word) {
-      if (!curr.children[char]) { return false; }
-      // lastWordToKeep += 1;
-      curr = curr.children[char];
-      stack.push(curr);
+  /**
+   * Remove word from trie, return true if found, otherwise false.
+   * @param {string} word - The word to remove.
+   * @param {Trie} parent - The parent node.
+   * @param {number} index - The index.
+   * @param {number} meta.stop - Keeps track of the last letter that won't be removed.
+   * @returns {boolean}
+   */
+  removeHelper(word, parent = this, index = 0, meta = { stop: 0 }) {
+    if (index === word.length) {
+      parent.isWord = false;
+      if (Object.keys(parent.children)) { meta.stop = index; }
+      return true;
     }
-
-    let child = stack.pop();
-    child.isWord = false;
-
-    // remove non words without children
-    while (stack.length) {
-      const parent = stack.pop();
-      if (!child.isWord && !Object.keys(child.children).length) {
-        delete parent.children[child.val];
-      }
-      child = parent;
+    const child = parent.children[word.charAt(index)];
+    if (!child) { return false; }
+    if (parent.isWord) { meta.stop = index; }
+    const found = this.removeHelper(word, child, index + 1, meta);
+    // deletes all the nodes beyond `meta.stop`.
+    if (found && index >= meta.stop) {
+      delete parent.children[word.charAt(index)];
     }
-
-    return true;
+    return found;
   }
 
   /**
