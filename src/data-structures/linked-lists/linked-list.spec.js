@@ -223,6 +223,33 @@ describe('LinkedList Test', () => {
         expect(linkedList.length).toBe(1);
       });
     });
+
+    describe('#removeByNode', () => {
+      it('should remove first node', () => {
+        const node = linkedList.first;
+        linkedList.removeByNode(node);
+        expect(linkedList.first.value).toEqual('found');
+        expect(linkedList.first.previous).toEqual(null);
+        expect(linkedList.size).toEqual(1);
+      });
+
+      it('should remove last node', () => {
+        const node = linkedList.last;
+        linkedList.removeByNode(node);
+        expect(linkedList.first.value).toEqual(0);
+        expect(linkedList.first.next).toEqual(null);
+        expect(linkedList.size).toEqual(1);
+      });
+
+      it('should remove from the middle', () => {
+        const node = linkedList.first;
+        linkedList.addLast('last');
+        linkedList.removeByNode(node);
+        expect(linkedList.first.next).toEqual(linkedList.last);
+        expect(linkedList.last.previous).toEqual(linkedList.first);
+        expect(linkedList.size).toEqual(2);
+      });
+    });
   });
 
   describe('Doubly Linked List and aliases', () => {
