@@ -1,6 +1,6 @@
 {
   "name": "dsa.js",
-  "version": "1.3.10",
+  "version": "0.0.0-development",
   "description": "Data Structures & Algorithms in JS",
   "author": "Adrian Mejia <hi+dsajs@adrianmejia.com> (https://adrianmejia.com)",
   "homepage": "https://github.com/amejiarosario/dsa.js",
@@ -17,7 +17,8 @@
     "watch": "jest src/ --watch --coverage",
     "coverage": "jest src/ --coverage && open coverage/lcov-report/index.html",
     "lint": "npx eslint --fix --format codeframe src/",
-    "ci": "npx eslint src/ && jest src/ --coverage"
+    "ci": "npx eslint src/ && jest src/ --coverage",
+    "semantic-release": "semantic-release"
   },
   "keywords": [
     "algorithms",
@@ -44,7 +45,8 @@
     "jest": "23.6.0",
     "js-yaml": ">=3.13.1",
     "mem": ">=4.0.0",
-    "textlint-plugin-asciidoctor": "1.0.2"
+    "textlint-plugin-asciidoctor": "1.0.2",
+    "semantic-release": "^17.0.4"
   },
   "engines": {
     "node": ">=10.0.0"

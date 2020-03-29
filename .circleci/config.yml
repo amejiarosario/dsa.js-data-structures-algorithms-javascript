@@ -110,9 +110,21 @@ jobs: # a collection of steps
           path: book/dist
           destination: book
 
+  release:
+    docker:
+      - image: 'circleci/node:latest'
+    steps:
+      - checkout
+      - run:
+          name: install
+          command: npm install
+      - run:
+          name: release
+          command: npm run semantic-release || true
 workflows:
   version: 2
   build_and_docs:
     jobs:
       - build
       - docs
+      - release
