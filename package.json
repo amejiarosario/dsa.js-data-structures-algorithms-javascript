@@ -34,6 +34,7 @@
     "braces": ">=2.3.1",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.1.0",
+    "cz-emoji": "^1.2.1",
     "eslint": "4.19.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
@@ -50,7 +51,47 @@
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "cz-emoji"
+    },
+    "cz-emoji": {
+      "types": [
+        {
+          "emoji": "🐛",
+          "code": ":bug: fix",
+          "description": "Fixing a bug on code.",
+          "name": "fix code"
+        },
+        {
+          "emoji": "📝",
+          "code": ":pencil: fix",
+          "description": "Fixing typos on book.",
+          "name": "fix typo"
+        },
+        {
+          "emoji": "✨",
+          "code": ":sparkles: feat",
+          "description": "Introducing new features on code and/or book.",
+          "name": "feature"
+        },
+        {
+          "emoji": "💥",
+          "code": ":boom: break",
+          "description": "Introducing breaking changes.",
+          "name": "breaking"
+        },
+        {
+          "emoji": "🔖",
+          "code": ":bookmark: release",
+          "description": "Releasing / Version tags.",
+          "name": "release"
+        },
+        {
+          "emoji": "🔩",
+          "code": ":wrench: chore",
+          "description": "Adding CI/build tools.",
+          "name": "chore"
+        }
+      ]
     }
   },
   "husky": {
