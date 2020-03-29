@@ -31,18 +31,24 @@
   "dependencies": {},
   "devDependencies": {
     "benchmark": "2.1.4",
+    "braces": ">=2.3.1",
+    "cz-conventional-changelog": "^3.1.0",
     "eslint": "4.19.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jest": "21.17.0",
-    "jest": "23.6.0",
-    "braces": ">=2.3.1",
     "handlebars": ">=4.0.14",
+    "jest": "23.6.0",
     "js-yaml": ">=3.13.1",
     "mem": ">=4.0.0",
     "textlint-plugin-asciidoctor": "1.0.2"
   },
   "engines": {
     "node": ">=10.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
