@@ -266,6 +266,25 @@ class LinkedList {
   }
 
   /**
+   * Remove element by Node
+   * O(1)
+   */
+  removeByNode(node) {
+    if (!node) { return null; }
+    if (node === this.first) {
+      return this.removeFirst();
+    }
+    if (node === this.last) {
+      return this.removeLast();
+    }
+    node.previous.next = node.next;
+    node.next.previous = node.previous;
+    this.size -= 1;
+
+    return node.value;
+  }
+
+  /**
    * Iterate through the list yield on each node
    * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#User-defined_iterables
    */
