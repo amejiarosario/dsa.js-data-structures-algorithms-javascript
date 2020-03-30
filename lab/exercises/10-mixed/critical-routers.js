@@ -3,6 +3,10 @@
  * A router is considered critical if when they are removed,
  * other routers lose connection to other routers different from the one removed.
  *
+ * @runtime O(|E| * |V|^3)
+ * @space O(|E| + |V|)
+ * @pomodoro IIII (2h)
+ *
  * @param {number} numRouters - The number of routers connected in a data center >= 3.
  * @param {number} numLinks - The number of links.
  * @param {[[number, number]]} links - The pair of routers connected by the link.
@@ -15,19 +19,24 @@ function criticalRouters(numRouters, numLinks, links) {
   // console.log({graph});
 
   for (let curr = 1; curr <= numRouters; curr++) {
-    for (let i = 1; i <= numRouters; i++) {
-      for (let j = 1; j <= numRouters; j++) {
-        if (curr === i || curr === j || i === j) { continue; }
-        if (!isConnected(graph, i, j, curr)) {
-          critical.push(curr);
-          i++;
-          break;
-        }
-      }
+    if (isCritical(graph, curr)) {
+      critical.push(curr);
     }
   }
 
   return critical;
+}
+
+function isCritical(graph, curr) {
+  for (let i = 1; i <= graph.size; i++) {
+    for (let j = 1; j <= graph.size; j++) {
+      if (curr === i || curr === j || i === j) { continue; }
+      if (!isConnected(graph, i, j, curr)) {
+        return true;
+      }
+    }
+  }
+  return false;
 }
 
 function addEdge(graph, from, to) {
