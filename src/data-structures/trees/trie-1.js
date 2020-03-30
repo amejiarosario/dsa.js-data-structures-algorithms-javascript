@@ -114,7 +114,7 @@ class Trie {
       delete parent.children[word.charAt(i)];
     }
     return true;
-  }  
+  }
 }
 
 // Aliases

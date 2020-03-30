@@ -46,6 +46,10 @@ jobs: # a collection of steps
       - store_test_results: # for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: test-results.xml
 
+      - run:
+          name: release
+          command: npm run semantic-release || true
+
   docs:
     docker:
       - image: circleci/ruby:2.5.3-stretch-node
