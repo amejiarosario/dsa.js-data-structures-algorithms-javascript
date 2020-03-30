@@ -32,6 +32,8 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
     "benchmark": "2.1.4",
     "braces": ">=2.3.1",
     "commitizen": "^4.0.3",
@@ -84,12 +86,6 @@
           "name": "breaking"
         },
         {
-          "emoji": "🔖",
-          "code": ":bookmark: release",
-          "description": "Releasing / Version tags.",
-          "name": "release"
-        },
-        {
           "emoji": "🔩",
           "code": ":wrench: chore",
           "description": "Adding CI/build tools.",
@@ -105,6 +101,16 @@
   },
   "release": {
     "tagFormat": "${version}",
-    "branch": "master"
+    "branch": "master",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/github",
+      "@semantic-release/npm",
+      ["@semantic-release/git", {
+        "message": ":bookmark: chore(release): ${nextRelease.version} \n\n${nextRelease.notes}"
+      }]
+    ]
   }
 }
