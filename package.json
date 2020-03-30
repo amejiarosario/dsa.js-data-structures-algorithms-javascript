@@ -18,7 +18,8 @@
     "coverage": "jest src/ --coverage && open coverage/lcov-report/index.html",
     "lint": "npx eslint --fix --format codeframe src/",
     "ci": "npx eslint src/ && jest src/ --coverage",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "release:check": "semantic-release --dry-run"
   },
   "keywords": [
     "algorithms",
@@ -101,5 +102,9 @@
     "hooks": {
       "pre-push": "npm run ci"
     }
+  },
+  "release": {
+    "tagFormat": "${version}",
+    "branch": "master"
   }
 }
