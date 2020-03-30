@@ -1,3 +1,12 @@
+# [1.5.0](https://github.com/amejiarosario/dsa.js/compare/1.4.0...1.5.0) (2020-03-30)
+
+
+### Features
+
+* **linkedList:** remove by node ([eac045a](https://github.com/amejiarosario/dsa.js/commit/eac045a6bedd0223a2e8b12225f87c428e6fb66f))
+* **lru-cache:** add new implementations ([3e787c6](https://github.com/amejiarosario/dsa.js/commit/3e787c6f9ba9c094272be5ac05b997ce44a359d3))
+* **trie:** remove method ([16005f3](https://github.com/amejiarosario/dsa.js/commit/16005f3bf39597759918e34b39d27eb25a5755e7))
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
