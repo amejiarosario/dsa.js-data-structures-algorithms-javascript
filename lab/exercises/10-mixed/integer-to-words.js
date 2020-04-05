@@ -67,9 +67,11 @@ function numberToWords(num) {
     }
   }
 
-  if (num) {
-    ans = ans.concat(numberToWords(Math.floor(num/10) * 10));
-    ans = ans.concat(numberToWords(Math.floor(num % 10)));
+  if (num && num < 21) {
+    ans = ans.concat(numberToWords(num));
+  } else {
+    if (Math.floor(num/10)) ans = ans.concat(numberToWords(Math.floor(num/10) * 10));
+    if (Math.floor(num % 10)) ans = ans.concat(numberToWords(Math.floor(num % 10)));
   }
 
   return ans.join(' ');
