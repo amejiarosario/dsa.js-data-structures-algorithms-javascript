@@ -32,58 +32,47 @@ const map = {
   90: 'Ninety',
   100: 'Hundred', // One Hundred, Two Hundred
 
-  1_000: 'Thousand', // Four Thousand
-
+  1_000: 'Thousand', // One Thousand
   1_000_000: 'Million', // One Million
-
   1_000_000_000: 'Billion', // One Billion
 };
 
 const keys = [
-  // 1_000_000_000,
-  // 1_000_000,
-  // 1_000,
-  // 100,
-  10,
+  1_000_000_000,
+  1_000_000,
+  1_000,
+  100,
 ];
 
 /**
- * @param {number} num
- * @return {string}
+ * Convert a positive integer into its English representation.
+ *
+ * @param {number} num - The positive integer. Should be <= 2^31 - 1
+ * @return {string} - The English words for the given number
+ *
  * @pomodoro II
  */
 function numberToWords(num) {
-  if (num < 21) return map[num];
+  if (map[num] && num < 99) return map[num];
 
   let ans = [];
-//   let i = 0;
+  let i = 0;
 
-//   while (num && i < keys.length) {
-//     // const div = keys[i++]; // 10
-//     const div = 10;
-//     const reminder = num % div; // 1
-//     const left = num - reminder; // 20
+  while (num && i < keys.length) {
+    const div = keys[i++];
+    if (Math.floor(num/div)) {
+      ans = ans.concat(numberToWords(Math.floor(num/div)));
+      ans = ans.concat(map[div]);
+      num %= div;
+    }
+  }
 
-//     if (left && map[left] !== undefined) {
-//       ans.push(map[left]);
-//       num -= left;
-//     }
-
-//     num = reminder;
-//   }
-  ans = ans.concat(numberToWords(Math.floor(num/10) * 10));
-  ans = ans.concat(numberToWords(Math.floor(num % 10)))
+  if (num) {
+    ans = ans.concat(numberToWords(Math.floor(num/10) * 10));
+    ans = ans.concat(numberToWords(Math.floor(num % 10)));
+  }
 
   return ans.join(' ');
 };
-
-// convert a number into its English representation
-
-// 21
-// Twenty One
-
-// 1_234_567_891
-
-console.log(process.version);
 
 module.exports = numberToWords;
