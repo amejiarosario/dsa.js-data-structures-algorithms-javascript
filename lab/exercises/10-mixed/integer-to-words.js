@@ -1,80 +1,48 @@
+// nodemon lab/exercises/10-mixed/integer-to-words.spec-assert.js
 // npx jest lab/exercises/10-mixed/integer-to-words.spec.js --watch
-
-const map = {
-  0: 'Zero',
-  1: 'One',
-  2: 'Two',
-  3: 'Three',
-  4: 'Four',
-  5: 'Five',
-  6: 'Six',
-  7: 'Seven',
-  8: 'Eight',
-  9: 'Nine',
-  10: 'Ten',
-  11: 'Eleven',
-  12: 'Twelve',
-  13: 'Thirteen',
-  14: 'Fourteen',
-  15: 'Fifteen',
-  16: 'Sixteen',
-  17: 'Seventeen',
-  18: 'Eighteen',
-  19: 'Nineteen',
-  20: 'Twenty', // Twenty One
-
-  30: 'Thirty', // Thirty Four
-  40: 'Forty',
-  50: 'Fifty',
-  60: 'Sixty', // Sixty Seven
-  70: 'Seventy',
-  80: 'Eighty',
-  90: 'Ninety',
-  100: 'Hundred', // One Hundred, Two Hundred
-
-  1_000: 'Thousand', // One Thousand
-  1_000_000: 'Million', // One Million
-  1_000_000_000: 'Billion', // One Billion
-};
-
-const keys = [
-  1_000_000_000,
-  1_000_000,
-  1_000,
-  100,
-];
+const UPTO20 = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen", "Twenty"]
+const TENS = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
+const HUNDREDS = new Map([
+  [1_000_000_000, 'Billion'],
+  [1_000_000, 'Million'],
+  [1_000, 'Thousand'],
+  [100, 'Hundred'],
+]);
 
 /**
- * Convert a positive integer into its English representation.
+ * You are creating a basic number-to-speech algorithms to use at Google.
+ * The first part is to convert a given number into its text representation.
+ * The 2nd part, is to take that text and synthetize the voice.
+ * We are going to focus on the first part for this exercise.
+ *
+ * Convert a positive integer into its English words representation.
  *
  * @param {number} num - The positive integer. Should be <= 2^31 - 1
  * @return {string} - The English words for the given number
  *
- * @pomodoro II
+ * @author Adrian Mejia <adrianmejia.com>
  */
 function numberToWords(num) {
-  if (map[num] && num < 99) return map[num];
+  if (num < 21) return UPTO20[num];
 
-  let ans = [];
-  let i = 0;
+  let ans = '';
 
-  while (num && i < keys.length) {
-    const div = keys[i++];
+  for (const [div, word] of HUNDREDS.entries()) {
     if (Math.floor(num/div)) {
-      ans = ans.concat(numberToWords(Math.floor(num/div)));
-      ans = ans.concat(map[div]);
+      ans += `${ numberToWords(Math.floor(num/div)) } `;
+      ans += `${ word } `;
       num %= div;
     }
   }
 
   if (num && num < 21) {
-    ans = ans.concat(numberToWords(num));
+    ans += UPTO20[num]  + ' ';
   } else {
-    if (Math.floor(num/10)) ans = ans.concat(numberToWords(Math.floor(num/10) * 10));
-    if (Math.floor(num % 10)) ans = ans.concat(numberToWords(Math.floor(num % 10)));
+    if (Math.floor(num/10)) ans += `${ TENS[Math.floor(num/10)] } `;
+    if (Math.floor(num % 10)) ans += `${ UPTO20[Math.floor(num % 10)] } `;
   }
 
-  return ans.join(' ');
+  return ans.trim();
 };
 
 module.exports = numberToWords;

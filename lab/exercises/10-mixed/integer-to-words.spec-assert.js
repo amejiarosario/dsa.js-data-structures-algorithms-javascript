@@ -13,6 +13,7 @@ assert.equal(numberToWords(100), 'One Hundred');
 assert.equal(numberToWords(101), 'One Hundred One');
 assert.equal(numberToWords(110), 'One Hundred Ten');
 assert.equal(numberToWords(111), 'One Hundred Eleven');
+assert.equal(numberToWords(777), 'Seven Hundred Seventy Seven');
 assert.equal(numberToWords(999), W9);
 assert.equal(numberToWords(1_000), 'One Thousand');
 assert.equal(numberToWords(9999), `Nine Thousand ${W9}`);
