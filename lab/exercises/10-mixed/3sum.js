@@ -2,14 +2,15 @@
  * @param {number[]} nums
  * @return {number[][]}
  *
- * @runtime O(n log n)
+ * @runtime O(n^2) and skips duplicates
+ * @space O(1)
  */
 function threeSum(nums) {
   const ans = [];
 
   nums.sort((a, b) => a - b); // sort: O(n log n)
 
-  for (let i = 0; i < nums.length - 2; i++) { // O(n)
+  for (let i = 0; i < nums.length - 2; i++) { // O(n^2)
     if (i > 0 && nums[i - 1] === nums[i]) continue; // skip duplicates
 
     let lo = i + 1;
