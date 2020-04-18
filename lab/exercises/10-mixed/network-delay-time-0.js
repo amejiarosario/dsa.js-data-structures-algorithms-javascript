@@ -18,23 +18,20 @@ function networkDelayTime(times, N, K) {
 
   const visited = [];
 
-  while (true) {
-    let node;
-    let dist = Infinity;
-    // From all the unseen nodes find the one with the min distance.
-    for (let i = 1; i <= N; i++) {
-      if (!visited[i] && distances[i] < dist) {
-        node = i;
-        dist = distances[i];
-      }
-    }
+  const queue = new Map([[K, 0]]);
 
-    if (!node) break; // none found, so all node has been visited
+  while (queue.size) {
+    const [node, dist] = queue.entries().next().value;
+    queue.delete(node);
 
     visited[node] = true;
 
-    graph.get(node).forEach(([n, w]) => {
+    // not working for some cases
+    graph.get(node).sort((a, b) => a[1] - b[1]).forEach(([n, w]) => {
       distances[n] = Math.min(distances[n], dist + w);
+      if (queue.has(n) || !visited[n]) {
+        queue.set(n, distances[n]);
+      }
     });
   }
 
