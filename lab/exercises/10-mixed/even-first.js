@@ -1,14 +1,15 @@
-function evenFirst(array) {
+function sortArrayByParity(A) {
   let lo = 0;
-  let hi = 1;
-  while (hi < array.length) {
-    if (array[hi] % 2 === 0) {
-      [array[hi], array[lo]] = [array[lo], array[hi]];
+  let hi = A.length - 1;
+  while (lo < hi) {
+    if (A[lo] % 2 === 0) {
       lo++;
+    } else {
+      [A[hi], A[lo]] = [A[lo], A[hi]];
+      hi--;
     }
-    hi++;
   }
-  return array;
+  return A;
 }
 
-module.exports = evenFirst;
+module.exports = sortArrayByParity;
