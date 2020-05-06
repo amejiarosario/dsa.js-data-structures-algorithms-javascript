@@ -18,7 +18,7 @@ function findSubsets(n = '') {
   const base = ['']; // <1>
 
   const results = array.reduce((previous, element) => {
-    const previousPlusElement = previous.map(el => `${el}${element}`); // <2>
+    const previousPlusElement = previous.map((el) => `${el}${element}`); // <2>
     return previous.concat(previousPlusElement); // <3>
   }, base);
 

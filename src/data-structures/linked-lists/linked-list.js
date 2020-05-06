@@ -298,7 +298,7 @@ class LinkedList {
 
   toString() {
     const parts = [...this]; // see [Symbol.iterator]()
-    return parts.map(n => util.inspect(n.node.value)).join(' -> ');
+    return parts.map((n) => util.inspect(n.node.value)).join(' -> ');
   }
 }
 

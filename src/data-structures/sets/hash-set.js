@@ -12,7 +12,7 @@ class HashMapSet {
    */
   constructor(iterable = []) {
     this.hashMap = new HashMap();
-    Array.from(iterable).forEach(element => this.add(element));
+    Array.from(iterable).forEach((element) => this.add(element));
   }
 
   /**

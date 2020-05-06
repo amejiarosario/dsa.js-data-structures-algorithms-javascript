@@ -69,7 +69,7 @@ describe('AvlTree', () => {
     });
 
     it('should not balance', () => {
-      [30, 20, 40, 10, 50].forEach(v => tree.add(v));
+      [30, 20, 40, 10, 50].forEach((v) => tree.add(v));
 
       expect(tree.toArray()).toEqual([
         30,

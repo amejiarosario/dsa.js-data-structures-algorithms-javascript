@@ -9,7 +9,7 @@ class ArraySet {
    */
   constructor(iterable = []) {
     this.array = [];
-    Array.from(iterable).forEach(element => this.add(element));
+    Array.from(iterable).forEach((element) => this.add(element));
   }
 
   /**
