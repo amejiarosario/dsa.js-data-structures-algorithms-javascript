@@ -47,7 +47,7 @@ class Graph {
   removeVertex(value) {
     const current = this.nodes.get(value); // <1>
     if (current) {
-      Array.from(this.nodes.values()).forEach(node => node.removeAdjacent(current)); // <2>
+      Array.from(this.nodes.values()).forEach((node) => node.removeAdjacent(current)); // <2>
     }
     return this.nodes.delete(value); // <3>
   }
@@ -156,7 +156,7 @@ class Graph {
       if (node && !visited.has(node)) {
         yield node;
         visited.set(node);
-        node.getAdjacents().forEach(adj => visitList.add(adj));
+        node.getAdjacents().forEach((adj) => visitList.add(adj));
       }
     }
   }
@@ -243,7 +243,7 @@ class Graph {
     sourceNode.getAdjacents().forEach((node) => {
       if (!newPath.has(node)) {
         const nextPaths = this.findAllPaths(node.value, destination, newPath);
-        nextPaths.forEach(nextPath => paths.push(nextPath));
+        nextPaths.forEach((nextPath) => paths.push(nextPath));
       }
     });
     return paths;

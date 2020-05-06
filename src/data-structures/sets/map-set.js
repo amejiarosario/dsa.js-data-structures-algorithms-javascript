@@ -9,7 +9,7 @@ class MapSet {
    */
   constructor(iterable = []) {
     this.map = new Map();
-    Array.from(iterable).forEach(element => this.add(element));
+    Array.from(iterable).forEach((element) => this.add(element));
   }
 
   /**
