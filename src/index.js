@@ -15,6 +15,7 @@ const AvlTree = require('./data-structures/trees/avl-tree');
 const RedBlackTree = require('./data-structures/trees/red-black-tree');
 const LRUCache = require('./data-structures/custom/lru-cache');
 const Trie = require('./data-structures/trees/trie');
+const Heap = require('./data-structures/trees/heap');
 
 // algorithms
 const bubbleSort = require('./algorithms/sorting/bubble-sort');
@@ -40,6 +41,7 @@ module.exports = {
   RedBlackTree,
   LRUCache,
   Trie,
+  Heap,
   bubbleSort,
   insertionSort,
   selectionSort,
