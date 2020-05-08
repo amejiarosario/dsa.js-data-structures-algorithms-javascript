@@ -1,6 +1,6 @@
 {
   "name": "dsa.js",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Data Structures & Algorithms in JS",
   "author": "Adrian Mejia <hi+dsajs@adrianmejia.com> (https://adrianmejia.com)",
   "homepage": "https://github.com/amejiarosario/dsa.js",
@@ -103,21 +103,48 @@
     "tagFormat": "${version}",
     "branch": "master",
     "plugins": [
-      ["@semantic-release/commit-analyzer", {
-        "preset": "angular",
-        "releaseRules": [
-          {"type": "fix", "release": "patch"},
-          {"type": "feat", "release": "minor"},
-          {"type": "break", "release": "major"},
-          {"header": ":bug:*", "release": "patch"},
-          {"header": ":pencil:*", "release": "patch"},
-          {"header": ":sparkles:*", "release": "minor"},
-          {"header": ":boom:*", "release": "major"}
-        ],
-        "parserOpts": {
-          "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES"]
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "angular",
+          "releaseRules": [
+            {
+              "type": "fix",
+              "release": "patch"
+            },
+            {
+              "type": "feat",
+              "release": "minor"
+            },
+            {
+              "type": "break",
+              "release": "major"
+            },
+            {
+              "header": ":bug:*",
+              "release": "patch"
+            },
+            {
+              "header": ":pencil:*",
+              "release": "patch"
+            },
+            {
+              "header": ":sparkles:*",
+              "release": "minor"
+            },
+            {
+              "header": ":boom:*",
+              "release": "major"
+            }
+          ],
+          "parserOpts": {
+            "noteKeywords": [
+              "BREAKING CHANGE",
+              "BREAKING CHANGES"
+            ]
+          }
         }
-      }],
+      ],
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
       "@semantic-release/github",
