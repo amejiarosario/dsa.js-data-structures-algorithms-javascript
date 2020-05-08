@@ -91,7 +91,6 @@ _Note: If you prefer to consume the information more linearly then the [book for
 
 The topics are divided into four main categories as you can see below:
 
-_(You can click on the triangle ⯈ to expand the topics)_
 
 ### 📈 [Algorithms Analysis](book/part01-algorithms-analysis.asc)
 
@@ -103,7 +102,7 @@ _(You can click on the triangle ⯈ to expand the topics)_
 
 <details>
   <summary>
-    Computer Science nuggets without all the mumbo-jumbo
+    Computer Science nuggets without all the mumbo-jumbo. <i>(Click to expand)</i>
   </summary>
 
 ---
@@ -120,7 +119,7 @@ _(You can click on the triangle ⯈ to expand the topics)_
 
 <details>
   <summary>
-    Learn how to compare algorithms using Big O notation.
+    Learn how to compare algorithms using Big O notation. <i>(Click to expand)</i>
   </summary>
 
 ---
@@ -142,7 +141,7 @@ they take different time to complete.
 
 <details>
   <summary>
-    8 examples to explain with code how to calculate time complexity
+    8 examples to explain with code how to calculate time complexity. <i>(Click to expand)</i>
   </summary>
 
 ---
@@ -181,7 +180,7 @@ they take different time to complete.
 
   <details>
     <summary>
-      Understand the ins and outs of the most common data structures.
+      Understand the ins and outs of the most common data structures. <i>(Click to expand)</i>
     </summary>
 
 ---
@@ -216,7 +215,7 @@ they take different time to complete.
   </details>
   <details>
     <summary>
-      When to use an Array or Linked List. Know the tradeoffs.
+      When to use an Array or Linked List. Know the tradeoffs. <i>(Click to expand)</i>
     </summary>
 
 ---
@@ -239,7 +238,7 @@ Use Linked Lists when:
   </details>
   <details>
     <summary>
-      Build a List, Stack, and a Queue.
+      Build a List, Stack, and a Queue. <i>(Click to expand)</i>
     </summary>
 
   ---
@@ -264,7 +263,7 @@ Use Linked Lists when:
 <blockquote>
   <details>
     <summary>
-      Understand one of the most versatile data structure of all: Maps
+      Understand one of the most versatile data structure of all: Hash Maps. <i>(Click to expand)</i>
     </summary>
 
 ---
@@ -289,7 +288,7 @@ Also, [learn the difference between the different Maps implementations](book/con
 
   <details>
     <summary>
-    Know the properties of Graphs and Trees.
+    Know the properties of Graphs and Trees. <i>(Click to expand)</i>
     </summary>
 
 ---
@@ -391,7 +390,7 @@ From unbalanced BST to balanced BST
 <blockquote>
   <details>
     <summary>
-      Never get stuck solving a problem with 7 simple steps
+      Never get stuck solving a problem with 7 simple steps. <i>(Click to expand)</i>
     </summary>
 
 ---
@@ -414,7 +413,7 @@ Full details [here](book/part04-algorithmic-toolbox.asc)
   </details>
   <details>
     <summary>
-      Master the most popular sorting algorithms (merge sort, quicksort, insertion sort, etc.)
+      Master the most popular sorting algorithms (merge sort, quicksort, etc.) <i>(Click to expand)</i>
     </summary>
 
 ---
@@ -453,7 +452,7 @@ and then discuss efficient sorting algorithms O(n log n) such as:
   </details>
   <details>
     <summary>
-      Learn different approaches to solve problems such as divide and conquer, dynamic programming, greedy algorithms, and backtracking.
+      Learn different approaches to solve problems such as divide and conquer, dynamic programming, greedy algorithms, and backtracking. <i>(Click to expand)</i>
     </summary>
 
 ---
@@ -475,7 +474,7 @@ We are going to discuss the following techniques for solving algorithms problems
 ## FAQ
 
 <details>
-    <summary>How would I apply these to my day-to-day work?</summary>
+    <summary>How would I apply these to my day-to-day work? <i>(Click to expand)</i></summary>
     <p>
     As a programmer, we have to solve problems every day. If you want to solve problems well, then it's good to know about a broad range of solutions. A lot of times, it's more efficient to learn existing resources than stumble upon the answer yourself. The more tools and practice you have, the better. This book helps you understand the tradeoffs among data structures and reason about algorithms performance.
     </p>
