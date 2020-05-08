@@ -109,10 +109,10 @@
           {"type": "fix", "release": "patch"},
           {"type": "feat", "release": "minor"},
           {"type": "break", "release": "major"},
-          {"emoji": ":bug:", "release": "patch"},
-          {"emoji": ":pencil:", "release": "patch"},
-          {"emoji": ":sparkles:", "release": "minor"},
-          {"emoji": ":boom:", "release": "major"}
+          {"header": ":bug:*", "release": "patch"},
+          {"header": ":pencil:*", "release": "patch"},
+          {"header": ":sparkles:*", "release": "minor"},
+          {"header": ":boom:*", "release": "major"}
         ],
         "parserOpts": {
           "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES"]
