@@ -36,20 +36,19 @@
     "@semantic-release/git": "^9.0.0",
     "benchmark": "2.1.4",
     "braces": ">=2.3.1",
-    "commitizen": "^4.0.3",
-    "conventional-changelog-cli": "^2.0.31",
-    "cz-conventional-changelog": "^3.1.0",
-    "cz-emoji": "github:amejiarosario/cz-emoji",
-    "eslint": "6.8.0",
+    "commitizen": "4.1.2",
+    "conventional-changelog-cli": "2.0.34",
+    "cz-conventional-changelog": "3.2.0",
+    "eslint": "7.0.0",
     "eslint-config-airbnb-base": "14.1.0",
     "eslint-plugin-import": "2.20.2",
-    "eslint-plugin-jest": "23.8.2",
+    "eslint-plugin-jest": "23.11.0",
     "handlebars": "4.7.6",
-    "husky": "^4.2.3",
-    "jest": "25.2.7",
+    "husky": "4.2.5",
+    "jest": "26.0.1",
     "js-yaml": ">=3.13.1",
-    "mem": "6.0.1",
-    "semantic-release": "^17.0.4",
+    "mem": "6.1.0",
+    "semantic-release": "17.0.7",
     "textlint-plugin-asciidoctor": "1.0.3"
   },
   "engines": {
@@ -57,41 +56,21 @@
   },
   "config": {
     "commitizen": {
-      "path": "cz-emoji"
-    },
-    "cz-emoji": {
-      "types": [
-        {
-          "emoji": "🐛",
-          "code": ":bug: fix",
-          "description": "Fixing a bug on code.",
-          "name": "fix code"
-        },
-        {
-          "emoji": "📝",
-          "code": ":pencil: fix",
-          "description": "Fixing typos on book.",
-          "name": "fix typo"
-        },
-        {
-          "emoji": "✨",
-          "code": ":sparkles: feat",
+      "path": "cz-conventional-changelog",
+      "types": {
+        "feat": {
           "description": "Introducing new features on code and/or book.",
-          "name": "feature"
+          "title": "Features ✨"
         },
-        {
-          "emoji": "💥",
-          "code": ":boom: break",
-          "description": "Introducing breaking changes.",
-          "name": "breaking"
+        "fix": {
+          "description": "Fixing a bug on code or book",
+          "title": "Bug Fixes 🐛"
         },
-        {
-          "emoji": "🔩",
-          "code": ":wrench: chore",
-          "description": "Adding CI/build tools.",
-          "name": "chore"
+        "chore": {
+          "description": "Other changes that don't modify code or book files",
+          "title": "Chores 🔩"
         }
-      ]
+      }
     }
   },
   "husky": {
@@ -103,48 +82,7 @@
     "tagFormat": "${version}",
     "branch": "master",
     "plugins": [
-      [
-        "@semantic-release/commit-analyzer",
-        {
-          "preset": "angular",
-          "releaseRules": [
-            {
-              "type": "fix",
-              "release": "patch"
-            },
-            {
-              "type": "feat",
-              "release": "minor"
-            },
-            {
-              "type": "break",
-              "release": "major"
-            },
-            {
-              "header": ":bug:*",
-              "release": "patch"
-            },
-            {
-              "header": ":pencil:*",
-              "release": "patch"
-            },
-            {
-              "header": ":sparkles:*",
-              "release": "minor"
-            },
-            {
-              "header": ":boom:*",
-              "release": "major"
-            }
-          ],
-          "parserOpts": {
-            "noteKeywords": [
-              "BREAKING CHANGE",
-              "BREAKING CHANGES"
-            ]
-          }
-        }
-      ],
+      "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
       "@semantic-release/github",

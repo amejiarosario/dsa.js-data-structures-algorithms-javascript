@@ -165,7 +165,7 @@ Just as in the **subject**, use the imperative, present tense: "change" not "cha
 The body should include the motivation for the change and contrast this with previous behavior.
 
 ### Footer
-The footer should contain any information about **Breaking Changes** and is also the place to
+The footer should contain any information about **BREAKING CHANGES** and is also the place to
 reference GitHub issues that this commit **Closes**.
 
 ```
