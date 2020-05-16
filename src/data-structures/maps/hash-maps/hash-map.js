@@ -252,7 +252,7 @@ class HashMap {
   }
 
   /**
-   * the same function object as the initial value of the `entries` method.
+   * The same function object as the initial value of the `entries` method.
    * Contains the [key, value] pairs for each element in the Map.
    */
   * [Symbol.iterator]() {
