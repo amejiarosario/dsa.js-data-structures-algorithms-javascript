@@ -1,3 +1,5 @@
+# [1.6.0](https://github.com/amejiarosario/dsa.js/compare/1.5.0...1.6.0) (2020-05-08)
+
 # [1.5.0](https://github.com/amejiarosario/dsa.js/compare/1.4.0...1.5.0) (2020-03-30)
 
 
