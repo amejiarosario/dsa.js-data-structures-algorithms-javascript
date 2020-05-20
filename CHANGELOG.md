@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/amejiarosario/dsa.js/compare/1.7.0...1.7.1) (2020-05-20)
+
+
+### Bug Fixes
+
+* **hashmap:** fix TextEncoder reference ([e13ff88](https://github.com/amejiarosario/dsa.js/commit/e13ff88d7f8f9b7f38844befedc001bc1a4b243f))
+
 # [1.7.0](https://github.com/amejiarosario/dsa.js/compare/1.6.0...1.7.0) (2020-05-16)
 
 
