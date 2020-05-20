@@ -1,4 +1,5 @@
 /* eslint-disable no-bitwise, no-iterator, no-restricted-syntax */
+const { TextEncoder } = require('util');
 const LinkedList = require('../../linked-lists/linked-list');
 const { nextPrime } = require('./primes');
 
@@ -55,14 +56,14 @@ class HashMap {
   hashFunction(key) {
     const bytes = encoding.encode(key);
     const { length } = bytes;
-    
+
     let hash = 2166136261; // FNV_offset_basis (32 bit)
-    
-    for (let i = 0; i < length; ) {
-      hash ^= bytes[i++]; // XOR
+
+    for (let i = 0; i < length; i++) {
+      hash ^= bytes[i]; // XOR
       hash *= 16777619; // 32 bit FNV_prime
     }
-    
+
     return (hash >>> 0) % this.buckets.length;
   }
   // end::hashFunction[]
