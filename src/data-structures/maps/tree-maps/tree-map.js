@@ -133,6 +133,13 @@ class TreeMap {
       yield [node.value, node.data()];
     }
   }
+
+  /**
+   * Removes all key/value pairs from the Map object.
+   */
+  clear() {
+    this.tree = new Tree();
+  }
 }
 
 // Aliases

@@ -265,7 +265,7 @@ describe('HashMap Tests', () => {
       hashMap.delete('All About That Bass');
       hashMap.set('All About That Bass', 'Meghan Trainor');
       expect(hashMap.keysTrackerIndex).toBe(12);
-      // should hava a hole
+      // should have a hole
       expect(hashMap.keysTrackerArray).toEqual(['Pineapple', 'Despacito', 'Bailando', 'Dura', 'Lean On', 'Hello',
         undefined,
         'Wake Me Up', 'Brother', 'Faded', 'The Spectre', 'All About That Bass']);
