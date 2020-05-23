@@ -30,6 +30,15 @@ class HashMap {
     this.reset();
   }
 
+  /**
+   * Reset or reinitialize all values on the hashmap. Used for rehashing.
+   *
+   * @param {array} buckets - New bucket.
+   * @param {number} size - The new size of the hashmap.
+   * @param {number} collisions - The number of collisions.
+   * @param {array} keysTrackerArray - The array of keys in insertion order
+   * @param {number} keysTrackerIndex - The last index of keysTrackerArray
+   */
   reset(
     buckets = new Array(this.initialCapacity),
     size = 0,
