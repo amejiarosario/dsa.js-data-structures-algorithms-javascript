@@ -1,3 +1,16 @@
+# [1.8.0](https://github.com/amejiarosario/dsa.js/compare/1.7.1...1.8.0) (2020-05-23)
+
+
+### Bug Fixes
+
+* **book/map:** fix typo on maps space complexity ([2f24f57](https://github.com/amejiarosario/dsa.js/commit/2f24f57f989bb97f198bb32f6daa477d6075dc31))
+* **hashmap:** improve methods documentation ([f6b47b5](https://github.com/amejiarosario/dsa.js/commit/f6b47b5a6c53126bebbad72ac92da1a594042232))
+
+
+### Features
+
+* **maps:** implement clear method for hashMap and treeMap ([924c9a7](https://github.com/amejiarosario/dsa.js/commit/924c9a76db91f7df44f7cb38caba3aa9c3f0497f))
+
 ## [1.7.1](https://github.com/amejiarosario/dsa.js/compare/1.7.0...1.7.1) (2020-05-20)
 
 
