@@ -31,7 +31,9 @@ class HashMap {
   }
 
   /**
-   * Reset or reinitialize all values on the hashmap. Used for rehashing.
+   * Reset or reinitialize all values on the hashmap.
+   *
+   * Used for rehashing, clear and initializing the map.
    *
    * @param {array} buckets - New bucket.
    * @param {number} size - The new size of the hashmap.
@@ -281,6 +283,13 @@ class HashMap {
    */
   get length() {
     return this.size;
+  }
+
+  /**
+   * Removes all key/value pairs from the Map object.
+   */
+  clear() {
+    this.reset();
   }
 }
 

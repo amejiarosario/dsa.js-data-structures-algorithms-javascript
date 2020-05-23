@@ -138,5 +138,19 @@ mapImplementations.forEach((MapImplementation) => {
         ]);
       });
     });
+
+    describe('#clear', () => {
+      beforeEach(() => {
+        map.set(1, 2);
+        map.set(2, 'dos');
+        map.set(3, 3);
+      });
+
+      it('should work', () => {
+        expect(map.size).toBe(3);
+        expect(map.clear()).toEqual();
+        expect(map.size).toBe(0);
+      });
+    });
   });
 });
