@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/amejiarosario/dsa.js/compare/1.8.0...1.8.1) (2020-05-24)
+
+
+### Bug Fixes
+
+* **book/maps:** update time/space complexity values ([3c4ef75](https://github.com/amejiarosario/dsa.js/commit/3c4ef7555c400828fb89339184294feb7169b215))
+
 # [1.8.0](https://github.com/amejiarosario/dsa.js/compare/1.7.1...1.8.0) (2020-05-23)
 
 
