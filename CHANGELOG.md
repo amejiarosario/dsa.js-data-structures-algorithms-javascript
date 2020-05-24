@@ -1,3 +1,10 @@
+## [1.8.2](https://github.com/amejiarosario/dsa.js/compare/1.8.1...1.8.2) (2020-05-24)
+
+
+### Bug Fixes
+
+* **book/hashset:** update hashset space complexity ([0319b29](https://github.com/amejiarosario/dsa.js/commit/0319b29e92a630c5f14d5e3208b72fe536b38f43))
+
 ## [1.8.1](https://github.com/amejiarosario/dsa.js/compare/1.8.0...1.8.1) (2020-05-24)
 
 
