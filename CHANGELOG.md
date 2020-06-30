@@ -1,3 +1,11 @@
+# [1.9.0](https://github.com/amejiarosario/dsa.js/compare/1.8.3...1.9.0) (2020-06-30)
+
+
+### Features
+
+* **heap:** remove by index ([6af937f](https://github.com/amejiarosario/dsa.js/commit/6af937fb380ffcd26558193c1626bdb84b2abe17))
+* **linkedList:** takes iterables in the constructor ([1fa875f](https://github.com/amejiarosario/dsa.js/commit/1fa875fd772eb4a45dd9690bea593b513687caca))
+
 ## [1.8.3](https://github.com/amejiarosario/dsa.js/compare/1.8.2...1.8.3) (2020-05-24)
 
 
