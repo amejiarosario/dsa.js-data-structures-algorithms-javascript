@@ -7,10 +7,12 @@ const Node = require('./node');
  * the last and first element
  */
 class LinkedList {
-  constructor() {
+  constructor(iterable = []) {
     this.first = null; // head/root element
     this.last = null; // last element of the list
     this.size = 0; // total number of elements in the list
+
+    Array.from(iterable, (i) => this.addLast(i));
   }
   // end::constructor[]
 
