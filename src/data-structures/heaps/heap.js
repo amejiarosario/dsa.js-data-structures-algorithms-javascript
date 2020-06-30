@@ -33,11 +33,11 @@ class Heap {
    * Retrieves and removes the head of this heap, or returns null if this heap is empty.
    * @runtime O(log n)
    */
-  remove() {
+  remove(index = 0) {
     if (!this.size()) return null;
-    this.swap(0, this.size() - 1);
-    const value = this.array.pop();
-    this.bubbleDown();
+    this.swap(index, this.size() - 1); // swap with last
+    const value = this.array.pop(); // remove element
+    this.bubbleDown(index);
     return value;
   }
 
@@ -66,17 +66,17 @@ class Heap {
    * After removal, moves element downwards on the heap, if it's out of order
    * @runtime O(log n)
    */
-  bubbleDown() {
-    let index = 0;
+  bubbleDown(index = 0) {
+    let curr = index;
     const left = (i) => 2 * i + 1;
     const right = (i) => 2 * i + 2;
     const getTopChild = (i) => (right(i) < this.size()
       && this.comparator(left(i), right(i)) > 0 ? right(i) : left(i));
 
-    while (left(index) < this.size() && this.comparator(index, getTopChild(index)) > 0) {
-      const next = getTopChild(index);
-      this.swap(index, next);
-      index = next;
+    while (left(curr) < this.size() && this.comparator(curr, getTopChild(curr)) > 0) {
+      const next = getTopChild(curr);
+      this.swap(curr, next);
+      curr = next;
     }
   }
 
