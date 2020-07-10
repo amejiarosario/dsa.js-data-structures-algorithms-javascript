@@ -250,12 +250,7 @@ class Graph {
   }
 }
 
-Graph.UNDIRECTED = Symbol('undirected graph'); // one-way edges
-Graph.DIRECTED = Symbol('directed graph'); // two-ways edges
+Graph.UNDIRECTED = Symbol('directed graph'); // two-ways edges
+Graph.DIRECTED = Symbol('undirected graph'); // one-way edges
 
 module.exports = Graph;
-
-/*
- * https://repl.it/@amejiarosario/graphpy
- * http://www.pythontutor.com/visualize.html#mode=edit - https://goo.gl/Xp7Zpm
- */
