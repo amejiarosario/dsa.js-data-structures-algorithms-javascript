@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/amejiarosario/dsa.js/compare/1.9.0...1.10.0) (2020-07-28)
+
+
+### Features
+
+* **book/arrays:** add exercises ([bcaf819](https://github.com/amejiarosario/dsa.js/commit/bcaf81919cb889c1209c6d1e577b037047714c05))
+
 # [1.9.0](https://github.com/amejiarosario/dsa.js/compare/1.8.3...1.9.0) (2020-06-30)
 
 
