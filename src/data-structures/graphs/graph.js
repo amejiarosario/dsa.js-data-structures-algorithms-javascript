@@ -47,7 +47,7 @@ class Graph {
   removeVertex(value) {
     const current = this.nodes.get(value); // <1>
     if (current) {
-      Array.from(this.nodes.values()).forEach(node => node.removeAdjacent(current)); // <2>
+      Array.from(this.nodes.values()).forEach((node) => node.removeAdjacent(current)); // <2>
     }
     return this.nodes.delete(value); // <3>
   }
@@ -156,7 +156,7 @@ class Graph {
       if (node && !visited.has(node)) {
         yield node;
         visited.set(node);
-        node.getAdjacents().forEach(adj => visitList.add(adj));
+        node.getAdjacents().forEach((adj) => visitList.add(adj));
       }
     }
   }
@@ -243,19 +243,14 @@ class Graph {
     sourceNode.getAdjacents().forEach((node) => {
       if (!newPath.has(node)) {
         const nextPaths = this.findAllPaths(node.value, destination, newPath);
-        nextPaths.forEach(nextPath => paths.push(nextPath));
+        nextPaths.forEach((nextPath) => paths.push(nextPath));
       }
     });
     return paths;
   }
 }
 
-Graph.UNDIRECTED = Symbol('undirected graph'); // one-way edges
-Graph.DIRECTED = Symbol('directed graph'); // two-ways edges
+Graph.UNDIRECTED = Symbol('directed graph'); // two-ways edges
+Graph.DIRECTED = Symbol('undirected graph'); // one-way edges
 
 module.exports = Graph;
-
-/*
- * https://repl.it/@amejiarosario/graphpy
- * http://www.pythontutor.com/visualize.html#mode=edit - https://goo.gl/Xp7Zpm
- */

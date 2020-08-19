@@ -2,7 +2,7 @@ const { Graph } = require('../../index');
 
 describe('Graph', () => {
   let graph;
-  const getValues = node => (Array.isArray(node) ? node.map(a => getValues(a)) : node.value);
+  const getValues = (node) => (Array.isArray(node) ? node.map((a) => getValues(a)) : node.value);
 
   beforeEach(() => {
     graph = new Graph();

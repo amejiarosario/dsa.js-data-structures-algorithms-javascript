@@ -16,7 +16,7 @@ class TreeSet {
    */
   constructor(iterable = []) {
     this.tree = new Tree();
-    Array.from(iterable).forEach(value => this.add(value)); // <1>
+    Array.from(iterable).forEach((value) => this.add(value)); // <1>
   }
 
   /**

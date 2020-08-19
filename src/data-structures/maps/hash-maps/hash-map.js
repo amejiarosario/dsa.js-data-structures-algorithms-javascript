@@ -1,6 +1,10 @@
 /* eslint-disable no-bitwise, no-iterator, no-restricted-syntax */
+const { TextEncoder } = require('util');
 const LinkedList = require('../../linked-lists/linked-list');
 const { nextPrime } = require('./primes');
+
+// Text encoding
+const encoding = new TextEncoder();
 
 /**
  * The map holds key-value pairs.
@@ -26,6 +30,17 @@ class HashMap {
     this.reset();
   }
 
+  /**
+   * Reset or reinitialize all values on the hashmap.
+   *
+   * Used for rehashing, clear and initializing the map.
+   *
+   * @param {array} buckets - New bucket.
+   * @param {number} size - The new size of the hashmap.
+   * @param {number} collisions - The number of collisions.
+   * @param {array} keysTrackerArray - The array of keys in insertion order
+   * @param {number} keysTrackerIndex - The last index of keysTrackerArray
+   */
   reset(
     buckets = new Array(this.initialCapacity),
     size = 0,
@@ -50,12 +65,16 @@ class HashMap {
    * @return {integer} bucket index
    */
   hashFunction(key) {
-    const str = String(key);
+    const bytes = encoding.encode(key);
+    const { length } = bytes;
+
     let hash = 2166136261; // FNV_offset_basis (32 bit)
-    for (let i = 0; i < str.length; i += 1) {
-      hash ^= str.codePointAt(i); // XOR
+
+    for (let i = 0; i < length; i++) {
+      hash ^= bytes[i]; // XOR
       hash *= 16777619; // 32 bit FNV_prime
     }
+
     return (hash >>> 0) % this.buckets.length;
   }
   // end::hashFunction[]
@@ -252,7 +271,7 @@ class HashMap {
   }
 
   /**
-   * the same function object as the initial value of the `entries` method.
+   * The same function object as the initial value of the `entries` method.
    * Contains the [key, value] pairs for each element in the Map.
    */
   * [Symbol.iterator]() {
@@ -264,6 +283,13 @@ class HashMap {
    */
   get length() {
     return this.size;
+  }
+
+  /**
+   * Removes all key/value pairs from the Map object.
+   */
+  clear() {
+    this.reset();
   }
 }
 

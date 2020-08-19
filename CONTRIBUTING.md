@@ -137,15 +137,9 @@ If the commit reverts a previous commit, it should begin with `revert: `, follow
 ### Type
 Must be one of the following:
 
-* **feat**: A new feature
 * **fix**: A bug fix
-* **docs**: Documentation only changes
-* **build**: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
-* **ci**: Changes to our CI configuration files and scripts (example scopes: Circle, BrowserStack, SauceLabs)
-* **test**: Adding missing tests or correcting existing tests
-* **refactor**: A code change that neither fixes a bug nor adds a feature
-* **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-* **perf**: A code change that improves performance
+* **feat**: A new feature
+* **chore**: Changes to our CI configuration files and scripts (example scopes: Circle, BrowserStack, SauceLabs)
 
 ### Scope
 The scope should be the name of the npm package affected (as perceived by the person reading the changelog generated from commit messages.
@@ -171,7 +165,7 @@ Just as in the **subject**, use the imperative, present tense: "change" not "cha
 The body should include the motivation for the change and contrast this with previous behavior.
 
 ### Footer
-The footer should contain any information about **Breaking Changes** and is also the place to
+The footer should contain any information about **BREAKING CHANGES** and is also the place to
 reference GitHub issues that this commit **Closes**.
 
 ```

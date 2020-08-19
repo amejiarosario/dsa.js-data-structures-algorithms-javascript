@@ -2,7 +2,7 @@ const { BinarySearchTree } = require('../../index');
 
 describe('Binary Search Tree', () => {
   let bst;
-  const getValues = treeGenerator => Array.from(treeGenerator).map(node => node.value);
+  const getValues = (treeGenerator) => Array.from(treeGenerator).map((node) => node.value);
 
   beforeEach(() => {
     bst = new BinarySearchTree();
@@ -134,7 +134,7 @@ describe('Binary Search Tree', () => {
         // get keys
         expect(getValues(bst.inOrderTraversal())).toEqual([1, {}, 'dos']);
         // get data
-        expect(Array.from(bst.inOrderTraversal()).map(n => n.data())).toEqual([
+        expect(Array.from(bst.inOrderTraversal()).map((n) => n.data())).toEqual([
           1,
           fn,
           2,
@@ -312,7 +312,7 @@ describe('Binary Search Tree', () => {
 
       it('should generate an array from dfs', () => {
         const nodes = Array.from(bst.dfs());
-        const values = nodes.map(node => node.value);
+        const values = nodes.map((node) => node.value);
         expect(values).toEqual([10, 5, 4, 3, 30, 15, 40]);
       });
     });
@@ -326,7 +326,7 @@ describe('Binary Search Tree', () => {
     describe('#preOrderTraversal', () => {
       it('should generate an array from preOrderTraversal', () => {
         const nodes = Array.from(bst.preOrderTraversal());
-        const values = nodes.map(node => node.value);
+        const values = nodes.map((node) => node.value);
         expect(values).toEqual([10, 5, 4, 3, 30, 15, 40]);
       });
     });
@@ -334,7 +334,7 @@ describe('Binary Search Tree', () => {
     describe('#postOrderTraversal', () => {
       it('should generate an array from postOrderTraversal', () => {
         const nodes = Array.from(bst.postOrderTraversal());
-        const values = nodes.map(node => node.value);
+        const values = nodes.map((node) => node.value);
         expect(values).toEqual([3, 4, 5, 15, 40, 30, 10]);
       });
     });

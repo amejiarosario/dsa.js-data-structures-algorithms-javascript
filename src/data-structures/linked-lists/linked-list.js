@@ -7,10 +7,12 @@ const Node = require('./node');
  * the last and first element
  */
 class LinkedList {
-  constructor() {
+  constructor(iterable = []) {
     this.first = null; // head/root element
     this.last = null; // last element of the list
     this.size = 0; // total number of elements in the list
+
+    Array.from(iterable, (i) => this.addLast(i));
   }
   // end::constructor[]
 
@@ -266,6 +268,25 @@ class LinkedList {
   }
 
   /**
+   * Remove element by Node
+   * O(1)
+   */
+  removeByNode(node) {
+    if (!node) { return null; }
+    if (node === this.first) {
+      return this.removeFirst();
+    }
+    if (node === this.last) {
+      return this.removeLast();
+    }
+    node.previous.next = node.next;
+    node.next.previous = node.previous;
+    this.size -= 1;
+
+    return node.value;
+  }
+
+  /**
    * Iterate through the list yield on each node
    * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#User-defined_iterables
    */
@@ -279,7 +300,7 @@ class LinkedList {
 
   toString() {
     const parts = [...this]; // see [Symbol.iterator]()
-    return parts.map(n => util.inspect(n.node.value)).join(' -> ');
+    return parts.map((n) => util.inspect(n.node.value)).join(' -> ');
   }
 }
 

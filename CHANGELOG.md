@@ -1,3 +1,77 @@
+# [1.10.0](https://github.com/amejiarosario/dsa.js/compare/1.9.0...1.10.0) (2020-07-28)
+
+
+### Features
+
+* **book/arrays:** add exercises ([bcaf819](https://github.com/amejiarosario/dsa.js/commit/bcaf81919cb889c1209c6d1e577b037047714c05))
+
+# [1.9.0](https://github.com/amejiarosario/dsa.js/compare/1.8.3...1.9.0) (2020-06-30)
+
+
+### Features
+
+* **heap:** remove by index ([6af937f](https://github.com/amejiarosario/dsa.js/commit/6af937fb380ffcd26558193c1626bdb84b2abe17))
+* **linkedList:** takes iterables in the constructor ([1fa875f](https://github.com/amejiarosario/dsa.js/commit/1fa875fd772eb4a45dd9690bea593b513687caca))
+
+## [1.8.3](https://github.com/amejiarosario/dsa.js/compare/1.8.2...1.8.3) (2020-05-24)
+
+
+### Bug Fixes
+
+* **book/maps:** update space complexity ([0be0176](https://github.com/amejiarosario/dsa.js/commit/0be0176efc121c5608c1a2df25280d6d9c08e6f3))
+
+## [1.8.2](https://github.com/amejiarosario/dsa.js/compare/1.8.1...1.8.2) (2020-05-24)
+
+
+### Bug Fixes
+
+* **book/hashset:** update hashset space complexity ([0319b29](https://github.com/amejiarosario/dsa.js/commit/0319b29e92a630c5f14d5e3208b72fe536b38f43))
+
+## [1.8.1](https://github.com/amejiarosario/dsa.js/compare/1.8.0...1.8.1) (2020-05-24)
+
+
+### Bug Fixes
+
+* **book/maps:** update time/space complexity values ([3c4ef75](https://github.com/amejiarosario/dsa.js/commit/3c4ef7555c400828fb89339184294feb7169b215))
+
+# [1.8.0](https://github.com/amejiarosario/dsa.js/compare/1.7.1...1.8.0) (2020-05-23)
+
+
+### Bug Fixes
+
+* **book/map:** fix typo on maps space complexity ([2f24f57](https://github.com/amejiarosario/dsa.js/commit/2f24f57f989bb97f198bb32f6daa477d6075dc31))
+* **hashmap:** improve methods documentation ([f6b47b5](https://github.com/amejiarosario/dsa.js/commit/f6b47b5a6c53126bebbad72ac92da1a594042232))
+
+
+### Features
+
+* **maps:** implement clear method for hashMap and treeMap ([924c9a7](https://github.com/amejiarosario/dsa.js/commit/924c9a76db91f7df44f7cb38caba3aa9c3f0497f))
+
+## [1.7.1](https://github.com/amejiarosario/dsa.js/compare/1.7.0...1.7.1) (2020-05-20)
+
+
+### Bug Fixes
+
+* **hashmap:** fix TextEncoder reference ([e13ff88](https://github.com/amejiarosario/dsa.js/commit/e13ff88d7f8f9b7f38844befedc001bc1a4b243f))
+
+# [1.7.0](https://github.com/amejiarosario/dsa.js/compare/1.6.0...1.7.0) (2020-05-16)
+
+
+### Features
+
+* **heap:** add min/max/median-heaps ([202ca9f](https://github.com/amejiarosario/dsa.js/commit/202ca9f989ddba433b4f591e27bc094640cbbadf))
+
+# [1.6.0](https://github.com/amejiarosario/dsa.js/compare/1.5.0...1.6.0) (2020-05-08)
+
+# [1.5.0](https://github.com/amejiarosario/dsa.js/compare/1.4.0...1.5.0) (2020-03-30)
+
+
+### Features
+
+* **linkedList:** remove by node ([eac045a](https://github.com/amejiarosario/dsa.js/commit/eac045a6bedd0223a2e8b12225f87c428e6fb66f))
+* **lru-cache:** add new implementations ([3e787c6](https://github.com/amejiarosario/dsa.js/commit/3e787c6f9ba9c094272be5ac05b997ce44a359d3))
+* **trie:** remove method ([16005f3](https://github.com/amejiarosario/dsa.js/commit/16005f3bf39597759918e34b39d27eb25a5755e7))
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -12,6 +86,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### New Features (minor)
 
 ### Bug Fixes (patch)
+
+## [1.3.9]
+
+### Breaking Changes (major)
+
+### New Features (minor)
+
+### Bug Fixes (patch)
+- fix(book): fix table typos [commit](https://github.com/amejiarosario/dsa.js/commit/bc51a7a0c97aea9dea1afa5f8af22c0bed1382d3)
+
+## [1.3.8]
+
+### Breaking Changes (major)
+
+### New Features (minor)
+
+### Bug Fixes (patch)
+- fix(book): fix typo, array pop, and BST images [commit](https://github.com/amejiarosario/dsa.js/commit/ac9858348943f9678d116c8076bfa3a3c5362741)
 
 ## [1.3.7]
 
@@ -125,7 +217,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -
 
-[Unreleased]: https://github.com/amejiarosario/dsa.js/compare/1.3.7...HEAD
+[Unreleased]: https://github.com/amejiarosario/dsa.js/compare/1.3.9...HEAD
+[1.3.9]: https://github.com/amejiarosario/dsa.js/compare/1.3.8...1.3.9
+[1.3.7]: https://github.com/amejiarosario/dsa.js/compare/1.3.7...1.3.8
 [1.3.6]: https://github.com/amejiarosario/dsa.js/compare/1.3.6...1.3.7
 [1.3.6]: https://github.com/amejiarosario/dsa.js/compare/1.3.5...1.3.6
 [1.3.5]: https://github.com/amejiarosario/dsa.js/compare/1.3.4...1.3.5

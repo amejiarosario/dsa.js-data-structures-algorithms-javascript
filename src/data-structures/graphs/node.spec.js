@@ -10,7 +10,7 @@ describe('Node (Graph)', () => {
   describe('#addAdjacent', () => {
     it('should add node to adjacent list', () => {
       node.addAdjacent(new Node(2));
-      expect(node.getAdjacents().map(n => n.value)).toEqual([2]);
+      expect(node.getAdjacents().map((n) => n.value)).toEqual([2]);
     });
   });
 
@@ -32,26 +32,26 @@ describe('Node (Graph)', () => {
 
     it('should remove node to adjacent list', () => {
       expect(a.removeAdjacent(c)).toBe(true);
-      expect(node.getAdjacents().map(n => n.value)).toEqual(['b']);
+      expect(node.getAdjacents().map((n) => n.value)).toEqual(['b']);
 
       expect(a.removeAdjacent(b)).toBe(true);
-      expect(node.getAdjacents().map(n => n.value)).toEqual([]);
+      expect(node.getAdjacents().map((n) => n.value)).toEqual([]);
     });
 
     it('should return undefined if not found', () => {
       expect(a.removeAdjacent(d)).toBe(false);
-      expect(node.getAdjacents().map(n => n.value)).toEqual(['b', 'c']);
+      expect(node.getAdjacents().map((n) => n.value)).toEqual(['b', 'c']);
     });
   });
 
   describe('#getAdjacents', () => {
     it('should get adjacents', () => {
       node.addAdjacent(new Node('b'));
-      expect(node.getAdjacents().map(n => n.value)).toEqual(['b']);
+      expect(node.getAdjacents().map((n) => n.value)).toEqual(['b']);
     });
 
     it('should get adjacents when empty', () => {
-      expect(node.getAdjacents().map(n => n.value)).toEqual([]);
+      expect(node.getAdjacents().map((n) => n.value)).toEqual([]);
     });
   });
 
