@@ -11,11 +11,9 @@ const assert = require('assert');
  */
 function merge(a = [], b = []) {
   const merged = [];
-  let ai = 0;
-  let bi = 0;
   // merge elements on a and b in asc order. Run-time O(a + b)
   for (let ai = 0, bi = 0; ai < a.length || bi < b.length;) {
-    if(ai >= a.length || a[ai] > b[bi]) {
+    if (ai >= a.length || a[ai] > b[bi]) {
       merged.push(b[bi++]);
     } else {
       merged.push(a[ai++]);
