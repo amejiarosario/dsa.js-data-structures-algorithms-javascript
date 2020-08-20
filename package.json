@@ -13,9 +13,10 @@
     "src/**/*.js"
   ],
   "scripts": {
-    "test": "jest src/",
-    "watch": "jest src/ --watch --coverage",
-    "coverage": "jest src/ --coverage && open coverage/lcov-report/index.html",
+    "test": "jest",
+    "watch": "jest --watch --coverage",
+    "coverage": "jest --coverage && open coverage/lcov-report/index.html",
+    "coverage:win": "jest --coverage && cmd.exe /C start coverage/lcov-report/index.html",
     "lint": "npx eslint --fix --format codeframe src/",
     "ci": "npx eslint src/ && jest src/ --coverage",
     "semantic-release": "semantic-release",
