@@ -13,8 +13,8 @@
     "src/**/*.js"
   ],
   "scripts": {
-    "test": "jest",
-    "watch": "jest --watch --coverage",
+    "test": "jest --verbose",
+    "watch": "jest --watch --verbose --coverage",
     "coverage": "jest --coverage && open coverage/lcov-report/index.html",
     "coverage:win": "jest --coverage && cmd.exe /C start coverage/lcov-report/index.html",
     "lint": "npx eslint --fix --format codeframe src/",
