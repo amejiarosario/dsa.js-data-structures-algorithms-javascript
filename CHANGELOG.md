@@ -1,3 +1,19 @@
+# [1.11.0](https://github.com/amejiarosario/dsa.js/compare/1.10.0...1.11.0) (2020-08-22)
+
+
+### Bug Fixes
+
+* **book:** multiple broken links and bump epub version ([57960e2](https://github.com/amejiarosario/dsa.js/commit/57960e2c4f483e779e8344e07406ce7d67d4d9b8)), closes [#60](https://github.com/amejiarosario/dsa.js/issues/60)
+* **book:** workaround for c++ issue in asciidoc ([dbdef21](https://github.com/amejiarosario/dsa.js/commit/dbdef2141ac1449c649cc76790d7990374e78808))
+
+
+### Features
+
+* **book:** add appendix D with interview question solutions ([ca119f2](https://github.com/amejiarosario/dsa.js/commit/ca119f2b2fe5e4392a0b13278b5a6ba9e907952c))
+* **book:array:** add solutions for interview questions ([b5a00dd](https://github.com/amejiarosario/dsa.js/commit/b5a00dded45a1f4eeab3bbbdd68ccbcbf02419d3))
+* **book/array:** add max subarray questions and solution ([5935b95](https://github.com/amejiarosario/dsa.js/commit/5935b95ea761402b296e5a4fbd6e3643714bcaf9))
+* **book/array:** add stock questions and solution ([6ab8bc4](https://github.com/amejiarosario/dsa.js/commit/6ab8bc4449323b059888edf84d66c76c9e812f4e))
+
 # [1.10.0](https://github.com/amejiarosario/dsa.js/compare/1.9.0...1.10.0) (2020-07-28)
 
 
