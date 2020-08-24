@@ -52,7 +52,7 @@ jobs: # a collection of steps
 
   docs:
     docker:
-      - image: circleci/ruby:2.5.3-stretch-node
+      - image: circleci/ruby:2.7.1-buster-node
     environment:
       NOKOGIRI_USE_SYSTEM_LIBRARIES: true
     steps:
