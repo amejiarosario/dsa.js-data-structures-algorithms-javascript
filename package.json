@@ -15,10 +15,10 @@
   "scripts": {
     "test": "jest --verbose",
     "watch": "jest --watch --verbose --coverage",
+    "ci": "npx eslint src/ && jest --coverage",
     "coverage": "jest --coverage && open coverage/lcov-report/index.html",
     "coverage:win": "jest --coverage && cmd.exe /C start coverage/lcov-report/index.html",
     "lint": "npx eslint --fix --format codeframe src/",
-    "ci": "npx eslint src/ && jest src/ --coverage",
     "semantic-release": "semantic-release",
     "release:check": "semantic-release --dry-run"
   },
