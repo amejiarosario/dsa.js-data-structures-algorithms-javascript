@@ -6,7 +6,9 @@ const ListNode = require('../../src/data-structures/linked-lists/node');
  *    mergeTwoLists([2,4,6], [1,3]); // => [1,2,3,4,6]
  *    mergeTwoLists([2,4,6], []); // => [2,4,6]
  *    mergeTwoLists([], [1,3]); // => [1,3]
- * @param {number[]} prices - Array with daily stock prices
+ *
+ * @param {ListNode} l1 - The root node of list 1
+ * @param {ListNode} l2 - The root node of list 2
  */
 function mergeTwoLists(l1, l2) {
   // end::description[]
