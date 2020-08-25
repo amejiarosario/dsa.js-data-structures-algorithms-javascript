@@ -11,24 +11,23 @@ const ListNode = require('../../src/data-structures/linked-lists/node');
 function mergeTwoLists(l1, l2) {
   // end::description[]
   // tag::solution[]
-  const l0 = new ListNode();
-  let i0 = l0;
-  let i1 = l1;
-  let i2 = l2;
+  const sentinel = new ListNode();
+  let p0 = sentinel;
+  let p1 = l1;
+  let p2 = l2;
 
-  while (i1 || i2) {
-    if (!i1 || (i2 && i1.value > i2.value)) {
-      i0.next = i2;
-      i2 = i2.next;
+  while (p1 || p2) {
+    if (!p1 || (p2 && p1.value > p2.value)) {
+      p0.next = p2;
+      p2 = p2.next;
     } else {
-      i0.next = i1;
-      i1 = i1.next;
+      p0.next = p1;
+      p1 = p1.next;
     }
-
-    i0 = i0.next;
+    p0 = p0.next;
   }
 
-  return l0.next;
+  return sentinel.next;
 }
 // end::solution[]
 
