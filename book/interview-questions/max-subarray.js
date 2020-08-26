@@ -4,7 +4,6 @@
  * @examples
  *    maxSubArray([1, -3, 10, -5]); // => 10
  *    maxSubArray([-3,4,-1,2,1,-5]); // => 6
- *
  * @param {number[]} a - Array
  */
 function maxSubArray(a) {
