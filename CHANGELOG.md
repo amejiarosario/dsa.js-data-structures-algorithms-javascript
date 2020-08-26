@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/amejiarosario/dsa.js/compare/1.12.0...1.13.0) (2020-08-26)
+
+
+### Features
+
+* **book/exercises:** interview q&a for linked lists and stacks ([3bb86fd](https://github.com/amejiarosario/dsa.js/commit/3bb86fd544f543906b5723aab1f26d5a75f13950))
+
 # [1.12.0](https://github.com/amejiarosario/dsa.js/compare/1.11.0...1.12.0) (2020-08-26)
 
 
