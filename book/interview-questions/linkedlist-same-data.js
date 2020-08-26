@@ -40,6 +40,7 @@ function hasSameData(l1, l2) {
 }
 // end::solution[]
 
+// tag::hasSameDataBrute1[]
 function hasSameDataBrute1(l1, l2) {
   function toString(node) {
     const str = [];
@@ -52,6 +53,7 @@ function hasSameDataBrute1(l1, l2) {
   // console.log({s1: toString(l1), s2: toString(l2) });
   return toString(l1) === toString(l2);
 }
+// end::hasSameDataBrute1[]
 
 function hasSameData1(l1, l2) {
   let p1 = l1;
