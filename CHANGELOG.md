@@ -1,3 +1,15 @@
+# [1.12.0](https://github.com/amejiarosario/dsa.js/compare/1.11.0...1.12.0) (2020-08-26)
+
+
+### Features
+
+* **book/exercises:** interview q&a for linked lists and stacks ([#69](https://github.com/amejiarosario/dsa.js/issues/69)) ([ca4bf45](https://github.com/amejiarosario/dsa.js/commit/ca4bf45369ef772f4861e7619d3ea74ddc41cde4))
+
+
+### Reverts
+
+* Revert "(book/exercises): interview q&a for linked lists and stacks (#69)" (#70) ([06bd3f6](https://github.com/amejiarosario/dsa.js/commit/06bd3f6a8542b111e4c9e3b5d41050094b153112)), closes [#69](https://github.com/amejiarosario/dsa.js/issues/69) [#70](https://github.com/amejiarosario/dsa.js/issues/70)
+
 # [1.11.0](https://github.com/amejiarosario/dsa.js/compare/1.10.0...1.11.0) (2020-08-22)
 
 
