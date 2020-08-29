@@ -8,20 +8,13 @@ const { Queue } = require('../../src/index');
  * any requests that happened more than 2 seconds before the most recent request
  * should not count.
  *
- * @example - The time window is 10 ms.
- *   const counter = new RecentCounter(10);
- *   counter.request(1000); // 1 (first request, it counts)
- *   counter.request(3000); // 1 (last requests was 2000 ms ago, > 10ms, so doesn't count)
- *   counter.request(3100); // 1 (last requests was 100 ms ago, > 10ms, so doesn't count)
- *   counter.request(3105); // 2 (last requests was 5 ms ago, <= 10ms, so it counts)
- *
  * @example - The time window is 3 sec. (3000 ms)
  *  const counter = new RecentCounter(3000);
  *  counter.request(100); // 1
  *  counter.request(1000); // 2
  *  counter.request(3000); // 3
  *  counter.request(3100); // 4
- *  counter.request(3101); // 4 (request at time 100 is out of the 3000 window).
+ *  counter.request(3101); // 4
  *
  */
 class RecentCounter {
