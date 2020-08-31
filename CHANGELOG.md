@@ -1,3 +1,14 @@
+# [1.14.0](https://github.com/amejiarosario/dsa.js/compare/1.13.0...1.14.0) (2020-08-31)
+
+
+### Features
+
+* **book/questions:** add examples ([c1a8f8e](https://github.com/amejiarosario/dsa.js/commit/c1a8f8ec53f6c4c1302001dba6d913c81156fd98))
+* **book/questions:** add where the interview questions have been seen ([1f01baf](https://github.com/amejiarosario/dsa.js/commit/1f01bafdb55dcd82f6b88bdf1252c5aabb39277a))
+* **book/queue:** add recent counter questions and solution ([77d4596](https://github.com/amejiarosario/dsa.js/commit/77d459642ca61f729e698c892928665e76532701))
+* **book/queue:** add solution for queue question ([9a88766](https://github.com/amejiarosario/dsa.js/commit/9a887660bd21e7dbda0d3e87af704b4e41874093))
+* **queue:** add front, back and peek methods ([04aa9db](https://github.com/amejiarosario/dsa.js/commit/04aa9db26659058c09debe985f94845933a2089d))
+
 # [1.13.0](https://github.com/amejiarosario/dsa.js/compare/1.12.0...1.13.0) (2020-08-26)
 
 
