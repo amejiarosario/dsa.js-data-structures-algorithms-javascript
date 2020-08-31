@@ -46,4 +46,28 @@ describe('Queue', () => {
       expect(queue.isEmpty()).toBe(false);
     });
   });
+
+  describe('#back', () => {
+    it('should return null if empty', () => {
+      expect(queue.back()).toEqual(null);
+    });
+
+    it('should return newest element', () => {
+      queue.enqueue('oldest');
+      queue.enqueue('newest');
+      expect(queue.back()).toEqual('newest');
+    });
+  });
+
+  describe('#front', () => {
+    it('should return null if empty', () => {
+      expect(queue.front()).toEqual(null);
+    });
+
+    it('should return oldest element', () => {
+      queue.enqueue('oldest');
+      queue.enqueue('newest');
+      expect(queue.front()).toEqual('oldest');
+    });
+  });
 });

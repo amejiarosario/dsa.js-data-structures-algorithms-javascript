@@ -1,18 +1,31 @@
 const LinkedList = require('../linked-lists/linked-list');
 
+/* Usage Example:
+// tag::snippet[]
+const queue = new Queue();
+
+queue.enqueue('a');
+queue.enqueue('b');
+queue.dequeue(); //↪️ a
+queue.enqueue('c');
+queue.dequeue(); //↪️ b
+queue.dequeue(); //↪️ c
+// end::snippet[]
+// */
+
 // tag::constructor[]
 /**
  * Data structure where we add and remove elements in a first-in, first-out (FIFO) fashion
  */
 class Queue {
-  constructor() {
-    this.items = new LinkedList();
+  constructor(iterable = []) {
+    this.items = new LinkedList(iterable);
   }
   // end::constructor[]
 
   // tag::enqueue[]
   /**
-   * Add element to the queue
+   * Add element to the back of the queue.
    * Runtime: O(1)
    * @param {any} item
    * @returns {queue} instance to allow chaining.
@@ -25,7 +38,7 @@ class Queue {
 
   // tag::dequeue[]
   /**
-   * Remove element from the queue
+   * Remove element from the front of the queue.
    * Runtime: O(1)
    * @returns {any} removed value.
    */
@@ -47,23 +60,30 @@ class Queue {
   isEmpty() {
     return !this.items.size;
   }
+
+  /**
+   * Return the most recent value or null if empty.
+   */
+  back() {
+    if (this.isEmpty()) return null;
+    return this.items.last.value;
+  }
+
+  /**
+   * Return oldest value from the queue or null if empty.
+   * (Peek at the next value to be dequeue)
+   */
+  front() {
+    if (this.isEmpty()) return null;
+    return this.items.first.value;
+  }
 }
 
 // Aliases
+Queue.prototype.peek = Queue.prototype.front;
 Queue.prototype.add = Queue.prototype.enqueue;
+Queue.prototype.push = Queue.prototype.enqueue;
 Queue.prototype.remove = Queue.prototype.dequeue;
+Queue.prototype.pop = Queue.prototype.dequeue;
 
 module.exports = Queue;
-
-/* Usage Example:
-// tag::snippet[]
-const queue = new Queue();
-
-queue.enqueue('a');
-queue.enqueue('b');
-queue.dequeue(); //↪️ a
-queue.enqueue('c');
-queue.dequeue(); //↪️ b
-queue.dequeue(); //↪️ c
-// end::snippet[]
-// */

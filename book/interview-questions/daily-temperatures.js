@@ -5,8 +5,8 @@
  * for each elem from the input.
  *
  * @examples
- *    dailyTemperatures([30, 28, 50, 40, 30]); // [2, 1, 0, 0, 0]
- *    dailyTemperatures([73, 69, 72, 76, 73]); // [3, 1, 1, 0, 0]
+ *  dailyTemperatures([30, 28, 50, 40, 30]); // [2, 1, 0, 0, 0]
+ *  dailyTemperatures([73, 69, 72, 76, 73]); // [3, 1, 1, 0, 0]
  *
  * @param {number[]} t - Daily temperatures
  */
