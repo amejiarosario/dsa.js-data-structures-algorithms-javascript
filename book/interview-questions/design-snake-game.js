@@ -14,9 +14,9 @@ const { Queue } = require('../../src/index');
  *  snakeGame.move('R'); //  0
  *  snakeGame.move('D'); //  0
  *  snakeGame.move('R'); //  0
- *  snakeGame.move('U'); //  1 (ate the food1)
- *  snakeGame.move('L'); //  2 (ate the food2)
- *  snakeGame.move('U'); // -1 (hit the upper wall)
+ *  snakeGame.move('U'); //  1
+ *  snakeGame.move('L'); //  2
+ *  snakeGame.move('U'); // -1
  */
 class SnakeGame {
 // end::description[]
