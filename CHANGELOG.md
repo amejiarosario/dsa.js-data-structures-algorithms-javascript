@@ -1,3 +1,17 @@
+# [1.15.0](https://github.com/amejiarosario/dsa.js/compare/1.14.0...1.15.0) (2020-09-02)
+
+
+### Bug Fixes
+
+* **book/solutions:** fix missing solutions ([464417e](https://github.com/amejiarosario/dsa.js/commit/464417e37ccde00d56d8ebb9c0d0ddc9e510e368))
+
+
+### Features
+
+* **BinaryTreeNode:** add BinaryTreeNode.from ([bcb4c28](https://github.com/amejiarosario/dsa.js/commit/bcb4c28089a96248ab9d623c25e1719e030caedc))
+* **book/binary-tree:** add right side view exercise and solution ([28346a4](https://github.com/amejiarosario/dsa.js/commit/28346a448e7f1be640751098b4a954ac04dd0aad))
+* **book/bt:** add binary tree diameter problem ([068dd9c](https://github.com/amejiarosario/dsa.js/commit/068dd9cc66e5a3050cc44d4cd3a05eb15f8c00d1))
+
 # [1.14.0](https://github.com/amejiarosario/dsa.js/compare/1.13.0...1.14.0) (2020-08-31)
 
 
