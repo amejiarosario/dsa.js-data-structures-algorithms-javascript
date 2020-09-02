@@ -172,6 +172,21 @@ class BinaryTreeNode {
     this.meta.data = value;
     return this;
   }
+
+  /**
+   * Convert Binary tree from an iterable (e.g. array)
+   * @param {array|string} iterable - The iterable
+   */
+  static from(iterable = []) {
+    const toBinaryTree = (array, index = 0) => {
+      if (index >= array.length) return null;
+      const node = new BinaryTreeNode(array[index]);
+      node.setLeftAndUpdateParent(toBinaryTree(array, index * 2 + 1));
+      node.setRightAndUpdateParent(toBinaryTree(array, index * 2 + 2));
+      return node;
+    };
+    return toBinaryTree(Array.from(iterable));
+  }
 }
 
 BinaryTreeNode.RIGHT = RIGHT;

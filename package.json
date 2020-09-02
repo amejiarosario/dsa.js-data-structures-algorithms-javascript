@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "test": "jest --verbose",
-    "watch": "jest --watch --verbose --coverage",
+    "watch": "jest --watch --coverage",
     "ci": "npx eslint src/ && jest --coverage",
     "coverage": "jest --coverage && open coverage/lcov-report/index.html",
     "coverage:win": "jest --coverage && cmd.exe /C start coverage/lcov-report/index.html",
