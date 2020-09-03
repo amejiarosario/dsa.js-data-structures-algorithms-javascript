@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/amejiarosario/dsa.js/compare/1.15.0...1.16.0) (2020-09-03)
+
+
+### Features
+
+* **book/hashmap:** add exercises and solutions ([d18186b](https://github.com/amejiarosario/dsa.js/commit/d18186b61c260e3ae2cc1267cadd16c8cb453e00))
+
 # [1.15.0](https://github.com/amejiarosario/dsa.js/compare/1.14.0...1.15.0) (2020-09-02)
 
 
