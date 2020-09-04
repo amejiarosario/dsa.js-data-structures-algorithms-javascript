@@ -1,4 +1,11 @@
 // tag::description[]
+/**
+ * Find the number of subarrays that add up to k.
+ * @example subarraySum([1, -1, 1], 0); // 3 ([1,-1,1], [1], [1])
+ * @param {number[]} nums - Array of integers.
+ * @param {number} k - The target sum.
+ * @returns {number} - The number of solutions.
+ */
 function subarraySum(nums, k) {
   // end::description[]
   // tag::placeholder[]

@@ -1,4 +1,10 @@
 // tag::description[]
+/**
+ * Find the length of the longest substring without duplicates.
+ * @example lenLongestSubstring('abccxyz'); // => 4 (cxyz)
+ * @param {string} s - The string.
+ * @returns {number} - The length of the longest unique substring.
+ */
 function lenLongestSubstring(s) {
   // end::description[]
   // tag::placeholder[]

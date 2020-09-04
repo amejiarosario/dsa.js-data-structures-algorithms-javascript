@@ -1,9 +1,10 @@
 // tag::description[]
 /**
  * Find the most common word that is not banned.
- *
+ * @example mostCommonWord("It's blue and it's round", ['and']) // it
  * @param {string} paragraph - The text to sanitize and search on.
  * @param {string[]} banned - List of banned words (lowercase)
+ * @returns {string} - The first word that is the most repeated.
  */
 function mostCommonWord(paragraph, banned) {
   // end::description[]

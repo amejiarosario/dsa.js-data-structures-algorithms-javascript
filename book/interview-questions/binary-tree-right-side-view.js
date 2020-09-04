@@ -4,7 +4,7 @@ const { Queue } = require('../../src/index');
 /**
  * Find the rightmost nodes by level.
  *
- * @example
+ * @example rightSideView(bt([1,2,3,4])); // [1, 3, 4]
  *     1      <- 1
  *   /   \
  *  2     3   <- 3

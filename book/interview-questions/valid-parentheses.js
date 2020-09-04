@@ -2,12 +2,13 @@
 /**
  * Validate if the parentheses are opened and closed in the right order.
  *
- * @example
+ * @examples
  *  isParenthesesValid('(){}[]'); // true
  *  isParenthesesValid('([{}])'); // true
  *  isParenthesesValid('([{)}]'); // false
  *
  * @param {string} string - The string
+ * @returns {boolean} - True if valid, false otherwise.
  */
 function isParenthesesValid(string) {
   // end::description[]
