@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/amejiarosario/dsa.js/compare/1.16.0...1.17.0) (2020-09-04)
+
+
+### Features
+
+* **book/set:** add questions and solutions ([f40dc63](https://github.com/amejiarosario/dsa.js/commit/f40dc6314a14e1750146a19163b3b70c30f09d70))
+
 # [1.16.0](https://github.com/amejiarosario/dsa.js/compare/1.15.0...1.16.0) (2020-09-03)
 
 
