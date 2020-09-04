@@ -5,8 +5,8 @@ const { Queue } = require('../../src/index');
  * Counts the most recent requests within a time window.
  * Each request has its timestamp.
  * If the time window is 2 seconds,
- * any requests that happened more than 2 seconds before the most recent request
- * should not count.
+ * any requests that happened more than 2 seconds before the most
+ * recent request should not count.
  *
  * @example - The time window is 3 sec. (3000 ms)
  *  const counter = new RecentCounter(3000);

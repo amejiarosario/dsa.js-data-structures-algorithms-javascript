@@ -9,8 +9,9 @@
  *    hasSameData(['he', 'll', 'o'], ['hel', 'lo']); // true
  *    hasSameData(['hel', 'lo'], ['hi']); // false
  *
- * @param {ListNode} l1 - The root node of list 1
- * @param {ListNode} l2 - The root node of list 2
+ * @param {ListNode} l1 - The root node of list 1.
+ * @param {ListNode} l2 - The root node of list 2.
+ * @returns {boolean} - true if has same data, false otherwise.
  */
 function hasSameData(l1, l2) {
   // end::description[]

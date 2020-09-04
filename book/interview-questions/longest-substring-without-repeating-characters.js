@@ -1,6 +1,16 @@
-// https://leetcode.com/problems/longest-substring-without-repeating-characters/submissions/
-
-function lengthOfLongestSubstring(s: string): number {
+// tag::description[]
+/**
+ * Find the length of the longest substring without duplicates.
+ * @example lenLongestSubstring('abccxyz'); // => 4 (cxyz)
+ * @param {string} s - The string.
+ * @returns {number} - The length of the longest unique substring.
+ */
+function lenLongestSubstring(s) {
+  // end::description[]
+  // tag::placeholder[]
+  // write your code here...
+  // end::placeholder[]
+  // tag::solution[]
   let max = 0;
   const set = new Set();
 
@@ -11,4 +21,9 @@ function lengthOfLongestSubstring(s: string): number {
   }
 
   return max;
-};
+  // end::solution[]
+  // tag::description[]
+}
+// end::description[]
+
+module.exports = { lenLongestSubstring };

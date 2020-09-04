@@ -7,6 +7,7 @@
  *  maxSubArray([-3,4,-1,2,1,-5]); // => 6
  *
  * @param {number[]} a - Array
+ * @returns {number} - max sum
  */
 function maxSubArray(a) {
 // end::description[]

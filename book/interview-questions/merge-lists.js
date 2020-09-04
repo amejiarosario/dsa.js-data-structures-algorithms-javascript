@@ -9,6 +9,7 @@ const ListNode = require('../../src/data-structures/linked-lists/node');
  *
  * @param {ListNode} l1 - The root node of list 1
  * @param {ListNode} l2 - The root node of list 2
+ * @returns {ListNode} - The root of the merged list.
  */
 function mergeTwoLists(l1, l2) {
   // end::description[]

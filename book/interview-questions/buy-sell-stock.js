@@ -6,6 +6,7 @@
  *    maxProfit([1, 2, 3]); // => 2
  *    maxProfit([3, 2, 1]); // => 0
  * @param {number[]} prices - Array with daily stock prices
+ * @returns {number} - Max profit
  */
 function maxProfit(prices) {
 // end::description[]

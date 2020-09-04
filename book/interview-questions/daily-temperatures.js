@@ -9,6 +9,7 @@
  *  dailyTemperatures([73, 69, 72, 76, 73]); // [3, 1, 1, 0, 0]
  *
  * @param {number[]} t - Daily temperatures
+ * @returns {number[]} - Array with count of days to warmer temp.
  */
 function dailyTemperatures(t) {
   // end::description[]

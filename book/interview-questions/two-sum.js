@@ -1,4 +1,12 @@
 // tag::description[]
+/**
+ * Find two numbers that add up to the target value.
+ * Return empty array if not found.
+ * @example twoSum([19, 7, 3], 10) // => [1, 2]
+ * @param {number[]} nums - Array of integers
+ * @param {number} target - The target sum.
+ * @returns {[number, number]} - Array with index 1 and index 2
+ */
 function twoSum(nums, target) {
   // end::description[]
   // tag::placeholder[]
