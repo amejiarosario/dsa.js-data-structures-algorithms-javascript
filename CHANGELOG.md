@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/amejiarosario/dsa.js/compare/1.17.0...1.18.0) (2020-09-07)
+
+
+### Features
+
+* **book/graph:** add schedule exercise and solution ([6a83cf8](https://github.com/amejiarosario/dsa.js/commit/6a83cf8a5d454b26e3048aa4ca73e44eafca0ed3))
+
 # [1.17.0](https://github.com/amejiarosario/dsa.js/compare/1.16.0...1.17.0) (2020-09-04)
 
 
