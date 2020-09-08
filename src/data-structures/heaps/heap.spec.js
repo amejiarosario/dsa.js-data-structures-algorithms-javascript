@@ -3,12 +3,16 @@ const PriorityQueue = require('./priority-queue');
 const MaxHeap = require('./max-heap');
 const MinHeap = require('./min-heap');
 
-[[Heap], [PriorityQueue], [MinHeap]].forEach(([DS, arg]) => {
-  describe('Min-Heap (Priority Queue)', () => {
+[
+  [Heap],
+  [PriorityQueue, [], (a, b) => a - b],
+  [MinHeap],
+].forEach(([DS, ...arg]) => {
+  describe('Min-Heap and Priority Queue', () => {
     let heap;
 
     beforeEach(() => {
-      heap = new DS(arg);
+      heap = new DS(...arg);
     });
 
     describe('#contructor', () => {
@@ -21,7 +25,7 @@ const MinHeap = require('./min-heap');
       it('should add an element', () => {
         expect(heap.add(1)).toBe(undefined);
         expect(heap.array).toEqual([1]);
-        expect(heap.size()).toBe(1);
+        expect(heap.size).toBe(1);
       });
 
       it('should keep things in order', () => {
@@ -31,7 +35,7 @@ const MinHeap = require('./min-heap');
         expect(heap.array[0]).toEqual(2);
         heap.add(1);
         expect(heap.array[0]).toEqual(1);
-        expect(heap.size()).toEqual(3);
+        expect(heap.size).toEqual(3);
       });
     });
 
@@ -40,7 +44,7 @@ const MinHeap = require('./min-heap');
         heap.add(1);
         heap.add(0);
         expect(heap.remove()).toBe(0);
-        expect(heap.size()).toBe(1);
+        expect(heap.size).toBe(1);
         expect(heap.array).toEqual([1]);
       });
 
@@ -70,19 +74,23 @@ const MinHeap = require('./min-heap');
           expect(heap.remove()).toEqual(1);
           expect(heap.remove()).toEqual(2);
           expect(heap.remove()).toEqual(3);
-          expect(heap.size()).toBe(0);
+          expect(heap.size).toBe(0);
         });
       });
     });
   });
 });
 
-[[Heap, (a, b) => b - a], [PriorityQueue, (a, b) => b - a], [MaxHeap]].forEach(([DS, arg]) => {
+[
+  [Heap, (a, b) => b - a],
+  [PriorityQueue, [], (a, b) => b - a],
+  [MaxHeap],
+].forEach(([DS, ...arg]) => {
   describe('Max-Heap (Priority Queue)', () => {
     let heap;
 
     beforeEach(() => {
-      heap = new DS(arg);
+      heap = new DS(...arg);
     });
 
     describe('#contructor', () => {
@@ -95,7 +103,7 @@ const MinHeap = require('./min-heap');
       it('should add an element', () => {
         expect(heap.add(1)).toBe(undefined);
         expect(heap.array).toEqual([1]);
-        expect(heap.size()).toBe(1);
+        expect(heap.size).toBe(1);
       });
 
       it('should keep things in order', () => {
@@ -105,7 +113,7 @@ const MinHeap = require('./min-heap');
         expect(heap.array[0]).toEqual(2);
         heap.add(3);
         expect(heap.array[0]).toEqual(3);
-        expect(heap.size()).toEqual(3);
+        expect(heap.size).toEqual(3);
       });
     });
 
@@ -114,7 +122,7 @@ const MinHeap = require('./min-heap');
         heap.add(1);
         heap.add(0);
         expect(heap.remove()).toBe(1);
-        expect(heap.size()).toBe(1);
+        expect(heap.size).toBe(1);
         expect(heap.array).toEqual([0]);
       });
 
@@ -156,7 +164,7 @@ const MinHeap = require('./min-heap');
           expect(heap.remove()).toEqual(2);
           expect(heap.remove()).toEqual(1);
           expect(heap.remove()).toEqual(0);
-          expect(heap.size()).toBe(0);
+          expect(heap.size).toBe(0);
         });
       });
     });
