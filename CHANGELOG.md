@@ -1,3 +1,17 @@
+# [2.0.0](https://github.com/amejiarosario/dsa.js/compare/1.18.0...2.0.0) (2020-09-08)
+
+
+### Features
+
+* **book/pq:** add exercise with pq and dijkstra ([3a2a24f](https://github.com/amejiarosario/dsa.js/commit/3a2a24ffae2af5e5e348c237195f7a39717ae617))
+* **heap:** add error handling for heaps ([827177f](https://github.com/amejiarosario/dsa.js/commit/827177f6023f639db0c2cc267dceb0a27746038a))
+* **pq:** improves docs and usability of priority queues ([edf8808](https://github.com/amejiarosario/dsa.js/commit/edf8808970d57aaf397958d2cab1a6cc2e029d26))
+
+
+### BREAKING CHANGES
+
+* **heap:** size is now an attribute rather than a method. Similar to the built-in Map.size and Set.size
+
 # [1.18.0](https://github.com/amejiarosario/dsa.js/compare/1.17.0...1.18.0) (2020-09-07)
 
 
