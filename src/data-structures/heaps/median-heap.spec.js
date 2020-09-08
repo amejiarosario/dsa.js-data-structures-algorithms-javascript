@@ -10,13 +10,13 @@ describe('Median Heap', () => {
   describe('#add', () => {
     it('should work', () => {
       expect(medianHeap.add(1)).toEqual(undefined);
-      expect(medianHeap.size()).toEqual(1);
+      expect(medianHeap.size).toEqual(1);
     });
 
     it('should work', () => {
       expect(medianHeap.add(1)).toEqual(undefined);
       expect(medianHeap.add(1)).toEqual(undefined);
-      expect(medianHeap.size()).toEqual(2);
+      expect(medianHeap.size).toEqual(2);
     });
   });
 

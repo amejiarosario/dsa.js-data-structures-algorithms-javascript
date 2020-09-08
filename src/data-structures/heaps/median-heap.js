@@ -30,9 +30,9 @@ class MedianHeap {
     }
 
     // rebalance if the sizes of the heaps differ by more than one element
-    if (Math.abs(this.min.size() - this.max.size()) > 1) {
+    if (Math.abs(this.min.size - this.max.size) > 1) {
       // extract the min/max from the heap with more elements and insert it into the other heap.
-      if (this.min.size() > this.max.size()) {
+      if (this.min.size > this.max.size) {
         this.max.add(this.min.remove());
       } else {
         this.min.add(this.max.remove());
@@ -47,12 +47,12 @@ class MedianHeap {
   findMedian() {
     let median;
 
-    if (this.max.size() === this.min.size()) {
+    if (this.max.size === this.min.size) {
       // When both heaps contain the same number of elements,
       // the total number of elements is even.
       // The median is the mean of the two middle elements.
       median = (this.max.peek() + this.min.peek()) / 2;
-    } else if (this.max.size() > this.min.size()) {
+    } else if (this.max.size > this.min.size) {
       // when the max-heap contains one more element than the min-heap,
       //  the median is in the top of the max-heap.
       median = this.max.peek();
@@ -67,8 +67,8 @@ class MedianHeap {
   /**
    * Return size of the heap.
    */
-  size() {
-    return this.min.size() + this.max.size();
+  get size() {
+    return this.min.size + this.max.size;
   }
 }
 
