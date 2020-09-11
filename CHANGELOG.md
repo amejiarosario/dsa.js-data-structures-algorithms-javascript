@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/amejiarosario/dsa.js/compare/2.0.0...2.1.0) (2020-09-11)
+
+
+### Features
+
+* **book/sorting:** add questions and solutions ([fdb8bd8](https://github.com/amejiarosario/dsa.js/commit/fdb8bd8af644ddeaa07ce62773e9be96fd6b2404))
+
 # [2.0.0](https://github.com/amejiarosario/dsa.js/compare/1.18.0...2.0.0) (2020-09-08)
 
 
