@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/amejiarosario/dsa.js/compare/2.1.0...2.2.0) (2020-09-29)
+
+
+### Features
+
+* **book/big-o:** add new chapter on how to determine big o from code. ([68c73d4](https://github.com/amejiarosario/dsa.js/commit/68c73d4c3bb5fb1ec637d81b42a2f8dbfc4f0008))
+
 # [2.1.0](https://github.com/amejiarosario/dsa.js/compare/2.0.0...2.1.0) (2020-09-11)
 
 
