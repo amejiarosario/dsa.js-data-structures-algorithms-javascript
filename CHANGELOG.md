@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/amejiarosario/dsa.js/compare/2.2.0...2.2.1) (2020-10-02)
+
+
+### Bug Fixes
+
+* **book:** add introduction ([4505eb6](https://github.com/amejiarosario/dsa.js/commit/4505eb64a63b282ca9685b3b2cabb657149d9fe7))
+
 # [2.2.0](https://github.com/amejiarosario/dsa.js/compare/2.1.0...2.2.0) (2020-09-29)
 
 
