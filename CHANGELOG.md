@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/amejiarosario/dsa.js/compare/2.2.1...2.3.0) (2020-10-03)
+
+
+### Features
+
+* **treeMap:** get last entry (highest value) ([249de5d](https://github.com/amejiarosario/dsa.js/commit/249de5d4769549e9f05562bb6dad50d4e0384524))
+
 ## [2.2.1](https://github.com/amejiarosario/dsa.js/compare/2.2.0...2.2.1) (2020-10-02)
 
 
