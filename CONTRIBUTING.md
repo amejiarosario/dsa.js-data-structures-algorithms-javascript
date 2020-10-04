@@ -1,24 +1,24 @@
 # Contributing
 
-We encourage any form of contribution, whether that be issues, comments, or pull requests. If you are going to be submitting a PR, there are a few things we would appreciate that you do to keep the codebase clean:
+We encourage any form of contribution, whether that will be issues, comments, or pull requests. If you are willing to submit a PR, there are a few things we would appreciate that you do to keep the codebase clean:
 
-* **Write tests.** We try as close to 100% code coverage as possible on this repo so any new code that gets written should have accompanying tests.
+* **Write tests (if applicable).** We try as close to 100% code coverage as possible on this repo, so any new code that gets written should have accompanying tests.
 * **Follow the linter.** We use our [ESLint configuration with Airbnb JavaScript Styleguide](https://github.com/airbnb/javascript), and we run `npm run lint` in our Travis builds.
 * **Ask questions if you aren't sure.** If you have any questions while implementing a fix or feature, feel free to create an issue and ask us. We're happy to help!
 
-## <a name="submit"></a> Submission Guidelines
+## <a name="Submit"></a> Submission Guidelines
 
-### <a name="submit-issue"></a> Submitting an Issue
+### <a name="Submit-issue"></a> Submitting an Issue
 
-Before you submit an issue, please search the issue tracker, maybe an issue for your problem already exists and the discussion might inform you of workarounds readily available.
+Before you submit an issue, please search the issue tracker, maybe an issue for your problem already exists, and the discussion might inform you of workarounds readily available.
 
 ### <a name="submit-pr"></a> Submitting a Pull Request (PR)
-Before you submit your Pull Request (PR) consider the following guidelines:
+Before you submit your Pull Request (PR), consider the following guidelines:
 
 1. Search [GitHub](https://github.com/amejiarosario/dsa.js/pulls) for an open or closed PR
   that relates to your submission. You don't want to duplicate effort.
-1. Be sure that an issue describes the problem you're fixing, or documents the design for the feature you'd like to add.
-  Discussing the design up front helps to ensure that we're ready to accept your work.
+1. Be sure that an issue describes the problem you're fixing or documents the design for the feature you'd like to add.
+  Discussing the design upfront helps to ensure that we're ready to accept your work.
 1. Fork the `amejiarosario/dsa.js` repo.
 1. Make your changes in a new git branch:
 
@@ -29,14 +29,13 @@ Before you submit your Pull Request (PR) consider the following guidelines:
 1. Create your patch, **including appropriate test cases**.
 1. Run the full test suite, and ensure that all tests pass.
 1. Commit your changes using a descriptive commit message that follows our
-  [commit message conventions](#commit). Adherence to these conventions
-  is necessary because release notes are automatically generated from these messages.
+  [commit message conventions](#commit). Adherence to these conventions is necessary because release notes are automatically generated from these messages.
 
      ```shell
      git commit -a
      ```
 
-    Note: the optional commit `-a` command line option will automatically "add" and "rm" edited files.
+    Note: the optional commit `-a` command-line option will automatically "add" and "rm" edited files.
 
 1. Push your branch to GitHub:
 
@@ -88,8 +87,8 @@ from the main (upstream) repository:
 
 ## <a name="commit"></a> Commit Message Guidelines
 
-We have some guidelines how our git commit messages can be formatted.  This leads to **more
-readable messages** that are easy to follow when looking through the **project history**.  But also,
+We have some guidelines on how our git commit messages can be formatted.  These rules lead to more
+readable messages that are easy to follow when looking through the project history.  But also,
 we use the git commit messages to **generate the change log**.
 
 ### Commit Message Format
@@ -104,35 +103,37 @@ format that includes a **type**, a **scope** and a **subject**:
 <footer>
 ```
 
-Example of a commit with header, body and footer:
+Example of a commit with header, body, and footer:
 
 ```
 fix(linked-list): insert in the middle bug
 
-When inserting an item on the middle of a linked list one reference was not being updated properly.
+One reference was not updated when inserting an item in the middle of a linked list.
 
 Fixes: #8
 ```
 
-The **header** is mandatory and the **scope** of the header is optional.
+The **header** is mandatory, and the **scope** of the header is optional.
 
-Any line of the commit message cannot be longer 100 characters! This allows the message to be easier
-to read on GitHub as well as in various git tools.
+Any line of the commit message cannot be longer than 100 characters! This length allows the message to be easier to read on GitHub as well as in various git tools.
 
-The footer should contain a [closing reference to an issue](https://help.github.com/articles/closing-issues-via-commit-messages/) if any.
+The footer should contain a [closing reference to an issue](https://help.github.com/articles/closing-issues-via-commit-messages/), if any.
 
-```
-docs(changelog): update changelog to beta.5
-```
+
+Examples:
 
 ```
-fix(release): need to depend on latest rxjs and zone.js
+feat(heap): add error handling for heaps
 
-The version in our package.json gets copied to the one we publish, and users need the latest of these.
+BREAKING CHANGE: size is now an attribute rather than a method. Similar to the built-in Map.size and Set.size
+```
+
+```
+fix(book/solutions): fix missing solutions
 ```
 
 ### Revert
-If the commit reverts a previous commit, it should begin with `revert: `, followed by the header of the reverted commit. In the body it should say: `This reverts commit <hash>.`, where the hash is the SHA of the commit being reverted.
+If the commit reverts a previous commit, it should begin with `revert: `, followed by the reverted commit's header. The body should say: `This reverts commit <hash>.`, where the hash is the SHA of the commit being reverted.
 
 ### Type
 Must be one of the following:
@@ -142,23 +143,22 @@ Must be one of the following:
 * **chore**: Changes to our CI configuration files and scripts (example scopes: Circle, BrowserStack, SauceLabs)
 
 ### Scope
-The scope should be the name of the npm package affected (as perceived by the person reading the changelog generated from commit messages.
-
-The following is an example of supported scopes:
+The scope should be the main directory name. The following is an example of recommended scopes:
 
 * **list**
 * **map**
 * **tree**
 * **graph**
 * **sorting**
+* **book**
 * etc.
 
 ### Subject
 The subject contains a succinct description of the change:
 
-* use the imperative, present tense: "change" not "changed" nor "changes"
-* don't capitalize the first letter
-* no dot (.) at the end
+* Use the imperative, present tense: "change" not "changed" nor "changes".
+* Don't capitalize the first letter.
+* Don't dot (.) at the end.
 
 ### Body
 Just as in the **subject**, use the imperative, present tense: "change" not "changed" nor "changes".
@@ -172,7 +172,7 @@ reference GitHub issues that this commit **Closes**.
 Closes #234
 ```
 
-**Breaking Changes** should start with the word `BREAKING CHANGE:` on the footer with a space or two newlines. The rest of the commit message is then used for this.
+**Breaking Changes** should start with the word `BREAKING CHANGE:` on the footer with space or two newlines. The rest of the commit message is then used for this.
 
 Examples of breaking changes include:
 
@@ -182,31 +182,6 @@ Examples of breaking changes include:
 * adding or removing errors
 * altering expected timing of an event
 * changing the side effects of using a particular API
-
-
-## Generating Changelog
-
-We use these three sections in changelog: new features, bug fixes, breaking changes.
-
-List of all subjects (first lines in commit message) since last release:
-
-```sh
-git log <last tag> HEAD --pretty=format:%s
-
-# example
-git log 1.1.0..HEAD --pretty=format:%s
-```
-
-New features in this release
-
-```sh
-git log <last release> HEAD --grep feat
-
-# examples
-git log 1.2.0..HEAD --pretty=format:"- %s [commit](https://github.com/amejiarosario/dsa.js/commit/%H)" --grep "BREAKING CHANGE:"
-git log 1.2.0..HEAD --pretty=format:"- %s [commit](https://github.com/amejiarosario/dsa.js/commit/%H)" --grep "^feat\S*:"
-git log 1.2.0..HEAD --pretty=format:"- %s [commit](https://github.com/amejiarosario/dsa.js/commit/%H)" --grep "^fix\S*:"
-```
 
 
 <!-- Examples -->

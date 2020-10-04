@@ -10,7 +10,7 @@ and the meaning the the following:
 - Minor: Features (new functionality, adding new topics)
 - Patch: Fixes (bug fixes, typos, etc.)
 
-# Generating Changelog
+# Generating Changelog (manually) [deprecated]
 
 We use these three sections in changelog: new features, bug fixes, breaking changes.
 
