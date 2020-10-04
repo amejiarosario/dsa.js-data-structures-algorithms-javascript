@@ -1,14 +1,14 @@
 # Contributing
 
-We encourage any form of contribution, whether that be issues, comments, or pull requests. If you are going to be submitting a PR, there are a few things we would appreciate that you do to keep the codebase clean:
+We encourage any form of contribution, whether that will be issues, comments, or pull requests. If you are willing to submit a PR, there are a few things we would appreciate that you do to keep the codebase clean:
 
 * **Write tests.** We try as close to 100% code coverage as possible on this repo so any new code that gets written should have accompanying tests.
 * **Follow the linter.** We use our [ESLint configuration with Airbnb JavaScript Styleguide](https://github.com/airbnb/javascript), and we run `npm run lint` in our Travis builds.
 * **Ask questions if you aren't sure.** If you have any questions while implementing a fix or feature, feel free to create an issue and ask us. We're happy to help!
 
-## <a name="submit"></a> Submission Guidelines
+## <a name="Submit"></a> Submission Guidelines
 
-### <a name="submit-issue"></a> Submitting an Issue
+### <a name="Submit-issue"></a> Submitting an Issue
 
 Before you submit an issue, please search the issue tracker, maybe an issue for your problem already exists and the discussion might inform you of workarounds readily available.
 
@@ -188,7 +188,7 @@ Examples of breaking changes include:
 
 We use these three sections in changelog: new features, bug fixes, breaking changes.
 
-List of all subjects (first lines in commit message) since last release:
+List of all subjects (First lines in commit message) since last release:
 
 ```sh
 git log <last tag> HEAD --pretty=format:%s
