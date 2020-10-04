@@ -121,14 +121,17 @@ to read on GitHub as well as in various git tools.
 
 The footer should contain a [closing reference to an issue](https://help.github.com/articles/closing-issues-via-commit-messages/) if any.
 
+
+Examples:
+
 ```
-docs(changelog): update changelog to beta.5
+feat(heap): add error handling for heaps
+
+BREAKING CHANGE: size is now an attribute rather than a method. Similar to the built-in Map.size and Set.size
 ```
 
 ```
-fix(release): need to depend on latest rxjs and zone.js
-
-The version in our package.json gets copied to the one we publish, and users need the latest of these.
+fix(book/solutions): fix missing solutions
 ```
 
 ### Revert
@@ -182,31 +185,6 @@ Examples of breaking changes include:
 * adding or removing errors
 * altering expected timing of an event
 * changing the side effects of using a particular API
-
-
-## Generating Changelog
-
-We use these three sections in changelog: new features, bug fixes, breaking changes.
-
-List of all subjects (First lines in commit message) since last release:
-
-```sh
-git log <last tag> HEAD --pretty=format:%s
-
-# example
-git log 1.1.0..HEAD --pretty=format:%s
-```
-
-New features in this release
-
-```sh
-git log <last release> HEAD --grep feat
-
-# examples
-git log 1.2.0..HEAD --pretty=format:"- %s [commit](https://github.com/amejiarosario/dsa.js/commit/%H)" --grep "BREAKING CHANGE:"
-git log 1.2.0..HEAD --pretty=format:"- %s [commit](https://github.com/amejiarosario/dsa.js/commit/%H)" --grep "^feat\S*:"
-git log 1.2.0..HEAD --pretty=format:"- %s [commit](https://github.com/amejiarosario/dsa.js/commit/%H)" --grep "^fix\S*:"
-```
 
 
 <!-- Examples -->
