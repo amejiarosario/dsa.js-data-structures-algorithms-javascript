@@ -1,3 +1,16 @@
+# [2.4.0](https://github.com/amejiarosario/dsa.js/compare/2.3.0...2.4.0) (2020-10-19)
+
+
+### Bug Fixes
+
+* **book/array:** improve examples and grammar ([04836cd](https://github.com/amejiarosario/dsa.js/commit/04836cd0cec3afb196d11704a45933e325816c20))
+
+
+### Features
+
+* **book/array:** add array patterns for solving problems ([8c7b7be](https://github.com/amejiarosario/dsa.js/commit/8c7b7be8fe24ec1df66846b05fbc2ef5daeb6c7e))
+* **book/array:** sliding window pattern ([8fa2746](https://github.com/amejiarosario/dsa.js/commit/8fa2746f5c917b0f5a88289d854166210925f9c7))
+
 # [2.3.0](https://github.com/amejiarosario/dsa.js/compare/2.2.1...2.3.0) (2020-10-03)
 
 
