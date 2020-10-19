@@ -86,6 +86,7 @@ local.properties
 ######################
 # Windows image file caches
 Thumbs.db
+*Zone.Identifier
 
 # Folder config file
 Desktop.ini
