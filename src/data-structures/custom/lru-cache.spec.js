@@ -75,6 +75,18 @@ describe('LRU Cache', () => {
       });
     });
 
+    it('should work with updates', () => {
+      // ["LRUCache","put","put","put","put","get","get"]
+      // [[2],[2,1],[1,1],[2,3],[4,1],[1],[2]]
+      c = new LRUCache(2);
+      c.put(2, 1);
+      c.put(1, 1);
+      c.put(2, 3);
+      c.put(4, 1);
+      c.get(1);
+      c.get(2);
+    });
+
     it('should work with size 10', () => {
       c = new LRUCache(10);
 

@@ -1,46 +1,44 @@
 /**
  * Least Recently Used (LRU) cache.
- * (ordered) Map: O(1)
- * @param {number} capacity - Number of items to hold.
+ * Key/Value storage with fixed max number of items.
+ * Least recently used items are discarded once the limit is reached.
+ * Reading and updating the values mark the items as recently used.
+ * @author Adrian Mejia <adrianmejia.com>
  */
-class LRUCache {
+class LRUCache extends Map {
+  /**
+   * @param {number} capacity - The max number of items on the cache
+   */
   constructor(capacity) {
-    this.map = new Map();
+    super();
     this.capacity = capacity;
   }
 
+  /**
+   * Get value associated with the key. Mark keys as recently used.
+   * @param {number} key
+   * @returns {number} value or if not found -1
+   */
   get(key) {
-    const value = this.map.get(key);
-    if (value) {
-      this.moveToTop(key);
-      return value;
-    }
-    return -1;
+    if (!super.has(key)) return -1;
+    const value = super.get(key);
+    this.put(key, value); // re-insert at the top (most recent).
+    return value;
   }
 
+  /**
+   * Upsert key/value pair. Updates mark keys are recently used.
+   * @param {number} key
+   * @param {number} value
+   * @returns {void}
+   */
   put(key, value) {
-    this.map.set(key, value);
-    this.rotate(key);
-  }
-
-  rotate(key) {
-    this.moveToTop(key);
-    while (this.map.size > this.capacity) {
-      const it = this.map.keys(); // keys are in insertion order.
-      this.map.delete(it.next().value);
+    if (super.has(key)) super.delete(key);
+    super.set(key, value);
+    if (super.size > this.capacity) {
+      const oldestKey = super.keys().next().value;
+      super.delete(oldestKey);
     }
-  }
-
-  moveToTop(key) {
-    if (this.map.has(key)) {
-      const value = this.map.get(key);
-      this.map.delete(key);
-      this.map.set(key, value);
-    }
-  }
-
-  get size() {
-    return this.map.size;
   }
 }
 
