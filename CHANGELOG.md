@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/amejiarosario/dsa.js/compare/2.4.0...2.5.0) (2020-10-22)
+
+
+### Features
+
+* **book/hashmap:** add code examples and patterns ([f7b8d59](https://github.com/amejiarosario/dsa.js/commit/f7b8d59ac8cbddacc34cac6a2f6e0a58419813fd))
+
 # [2.4.0](https://github.com/amejiarosario/dsa.js/compare/2.3.0...2.4.0) (2020-10-19)
 
 
