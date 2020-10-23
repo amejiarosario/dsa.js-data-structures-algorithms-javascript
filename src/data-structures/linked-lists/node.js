@@ -6,7 +6,7 @@ class Node {
   constructor(value) {
     this.value = value;
     this.next = null;
-    this.previous = null;
+    this.previous = null; // for doubly linked list
   }
 }
 // end::snippet[]

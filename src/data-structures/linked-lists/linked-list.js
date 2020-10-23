@@ -16,13 +16,6 @@ class LinkedList {
   }
   // end::constructor[]
 
-  /**
-   * Alias for size
-   */
-  get length() {
-    return this.size;
-  }
-
   // tag::addFirst[]
   /**
    * Adds element to the begining of the list. Similar to Array.unshift
@@ -92,25 +85,22 @@ class LinkedList {
     }
     // Adding element in the middle
     const current = this.get(position);
-    if (current) {
-      const newNode = new Node(value); // <3>
-      newNode.previous = current.previous; // <4>
-      newNode.next = current; // <5>
+    if (!current) return undefined; // out of bound index
 
-      current.previous.next = newNode; // <6>
-      current.previous = newNode; // <7>
-      this.size += 1;
-      return newNode;
-    }
-
-    return undefined; // out of bound index
+    const newNode = new Node(value); // <3>
+    newNode.previous = current.previous; // <4>
+    newNode.next = current; // <5>
+    current.previous.next = newNode; // <6>
+    current.previous = newNode; // <7>
+    this.size += 1;
+    return newNode;
   }
   // end::addMiddle[]
 
   // tag::searchByValue[]
   /**
    * Search by value. It finds first occurrence  of
-   * the element matching the value.
+   * the position of element matching the value.
    * Runtime: O(n)
    * @example: assuming a linked list with: a -> b -> c
    *  linkedList.indexOf('b') // ↪️ 1
@@ -136,7 +126,8 @@ class LinkedList {
    *  linkedList.get(1) // ↪️ 'b'
    *  linkedList.get(40) // ↪️ undefined
    * @param {Number} index position of the element
-   * @returns {Node} element at the specified position in this list.
+   * @returns {Node|undefined} element at the specified position in
+   *   this list or undefined if was not found.
    */
   get(index = 0) {
     return this.find((current, position) => {
@@ -301,6 +292,13 @@ class LinkedList {
   toString() {
     const parts = [...this]; // see [Symbol.iterator]()
     return parts.map((n) => util.inspect(n.node.value)).join(' -> ');
+  }
+
+  /**
+   * Alias for size
+   */
+  get length() {
+    return this.size;
   }
 }
 
