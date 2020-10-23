@@ -122,14 +122,14 @@ describe('LinkedList Test', () => {
       });
     });
 
-    describe('#indexOf', () => {
+    describe('#getIndexByValue', () => {
       it('should find element index', () => {
-        expect(linkedList.indexOf(0)).toBe(0);
-        expect(linkedList.indexOf('found')).toBe(1);
+        expect(linkedList.getIndexByValue(0)).toBe(0);
+        expect(linkedList.getIndexByValue('found')).toBe(1);
       });
 
       it('should return undefined', () => {
-        expect(linkedList.indexOf('hola')).toBe(undefined);
+        expect(linkedList.getIndexByValue('hola')).toBe(undefined);
       });
     });
 

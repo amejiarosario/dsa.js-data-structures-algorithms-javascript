@@ -101,14 +101,17 @@ class LinkedList {
   /**
    * Search by value. It finds first occurrence  of
    * the position of element matching the value.
+   * Similar to Array.indexOf.
+   *
    * Runtime: O(n)
+   *
    * @example: assuming a linked list with: a -> b -> c
-   *  linkedList.indexOf('b') // ↪️ 1
-   *  linkedList.indexOf('z') // ↪️ undefined
+   *  linkedList.getIndexByValue('b') // ↪️ 1
+   *  linkedList.getIndexByValue('z') // ↪️ undefined
    * @param {any} value
    * @returns {number} return index or undefined
    */
-  indexOf(value) {
+  getIndexByValue(value) {
     return this.find((current, position) => {
       if (current.value === value) {
         return position;
@@ -142,7 +145,7 @@ class LinkedList {
   // tag::find[]
   /**
    * Iterate through the list until callback returns a truthy value
-   * @example see #get and  #indexOf
+   * @example see #get and  #getIndexByValue
    * @param {Function} callback evaluates current node and index.
    *  If any value other than undefined it's returned it will stop the search.
    * @returns {any} callbacks's return value or undefined
