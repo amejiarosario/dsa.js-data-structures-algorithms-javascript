@@ -1,3 +1,11 @@
+## [2.5.1](https://github.com/amejiarosario/dsa.js/compare/2.5.0...2.5.1) (2020-10-23)
+
+
+### Bug Fixes
+
+* **linkedlist:** refactored methods and improve book images and ([ba110e2](https://github.com/amejiarosario/dsa.js/commit/ba110e26b2103265bb78809618c7e29c185acd70))
+* **linkedlist:** rename indexOf to getIndex to make it clearer ([fcf3db6](https://github.com/amejiarosario/dsa.js/commit/fcf3db6ade12a7ed88a5b7756945a8b090ac63b9))
+
 # [2.5.0](https://github.com/amejiarosario/dsa.js/compare/2.4.0...2.5.0) (2020-10-22)
 
 
