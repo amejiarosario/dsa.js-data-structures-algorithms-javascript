@@ -27,9 +27,9 @@ class LinkedList {
 
     newNode.next = this.first;
 
-    if (this.first) {
-      this.first.previous = newNode;
-    } else {
+    if (this.first) { // check if first node exists (list not empty)
+      this.first.previous = newNode; // <1>
+    } else { // if list is empty, first & last will point to newNode.
       this.last = newNode;
     }
 
@@ -52,11 +52,11 @@ class LinkedList {
   addLast(value) {
     const newNode = new Node(value);
 
-    if (this.first) {
+    if (this.first) { // check if first node exists (list not empty)
       newNode.previous = this.last;
       this.last.next = newNode;
       this.last = newNode;
-    } else {
+    } else { // if list is empty, first & last will point to newNode.
       this.first = newNode;
       this.last = newNode;
     }
@@ -71,20 +71,18 @@ class LinkedList {
   /**
    * Insert new element at the given position (index)
    *
+   * Runtime: O(n)
+   *
    * @param {any} value new node's value
    * @param {Number} position position to insert element
-   * @returns {Node} new node or 'undefined' if the index is out of bound.
+   * @returns {Node|undefined} new node or 'undefined' if the index is out of bound.
    */
-  add(value, position = 0) {
-    if (position === 0) { // <1>
-      return this.addFirst(value);
-    }
+  addAt(value, position = 0) {
+    if (position === 0) return this.addFirst(value); // <1>
+    if (position === this.size) return this.addLast(value); // <2>
 
-    if (position === this.size) { // <2>
-      return this.addLast(value);
-    }
     // Adding element in the middle
-    const current = this.get(position);
+    const current = this.findBy({ index: position }).node;
     if (!current) return undefined; // out of bound index
 
     const newNode = new Node(value); // <3>
@@ -99,6 +97,7 @@ class LinkedList {
 
   // tag::searchByValue[]
   /**
+   * @deprecated use findBy
    * Search by value. It finds first occurrence  of
    * the position of element matching the value.
    * Similar to Array.indexOf.
@@ -112,17 +111,13 @@ class LinkedList {
    * @returns {number} return index or undefined
    */
   getIndexByValue(value) {
-    return this.find((current, position) => {
-      if (current.value === value) {
-        return position;
-      }
-      return undefined;
-    });
+    return this.findBy({ value }).index;
   }
   // end::searchByValue[]
 
   // tag::searchByIndex[]
   /**
+   * @deprecated use findBy directly
    * Search by index
    * Runtime: O(n)
    * @example: assuming a linked list with: a -> b -> c
@@ -133,34 +128,33 @@ class LinkedList {
    *   this list or undefined if was not found.
    */
   get(index = 0) {
-    return this.find((current, position) => {
-      if (position === index) {
-        return current;
-      }
-      return undefined;
-    });
+    return this.findBy({ index }).node;
   }
   // end::searchByIndex[]
 
   // tag::find[]
   /**
-   * Iterate through the list until callback returns a truthy value
-   * @example see #get and  #getIndexByValue
-   * @param {Function} callback evaluates current node and index.
-   *  If any value other than undefined it's returned it will stop the search.
-   * @returns {any} callbacks's return value or undefined
+   * Find by index or by value, whichever happens first.
+   * Runtime: O(n)
+   * @example
+   *  this.findBy({ index: 10 }).node; // node at index 10.
+   *  this.findBy({ value: 10 }).node; // node with value 10.
+   *  this.findBy({ value: 10 }).index; // node's index with value 10.
+   *
+   * @param {Object} params - The search params
+   * @param {number} params.index - The index/position to search for.
+   * @param {any} params.value - The value to search for.
+   * @returns {{node: any, index: number}}
    */
-  find(callback) {
+  findBy({ value, index = Infinity } = {}) {
     for (let current = this.first, position = 0; // <1>
-      current; // <2>
+      current && position <= index; // <2>
       position += 1, current = current.next) { // <3>
-      const result = callback(current, position); // <4>
-
-      if (result !== undefined) {
-        return result; // <5>
+      if (position === index || value === current.value) { // <4>
+        return { node: current, index: position }; // <5>
       }
     }
-    return undefined; // not found
+    return {}; // not found
   }
   // end::find[]
 
@@ -168,98 +162,65 @@ class LinkedList {
   // tag::removeFirst[]
   /**
    * Removes element from the start of the list (head/root).
-   * Similar to Array.shift
+   * Similar to Array.shift().
    * Runtime: O(1)
    * @returns {any} the first element's value which was removed.
    */
   removeFirst() {
+    if (!this.first) return null; // Check if list is already empty.
     const head = this.first;
 
-    if (head) {
-      this.first = head.next;
-      if (this.first) {
-        this.first.previous = null;
-      } else {
-        this.last = null;
-      }
-      this.size -= 1;
+    this.first = head.next; // move first pointer to the next element.
+    if (this.first) {
+      this.first.previous = null;
+    } else { // if list has size zero, then we need to null out last.
+      this.last = null;
     }
-    return head && head.value;
+    this.size -= 1;
+    return head.value;
   }
   // end::removeFirst[]
 
   // tag::removeLast[]
   /**
-   * Removes element to the end of the list. Similar to Array.pop
-   * Using the `last.previous` we can reduce the runtime from O(n) to O(1)
+   * Removes element to the end of the list.
+   * Similar to Array.pop().
    * Runtime: O(1)
-   * @returns {value} the last element's value which was removed
+   * @returns {any} the last element's value which was removed
    */
   removeLast() {
+    if (!this.last) return null; // Check if list is already empty.
     const tail = this.last;
 
-    if (tail) {
-      this.last = tail.previous;
-      if (this.last) {
-        this.last.next = null;
-      } else {
-        this.first = null;
-      }
-      this.size -= 1;
+    this.last = tail.previous;
+    if (this.last) {
+      this.last.next = null;
+    } else { // if list has size zero, then we need to null out first.
+      this.first = null;
     }
-    return tail && tail.value;
+    this.size -= 1;
+    return tail.value;
   }
   // end::removeLast[]
 
   // tag::removeByPosition[]
   /**
-   * Removes the element at the specified position in this list.
+   * Removes the element at the given position (index) in this list.
    * Runtime: O(n)
    * @param {any} position
    * @returns {any} the element's value at the specified position that was removed.
    */
   removeByPosition(position = 0) {
-    const current = this.get(position);
-
-    if (position === 0) {
-      this.removeFirst();
-    } else if (position === this.size - 1) {
-      this.removeLast();
-    } else if (current) {
-      current.previous.next = current.next;
-      current.next.previous = current.previous;
-      this.size -= 1;
-    }
-
+    if (position === 0) return this.removeFirst();
+    if (position === this.size - 1) return this.removeLast();
+    const current = this.findBy({ index: position }).node;
+    if (!current) return null;
+    current.previous.next = current.next;
+    current.next.previous = current.previous;
+    this.size -= 1;
     return current && current.value;
   }
   // end::removeByPosition[]
-
-  /**
-   * Removes the first occurrence of the specified elementt
-   * from this list, if it is present.
-   * Runtime: O(n)
-   * @param {any} callbackOrIndex callback or position index to remove
-   */
-  remove(callbackOrIndex) {
-    if (typeof callbackOrIndex !== 'function') {
-      return this.removeByPosition(parseInt(callbackOrIndex, 10) || 0);
-    }
-
-    // find desired position to remove using #find
-    const position = this.find((node, index) => {
-      if (callbackOrIndex(node, index)) {
-        return index;
-      }
-      return undefined;
-    });
-
-    if (position !== undefined) { // zero-based position.
-      return this.removeByPosition(position);
-    }
-
-    return false;
-  }
 
   /**
    * Remove element by Node
@@ -302,6 +263,54 @@ class LinkedList {
    */
   get length() {
     return this.size;
+  }
+
+  /**
+   * @deprecated use findBy
+   * Iterate through the list until callback returns a truthy value
+   * @example see #get and  #getIndexByValue
+   * @param {Function} callback evaluates current node and index.
+   *  If any value other than undefined it's returned it will stop the search.
+   * @returns {any} callbacks's return value or undefined
+   */
+  find(callback) {
+    for (let current = this.first, position = 0; // <1>
+      current; // <2>
+      position += 1, current = current.next) { // <3>
+      const result = callback(current, position); // <4>
+
+      if (result !== undefined) {
+        return result; // <5>
+      }
+    }
+    return undefined; // not found
+  }
+
+  /**
+   * @deprecated use removeByNode or removeByPosition
+   * Removes the first occurrence of the specified elementt
+   * from this list, if it is present.
+   * Runtime: O(n)
+   * @param {any} callbackOrIndex callback or position index to remove
+   */
+  remove(callbackOrIndex) {
+    if (typeof callbackOrIndex !== 'function') {
+      return this.removeByPosition(parseInt(callbackOrIndex, 10) || 0);
+    }
+
+    // find desired position to remove using #find
+    const position = this.find((node, index) => {
+      if (callbackOrIndex(node, index)) {
+        return index;
+      }
+      return undefined;
+    });
+
+    if (position !== undefined) { // zero-based position.
+      return this.removeByPosition(position);
+    }
+
+    return false;
   }
 }
 

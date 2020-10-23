@@ -155,8 +155,8 @@ describe('LinkedList Test', () => {
       });
 
       it('should return undefined if not found', () => {
-        expect(linkedList.remove(2)).toBe(undefined);
-        expect(linkedList.remove(-2)).toBe(undefined);
+        expect(linkedList.remove(2)).toBe(null);
+        expect(linkedList.remove(-2)).toBe(null);
       });
 
       it('should update size, last and first', () => {
@@ -164,7 +164,7 @@ describe('LinkedList Test', () => {
         expect(linkedList.size).toBe(1);
         expect(linkedList.remove(0)).toBe('found');
         expect(linkedList.size).toBe(0);
-        expect(linkedList.remove(0)).toBe(undefined);
+        expect(linkedList.remove(0)).toBe(null);
         expect(linkedList.size).toBe(0);
         expect(linkedList.first).toBe(null);
         expect(linkedList.last).toBe(null);
@@ -173,7 +173,7 @@ describe('LinkedList Test', () => {
 
     describe('#addAt', () => {
       it('should insert at the beginning', () => {
-        const newNode = linkedList.add('first', 0);
+        const newNode = linkedList.addAt('first', 0);
         expect(newNode.value).toBe('first');
         expect(newNode.next.value).toBe(0);
         expect(linkedList.size).toBe(3);
@@ -181,7 +181,7 @@ describe('LinkedList Test', () => {
       });
 
       it('should insert at the middle', () => {
-        const newNode = linkedList.add('middle', 1);
+        const newNode = linkedList.addAt('middle', 1);
         expect(newNode.value).toBe('middle');
         // checking the 4 surrounding links were updated
         expect(newNode.next.value).toBe('found');
@@ -194,7 +194,7 @@ describe('LinkedList Test', () => {
       });
 
       it('should insert at the end', () => {
-        const newNode = linkedList.add('end', 2);
+        const newNode = linkedList.addAt('end', 2);
         expect(newNode.value).toBe('end');
         expect(newNode.next).toBe(null);
         expect(newNode.previous.value).toBe('found');
@@ -203,7 +203,7 @@ describe('LinkedList Test', () => {
       });
 
       it('should not insert out of bound', () => {
-        const newNode = linkedList.add('out-of-bound', 3);
+        const newNode = linkedList.addAt('out-of-bound', 3);
         expect(newNode).toBe(undefined);
         expect(linkedList.last.value).toBe('found');
         expect(linkedList.size).toBe(2);
