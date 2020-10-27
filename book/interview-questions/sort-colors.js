@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 // const {  } = require('../../src/index');
 
 // tag::description[]
@@ -35,7 +36,8 @@ function sortColors(nums) {
 
 // tag::compact[]
 function sortColorsCompact(nums) {
-  let i = 0, lo = 0, hi = nums.length - 1;
+  let i = 0; let lo = 0; let
+    hi = nums.length - 1;
   const swap = (k, j) => [nums[k], nums[j]] = [nums[j], nums[k]];
 
   while (i <= hi) {

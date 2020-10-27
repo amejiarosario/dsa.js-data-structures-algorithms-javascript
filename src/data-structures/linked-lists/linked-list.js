@@ -1,5 +1,5 @@
 const util = require('util');
-const Node = require('./node');
+const Node = require('./node'); // Doubly
 
 // tag::constructor[]
 /**
@@ -7,10 +7,18 @@ const Node = require('./node');
  * the last and first element
  */
 class LinkedList {
-  constructor(iterable = []) {
+  constructor(
+    iterable = [],
+    // end::constructor[]
+    ListNode = Node, // Node class (e.g. singly, doubly, multilevel)
+    // tag::constructor[]
+  ) {
     this.first = null; // head/root element
     this.last = null; // last element of the list
     this.size = 0; // total number of elements in the list
+    // end::constructor[]
+    this.ListNode = ListNode; // ListNode class
+    // tag::constructor[]
 
     Array.from(iterable, (i) => this.addLast(i));
   }
@@ -20,10 +28,10 @@ class LinkedList {
   /**
    * Adds element to the begining of the list. Similar to Array.unshift
    * Runtime: O(1)
-   * @param {any} value
+   * @param {Node} value
    */
   addFirst(value) {
-    const newNode = new Node(value);
+    const newNode = new this.ListNode(value);
 
     newNode.next = this.first;
 
@@ -246,16 +254,14 @@ class LinkedList {
    * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#User-defined_iterables
    */
   * [Symbol.iterator]() {
-    for (let node = this.first, position = 0;
-      node;
-      position += 1, node = node.next) {
-      yield { node, position };
+    for (let node = this.first; node; node = node.next) {
+      yield node;
     }
   }
 
   toString() {
     const parts = [...this]; // see [Symbol.iterator]()
-    return parts.map((n) => util.inspect(n.node.value)).join(' -> ');
+    return parts.map((n) => util.inspect(n.value)).join(' -> ');
   }
 
   /**

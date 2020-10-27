@@ -429,5 +429,24 @@ describe('LinkedList Test', () => {
         expect(linkedList.toString()).toBe("'a' -> 2 -> 'c' -> { k: 4, v: 'd' }");
       });
     });
+
+
+    describe('iterator', () => {
+      let a;
+      let b;
+      let c;
+      let d;
+      beforeEach(() => {
+        a = linkedList.addLast('a');
+        b = linkedList.addLast('b');
+        c = linkedList.addLast('c');
+        d = linkedList.addLast('d');
+      });
+
+      it('should convert to array of nodes', () => {
+        expect([...linkedList]).toEqual([a, b, c, d]);
+        expect(Array.from(linkedList)).toEqual([a, b, c, d]);
+      });
+    });
   });
 });

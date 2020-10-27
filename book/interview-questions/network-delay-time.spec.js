@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const { networkDelayTime, networkDelayTimeQueue } = require('./network-delay-time');
 
 [networkDelayTime, networkDelayTimeQueue].forEach((fn) => {
@@ -9,14 +10,14 @@ const { networkDelayTime, networkDelayTimeQueue } = require('./network-delay-tim
       expect(fn(times, n, k)).toEqual(2);
     });
 
-    fit('should work with loops', () => {
+    it('should work with loops', () => {
       const times = [[1, 2, 0], [1, 5, 10], [1, 4, 1], [2, 3, 100], [4, 5, 1], [5, 6, 1], [6, 7, 1], [7, 3, 1], [7, 5, 1]];
       const n = 7;
       const k = 1;
       expect(fn(times, n, k)).toEqual(5);
     });
 
-    fit('should work with loops and dead starts', () => {
+    it('should work with loops and dead starts', () => {
       const times = [[1, 2, 0], [1, 5, 10], [1, 4, 1], [2, 3, 100], [4, 5, 1], [5, 6, 1], [6, 7, 1], [7, 3, 1], [7, 5, 1]];
       const n = 7;
       const k = 3;
@@ -45,4 +46,3 @@ const { networkDelayTime, networkDelayTimeQueue } = require('./network-delay-tim
     });
   });
 });
-

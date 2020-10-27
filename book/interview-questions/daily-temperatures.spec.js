@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const { dailyTemperatures } = require('./daily-temperatures');
 
 describe('Stack: Daily Temperatures', () => {

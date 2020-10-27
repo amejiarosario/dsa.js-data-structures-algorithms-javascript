@@ -1,5 +1,6 @@
 // data structures
 const LinkedList = require('./data-structures/linked-lists/linked-list');
+const ListNode = require('./data-structures/linked-lists/node');
 const Queue = require('./data-structures/queues/queue');
 const Stack = require('./data-structures/stacks/stack');
 const Graph = require('./data-structures/graphs/graph');
@@ -29,6 +30,7 @@ const mergeSort = require('./algorithms/sorting/merge-sort');
 
 module.exports = {
   LinkedList,
+  ListNode,
   Queue,
   Stack,
   Graph,
