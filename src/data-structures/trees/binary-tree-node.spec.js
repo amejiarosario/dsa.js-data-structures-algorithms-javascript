@@ -104,12 +104,12 @@ describe('Binary Tree Node', () => {
         expect(p.uncle).toBe(null);
       });
 
-      it('true if is parent left child', () => {
+      it('true if is parent left child for sibling', () => {
         expect(s.isParentLeftChild).toBe(true);
         expect(s.isParentRightChild).toBe(false);
       });
 
-      it('true if is parent left child', () => {
+      it('true if is parent left child for child', () => {
         expect(c.isParentLeftChild).toBe(false);
         expect(c.isParentRightChild).toBe(true);
       });

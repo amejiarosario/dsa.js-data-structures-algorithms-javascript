@@ -9,14 +9,14 @@ const { mostCommonWords, mostCommonWordsBrute } = require('./most-common-words-i
       )).toEqual(['keys']);
     });
 
-    it('should work', () => {
+    it('should work 2', () => {
       expect(fn(
         'Look at it! What is it? It does look like my code from 1 year ago',
         2,
       )).toEqual(['it', 'look']);
     });
 
-    it('should work', () => {
+    it('should work all puntuations', () => {
       expect(fn(
         'a; a,b, a\'s c a!; b,b, c.',
         4,

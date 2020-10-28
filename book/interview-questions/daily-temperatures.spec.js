@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const { dailyTemperatures } = require('./daily-temperatures');
 
 describe('Stack: Daily Temperatures', () => {
@@ -5,11 +6,11 @@ describe('Stack: Daily Temperatures', () => {
     expect(dailyTemperatures([30, 28, 50, 40, 30])).toEqual([2, 1, 0, 0, 0]);
   });
 
-  it('should work', () => {
+  it('should work 2', () => {
     expect(dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73])).toEqual([1, 1, 4, 2, 1, 1, 0, 0]);
   });
 
-  it('should work', () => {
+  it('should work 3', () => {
     expect(dailyTemperatures([89, 62, 70, 58, 47, 47, 46, 76, 100, 70])).toEqual([8, 1, 5, 4, 3, 2, 1, 1, 0, 0]);
   });
 

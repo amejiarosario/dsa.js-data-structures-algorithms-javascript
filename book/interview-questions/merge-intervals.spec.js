@@ -21,7 +21,7 @@ const { merge } = require('./merge-intervals');
       expect(actual).toEqual(expected);
     });
 
-    it('should work with other case', () => {
+    it('should work with other case with large numbers', () => {
       const actual = fn([[10, 99], [20, 50], [9, 11], [98, 100]]);
       const expected = [[9, 100]];
       expect(actual).toEqual(expected);
