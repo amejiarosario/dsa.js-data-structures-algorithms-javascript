@@ -1,3 +1,16 @@
+# [2.6.0](https://github.com/amejiarosario/dsa.js/compare/2.5.1...2.6.0) (2020-10-28)
+
+
+### Bug Fixes
+
+* **test:** refactor tests ([571834a](https://github.com/amejiarosario/dsa.js/commit/571834a848d3b4c7d0dd8a94957b73724f3756ac))
+
+
+### Features
+
+* **book:** add chapter numbers ([0f13f90](https://github.com/amejiarosario/dsa.js/commit/0f13f907141d0ad9bb439d131aca6d1d882421ee))
+* **book/linkedlist:** linked lists techniques and common patterns ([8cd126d](https://github.com/amejiarosario/dsa.js/commit/8cd126d71a31473fefdbf0f0a9780cd7b128bcd6))
+
 ## [2.5.1](https://github.com/amejiarosario/dsa.js/compare/2.5.0...2.5.1) (2020-10-23)
 
 
