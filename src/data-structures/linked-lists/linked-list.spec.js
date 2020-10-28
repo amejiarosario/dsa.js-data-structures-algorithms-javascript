@@ -60,13 +60,13 @@ describe('LinkedList Test', () => {
   });
 
   describe('#addFirst', () => {
-    it('add element to the head/root of the list', () => {
+    it('add 1 element to the head/root of the list', () => {
       linkedList.addFirst('a');
       expect(linkedList.first.value).toBe('a');
       expect(linkedList.last.value).toBe('a');
     });
 
-    it('add element to the head/root of the list', () => {
+    it('add 2 elements to the head/root of the list', () => {
       linkedList.addFirst('a');
       linkedList.addFirst('b');
       expect(linkedList.first.value).toBe('b');
@@ -217,7 +217,7 @@ describe('LinkedList Test', () => {
         expect(linkedList.length).toBe(1);
       });
 
-      it('should remove last element', () => {
+      it('should remove first element', () => {
         expect(linkedList.length).toBe(2);
         expect(linkedList.removeByPosition(0)).toBe(0);
         expect(linkedList.length).toBe(1);

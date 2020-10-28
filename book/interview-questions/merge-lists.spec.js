@@ -26,7 +26,7 @@ describe('Linked List: Merge Lists', () => {
     expect(asString(actual)).toEqual(expected);
   });
 
-  it('should handle empty list 1', () => {
+  it('should handle empty list 2', () => {
     const l1 = new LinkedList([2, 3, 4]).first;
     const l2 = new LinkedList().first;
     const actual = mergeTwoLists(l1, l2);

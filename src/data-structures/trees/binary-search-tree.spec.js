@@ -105,7 +105,7 @@ describe('Binary Search Tree', () => {
         expect(parent).toMatchObject({ value: 5 });
       });
 
-      it('should find future parent of a node that doesnt exist yet', () => {
+      it('should find future parent of a node that doesnt exist yet with -1', () => {
         bst.add(5);
         bst.add(1);
         const { found, parent } = bst.findNodeAndParent(-1);

@@ -13,7 +13,7 @@ describe('Median Heap', () => {
       expect(medianHeap.size).toEqual(1);
     });
 
-    it('should work', () => {
+    it('should work with 2 additions', () => {
       expect(medianHeap.add(1)).toEqual(undefined);
       expect(medianHeap.add(1)).toEqual(undefined);
       expect(medianHeap.size).toEqual(2);
@@ -30,7 +30,7 @@ describe('Median Heap', () => {
       expect(medianHeap.findMedian()).toEqual(10);
     });
 
-    it('should work', () => {
+    it('should work with even numbers', () => {
       const values = [5, 15, 1, 3];
       const medians = values.map((v) => {
         medianHeap.add(v);
@@ -39,7 +39,7 @@ describe('Median Heap', () => {
       expect(medians).toEqual([5, 10, 5, 4]);
     });
 
-    it('should work', () => {
+    it('should work with odd numbers', () => {
       const values = [2, 4, 7, 1, 5, 3];
       const medians = values.map((v) => {
         medianHeap.add(v);

@@ -62,7 +62,7 @@ describe('Node (Graph)', () => {
       expect(node.isAdjacent(b)).toBe(true);
     });
 
-    it('should return true if they are adjacent', () => {
+    it('should return true if they are adjacent on c', () => {
       const c = new Node('c');
       expect(node.isAdjacent(c)).toBe(false);
     });

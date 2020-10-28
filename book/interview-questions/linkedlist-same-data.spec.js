@@ -20,7 +20,7 @@ describe('Linked List: has same data', () => {
     expect(hasSameData(l1, l2)).toEqual(true);
   });
 
-  it('should work with different data', () => {
+  it('should work with different data separated', () => {
     const l1 = new LinkedList(['he', 'll', 'o']).first;
     const l2 = new LinkedList(['ho', 'la']).first;
     expect(hasSameData(l1, l2)).toEqual(false);

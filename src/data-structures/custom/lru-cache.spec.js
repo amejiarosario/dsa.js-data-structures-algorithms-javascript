@@ -9,7 +9,7 @@ describe('LRU Cache', () => {
       expect(c).toBeDefined();
     });
 
-    it('should initialize', () => {
+    it('should initialize with capacity', () => {
       c = new LRUCache(7);
       expect(c.capacity).toEqual(7);
     });

@@ -17,21 +17,21 @@ const { sortColors, sortColorsCompact } = require('./sort-colors');
       expect(actual).toEqual(expected);
     });
 
-    it('should work with small case', () => {
+    it('should work with small case1', () => {
       const actual = [2, 1, 2];
       fn(actual);
       const expected = [1, 2, 2];
       expect(actual).toEqual(expected);
     });
 
-    it('should work with small case', () => {
+    it('should work with small case2', () => {
       const actual = [1, 0, 2];
       fn(actual);
       const expected = [0, 1, 2];
       expect(actual).toEqual(expected);
     });
 
-    it('should work with small case', () => {
+    it('should work with small case3', () => {
       const actual = [2, 0, 1];
       fn(actual);
       const expected = [0, 1, 2];

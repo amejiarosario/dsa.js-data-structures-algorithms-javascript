@@ -252,11 +252,11 @@ describe('Graph', () => {
         expect(graph.areConnected('you', 'barbara')).toBe(true);
       });
 
-      it('should return true if two nodes are connected', () => {
+      it('should return true if two nodes are connected to itself', () => {
         expect(graph.areConnected('you', 'you')).toBe(true);
       });
 
-      it('should return true if two nodes are connected', () => {
+      it('should return true if two nodes are connected to other', () => {
         expect(graph.areConnected('you', 'John')).toBe(false);
       });
     });

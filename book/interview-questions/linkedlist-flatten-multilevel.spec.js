@@ -46,7 +46,7 @@ const ll = (nums) => Array.from(new LinkedList(nums, Node));
       expect(toString(fn(l3[0]))).toEqual('{ 21(,) -> 23(21,) -> 36(23,) -> 37(36,) }');
     });
 
-    fit('works with flat 2 levels and reminder', () => {
+    it('works with flat 2 levels and reminder', () => {
       // 1--- 2--- 3
       //      |
       //      36--37
