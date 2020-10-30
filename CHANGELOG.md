@@ -1,3 +1,16 @@
+# [2.7.0](https://github.com/amejiarosario/dsa.js/compare/2.6.0...2.7.0) (2020-10-30)
+
+
+### Bug Fixes
+
+* **book/set:** split Set chapter into Hash Set and Tree Set for better ([c1cf57a](https://github.com/amejiarosario/dsa.js/commit/c1cf57a31fc7a698665c82c8fbd2fde7fb825078))
+
+
+### Features
+
+* **book:** show companies asked questions ([b3167f9](https://github.com/amejiarosario/dsa.js/commit/b3167f9c694c5e6719bf1d01804aeec60b41e57f))
+* **book/linkedlist:** add applications ([2b96f00](https://github.com/amejiarosario/dsa.js/commit/2b96f0086632d9ddcbb7e8f76a061a46f90a65a0))
+
 # [2.6.0](https://github.com/amejiarosario/dsa.js/compare/2.5.1...2.6.0) (2020-10-28)
 
 
