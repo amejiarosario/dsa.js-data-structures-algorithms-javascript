@@ -271,8 +271,8 @@ Use Linked Lists when:
 #### [HashMaps](book/content/part03/map.asc)
 
 Learn how to implement different types of Maps such as:
-- [HashMap](book/content/part03/hashmap.asc)
-- [TreeMap](book/content/part03/treemap.asc)
+- [HashMap](book/content/part02/hash-map.asc)
+- [TreeMap](book/content/part03/tree-map.asc)
 
 Also, [learn the difference between the different Maps implementations](book/content/part03/time-complexity-graph-data-structures.asc):
 
