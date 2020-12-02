@@ -10,7 +10,7 @@ const HUNDREDS = new Map([
 ]);
 
 /**
- * You are creating a basic number-to-speech algorithms to use at Google.
+ * You are creating a basic number-to-speech algorithms to use at search engine company.
  * The first part is to convert a given number into its text representation.
  * The 2nd part, is to take that text and synthetize the voice.
  * We are going to focus on the first part for this exercise.
