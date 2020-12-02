@@ -1,3 +1,10 @@
+## [2.7.1](https://github.com/amejiarosario/dsa.js/compare/2.7.0...2.7.1) (2020-12-02)
+
+
+### Bug Fixes
+
+* **book:** update company names ([38a4178](https://github.com/amejiarosario/dsa.js/commit/38a4178e69e698a1b3c0d4452f0cfd58aed5290d))
+
 # [2.7.0](https://github.com/amejiarosario/dsa.js/compare/2.6.0...2.7.0) (2020-10-30)
 
 
