@@ -1,7 +1,7 @@
 const implementations = [
   'fibonacci',
   'fibonacci-recursive',
-  'fibanacci-dynamic-programming',
+  'fibonacci-dynamic-programming',
 ];
 
 implementations.forEach((fileName) => {
