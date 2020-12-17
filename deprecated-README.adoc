@@ -56,7 +56,7 @@ image::https://user-images.githubusercontent.com/418605/46118890-ba721180-c1d6-1
 * Divide and Conquer
   ** Fibonacci Numbers. https://github.com/amejiarosario/dsa.js/blob/master/src/algorithms/fibonacci-recursive.js[Code]
 * Dynamic Programming
-	** Fibonacci with memoization. https://github.com/amejiarosario/dsa.js/blob/master/src/algorithms/fibanacci-dynamic-programming.js[Code]
+	** Fibonacci with memoization. https://github.com/amejiarosario/dsa.js/blob/master/src/algorithms/fibonacci-dynamic-programming.js[Code]
 * Backtracking algorithms
 	** Word permutations. https://github.com/amejiarosario/dsa.js/blob/master/src/algorithms/permutations-backtracking.js[Code]
 
