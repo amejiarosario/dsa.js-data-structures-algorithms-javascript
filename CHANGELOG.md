@@ -1,3 +1,10 @@
+## [2.7.2](https://github.com/amejiarosario/dsa.js/compare/2.7.1...2.7.2) (2020-12-17)
+
+
+### Bug Fixes
+
+* **book:** Rename fibonacci-dynamic-programming ([ded0a70](https://github.com/amejiarosario/dsa.js/commit/ded0a701815ce4647394e2f5e217c0d88142a92c))
+
 ## [2.7.1](https://github.com/amejiarosario/dsa.js/compare/2.7.0...2.7.1) (2020-12-02)
 
 
