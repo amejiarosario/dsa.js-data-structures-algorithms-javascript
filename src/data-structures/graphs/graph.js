@@ -41,7 +41,8 @@ class Graph {
    * Removes node from graph
    * It also removes the reference of the deleted node from
    *  anywhere it was adjacent to.
-   * Runtime: O(|V| + |E|)
+   * Runtime: O(|V|) because adjacency list is implemented with a HashSet.
+   * It were implemented with an array then it would be O(|V| + |E|).
    * @param {any} value node's value
    */
   removeVertex(value) {
@@ -55,9 +56,9 @@ class Graph {
 
   // tag::addEdge[]
   /**
-   * Create a connection between source node and destination node.
-   * If the graph is undirected it will also create the conneciton from destination to destination.
-   * If the nodes doesn't exist then it will create them on the fly
+   * Create a connection between the source node and the destination node.
+   * If the graph is undirected, it will also create the link from destination to source.
+   * If the nodes don't exist, then it will make them on the fly.
    * Runtime: O(1)
    * @param {any} source
    * @param {any} destination
@@ -79,10 +80,11 @@ class Graph {
 
   // tag::removeEdge[]
   /**
-   * Remove connection between source node and destination.
-   * If the graph is undirected it will also remove the conneciton from destination to destination.
+   * Remove the connection between source node and destination.
+   * If the graph is undirected, it will also create the link from destination to source.
    *
-   * Runtime: O(|E|)
+   * Runtime: O(1): implemented with HashSet.
+   * If implemented with array, would be O(|E|).
    *
    * @param {any} source
    * @param {any} destination
@@ -105,7 +107,7 @@ class Graph {
 
   // tag::areAdjacents[]
   /**
-   * True if two nodes are adjacent to each other
+   * True if two nodes are adjacent.
    * @param {any} source node's value
    * @param {any} destination node's value
    */
