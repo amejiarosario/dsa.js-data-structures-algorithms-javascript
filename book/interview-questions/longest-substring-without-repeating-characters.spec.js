@@ -20,5 +20,11 @@ const { lenLongestSubstring } = require('./longest-substring-without-repeating-c
       const expected = 5;
       expect(fn(actual)).toEqual(expected);
     });
+
+    it('should work with example', () => {
+      const actual = 'abcdaefg';
+      const expected = 7;
+      expect(fn(actual)).toEqual(expected);
+    });
   });
 });
