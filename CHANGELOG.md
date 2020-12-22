@@ -1,3 +1,12 @@
+## [2.7.3](https://github.com/amejiarosario/dsa.js/compare/2.7.2...2.7.3) (2020-12-22)
+
+
+### Bug Fixes
+
+* **book/bst:** better wording ([1d75301](https://github.com/amejiarosario/dsa.js/commit/1d7530199940b926467ad0dcbc3b7dbe76b77820))
+* **book/graph:** add comments for runtimes using hashset implementations ([c7c7947](https://github.com/amejiarosario/dsa.js/commit/c7c7947da33cb61a794e538dff55951318edc341))
+* **book/hashmap:** exercise example and add tests ([c137930](https://github.com/amejiarosario/dsa.js/commit/c137930a8750c0aac95bbbae931886e068371d92))
+
 ## [2.7.2](https://github.com/amejiarosario/dsa.js/compare/2.7.1...2.7.2) (2020-12-17)
 
 
