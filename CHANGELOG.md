@@ -1,3 +1,10 @@
+## [2.7.4](https://github.com/amejiarosario/dsa.js/compare/2.7.3...2.7.4) (2021-01-09)
+
+
+### Bug Fixes
+
+* **bst:** some typos on the code ([6b9a4e8](https://github.com/amejiarosario/dsa.js/commit/6b9a4e8c00c2082ed7d083b58f7d462e340725fe))
+
 ## [2.7.3](https://github.com/amejiarosario/dsa.js/compare/2.7.2...2.7.3) (2020-12-22)
 
 
