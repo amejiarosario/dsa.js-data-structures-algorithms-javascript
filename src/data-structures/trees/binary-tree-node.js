@@ -19,7 +19,7 @@ class BinaryTreeNode {
 
   // tag::setAndUpdateParent[]
   /**
-   * Set a left node descendents.
+   * Set a left node descendants.
    * Also, children get associated to parent.
    */
   setLeftAndUpdateParent(node) {
@@ -31,7 +31,7 @@ class BinaryTreeNode {
   }
 
   /**
-   * Set a right node descendents.
+   * Set a right node descendants.
    * Also, children get associated to parent.
    */
   setRightAndUpdateParent(node) {
@@ -71,7 +71,7 @@ class BinaryTreeNode {
   }
 
   /**
-   * Node is leaf is it has no descendents
+   * Node is leaf is it has no descendants
    */
   get isLeaf() {
     return !this.left && !this.right;

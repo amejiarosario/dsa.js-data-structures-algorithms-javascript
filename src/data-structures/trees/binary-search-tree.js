@@ -249,14 +249,14 @@ class BinarySearchTree {
   /**
    * Represent Binary Tree as an array.
    *
-   * Leaf nodes will have two `undefined` descendents.
+   * Leaf nodes will have two `undefined` descendants.
    *
    * The array representation of the binary tree is as follows:
    *
    * First element (index=0) is the root.
-   * The following two elements (index=1,2) are descendents of the root: left (a) and right (b).
-   * The next two elements (index=3,4) are the descendents of a
-   * The next two elements (index=5,6) are the descendents of b and so on.
+   * The following two elements (index=1,2) are descendants of the root: left (a) and right (b).
+   * The next two elements (index=3,4) are the descendants of a
+   * The next two elements (index=5,6) are the descendants of b and so on.
    *
    *  0     1            2             3       4        5       6        n
    * [root, a=root.left, b=root.right, a.left, a.right, b.left, b.right, ...]
