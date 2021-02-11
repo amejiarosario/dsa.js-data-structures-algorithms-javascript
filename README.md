@@ -61,35 +61,35 @@ and then you can import it into your programs or CLI
 const { LinkedList, Queue, Stack } = require('dsa.js');
 ```
 
-For a full list of all the exposed data structures and algorithms [see](src/index.js).
+For a list of all available data structures and algorithms, [see index.js](src/index.js).
 
 
 ## Features
 
 Algorithms are an essential toolbox for every programmer.
 
-You usually need algorithms when you have to sort data, search for a value, transform data, scale your code to many users, to name a few.
-Algorithms are just the step you follow to solve a problem while data structures are where you store the data for later manipulation. Both combined create programs.
+You will need to mind algorithms runtime when you have to sort data, search for a value in a big dataset, transform data, scale your code to many users, to name a few.
+Algorithms are just the step you follow to solve a problem, while data structures are where you store the data for later manipulation. Both combined create programs.
 
 > Algorithms + Data Structures = Programs.
 
 Most programming languages and libraries indeed provide implementations for basic data structures and algorithms.
-However, to make use of data structures properly, you have to know the tradeoffs so you can choose the best tool for the job.
+However, to make use of data structures properly, you have to know the tradeoffs to choose the best tool for the job.
 
 This material is going to teach you to:
 
 - 🛠 Apply strategies to tackle algorithm questions. Never to get stuck again. Ace those interviews!
-- ✂️ Construct efficient algorithms. Learn how to break down problems in manageable pieces.
-- 🧠 Improve your problem-solving skills and become a stronger developer by understanding fundamental computer science concepts.
+- ✂️ Construct efficient algorithms. Learn how to break down problems into manageable pieces.
+- 🧠 Improve your problem-solving skills and become a well-rounded developer by understanding fundamental computer science concepts.
 - 🤓 Cover essential topics, such as big O time, data structures, and must-know algorithms. Implement 10+ data structures from scratch.
 
 ## What's Inside
 
 All the code and explanations are available on this repo. You can dig through the links and code examples from the ([src folder](src)). However, the inline code examples are not expanded (because of Github's asciidoc limitations), but you can follow the path and see the implementation.
 
-_Note: If you prefer to consume the information more linearly then the [book format](https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/) would be more appropriate for you._
+_Note: If you prefer to consume the information more linearly, then the [book format](https://books.adrianmejia.com/dsajs-data-structures-algorithms-javascript/) would be more appropriate for you._
 
-The topics are divided into four main categories as you can see below:
+The topics are divided into four main categories, as you can see below:
 
 
 ### 📈 [Algorithms Analysis](book/part01-algorithms-analysis.asc)
@@ -129,8 +129,7 @@ The topics are divided into four main categories as you can see below:
 #### Comparing algorithms using Big O notation
 
 Let's say you want to find the duplicates on an array.
-Using Big O notation, we can compare different implementations that do the same but
-they take different time to complete.
+Using Big O notation, we can compare different solutions that solve the same problem but has a massive difference in how long it takes to do it.
 
 - [Optimal solution using a map](book/content/part01/big-o-examples.asc#linear-example)
 - [Finding duplicates in an array (naïve approach)](book/content/part01/big-o-examples.asc#quadratic-example)
@@ -225,7 +224,6 @@ they take different time to complete.
 Use Arrays when…
 - You need to access data in random order fast (using an index).
 - Your data is multi-dimensional (e.g., matrix, tensor).
-- when there is a limit on memory as the requirement of memory is less due to actual data being stored within the index in the array.
 
 Use Linked Lists when:
 - You will access your data sequentially.
@@ -302,8 +300,7 @@ Know all the graphs properties with many images and illustrations.
 ![graph example with USA airports](book/images/image46.png)
 
  **Graphs**: data **nodes** that can have a connection or **edge** to
-    zero or more adjacent nodes. Unlike trees, nodes can have multiple
-    parents, loops.
+    zero or more adjacent nodes. Unlike trees, nodes can have multiple parents, loops.
     [Code](src/data-structures/graphs/graph.js)
     |
     [Graph Time Complexity](book/content/part03/graph.asc#graph-complexity)
@@ -316,7 +313,7 @@ Learn all the different kinds of trees and their properties.
 
 - **Trees**: data nodes has zero or more adjacent nodes a.k.a.
     children. Each node can only have one parent node otherwise is a
-    graph not a tree.
+    graph, not a tree.
     [Code](src/data-structures/trees)
     |
     [Docs](book/content/part03/tree-intro.asc)
@@ -383,7 +380,7 @@ From unbalanced BST to balanced BST
 
 ### ⚒ [Algorithmic Toolbox](book/part04-algorithmic-toolbox.asc)
 
-<!-- - Never get stuck solving a problem with 7 simple steps. -->
+<!-- - Never get stuck solving a problem with seven simple steps. -->
 <!-- - Master the most popular sorting algorithms (merge sort, quicksort, insertion sort, etc.) -->
 <!-- - Learn different approaches to solve problems such as divide and conquer, dynamic programming, greedy algorithms, and backtracking. -->
 
@@ -402,9 +399,9 @@ From unbalanced BST to balanced BST
 1. Brainstorm solutions (greedy algorithm, Divide and Conquer, Backtracking, brute force)
 1. Test your answer on the simple example (mentally)
 1. Optimize the solution
-1. Write Code, yes, now you can code.
+1. Write code. Yes, now you can code.
 1. Test your written code
-1. Analyse the complexity, both space and time and make sure to optimise further.
+1. Analyse the complexity, both space and time, and make sure to optimize further.
 
 Full details [here](book/part04-algorithmic-toolbox.asc)
 
@@ -462,8 +459,8 @@ and then discuss efficient sorting algorithms O(n log n) such as:
 We are going to discuss the following techniques for solving algorithms problems:
 - [Greedy Algorithms](book/content/part04/greedy-algorithms.asc): makes greedy choices using heuristics to find the best solution without looking back.
 - [Dynamic Programming](book/content/part04/dynamic-programming.asc): a technique for speeding up recursive algorithms when there are many _overlapping subproblems_. It uses _memoization_ to avoid duplicating work.
-- [Divide and Conquer](book/content/part04/divide-and-conquer.asc): _divide_ problems into smaller pieces, _conquer_ each subproblem and then _join_ the results.
-- [Backtracking](book/content/part04/backtracking.asc): search _all (or some)_ possible paths. However, it stops and _go back_ as soon as notice the current solution is not working.
+- [Divide and Conquer](book/content/part04/divide-and-conquer.asc): _divide_ problems into smaller pieces, _conquer_ each subproblem, and then _join_ the results.
+- [Backtracking](book/content/part04/backtracking.asc): search _all (or some)_ possible paths. However, it stops, and _go back_ as soon as notice the current solution is not working.
 - _Brute Force_: generate all possible solutions and tries all of them. (Use it as a last resort or as the starting point).
 
 ---
@@ -476,7 +473,7 @@ We are going to discuss the following techniques for solving algorithms problems
 <details>
     <summary>How would I apply these to my day-to-day work? <i>(Click to expand)</i></summary>
     <p>
-    As a programmer, we have to solve problems every day. If you want to solve problems well, then it's good to know about a broad range of solutions. A lot of times, it's more efficient to learn existing resources than stumble upon the answer yourself. The more tools and practice you have, the better. This book helps you understand the tradeoffs among data structures and reason about algorithms performance.
+    As a programmer, we have to solve problems every day. If you want to solve problems well, it's good to know about a broad range of solutions. Often, it's more efficient to learn existing resources than stumble upon the answer yourself. The more tools and practice you have, the better. This book helps you understand the tradeoffs among data structures and reason about algorithms performance.
     </p>
 </details>
 
