@@ -19,23 +19,24 @@ class BinarySearchTree {
    * @returns {BinaryTreeNode} newly added node
    */
   add(value) {
-    const newNode = new BinaryTreeNode(value);
+    let node = new BinaryTreeNode(value);
 
     if (this.root) {
       const { found, parent } = this.findNodeAndParent(value); // <1>
       if (found) { // duplicated: value already exist on the tree
         found.meta.multiplicity = (found.meta.multiplicity || 1) + 1; // <2>
+        node = found;
       } else if (value < parent.value) {
-        parent.setLeftAndUpdateParent(newNode);
+        parent.setLeftAndUpdateParent(node);
       } else {
-        parent.setRightAndUpdateParent(newNode);
+        parent.setRightAndUpdateParent(node);
       }
     } else {
-      this.root = newNode;
+      this.root = node;
     }
 
     this.size += 1;
-    return newNode;
+    return node;
   }
   // end::add[]
 
