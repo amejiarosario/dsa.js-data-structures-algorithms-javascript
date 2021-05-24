@@ -66,7 +66,7 @@ describe('Binary Search Tree', () => {
       it('should deal with duplicates', () => {
         const root = bst.add(1);
         expect(root.meta.multiplicity).toBe(undefined);
-        bst.add(1);
+        expect(bst.add(1)).toBe(root); // should return existing
         expect(bst.size).toBe(2);
         expect(root.toValues()).toMatchObject({
           value: 1, parent: null, left: null, right: null,
@@ -262,7 +262,7 @@ describe('Binary Search Tree', () => {
       });
 
       it('should remove duplicates', () => {
-        bst.add(40); // add duplicate
+        expect(bst.add(40)).toBe(n40); // add duplicate
         expect(n40.meta.multiplicity).toBe(2);
 
         expect(bst.remove(40)).toBe(true);
