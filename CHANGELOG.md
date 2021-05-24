@@ -1,3 +1,10 @@
+## [2.7.5](https://github.com/amejiarosario/dsa.js/compare/2.7.4...2.7.5) (2021-05-24)
+
+
+### Bug Fixes
+
+* **bst:** on duplicates values the same node is returned ([d350da8](https://github.com/amejiarosario/dsa.js/commit/d350da8bd2d7cf5c8f4425e863babf19cbdcbdf4)), closes [#99](https://github.com/amejiarosario/dsa.js/issues/99)
+
 ## [2.7.4](https://github.com/amejiarosario/dsa.js/compare/2.7.3...2.7.4) (2021-01-09)
 
 
