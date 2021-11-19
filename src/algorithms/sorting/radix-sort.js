@@ -19,3 +19,7 @@ function radixSort(arr) {
  }
 //  unit test
 console.log(radixSort([5,3,88,235,65,23,4632,234]))
+// unit test 2
+console.log(radixSort([802, 630, 20, 745, 52, 300, 612, 932, 78, 187]))
+// unit test 3
+console.log(radixSort([45, 2, 56, 2, 5, 6, 34, 1, 56, 89, 33]))
