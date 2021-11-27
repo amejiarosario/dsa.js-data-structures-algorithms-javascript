@@ -134,7 +134,7 @@ class Graph {
   }
 
   /**
-   * Depth-first search
+   * Breadth-first search
    * Use a queue to visit nodes (FIFO)
    * @param {Node} first node to start the dfs
    */
