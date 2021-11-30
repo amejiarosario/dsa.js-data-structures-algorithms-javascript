@@ -1,3 +1,10 @@
+## [2.7.6](https://github.com/amejiarosario/dsa.js/compare/2.7.5...2.7.6) (2021-11-30)
+
+
+### Bug Fixes
+
+* **graph:** minor typo in bfs code documentation ([ccfcfe6](https://github.com/amejiarosario/dsa.js/commit/ccfcfe6f039ce3f6e289d368fbdbf67e227c168c)), closes [#110](https://github.com/amejiarosario/dsa.js/issues/110)
+
 ## [2.7.5](https://github.com/amejiarosario/dsa.js/compare/2.7.4...2.7.5) (2021-05-24)
 
 
