@@ -59,7 +59,7 @@ class Heap {
    */
   bubbleUp() {
     let index = this.size - 1;
-    const parent = (i) => Math.ceil(i / 2 - 1);
+    const parent = (i) => Math.ceil(i / 2) - 1;
     while (parent(index) >= 0 && this.comparator(parent(index), index) > 0) {
       this.swap(parent(index), index);
       index = parent(index);
