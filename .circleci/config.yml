@@ -3,7 +3,7 @@ version: 2 # use CircleCI 2.0
 jobs: # a collection of steps
   build: # runs not using Workflows must have a `build` job as entry point
     docker: # run the steps with Docker
-      - image: circleci/node:lts # ...with this image as the primary container; this is where all `steps` will run
+      - image: cimg/node:lts # ...with this image as the primary container; this is where all `steps` will run
     steps:
       - checkout
       - run:
@@ -52,7 +52,7 @@ jobs: # a collection of steps
 
   docs:
     docker:
-      - image: circleci/ruby:2.7.1-buster-node
+      - image: cimg/ruby:2.7.1-buster-node
     environment:
       NOKOGIRI_USE_SYSTEM_LIBRARIES: true
     steps:
