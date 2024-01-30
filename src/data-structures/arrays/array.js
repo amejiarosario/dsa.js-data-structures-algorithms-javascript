@@ -22,6 +22,18 @@ array.splice(4, 2); // array: [0, 2, 5, 1, 7, 4, empty, 3]
 array.splice(1, 0, 111); // at the postion 1, delete 0 elements and insert 111
 //=> array: [2, 111, 5, 1, 9, 6, 7]
 
+//Iterating towards the given elements
+// Using a for loop
+for (let i = 0; i < array.length; i++) {
+  console.log(array[i]);
+}
+
+// Using forEach
+fruits.forEach(function (fruit) {
+  console.log(fruit);
+});
+
+
 // Deleting from the beginning of the array.
 array.shift(); //=> [5, 1, 9, 6, 7]
 
